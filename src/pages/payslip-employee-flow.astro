@@ -1,0 +1,463 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: Manage Payslips">
+    <!-- Main content starts here -->
+    <main>
+        <!-- First section of Back button and Breadcrumb -->
+        <section class="p-4">
+            <div class="screenFrame">
+                <!-- Back Navigation button and BreadCrumbs -->
+                <div class="d-flex gap-5">
+                    <a
+                        href=""
+                        title="Back to Dashboard"
+                        class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+                    >
+                        <img
+                            src="images/png/icons/angle-left.svg"
+                            alt="angle-left-back"
+                        />
+                        <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+                    </a>
+
+                    <!-- Actual Breadcrumb here -->
+                    <div class="d-flex align-items-center gap-2">
+                        <a
+                            href=""
+                            class="fs-14 text-decoration-none text-primary-dark"
+                            >Dashboard</a
+                        >
+                        <img
+                            src="images/png/icons/angle-right.svg"
+                            alt="angle-right-back"
+                        />
+                        <span class="fs-14">Payslip Nigeria</span>
+                        <img
+                            src="images/png/icons/angle-right.svg"
+                            alt="angle-right-back"
+                        />
+                        <span class="fs-14"
+                            >Monthly Payslip - Nigeria (Salaried)</span
+                        >
+                        <img
+                            src="images/png/icons/angle-right.svg"
+                            alt="angle-right-back"
+                        />
+                        <span class="fs-16 fw-bold text-primary-blue"
+                            >Manage Payslips</span
+                        >
+                    </div>
+                    <!-- Actual Breadcrumb here -->
+                </div>
+                <!-- Back Navigation button and BreadCrumbs -->
+            </div>
+        </section>
+        <!-- First section of Back button and Breadcrumb -->
+
+        <!-- First section of Back button and Breadcrumb -->
+        <section class="px-4">
+            <div class="screenFrame">
+                <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+                    {/* Page Title */}
+                    <div class="vstack gap-3">
+                        <div class="d-flex gap-3 align-items-center">
+                            <img
+                                src="images/png/icons/colored/receipt-minus-colored.svg"
+                                alt="receipt-minus-icon"
+                                width="30px"
+                                height="30px"
+                            />
+                            <span
+                                class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
+                                >Generate your Payslip</span
+                            >
+                        </div>
+                    </div>
+                    {/* Page Title */}
+
+                    {/* Page Content Box */}
+                    <div class="vstack gap-5">
+                        <form
+                            style="width: 344px"
+                            class="vstack gap-4"
+                            id="generate_payslip_form"
+                        >
+                            <div class="form-section position-relative">
+                                <label class="fs-14 fw-600">Select Date</label>
+                                <input
+                                    class="form-control delon-input"
+                                    type="date"
+                                    placeholder="Default input"
+                                    aria-label="default input example"
+                                />
+                            </div>
+                            <div>
+                                <button
+                                    type="submit"
+                                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
+                                >
+                                    <span>Generate</span>
+                                </button>
+                            </div>
+                        </form>
+
+                        <div
+                            class="vstack gap-4 d-none"
+                            id="payslip_generate_table"
+                        >
+                            <div
+                                class="d-flex align-items-center justify-content-end gap-4"
+                            >
+                                <a
+                                    href=""
+                                    class="delon-primary-btn bg-white text-primary-blue border-primary-blue text-decoration-none text-white fw-bold fs-14"
+                                    >Back</a
+                                >
+                                <div class="dropdown">
+                                    <button
+                                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                                        type="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                        data-bs-offset="-45,10"
+                                    >
+                                        <span>Actions</span>
+                                        <img
+                                            src="images/png/icons/arrow-down.svg"
+                                            alt="arrow-down"
+                                        />
+                                    </button>
+                                    <div class="dropdown-menu p-0 border-0">
+                                        <ul
+                                            class="list-group border-0 fw-600 fs-14"
+                                        >
+                                            <li class="list-group-item">
+                                                <div>Print Payslip</div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div>Download Payslip</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Table section -->
+                            <div class="table-responsive">
+                                <table
+                                    class="table table-bordered payslip_table"
+                                >
+                                    <tbody>
+                                        <!-- Table Header -->
+                                        <tr>
+                                            <td
+                                                colspan="2"
+                                                class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
+                                            >
+                                                Payslip
+                                            </td>
+                                        </tr>
+
+                                        <tr
+                                            ><!-- White Space Row -->
+                                            <td
+                                                style="border: none;"
+                                                colspan="2"
+                                                class="bg-white px-4 px-12px fw-bold fs-14"
+                                            >
+                                                &nbsp;
+                                            </td>
+                                        </tr><!-- White Space Row -->
+                                        <!-- Table Header -->
+
+                                        <!-- Table Section Header -->
+                                        <tr>
+                                            <td
+                                                style="border: none;"
+                                                class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14"
+                                            >
+                                                Employee Details
+                                            </td>
+                                            <td
+                                                style="border: none;"
+                                                class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14"
+                                            >
+                                                Company Details
+                                            </td>
+                                        </tr>
+                                        <!-- Table Section Header -->
+                                        <tr>
+                                            <td
+                                                class="text-black px-4 px-12px fs-14"
+                                            >
+                                                Employee ID:
+                                            </td>
+                                            <td
+                                                class="text-black px-4 px-12px fs-14"
+                                            >
+                                                Company Name:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                class="text-black px-4 px-12px fs-14"
+                                            >
+                                                First Name:
+                                            </td>
+                                            <td
+                                                class="text-black px-4 px-12px fs-14"
+                                            >
+                                                Company Address:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                class="text-black px-4 px-12px fs-14"
+                                            >
+                                                Address:
+                                            </td>
+                                            <td
+                                                class="text-black px-4 px-12px fs-14"
+                                            >
+                                                Company Phone number:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                class="text-black px-4 px-12px fs-14"
+                                            >
+                                                City:
+                                            </td>
+                                            <td
+                                                class="text-black px-4 px-12px fs-14"
+                                            >
+                                                Company Email:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                class="text-black px-4 px-12px fs-14"
+                                                style="border: 0"
+                                            >
+                                                State:
+                                            </td>
+                                            <td
+                                                class="text-black px-4 px-12px fs-14"
+                                                style="border: 0"
+                                            >
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+
+                                        <tr
+                                            ><!-- White Space Row -->
+                                            <td
+                                                style="border: none;"
+                                                colspan="2"
+                                                class="bg-white px-4 px-12px fw-bold fs-14"
+                                            >
+                                                &nbsp;
+                                            </td>
+                                        </tr><!-- White Space Row -->
+                                        <!-- Table Header -->
+                                        <tr>
+                                            <td
+                                                style="border: none;"
+                                                class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14"
+                                            >
+                                                Description
+                                            </td>
+                                            <td
+                                                style="border: none;"
+                                                class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14"
+                                            >
+                                                Deductions
+                                            </td>
+                                        </tr>
+
+                                        {
+                                            [
+                                                {
+                                                    left: "Monthly Fixed Salary",
+                                                    right: "Tax",
+                                                },
+                                                {
+                                                    left: "Monthly Fixed Salary",
+                                                    right: "Health Insurance",
+                                                },
+                                                {
+                                                    left: "Monthly Fixed Salary",
+                                                    right: "Life Insurance",
+                                                },
+                                                {
+                                                    left: "Monthly Fixed Salary",
+                                                    right: "Temporary Disability Insurance",
+                                                },
+                                                {
+                                                    left: "Monthly Fixed Salary",
+                                                    right: "Permanent Disability Insurance",
+                                                },
+                                                {
+                                                    left: "",
+                                                    right: "Pension Staff Contribution",
+                                                },
+                                                {
+                                                    left: "",
+                                                    right: "Pension Employer Contribution",
+                                                },
+                                                { left: "", right: "NSITF" },
+                                                { left: "", right: "NHF" },
+                                                {
+                                                    left: "",
+                                                    right: "Loan or Other Deductions:",
+                                                },
+                                                {
+                                                    left: "",
+                                                    right: "Total Deductions:",
+                                                },
+                                                {
+                                                    left: "",
+                                                    right: "Deductions To Date:",
+                                                },
+                                                {
+                                                    left: "",
+                                                    right: "Tax Year to Date:",
+                                                },
+                                                {
+                                                    left: "",
+                                                    right: "Health Insurance To Date:",
+                                                },
+                                                {
+                                                    left: "",
+                                                    right: "Life Insurance To Date:",
+                                                },
+                                                {
+                                                    left: "",
+                                                    right: "Temporary Disability Insurance To Date:",
+                                                },
+                                                {
+                                                    left: "",
+                                                    right: "Permanent Disability Insurance To Date:",
+                                                },
+                                                {
+                                                    left: "",
+                                                    right: "Pension Staff Contribution To Date:",
+                                                },
+                                                {
+                                                    left: "",
+                                                    right: "Pension Employer Contribution To Date",
+                                                },
+                                                {
+                                                    left: "",
+                                                    right: "NSITF To Date:",
+                                                },
+                                                {
+                                                    left: "",
+                                                    right: "NHF To Date:",
+                                                },
+                                            ].map((ele) => (
+                                                <tr>
+                                                    <td class="text-black px-4 px-12px fs-14">
+                                                        {ele.left}
+                                                        {ele.left != "" && ": "}
+                                                    </td>
+                                                    <td class="text-black px-4 px-12px fs-14">
+                                                        {ele.right}
+                                                        {ele.right != "" &&
+                                                            ": "}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        }
+
+                                        <!-- Table Header -->
+                                        <tr>
+                                            <td
+                                                colspan="2"
+                                                class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
+                                            >
+                                                Variable Expenses
+                                            </td>
+                                        </tr>
+                                        <!-- Table Header -->
+
+                                        {
+                                            [
+                                                {
+                                                    left: "Variable Admin Expense",
+                                                    right: "",
+                                                },
+                                                {
+                                                    left: "Variable Operational Expense",
+                                                    right: "",
+                                                },
+                                                {
+                                                    left: "Bonus or Commission",
+                                                    right: "",
+                                                },
+                                                {
+                                                    left: "Monthly Variable Expense",
+                                                    right: "",
+                                                },
+                                                {
+                                                    left: "Expense Pay Date",
+                                                    right: "",
+                                                },
+                                            ].map((ele) => (
+                                                <tr>
+                                                    <td class="text-black px-4 px-12px fs-14">
+                                                        {ele.left}
+                                                        {ele.left != "" && ": "}
+                                                    </td>
+                                                    <td class="text-black px-4 px-12px fs-14">
+                                                        {ele.right}
+                                                        {ele.right != "" &&
+                                                            ": "}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- Table section -->
+                        </div>
+                    </div>
+                    {/* Page Content Box */}
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Main content ends here -->
+
+    <script is:inline type="text/javascript">
+        document.addEventListener("DOMContentLoaded", () => {
+            document
+                .getElementById("generate_payslip_form")
+                ?.addEventListener("submit", (e) => {
+                    e.preventDefault();
+
+                    $("#payslip_generate_table").addClass('d-none')
+                    const submitBtn = e.target.querySelector("button");
+
+                    submitBtn.innerHTML = `
+                        <span>
+                            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span role="status">Loading...</span>
+                        </span>
+                    `;
+                    submitBtn.disabled = true
+
+                    setTimeout(() => {
+                        submitBtn.innerHTML = `
+                            <span>Generate</span>
+                        `;
+                        submitBtn.disabled = false
+                        $("#payslip_generate_table").removeClass('d-none')
+                    }, 2000)
+                });
+        });
+    </script>
+</Layout>

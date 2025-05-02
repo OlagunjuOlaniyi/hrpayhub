@@ -1,0 +1,442 @@
+---
+import { DropdownListItem } from "../components/header/ListItem";
+---
+
+<header
+    class="screenFrame shadow-sm position-sticky top-0 start-0 bg-white z-1"
+>
+    <nav
+        class="d-flex flex-row justify-content-between align-items-center p-4 position-sticky top-0 start-0 bg-white m-0"
+    >
+        <!-- Logo image here -->
+        <div class="">
+            <img src="images/logo.png" height="34px" alt="HRPayHub_logo" />
+        </div>
+        <!-- Logo image here -->
+
+        <!-- Middle Navigation Module Links -->
+        <div class="d-flex align-items-center gap-4 fw-bold fs-14">
+            <a
+                href="/index.html"
+                class="d-flex gap-1 align-items-center text-decoration-none text-primary-dark"
+            >
+                <!-- <HomeIcon /> -->
+                <img src="images/png/icons/home.svg" alt="dashboard" />
+                <span class="mt-2">Dashboard</span>
+            </a>
+
+            <div class="dropdown">
+                <span
+                    class="dropdown-toggle dropdown-no-arrow d-flex gap-1 align-items-center"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="0,20"
+                >
+                    <img src="images/png/icons/building.svg" alt="setup" />
+                    <span class="mt-2 d-flex gap-1 align-items-center">
+                        <span>Company Setup</span>
+                        <img
+                            src="images/png/icons/caret-down.svg"
+                            alt="caret_down"
+                        />
+                    </span>
+                </span>
+                <div
+                    class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-220"
+                >
+                    {
+                        [
+                            {
+                                label: "Signup Details",
+                                icon: "images/png/icons/information.svg",
+                            },
+                            {
+                                label: "Work Locations",
+                                icon: "images/png/icons/location.svg",
+                            },
+                            {
+                                label: "General Information",
+                                icon: "images/png/icons/warning-2.svg",
+                            },
+                            {
+                                label: "Departments",
+                                icon: "images/png/icons/building-black.svg",
+                            },
+                            {
+                                label: "National Holidays",
+                                icon: "images/png/icons/courthouse.svg",
+                            },
+                        ].map((ele) => (
+                            <DropdownListItem
+                                label={ele.label}
+                                icon={ele.icon}
+                            />
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <span
+                    class="dropdown-toggle dropdown-no-arrow d-flex gap-1 align-items-center"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="0,20"
+                >
+                    <img src="images/png/icons/people.svg" alt="employees" />
+                    <span class="mt-2 d-flex gap-1 align-items-center">
+                        <span>Employees</span>
+                        <img
+                            src="images/png/icons/caret-down.svg"
+                            alt="caret_down"
+                        />
+                    </span>
+                </span>
+
+                <div
+                    class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-200"
+                >
+                    {
+                        [
+                            {
+                                label: "Pay Grade",
+                                icon: "images/png/icons/tag.svg",
+                            },
+                            {
+                                label: "Designation",
+                                icon: "images/png/icons/award.svg",
+                            },
+                            {
+                                label: "Employment Status",
+                                icon: "images/png/icons/profile-tick.svg",
+                            },
+                            {
+                                label: "Employment Type",
+                                icon: "images/png/icons/tag-user.svg",
+                            },
+                            {
+                                label: "Add Employee",
+                                icon: "images/png/icons/profile-add.svg",
+                            },
+                            {
+                                label: "Employee List",
+                                icon: "images/png/icons/clipboard-text.svg",
+                            },
+                        ].map((ele) => (
+                            <DropdownListItem
+                                label={ele.label}
+                                icon={ele.icon}
+                            />
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <span
+                    class="dropdown-toggle dropdown-no-arrow d-flex gap-1 align-items-center"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="0,20"
+                >
+                    <img
+                        src="images/png/icons/user-circle-add.svg"
+                        alt="users"
+                    />
+                    <span class="mt-2 d-flex gap-1 align-items-center">
+                        <span>User Roles</span>
+                        <img
+                            src="images/png/icons/caret-down.svg"
+                            alt="caret_down"
+                        />
+                    </span>
+                </span>
+
+                <div
+                    class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-200"
+                >
+                    {
+                        [
+                            {
+                                label: "Create User",
+                                icon: "images/png/icons/user-add.svg",
+                            },
+                            {
+                                label: "Users List",
+                                icon: "images/png/icons/task.svg",
+                            },
+                        ].map((ele) => (
+                            <DropdownListItem
+                                label={ele.label}
+                                icon={ele.icon}
+                            />
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <span
+                    class="dropdown-toggle dropdown-no-arrow d-flex gap-1 align-items-center"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="0,20"
+                >
+                    <img src="images/png/icons/more-circle.svg" alt="more" />
+                    <span class="mt-2 d-flex gap-1 align-items-center">
+                        <span>More</span>
+                        <img
+                            src="images/png/icons/caret-down.svg"
+                            alt="caret_down"
+                        />
+                    </span>
+                </span>
+
+                <div
+                    class="dropdown-menu overflow-y-scroll p-1 py-3 border-1 shadow-sm min-width-200 h-400"
+                >
+                    {
+                        [
+                            {
+                                label: "On/Off Boarding",
+                                icon: "images/png/icons/task-square.svg",
+                            },
+                            {
+                                label: "Time Management",
+                                icon: "images/png/icons/clock.svg",
+                            },
+                            {
+                                label: "Leave Management",
+                                icon: "images/png/icons/calendar-tick.svg",
+                            },
+                            {
+                                label: "360° Appraisal",
+                                icon: "images/png/icons/building-3.svg",
+                            },
+                            {
+                                label: "Document Management",
+                                icon: "images/png/icons/folder-2.svg",
+                            },
+                            {
+                                label: "Payslip",
+                                icon: "images/png/icons/receipt-minus.svg",
+                            },
+                            {
+                                label: "Offer Breakdown",
+                                icon: "images/png/icons/document.svg",
+                            },
+                            {
+                                label: "Calculate Taxes",
+                                icon: "images/png/icons/ticket-percent-black.svg",
+                            },
+                            {
+                                label: "Payroll List",
+                                icon: "images/png/icons/files-tray-icon-black.svg",
+                            },
+                            {
+                                label: "Annual Return - NG",
+                                icon: "images/png/icons/money-tick-black.svg",
+                            },
+                            {
+                                label: "Monthly Payee Return - NG",
+                                icon: "images/png/icons/naira-square-black.svg",
+                            },
+                            {
+                                label: "Payroll Bank Upload - NG",
+                                icon: "images/png/icons/bank-building.svg",
+                            },
+                            {
+                                label: "Full Payment Submission - UK",
+                                icon: "images/png/icons/pound-square-black.svg",
+                            },
+                            {
+                                label: "Task Management",
+                                icon: "images/png/icons/calendar-plus-black.svg",
+                            },
+                            {
+                                label: "Expense Management",
+                                icon: "images/png/icons/ticket-black.svg",
+                            },
+                            {
+                                label: "Financial Reports & Analytics",
+                                icon: "images/png/icons/bar-chart-black.svg",
+                            },
+                            {
+                                label: "Send & Sign Offer",
+                                icon: "images/png/icons/signature-pen.svg",
+                            },
+                        ].map((ele) => (
+                            <DropdownListItem
+                                label={ele.label}
+                                icon={ele.icon}
+                            />
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- Middle Navigation Module Links -->
+
+        <!-- Right side Links with User Account Profile Dropdown -->
+        <div class="">
+            <div class="d-flex gap-4 align-items-center">
+                <div class="dropdown">
+                    <button
+                        data-bs-toggle="dropdown"
+                        class="bg-transparent border-0 dropdown-toggle dropdown-no-arrow"
+                        aria-expanded="false"
+                        data-bs-offset="-170,20"
+                    >
+                        <img
+                            src="images/png/icons/message-question.svg"
+                            alt="hrPayhub"
+                        />
+                    </button>
+                    <div
+                        class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-220"
+                    >
+                        {
+                            [
+                                {
+                                    label: "Contact Us",
+                                    icon: "images/png/icons/hand-phone-black.svg",
+                                },
+                                {
+                                    label: "Help Center",
+                                    icon: "images/png/icons/head-phone-black.svg",
+                                },
+                            ].map((ele) => (
+                                <DropdownListItem
+                                    label={ele.label}
+                                    icon={ele.icon}
+                                />
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <a href="/">
+                    <img src="images/png/icons/notification.svg" alt="notif" />
+                </a>
+                <div class="dropdown">
+                    <button
+                        data-bs-toggle="dropdown"
+                        class="bg-transparent border-0 dropdown-toggle dropdown-no-arrow"
+                        aria-expanded="false"
+                        data-bs-offset="-215,20"
+                    >
+                        <img
+                            src="images/png/icons/setting-2.svg"
+                            alt="setting"
+                        />
+                    </button>
+                    <div
+                        class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-220"
+                    >
+                        {
+                            [
+                                {
+                                    label: "Company Setup",
+                                    icon: "images/png/icons/user-profile-circle-black.svg",
+                                },
+                                {
+                                    label: "Manage Subscriptions",
+                                    icon: "images/png/icons/security-safe-black.svg",
+                                },
+                                {
+                                    label: "Billing Section",
+                                    icon: "images/png/icons/debit-card-black.svg",
+                                },
+                            ].map((ele) => (
+                                <DropdownListItem
+                                    label={ele.label}
+                                    icon={ele.icon}
+                                />
+                            ))
+                        }
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button
+                        class="bg-transparent border-0 dropdown-toggle"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-offset="0,20"
+                    >
+                        <span class="position-relative inline-block">
+                            <img
+                                src="images/png/icons/profile-circle.svg"
+                                alt="user-profile"
+                            />
+
+                            <span
+                                class="position-absolute rounded-circle status-indicator-green"
+                            ></span>
+                        </span>
+                    </button>
+                    <div
+                        class="dropdown-menu p-3 text-body-secondary min-width-250"
+                    >
+                        <div class="d-flex flex-column gap-3">
+                            <div class="text-white p-2 rounded bg-primary-blue">
+                                <div class="fw-bold">Joseph Olawale</div>
+                                <div class="fs-13">Super Admin</div>
+                            </div>
+                            <a
+                                href=`@Url.Action("Controller", "Action", new { acc = 0})`
+                                class="text-decoration-none mb-0 d-flex gap-3 align-items-center text-292D32"
+                            >
+                                <div
+                                    class="d-flex align-items-center justify-content-center w-20"
+                                >
+                                    <img
+                                        src="images/png/icons/user-profile-circle-black.svg"
+                                        alt="user-profile"
+                                    />
+                                </div>
+                                Profile
+                            </a>
+                            <a
+                                href=`@Url.Action("Controller", "Action", new { acc = 0})`
+                                class="text-decoration-none mb-0 d-flex gap-3 align-items-center text-292D32"
+                            >
+                                <div
+                                    class="d-flex align-items-center justify-content-center w-20"
+                                >
+                                    <img
+                                        src="images/png/icons/security-safe-black.svg"
+                                        alt="security"
+                                        width="20px"
+                                    />
+                                </div>
+                                Change Password
+                            </a>
+                            <hr class="dropdown-divider m-0" />
+                            <a
+                                href=`@Url.Action("Controller", "Action", new { acc = 0})`
+                                class="text-decoration-none mb-0 d-flex gap-3 align-items-center text-red"
+                            >
+                                <div
+                                    class="d-flex align-items-center justify-content-center w-20"
+                                >
+                                    <img
+                                        src="images/png/icons/logout-red.svg"
+                                        alt="logout"
+                                        width="20px"
+                                    />
+                                </div>
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Right side Links with User Account Profile Dropdown -->
+</header>
