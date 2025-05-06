@@ -381,10 +381,12 @@ import Layout from "../layouts/Layout.astro";
                     class="bg-primary-blue text-white fw-600 fs-14 text-left"
                     style="min-width: 200px;">Name</th
                   >
-                  <th class="bg-primary-blue text-white px-3 fw-600 fs-14"
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
                     >Tax_Payer_Number</th
                   >
-                  <th class="bg-primary-blue text-white px-3 fw-600 fs-14"
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
                     >Nationality</th
                   >
                   <th
@@ -396,7 +398,7 @@ import Layout from "../layouts/Layout.astro";
                     >Number_of_Months</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
                     >Basic Salary</th
                   >
                   <th
@@ -471,33 +473,38 @@ import Layout from "../layouts/Layout.astro";
               </thead>
               <tbody>
                 <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 180px;
+                  }
+                </style>
                 {
                   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item) => (
                     <tr class="fs-88">
                       <td class="text-center fs-14">1</td>
-                      <td class="fs-14 w-100 text-nowrap">Wade Warren</td>
-                      <td class="fs-14 text-center">N12343534</td>
-                      <td class="fs-14 text-center">Nigerian</td>
-                      <td class="fs-14 px-3">Accountant</td>
+                      <td class="fs-14 text-nowrap column">Wade Warren</td>
+                      <td class="fs-14 text-center column">N12343534</td>
+                      <td class="fs-14 text-center column">Nigerian</td>
+                      <td class="fs-14 px-3  column">Accountant</td>
                       <td class="text-center fs-14">1</td>
-                      <td class="fs-14 px-3 text-center">₦500,000</td>
-                      <td class="fs-14 px-3 text-center">₦500,000</td>
-                      <td class="fs-14 px-3 text-center">₦500,000</td>
-                      <td class="fs-14 px-3 text-center">₦500,000</td>
-                      <td class="fs-14 px-3 text-center">₦500,000</td>
-                      <td class="fs-14 px-3 text-center">₦500,000</td>
-                      <td class="fs-14 px-3 text-center">₦500,000</td>
-                      <td class="fs-14 px-3 text-center">₦500,000</td>
-                      <td class="fs-14 px-3 text-center">₦500,000</td>
-                      <td class="fs-14 px-3 text-center">₦30,000</td>
-                      <td class="fs-14 px-3 text-center">₦10,000</td>
-                      <td class="fs-14 px-3 text-center">₦5,000</td>
-                      <td class="fs-14 px-3 text-center">₦3,000</td>
-                      <td class="fs-14 px-3 text-center">₦50,000</td>
-                      <td class="fs-14 px-3 text-center">₦124,000</td>
-                      <td class="fs-14 px-3 text-center">₦124,000</td>
-                      <td class="fs-14 px-3 text-center">₦124,000</td>
-                      <td class="fs-14 px-3 text-center">₦124,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦30,000</td>
+                      <td class="fs-14 px-3 text-center column">₦10,000</td>
+                      <td class="fs-14 px-3 text-center column">₦5,000</td>
+                      <td class="fs-14 px-3 text-center column">₦3,000</td>
+                      <td class="fs-14 px-3 text-center column">₦50,000</td>
+                      <td class="fs-14 px-3 text-center column">₦124,000</td>
+                      <td class="fs-14 px-3 text-center column">₦124,000</td>
+                      <td class="fs-14 px-3 text-center column">₦124,000</td>
+                      <td class="fs-14 px-3 text-center column">₦124,000</td>
                     </tr>
                   ))
                 }
