@@ -1,0 +1,563 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: PAYE Return - OGIRS">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href=""
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a href="" class="fs-14 text-decoration-none text-primary-dark"
+              >Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >PAYE Return - OGIRS</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-3 px-5">
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div class="d-flex gap-3 align-items-center">
+              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                >PAYE Return - OGIRS</span
+              >
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+          <style>
+            .search-input {
+              background-image: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/search.svg");
+              background-position: 10px center;
+              background-repeat: no-repeat;
+              background-size: 16px 16px;
+              padding-left: 35px;
+            }
+          </style>
+          <div class="">
+            <div class="d-flex flex-row justify-content-between gap-5">
+              <!---- Search  -->
+              <div class="">
+                <input
+                  type="text"
+                  class="form-control search-input fs-14"
+                  style="width: 300px;"
+                  placeholder="Search..."
+                />
+              </div>
+
+              <!-- Others -->
+              <div class="d-flex flex-row gap-1">
+                <!-- Number of Months Dropdown -->
+                <div class="d-flex align-items-center">
+                  <span style="min-width: 130px;" class="fs-14"
+                    >Number of Months
+                  </span>
+                  <div class="dropdown me-2">
+                    <button
+                      class="delon-primary-btn bg-white border dropdown-toggle fs-14"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                    >
+                      1
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">1</a></li>
+                      <li><a class="dropdown-item" href="#">3</a></li>
+                      <li><a class="dropdown-item" href="#">6</a></li>
+                      <li><a class="dropdown-item" href="#">12</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Calendar Selector -->
+                <input
+                  type="month"
+                  class="form-control fs-14"
+                  style="max-width: 200px;"
+                  value="2025-05"
+                />
+
+                <!-- Filter Dropdown -->
+
+                <style>
+                  .dropdown-submenu {
+                    position: relative;
+                  }
+
+                  /* Accordion style: drop below, not to the right */
+                  .dropdown-submenu > .dropdown-menu {
+                    position: static;
+                    float: none;
+                    margin-top: 0.5rem;
+                    padding-left: 1rem;
+                    display: none;
+                  }
+
+                  .dropdown-submenu > .dropdown-menu.show {
+                    display: block;
+                  }
+
+                  /* a small caret indicator */
+                  .dropdown-submenu > a::after {
+                    content: " ";
+                    float: right;
+                  }
+                </style>
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-white border-0 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2 fs-14"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/filter.svg" alt="arrow-down" />
+                    <span>Filter</span>
+                  </button>
+                  <ul class="dropdown-menu" style="min-width:250px">
+                    <li
+                      class="d-flex flex-row justify-content-between px-3 py-2 border-bottom fs-14"
+                    >
+                      <span class="fw-bold">Filter</span>
+                      <span class="fw-bold text-primary-blue">Reset Filter</span
+                      >
+                    </li>
+                    <!-- Designation Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Designation</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 1"
+                            /> Category 1
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 2"
+                            /> Category 2
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 2"
+                            /> Category 2
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- Employment Status Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Employment Status</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="employed"
+                            /> Employed
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="unemployed"
+                            /> Unemployed
+                          </label>
+                        </li>
+
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="contract"
+                            /> Contract
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- Country of Work Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Country of Work</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="usa"
+                            /> USA
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="uk"
+                            /> UK
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="Nigeria"
+                            /> Nigeria
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- apply filter button -->
+                    <li
+                      class="d-flex flex-row justify-content-end px-3 py-2 mt-2"
+                    >
+                      <button
+                        type="submit"
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fs-14"
+                      >
+                        <span>Apply Filter</span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Sort Dropdown -->
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-white border-0 fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/sort.svg" alt="arrow-down" />
+                    <span>Sort</span>
+                  </button>
+                  <div
+                    class="dropdown-menu p-0 border-0"
+                    style="min-width:200px"
+                  >
+                    <ul class="list-group border-0 fw-600 fs-14">
+                      <li class="list-group-item">
+                        <span class="fw-bold">Sort</span>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Alphabetically
+                        </label>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Date of Resumption
+                        </label>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Date of Confirmation
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Download Dropdown -->
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/download.svg" alt="arrow-down" />
+                    <span>Download</span>
+                    <img
+                      src="images/png/icons/arrow-down.svg"
+                      alt="arrow-down"
+                    />
+                  </button>
+                  <div class="dropdown-menu p-0 border-0">
+                    <ul class="list-group border-0 fw-600 fs-14">
+                      <li class="list-group-item">
+                        <div>CSV Format</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>Excel Format</div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!---- End of Others ---->
+            </div>
+          </div>
+
+          {/* Page Content Box */}
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead
+                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+              >
+                <tr>
+                  <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
+                    >S/N</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white fw-600 fs-14 text-center"
+                    style="min-width: 200px;">Staff_TIN_Number</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Surname</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Othername</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Basic</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Housing</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Transport</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Other_Allowances</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Total_Income</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Pension</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >NHF</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >NHIS</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >TAX_PAID</th
+                  >
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 180px;
+                  }
+                </style>
+                {
+                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item) => (
+                    <tr class="fs-88">
+                      <td class="text-center fs-14">1</td>
+                      <td class="fs-14 text-nowrap text-center column">TIN239201</td>
+                      <td class="fs-14 text-center column">Wade</td>
+                      <td class="fs-14 text-center column">Warren</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="text-center fs-14 column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                    </tr>
+                  ))
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
+          </div>
+
+          <!---- End of table --->
+
+          <!-- Pagination Row -->
+          <div
+            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+          >
+            <!-- Left: Pagination Text -->
+            <div class="fs-14 text-muted">
+              Showing <strong>1–20</strong> of <strong>1000</strong>
+            </div>
+
+            <!-- Right: Go to Page + Pagination -->
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <!-- Go to Page -->
+              <form class="d-flex align-items-center gap-2">
+                <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+                <input
+                  type="number"
+                  min="1"
+                  max="100"
+                  id="gotoPage"
+                  class="form-control form-control-sm"
+                  style="width: 60px;"
+                  placeholder="—"
+                />
+              </form>
+
+              <!-- Page Navigation -->
+
+              <nav>
+                <ul class="pagination pagination-sm mb-0">
+                  <li class="page-item">
+                    <a
+                      class="page-link text-primary-blue px-2"
+                      href="#"
+                      aria-label="Previous"
+                    >
+                      &lsaquo;
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li
+                    class="page-item active bg-primary-blue"
+                    aria-current="page"
+                  >
+                    <span class="page-link">2</span>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item disabled">
+                    <span class="page-link">...</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">100</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link hello" href="#" aria-label="Next">
+                      &rsaquo;
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <!---- Pagination ---->
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Main content ends here -->
+
+  <script>
+    document
+      .querySelectorAll(".dropdown-submenu > a")
+      .forEach(function (element) {
+        element.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const submenu = this.nextElementSibling;
+
+          // Close all other submenus
+          document
+            .querySelectorAll(".dropdown-submenu .dropdown-menu")
+            .forEach(function (el) {
+              if (el !== submenu) el.classList.remove("show");
+            });
+
+          submenu.classList.toggle("show");
+        });
+      });
+
+    // Optional: close submenus when clicking outside
+    document.addEventListener("click", function () {
+      document
+        .querySelectorAll(".dropdown-submenu .dropdown-menu")
+        .forEach(function (el) {
+          el.classList.remove("show");
+        });
+    });
+  </script>
+</Layout>
