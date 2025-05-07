@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: PAYE Return - LIRS">
+<Layout title="HRPayHub :: Payroll List">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -28,9 +28,7 @@ import Layout from "../layouts/Layout.astro";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue"
-              >PAYE Return - LIRS</span
-            >
+            <span class="fs-16 fw-bold text-primary-blue">Payroll List</span>
           </div>
           <!-- Actual Breadcrumb here -->
         </div>
@@ -47,7 +45,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >PAYE Return - LIRS</span
+                >Payroll List</span
               >
             </div>
           </div>
@@ -56,9 +54,7 @@ import Layout from "../layouts/Layout.astro";
           {/* Page Content Box */}
 
           <div class="">
-            <div
-              class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
-            >
+            <div class="d-flex flex-row justify-content-between gap-5">
               <!---- Search  -->
               <div class="">
                 <input
@@ -371,96 +367,68 @@ import Layout from "../layouts/Layout.astro";
                     >S/N</th
                   >
                   <th
-                    class="bg-primary-blue text-white fw-600 fs-14 text-left"
-                    style="min-width: 200px;">Name</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Tax_Payer_Number</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Nationality</th
+                    class="bg-primary-blue text-white fw-600 fs-14 text-center"
+                    style="min-width: 200px;">Employee_ID</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >First_Name & Last_Name</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Employment_Status</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
                     >Designation</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Number_of_Months</th
+                    >Department</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
-                    >Basic Salary</th
+                    >Employment_Type</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Housing</th
+                    >Pay_Grade</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Transport</th
+                    >Country_of_Work</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Furniture</th
+                    >Work_Location</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Education</th
+                    >City</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Lunch</th
+                    >Resumption_Date</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Passage</th
+                    >Bank_Name</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Leave</th
+                    >Account_Number</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Bonus</th
+                    >Bank_Branch</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >13th Month</th
+                    >Monthly_Fixed_Salary</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Utility</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Other Allowances</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >NHF</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >NHIS</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >National Pension Scheme</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Life Assurance</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Gross_Income</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Tax_Payable</th
+                    >Total_Monthly_Deductions</th
                   >
                 </tr>
               </thead>
@@ -475,29 +443,24 @@ import Layout from "../layouts/Layout.astro";
                   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item) => (
                     <tr class="fs-88">
                       <td class="text-center fs-14">1</td>
-                      <td class="fs-14 text-nowrap column">Wade Warren</td>
-                      <td class="fs-14 text-center column">N12343534</td>
-                      <td class="fs-14 text-center column">Nigerian</td>
-                      <td class="fs-14 px-3  column">Accountant</td>
-                      <td class="text-center fs-14">1</td>
+                      <td class="fs-14 text-nowrap text-center column">
+                        HR340
+                      </td>
+                      <td class="fs-14 px-3 text-left column">Wade Warren</td>
+                      <td class="fs-14 text-center column">Active</td>
+                      <td class="fs-14 px-3 text-center column">Accountant</td>
+                      <td class="text-center fs-14 column">Administration</td>
+                      <td class="fs-14 px-3 text-center column">Full Time</td>
+                      <td class="fs-14 px-3 text-center column">12</td>
+                      <td class="fs-14 px-3 text-center column">Nigeria</td>
+                      <td class="fs-14 px-3 text-center column">Lagos</td>
+                      <td class="fs-14 px-3 text-center column">Lagos</td>
+                      <td class="fs-14 px-3 text-center column">May 2025</td>
+                      <td class="fs-14 px-3 text-center column">First Bank</td>
+                      <td class="fs-14 px-3 text-center column">1234567890</td>
+                      <td class="fs-14 px-3 text-center column">Lagos</td>
                       <td class="fs-14 px-3 text-center column">₦500,000</td>
                       <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦30,000</td>
-                      <td class="fs-14 px-3 text-center column">₦10,000</td>
-                      <td class="fs-14 px-3 text-center column">₦5,000</td>
-                      <td class="fs-14 px-3 text-center column">₦3,000</td>
-                      <td class="fs-14 px-3 text-center column">₦50,000</td>
-                      <td class="fs-14 px-3 text-center column">₦124,000</td>
-                      <td class="fs-14 px-3 text-center column">₦124,000</td>
-                      <td class="fs-14 px-3 text-center column">₦124,000</td>
-                      <td class="fs-14 px-3 text-center column">₦124,000</td>
                     </tr>
                   ))
                 }
@@ -537,7 +500,7 @@ import Layout from "../layouts/Layout.astro";
               <!-- Page Navigation -->
 
               <nav>
-                <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                <ul class="pagination pagination-sm mb-0">
                   <li class="page-item">
                     <a
                       class="page-link text-primary-blue px-2"
@@ -547,20 +510,19 @@ import Layout from "../layouts/Layout.astro";
                       &lsaquo;
                     </a>
                   </li>
-                  <li class="page-item">
-                    <a class="page-link text-primary-blue" href="#">1</a>
-                  </li>
-                  <li class="page-item active" aria-current="page">
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li
+                    class="page-item active bg-primary-blue"
+                    aria-current="page"
+                  >
                     <span class="page-link">2</span>
                   </li>
-                  <li class="page-item">
-                    <a class="page-link text-primary-blue" href="#">3</a>
-                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
                   <li class="page-item disabled">
-                    <span class="page-link text-primary-blue">...</span>
+                    <span class="page-link">...</span>
                   </li>
                   <li class="page-item">
-                    <a class="page-link text-primary-blue" href="#">100</a>
+                    <a class="page-link" href="#">100</a>
                   </li>
                   <li class="page-item">
                     <a class="page-link hello" href="#" aria-label="Next">
