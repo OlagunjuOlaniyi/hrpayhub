@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: PAYE Return - OGIRS">
+<Layout title="HRPayHub :: Annual Return - OGIRS">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -29,7 +29,7 @@ import Layout from "../layouts/Layout.astro";
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >PAYE Return - OGIRS</span
+              >Annual Return - OGIRS</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -47,7 +47,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >PAYE Return - OGIRS</span
+                >Annual Return - OGIRS</span
               >
             </div>
           </div>
@@ -387,19 +387,31 @@ import Layout from "../layouts/Layout.astro";
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Othername</th
+                    >Othernames</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Basic</th
+                    >Designation</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Housing</th
+                    >Number_of_Months_Worked</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
-                    >Transport</th
+                    >Annual_Basic</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Annual_Housing</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Annual_Transport</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Annual_Meal</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
@@ -423,7 +435,15 @@ import Layout from "../layouts/Layout.astro";
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >TAX_PAID</th
+                    >Gratuity</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Total_Tax_Deducted</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Total_Tax_Remitted</th
                   >
                 </tr>
               </thead>
@@ -443,8 +463,13 @@ import Layout from "../layouts/Layout.astro";
                       </td>
                       <td class="fs-14 text-center column">Wade</td>
                       <td class="fs-14 text-center column">Warren</td>
+                      <td class="fs-14 px-3 text-center column">Accountant</td>
+                      <td class="text-center fs-14 column">5</td>
                       <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="text-center fs-14 column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
                       <td class="fs-14 px-3 text-center column">₦500,000</td>
                       <td class="fs-14 px-3 text-center column">₦500,000</td>
                       <td class="fs-14 px-3 text-center column">₦500,000</td>

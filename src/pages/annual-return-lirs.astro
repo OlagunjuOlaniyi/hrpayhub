@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: PAYE Return - OGIRS">
+<Layout title="HRPayHub :: Annaul Return - LIRS">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -29,7 +29,7 @@ import Layout from "../layouts/Layout.astro";
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >PAYE Return - OGIRS</span
+              >Annual Return - LIRS</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -47,7 +47,7 @@ import Layout from "../layouts/Layout.astro";
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >PAYE Return - OGIRS</span
+                >Annual Return - LIRS</span
               >
             </div>
           </div>
@@ -379,51 +379,55 @@ import Layout from "../layouts/Layout.astro";
                   >
                   <th
                     class="bg-primary-blue text-white fw-600 fs-14 text-center"
-                    style="min-width: 200px;">Staff_TIN_Number</th
+                    style="min-width: 200px;">Surname</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Surname</th
+                    >First Name</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Othername</th
+                    >Middle Name</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Basic</th
+                    >Designation</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Housing</th
+                    >Nationality</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
-                    >Transport</th
+                    >Number of Months</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Other_Allowances</th
+                    >Development Levy</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Total_Income</th
+                    >Gross Income</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Pension</th
+                    >Chargeable Income</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >NHF</th
+                    >Annual_Tax_Paid</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >NHIS</th
+                    >Taxpayer_ID</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >TAX_PAID</th
+                    >Staff_Phone_Number</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Staff_Email_Address</th
                   >
                 </tr>
               </thead>
@@ -439,19 +443,24 @@ import Layout from "../layouts/Layout.astro";
                     <tr class="fs-88">
                       <td class="text-center fs-14">1</td>
                       <td class="fs-14 text-nowrap text-center column">
-                        TIN239201
+                        Howard
                       </td>
                       <td class="fs-14 text-center column">Wade</td>
                       <td class="fs-14 text-center column">Warren</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="text-center fs-14 column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">Accountant</td>
+                      <td class="text-center fs-14 column">Nigerian</td>
+                      <td class="fs-14 px-3 text-center column">8</td>
                       <td class="fs-14 px-3 text-center column">₦500,000</td>
                       <td class="fs-14 px-3 text-center column">₦500,000</td>
                       <td class="fs-14 px-3 text-center column">₦500,000</td>
                       <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">TX2025</td>
+                      <td class="fs-14 px-3 text-center column">
+                        080 0000 0000
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        example@example.com
+                      </td>
                     </tr>
                   ))
                 }
