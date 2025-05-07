@@ -267,12 +267,24 @@ body {
   width: 300px;
 }
 
-.active {
+.pagination .page-item.active .page-link {
   background-color: #2271b6 !important;
+  border-color: #2271b6;
+  color: #fff;
+}
+
+.responsive {
+  display: flex;
+  flex-direction: row;
 }
 
 @media screen and (max-width: 750px) {
   .search-width {
-    width: 250px;
+    width: 100%;
+  }
+  .responsive {
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
   }
 }
