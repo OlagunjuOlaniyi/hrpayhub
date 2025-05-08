@@ -375,43 +375,43 @@ import Layout from "../layouts/Layout.astro";
                     >First_Name & Last_Name</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Employment_Status</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Designation</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Department</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-left"
                     >Employment_Type</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Pay_Grade</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Country_of_Work</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Work_Location</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >City</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Resumption_Date</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Bank_Name</th
                   >
                   <th
@@ -419,7 +419,7 @@ import Layout from "../layouts/Layout.astro";
                     >Account_Number</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Bank_Branch</th
                   >
                   <th
@@ -430,6 +430,26 @@ import Layout from "../layouts/Layout.astro";
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
                     >Total_Monthly_Deductions</th
                   >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Monthly_Net_Salary</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Monthly_Tax</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Net_Pay</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Monthly_Variable_Expense</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Salary_Pay_Date</th
+                  >
                 </tr>
               </thead>
               <tbody>
@@ -437,6 +457,9 @@ import Layout from "../layouts/Layout.astro";
                 <style>
                   .column {
                     min-width: 180px;
+                  }
+                  .column2 {
+                    min-width: 250px;
                   }
                 </style>
                 {
@@ -446,21 +469,34 @@ import Layout from "../layouts/Layout.astro";
                       <td class="fs-14 text-nowrap text-center column">
                         HR340
                       </td>
-                      <td class="fs-14 px-3 text-left column">Wade Warren</td>
-                      <td class="fs-14 text-center column">Active</td>
-                      <td class="fs-14 px-3 text-center column">Accountant</td>
-                      <td class="text-center fs-14 column">Administration</td>
-                      <td class="fs-14 px-3 text-center column">Full Time</td>
-                      <td class="fs-14 px-3 text-center column">12</td>
-                      <td class="fs-14 px-3 text-center column">Nigeria</td>
-                      <td class="fs-14 px-3 text-center column">Lagos</td>
-                      <td class="fs-14 px-3 text-center column">Lagos</td>
-                      <td class="fs-14 px-3 text-center column">May 2025</td>
-                      <td class="fs-14 px-3 text-center column">First Bank</td>
+                      <td class="fs-14 text-nowrap px-3 text-left column2">
+                        Wade Warren
+                      </td>
+                      <td class="fs-14 px-3 text-left column2">Active</td>
+                      <td class="fs-14 px-3 text-left column">Accountant</td>
+                      <td class="text-left text-nowrap px-3 fs-14 column2">
+                        Administration
+                      </td>
+                      <td class="fs-14 px-3 text-left column">Full Time</td>
+                      <td class="fs-14 px-3 text-left column">12</td>
+                      <td class="fs-14 px-3 text-left column">Nigeria</td>
+                      <td class="fs-14 px-3 text-left column">Lagos</td>
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        Lagos
+                      </td>
+                      <td class="fs-14 px-3 text-left column">May 2025</td>
+                      <td class="fs-14 px-3 text-left column">First Bank</td>
                       <td class="fs-14 px-3 text-center column">1234567890</td>
-                      <td class="fs-14 px-3 text-center column">Lagos</td>
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        Lagos
+                      </td>
                       <td class="fs-14 px-3 text-center column">₦500,000</td>
                       <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      <td class="fs-14 px-3 text-center column">28th April, 2025</td>
                     </tr>
                   ))
                 }
@@ -472,7 +508,7 @@ import Layout from "../layouts/Layout.astro";
 
           <!---- End of table --->
 
-         <!-- Pagination Row -->
+          <!-- Pagination Row -->
           <div
             class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
           >
