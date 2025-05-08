@@ -1,0 +1,1184 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select {
+    max-width: 280px;
+}
+
+:root {
+    --hr-base-blue: #2A70B3;
+    --hr-base-golden: #C7A931;
+    --main-color: #3498db;
+    --padding: 10px;
+    --hr-bg-blue: #2271B6;
+}
+
+/*.yearselect{
+    display:none !important
+}*/
+/*@media (min-width: 1400px) {*/
+/* Styles for screens larger than 1399px */
+/*.fixat-bottom {
+        position: absolute;
+        bottom: 0;
+    }
+}*/
+
+/*#btnSaveDepartment {
+    margin-left: 90px !important
+}
+*/
+
+@media (max-width:991px) {
+    .sidebar {
+        background-color: rgba(0, 0, 0, 0.81);
+    }
+
+    .hr-heading {
+        font-size: 14px !important
+    }
+
+    #offcanvasNavbar li a {
+        color: white
+    }
+
+    /*    #btnSaveDepartment {
+        margin-left: 0px !important
+    }*/
+}
+
+
+
+@media (max-width:768px) {
+    .hide-on-md {
+        display: none
+    }
+
+    .line-image-responsive {
+        width: 130px !important;
+    }
+
+    #tbl-packages th,
+    #tbl-packages td {
+        font-size: 1rem !important;
+        /* Adjust font size */
+    }
+
+    .wrapper-button-blue {
+        font-size: 1rem !important;
+        /* Adjust button font size */
+    }
+
+    .wrapper-contactus {
+        margin: 0px !important;
+    }
+}
+
+@media (max-width:480px) {
+    .home-h1 {
+        font-size: 26px
+    }
+
+    .head-white {
+        font-size: 26px !important;
+    }
+
+    .line-image-responsive {
+        width: 80px !important;
+    }
+
+    .wrapper-heading-responsive {
+        width: 120px !important;
+    }
+
+    #tbl-packages th,
+    #tbl-packages td {
+        font-size: 0.8rem !important;
+        /* Adjust font size */
+    }
+
+    .wrapper-button-blue {
+        font-size: 0.8rem;
+        /* Adjust button font size */
+    }
+
+    .text-heavy-black {
+        font-size: 0.9rem !important;
+    }
+
+    .package-heading {
+        font-size: 16px !important;
+    }
+}
+
+
+@media (max-width: 320px) {
+    .app-brand-text {
+        width: 55vw
+    }
+
+    .hr-heading {
+        font-size: 11px !important
+    }
+
+    .heading-responsive {
+        font-size: 13px !important;
+    }
+
+    .home-h1 {
+        font-size: 20px
+    }
+
+    .home-greytext {
+        font-size: 13px
+    }
+
+    .head-white {
+        font-size: 24px !important;
+    }
+
+    .line-image-responsive {
+        width: 45px !important;
+    }
+
+    .about-us-line-resp {
+        width: 110px !important;
+    }
+}
+
+
+
+
+
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select {
+    max-width: 100%;
+}
+
+/*
+    Bodytext – Avenir Regular 12pts
+    Subheading – Avenir Bold 14pts
+    Heading – Ubuntu Bold 18pts
+    Title – Congenial Black or equivalent – 24pts
+
+*/
+
+
+.hr-disabled {
+    pointer-events: none;
+    /* Prevent interactions */
+}
+
+
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+#hrphloader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    /* Ensure it stays above other elements */
+    display: none;
+    /* Hidden by default */
+}
+
+.hrphloader {
+    border: 8px solid #f3f3f3;
+    /* Light gray */
+    border-top: 8px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+.miniloader {
+    border: 2px solid #f3f3f3;
+    /* Light gray */
+    border-top: 3px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+    margin-left: 8px;
+    /* Space between text and loader */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.btn-disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.required {
+    color: #d80909 !important;
+    font-weight: 900 !important;
+}
+
+
+.custom-nav-link {
+    font-family: 'Avenir' !important;
+    font-size: 14px !important;
+    /*    font-weight: 600 !important;*/
+}
+
+.custom-nav-link:hover {
+    color: var(--hr-bg-blue) !important;
+}
+
+.custom-nav-link.active:hover {
+    color: black !important;
+}
+
+/*
+    Bodytext – Avenir Regular 12pts
+    Subheading – Avenir Bold 14pts
+    Heading – Ubuntu Bold 18pts
+    Title – Congenial Black or equivalent – 24pts
+    Standard Colors
+
+    Blue colour #2271B6
+    Gold colour #C7A930
+    Black
+    White
+*/
+
+@font-face {
+    font-family: "Ubuntu";
+    /*    src: url("assets/vendor/fonts/Ubuntu/Ubuntu-Bold.ttf") format('truetype');
+*/
+    src: url("assets/fonts/ubuntu/Ubuntu-Bold.ttf") format('truetype');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url("assets/fonts/avenir/Avenir.ttf") format('truetype');
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Avenir';
+    font-weight: 600;
+    src: url("assets/fonts/avenir/Avenir-Black.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Avenir';
+    font-weight: bold;
+    src: url("assets/fonts/avenir/Avenir-Heavy.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url("assets/fonts/avenir/Avenir-Light.ttf") format('truetype');
+    font-weight: 100;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Avenir";
+    src: url("assets/fonts/avenir/Avenir-Book.ttf") format('truetype');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Congenial";
+    /*src: url("assets/vendor/fonts/Congenial/CONGENIAL_REGULAR.OTF") format('opentype');*/
+    src: url("assets/fonts/congenial/CONGENIAL_REGULAR.OTF") format('opentype');
+}
+
+@font-face {
+    font-family: "Congenial";
+    src: url("assets/fonts/congenial/CONGENIAL_BOLD.OTF") format('opentype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Congenial";
+    src: url("assets/fonts/congenial/CONGENIAL_BLACK.OTF") format('opentype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("assets/fonts/ubuntu/Ubuntu-Regular.ttf") format('opentype');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("assets/fonts/ubuntu/Ubuntu-Bold.ttf") format('truetype');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("assets/fonts/ubuntu/Ubuntu-Medium.ttf") format('opentype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("assets/fonts/ubuntu/Ubuntu-Light.ttf") format('truetype');
+    font-weight: 100;
+}
+
+
+/* Fonts */
+
+
+@font-face {
+    font-family: 'Avenir';
+    src: url("assets/fonts/avenir/Avenir.ttf") format('truetype');
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('assets/fonts/avenir_lt_std/Avenir\ LT\ Std\ 35\ Light.otf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('assets/fonts/avenir_lt_std/Avenir\ LT\ Std\ 45\ Book.otf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('assets/fonts/avenir_lt_std/Avenir\ LT\ Std\ 65\ Medium.otf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* ------- Avenir ------- */
+
+/* ------- Ubuntu ------- */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('assets/fonts/ubuntu/Ubuntu-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('assets/fonts/ubuntu/Ubuntu-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+
+.hr-title {
+    font-family: 'Congenial';
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--hr-base-blue)
+}
+
+.hr-title-blog {
+    font-family: 'Congenial';
+    font-size: 50px;
+    font-weight: 600;
+    color: var(--hr-base-blue)
+}
+
+.hr-title-login {
+    font-family: 'Congenial';
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--hr-base-blue)
+}
+
+.hr-heading {
+    font-family: 'Ubuntu' !important;
+    font-size: 18px;
+    font-weight: 800;
+    color: black
+}
+
+.non-small-title {
+    font-family: 'Ubuntu' !important;
+    font-size: 18px;
+    font-weight: 800;
+    color: black
+}
+
+.font-ubuntu {
+    font-family: 'Ubuntu' !important;
+}
+
+.content-box-style {
+    height: 500px;
+}
+
+#departmentsGrid {
+    height: 300px;
+}
+
+#leaveEntitlementGrid {
+    height: 332px;
+}
+
+.gridHeader {
+    background-color: var(--hr-base-blue);
+    font-family: 'Ubuntu' !important;
+    font-size: 13px;
+    color: white;
+}
+
+
+.hr-subheading {
+    font-family: 'Avenir';
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.hr-bodytext {
+    font-family: 'Avenir';
+    font-size: 12px;
+    font-style: normal;
+    color: black;
+}
+
+.hr-bodylighttext {
+    font-family: 'Avenir';
+    font-size: 12px;
+    font-weight: 100;
+    color: black;
+}
+
+.hr-inputbox {
+    padding: 5px !important;
+    border-radius: 0 !important;
+    width: 100%;
+    font-size: 14px;
+    font-family: 'Avenir';
+    font-weight: 100;
+    color: black;
+    appearance: none;
+    background-color: transparent;
+    border: 1px solid #cfd0d6;
+    border-radius: 0.5rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.hr-inputbox:focus {
+    padding: 5px !important;
+    outline: none;
+}
+
+.hr-bullet-text {
+    font-family: 'Avenir';
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.hr-feature-text {
+    font-family: 'Avenir';
+    font-size: 16px;
+    font-weight: 100;
+    color: black;
+}
+
+.col-form-label {
+    padding: 5px !important;
+}
+
+.hr-btn {
+    /*
+    --bs-btn-padding-x:;
+    --bs-btn-padding-y:;
+    --bs-btn-font-family: Avenir;
+    --bs-btn-font-size: 0.9375rem;
+    --bs-btn-font-weight: 500;
+    --bs-btn-line-height:;
+    --bs-btn-color: var(--bs-body-color);
+    --bs-btn-bg: transparent;
+    --bs-btn-border-width: 1px;
+    --bs-btn-border-color: transparent;
+    --bs-btn-border-radius: 0.5rem;
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-box-shadow: 0 0.125rem 0.375rem 0 rgba(38, 43, 67, 0.14);
+    --bs-btn-disabled-opacity: 0.45;
+    --bs-btn-focus-box-shadow: 0 0 0 0.05rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+    */
+    display: inline-block;
+    padding: 5px 10px;
+    font-family: 'Avenir';
+    font-size: 14px;
+    font-style: normal;
+    line-height: 1.375;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.hr-btn-primary,
+.hr-btn-primary:hover {
+    color: white;
+    background-color: var(--hr-base-blue);
+}
+
+.hr-btn-save {
+    color: white;
+    background-color: #046011;
+}
+
+.hr-btn-save:hover {
+    color: white;
+    background-color: #338005;
+}
+
+
+.hr-btn-remove {
+    color: white;
+    background-color: #cb2027;
+}
+
+
+.hr-btn-remove:hover {
+    color: white;
+    background-color: #d80909;
+}
+
+
+textarea {
+    width: 100%;
+    /* Make the textarea fill its container */
+    max-width: auto;
+    /* Limit the maximum width */
+    height: 150px;
+    /* Set a specific height */
+    padding: 10px;
+    /* Add padding inside the textarea */
+    border: 1px solid #d9d9d9;
+    /* Set border color and width */
+    border-radius: 5px;
+    /* Make the corners rounded */
+    background-color: #f9f9f9;
+    /* Set a light background color */
+    font-family: 'Avenir' !important;
+    /* Change the font */
+    font-size: 14px !important;
+    /* Increase the font size */
+    font-weight: 100 !important;
+    color: #333;
+    /* Set the text color */
+    resize: vertical;
+    /* Allow resizing only vertically */
+}
+
+textarea:focus {
+    border-color: #2980b9;
+    outline: none;
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+}
+
+
+td {
+    font-family: 'Avenir' !important;
+    font-weight: 100 !important;
+    font-size: 14px !important;
+    color: black
+}
+
+
+#offcanvasNavbar {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+#offcanvasNavbar h5 {
+    color: white;
+}
+
+#offcanvasNavbar button {
+    color: white;
+}
+
+#offcanvasNavbar .btn-close {
+    filter: invert(2);
+}
+
+
+.package-heading {
+    white-space: nowrap;
+    /* Prevents text from wrapping */
+}
+
+.big-font-on-resp {
+    font-size: 2rem !important;
+}
+
+.blog-card-image {
+    border-radius: 18px
+}
+
+.create-blog-img {
+    border: 1px solid #0000ff61;
+    border-radius: 18px;
+    margin-bottom: 5px
+}
+
+.create-blog-img:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bg-gold {
+    background-color: #C7A930;
+}
+
+.bg-blue {
+    transition: ease all 0.5s;
+    background-color: #2271B6 !important;
+}
+
+.bg-blue:hover {
+    background-color: #175184 !important;
+}
+
+
+
+.text-blue {
+    color: #2271B6;
+}
+
+.hr-blue-btn:hover {
+    background-color: #1A5283;
+    /* Slightly darker shade */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for background color change */
+}
+
+.hr-gold-btn {
+    color: black !important;
+}
+
+.hr-gold-btn:hover {
+    background-color: #978025;
+    /* Slightly darker shade */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for background color change */
+}
+
+.equal-height {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Ensures the card takes full height */
+}
+
+.card-header {
+    flex: 1;
+    /* Allows the content above the button to grow */
+}
+
+.set-at-bottom {
+    margin-top: auto;
+    /* Pushes the button to the bottom */
+}
+
+.equal-height {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Distributes space between the content */
+    height: 100%;
+}
+
+.card-header {
+    flex: 1 1 auto;
+    /* Allows content above to grow */
+    display: flex;
+    flex-direction: column;
+}
+
+.set-at-bottom {
+    margin-top: auto;
+    /* Pushes button to the bottom */
+}
+
+.equal-height {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Distributes space between the content */
+    height: 100%;
+}
+
+.card-header {
+    flex: 1 1 auto;
+    /* Allows content above to grow */
+    display: flex;
+    flex-direction: column;
+}
+
+.set-at-bottom {
+    margin-top: auto;
+    /* Pushes button to the bottom */
+}
+
+.forms-input-style {
+    background-color: #F3F6F9;
+    border: 1px solid #cfd0d6;
+    /* Consistent border */
+    outline: none;
+    /* Removes default outline */
+    box-shadow: none;
+    /* Removes any default shadow */
+    font-size: 1rem;
+    height: 30px !important
+}
+
+/* Maintain background color and border on focus */
+.forms-input-style:focus {
+    background-color: #F3F6F9;
+    border: 1px solid #cfd0d6;
+    /* Keep border consistent */
+    outline: none;
+    /* Removes the default outline */
+    box-shadow: none;
+    /* Ensures no blue outline/shadow */
+}
+
+#signInEyeIcon {
+    position: absolute;
+    bottom: 25px;
+    right: 30px;
+}
+
+#ConfirmpassEyeIcon {
+    position: absolute;
+    bottom: 25px;
+    right: 38px;
+}
+
+#passEyeIcon {
+    position: absolute;
+    bottom: 25px;
+    right: 38px;
+}
+
+.invalid-feedback-eye {
+    position: absolute
+}
+
+/*.invalid-feedback {
+    height: 30px;
+    line-height: 30px;*/
+/* Ensures vertical alignment of text within the height */
+/*}*/
+
+.font-1-rem {
+    font-size: 1rem;
+}
+
+.submit-form-btn {
+    height: 35px;
+    font-size: 1.0rem;
+    width: 65% !important;
+}
+
+.form-btn-user {
+    height: 35px;
+    font-size: 1.0rem;
+}
+
+.h-92px {
+    height: 76px !important
+}
+
+.h-50px {
+    min-height: 50px !important;
+}
+
+.h-40px {
+    min-height: 40px !important
+}
+
+.h-45px {
+    min-height: 45px !important
+}
+
+
+.disabled-btn {
+    opacity: 0.7;
+    pointer-events: none
+}
+
+/*.w-10rem {
+    width: 10rem
+}*/
+
+.font-30px {
+    font-size: 30px;
+}
+
+
+.breadcrumb {
+    font-family: Avenir;
+    font-size: 22px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+
+.form-title {
+    font-family: Ubuntu;
+    font-weight: 600;
+    display: inline;
+    font-size: 18px;
+    color: #2D70B2;
+    margin-right: 15px;
+}
+
+
+.head-button {
+    border: 1px solid #cfd0d6;
+    padding: 3px;
+    background-color: #dfdfe3;
+    padding-right: 10px;
+    color: black;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.modal-width-30 {
+    max-width: 30% !important;
+}
+
+.modal-header {
+    font-family: Ubuntu !important;
+    border-bottom: 1px solid #bbbcbd !important;
+    background-color: var(--hr-base-blue) !important;
+}
+
+.modal-header {
+    font-family: Ubuntu !important;
+    border-bottom: 1px solid #bbbcbd !important;
+    background-color: var(--hr-base-blue) !important;
+}
+
+.ag-header {
+    font-family: Ubuntu !important;
+    border-bottom: 1px solid #bbbcbd !important;
+    background-color: var(--hr-base-blue) !important;
+}
+
+.ag-header-cell-text {
+    color: #F3F6F9 !important;
+}
+
+.ag-icon {
+    color: white !important
+}
+
+.ri-arrow-right-line {
+    font-size: 13px
+}
+
+.ag-icon {
+    color: white !important
+}
+
+
+.tile-link:hover {
+
+    background-color: #feffcb;
+}
+
+.term-conditions {
+    text-align: justify !important;
+    font-size: 14px !important;
+    color: black !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0px !important;
+}
+
+.term-conditions-heading {
+    text-align: justify !important;
+    font-size: 18px !important;
+    color: black !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0px !important;
+    font-weight: 700 !important;
+    font-family: Ubuntu !important
+}
+
+.gray-button {
+    background-color: #DFDFE3 !important;
+    color: black !important
+}
+
+.gray-button:hover {
+    background-color: #CBCBD1 !important;
+}
+
+span.field-validation-error.text-danger {
+    font-size: 10px !important;
+    color: red !important;
+    text-align: left !important
+}
+
+
+.error-leave-entitlement {
+    position: absolute;
+    margin-top: 4px
+}
+
+.table-entitlement {
+    /*    font-family: arial, sans-serif;*/
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-entitlement td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+
+.form-title-employement {
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 400;
+    color: white !important;
+    margin-top: 3px !important;
+}
+
+
+.form-header {
+    background-color: #2270B5;
+    height: 25px;
+    padding-left: 10px;
+}
+
+
+
+/************ DASHBOARD *************************************/
+
+
+@media (min-width: 1440px) {
+    .screenFrame {
+        --screenContentWidth: 1690px;
+        padding-left: calc((100vw - var(--screenContentWidth)) / 2);
+        padding-right: calc((100vw - var(--screenContentWidth)) / 2);
+    }
+}
+
+
+.text-red {
+    color: #FD0000 !important
+}
+
+.bg-gold {
+    background-color: #C7A930 !important;
+}
+
+.text-primary-blue {
+    color: #2271B6 !important;
+}
+
+.text-primary-dark {
+    color: #202020 !important
+}
+
+.text-292D32 {
+    color: #292D32 !important
+}
+
+.bg-primary-blue {
+    background-color: #2271B6 !important;
+}
+
+.dropdown-no-arrow::after {
+    display: none !important;
+    /* hide bootstrap default arrow */
+}
+
+.fs-18 {
+    font-size: 18px !important;
+}
+
+.fs-13 {
+    font-size: 13px !important
+}
+
+.fs-14 {
+    font-size: 14px
+}
+
+.fs-16 {
+    font-size: 16px
+}
+
+.align-child-self-start:last-child {
+    align-self: flex-start;
+}
+
+.min-width-220 {
+    min-width: 210px !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+.status-indicator-green {
+    width: 10px;
+    height: 10px;
+    right: 5px;
+    bottom: -3px;
+    background: #2BC700;
+    border: 1.5px solid white
+}
+
+.min-width-250 {
+    min-width: 250px;
+}
+
+.w-20 {
+    width: 20px !important
+}
+
+.w-22 {
+    width: 22px
+}
+
+.h-180 {
+    height: 180px
+}
+
+.h-400 {
+    height: 400px
+}
+
+.min-w-400 {
+    min-width: 400px
+}
+
+.hr-profile-divide {
+    margin: 0.5rem 0
+}
+
+.employee-grid-gap {
+    gap: 4rem 1rem;
+}
+
+.list-item-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: black
+}
+
+.square-450 {
+    width: 450px;
+    max-width: 450px
+}
+
+.notice-board {
+    max-width: 400px;
+    border: 2px solid red;
+    background: #FFE5E5;
+    margin-top: 35px;
+    margin-bottom: 35px
+}
+
+
+
+.row_adjustment {
+    margin-left: -1.5rem !important;
+    margin-right: -1.5rem !important;
+}
+
+.font-ubuntu {
+    font-family: 'Ubuntu';
+    font-weight: 400;
+}
+
+.font-ubuntu-bold {
+    font-family: 'Ubuntu';
+    font-weight: 900;
+}
+
+
+
+
+
+
+/************ /DASHBOARD ************************************/
