@@ -36,8 +36,16 @@
   padding-bottom: 12px !important;
 }
 
+.fw-700 {
+    font-weight: 700 !important;
+}
+
 .fw-600 {
   font-weight: 600 !important;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
 }
 
 .fs-18 {
@@ -144,6 +152,10 @@
 
 /* Form controls */
 
+input.no_focus:focus {
+    outline: none !important;
+}
+
 .form-section label {
   position: absolute;
   left: 20px;
@@ -168,7 +180,109 @@
   opacity: 0.5;
 }
 
+.input_control {
+    accent-color: #2271B6 !important;
+    padding: 10px 10px
+}
+
+.form-floating {
+    position: relative;
+    /* margin-top: 1.5rem; */
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    border: 1px solid #C1C1C1;
+    border-radius: 10px;
+    background: transparent;
+}
+
+.form-select_custom {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: transparent;
+    appearance: none;
+    background-color: white;
+}
+
+.form-input:focus {
+    outline: 2px solid #2271B6;
+}
+
+.form-floating>label {
+    position: absolute;
+    height: 5px;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+    color: #989898;
+    font-size: 14px;
+    font-weight: 600;
+    pointer-events: none;
+    transition: 0.2s ease all;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1 !important
+}
+
+.form-input:focus+label span,
+.form-input:not(:placeholder-shown)+label span {
+    color: #FD0000 !important
+}
+
+.form-input:focus+label,
+.form-input:not(:placeholder-shown)+label {
+    top: 0;
+    font-size: 14px;
+    color: #333;
+    transform: translateY(-50%) scale(1);
+}
+
+.form-select_custom:focus+label,
+.form-select_custom:not([value=""])+label {
+    top: 0;
+    font-size: 14px;
+    color: #333;
+    transform: translateY(-50%) scale(1);
+}
+
+.form-select_custom:focus+label span,
+.form-select_custom:not(:placeholder-shown)+label span {
+    color: #FD0000 !important
+}
+
+.form-check-input:checked {
+    background-color: #2271b6;
+    border-color: #2271b6;
+}
+
 /* Form controls */
+
+.dynamic_responsive_table {
+    width: 950px;
+}
+
+@media (max-width: 1100px) {
+    .dynamic_responsive_table {
+        width: 100%
+    }
+}
+
+/* Borders */
+@media (min-width: 992px) {
+    .border-lg-0 {
+        border: 0 !important;
+    }
+}
+
+/* Borders */
 
 /* Fonts */
 
