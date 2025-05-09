@@ -406,3 +406,122 @@ body {
     /* align-items: center; */
   }
 }
+
+/* create offer styling */
+.create_payslip_form {
+  display: flex;
+  width: 900px;
+}
+
+.create_payslip_form > div:first-child {
+  flex-basis: 300px;
+}
+
+.create_payslip_form > div:nth-child(2) {
+  flex-basis: auto;
+}
+
+@media (min-width: 769px) and (max-width: 1040px) {
+  .create_payslip_form {
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .create_payslip_form {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .create_payslip_form > div:first-child {
+    flex-basis: auto;
+    margin-bottom: 30px;
+  }
+
+  .create_payslip_form > div:nth-child(2) {
+    border: 0 !important;
+  }
+}
+
+.tab_indicator {
+  position: relative;
+}
+
+.tab_indicator > div {
+  width: 20px;
+  height: 20px;
+  background: #d9d9d9;
+  border-radius: 100%;
+  position: relative;
+  padding: 3px;
+}
+
+.tab_indicator:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: -24.5px;
+  left: 10px;
+  height: 25px;
+  width: 1px;
+  background: #d9d9d9;
+}
+
+.tab_indicator.active > div {
+  background: #2271b6 !important;
+}
+
+.tab_indicator .center_spot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  height: 12px;
+  width: 12px;
+  border-radius: 100%;
+  background-color: transparent;
+}
+
+.tab_indicator.active .center_spot {
+  background-color: white;
+}
+
+.tab_link {
+  color: #989898;
+  transition: color 0.5s;
+  cursor: pointer;
+}
+
+.tab_link:hover {
+  color: #202020;
+}
+
+.tab_link .tab_text.active {
+  color: black !important;
+}
+
+.demarcator_line {
+  background: #2271b6;
+  height: 1px;
+  width: 100%;
+}
+
+/* For tooltip styling */
+.tooltip-inner {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #ccc;
+  padding: 8px;
+  max-width: 200px;
+}
+
+.tooltip.bs-tooltip-top .tooltip-arrow::before,
+.tooltip.bs-tooltip-bottom .tooltip-arrow::before,
+.tooltip.bs-tooltip-start .tooltip-arrow::before,
+.tooltip.bs-tooltip-end .tooltip-arrow::before {
+  border-top-color: #fff !important;
+  border-bottom-color: #fff !important;
+  border-left-color: #fff !important;
+  border-right-color: #fff !important;
+}
+/* For tooltip styling */

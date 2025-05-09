@@ -1,0 +1,925 @@
+---
+import BreadCrumbs from "../components/ui/BreadCrumbs";
+import FormContextIndicator from "../components/ui/FormContextIndicator";
+import Layout from "../layouts/Layout.astro";
+import { FormFieldComponent } from "../components/ui/FormFieldControl";
+import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePreview";
+---
+
+<style>
+   
+</style>
+
+<Layout title="HRPayHub :: Create Payslip">
+    <!-- Main content starts here -->
+    <main>
+        <!-- First section of Back button and Breadcrumb -->
+        <section class="p-4">
+            <div class="screenFrame">
+                <!-- Back Navigation button and BreadCrumbs -->
+                <div
+                    class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full"
+                >
+                    <a
+                        href="payslip.html"
+                        title="Back to Payslip"
+                        class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+                    >
+                        <img
+                            src="images/png/icons/angle-left.svg"
+                            alt="angle-left-back"
+                        />
+                        <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+                    </a>
+
+                    <!-- Actual Breadcrumb here -->
+                    <BreadCrumbs
+                        data={[
+                            { name: "Dashboard", url: "index.html" },
+                            { name: "Payslip Nigeria", url: "payslip.html" },
+                            { name: "Monthly Payslip - Nigeria (Salaried)" },
+                        ]}
+                    />
+                    <!-- Actual Breadcrumb here -->
+                </div>
+                <!-- Back Navigation button and BreadCrumbs -->
+            </div>
+        </section>
+        <!-- First section of Back button and Breadcrumb -->
+
+        <!-- First section of Back button and Breadcrumb -->
+        <section class="px-4" id="create_payslip">
+            <div class="screenFrame">
+                <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+                    {/* Page Title */}
+                    <div class="vstack gap-2">
+                        <div class="d-flex gap-3 align-items-center">
+                            <img
+                                src="images/png/icons/colored/receipt-minus-colored.svg"
+                                alt="receipt-minus-icon"
+                                width="30px"
+                                height="30px"
+                            />
+                            <span
+                                class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
+                                >Create Payslip (Individual)</span
+                            >
+                        </div>
+                        <div class="fw-bold">
+                            View and manage payslip for Nigeria salaried
+                            employees.
+                        </div>
+                    </div>
+                    {/* Page Title */}
+
+                    {/* Page Content Box */}
+                    <form
+                        method="POST"
+                        id="creat_payslip_form"
+                        class="create_payslip_form"
+                    >
+                        <div class="pe-lg-5 pe-0">
+                            <!-- Tab Panel -->
+                            <ul
+                                class="nav gap-4 flex-column sticky-lg-top bg-white"
+                                style="top: 110px"
+                                id="myTab"
+                                role="tablist"
+                            >
+                                <li
+                                    class="tab_link d-flex gap-3 align-items-center tab_indicator active"
+                                    role="presentation"
+                                >
+                                    <div class="flex-shrink-0">
+                                        <div class="center_spot"></div>
+                                    </div>
+                                    <span
+                                        class="fs-14 fw-600 tab_text active"
+                                        id="employee_company_details"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#employee_company_details_panel"
+                                        role="tab"
+                                        aria-controls="employee_company_details_panel"
+                                        aria-selected="true"
+                                        >Employee & Company Details</span
+                                    >
+                                </li>
+                                <li
+                                    class="tab_link d-flex gap-3 align-items-center tab_indicator"
+                                    role="presentation"
+                                >
+                                    <div class="flex-shrink-0">
+                                        <div class="center_spot"></div>
+                                    </div>
+                                    <span
+                                        class="fs-14 fw-600 tab_text"
+                                        id="salary_pay"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#salary_pay_panel"
+                                        role="tab"
+                                        aria-controls="salary_pay_panel"
+                                        aria-selected="false"
+                                        >Salary & Pay Components</span
+                                    >
+                                </li>
+                                <li
+                                    class="tab_link d-flex gap-3 align-items-center tab_indicator"
+                                    role="presentation"
+                                >
+                                    <div class="flex-shrink-0">
+                                        <div class="center_spot"></div>
+                                    </div>
+                                    <span
+                                        class="fs-14 fw-600 tab_text"
+                                        id="deductions"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#deductions_panel"
+                                        role="tab"
+                                        aria-controls="deductions_panel"
+                                        aria-selected="false">Deductions</span
+                                    >
+                                </li>
+                                <li
+                                    class="tab_link d-flex gap-3 align-items-center tab_indicator"
+                                    role="presentation"
+                                >
+                                    <div class="flex-shrink-0">
+                                        <div class="center_spot"></div>
+                                    </div>
+                                    <span
+                                        class="fs-14 fw-600 tab_text"
+                                        id="final_monthly"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#final_monthly_panel"
+                                        role="tab"
+                                        aria-controls="final_monthly_panel"
+                                        aria-selected="false"
+                                        >Final Monthly Output</span
+                                    >
+                                </li>
+                                <li
+                                    class="tab_link d-flex gap-3 align-items-center tab_indicator"
+                                    role="presentation"
+                                >
+                                    <div class="flex-shrink-0">
+                                        <div class="center_spot"></div>
+                                    </div>
+                                    <span
+                                        class="fs-14 fw-600 tab_text"
+                                        id="year_to_date"
+                                        data-bs-toggle="tab"
+                                        data-bs-target="#year_to_date_panel"
+                                        role="tab"
+                                        aria-controls="year_to_date_panel"
+                                        aria-selected="false"
+                                        >Year-to-Date Totals</span
+                                    >
+                                </li>
+                            </ul>
+                            <!-- Tab Panel -->
+                        </div>
+                        <!-- Tab content here -->
+                        <div
+                            class="flex-grow-1 border-start ps-md-5 ps-0 tab-content"
+                        >
+                            <!-- Employee Details -->
+                            <div
+                                class="tab-pane fade active show"
+                                id="employee_company_details_panel"
+                                role="tabpanel"
+                                aria-labelledby="employee_company_details_panel"
+                                tabindex="0"
+                            >
+                                <div
+                                    class="d-flex align-items-center gap-4 mb-5"
+                                >
+                                    <div class="fs-14 fw-600 text-primary-blue">
+                                        Employee Details
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="demarcator_line">
+                                            &nbsp;
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="vstack" style="gap: 2.3rem">
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="employee_id"
+                                            name="employee_id"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="employee_id"
+                                            >Employee ID &nbsp;<span>*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="fullname"
+                                            name="fullname"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="fullname"
+                                            >First & Last Name &nbsp;<span
+                                                >*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <select
+                                            id="employment_type"
+                                            name="employment_type"
+                                            class="form-select_custom"
+                                            required
+                                        >
+                                            <option
+                                                value=""
+                                                selected
+                                                style="color: rgb(200, 200, 200)"
+                                                >Please choose</option
+                                            >
+                                            <option value="engineering"
+                                                >Engineering</option
+                                            >
+                                            <option value="marketing"
+                                                >Marketing</option
+                                            >
+                                            <option value="hr"
+                                                >Human Resources</option
+                                            >
+                                        </select>
+                                        <label for="employment_type"
+                                            >Employment Type &nbsp;<span>*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="address"
+                                            name="address"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="address"
+                                            >Address &nbsp;<span>*</span></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="city"
+                                            name="city"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="city"
+                                            >City &nbsp;<span>*</span></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="post_code"
+                                            name="post_code"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="post_code"
+                                            >Post Code &nbsp;<span>*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div
+                                        class="d-flex align-items-center gap-4 mb- mt-2"
+                                    >
+                                        <div
+                                            class="fs-14 fw-600 text-primary-blue"
+                                        >
+                                            Company Details
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <div class="demarcator_line">
+                                                &nbsp;
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="post_code"
+                                            name="post_code"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="post_code"
+                                            >Company Name &nbsp;<span>*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="post_code"
+                                            name="post_code"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="post_code"
+                                            >Company Address &nbsp;<span>*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="post_code"
+                                            name="post_code"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="post_code"
+                                            >Company Phone Number &nbsp;<span
+                                                >*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="d-flex justify-content-end">
+                                        <button
+                                            type="button"
+                                            id="salary_pay_next"
+                                            data-tab-target="#salary_pay"
+                                            role="tab"
+                                            aria-controls="salary_pay_panel"
+                                            aria-selected="false"
+                                            class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                                        >
+                                            <span>Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div><!-- Employee Details -->
+
+                            <!-- Salary Pay Components -->
+                            <div
+                                class="tab-pane fade"
+                                id="salary_pay_panel"
+                                role="tabpanel"
+                                aria-labelledby="salary_pay_panel"
+                                tabindex="0"
+                            >
+                                <div
+                                    class="d-flex align-items-center gap-4 mb-5"
+                                >
+                                    <div class="fs-14 fw-600 text-primary-blue">
+                                        Salary & Pay Components
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="demarcator_line">
+                                            &nbsp;
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="vstack" style="gap: 2.3rem">
+                                    <div class="form-floating">
+                                        <input
+                                            type="date"
+                                            id="date"
+                                            name="date"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="date"
+                                            >Date &nbsp;<span>*</span></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="salary_fixed"
+                                            name="salary_fixed"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="salary_fixed"
+                                            >Monthly Fixed Salary &nbsp;<span
+                                                >*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="variable_admin_expense"
+                                            name="variable_admin_expense"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="variable_admin_expense"
+                                            >Variable Admin Expense &nbsp;<span
+                                                >*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="variable_op_expense"
+                                            name="variable_op_expense"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="variable_op_expense"
+                                            >Variable Operational Expense &nbsp;<span
+                                                >*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="bonus"
+                                            name="bonus"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="bonus"
+                                            >Bonus / Commission &nbsp;<span
+                                                >*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="days_absent"
+                                            name="days_absent"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="days_absent"
+                                            >Days Absent &nbsp;<span>*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="unpaid_leave"
+                                            name="unpaid_leave"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="unpaid_leave"
+                                            >Unpaid Leave Days &nbsp;<span
+                                                >*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="working_days"
+                                            name="working_days"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="working_days"
+                                            >Monthly Working Days &nbsp;<span
+                                                >*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="days_deduction"
+                                            name="days_deduction"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="days_deduction"
+                                            >Unpaid Days Deduction &nbsp;<span
+                                                >*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="days_variable_deduction"
+                                            name="days_variable_deduction"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="days_variable_deduction"
+                                            >Unpaid Days Variable Deduction
+                                            &nbsp;<span>*</span></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="monthly_salary"
+                                            name="monthly_salary"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="monthly_salary"
+                                            >Monthly Salary &nbsp;<span>*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="monthly_variable_expense"
+                                            name="monthly_variable_expense"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="monthly_variable_expense"
+                                            >Monthly Variable Expense &nbsp;<span
+                                                >*</span
+                                            ></label
+                                        >
+                                    </div>
+                                </div>
+                                <div
+                                    class="d-flex justify-content-between mt-5"
+                                >
+                                    <button
+                                        type="button"
+                                        id="employee_company_details_next"
+                                        data-tab-target="#employee_company_details"
+                                        role="tab"
+                                        aria-controls="employee_company_details_panel"
+                                        aria-selected="false"
+                                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                                    >
+                                        <span>Back</span>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        id="deductions_next"
+                                        data-tab-target="#deductions"
+                                        role="tab"
+                                        aria-controls="deductions_panel"
+                                        aria-selected="false"
+                                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                                    >
+                                        <span>Next</span>
+                                    </button>
+                                </div>
+                            </div><!-- Salary Pay Components -->
+
+                            <!-- Deductions Panel -->
+                            <div
+                                class="tab-pane fade"
+                                id="deductions_panel"
+                                role="tabpanel"
+                                aria-labelledby="deductions_panel"
+                                tabindex="0"
+                            >
+                                <div
+                                    class="d-flex align-items-center gap-4 mb-5"
+                                >
+                                    <div class="fs-14 fw-600 text-primary-blue">
+                                        Deductions
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="demarcator_line">
+                                            &nbsp;
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="vstack" style="gap: 2.3rem">
+                                    {
+                                        [
+                                            { label: "Health Insurance (MHI)" },
+                                            { label: "Life Insurance (MLI)" },
+                                            {
+                                                label: "Temporary Disability Insurance (MTDI)",
+                                            },
+                                            {
+                                                label: "Permanent Disability Insurance (MPDI)",
+                                            },
+                                            {
+                                                label: "Pension Staff Contribution (MPSC)",
+                                            },
+                                            {
+                                                label: "Pension Employer Contribution (MPEC)",
+                                            },
+                                            { label: "NSITF (MoNS)" },
+                                            { label: "NHF (MNH)" },
+                                            {
+                                                label: "Total Monthly Deduction",
+                                            },
+                                            { label: "Monthly Tax (MT)" },
+                                            {
+                                                label: "Monthly Salary after Deductions and Taxes (MST)",
+                                            },
+                                            {
+                                                label: "Loan or Other Deductions",
+                                            },
+                                        ].map((ele, idx) => (
+                                            <div class="row justify-content-between m-0 p-0">
+                                                <FormFieldComponent
+                                                    index={idx}
+                                                    {...ele}
+                                                />
+                                                <FormContextIndicator
+                                                    index={idx}
+                                                    {...ele}
+                                                />
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+
+                                <div
+                                    class="d-flex justify-content-between mt-5"
+                                >
+                                    <button
+                                        type="button"
+                                        id="salary_pay_back"
+                                        data-tab-target="#salary_pay"
+                                        role="tab"
+                                        aria-controls="salary_pay_panel"
+                                        aria-selected="false"
+                                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                                    >
+                                        <span>Back</span>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        id="final_monthly_next"
+                                        data-tab-target="#final_monthly"
+                                        role="tab"
+                                        aria-controls="final_monthly_panel"
+                                        aria-selected="false"
+                                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                                    >
+                                        <span>Next</span>
+                                    </button>
+                                </div>
+                            </div><!-- Deductions Panel -->
+
+                            <!-- Final Monthly Output -->
+                            <div
+                                class="tab-pane fade"
+                                id="final_monthly_panel"
+                                role="tabpanel"
+                                aria-labelledby="final_monthly_panel"
+                                tabindex="0"
+                            >
+                                <div
+                                    class="d-flex align-items-center gap-4 mb-5"
+                                >
+                                    <div class="fs-14 fw-600 text-primary-blue">
+                                        Final Monthly Output
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="demarcator_line">
+                                            &nbsp;
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="vstack" style="gap: 2.3rem">
+                                    <div class="form-floating">
+                                        <input
+                                            type="text"
+                                            id="net_pay"
+                                            name="net_pay"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="net_pay"
+                                            >Net Pay &nbsp;<span>*</span></label
+                                        >
+                                    </div>
+                                    <div class="form-floating">
+                                        <input
+                                            type="date"
+                                            id="salary_pay_date"
+                                            name="salary_pay_date"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="salary_pay_date"
+                                            >Salary Pay Date &nbsp;<span>*</span
+                                            ></label
+                                        >
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input
+                                            type="date"
+                                            id="expense_pay_date"
+                                            name="expense_pay_date"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="expense_pay_date"
+                                            >Expense Pay Date &nbsp;<span
+                                                >*</span
+                                            ></label
+                                        >
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="d-flex justify-content-between mt-5"
+                                >
+                                    <button
+                                        type="button"
+                                        id="deductions_back"
+                                        data-tab-target="#deductions"
+                                        role="tab"
+                                        aria-controls="deductions_panel"
+                                        aria-selected="false"
+                                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                                    >
+                                        <span>Back</span>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        id="year_to_date_next"
+                                        data-tab-target="#year_to_date"
+                                        role="tab"
+                                        aria-controls="year_to_date_panel"
+                                        aria-selected="false"
+                                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                                    >
+                                        <span>Next</span>
+                                    </button>
+                                </div>
+                            </div><!-- Final Monthly Output -->
+
+                            <!-- Year to Date Totals -->
+                            <div
+                                class="tab-pane fade"
+                                id="year_to_date_panel"
+                                role="tabpanel"
+                                aria-labelledby="year_to_date_panel"
+                                tabindex="0"
+                            >
+                                <div
+                                    class="d-flex align-items-center gap-4 mb-5"
+                                >
+                                    <div class="fs-14 fw-600 text-primary-blue">
+                                        Year to Date Totals
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="demarcator_line">
+                                            &nbsp;
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="vstack" style="gap: 2.3rem">
+                                    <div class="form-floating">
+                                        <input
+                                            type="date"
+                                            id="net_pay"
+                                            name="net_pay"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="net_pay"
+                                            >Gross Year-to-date &nbsp;<span
+                                                >*</span
+                                            ></label
+                                        >
+                                    </div>
+                                    <div class="form-floating">
+                                        <input
+                                            type="date"
+                                            id="salary_pay_date"
+                                            name="salary_pay_date"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="salary_pay_date"
+                                            >Tax Year-to-Date &nbsp;<span
+                                                >*</span
+                                            ></label
+                                        >
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="d-flex gap-3 justify-content-end mt-5"
+                                >
+                                    <button
+                                        type="button"
+                                        id="year_to_date_back"
+                                        data-tab-target="#final_monthly"
+                                        role="tab"
+                                        aria-controls="final_monthly_panel"
+                                        aria-selected="false"
+                                        class="fw-bold fs-14 next_tab_btn"
+                                        style="background: white; color: #2271B6 !important; border: 2px solid #2271B6 !important; padding: 10px 20px; border-radius: 10px"
+                                    >
+                                        <span>Back</span>
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        id="viewPayslpBtn"
+                                        role="tab"
+                                        aria-controls="year_to_date_panel"
+                                        aria-selected="false"
+                                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                                    >
+                                        <span>Generate Payslip</span>
+                                    </button>
+                                </div>
+                            </div><!-- Year to Date Totals -->
+                        </div>
+                        <!-- Tab content here -->
+                    </form>
+                    {/* Page Content Box */}
+                </div>
+            </div>
+        </section>
+        <PayslipGeneratePreview />
+    </main>
+    <!-- Main content ends here -->
+
+    <script is:inline>
+        document.addEventListener("DOMContentLoaded", () => {
+            $(".tab_indicator").click((evt) => {
+                const clickedTab = evt.currentTarget;
+                $(".tab_indicator").removeClass("active");
+                $(".tab_indicator").prop("aria-selected", "false");
+                $(clickedTab).addClass("active");
+                $(clickedTab).prop("aria-selected", "true");
+            });
+
+            $("#creat_payslip_form").submit((evt) => {
+                evt.preventDefault();
+
+                alert("Create payslip!!!");
+            });
+
+            $(".next_tab_btn").click((evt) => {
+                const clickedBtn = evt.currentTarget;
+                const targetTab = $(clickedBtn).attr("data-tab-target");
+
+                $(targetTab).click();
+            });
+
+            $(".switchForDeductionsFields").click(function (evt) {
+                const selectState = $(evt.target).prop("checked");
+                console.log(
+                    $(
+                        $(
+                            $(
+                                $($(evt.target).parent()).parent()[0],
+                            ).siblings()[0],
+                        ).children("input")[0],
+                    ).prop("disabled", !selectState),
+                );
+            });
+
+            $("#viewPayslpBtn").click((evt) => {
+                $("#view_employee_payslip").removeClass("d-none");
+                $("#create_payslip").addClass("d-none");
+            });
+        });
+    </script>
+</Layout>
