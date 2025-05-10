@@ -52,6 +52,10 @@
   font-size: 18px !important;
 }
 
+.fs-12 {
+  font-size: 13px !important;
+}
+
 .fs-13 {
   font-size: 13px !important;
 }
@@ -525,3 +529,44 @@ body {
   border-right-color: #fff !important;
 }
 /* For tooltip styling */
+
+/* Preview image */
+.preview-img {
+  max-width: 854px;
+}
+
+.upload_offer {
+  width: 75%;
+}
+
+@media (max-width: 769px) {
+  .preview-img {
+    width: 100%;
+  }
+  .upload_bucket_panel {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .upload_offer {
+    width: 100%;
+  }
+}
+
+.upload_bucket_panel {
+  width: 420px;
+  height: 170px;
+  border-radius: 10px;
+  gap: 10px;
+  border: 2px dashed #c1c1c1;
+}
+
+/* white button */
+
+.white_button {
+  background: white;
+  color: #2271b6 !important;
+  border: 1.5px solid #2271b6 !important;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
