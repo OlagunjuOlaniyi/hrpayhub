@@ -246,25 +246,221 @@ import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePrevie
                 tabindex="0"
               >
                 <div class="vstack" style="gap: 2.3rem">
-                  <div class="form-floating">
+                  <div class="form-floating offer_breakdown_width">
                     <select
                       id="employment_type"
                       name="employment_type"
                       class="form-select_custom"
                       required
                     >
-                      <option
-                        value=""
-                        selected
-                        style="color: rgb(200, 200, 200)">Select/Input</option
-                      >
-                      <option value="engineering">Engineering</option>
-                      <option value="marketing">Marketing</option>
-                      <option value="hr">Human Resources</option>
+                      <option value="" selected>Select</option>
+                      <option value="1">E1001</option>
+                      <option value="2">E1002</option>
+                      <option value="3">E1003</option>
                     </select>
                     <label for="employment_type"
                       >Employment ID &nbsp;<span>*</span></label
                     >
+                  </div>
+
+                  <div
+                    class="d-flex flex-column gap-5 border d-none"
+                    id="view_employee_details"
+                  >
+                    <div>
+                      {
+                        [
+                          {
+                            title: "Employee ID",
+                            value: "E1001",
+                          },
+                          {
+                            title: "Offer Letter Date",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Last Name",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Pay Grade",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Designation",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Employment Type",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Address",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Country of Work",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "State",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "City",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Postcode",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Branch Location",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Working Hours Per Week",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Resumption Date",
+                            value: "Lorem Ipsum",
+                          },
+
+                          {
+                            title: "Work Days",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Annual Leave",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Manager Name",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Annual Fixed Salary",
+                            value: "Lorem Ipsum",
+                          },
+                        ].map((ele) => (
+                          <div class="d-flex">
+                            <div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">
+                              {ele.title}
+                            </div>
+                            <div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">
+                              {ele.value}
+                            </div>
+                          </div>
+                        ))
+                      }
+                    </div>
+                    <div>
+                      {
+                        [
+                          {
+                            title: "Annual Gross Salary",
+                            value: "E1001",
+                          },
+                          {
+                            title: "Offer Letter Date",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Last Name",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Pay Grade",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Designation",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Employment Type",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Address",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Country of Work",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "State",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "City",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Postcode",
+                            value: "Lorem Ipsum",
+                          },
+                        ].map((ele) => (
+                          <div class="d-flex">
+                            <div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">
+                              {ele.title}
+                            </div>
+                            <div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">
+                              {ele.value}
+                            </div>
+                          </div>
+                        ))
+                      }
+                    </div>
+                    <div>
+                      {
+                        [
+                          {
+                            title: "Basic Salary",
+                            value: "E1001",
+                          },
+                          {
+                            title: "Offer Letter Date",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Last Name",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Pay Grade",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Designation",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Employment Type",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Address",
+                            value: "Lorem Ipsum",
+                          },
+                          {
+                            title: "Country of Work",
+                            value: "Lorem Ipsum",
+                          },
+                        ].map((ele) => (
+                          <div class="d-flex">
+                            <div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">
+                              {ele.title}
+                            </div>
+                            <div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">
+                              {ele.value}
+                            </div>
+                          </div>
+                        ))
+                      }
+                    </div>
                   </div>
                 </div>
                 <div class="d-flex justify-content-end gap-4 mt-5">
@@ -610,6 +806,13 @@ import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePrevie
       $("#viewPayslpBtn").click((evt) => {
         $("#view_employee_payslip").removeClass("d-none");
         $("#create_payslip").addClass("d-none");
+      });
+
+      $("#employment_type").on("change", function () {
+        const selectedValue = $(this).val();
+        if (selectedValue) {
+          $("#view_employee_details").removeClass("d-none");
+        }
       });
     });
   </script>
