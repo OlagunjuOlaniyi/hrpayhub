@@ -586,9 +586,36 @@ body {
 .calculate_tax_input {
   width: 646px;
 }
+.calculate_tax_indicator {
+  width: 120px;
+}
+
+.calculate_tax_button {
+  width: 101px;
+}
+
+.calculate_tax_calculate {
+  width: 256px;
+}
+
+.calculate_ans {
+  padding-left: 15px;
+  border-left: 6px solid #2271b6;
+}
+
+.calculate_tax {
+  padding-left: 15px;
+  border-left: 6px solid #ffffff;
+}
+
+.fw-350 {
+  font-weight: normal !important;
+}
 
 @media (max-width: 769px) {
-  .calculate_tax_input {
+  .calculate_tax_input,
+  .calculate_tax_indicator,
+  .calculate_tax_calculate {
     width: 100%;
   }
 }

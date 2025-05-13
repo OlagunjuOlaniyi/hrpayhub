@@ -561,6 +561,16 @@ body {
   border: 2px dashed #c1c1c1;
 }
 
+/* create offer width */
+
+.offer_breakdown_width {
+  width: 404px;
+}
+@media (max-width: 769px) {
+  .offer_breakdown_width {
+    width: 100%;
+  }
+}
 /* white button */
 
 .white_button {
@@ -569,4 +579,20 @@ body {
   border: 1.5px solid #2271b6 !important;
   padding: 10px 20px;
   border-radius: 10px;
+}
+
+/* calculate taxes input field */
+
+.calculate_tax_input {
+  width: 646px;
+}
+.calculate_tax_indicator {
+  width: 120px;
+}
+
+@media (max-width: 769px) {
+  .calculate_tax_input,
+  .calculate_tax_indicator {
+    width: 100%;
+  }
 }
