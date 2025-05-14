@@ -630,3 +630,9 @@ body {
     width: 100%;
   }
 }
+
+/* bootstrap tooltip left alignment */
+
+.tooltip-left-align .tooltip-inner {
+  text-align: left;
+}
