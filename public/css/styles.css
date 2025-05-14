@@ -510,6 +510,17 @@ body {
   width: 100%;
 }
 
+.demarcator_line_dashed {
+  /* background: #2271b6; */
+  /* height: 1px; */
+  width: 100%;
+  border-bottom: 0;
+  border-right: 0;
+  border-left: 0;
+  border-top: 2px solid #2271b6;
+  border-style: dashed;
+}
+
 /* For tooltip styling */
 .tooltip-inner {
   background-color: #fff !important;

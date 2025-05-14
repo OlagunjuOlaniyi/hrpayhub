@@ -1,0 +1,547 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FormContextIndicator from "../components/ui/FreeTaxFormContextIndicator";
+import { FormFieldComponent } from "../components/ui/FreeTaxFormFieldControl";
+---
+
+<Layout title="HRPayHub :: Free Nigeria Tax Calcuator">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="index.html"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/calculate-taxes"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Calculate Taxes</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Free Nigeria Tax Calcuator</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <div class="form-floating calculate_tax_input">
+                <select
+                  id="job_category"
+                  name="job_category"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="category">Category 1</option>
+                  <option value="category">Category 2</option>
+                  <option value="category">Category 3</option>
+                </select>
+                <label for="job_category"
+                  >Job Category &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating calculate_tax_input">
+                <input
+                  type="text"
+                  id="abs"
+                  name="abs"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="abs">Annual Basic Salary &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating calculate_tax_input">
+                <input
+                  type="text"
+                  id="aha"
+                  name="aha"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="aha"
+                  >Annual Housing Allowance &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating calculate_tax_input">
+                <input
+                  type="text"
+                  id="ata"
+                  name="ata"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ata"
+                  >Annual Transport Allowance &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating calculate_tax_input">
+                <input
+                  type="text"
+                  id="ala"
+                  name="ala"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ala">Annual Leave Allowance </label>
+              </div>
+              <div class="form-floating calculate_tax_input">
+                <input
+                  type="text"
+                  id="amae"
+                  name="amae"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="amae"
+                  >Annual Meals and Entertainment Allowance
+                </label>
+              </div>
+              <div class="form-floating calculate_tax_input">
+                <input
+                  type="text"
+                  id="aeaua"
+                  name="aeaua"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="aeaua">Annual Energy and Utility Allowance</label>
+              </div>
+              <div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="oaa"
+                    name="oaa"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="oaa">Other Annual Allowances </label>
+                </div>
+                <span class="fs-12 fw-400 mt-2">
+                  Add any other relevant statutory deductions
+                </span>
+              </div>
+
+              <div class="form-floating calculate_tax_input">
+                <input
+                  type="text"
+                  id="ali"
+                  name="ali"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ali">Annual Life Insurance</label>
+              </div>
+              <div class="form-floating calculate_tax_input">
+                <input
+                  type="text"
+                  id="atdi"
+                  name="atdi"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="atdi">Annual Temporary Disability Insurance </label>
+              </div>
+
+              <div class="form-floating calculate_tax_input">
+                <input
+                  type="text"
+                  id="apdi"
+                  name="apdi"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="apdi">Annual Permanent Disability Insurance </label>
+              </div>
+
+              <!---- Calculation 1 --->
+              <div class="vstack" style="gap: 2.3rem">
+                {
+                  [
+                    {
+                      label: "Annual Pension (Employee Contribution)",
+                      info: "8% of (Basic + Housing + Transport)",
+                    },
+                    {
+                      label: "Annual Pension (Employer Contribution)",
+                      info: "10% of (Basic + Housing + Transport)",
+                    },
+                    {
+                      label: "Annual NSITF Contribution",
+                      info: "1% of (Basic + Housing + Transport)",
+                    },
+                    {
+                      label: "Annual NHF Contribution",
+                      info: "2.5% of (Basic + Housing + Transport)",
+                    },
+                  ].map((ele, idx) => (
+                    <div>
+                      <div class="row align-items-center gap-3 m-0 p-0">
+                        <FormFieldComponent index={idx} {...ele} />
+                        <FormContextIndicator index={idx} {...ele} />
+                      </div>
+                      <span class="fs-12 fw-400 mt-2">{ele.info}</span>
+                    </div>
+                  ))
+                }
+
+                <div>
+                  <div class="form-floating calculate_tax_input">
+                    <input
+                      type="text"
+                      id="oasd"
+                      name="oasd"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="oasd">Other Annual Statutory Deductions </label>
+                  </div>
+                  <span class="fs-12 fw-400 mt-2">
+                    Add any other required deductions
+                  </span>
+                </div>
+              </div>
+
+              <!---- diviver --->
+
+              <div class="d-flex align-items-center gap-4 calculate_tax_input">
+                <div class="flex-grow-1">
+                  <div class="demarcator_line_dashed">&nbsp;</div>
+                </div>
+              </div>
+
+              <div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="ags"
+                    name="ags"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="ags">Annual Gross Salary </label>
+                </div>
+                <span class="fs-12 fw-400 mt-2">
+                  Basic + Housing + Transport + Leave + Meals + Energy + Other <br
+                  /> Allowances
+                </span>
+              </div>
+              <div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="tsd"
+                    name="tsd"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="tsd">Total Statutory Deductions </label>
+                </div>
+                <span class="fs-12 fw-400 mt-2">
+                  Life + Temporary & Permanent Disability + Pensions + NSITF +
+                  NHF + <br /> Other deductions
+                </span>
+              </div>
+              <div class="d-flex justify-content-end calculate_tax_input">
+                <button
+                  type="button"
+                  id="download"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 calculate_tax_button"
+                >
+                  <span>Calculate</span>
+                </button>
+              </div>
+
+              <div class="d-flex align-items-center gap-4 calculate_tax_input">
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+              <div
+                class="rounded-4 vstack shadow p-4 gap-4 calculate_tax_input"
+              >
+                <div class="d-flex gap-2 justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <p class="fs-16 fw-700 calculate_ans">
+                      Annual Net Salary (ANS) <br />
+                      <span class="fs-14 fw-350"
+                        >Gross Salary – Statutory Deductions</span
+                      >
+                    </p>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      id="calculate"
+                      name="calculate"
+                      class="form-input bg-light calculate_tax_calculate"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="d-flex gap-2 justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <p class="fs-16 fw-700 calculate_ans">
+                      Annual Taxable Income (ATI) <br />
+                      <span class="fs-14 fw-350"
+                        >ANS – Higher of NGN 200,000 or 1% of ANS – 20% of ANS</span
+                      >
+                    </p>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      id="calculate"
+                      name="calculate"
+                      class="form-input bg-light calculate_tax_calculate"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+
+                <!----- Table ---->
+                <div class="">
+                  <p class="fw-700 fs-16">Tax Brackets</p>
+
+                  <!----- tabulation ---->
+
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                      <!---- Table head --->
+                      <thead
+                        class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+                      >
+                        <tr>
+                          <th
+                            class="bg-primary-blue text-white text-left px-3 fw-600 fs-14"
+                            style="min-width: 200px;">Tax Bracket</th
+                          >
+                          <th
+                            class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
+                            >Rate</th
+                          >
+                          <th
+                            class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                            >Taxable Amount</th
+                          >
+                          <th
+                            class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                            >Taxable Amount</th
+                          >
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Table body and Row -->
+
+                        <tr class="fs-88">
+                          <td class="text-left px-3 fs-14">First ₦300,000</td>
+                          <td class="fs-14 px-3 text-nowrap text-left"> 7% </td>
+                          <td class="fs-14 px-3 text-left column"> __ </td>
+                          <td class="fs-14 px-3 text-left column"> __ </td>
+                        </tr>
+                        <tr class="fs-88">
+                          <td class="text-left px-3 fs-14">Next ₦300,000</td>
+                          <td class="fs-14 px-3 text-nowrap text-left">
+                            11%
+                          </td>
+                          <td class="fs-14 px-3 text-left column"> __ </td>
+                          <td class="fs-14 px-3 text-left column"> __ </td>
+                        </tr>
+                        <tr class="fs-88">
+                          <td class="text-left px-3 fs-14">Next ₦500,000</td>
+                          <td class="fs-14 px-3 text-nowrap text-left">
+                            15%
+                          </td>
+                          <td class="fs-14 px-3 text-left column"> __ </td>
+                          <td class="fs-14 px-3 text-left column"> __ </td>
+                        </tr>
+                        <tr class="fs-88">
+                          <td class="text-left px-3 fs-14">Next ₦500,000</td>
+                          <td class="fs-14 px-3 text-nowrap text-left">
+                            19%
+                          </td>
+                          <td class="fs-14 px-3 text-left column"> __ </td>
+                          <td class="fs-14 px-3 text-left column"> __ </td>
+                        </tr>
+                        <tr class="fs-88">
+                          <td class="text-left px-3 fs-14">Next ₦1,600,000</td>
+                          <td class="fs-14 px-3 text-nowrap text-left">
+                            21%
+                          </td>
+                          <td class="fs-14 px-3 text-left column"> __ </td>
+                          <td class="fs-14 px-3 text-left column"> __ </td>
+                        </tr>
+                        <tr class="fs-88">
+                          <td class="text-left px-3 fs-14"
+                            >Amount Above ₦3,200,000</td
+                          >
+                          <td class="fs-14 px-3 text-nowrap text-left">
+                            24%
+                          </td>
+                          <td class="fs-14 px-3 text-left column"> __ </td>
+                          <td class="fs-14 px-3 text-left column"> __ </td>
+                        </tr>
+
+                        <tr class="fs-88">
+                          <td class="text-left px-3 fs-14 fw-bold bg-light"
+                            >Total</td
+                          >
+                          <td class="fs-14 px-3 text-nowrap text-left bg-light">
+                            __
+                          </td>
+                          <td class="fs-14 px-3 text-left column bg-light">
+                            __
+                          </td>
+                          <td class="fs-14 px-3 text-left column bg-light">
+                            __
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!------ Annual tax ---->
+              <div
+                class="rounded-4 bg-primary-blue text-white vstack shadow p-4 py-5 gap-4 calculate_tax_input"
+              >
+                <div class="d-flex gap-2 justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <p class="fs-16 fw-700 calculate_tax">
+                      Annual Tax (AT) <br />
+                      <span class="fs-14 fw-350"
+                        >Sum of applicable tax bracket outputs</span
+                      >
+                    </p>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      id="calculate"
+                      name="calculate"
+                      class="form-input bg-white calculate_tax_calculate"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="d-flex gap-2 justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <p class="fs-16 fw-700 calculate_tax">
+                      Annual Net Salary After Tax (ANST) <br />
+                      <span class="fs-14 fw-350"
+                        >Annual Net Salary – Annual Tax</span
+                      >
+                    </p>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      id="calculate"
+                      name="calculate"
+                      class="form-input bg-white calculate_tax_calculate"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="d-flex gap-2 justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <p class="fs-16 fw-700 calculate_tax">
+                      Monthly Net Salary After Tax (MNST) <br />
+                      <span class="fs-14 fw-350"
+                        >Annual Net Salary After Tax / 12</span
+                      >
+                    </p>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      id="calculate"
+                      name="calculate"
+                      class="form-input bg-white calculate_tax_calculate"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="d-flex gap-2 justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <p class="fs-16 fw-700 calculate_tax">
+                      Monthly Net Salary (MNS) <br />
+                      <span class="fs-14 fw-350">ANS / 12</span>
+                    </p>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      id="calculate"
+                      name="calculate"
+                      class="form-input bg-white calculate_tax_calculate"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="d-flex gap-2 justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <p class="fs-16 fw-700 calculate_tax">
+                      Monthly Tax (MT) <br />
+                      <span class="fs-14 fw-350">Annual Tax / 12</span>
+                    </p>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      id="calculate"
+                      name="calculate"
+                      class="form-input bg-white calculate_tax_calculate"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+  </main>
+</Layout>
+<!-- Main content ends here -->
