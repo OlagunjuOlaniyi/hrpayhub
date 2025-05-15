@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="favicon.png" />
     <meta name="generator" content="Astro v5.7.4" />
-    <title>HRPayHub :: Send &amp; Sign Offer</title>
+    <title>HRPayHub :: Calculate Tax - UK</title>
     <link
       href="libs/bootstrap-5.3.5-dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -926,7 +926,7 @@
           <!-- Back Navigation button and BreadCrumbs -->
           <div class="d-flex gap-5">
             <a
-              href="/send-and-sign-offer"
+              href="index.html"
               title="Back to Dashboard"
               class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
             >
@@ -938,22 +938,26 @@
             </a>
             <!-- Actual Breadcrumb here -->
             <div class="d-flex align-items-center gap-2">
-              <a href="" class="fs-14 text-decoration-none text-primary-dark"
+              <a
+                href="index.html"
+                class="fs-14 text-decoration-none text-primary-dark"
                 >Dashboard</a
               >
               <img
                 src="images/png/icons/angle-right.svg"
                 alt="angle-right-back"
               />
-              <span class="fs-14 text-primary-dark"
-                >Send & Sign Offer - NG</span
+              <a
+                href="/calculate-taxes"
+                class="fs-14 text-decoration-none text-primary-dark"
+                >Calculate Taxes</a
               >
               <img
                 src="images/png/icons/angle-right.svg"
                 alt="angle-right-back"
               />
               <span class="fs-16 fw-bold text-primary-blue"
-                >Send & Sign Offer</span
+                >Calculate Taxes - UK</span
               >
             </div>
             <!-- Actual Breadcrumb here -->
@@ -966,82 +970,345 @@
       <section class="px-4">
         <div class="screenFrame">
           <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
-            <div class="vstack gap-2">
-              <div class="d-flex gap-3 align-items-center">
-                <img
-                  src="images/png/icons/sendsign.svg"
-                  alt="receipt-minus-icon"
-                  width="30px"
-                  height="30px"
-                />
-                <span
-                  class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                  >Send & Sign Offer</span
-                >
-              </div>
-              <div class="fw-bold">
-                Upload template, auto-fill, and send offer to candidate for
-                e-signature.
-              </div>
-            </div>
-            <div class="row payslip-grid-gap mb-5">
-              <div
-                class="col-4 p-2 payslip-card-panel"
-                style="width: 360px"
-                role="button"
-                title="Create Offer Letter"
-                data-url="/create-offer-letter"
-              >
+            <div class="p-lg-5">
+              <div class="vstack" style="gap: 2.3rem">
+                <!---- gross salary line --->
                 <div
-                  class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center"
+                  class="d-flex align-items-center gap-4 calculate_tax_input"
                 >
-                  <div
-                    class="vstack gap-2 d-flex flex-column align-items-center"
-                  >
-                    <img
-                      src="images/png/icons/sendsign.svg"
-                      alt="receipt-minus-icon"
-                      width="30px"
-                      height="30px"
-                    />
-                    <div
-                      class="fw-bold fs-18 font-ubuntu-bold text-primary-blue"
-                    >
-                      Create Offer Letter
-                    </div>
-                  </div>
-                  <div class="fw-600 fs-16" style="width: 90%; margin: 0 auto">
-                    Generate offers with pre-built templates and e-signature.
+                  <div class="fs-14 fw-600 text-primary-blue">Gross Salary</div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="col-4 p-2 payslip-card-panel"
-                style="width: 360px"
-                role="button"
-                title="Manage Offer Letter"
-                data-url="/manage-offer-letter"
-              >
-                <div
-                  class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center"
-                >
-                  <div
-                    class="vstack gap-2 d-flex flex-column align-items-center"
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="hourly_rate"
+                    name="hourly_rate"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="hourly_rate"
+                    >Hourly Rate &nbsp;<span>*</span></label
                   >
-                    <img
-                      src="images/png/icons/sendsign.svg"
-                      alt="receipt-minus-icon"
-                      width="30px"
-                      height="30px"
+                </div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="working_hr"
+                    name="working_hr"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="working_hr"
+                    >Working Hours Per Week &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="gross_salary"
+                    name="gross_salary"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="gross_salary"
+                    >Gross Salary &nbsp;<span>*</span></label
+                  >
+                </div>
+                <!---- Income Tax Calculation --->
+                <div
+                  class="d-flex align-items-center gap-4 calculate_tax_input"
+                >
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    Income Tax Calculation
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+                <div class="d-flex flex-direction-row gap-3">
+                  <div class="form-floating calculate_tax_input">
+                    <input
+                      type="text"
+                      id="personal_allowance"
+                      name="personal_allowance"
+                      class="form-input"
+                      placeholder=""
                     />
-                    <div
-                      class="fw-bold fs-18 font-ubuntu-bold text-primary-blue"
+                    <label for="personal_allowance"
+                      >Personal Allowance &nbsp;<span>*</span></label
                     >
-                      Manage Offer Letter
+                  </div>
+                  <img
+                    data-bs-html="true"
+                    data-bs-placement="right"
+                    data-bs-toggle="tooltip"
+                    data-bs-custom-class="tooltip-left-align"
+                    title="<div class='text-right'><span style = 'font-size: 17px;'>Default allowance is £12,570, but if the salary is over £100,000, the allowance reduces by £1 for every £2 earned above £100,000</span></div>"
+                    src="images/png/icons/info.svg"
+                    alt="info"
+                  />
+                </div>
+                <div class="d-flex flex-direction-row gap-3">
+                  <div class="form-floating calculate_tax_input">
+                    <input
+                      type="text"
+                      id="taxable_income"
+                      name="taxable_income"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="taxable_income"
+                      >Taxable Income &nbsp;<span>*</span></label
+                    >
+                  </div>
+                  <img
+                    data-bs-html="true"
+                    data-bs-placement="right"
+                    data-bs-toggle="tooltip"
+                    data-bs-custom-class="tooltip-left-align"
+                    title="<div><span style = 'font-size: 7px;'>Gross Salary - Personal Allowance</span></div>"
+                    src="images/png/icons/info.svg"
+                    alt="info"
+                  />
+                </div>
+                <!---- National Insurance (NI) Calculation --->
+                <div
+                  class="d-flex align-items-center gap-4 calculate_tax_input"
+                >
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    National Insurance (NI) Calculation
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+                <div class="d-flex flex-direction-row gap-3">
+                  <div class="form-floating calculate_tax_input">
+                    <input
+                      type="text"
+                      id="ni_thresholds"
+                      name="ni_thresholds"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="ni_thresholds"
+                      >NI Thresholds &nbsp;<span>*</span></label
+                    >
+                  </div>
+                  <img
+                    data-bs-html="true"
+                    data-bs-placement="right"
+                    data-bs-toggle="tooltip"
+                    data-bs-custom-class="tooltip-left-align"
+                    title="<div><span style = 'font-size: 7px;'>For earnings between £12,570 and £50,270, apply 12% <br /> For earnings above £50,270, apply 2%</span></div>"
+                    src="images/png/icons/info.svg"
+                    alt="info"
+                  />
+                </div>
+                <div class="d-flex flex-direction-row gap-3">
+                  <div class="form-floating calculate_tax_input">
+                    <input
+                      type="text"
+                      id="ni_calculation"
+                      name="ni_calculation"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="ni_calculation"
+                      >NI Calculation &nbsp;<span>*</span></label
+                    >
+                  </div>
+                  <img
+                    data-bs-html="true"
+                    data-bs-placement="right"
+                    data-bs-toggle="tooltip"
+                    data-bs-custom-class="tooltip-left-align"
+                    title="<div><span style = 'font-size: 7px;'>For earnings between £12,570 and £50,270, apply 12% <br /> For earnings above £50,270, apply 2%</span></div>"
+                    src="images/png/icons/info.svg"
+                    alt="info"
+                  />
+                </div>
+                <!---- Student Loan Repayment Calculation --->
+                <div
+                  class="d-flex align-items-center gap-4 calculate_tax_input"
+                >
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    Student Loan Repayment Calculation
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+                <div class="d-flex flex-direction-row gap-3">
+                  <div class="form-floating calculate_tax_input">
+                    <select
+                      id="select_plan"
+                      name="select_plan"
+                      class="form-select_custom fs-14"
+                      required
+                    >
+                      <option
+                        value=""
+                        selected
+                        style="color: rgb(200, 200, 200)"
+                      >
+                        Select
+                      </option>
+                      <option value="plan_1">Plan 1</option>
+                      <option value="plan_2">Plan 2</option>
+                      <option value="plan_3">Plan 3</option>
+                    </select>
+                    <label for="select_plan"
+                      >Select Plan &nbsp;<span>*</span></label
+                    >
+                  </div>
+                  <img
+                    data-bs-html="true"
+                    data-bs-placement="right"
+                    data-bs-toggle="tooltip"
+                    data-bs-custom-class="tooltip-left-align"
+                    title="<div><span style = 'font-size: 7px;'>•	Plan 1: Threshold of £22,015; 9% of earnings above this. <br />
+•	Plan 2: Threshold of £27,295; 9% of earnings above this.<br />
+•	Plan 4: Threshold of £27,660; 9% of earnings above this.
+•	Postgraduate Loan: Threshold of £21,000; 6% of earnings above this.</span></div>"
+                    src="images/png/icons/info.svg"
+                    alt="info"
+                  />
+                </div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="calculation"
+                    name="calculation"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="calculation"
+                    >Calculation &nbsp;<span>*</span></label
+                  >
+                </div>
+                <!---- calculate ---->
+                <div class="d-flex justify-content-end calculate_tax_input">
+                  <button
+                    type="button"
+                    id="calculate"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 calculate_tax_button"
+                  >
+                    <span>Calculate</span>
+                  </button>
+                </div>
+                <!---- Final Calculation Output --->
+                <div
+                  class="d-flex align-items-center gap-4 calculate_tax_input"
+                >
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    Final Calculation Output
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+                <!------ Total Income Tax ---->
+                <div
+                  class="rounded-4 bg-primary-blue text-white vstack shadow p-4 py-5 gap-4 calculate_tax_input"
+                >
+                  <div class="d-flex gap-2 justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <p class="fs-16 fw-700 calculate_tax">
+                        Total Income Tax <br />
+                        <span class="fs-14 fw-350"
+                          >Based on taxable income and applicable tax
+                          bands</span
+                        >
+                      </p>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        id="calculate"
+                        name="calculate"
+                        class="form-input bg-white calculate_tax_calculate"
+                        placeholder=""
+                      />
                     </div>
                   </div>
-                  <div class="fw-600 fs-16" style="width: 90%; margin: 0 auto">
-                    Track sent offers, signatures, and acceptance statuses.
+                  <div class="d-flex gap-2 justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <p class="fs-16 fw-700 calculate_tax">
+                        Total NI Contributions <br />
+                        <span class="fs-14 fw-350">Based on NI rates</span>
+                      </p>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        id="calculate"
+                        name="calculate"
+                        class="form-input bg-white calculate_tax_calculate"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="d-flex gap-2 justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <p class="fs-16 fw-700 calculate_tax">
+                        Student Loan Repayment <br />
+                        <span class="fs-14 fw-350"
+                          >Based on income over the threshold</span
+                        >
+                      </p>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        id="calculate"
+                        name="calculate"
+                        class="form-input bg-white calculate_tax_calculate"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="d-flex gap-2 justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <p class="fs-16 fw-700 calculate_tax">
+                        Final Take-Home Pay <br />
+                        <span class="fs-14 fw-350"
+                          >Gross Salary - Income Tax - NI - Student Loan
+                          Repayment</span
+                        >
+                      </p>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        id="calculate"
+                        name="calculate"
+                        class="form-input bg-white calculate_tax_calculate"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="d-flex gap-2 justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <p class="fs-16 fw-700 calculate_tax">
+                        Net Hourly Pay <br />
+                        <span class="fs-14 fw-350"
+                          >FTP / (52 * Working hours per week)</span
+                        >
+                      </p>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        id="calculate"
+                        name="calculate"
+                        class="form-input bg-white calculate_tax_calculate"
+                        placeholder=""
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1050,17 +1317,6 @@
         </div>
       </section>
     </main>
-    <script type="module">
-      document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".payslip-card-panel").forEach((t, d) => {
-          t?.addEventListener("click", (i) => {
-            const e = t.getAttribute("data-url") || "",
-              n = t.getAttribute("title") || "";
-            window.open(e, n);
-          });
-        });
-      });
-    </script>
     <!-- Footer content starts here -->
     <footer class="d-flex justify-content-center fs-14 fw-600 p-5">
       <div>Copyright &copy; 2025, HRPayHub LLC.</div>
@@ -1082,3 +1338,4 @@
     <!-- Tooltip Trigger for whole page -->
   </body>
 </html>
+<!-- Main content ends here -->

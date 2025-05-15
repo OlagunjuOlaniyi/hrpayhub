@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="favicon.png" />
     <meta name="generator" content="Astro v5.7.4" />
-    <title>HRPayHub :: Send &amp; Sign Offer</title>
+    <title>HRPayHub :: Free Nigeria Tax Calcuator</title>
     <link
       href="libs/bootstrap-5.3.5-dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -926,7 +926,7 @@
           <!-- Back Navigation button and BreadCrumbs -->
           <div class="d-flex gap-5">
             <a
-              href="/send-and-sign-offer"
+              href="index.html"
               title="Back to Dashboard"
               class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
             >
@@ -938,22 +938,26 @@
             </a>
             <!-- Actual Breadcrumb here -->
             <div class="d-flex align-items-center gap-2">
-              <a href="" class="fs-14 text-decoration-none text-primary-dark"
+              <a
+                href="index.html"
+                class="fs-14 text-decoration-none text-primary-dark"
                 >Dashboard</a
               >
               <img
                 src="images/png/icons/angle-right.svg"
                 alt="angle-right-back"
               />
-              <span class="fs-14 text-primary-dark"
-                >Send & Sign Offer - NG</span
+              <a
+                href="/calculate-taxes"
+                class="fs-14 text-decoration-none text-primary-dark"
+                >Calculate Taxes</a
               >
               <img
                 src="images/png/icons/angle-right.svg"
                 alt="angle-right-back"
               />
               <span class="fs-16 fw-bold text-primary-blue"
-                >Send & Sign Offer</span
+                >Free Nigeria Tax Calcuator</span
               >
             </div>
             <!-- Actual Breadcrumb here -->
@@ -966,82 +970,660 @@
       <section class="px-4">
         <div class="screenFrame">
           <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
-            <div class="vstack gap-2">
-              <div class="d-flex gap-3 align-items-center">
-                <img
-                  src="images/png/icons/sendsign.svg"
-                  alt="receipt-minus-icon"
-                  width="30px"
-                  height="30px"
-                />
-                <span
-                  class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                  >Send & Sign Offer</span
-                >
-              </div>
-              <div class="fw-bold">
-                Upload template, auto-fill, and send offer to candidate for
-                e-signature.
-              </div>
-            </div>
-            <div class="row payslip-grid-gap mb-5">
-              <div
-                class="col-4 p-2 payslip-card-panel"
-                style="width: 360px"
-                role="button"
-                title="Create Offer Letter"
-                data-url="/create-offer-letter"
-              >
-                <div
-                  class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center"
-                >
-                  <div
-                    class="vstack gap-2 d-flex flex-column align-items-center"
+            <div class="p-lg-5">
+              <div class="vstack" style="gap: 2.3rem">
+                <div class="form-floating calculate_tax_input">
+                  <select
+                    id="job_category"
+                    name="job_category"
+                    class="form-select_custom fs-14"
+                    required
                   >
-                    <img
-                      src="images/png/icons/sendsign.svg"
-                      alt="receipt-minus-icon"
-                      width="30px"
-                      height="30px"
+                    <option value="" selected style="color: rgb(200, 200, 200)">
+                      Select
+                    </option>
+                    <option value="category">Category 1</option>
+                    <option value="category">Category 2</option>
+                    <option value="category">Category 3</option>
+                  </select>
+                  <label for="job_category"
+                    >Job Category &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="abs"
+                    name="abs"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="abs"
+                    >Annual Basic Salary &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="aha"
+                    name="aha"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="aha"
+                    >Annual Housing Allowance &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="ata"
+                    name="ata"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="ata"
+                    >Annual Transport Allowance &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="ala"
+                    name="ala"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="ala">Annual Leave Allowance </label>
+                </div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="amae"
+                    name="amae"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="amae"
+                    >Annual Meals and Entertainment Allowance
+                  </label>
+                </div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="aeaua"
+                    name="aeaua"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="aeaua">Annual Energy and Utility Allowance</label>
+                </div>
+                <div>
+                  <div class="form-floating calculate_tax_input">
+                    <input
+                      type="text"
+                      id="oaa"
+                      name="oaa"
+                      class="form-input"
+                      placeholder=""
                     />
-                    <div
-                      class="fw-bold fs-18 font-ubuntu-bold text-primary-blue"
-                    >
-                      Create Offer Letter
-                    </div>
+                    <label for="oaa">Other Annual Allowances </label>
                   </div>
-                  <div class="fw-600 fs-16" style="width: 90%; margin: 0 auto">
-                    Generate offers with pre-built templates and e-signature.
+                  <span class="fs-12 fw-400 mt-2">
+                    Add any other relevant statutory deductions
+                  </span>
+                </div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="ali"
+                    name="ali"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="ali">Annual Life Insurance</label>
+                </div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="atdi"
+                    name="atdi"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="atdi"
+                    >Annual Temporary Disability Insurance
+                  </label>
+                </div>
+                <div class="form-floating calculate_tax_input">
+                  <input
+                    type="text"
+                    id="apdi"
+                    name="apdi"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="apdi"
+                    >Annual Permanent Disability Insurance
+                  </label>
+                </div>
+                <!---- Calculation 1 --->
+                <div class="vstack" style="gap: 2.3rem">
+                  <div>
+                    <div class="row align-items-center gap-3 m-0 p-0">
+                      <div
+                        class="form-floating col-md-8 col-12 p-0 calculate_tax_input"
+                      >
+                        <input
+                          type="number"
+                          id="ilugyhdg_0"
+                          class="form-input deductionInputFields"
+                          placeholder=" "
+                          name="AnnualPension(EmployeeContribution)"
+                        /><label for="date" class="ms-1"
+                          >Annual Pension (Employee Contribution)</label
+                        >
+                      </div>
+                      <link
+                        rel="preload"
+                        as="image"
+                        href="images/png/icons/refresh.svg"
+                      />
+                      <div
+                        class="d-flex justify-content-between align-items-center gap-3 col-md-3 col-12 calculate_tax_indicator"
+                        style="width: 55px"
+                      >
+                        <div style="cursor: pointer">
+                          <img
+                            src="images/png/icons/refresh.svg"
+                            alt="refresh_icon"
+                          />
+                        </div>
+                        <div
+                          role="button"
+                          class="form-check form-switch switchForDeductionsFields"
+                          style="margin-top: 5px; cursor: pointer"
+                        >
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            role="switch"
+                            id="lekjeli_0"
+                            checked=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <span class="fs-12 fw-400 mt-2"
+                      >8% of (Basic + Housing + Transport)</span
+                    >
+                  </div>
+                  <div>
+                    <div class="row align-items-center gap-3 m-0 p-0">
+                      <div
+                        class="form-floating col-md-8 col-12 p-0 calculate_tax_input"
+                      >
+                        <input
+                          type="number"
+                          id="ilugyhdg_1"
+                          class="form-input deductionInputFields"
+                          placeholder=" "
+                          name="AnnualPension(EmployerContribution)"
+                        /><label for="date" class="ms-1"
+                          >Annual Pension (Employer Contribution)</label
+                        >
+                      </div>
+                      <link
+                        rel="preload"
+                        as="image"
+                        href="images/png/icons/refresh.svg"
+                      />
+                      <div
+                        class="d-flex justify-content-between align-items-center gap-3 col-md-3 col-12 calculate_tax_indicator"
+                        style="width: 55px"
+                      >
+                        <div style="cursor: pointer">
+                          <img
+                            src="images/png/icons/refresh.svg"
+                            alt="refresh_icon"
+                          />
+                        </div>
+                        <div
+                          role="button"
+                          class="form-check form-switch switchForDeductionsFields"
+                          style="margin-top: 5px; cursor: pointer"
+                        >
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            role="switch"
+                            id="lekjeli_1"
+                            checked=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <span class="fs-12 fw-400 mt-2"
+                      >10% of (Basic + Housing + Transport)</span
+                    >
+                  </div>
+                  <div>
+                    <div class="row align-items-center gap-3 m-0 p-0">
+                      <div
+                        class="form-floating col-md-8 col-12 p-0 calculate_tax_input"
+                      >
+                        <input
+                          type="number"
+                          id="ilugyhdg_2"
+                          class="form-input deductionInputFields"
+                          placeholder=" "
+                          name="AnnualNSITFContribution"
+                        /><label for="date" class="ms-1"
+                          >Annual NSITF Contribution</label
+                        >
+                      </div>
+                      <link
+                        rel="preload"
+                        as="image"
+                        href="images/png/icons/refresh.svg"
+                      />
+                      <div
+                        class="d-flex justify-content-between align-items-center gap-3 col-md-3 col-12 calculate_tax_indicator"
+                        style="width: 55px"
+                      >
+                        <div style="cursor: pointer">
+                          <img
+                            src="images/png/icons/refresh.svg"
+                            alt="refresh_icon"
+                          />
+                        </div>
+                        <div
+                          role="button"
+                          class="form-check form-switch switchForDeductionsFields"
+                          style="margin-top: 5px; cursor: pointer"
+                        >
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            role="switch"
+                            id="lekjeli_2"
+                            checked=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <span class="fs-12 fw-400 mt-2"
+                      >1% of (Basic + Housing + Transport)</span
+                    >
+                  </div>
+                  <div>
+                    <div class="row align-items-center gap-3 m-0 p-0">
+                      <div
+                        class="form-floating col-md-8 col-12 p-0 calculate_tax_input"
+                      >
+                        <input
+                          type="number"
+                          id="ilugyhdg_3"
+                          class="form-input deductionInputFields"
+                          placeholder=" "
+                          name="AnnualNHFContribution"
+                        /><label for="date" class="ms-1"
+                          >Annual NHF Contribution</label
+                        >
+                      </div>
+                      <link
+                        rel="preload"
+                        as="image"
+                        href="images/png/icons/refresh.svg"
+                      />
+                      <div
+                        class="d-flex justify-content-between align-items-center gap-3 col-md-3 col-12 calculate_tax_indicator"
+                        style="width: 55px"
+                      >
+                        <div style="cursor: pointer">
+                          <img
+                            src="images/png/icons/refresh.svg"
+                            alt="refresh_icon"
+                          />
+                        </div>
+                        <div
+                          role="button"
+                          class="form-check form-switch switchForDeductionsFields"
+                          style="margin-top: 5px; cursor: pointer"
+                        >
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            role="switch"
+                            id="lekjeli_3"
+                            checked=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <span class="fs-12 fw-400 mt-2"
+                      >2.5% of (Basic + Housing + Transport)</span
+                    >
+                  </div>
+                  <div>
+                    <div class="form-floating calculate_tax_input">
+                      <input
+                        type="text"
+                        id="oasd"
+                        name="oasd"
+                        class="form-input"
+                        placeholder=""
+                      />
+                      <label for="oasd"
+                        >Other Annual Statutory Deductions
+                      </label>
+                    </div>
+                    <span class="fs-12 fw-400 mt-2">
+                      Add any other required deductions
+                    </span>
                   </div>
                 </div>
-              </div>
-              <div
-                class="col-4 p-2 payslip-card-panel"
-                style="width: 360px"
-                role="button"
-                title="Manage Offer Letter"
-                data-url="/manage-offer-letter"
-              >
+                <!---- diviver --->
                 <div
-                  class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center"
+                  class="d-flex align-items-center gap-4 calculate_tax_input"
                 >
-                  <div
-                    class="vstack gap-2 d-flex flex-column align-items-center"
-                  >
-                    <img
-                      src="images/png/icons/sendsign.svg"
-                      alt="receipt-minus-icon"
-                      width="30px"
-                      height="30px"
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line_dashed">&nbsp;</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="form-floating calculate_tax_input">
+                    <input
+                      type="text"
+                      id="ags"
+                      name="ags"
+                      class="form-input"
+                      placeholder=""
                     />
-                    <div
-                      class="fw-bold fs-18 font-ubuntu-bold text-primary-blue"
-                    >
-                      Manage Offer Letter
+                    <label for="ags">Annual Gross Salary </label>
+                  </div>
+                  <span class="fs-12 fw-400 mt-2">
+                    Basic + Housing + Transport + Leave + Meals + Energy + Other
+                    <br />
+                    Allowances
+                  </span>
+                </div>
+                <div>
+                  <div class="form-floating calculate_tax_input">
+                    <input
+                      type="text"
+                      id="tsd"
+                      name="tsd"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="tsd">Total Statutory Deductions </label>
+                  </div>
+                  <span class="fs-12 fw-400 mt-2">
+                    Life + Temporary & Permanent Disability + Pensions + NSITF +
+                    NHF + <br />
+                    Other deductions
+                  </span>
+                </div>
+                <div class="d-flex justify-content-end calculate_tax_input">
+                  <button
+                    type="button"
+                    id="download"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 calculate_tax_button"
+                  >
+                    <span>Calculate</span>
+                  </button>
+                </div>
+                <div
+                  class="d-flex align-items-center gap-4 calculate_tax_input"
+                >
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+                <div
+                  class="rounded-4 vstack shadow p-4 gap-4 calculate_tax_input"
+                >
+                  <div class="d-flex gap-2 justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <p class="fs-16 fw-700 calculate_ans">
+                        Annual Net Salary (ANS) <br />
+                        <span class="fs-14 fw-350"
+                          >Gross Salary – Statutory Deductions</span
+                        >
+                      </p>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        id="calculate"
+                        name="calculate"
+                        class="form-input bg-light calculate_tax_calculate"
+                        placeholder=""
+                      />
                     </div>
                   </div>
-                  <div class="fw-600 fs-16" style="width: 90%; margin: 0 auto">
-                    Track sent offers, signatures, and acceptance statuses.
+                  <div class="d-flex gap-2 justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <p class="fs-16 fw-700 calculate_ans">
+                        Annual Taxable Income (ATI) <br />
+                        <span class="fs-14 fw-350"
+                          >ANS – Higher of NGN 200,000 or 1% of ANS – 20% of
+                          ANS</span
+                        >
+                      </p>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        id="calculate"
+                        name="calculate"
+                        class="form-input bg-light calculate_tax_calculate"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <!----- Table ---->
+                  <div class="">
+                    <p class="fw-700 fs-16">Tax Brackets</p>
+                    <!----- tabulation ---->
+                    <div class="table-responsive">
+                      <table class="table table-bordered table-hover">
+                        <!---- Table head --->
+                        <thead
+                          class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+                        >
+                          <tr>
+                            <th
+                              class="bg-primary-blue text-white text-left px-3 fw-600 fs-14"
+                              style="min-width: 200px"
+                            >
+                              Tax Bracket
+                            </th>
+                            <th
+                              class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
+                            >
+                              Rate
+                            </th>
+                            <th
+                              class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                            >
+                              Taxable Amount
+                            </th>
+                            <th
+                              class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                            >
+                              Taxable Amount
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!-- Table body and Row -->
+                          <tr class="fs-88">
+                            <td class="text-left px-3 fs-14">First ₦300,000</td>
+                            <td class="fs-14 px-3 text-nowrap text-left">7%</td>
+                            <td class="fs-14 px-3 text-left column">__</td>
+                            <td class="fs-14 px-3 text-left column">__</td>
+                          </tr>
+                          <tr class="fs-88">
+                            <td class="text-left px-3 fs-14">Next ₦300,000</td>
+                            <td class="fs-14 px-3 text-nowrap text-left">
+                              11%
+                            </td>
+                            <td class="fs-14 px-3 text-left column">__</td>
+                            <td class="fs-14 px-3 text-left column">__</td>
+                          </tr>
+                          <tr class="fs-88">
+                            <td class="text-left px-3 fs-14">Next ₦500,000</td>
+                            <td class="fs-14 px-3 text-nowrap text-left">
+                              15%
+                            </td>
+                            <td class="fs-14 px-3 text-left column">__</td>
+                            <td class="fs-14 px-3 text-left column">__</td>
+                          </tr>
+                          <tr class="fs-88">
+                            <td class="text-left px-3 fs-14">Next ₦500,000</td>
+                            <td class="fs-14 px-3 text-nowrap text-left">
+                              19%
+                            </td>
+                            <td class="fs-14 px-3 text-left column">__</td>
+                            <td class="fs-14 px-3 text-left column">__</td>
+                          </tr>
+                          <tr class="fs-88">
+                            <td class="text-left px-3 fs-14">
+                              Next ₦1,600,000
+                            </td>
+                            <td class="fs-14 px-3 text-nowrap text-left">
+                              21%
+                            </td>
+                            <td class="fs-14 px-3 text-left column">__</td>
+                            <td class="fs-14 px-3 text-left column">__</td>
+                          </tr>
+                          <tr class="fs-88">
+                            <td class="text-left px-3 fs-14">
+                              Amount Above ₦3,200,000
+                            </td>
+                            <td class="fs-14 px-3 text-nowrap text-left">
+                              24%
+                            </td>
+                            <td class="fs-14 px-3 text-left column">__</td>
+                            <td class="fs-14 px-3 text-left column">__</td>
+                          </tr>
+                          <tr class="fs-88">
+                            <td class="text-left px-3 fs-14 fw-bold bg-light">
+                              Total
+                            </td>
+                            <td
+                              class="fs-14 px-3 text-nowrap text-left bg-light"
+                            >
+                              __
+                            </td>
+                            <td class="fs-14 px-3 text-left column bg-light">
+                              __
+                            </td>
+                            <td class="fs-14 px-3 text-left column bg-light">
+                              __
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <!------ Annual tax ---->
+                <div
+                  class="rounded-4 bg-primary-blue text-white vstack shadow p-4 py-5 gap-4 calculate_tax_input"
+                >
+                  <div class="d-flex gap-2 justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <p class="fs-16 fw-700 calculate_tax">
+                        Annual Tax (AT) <br />
+                        <span class="fs-14 fw-350"
+                          >Sum of applicable tax bracket outputs</span
+                        >
+                      </p>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        id="calculate"
+                        name="calculate"
+                        class="form-input bg-white calculate_tax_calculate"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="d-flex gap-2 justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <p class="fs-16 fw-700 calculate_tax">
+                        Annual Net Salary After Tax (ANST) <br />
+                        <span class="fs-14 fw-350"
+                          >Annual Net Salary – Annual Tax</span
+                        >
+                      </p>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        id="calculate"
+                        name="calculate"
+                        class="form-input bg-white calculate_tax_calculate"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="d-flex gap-2 justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <p class="fs-16 fw-700 calculate_tax">
+                        Monthly Net Salary After Tax (MNST) <br />
+                        <span class="fs-14 fw-350"
+                          >Annual Net Salary After Tax / 12</span
+                        >
+                      </p>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        id="calculate"
+                        name="calculate"
+                        class="form-input bg-white calculate_tax_calculate"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="d-flex gap-2 justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <p class="fs-16 fw-700 calculate_tax">
+                        Monthly Net Salary (MNS) <br />
+                        <span class="fs-14 fw-350">ANS / 12</span>
+                      </p>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        id="calculate"
+                        name="calculate"
+                        class="form-input bg-white calculate_tax_calculate"
+                        placeholder=""
+                      />
+                    </div>
+                  </div>
+                  <div class="d-flex gap-2 justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <p class="fs-16 fw-700 calculate_tax">
+                        Monthly Tax (MT) <br />
+                        <span class="fs-14 fw-350">Annual Tax / 12</span>
+                      </p>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        id="calculate"
+                        name="calculate"
+                        class="form-input bg-white calculate_tax_calculate"
+                        placeholder=""
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1050,17 +1632,6 @@
         </div>
       </section>
     </main>
-    <script type="module">
-      document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".payslip-card-panel").forEach((t, d) => {
-          t?.addEventListener("click", (i) => {
-            const e = t.getAttribute("data-url") || "",
-              n = t.getAttribute("title") || "";
-            window.open(e, n);
-          });
-        });
-      });
-    </script>
     <!-- Footer content starts here -->
     <footer class="d-flex justify-content-center fs-14 fw-600 p-5">
       <div>Copyright &copy; 2025, HRPayHub LLC.</div>
@@ -1082,3 +1653,4 @@
     <!-- Tooltip Trigger for whole page -->
   </body>
 </html>
+<!-- Main content ends here -->

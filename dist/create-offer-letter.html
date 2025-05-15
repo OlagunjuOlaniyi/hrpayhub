@@ -1,93 +1,2505 @@
-<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="favicon.png"><meta name="generator" content="Astro v5.7.4"><title>HRPayHub :: Create Payslip</title><link href="libs/bootstrap-5.3.5-dist/css/bootstrap.min.css" rel="stylesheet"><link href="css/styles.css" rel="stylesheet"></head> <body> <!-- Header / Navigation --> <header class="screenFrame shadow-sm position-sticky top-0 start-0 bg-white z-2"> <nav class="d-flex flex-row justify-content-between align-items-center p-4 position-sticky top-0 start-0 bg-white m-0"> <!-- Logo image here --> <div class=""> <img src="images/logo.png" height="34px" alt="HRPayHub_logo"> </div> <!-- Logo image here --> <!-- Middle Navigation Module Links --> <div class="d-none d-lg-flex align-items-center gap-4 fw-bold fs-14 "> <a href="/index.html" class="d-flex gap-1 align-items-center text-decoration-none text-primary-dark"> <!-- <HomeIcon /> --> <img src="images/png/icons/home.svg" alt="dashboard"> <span class="mt-2">Dashboard</span> </a> <div class="dropdown"> <span class="dropdown-toggle dropdown-no-arrow d-flex gap-1 align-items-center" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,20"> <img src="images/png/icons/building.svg" alt="setup"> <span class="mt-2 d-flex gap-1 align-items-center"> <span>Company Setup</span> <img src="images/png/icons/caret-down.svg" alt="caret_down"> </span> </span> <div class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-220"> <link rel="preload" as="image" href="images/png/icons/information.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/information.svg" alt="Signup Details"/></div><div class="list-item-label">Signup Details</div></a></div><link rel="preload" as="image" href="images/png/icons/location.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/location.svg" alt="Work Locations"/></div><div class="list-item-label">Work Locations</div></a></div><link rel="preload" as="image" href="images/png/icons/warning-2.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/warning-2.svg" alt="General Information"/></div><div class="list-item-label">General Information</div></a></div><link rel="preload" as="image" href="images/png/icons/building-black.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/building-black.svg" alt="Departments"/></div><div class="list-item-label">Departments</div></a></div><link rel="preload" as="image" href="images/png/icons/courthouse.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/courthouse.svg" alt="National Holidays"/></div><div class="list-item-label">National Holidays</div></a></div> </div> </div> <div class="dropdown"> <span class="dropdown-toggle dropdown-no-arrow d-flex gap-1 align-items-center" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,20"> <img src="images/png/icons/people.svg" alt="employees"> <span class="mt-2 d-flex gap-1 align-items-center"> <span>Employees</span> <img src="images/png/icons/caret-down.svg" alt="caret_down"> </span> </span> <div class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-200"> <link rel="preload" as="image" href="images/png/icons/tag.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/tag.svg" alt="Pay Grade"/></div><div class="list-item-label">Pay Grade</div></a></div><link rel="preload" as="image" href="images/png/icons/award.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/award.svg" alt="Designation"/></div><div class="list-item-label">Designation</div></a></div><link rel="preload" as="image" href="images/png/icons/profile-tick.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/profile-tick.svg" alt="Employment Status"/></div><div class="list-item-label">Employment Status</div></a></div><link rel="preload" as="image" href="images/png/icons/tag-user.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/tag-user.svg" alt="Employment Type"/></div><div class="list-item-label">Employment Type</div></a></div><link rel="preload" as="image" href="images/png/icons/profile-add.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/profile-add.svg" alt="Add Employee"/></div><div class="list-item-label">Add Employee</div></a></div><link rel="preload" as="image" href="images/png/icons/clipboard-text.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/clipboard-text.svg" alt="Employee List"/></div><div class="list-item-label">Employee List</div></a></div> </div> </div> <div class="dropdown"> <span class="dropdown-toggle dropdown-no-arrow d-flex gap-1 align-items-center" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,20"> <img src="images/png/icons/user-circle-add.svg" alt="users"> <span class="mt-2 d-flex gap-1 align-items-center"> <span>User Roles</span> <img src="images/png/icons/caret-down.svg" alt="caret_down"> </span> </span> <div class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-200"> <link rel="preload" as="image" href="images/png/icons/user-add.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/user-add.svg" alt="Create User"/></div><div class="list-item-label">Create User</div></a></div><link rel="preload" as="image" href="images/png/icons/task.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/task.svg" alt="Users List"/></div><div class="list-item-label">Users List</div></a></div> </div> </div> <div class="dropdown"> <span class="dropdown-toggle dropdown-no-arrow d-flex gap-1 align-items-center" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,20"> <img src="images/png/icons/more-circle.svg" alt="more"> <span class="mt-2 d-flex gap-1 align-items-center"> <span>More</span> <img src="images/png/icons/caret-down.svg" alt="caret_down"> </span> </span> <div class="dropdown-menu overflow-y-scroll p-1 py-3 border-1 shadow-sm min-width-200 h-400"> <link rel="preload" as="image" href="images/png/icons/task-square.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/task-square.svg" alt="On/Off Boarding"/></div><div class="list-item-label">On/Off Boarding</div></a></div><link rel="preload" as="image" href="images/png/icons/clock.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/clock.svg" alt="Time Management"/></div><div class="list-item-label">Time Management</div></a></div><link rel="preload" as="image" href="images/png/icons/calendar-tick.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/calendar-tick.svg" alt="Leave Management"/></div><div class="list-item-label">Leave Management</div></a></div><link rel="preload" as="image" href="images/png/icons/building-3.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/building-3.svg" alt="360° Appraisal"/></div><div class="list-item-label">360° Appraisal</div></a></div><link rel="preload" as="image" href="images/png/icons/folder-2.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/folder-2.svg" alt="Document Management"/></div><div class="list-item-label">Document Management</div></a></div><link rel="preload" as="image" href="images/png/icons/receipt-minus.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/receipt-minus.svg" alt="Payslip"/></div><div class="list-item-label">Payslip</div></a></div><link rel="preload" as="image" href="images/png/icons/document.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/document.svg" alt="Offer Breakdown"/></div><div class="list-item-label">Offer Breakdown</div></a></div><link rel="preload" as="image" href="images/png/icons/ticket-percent-black.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/ticket-percent-black.svg" alt="Calculate Taxes"/></div><div class="list-item-label">Calculate Taxes</div></a></div><link rel="preload" as="image" href="images/png/icons/files-tray-icon-black.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/files-tray-icon-black.svg" alt="Payroll List"/></div><div class="list-item-label">Payroll List</div></a></div><link rel="preload" as="image" href="images/png/icons/money-tick-black.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/money-tick-black.svg" alt="Annual Return - NG"/></div><div class="list-item-label">Annual Return - NG</div></a></div><link rel="preload" as="image" href="images/png/icons/naira-square-black.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/naira-square-black.svg" alt="Monthly Payee Return - NG"/></div><div class="list-item-label">Monthly Payee Return - NG</div></a></div><link rel="preload" as="image" href="images/png/icons/bank-building.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/bank-building.svg" alt="Payroll Bank Upload - NG"/></div><div class="list-item-label">Payroll Bank Upload - NG</div></a></div><link rel="preload" as="image" href="images/png/icons/pound-square-black.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/pound-square-black.svg" alt="Full Payment Submission - UK"/></div><div class="list-item-label">Full Payment Submission - UK</div></a></div><link rel="preload" as="image" href="images/png/icons/calendar-plus-black.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/calendar-plus-black.svg" alt="Task Management"/></div><div class="list-item-label">Task Management</div></a></div><link rel="preload" as="image" href="images/png/icons/ticket-black.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/ticket-black.svg" alt="Expense Management"/></div><div class="list-item-label">Expense Management</div></a></div><link rel="preload" as="image" href="images/png/icons/bar-chart-black.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/bar-chart-black.svg" alt="Financial Reports &amp; Analytics"/></div><div class="list-item-label">Financial Reports &amp; Analytics</div></a></div><link rel="preload" as="image" href="images/png/icons/signature-pen.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/signature-pen.svg" alt="Send &amp; Sign Offer"/></div><div class="list-item-label">Send &amp; Sign Offer</div></a></div> </div> </div> </div> <!-- Middle Navigation Module Links --> <!-- Right side Links with User Account Profile Dropdown --> <div class=""> <div class="d-flex gap-xl-4 gap-md-2 gap-sm-4 gap-2 align-items-center"> <div class="dropdown"> <button data-bs-toggle="dropdown" class="bg-transparent border-0 dropdown-toggle dropdown-no-arrow" aria-expanded="false" data-bs-offset="-170,20"> <img src="images/png/icons/message-question.svg" alt="hrPayhub"> </button> <div class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-220"> <link rel="preload" as="image" href="images/png/icons/hand-phone-black.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/hand-phone-black.svg" alt="Contact Us"/></div><div class="list-item-label">Contact Us</div></a></div><link rel="preload" as="image" href="images/png/icons/head-phone-black.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/head-phone-black.svg" alt="Help Center"/></div><div class="list-item-label">Help Center</div></a></div> </div> </div> <a href="/"> <img src="images/png/icons/notification.svg" alt="notif"> </a> <div class="dropdown"> <button data-bs-toggle="dropdown" class="bg-transparent border-0 dropdown-toggle dropdown-no-arrow" aria-expanded="false" data-bs-offset="-215,20"> <img src="images/png/icons/setting-2.svg" alt="setting"> </button> <div class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-220"> <link rel="preload" as="image" href="images/png/icons/user-profile-circle-black.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/user-profile-circle-black.svg" alt="Company Setup"/></div><div class="list-item-label">Company Setup</div></a></div><link rel="preload" as="image" href="images/png/icons/security-safe-black.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/security-safe-black.svg" alt="Manage Subscriptions"/></div><div class="list-item-label">Manage Subscriptions</div></a></div><link rel="preload" as="image" href="images/png/icons/debit-card-black.svg"/><div class=""><a class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6" href="@Url.Action(&quot;Controller&quot;, &quot;Action&quot;, new { acc = 0})"><div class="d-flex align-items-center justify-content-center w-22"><img src="images/png/icons/debit-card-black.svg" alt="Billing Section"/></div><div class="list-item-label">Billing Section</div></a></div> </div> </div> <div class="dropdown"> <button class="bg-transparent border-0 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,20"> <span class="position-relative inline-block"> <img src="images/png/icons/profile-circle.svg" alt="user-profile"> <span class="position-absolute rounded-circle status-indicator-green"></span> </span> </button> <div class="dropdown-menu p-3 text-body-secondary min-width-250"> <div class="d-flex flex-column gap-3"> <div class="text-white p-2 rounded bg-primary-blue"> <div class="fw-bold">Joseph Olawale</div> <div class="fs-13">Super Admin</div> </div> <a href="@Url.Action(&#34;Controller&#34;, &#34;Action&#34;, new { acc = 0})" class="text-decoration-none mb-0 d-flex gap-3 align-items-center text-292D32"> <div class="d-flex align-items-center justify-content-center w-20"> <img src="images/png/icons/user-profile-circle-black.svg" alt="user-profile"> </div>
-Profile
-</a> <a href="@Url.Action(&#34;Controller&#34;, &#34;Action&#34;, new { acc = 0})" class="text-decoration-none mb-0 d-flex gap-3 align-items-center text-292D32"> <div class="d-flex align-items-center justify-content-center w-20"> <img src="images/png/icons/security-safe-black.svg" alt="security" width="20px"> </div>
-Change Password
-</a> <hr class="dropdown-divider m-0"> <a href="@Url.Action(&#34;Controller&#34;, &#34;Action&#34;, new { acc = 0})" class="text-decoration-none mb-0 d-flex gap-3 align-items-center text-red"> <div class="d-flex align-items-center justify-content-center w-20"> <img src="images/png/icons/logout-red.svg" alt="logout" width="20px"> </div>
-Logout
-</a> </div> </div> </div> </div> </div> </nav> <!-- Right side Links with User Account Profile Dropdown --> </header> <!-- Header / Navigation --> <main><!-- First section of Back button and Breadcrumb --><section class="p-4"><div class="screenFrame"><!-- Back Navigation button and BreadCrumbs --><div class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full"><a href="payslip.html" title="Back to Payslip" class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"><img src="images/png/icons/angle-left.svg" alt="angle-left-back"><span class="fs-16 fw-bold font-avenir-bold">Back</span></a><!-- Actual Breadcrumb here --><link rel="preload" as="image" href="images/png/icons/angle-right.svg"/><div class="d-flex align-items-center gap-2 flex-wrap"><a href="index.html" class="fs-14 text-decoration-none text-primary-dark">Dashboard</a><img src="images/png/icons/angle-right.svg" alt="angle-right-back"/><a href="send-and-sign-offer.html" class="fs-14 text-decoration-none text-primary-dark">Send &amp; Sign Offer – NG</a><img src="images/png/icons/angle-right.svg" alt="angle-right-back"/><span class="fs-16 fw-bold text-primary-blue">Create Offer Letter</span></div><!-- Actual Breadcrumb here --></div><!-- Back Navigation button and BreadCrumbs --></div></section><!-- First section of Back button and Breadcrumb --><!-- First section of Back button and Breadcrumb --><section class="px-4" id="create_payslip"><div class="screenFrame"><div class="rounded-4 shadow p-4 pt-5 vstack gap-5 px-5"><form method="POST" id="creat_payslip_form" class="create_payslip_form"><div class="pe-lg-5 pe-0"><!-- Tab Panel --><ul class="nav gap-4 flex-column sticky-lg-top bg-white text-nowrap" style="top: 110px" id="myTab" role="tablist"><li class="tab_link d-flex gap-3 align-items-center tab_indicator active" role="presentation"><div class="flex-shrink-0"><div class="center_spot"></div></div><span class="fs-14 fw-600 tab_text active" id="employee_company_details" data-bs-toggle="tab" data-bs-target="#employee_company_details_panel" role="tab" aria-controls="employee_company_details_panel" aria-selected="true">Upload Offer Letter Template</span></li><li class="tab_link d-flex gap-3 align-items-center tab_indicator" role="presentation"><div class="flex-shrink-0"><div class="center_spot"></div></div><span class="fs-14 fw-600 tab_text" id="salary_pay" data-bs-toggle="tab" data-bs-target="#salary_pay_panel" role="tab" aria-controls="salary_pay_panel" aria-selected="false">Load & Review Offer Breakdown</span></li><li class="tab_link d-flex gap-3 align-items-center tab_indicator" role="presentation"><div class="flex-shrink-0"><div class="center_spot"></div></div><span class="fs-14 fw-600 tab_text" id="deductions" data-bs-toggle="tab" data-bs-target="#deductions_panel" role="tab" aria-controls="deductions_panel" aria-selected="false">Complete Offer Letter Fields</span></li><li class="tab_link d-flex gap-3 align-items-center tab_indicator" role="presentation"><div class="flex-shrink-0"><div class="center_spot"></div></div><span class="fs-14 fw-600 tab_text" id="final_monthly" data-bs-toggle="tab" data-bs-target="#final_monthly_panel" role="tab" aria-controls="final_monthly_panel" aria-selected="false">Create & Preview Offer Letter</span></li><li class="tab_link d-flex gap-3 align-items-center tab_indicator" role="presentation"><div class="flex-shrink-0"><div class="center_spot"></div></div><span class="fs-14 fw-600 tab_text" id="year_to_date" data-bs-toggle="tab" data-bs-target="#year_to_date_panel" role="tab" aria-controls="year_to_date_panel" aria-selected="false">Send Offer Letter</span></li></ul><!-- Tab Panel --></div><!-- Tab content here --><div class="flex-grow-1 border-start ps-md-5 ps-0 tab-content"><!-- Employee Details --><div class="tab-pane fade active show" id="employee_company_details_panel" role="tabpanel" aria-labelledby="employee_company_details_panel" tabindex="0"><div class="vstack" style="gap: 2.3rem"><form class="vstack gap-2 generate_payslip_form" id="generate_payslip_form"><div class="fs-14 fw-600">
-Download the <a style="color: #2271B6" class="text-decoration-none" href="/offer_letter_template.xls" download>template here</a> and upload the prepared file
-</div><div class="upload_bucket_panel p-3 d-flex flex-column align-items-center justify-content-center"><img src="images/png/icons/cloud_upload.svg" width="35px" height="35px" alt="cloud upload icon"><div class="fs-14 fw-700" style="color: #6B7280">
-Click to upload <span class="fw-400">or drag and drop</span></div><div class="fs-12 fw-700" style="color: #6B7280">
-PDF or DOCX (Max File Size: 2MB)
-</div><button type="button" id="fileInputBtn" class="delon-primary-btn d-flex gap-2 bg-primary-blue border-0 text-white fs-14"><img src="images/png/icons/search.svg" alt="arrow-down"><span>Browse Files</span></button><div id="fileInputDetails" class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 mt-2 rounded-3 fs-14 d-flex gap-1 align-items-center" role="button"><span class="flex-fill text-truncate">gvfyguytctrcjrct.webp</span><span class="flex-fill"><img src="images/png/icons/close-circle-6.svg" width="15" height="15" alt="close_icon"></span></div><input type="file" class="d-none" id="fileInput"></div></form><div class="d-flex justify-content-end upload_offer"><button type="button" id="salary_pay_next" data-tab-target="#salary_pay" role="tab" aria-controls="salary_pay_panel" aria-selected="false" class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"><span>Next</span></button></div></div></div><!-- Upload Offer --><!-- Load & Review Offer Breakdown Components --><div class="tab-pane fade" id="salary_pay_panel" role="tabpanel" aria-labelledby="salary_pay_panel" tabindex="0"><div class="vstack" style="gap: 2.3rem"><div class="form-floating offer_breakdown_width"><select id="employment_type" name="employment_type" class="form-select_custom fs-14" required><option value="" selected>Select</option><option value="1">E1001</option><option value="2">E1002</option><option value="3">E1003</option></select><label for="employment_type">Employment ID &nbsp;<span>*</span></label></div><div class="d-flex flex-column gap-5 border d-none" id="view_employee_details"><div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Employee ID</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">E1001</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Offer Letter Date</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Last Name</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Pay Grade</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Designation</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Employment Type</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Address</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Country of Work</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">State</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">City</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Postcode</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Branch Location</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Working Hours Per Week</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Resumption Date</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Work Days</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Annual Leave</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Manager Name</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Annual Fixed Salary</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div></div><div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Annual Gross Salary</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">E1001</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Offer Letter Date</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Last Name</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Pay Grade</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Designation</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Employment Type</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Address</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Country of Work</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">State</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">City</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Postcode</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div></div><div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Basic Salary</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">E1001</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Offer Letter Date</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Last Name</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Pay Grade</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Designation</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Employment Type</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Address</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div><div class="d-flex"><div class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width">Country of Work</div><div class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width">Lorem Ipsum</div></div></div></div></div><div class="d-flex justify-content-end gap-4 mt-5"><button type="button" id="employee_company_details_next" data-tab-target="#employee_company_details" role="tab" aria-controls="employee_company_details_panel" aria-selected="false" class="white_button next_tab_btn"><span>Back</span></button><button type="button" id="deductions_next" data-tab-target="#deductions" role="tab" aria-controls="deductions_panel" aria-selected="false" class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"><span>Next</span></button></div></div><!-- Load & Review Offer Breakdown Components --><!-- Complete Offer Letter Panel --><div class="tab-pane fade" id="deductions_panel" role="tabpanel" aria-labelledby="deductions_panel" tabindex="0"><div class="vstack" style="gap: 2.3rem"><div class="form-floating"><select id="employment_type" name="employment_type" class="form-select_custom fs-14" required><option value="" selected style="color: rgb(200, 200, 200)">Select</option><option value="yes">Yes</option><option value="no">No</option></select><label for="employment_type">Is Employee Full-Time? &nbsp;<span>*</span></label></div><div class="form-floating"><select id="contract_type" name="contract_type" class="form-select_custom fs-14" required><option value="" selected style="color: rgb(200, 200, 200)">Select</option><option value="3">3 Months</option><option value="6">6 Months</option></select><label for="employment_type">Contract Duration &nbsp;<span>*</span></label></div><div class="form-floating"><select id="probation_period" name="probation_period" class="form-select_custom fs-14" required><option value="" selected style="color: rgb(200, 200, 200)">Select</option><option value="1">1 Months</option><option value="2">2 Months</option></select><label for="employment_type">Probation Period &nbsp;<span>*</span></label></div><div class="form-floating"><select id="hr_name" name="hr_name" class="form-select_custom fs-14" required><option value="" selected style="color: rgb(200, 200, 200)">Select</option><option value="warren">Warren</option><option value="wade">Wade</option></select><label for="employment_type">HR Name &nbsp;<span>*</span></label></div><div class="form-floating"><input type="text" id="hr_designation" name="hr_designation" class="form-input" placeholder=""><label for="fullname">HR Designation &nbsp;<span>*</span></label></div><div class="form-floating"><input type="text" id="hr_number" name="hr_number" class="form-input" placeholder=" "><label for="fullname">HR Phone Number &nbsp;<span>*</span></label></div></div><div class="d-flex justify-content-end gap-4 mt-5"><button type="button" id="salary_pay_back" data-tab-target="#salary_pay" role="tab" aria-controls="salary_pay_panel" aria-selected="false" class="white_button next_tab_btn"><span>Back</span></button><button type="button" id="final_monthly_next" data-tab-target="#final_monthly" role="tab" aria-controls="final_monthly_panel" aria-selected="false" class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"><span>Next</span></button></div></div><!-- Complete Offer Letter Panel --><!-- Create & Preview Offer Letter Panel --><div class="tab-pane fade" id="final_monthly_panel" role="tabpanel" aria-labelledby="final_monthly_panel" tabindex="0"><div class="d-flex align-items-center justify-content-between gap-4 mb-5"><div class="fs-18 fw-700 text-primary-blue">
-Preview Offer Letter
-</div><div class="d-flex justify-content-end"><button type="button" id="deductions_back" data-tab-target="#deductions" role="tab" aria-controls="deductions_panel" aria-selected="false" class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"><span>Go Back to Offer Breakdown</span></button></div></div><!---- Preview ---><div className="d-flex justify-content-center"><img class="preview-img" src="images/png/icons/download-view.svg" alt="download view"></div><div class="d-flex justify-content-end gap-4 mt-5"><button type="button" id="deductions_back" data-tab-target="#deductions" role="tab" aria-controls="deductions_panel" aria-selected="false" class="white_button next_tab_btn"><span>Back</span></button><button type="button" id="year_to_date_next" data-tab-target="#year_to_date" role="tab" aria-controls="year_to_date_panel" aria-selected="false" class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"><span>Next</span></button></div></div><!-- Create & Preview Offer Letter Panel --><!-- Send Offer Letter --><div class="tab-pane fade" id="year_to_date_panel" role="tabpanel" aria-labelledby="year_to_date_panel" tabindex="0"><div class="d-flex align-items-center justify-content-between gap-4 mb-5"><div class="fs-18 fw-700 text-primary-blue">
-Send Offer Letter
-</div><div class="d-flex gap-3 justify-content-end"><button type="button" id="year_to_date_back" data-tab-target="#final_monthly" role="tab" aria-controls="final_monthly_panel" aria-selected="false" class="fw-bold fs-14 next_tab_btn" style="background: white; color: #2271B6 !important; border: 1.5px solid #2271B6 !important; padding: 10px 20px; border-radius: 10px"><span>Back</span></button><button type="button" class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"><span>Send Offer Letter</span></button></div></div><!----- preview ---><div className="d-flex justify-content-center"><img class="preview-img" src="images/png/icons/download-view.svg" alt="download view"></div></div><!-- Send Offer Letter --></div><!-- Tab content here --></form></div></div></section><link rel="preload" as="image" href="images/png/icons/colored/receipt-minus-colored.svg"/><link rel="preload" as="image" href="images/png/icons/arrow-down.svg"/><link rel="preload" as="image" href="images/png/icons/printer.svg"/><link rel="preload" as="image" href="images/png/icons/hard-drive-download.svg"/><link rel="preload" as="image" href="images/png/icons/at-sign.svg"/><section class="px-4 d-none" id="view_employee_payslip"><div class="screenFrame"><div class="d-flex flex-column justify-content-between"><div class="rounded-4 shadow p-4 d-flex flex-column gap-5 px-md-5 px-3" style="flex-basis:auto"><div class="vstack gap-3"><div class="d-flex gap-3 align-items-center"><img src="images/png/icons/colored/receipt-minus-colored.svg" alt="receipt-minus-icon" width="30px" height="30px"/><span class="text-primary-blue font-ubuntu-bold fs-24 inline-block">View Payslip</span></div></div><div class="vstack gap-4"><form class="d-flex gap-lg-4 gap-2" style="width:500px;max-width:100%" id="generate_view_payslip_form"><div class="form-section position-relative flex-fill flex-shrink"><label class="fs-14 fw-600">Select Date</label><input class="form-control w-100 w-md-auto flex-fill py-2" type="date" placeholder="Date input" aria-label="date input" style="border-radius:10px"/></div><div><button type="submit" class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"><span>Generate</span></button></div></form><div class="d-flex align-items-center justify-content-end gap-4"><button id="back_to_list_of_payslips" class="delon-primary-btn bg-white text-primary-blue border-primary-blue text-decoration-none text-white fw-bold fs-14">Back</button><div class="dropdown"><button class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="-53,10"><span>Actions</span><img src="images/png/icons/arrow-down.svg" alt="arrow-down"/></button><div class="dropdown-menu p-0 border-0" style="width:auto"><ul class="list-group border-0 fw-600 fs-14 text-nowrap"><li class="list-group-item"><div role="button" class="d-flex align-items-center gap-2"><img src="images/png/icons/printer.svg" alt="printer"/><span>Print Payslip</span></div></li><li class="list-group-item"><div role="button" class="d-flex align-items-center gap-2"><img src="images/png/icons/hard-drive-download.svg" alt="hard-drive-download"/><span>Download Payslip</span></div></li><li class="list-group-item"><div role="button" class="d-flex align-items-center gap-2"><img src="images/png/icons/at-sign.svg" alt="at-sign"/><span>Email Payslip</span></div></li></ul></div></div></div><div class="table-responsive w-full"><table class="table table-bordered payslip_table" style="table-layout:auto;min-width:100%"><tbody><tr><td colSpan="2" class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px">Payslip</td></tr><tr><td style="border:0" colSpan="2" class="bg-white px-4 px-12px fw-bold fs-14"> </td></tr><tr><td style="border:0" class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap">Employee Details</td><td style="border:0" class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap">Company Details</td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap" style="width:50%">Employee ID: N1UHUHNOPfdghr rget dstt yrtry rtyr yrt ytryry tyerge trte r</td><td class="text-black px-4 px-12px fs-14 text-nowrap" style="width:50%">Company Name: DELON APP LL.</td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap" style="width:50%">First Name: JOSEPH Olawale Bamidele</td><td class="text-black px-4 px-12px fs-14 text-nowrap" style="width:50%">Company Address: House 15, Idi Orogbo</td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap" style="width:50%">Address: House 15, Idi Orogbo</td><td class="text-black px-4 px-12px fs-14 text-nowrap" style="width:50%">Company Phone number: +2347039173237</td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap">City:</td><td class="text-black px-4 px-12px fs-14 text-nowrap">Company Email: jolawale28@gmail.com</td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap" style="border:none">State:</td><td class="text-black px-4 px-12px fs-14 text-nowrap" style="border:none"> </td></tr><tr><td style="border:none" colSpan="2" class="bg-white px-4 px-12px fw-bold fs-14"> </td></tr><tr><td style="border:none" class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14">Description</td><td style="border:none" class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14">Deductions</td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap">Monthly Fixed Salary<!-- -->: </td><td class="text-black px-4 px-12px fs-14 text-nowrap">Tax<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap">Monthly Fixed Salary<!-- -->: </td><td class="text-black px-4 px-12px fs-14 text-nowrap">Health Insurance<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap">Monthly Fixed Salary<!-- -->: </td><td class="text-black px-4 px-12px fs-14 text-nowrap">Life Insurance<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap">Monthly Fixed Salary<!-- -->: </td><td class="text-black px-4 px-12px fs-14 text-nowrap">Temporary Disability Insurance<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap">Monthly Fixed Salary<!-- -->: </td><td class="text-black px-4 px-12px fs-14 text-nowrap">Permanent Disability Insurance<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">Pension Staff Contribution<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">Pension Employer Contribution<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">NSITF<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">NHF<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">Loan or Other Deductions:<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">Total Deductions:<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">Deductions To Date:<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">Tax Year to Date:<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">Health Insurance To Date:<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">Life Insurance To Date:<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">Temporary Disability Insurance To Date:<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">Permanent Disability Insurance To Date:<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">Pension Staff Contribution To Date:<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">Pension Employer Contribution To Date<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">NSITF To Date:<!-- -->: </td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap"></td><td class="text-black px-4 px-12px fs-14 text-nowrap">NHF To Date:<!-- -->: </td></tr><tr><td colSpan="2" class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px">Variable Expenses</td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap">Variable Admin Expense<!-- -->: </td><td class="text-black px-4 px-12px fs-14 text-nowrap"></td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap">Variable Operational Expense<!-- -->: </td><td class="text-black px-4 px-12px fs-14 text-nowrap"></td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap">Bonus or Commission<!-- -->: </td><td class="text-black px-4 px-12px fs-14 text-nowrap"></td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap">Monthly Variable Expense<!-- -->: </td><td class="text-black px-4 px-12px fs-14 text-nowrap"></td></tr><tr><td class="text-black px-4 px-12px fs-14 text-nowrap">Expense Pay Date<!-- -->: </td><td class="text-black px-4 px-12px fs-14 text-nowrap"></td></tr></tbody></table></div></div></div></div></div></section><div class="position-fixed top-0 start-50 translate-middle-x p-3" style="z-index:11"><div id="payslipGenerateToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true"><div class="toast-header"><strong class="me-auto">Payslip Generate</strong><small>just now</small><button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button></div><div class="toast-body">Employee data refreshed for Payslip!</div></div></div></main><script>
-    document.addEventListener("DOMContentLoaded", () => {
-      $(".tab_indicator").click((evt) => {
-        const clickedTab = evt.currentTarget;
-        $(".tab_indicator").removeClass("active");
-        $(".tab_indicator").prop("aria-selected", "false");
-        $(clickedTab).addClass("active");
-        $(clickedTab).prop("aria-selected", "true");
-      });
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="favicon.png" />
+    <meta name="generator" content="Astro v5.7.4" />
+    <title>HRPayHub :: Create Payslip</title>
+    <link
+      href="libs/bootstrap-5.3.5-dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header / Navigation -->
+    <header
+      class="screenFrame shadow-sm position-sticky top-0 start-0 bg-white z-2"
+    >
+      <nav
+        class="d-flex flex-row justify-content-between align-items-center p-4 position-sticky top-0 start-0 bg-white m-0"
+      >
+        <!-- Logo image here -->
+        <div class="">
+          <img src="images/logo.png" height="34px" alt="HRPayHub_logo" />
+        </div>
+        <!-- Logo image here -->
+        <!-- Middle Navigation Module Links -->
+        <div class="d-none d-lg-flex align-items-center gap-4 fw-bold fs-14">
+          <a
+            href="/index.html"
+            class="d-flex gap-1 align-items-center text-decoration-none text-primary-dark"
+          >
+            <!-- <HomeIcon /> -->
+            <img src="images/png/icons/home.svg" alt="dashboard" />
+            <span class="mt-2">Dashboard</span>
+          </a>
+          <div class="dropdown">
+            <span
+              class="dropdown-toggle dropdown-no-arrow d-flex gap-1 align-items-center"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              data-bs-offset="0,20"
+            >
+              <img src="images/png/icons/building.svg" alt="setup" />
+              <span class="mt-2 d-flex gap-1 align-items-center">
+                <span>Company Setup</span>
+                <img src="images/png/icons/caret-down.svg" alt="caret_down" />
+              </span>
+            </span>
+            <div
+              class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-220"
+            >
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/information.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/information.svg"
+                      alt="Signup Details"
+                    />
+                  </div>
+                  <div class="list-item-label">Signup Details</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/location.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/location.svg"
+                      alt="Work Locations"
+                    />
+                  </div>
+                  <div class="list-item-label">Work Locations</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/warning-2.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/warning-2.svg"
+                      alt="General Information"
+                    />
+                  </div>
+                  <div class="list-item-label">General Information</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/building-black.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/building-black.svg"
+                      alt="Departments"
+                    />
+                  </div>
+                  <div class="list-item-label">Departments</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/courthouse.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/courthouse.svg"
+                      alt="National Holidays"
+                    />
+                  </div>
+                  <div class="list-item-label">National Holidays</div></a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="dropdown">
+            <span
+              class="dropdown-toggle dropdown-no-arrow d-flex gap-1 align-items-center"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              data-bs-offset="0,20"
+            >
+              <img src="images/png/icons/people.svg" alt="employees" />
+              <span class="mt-2 d-flex gap-1 align-items-center">
+                <span>Employees</span>
+                <img src="images/png/icons/caret-down.svg" alt="caret_down" />
+              </span>
+            </span>
+            <div
+              class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-200"
+            >
+              <link rel="preload" as="image" href="images/png/icons/tag.svg" />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img src="images/png/icons/tag.svg" alt="Pay Grade" />
+                  </div>
+                  <div class="list-item-label">Pay Grade</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/award.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img src="images/png/icons/award.svg" alt="Designation" />
+                  </div>
+                  <div class="list-item-label">Designation</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/profile-tick.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/profile-tick.svg"
+                      alt="Employment Status"
+                    />
+                  </div>
+                  <div class="list-item-label">Employment Status</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/tag-user.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/tag-user.svg"
+                      alt="Employment Type"
+                    />
+                  </div>
+                  <div class="list-item-label">Employment Type</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/profile-add.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/profile-add.svg"
+                      alt="Add Employee"
+                    />
+                  </div>
+                  <div class="list-item-label">Add Employee</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/clipboard-text.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/clipboard-text.svg"
+                      alt="Employee List"
+                    />
+                  </div>
+                  <div class="list-item-label">Employee List</div></a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="dropdown">
+            <span
+              class="dropdown-toggle dropdown-no-arrow d-flex gap-1 align-items-center"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              data-bs-offset="0,20"
+            >
+              <img src="images/png/icons/user-circle-add.svg" alt="users" />
+              <span class="mt-2 d-flex gap-1 align-items-center">
+                <span>User Roles</span>
+                <img src="images/png/icons/caret-down.svg" alt="caret_down" />
+              </span>
+            </span>
+            <div
+              class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-200"
+            >
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/user-add.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/user-add.svg"
+                      alt="Create User"
+                    />
+                  </div>
+                  <div class="list-item-label">Create User</div></a
+                >
+              </div>
+              <link rel="preload" as="image" href="images/png/icons/task.svg" />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img src="images/png/icons/task.svg" alt="Users List" />
+                  </div>
+                  <div class="list-item-label">Users List</div></a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="dropdown">
+            <span
+              class="dropdown-toggle dropdown-no-arrow d-flex gap-1 align-items-center"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              data-bs-offset="0,20"
+            >
+              <img src="images/png/icons/more-circle.svg" alt="more" />
+              <span class="mt-2 d-flex gap-1 align-items-center">
+                <span>More</span>
+                <img src="images/png/icons/caret-down.svg" alt="caret_down" />
+              </span>
+            </span>
+            <div
+              class="dropdown-menu overflow-y-scroll p-1 py-3 border-1 shadow-sm min-width-200 h-400"
+            >
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/task-square.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/task-square.svg"
+                      alt="On/Off Boarding"
+                    />
+                  </div>
+                  <div class="list-item-label">On/Off Boarding</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/clock.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/clock.svg"
+                      alt="Time Management"
+                    />
+                  </div>
+                  <div class="list-item-label">Time Management</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/calendar-tick.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/calendar-tick.svg"
+                      alt="Leave Management"
+                    />
+                  </div>
+                  <div class="list-item-label">Leave Management</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/building-3.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/building-3.svg"
+                      alt="360° Appraisal"
+                    />
+                  </div>
+                  <div class="list-item-label">360° Appraisal</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/folder-2.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/folder-2.svg"
+                      alt="Document Management"
+                    />
+                  </div>
+                  <div class="list-item-label">Document Management</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/receipt-minus.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/receipt-minus.svg"
+                      alt="Payslip"
+                    />
+                  </div>
+                  <div class="list-item-label">Payslip</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/document.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/document.svg"
+                      alt="Offer Breakdown"
+                    />
+                  </div>
+                  <div class="list-item-label">Offer Breakdown</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/ticket-percent-black.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/ticket-percent-black.svg"
+                      alt="Calculate Taxes"
+                    />
+                  </div>
+                  <div class="list-item-label">Calculate Taxes</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/files-tray-icon-black.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/files-tray-icon-black.svg"
+                      alt="Payroll List"
+                    />
+                  </div>
+                  <div class="list-item-label">Payroll List</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/money-tick-black.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/money-tick-black.svg"
+                      alt="Annual Return - NG"
+                    />
+                  </div>
+                  <div class="list-item-label">Annual Return - NG</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/naira-square-black.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/naira-square-black.svg"
+                      alt="Monthly Payee Return - NG"
+                    />
+                  </div>
+                  <div class="list-item-label">
+                    Monthly Payee Return - NG
+                  </div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/bank-building.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/bank-building.svg"
+                      alt="Payroll Bank Upload - NG"
+                    />
+                  </div>
+                  <div class="list-item-label">Payroll Bank Upload - NG</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/pound-square-black.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/pound-square-black.svg"
+                      alt="Full Payment Submission - UK"
+                    />
+                  </div>
+                  <div class="list-item-label">
+                    Full Payment Submission - UK
+                  </div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/calendar-plus-black.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/calendar-plus-black.svg"
+                      alt="Task Management"
+                    />
+                  </div>
+                  <div class="list-item-label">Task Management</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/ticket-black.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/ticket-black.svg"
+                      alt="Expense Management"
+                    />
+                  </div>
+                  <div class="list-item-label">Expense Management</div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/bar-chart-black.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/bar-chart-black.svg"
+                      alt="Financial Reports &amp; Analytics"
+                    />
+                  </div>
+                  <div class="list-item-label">
+                    Financial Reports &amp; Analytics
+                  </div></a
+                >
+              </div>
+              <link
+                rel="preload"
+                as="image"
+                href="images/png/icons/signature-pen.svg"
+              />
+              <div class="">
+                <a
+                  class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                  href='@Url.Action("Controller", "Action", new { acc = 0})'
+                  ><div
+                    class="d-flex align-items-center justify-content-center w-22"
+                  >
+                    <img
+                      src="images/png/icons/signature-pen.svg"
+                      alt="Send &amp; Sign Offer"
+                    />
+                  </div>
+                  <div class="list-item-label">Send &amp; Sign Offer</div></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Middle Navigation Module Links -->
+        <!-- Right side Links with User Account Profile Dropdown -->
+        <div class="">
+          <div
+            class="d-flex gap-xl-4 gap-md-2 gap-sm-4 gap-2 align-items-center"
+          >
+            <div class="dropdown">
+              <button
+                data-bs-toggle="dropdown"
+                class="bg-transparent border-0 dropdown-toggle dropdown-no-arrow"
+                aria-expanded="false"
+                data-bs-offset="-170,20"
+              >
+                <img
+                  src="images/png/icons/message-question.svg"
+                  alt="hrPayhub"
+                />
+              </button>
+              <div
+                class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-220"
+              >
+                <link
+                  rel="preload"
+                  as="image"
+                  href="images/png/icons/hand-phone-black.svg"
+                />
+                <div class="">
+                  <a
+                    class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                    href='@Url.Action("Controller", "Action", new { acc = 0})'
+                    ><div
+                      class="d-flex align-items-center justify-content-center w-22"
+                    >
+                      <img
+                        src="images/png/icons/hand-phone-black.svg"
+                        alt="Contact Us"
+                      />
+                    </div>
+                    <div class="list-item-label">Contact Us</div></a
+                  >
+                </div>
+                <link
+                  rel="preload"
+                  as="image"
+                  href="images/png/icons/head-phone-black.svg"
+                />
+                <div class="">
+                  <a
+                    class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                    href='@Url.Action("Controller", "Action", new { acc = 0})'
+                    ><div
+                      class="d-flex align-items-center justify-content-center w-22"
+                    >
+                      <img
+                        src="images/png/icons/head-phone-black.svg"
+                        alt="Help Center"
+                      />
+                    </div>
+                    <div class="list-item-label">Help Center</div></a
+                  >
+                </div>
+              </div>
+            </div>
+            <a href="/">
+              <img src="images/png/icons/notification.svg" alt="notif" />
+            </a>
+            <div class="dropdown">
+              <button
+                data-bs-toggle="dropdown"
+                class="bg-transparent border-0 dropdown-toggle dropdown-no-arrow"
+                aria-expanded="false"
+                data-bs-offset="-215,20"
+              >
+                <img src="images/png/icons/setting-2.svg" alt="setting" />
+              </button>
+              <div
+                class="dropdown-menu p-1 py-3 border-1 shadow-sm min-width-220"
+              >
+                <link
+                  rel="preload"
+                  as="image"
+                  href="images/png/icons/user-profile-circle-black.svg"
+                />
+                <div class="">
+                  <a
+                    class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                    href='@Url.Action("Controller", "Action", new { acc = 0})'
+                    ><div
+                      class="d-flex align-items-center justify-content-center w-22"
+                    >
+                      <img
+                        src="images/png/icons/user-profile-circle-black.svg"
+                        alt="Company Setup"
+                      />
+                    </div>
+                    <div class="list-item-label">Company Setup</div></a
+                  >
+                </div>
+                <link
+                  rel="preload"
+                  as="image"
+                  href="images/png/icons/security-safe-black.svg"
+                />
+                <div class="">
+                  <a
+                    class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                    href='@Url.Action("Controller", "Action", new { acc = 0})'
+                    ><div
+                      class="d-flex align-items-center justify-content-center w-22"
+                    >
+                      <img
+                        src="images/png/icons/security-safe-black.svg"
+                        alt="Manage Subscriptions"
+                      />
+                    </div>
+                    <div class="list-item-label">Manage Subscriptions</div></a
+                  >
+                </div>
+                <link
+                  rel="preload"
+                  as="image"
+                  href="images/png/icons/debit-card-black.svg"
+                />
+                <div class="">
+                  <a
+                    class="dropdown-item d-flex gap-3 align-items-center py-2 d-inline-block fs-6"
+                    href='@Url.Action("Controller", "Action", new { acc = 0})'
+                    ><div
+                      class="d-flex align-items-center justify-content-center w-22"
+                    >
+                      <img
+                        src="images/png/icons/debit-card-black.svg"
+                        alt="Billing Section"
+                      />
+                    </div>
+                    <div class="list-item-label">Billing Section</div></a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button
+                class="bg-transparent border-0 dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                data-bs-offset="0,20"
+              >
+                <span class="position-relative inline-block">
+                  <img
+                    src="images/png/icons/profile-circle.svg"
+                    alt="user-profile"
+                  />
+                  <span
+                    class="position-absolute rounded-circle status-indicator-green"
+                  ></span>
+                </span>
+              </button>
+              <div class="dropdown-menu p-3 text-body-secondary min-width-250">
+                <div class="d-flex flex-column gap-3">
+                  <div class="text-white p-2 rounded bg-primary-blue">
+                    <div class="fw-bold">Joseph Olawale</div>
+                    <div class="fs-13">Super Admin</div>
+                  </div>
+                  <a
+                    href="@Url.Action(&#34;Controller&#34;, &#34;Action&#34;, new { acc = 0})"
+                    class="text-decoration-none mb-0 d-flex gap-3 align-items-center text-292D32"
+                  >
+                    <div
+                      class="d-flex align-items-center justify-content-center w-20"
+                    >
+                      <img
+                        src="images/png/icons/user-profile-circle-black.svg"
+                        alt="user-profile"
+                      />
+                    </div>
+                    Profile
+                  </a>
+                  <a
+                    href="@Url.Action(&#34;Controller&#34;, &#34;Action&#34;, new { acc = 0})"
+                    class="text-decoration-none mb-0 d-flex gap-3 align-items-center text-292D32"
+                  >
+                    <div
+                      class="d-flex align-items-center justify-content-center w-20"
+                    >
+                      <img
+                        src="images/png/icons/security-safe-black.svg"
+                        alt="security"
+                        width="20px"
+                      />
+                    </div>
+                    Change Password
+                  </a>
+                  <hr class="dropdown-divider m-0" />
+                  <a
+                    href="@Url.Action(&#34;Controller&#34;, &#34;Action&#34;, new { acc = 0})"
+                    class="text-decoration-none mb-0 d-flex gap-3 align-items-center text-red"
+                  >
+                    <div
+                      class="d-flex align-items-center justify-content-center w-20"
+                    >
+                      <img
+                        src="images/png/icons/logout-red.svg"
+                        alt="logout"
+                        width="20px"
+                      />
+                    </div>
+                    Logout
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Right side Links with User Account Profile Dropdown -->
+    </header>
+    <!-- Header / Navigation -->
+    <main>
+      <!-- First section of Back button and Breadcrumb -->
+      <section class="p-4">
+        <div class="screenFrame">
+          <!-- Back Navigation button and BreadCrumbs -->
+          <div class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full">
+            <a
+              href="payslip.html"
+              title="Back to Payslip"
+              class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+              ><img
+                src="images/png/icons/angle-left.svg"
+                alt="angle-left-back"
+              /><span class="fs-16 fw-bold font-avenir-bold">Back</span></a
+            ><!-- Actual Breadcrumb here --><link
+              rel="preload"
+              as="image"
+              href="images/png/icons/angle-right.svg"
+            />
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+              <a
+                href="index.html"
+                class="fs-14 text-decoration-none text-primary-dark"
+                >Dashboard</a
+              ><img
+                src="images/png/icons/angle-right.svg"
+                alt="angle-right-back"
+              /><a
+                href="send-and-sign-offer.html"
+                class="fs-14 text-decoration-none text-primary-dark"
+                >Send &amp; Sign Offer – NG</a
+              ><img
+                src="images/png/icons/angle-right.svg"
+                alt="angle-right-back"
+              /><span class="fs-16 fw-bold text-primary-blue"
+                >Create Offer Letter</span
+              >
+            </div>
+            <!-- Actual Breadcrumb here -->
+          </div>
+          <!-- Back Navigation button and BreadCrumbs -->
+        </div>
+      </section>
+      <!-- First section of Back button and Breadcrumb --><!-- First section of Back button and Breadcrumb -->
+      <section class="px-4" id="create_payslip">
+        <div class="screenFrame">
+          <div class="rounded-4 shadow p-4 pt-5 vstack gap-5 px-5">
+            <form
+              method="POST"
+              id="creat_payslip_form"
+              class="create_payslip_form"
+            >
+              <div class="pe-lg-5 pe-0">
+                <!-- Tab Panel -->
+                <ul
+                  class="nav gap-4 flex-column sticky-lg-top bg-white text-nowrap"
+                  style="top: 110px"
+                  id="myTab"
+                  role="tablist"
+                >
+                  <li
+                    class="tab_link d-flex gap-3 align-items-center tab_indicator active"
+                    role="presentation"
+                  >
+                    <div class="flex-shrink-0">
+                      <div class="center_spot"></div>
+                    </div>
+                    <span
+                      class="fs-14 fw-600 tab_text active"
+                      id="employee_company_details"
+                      data-bs-toggle="tab"
+                      data-bs-target="#employee_company_details_panel"
+                      role="tab"
+                      aria-controls="employee_company_details_panel"
+                      aria-selected="true"
+                      >Upload Offer Letter Template</span
+                    >
+                  </li>
+                  <li
+                    class="tab_link d-flex gap-3 align-items-center tab_indicator"
+                    role="presentation"
+                  >
+                    <div class="flex-shrink-0">
+                      <div class="center_spot"></div>
+                    </div>
+                    <span
+                      class="fs-14 fw-600 tab_text"
+                      id="salary_pay"
+                      data-bs-toggle="tab"
+                      data-bs-target="#salary_pay_panel"
+                      role="tab"
+                      aria-controls="salary_pay_panel"
+                      aria-selected="false"
+                      >Load & Review Offer Breakdown</span
+                    >
+                  </li>
+                  <li
+                    class="tab_link d-flex gap-3 align-items-center tab_indicator"
+                    role="presentation"
+                  >
+                    <div class="flex-shrink-0">
+                      <div class="center_spot"></div>
+                    </div>
+                    <span
+                      class="fs-14 fw-600 tab_text"
+                      id="deductions"
+                      data-bs-toggle="tab"
+                      data-bs-target="#deductions_panel"
+                      role="tab"
+                      aria-controls="deductions_panel"
+                      aria-selected="false"
+                      >Complete Offer Letter Fields</span
+                    >
+                  </li>
+                  <li
+                    class="tab_link d-flex gap-3 align-items-center tab_indicator"
+                    role="presentation"
+                  >
+                    <div class="flex-shrink-0">
+                      <div class="center_spot"></div>
+                    </div>
+                    <span
+                      class="fs-14 fw-600 tab_text"
+                      id="final_monthly"
+                      data-bs-toggle="tab"
+                      data-bs-target="#final_monthly_panel"
+                      role="tab"
+                      aria-controls="final_monthly_panel"
+                      aria-selected="false"
+                      >Create & Preview Offer Letter</span
+                    >
+                  </li>
+                  <li
+                    class="tab_link d-flex gap-3 align-items-center tab_indicator"
+                    role="presentation"
+                  >
+                    <div class="flex-shrink-0">
+                      <div class="center_spot"></div>
+                    </div>
+                    <span
+                      class="fs-14 fw-600 tab_text"
+                      id="year_to_date"
+                      data-bs-toggle="tab"
+                      data-bs-target="#year_to_date_panel"
+                      role="tab"
+                      aria-controls="year_to_date_panel"
+                      aria-selected="false"
+                      >Send Offer Letter</span
+                    >
+                  </li>
+                </ul>
+                <!-- Tab Panel -->
+              </div>
+              <!-- Tab content here -->
+              <div class="flex-grow-1 border-start ps-md-5 ps-0 tab-content">
+                <!-- Employee Details -->
+                <div
+                  class="tab-pane fade active show"
+                  id="employee_company_details_panel"
+                  role="tabpanel"
+                  aria-labelledby="employee_company_details_panel"
+                  tabindex="0"
+                >
+                  <div class="vstack" style="gap: 2.3rem">
+                    <form
+                      class="vstack gap-2 generate_payslip_form"
+                      id="generate_payslip_form"
+                    >
+                      <div class="fs-14 fw-600">
+                        Download the
+                        <a
+                          style="color: #2271b6"
+                          class="text-decoration-none"
+                          href="/offer_letter_template.xls"
+                          download
+                          >template here</a
+                        >
+                        and upload the prepared file
+                      </div>
+                      <div
+                        class="upload_bucket_panel p-3 d-flex flex-column align-items-center justify-content-center"
+                      >
+                        <img
+                          src="images/png/icons/cloud_upload.svg"
+                          width="35px"
+                          height="35px"
+                          alt="cloud upload icon"
+                        />
+                        <div class="fs-14 fw-700" style="color: #6b7280">
+                          Click to upload
+                          <span class="fw-400">or drag and drop</span>
+                        </div>
+                        <div class="fs-12 fw-700" style="color: #6b7280">
+                          PDF or DOCX (Max File Size: 2MB)
+                        </div>
+                        <button
+                          type="button"
+                          id="fileInputBtn"
+                          class="delon-primary-btn d-flex gap-2 bg-primary-blue border-0 text-white fs-14"
+                        >
+                          <img
+                            src="images/png/icons/search.svg"
+                            alt="arrow-down"
+                          /><span>Browse Files</span>
+                        </button>
+                        <div
+                          id="fileInputDetails"
+                          class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 mt-2 rounded-3 fs-14 d-flex gap-1 align-items-center"
+                          role="button"
+                        >
+                          <span class="flex-fill text-truncate"
+                            >gvfyguytctrcjrct.webp</span
+                          ><span class="flex-fill"
+                            ><img
+                              src="images/png/icons/close-circle-6.svg"
+                              width="15"
+                              height="15"
+                              alt="close_icon"
+                          /></span>
+                        </div>
+                        <input type="file" class="d-none" id="fileInput" />
+                      </div>
+                    </form>
+                    <div class="d-flex justify-content-end upload_offer">
+                      <button
+                        type="button"
+                        id="salary_pay_next"
+                        data-tab-target="#salary_pay"
+                        role="tab"
+                        aria-controls="salary_pay_panel"
+                        aria-selected="false"
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                      >
+                        <span>Next</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Upload Offer --><!-- Load & Review Offer Breakdown Components -->
+                <div
+                  class="tab-pane fade"
+                  id="salary_pay_panel"
+                  role="tabpanel"
+                  aria-labelledby="salary_pay_panel"
+                  tabindex="0"
+                >
+                  <div class="vstack" style="gap: 2.3rem">
+                    <div class="form-floating offer_breakdown_width">
+                      <select
+                        id="employment_type"
+                        name="employment_type"
+                        class="form-select_custom fs-14"
+                        required
+                      >
+                        <option value="" selected>Select</option>
+                        <option value="1">E1001</option>
+                        <option value="2">E1002</option>
+                        <option value="3">E1003</option></select
+                      ><label for="employment_type"
+                        >Employment ID &nbsp;<span>*</span></label
+                      >
+                    </div>
+                    <div
+                      class="d-flex flex-column gap-5 border d-none"
+                      id="view_employee_details"
+                    >
+                      <div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Employee ID
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            E1001
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Offer Letter Date
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Last Name
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Pay Grade
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Designation
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Employment Type
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Address
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Country of Work
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            State
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            City
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Postcode
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Branch Location
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Working Hours Per Week
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Resumption Date
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Work Days
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Annual Leave
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Manager Name
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Annual Fixed Salary
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Annual Gross Salary
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            E1001
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Offer Letter Date
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Last Name
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Pay Grade
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Designation
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Employment Type
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Address
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Country of Work
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            State
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            City
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Postcode
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Basic Salary
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            E1001
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Offer Letter Date
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Last Name
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Pay Grade
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Designation
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Employment Type
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Address
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                        <div class="d-flex">
+                          <div
+                            class="bg-primary-blue border border-top-0 text-white py-2 px-3 offer_breakdown_width"
+                          >
+                            Country of Work
+                          </div>
+                          <div
+                            class="text-dark border border-top-0 py-2 px-3 offer_breakdown_width"
+                          >
+                            Lorem Ipsum
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end gap-4 mt-5">
+                    <button
+                      type="button"
+                      id="employee_company_details_next"
+                      data-tab-target="#employee_company_details"
+                      role="tab"
+                      aria-controls="employee_company_details_panel"
+                      aria-selected="false"
+                      class="white_button next_tab_btn"
+                    >
+                      <span>Back</span></button
+                    ><button
+                      type="button"
+                      id="deductions_next"
+                      data-tab-target="#deductions"
+                      role="tab"
+                      aria-controls="deductions_panel"
+                      aria-selected="false"
+                      class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                    >
+                      <span>Next</span>
+                    </button>
+                  </div>
+                </div>
+                <!-- Load & Review Offer Breakdown Components --><!-- Complete Offer Letter Panel -->
+                <div
+                  class="tab-pane fade"
+                  id="deductions_panel"
+                  role="tabpanel"
+                  aria-labelledby="deductions_panel"
+                  tabindex="0"
+                >
+                  <div class="vstack" style="gap: 2.3rem">
+                    <div class="form-floating">
+                      <select
+                        id="employment_type"
+                        name="employment_type"
+                        class="form-select_custom fs-14"
+                        required
+                      >
+                        <option
+                          value=""
+                          selected
+                          style="color: rgb(200, 200, 200)"
+                        >
+                          Select
+                        </option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option></select
+                      ><label for="employment_type"
+                        >Is Employee Full-Time? &nbsp;<span>*</span></label
+                      >
+                    </div>
+                    <div class="form-floating">
+                      <select
+                        id="contract_type"
+                        name="contract_type"
+                        class="form-select_custom fs-14"
+                        required
+                      >
+                        <option
+                          value=""
+                          selected
+                          style="color: rgb(200, 200, 200)"
+                        >
+                          Select
+                        </option>
+                        <option value="3">3 Months</option>
+                        <option value="6">6 Months</option></select
+                      ><label for="employment_type"
+                        >Contract Duration &nbsp;<span>*</span></label
+                      >
+                    </div>
+                    <div class="form-floating">
+                      <select
+                        id="probation_period"
+                        name="probation_period"
+                        class="form-select_custom fs-14"
+                        required
+                      >
+                        <option
+                          value=""
+                          selected
+                          style="color: rgb(200, 200, 200)"
+                        >
+                          Select
+                        </option>
+                        <option value="1">1 Months</option>
+                        <option value="2">2 Months</option></select
+                      ><label for="employment_type"
+                        >Probation Period &nbsp;<span>*</span></label
+                      >
+                    </div>
+                    <div class="form-floating">
+                      <select
+                        id="hr_name"
+                        name="hr_name"
+                        class="form-select_custom fs-14"
+                        required
+                      >
+                        <option
+                          value=""
+                          selected
+                          style="color: rgb(200, 200, 200)"
+                        >
+                          Select
+                        </option>
+                        <option value="warren">Warren</option>
+                        <option value="wade">Wade</option></select
+                      ><label for="employment_type"
+                        >HR Name &nbsp;<span>*</span></label
+                      >
+                    </div>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="hr_designation"
+                        name="hr_designation"
+                        class="form-input"
+                        placeholder=""
+                      /><label for="fullname"
+                        >HR Designation &nbsp;<span>*</span></label
+                      >
+                    </div>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="hr_number"
+                        name="hr_number"
+                        class="form-input"
+                        placeholder=" "
+                      /><label for="fullname"
+                        >HR Phone Number &nbsp;<span>*</span></label
+                      >
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end gap-4 mt-5">
+                    <button
+                      type="button"
+                      id="salary_pay_back"
+                      data-tab-target="#salary_pay"
+                      role="tab"
+                      aria-controls="salary_pay_panel"
+                      aria-selected="false"
+                      class="white_button next_tab_btn"
+                    >
+                      <span>Back</span></button
+                    ><button
+                      type="button"
+                      id="final_monthly_next"
+                      data-tab-target="#final_monthly"
+                      role="tab"
+                      aria-controls="final_monthly_panel"
+                      aria-selected="false"
+                      class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                    >
+                      <span>Next</span>
+                    </button>
+                  </div>
+                </div>
+                <!-- Complete Offer Letter Panel --><!-- Create & Preview Offer Letter Panel -->
+                <div
+                  class="tab-pane fade"
+                  id="final_monthly_panel"
+                  role="tabpanel"
+                  aria-labelledby="final_monthly_panel"
+                  tabindex="0"
+                >
+                  <div
+                    class="d-flex align-items-center justify-content-between gap-4 mb-5"
+                  >
+                    <div class="fs-18 fw-700 text-primary-blue">
+                      Preview Offer Letter
+                    </div>
+                    <div class="d-flex justify-content-end">
+                      <button
+                        type="button"
+                        id="deductions_back"
+                        data-tab-target="#deductions"
+                        role="tab"
+                        aria-controls="deductions_panel"
+                        aria-selected="false"
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                      >
+                        <span>Go Back to Offer Breakdown</span>
+                      </button>
+                    </div>
+                  </div>
+                  <!---- Preview --->
+                  <div className="d-flex justify-content-center">
+                    <img
+                      class="preview-img"
+                      src="images/png/icons/download-view.svg"
+                      alt="download view"
+                    />
+                  </div>
+                  <div class="d-flex justify-content-end gap-4 mt-5">
+                    <button
+                      type="button"
+                      id="deductions_back"
+                      data-tab-target="#deductions"
+                      role="tab"
+                      aria-controls="deductions_panel"
+                      aria-selected="false"
+                      class="white_button next_tab_btn"
+                    >
+                      <span>Back</span></button
+                    ><button
+                      type="button"
+                      id="year_to_date_next"
+                      data-tab-target="#year_to_date"
+                      role="tab"
+                      aria-controls="year_to_date_panel"
+                      aria-selected="false"
+                      class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                    >
+                      <span>Next</span>
+                    </button>
+                  </div>
+                </div>
+                <!-- Create & Preview Offer Letter Panel --><!-- Send Offer Letter -->
+                <div
+                  class="tab-pane fade"
+                  id="year_to_date_panel"
+                  role="tabpanel"
+                  aria-labelledby="year_to_date_panel"
+                  tabindex="0"
+                >
+                  <div
+                    class="d-flex align-items-center justify-content-between gap-4 mb-5"
+                  >
+                    <div class="fs-18 fw-700 text-primary-blue">
+                      Send Offer Letter
+                    </div>
+                    <div class="d-flex gap-3 justify-content-end">
+                      <button
+                        type="button"
+                        id="year_to_date_back"
+                        data-tab-target="#final_monthly"
+                        role="tab"
+                        aria-controls="final_monthly_panel"
+                        aria-selected="false"
+                        class="fw-bold fs-14 next_tab_btn"
+                        style="
+                          background: white;
+                          color: #2271b6 !important;
+                          border: 1.5px solid #2271b6 !important;
+                          padding: 10px 20px;
+                          border-radius: 10px;
+                        "
+                      >
+                        <span>Back</span></button
+                      ><button
+                        type="button"
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                      >
+                        <span>Send Offer Letter</span>
+                      </button>
+                    </div>
+                  </div>
+                  <!----- preview --->
+                  <div className="d-flex justify-content-center">
+                    <img
+                      class="preview-img"
+                      src="images/png/icons/download-view.svg"
+                      alt="download view"
+                    />
+                  </div>
+                </div>
+                <!-- Send Offer Letter -->
+              </div>
+              <!-- Tab content here -->
+            </form>
+          </div>
+        </div>
+      </section>
+      <link
+        rel="preload"
+        as="image"
+        href="images/png/icons/colored/receipt-minus-colored.svg"
+      /><link
+        rel="preload"
+        as="image"
+        href="images/png/icons/arrow-down.svg"
+      /><link
+        rel="preload"
+        as="image"
+        href="images/png/icons/printer.svg"
+      /><link
+        rel="preload"
+        as="image"
+        href="images/png/icons/hard-drive-download.svg"
+      /><link rel="preload" as="image" href="images/png/icons/at-sign.svg" />
+      <section class="px-4 d-none" id="view_employee_payslip">
+        <div class="screenFrame">
+          <div class="d-flex flex-column justify-content-between">
+            <div
+              class="rounded-4 shadow p-4 d-flex flex-column gap-5 px-md-5 px-3"
+              style="flex-basis: auto"
+            >
+              <div class="vstack gap-3">
+                <div class="d-flex gap-3 align-items-center">
+                  <img
+                    src="images/png/icons/colored/receipt-minus-colored.svg"
+                    alt="receipt-minus-icon"
+                    width="30px"
+                    height="30px"
+                  /><span
+                    class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
+                    >View Payslip</span
+                  >
+                </div>
+              </div>
+              <div class="vstack gap-4">
+                <form
+                  class="d-flex gap-lg-4 gap-2"
+                  style="width: 500px; max-width: 100%"
+                  id="generate_view_payslip_form"
+                >
+                  <div
+                    class="form-section position-relative flex-fill flex-shrink"
+                  >
+                    <label class="fs-14 fw-600">Select Date</label
+                    ><input
+                      class="form-control w-100 w-md-auto flex-fill py-2"
+                      type="date"
+                      placeholder="Date input"
+                      aria-label="date input"
+                      style="border-radius: 10px"
+                    />
+                  </div>
+                  <div>
+                    <button
+                      type="submit"
+                      class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
+                    >
+                      <span>Generate</span>
+                    </button>
+                  </div>
+                </form>
+                <div
+                  class="d-flex align-items-center justify-content-end gap-4"
+                >
+                  <button
+                    id="back_to_list_of_payslips"
+                    class="delon-primary-btn bg-white text-primary-blue border-primary-blue text-decoration-none text-white fw-bold fs-14"
+                  >
+                    Back
+                  </button>
+                  <div class="dropdown">
+                    <button
+                      class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      data-bs-offset="-53,10"
+                    >
+                      <span>Actions</span
+                      ><img
+                        src="images/png/icons/arrow-down.svg"
+                        alt="arrow-down"
+                      />
+                    </button>
+                    <div class="dropdown-menu p-0 border-0" style="width: auto">
+                      <ul class="list-group border-0 fw-600 fs-14 text-nowrap">
+                        <li class="list-group-item">
+                          <div
+                            role="button"
+                            class="d-flex align-items-center gap-2"
+                          >
+                            <img
+                              src="images/png/icons/printer.svg"
+                              alt="printer"
+                            /><span>Print Payslip</span>
+                          </div>
+                        </li>
+                        <li class="list-group-item">
+                          <div
+                            role="button"
+                            class="d-flex align-items-center gap-2"
+                          >
+                            <img
+                              src="images/png/icons/hard-drive-download.svg"
+                              alt="hard-drive-download"
+                            /><span>Download Payslip</span>
+                          </div>
+                        </li>
+                        <li class="list-group-item">
+                          <div
+                            role="button"
+                            class="d-flex align-items-center gap-2"
+                          >
+                            <img
+                              src="images/png/icons/at-sign.svg"
+                              alt="at-sign"
+                            /><span>Email Payslip</span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-responsive w-full">
+                  <table
+                    class="table table-bordered payslip_table"
+                    style="table-layout: auto; min-width: 100%"
+                  >
+                    <tbody>
+                      <tr>
+                        <td
+                          colspan="2"
+                          class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
+                        >
+                          Payslip
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          style="border: 0"
+                          colspan="2"
+                          class="bg-white px-4 px-12px fw-bold fs-14"
+                        >
+                           
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          style="border: 0"
+                          class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                        >
+                          Employee Details
+                        </td>
+                        <td
+                          style="border: 0"
+                          class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                        >
+                          Company Details
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                          style="width: 50%"
+                        >
+                          Employee ID: N1UHUHNOPfdghr rget dstt yrtry rtyr yrt
+                          ytryry tyerge trte r
+                        </td>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                          style="width: 50%"
+                        >
+                          Company Name: DELON APP LL.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                          style="width: 50%"
+                        >
+                          First Name: JOSEPH Olawale Bamidele
+                        </td>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                          style="width: 50%"
+                        >
+                          Company Address: House 15, Idi Orogbo
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                          style="width: 50%"
+                        >
+                          Address: House 15, Idi Orogbo
+                        </td>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                          style="width: 50%"
+                        >
+                          Company Phone number: +2347039173237
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          City:
+                        </td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Company Email: jolawale28@gmail.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                          style="border: none"
+                        >
+                          State:
+                        </td>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                          style="border: none"
+                        >
+                           
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          style="border: none"
+                          colspan="2"
+                          class="bg-white px-4 px-12px fw-bold fs-14"
+                        >
+                           
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          style="border: none"
+                          class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14"
+                        >
+                          Description
+                        </td>
+                        <td
+                          style="border: none"
+                          class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14"
+                        >
+                          Deductions
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Monthly Fixed Salary<!-- -->:
+                        </td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Tax<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Monthly Fixed Salary<!-- -->:
+                        </td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Health Insurance<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Monthly Fixed Salary<!-- -->:
+                        </td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Life Insurance<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Monthly Fixed Salary<!-- -->:
+                        </td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Temporary Disability Insurance<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Monthly Fixed Salary<!-- -->:
+                        </td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Permanent Disability Insurance<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Pension Staff Contribution<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Pension Employer Contribution<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          NSITF<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          NHF<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Loan or Other Deductions:<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Total Deductions:<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Deductions To Date:<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Tax Year to Date:<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Health Insurance To Date:<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Life Insurance To Date:<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Temporary Disability Insurance To Date:<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Permanent Disability Insurance To Date:<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Pension Staff Contribution To Date:<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Pension Employer Contribution To Date<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          NSITF To Date:<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          NHF To Date:<!-- -->:
+                        </td>
+                      </tr>
+                      <tr>
+                        <td
+                          colspan="2"
+                          class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
+                        >
+                          Variable Expenses
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Variable Admin Expense<!-- -->:
+                        </td>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                      </tr>
+                      <tr>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Variable Operational Expense<!-- -->:
+                        </td>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                      </tr>
+                      <tr>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Bonus or Commission<!-- -->:
+                        </td>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                      </tr>
+                      <tr>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Monthly Variable Expense<!-- -->:
+                        </td>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                      </tr>
+                      <tr>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          Expense Pay Date<!-- -->:
+                        </td>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                        ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div
+        class="position-fixed top-0 start-50 translate-middle-x p-3"
+        style="z-index: 11"
+      >
+        <div
+          id="payslipGenerateToast"
+          class="toast"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="toast-header">
+            <strong class="me-auto">Payslip Generate</strong
+            ><small>just now</small
+            ><button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="toast-body">Employee data refreshed for Payslip!</div>
+        </div>
+      </div>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        $(".tab_indicator").click((evt) => {
+          const clickedTab = evt.currentTarget;
+          $(".tab_indicator").removeClass("active");
+          $(".tab_indicator").prop("aria-selected", "false");
+          $(clickedTab).addClass("active");
+          $(clickedTab).prop("aria-selected", "true");
+        });
 
-      $("#creat_payslip_form").submit((evt) => {
-        evt.preventDefault();
+        $("#creat_payslip_form").submit((evt) => {
+          evt.preventDefault();
 
-        alert("Create payslip!!!");
-      });
+          alert("Create payslip!!!");
+        });
 
-      $(".next_tab_btn").click((evt) => {
-        const clickedBtn = evt.currentTarget;
-        const targetTab = $(clickedBtn).attr("data-tab-target");
+        $(".next_tab_btn").click((evt) => {
+          const clickedBtn = evt.currentTarget;
+          const targetTab = $(clickedBtn).attr("data-tab-target");
 
-        $(targetTab).click();
-      });
+          $(targetTab).click();
+        });
 
-      $(".switchForDeductionsFields").click(function (evt) {
-        const selectState = $(evt.target).prop("checked");
-        console.log(
-          $(
-            $($($($(evt.target).parent()).parent()[0]).siblings()[0]).children(
-              "input",
-            )[0],
-          ).prop("disabled", !selectState),
-        );
-      });
+        $(".switchForDeductionsFields").click(function (evt) {
+          const selectState = $(evt.target).prop("checked");
+          console.log(
+            $(
+              $(
+                $($($(evt.target).parent()).parent()[0]).siblings()[0],
+              ).children("input")[0],
+            ).prop("disabled", !selectState),
+          );
+        });
 
-      $("#fileInputBtn").click((evt) => {
-        $("#fileInput").click();
-      });
+        $("#fileInputBtn").click((evt) => {
+          $("#fileInput").click();
+        });
 
-      document
-        .getElementById("fileInput")
-        .addEventListener("change", function () {
-          if (fileInput.files.length > 0) {
-            const fileName = fileInput.files[0].name;
-            $("#fileInputDetails span:first-child").text(fileName);
-            $("#fileInputDetails").removeClass("d-none");
-            $("#fileInputBtn").addClass("d-none");
-            console.log("Selected file name:", fileName);
+        document
+          .getElementById("fileInput")
+          .addEventListener("change", function () {
+            if (fileInput.files.length > 0) {
+              const fileName = fileInput.files[0].name;
+              $("#fileInputDetails span:first-child").text(fileName);
+              $("#fileInputDetails").removeClass("d-none");
+              $("#fileInputBtn").addClass("d-none");
+              console.log("Selected file name:", fileName);
+            }
+          });
+        $("#fileInputDetails span:nth-child(2)").click(() => {
+          $("#fileInput").val("");
+          $("#fileInputDetails span:first-child").text("");
+          $("#fileInputDetails").addClass("d-none");
+          $("#fileInputBtn").removeClass("d-none");
+        });
+
+        $("#viewPayslpBtn").click((evt) => {
+          $("#view_employee_payslip").removeClass("d-none");
+          $("#create_payslip").addClass("d-none");
+        });
+
+        $("#employment_type").on("change", function () {
+          const selectedValue = $(this).val();
+          if (selectedValue) {
+            $("#view_employee_details").removeClass("d-none");
           }
         });
-      $("#fileInputDetails span:nth-child(2)").click(() => {
-        $("#fileInput").val("");
-        $("#fileInputDetails span:first-child").text("");
-        $("#fileInputDetails").addClass("d-none");
-        $("#fileInputBtn").removeClass("d-none");
       });
-
-      $("#viewPayslpBtn").click((evt) => {
-        $("#view_employee_payslip").removeClass("d-none");
-        $("#create_payslip").addClass("d-none");
+    </script>
+    <!-- Footer content starts here -->
+    <footer class="d-flex justify-content-center fs-14 fw-600 p-5">
+      <div>Copyright &copy; 2025, HRPayHub LLC.</div>
+    </footer>
+    <!-- Footer content ends here -->
+    <script defer src="libs/jquery/jquery-3.7.1.min.js"></script>
+    <script src="libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Tooltip Trigger for whole page -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tooltipTriggerList = [].slice.call(
+          document.querySelectorAll('[data-bs-toggle="tooltip"]'),
+        );
+        tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+          new bootstrap.Tooltip(tooltipTriggerEl);
+        });
       });
-
-      $("#employment_type").on("change", function () {
-        const selectedValue = $(this).val();
-        if (selectedValue) {
-          $("#view_employee_details").removeClass("d-none");
-        }
-      });
-    });
-  </script> <!-- Footer content starts here --> <footer class="d-flex justify-content-center fs-14 fw-600 p-5"> <div>Copyright &copy; 2025, HRPayHub LLC.</div> </footer> <!-- Footer content ends here --> <script defer src="libs/jquery/jquery-3.7.1.min.js"></script> <script src="libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script> <!-- Tooltip Trigger for whole page --> <script>
-			document.addEventListener("DOMContentLoaded", function () {
-				const tooltipTriggerList = [].slice.call(
-					document.querySelectorAll('[data-bs-toggle="tooltip"]'),
-				);
-				tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-					new bootstrap.Tooltip(tooltipTriggerEl);
-				});
-			});
-		</script> <!-- Tooltip Trigger for whole page --> </body></html>
+    </script>
+    <!-- Tooltip Trigger for whole page -->
+  </body>
+</html>
