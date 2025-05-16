@@ -636,3 +636,27 @@ body {
 .tooltip-left-align .tooltip-inner {
   text-align: left;
 }
+
+/* calculate taxes input field */
+
+.expense_input {
+  width: 344px;
+}
+
+.upload_bucket_expense {
+  width: 344px;
+  height: 170px;
+  border-radius: 10px;
+  gap: 10px;
+  border: 2px dashed #c1c1c1;
+}
+
+@media (max-width: 769px) {
+  .expense_input {
+    width: 100%;
+  }
+  .upload_bucket_expense {
+    width: 100%;
+    padding: 10px;
+  }
+}

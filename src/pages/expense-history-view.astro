@@ -1,0 +1,550 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ViewOfferLetter from "../components/offers/ViewOfferLetter";
+---
+
+<Layout title="HRPayHub :: Manage Offer Letter">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/send-and-sign-offer-ng"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a href="" class="fs-14 text-decoration-none text-primary-dark"
+              >Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-14 text-primary-dark">Send & Sign Offer - NG</span>
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Manage Offer Letter</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-4">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+          id="manage_list_of_payslip"
+        >
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div class="d-flex gap-3 align-items-center">
+              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                >Manage Offer Letter</span
+              >
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+
+          <div>
+            <div class="d-flex flex-row justify-content-between gap-5">
+              <!---- Search  -->
+              <div class="d-flex gap-3">
+                <input
+                  type="text"
+                  class="form-control search-input search-width fs-14"
+                  placeholder="Search..."
+                />
+                <img
+                  src="images/png/icons/initialize.svg"
+                  class="initialize"
+                  alt="arrow-down"
+                />
+              </div>
+
+              <!-- Others -->
+              <div class="responsive gap-1">
+                <!-- Filter Dropdown -->
+
+                <style>
+                  .dropdown-submenu {
+                    position: relative;
+                  }
+
+                  /* Accordion style: drop below, not to the right */
+                  .dropdown-submenu > .dropdown-menu {
+                    position: static;
+                    float: none;
+                    margin-top: 0.5rem;
+                    padding-left: 1rem;
+                    display: none;
+                  }
+
+                  .dropdown-submenu > .dropdown-menu.show {
+                    display: block;
+                  }
+
+                  /* a small caret indicator */
+                  .dropdown-submenu > a::after {
+                    content: " ";
+                    float: right;
+                  }
+                </style>
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-white border-0 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2 fs-14"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/filter.svg" alt="arrow-down" />
+                    <span>Filter</span>
+                  </button>
+                  <ul class="dropdown-menu" style="min-width:250px">
+                    <li
+                      class="d-flex flex-row justify-content-between px-3 py-2 border-bottom fs-14"
+                    >
+                      <span class="fw-bold">Filter</span>
+                      <span class="fw-bold text-primary-blue">Reset Filter</span
+                      >
+                    </li>
+                    <!-- Designation Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Designation</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 1"
+                            /> Category 1
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 2"
+                            /> Category 2
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 2"
+                            /> Category 2
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- Employment Status Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Employment Status</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="employed"
+                            /> Employed
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="unemployed"
+                            /> Unemployed
+                          </label>
+                        </li>
+
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="contract"
+                            /> Contract
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- Country of Work Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Country of Work</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="usa"
+                            /> USA
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="uk"
+                            /> UK
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="Nigeria"
+                            /> Nigeria
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- apply filter button -->
+                    <li
+                      class="d-flex flex-row justify-content-end px-3 py-2 mt-2"
+                    >
+                      <button
+                        type="submit"
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fs-14"
+                      >
+                        <span>Apply Filter</span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Sort Dropdown -->
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-white border-0 fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/sort.svg" alt="arrow-down" />
+                    <span>Sort</span>
+                  </button>
+                  <div
+                    class="dropdown-menu p-0 border-0"
+                    style="min-width:200px"
+                  >
+                    <ul class="list-group border-0 fw-600 fs-14">
+                      <li class="list-group-item">
+                        <span class="fw-bold">Sort</span>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Alphabetically
+                        </label>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Date of Resumption
+                        </label>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Date of Confirmation
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!---- End of Others ---->
+            </div>
+          </div>
+
+          {/* Page Content Box */}
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead
+                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+              >
+                <tr>
+                  <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
+                    >S/N</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white fw-600 fs-14 text-center"
+                    style="min-width: 200px;">Employee_ID</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Employee_Name</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Pay_Grade</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Designation</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Branch</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-left"
+                    >Country</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Offer_Letter_Date</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Status</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Annual_Gross_Salary</th
+                  >
+
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Actions</th
+                  >
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 180px;
+                  }
+                </style>
+                {
+                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(
+                    (item, index) => (
+                      <tr class="fs-88">
+                        <td class="text-center fs-14">{index + 1}</td>
+                        <td class="fs-14 text-nowrap text-center column">
+                          TIN239201
+                        </td>
+                        <td class="fs-14 px-3 text-left column">Wade Warren</td>
+                        <td class="fs-14 px-3 text-left column">12</td>
+                        <td class="fs-14 px-3 text-left column">Accountant</td>
+                        <td class="text-left px-3 fs-14 column">Lagos</td>
+                        <td class="fs-14 px-3 text-left column">Country</td>
+                        <td class="fs-14 px-3 text-center column">
+                          April, 2025
+                        </td>
+                        <td class="fs-14 px-3 text-left column">Active</td>
+                        <td class="fs-14 px-3 text-left column">N500,000</td>
+                        <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                          <div class="dropdown">
+                            <button
+                              class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                              type="button"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                              data-bs-offset="-20,10"
+                            >
+                              <span>Action</span>
+                              <img
+                                src="images/png/icons/arrow-down.svg"
+                                alt="arrow-down"
+                              />
+                            </button>
+                            <div class="dropdown-menu p-0 border-0">
+                              <ul class="list-group border-0 fw-600 fs-14">
+                                <li class="list-group-item pointer viewPayslpBtn">
+                                  <div>View Offer Letter</div>
+                                </li>
+
+                                <li class="list-group-item">
+                                  <div>Download Offer</div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    ),
+                  )
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
+          </div>
+
+          <!---- End of table --->
+
+          <!-- Pagination Row -->
+          <div
+            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+          >
+            <!-- Left: Pagination Text -->
+            <div class="fs-14 text-muted">
+              Showing <strong>1–20</strong> of <strong>1000</strong>
+            </div>
+
+            <!-- Right: Go to Page + Pagination -->
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <!-- Go to Page -->
+              <form class="d-flex align-items-center gap-2">
+                <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+                <input
+                  type="number"
+                  min="1"
+                  max="100"
+                  id="gotoPage"
+                  class="form-control form-control-sm"
+                  style="width: 60px;"
+                  placeholder="—"
+                />
+              </form>
+
+              <!-- Page Navigation -->
+
+              <nav>
+                <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                  <li class="page-item">
+                    <a
+                      class="page-link text-primary-blue px-2"
+                      href="#"
+                      aria-label="Previous"
+                    >
+                      &lsaquo;
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">1</a>
+                  </li>
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">2</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">3</a>
+                  </li>
+                  <li class="page-item disabled">
+                    <span class="page-link text-primary-blue">...</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">100</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link hello" href="#" aria-label="Next">
+                      &rsaquo;
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <!---- Pagination ---->
+        </div>
+      </div>
+    </section>
+
+    <ViewOfferLetter />
+  </main>
+</Layout>
+
+<!-- Main content ends here -->
+
+<script is:inline type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    $(".viewPayslpBtn").click((evt) => {
+      $("#view_employee_payslip").removeClass("d-none");
+      $("#manage_list_of_payslip").addClass("d-none");
+    });
+
+    $("#back_to_list_of_payslips").click((evt) => {
+      $("#view_employee_payslip").addClass("d-none");
+      $("#manage_list_of_payslip").removeClass("d-none");
+    });
+  });
+</script>
+<script>
+  document
+    .querySelectorAll(".dropdown-submenu > a")
+    .forEach(function (element) {
+      element.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const submenu = this.nextElementSibling;
+
+        // Close all other submenus
+        document
+          .querySelectorAll(".dropdown-submenu .dropdown-menu")
+          .forEach(function (el) {
+            if (el !== submenu) el.classList.remove("show");
+          });
+
+        submenu.classList.toggle("show");
+      });
+    });
+
+  // Optional: close submenus when clicking outside
+  document.addEventListener("click", function () {
+    document
+      .querySelectorAll(".dropdown-submenu .dropdown-menu")
+      .forEach(function (el) {
+        el.classList.remove("show");
+      });
+  });
+</script>
