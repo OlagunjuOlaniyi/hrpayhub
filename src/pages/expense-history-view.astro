@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import ViewOfferLetter from "../components/offers/ViewOfferLetter";
 ---
 
-<Layout title="HRPayHub :: Manage Offer Letter">
+<Layout title="HRPayHub :: Expense History View">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -29,13 +29,26 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-14 text-primary-dark">Send & Sign Offer - NG</span>
+            <a
+              href="/expense-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Expense Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/expense-approval-request"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Expense Approval Request</a
+            >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >Manage Offer Letter</span
+              >Expense History View</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -56,258 +69,11 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >Manage Offer Letter</span
+                >Expense History View</span
               >
             </div>
           </div>
           {/* Page Title */}
-
-          {/* Page Content Box */}
-
-          <div>
-            <div class="d-flex flex-row justify-content-between gap-5">
-              <!---- Search  -->
-              <div class="d-flex gap-3">
-                <input
-                  type="text"
-                  class="form-control search-input search-width fs-14"
-                  placeholder="Search..."
-                />
-                <img
-                  src="images/png/icons/initialize.svg"
-                  class="initialize"
-                  alt="arrow-down"
-                />
-              </div>
-
-              <!-- Others -->
-              <div class="responsive gap-1">
-                <!-- Filter Dropdown -->
-
-                <style>
-                  .dropdown-submenu {
-                    position: relative;
-                  }
-
-                  /* Accordion style: drop below, not to the right */
-                  .dropdown-submenu > .dropdown-menu {
-                    position: static;
-                    float: none;
-                    margin-top: 0.5rem;
-                    padding-left: 1rem;
-                    display: none;
-                  }
-
-                  .dropdown-submenu > .dropdown-menu.show {
-                    display: block;
-                  }
-
-                  /* a small caret indicator */
-                  .dropdown-submenu > a::after {
-                    content: " ";
-                    float: right;
-                  }
-                </style>
-
-                <div class="dropdown">
-                  <button
-                    class="delon-primary-btn bg-white border-0 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2 fs-14"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    data-bs-offset="-20,10"
-                  >
-                    <img src="images/png/icons/filter.svg" alt="arrow-down" />
-                    <span>Filter</span>
-                  </button>
-                  <ul class="dropdown-menu" style="min-width:250px">
-                    <li
-                      class="d-flex flex-row justify-content-between px-3 py-2 border-bottom fs-14"
-                    >
-                      <span class="fw-bold">Filter</span>
-                      <span class="fw-bold text-primary-blue">Reset Filter</span
-                      >
-                    </li>
-                    <!-- Designation Submenu -->
-                    <li class="dropdown-submenu border-bottom">
-                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
-                        >Designation</a
-                      >
-                      <ul class="dropdown-menu border-0 fs-14">
-                        <li>
-                          <label class="form-check-label">
-                            <input
-                              type="checkbox"
-                              class="form-check-input"
-                              name="category 1"
-                            /> Category 1
-                          </label>
-                        </li>
-                        <li>
-                          <label class="form-check-label">
-                            <input
-                              type="checkbox"
-                              class="form-check-input"
-                              name="category 2"
-                            /> Category 2
-                          </label>
-                        </li>
-                        <li>
-                          <label class="form-check-label">
-                            <input
-                              type="checkbox"
-                              class="form-check-input"
-                              name="category 2"
-                            /> Category 2
-                          </label>
-                        </li>
-                      </ul>
-                    </li>
-
-                    <!-- Employment Status Submenu -->
-                    <li class="dropdown-submenu border-bottom">
-                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
-                        >Employment Status</a
-                      >
-                      <ul class="dropdown-menu border-0 fs-14">
-                        <li>
-                          <label class="form-check-label">
-                            <input
-                              type="checkbox"
-                              class="form-check-input"
-                              name="employed"
-                            /> Employed
-                          </label>
-                        </li>
-                        <li>
-                          <label class="form-check-label">
-                            <input
-                              type="checkbox"
-                              class="form-check-input"
-                              name="unemployed"
-                            /> Unemployed
-                          </label>
-                        </li>
-
-                        <li>
-                          <label class="form-check-label">
-                            <input
-                              type="checkbox"
-                              class="form-check-input"
-                              name="contract"
-                            /> Contract
-                          </label>
-                        </li>
-                      </ul>
-                    </li>
-
-                    <!-- Country of Work Submenu -->
-                    <li class="dropdown-submenu border-bottom">
-                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
-                        >Country of Work</a
-                      >
-                      <ul class="dropdown-menu border-0 fs-14">
-                        <li>
-                          <label class="form-check-label">
-                            <input
-                              type="checkbox"
-                              class="form-check-input"
-                              name="usa"
-                            /> USA
-                          </label>
-                        </li>
-                        <li>
-                          <label class="form-check-label">
-                            <input
-                              type="checkbox"
-                              class="form-check-input"
-                              name="uk"
-                            /> UK
-                          </label>
-                        </li>
-                        <li>
-                          <label class="form-check-label">
-                            <input
-                              type="checkbox"
-                              class="form-check-input"
-                              name="Nigeria"
-                            /> Nigeria
-                          </label>
-                        </li>
-                      </ul>
-                    </li>
-
-                    <!-- apply filter button -->
-                    <li
-                      class="d-flex flex-row justify-content-end px-3 py-2 mt-2"
-                    >
-                      <button
-                        type="submit"
-                        class="delon-primary-btn bg-primary-blue border-0 text-white fs-14"
-                      >
-                        <span>Apply Filter</span>
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-
-                <!-- Sort Dropdown -->
-
-                <div class="dropdown">
-                  <button
-                    class="delon-primary-btn bg-white border-0 fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    data-bs-offset="-20,10"
-                  >
-                    <img src="images/png/icons/sort.svg" alt="arrow-down" />
-                    <span>Sort</span>
-                  </button>
-                  <div
-                    class="dropdown-menu p-0 border-0"
-                    style="min-width:200px"
-                  >
-                    <ul class="list-group border-0 fw-600 fs-14">
-                      <li class="list-group-item">
-                        <span class="fw-bold">Sort</span>
-                      </li>
-                      <li class="list-group-item">
-                        <label class="form-check-label">
-                          <input
-                            type="radio"
-                            class="form-check-input"
-                            name="optradio"
-                          /> Alphabetically
-                        </label>
-                      </li>
-                      <li class="list-group-item">
-                        <label class="form-check-label">
-                          <input
-                            type="radio"
-                            class="form-check-input"
-                            name="optradio"
-                          /> Date of Resumption
-                        </label>
-                      </li>
-                      <li class="list-group-item">
-                        <label class="form-check-label">
-                          <input
-                            type="radio"
-                            class="form-check-input"
-                            name="optradio"
-                          /> Date of Confirmation
-                        </label>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <!---- End of Others ---->
-            </div>
-          </div>
-
-          {/* Page Content Box */}
 
           <!-- Scrollable Table -->
           <div
@@ -325,44 +91,27 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                   >
                   <th
                     class="bg-primary-blue text-white fw-600 fs-14 text-center"
-                    style="min-width: 200px;">Employee_ID</th
+                    style="min-width: 200px;">Date</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Employee_Name</th
+                    >Title</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Pay_Grade</th
+                    >Category</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Designation</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Branch</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-left"
-                    >Country</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Offer_Letter_Date</th
+                    >Amount</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Status</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Annual_Gross_Salary</th
-                  >
-
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Actions</th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-left"
+                    >Action</th
                   >
                 </tr>
               </thead>
@@ -379,18 +128,15 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                       <tr class="fs-88">
                         <td class="text-center fs-14">{index + 1}</td>
                         <td class="fs-14 text-nowrap text-center column">
-                          TIN239201
+                          7th April 2025
                         </td>
-                        <td class="fs-14 px-3 text-left column">Wade Warren</td>
-                        <td class="fs-14 px-3 text-left column">12</td>
-                        <td class="fs-14 px-3 text-left column">Accountant</td>
-                        <td class="text-left px-3 fs-14 column">Lagos</td>
-                        <td class="fs-14 px-3 text-left column">Country</td>
-                        <td class="fs-14 px-3 text-center column">
-                          April, 2025
+                        <td class="fs-14 px-3 text-left column">
+                          Lorem Ipsum Lorem Ipsum
                         </td>
-                        <td class="fs-14 px-3 text-left column">Active</td>
-                        <td class="fs-14 px-3 text-left column">N500,000</td>
+                        <td class="fs-14 px-3 text-left column">Mixed</td>
+                        <td class="fs-14 px-3 text-left column">N124,676</td>
+                        <td class="text-left px-3 fs-14 column">Approved</td>
+
                         <td class="fs-14 px-3 text-center d-flex justify-content-center column">
                           <div class="dropdown">
                             <button

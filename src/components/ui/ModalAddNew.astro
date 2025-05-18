@@ -1,0 +1,46 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "myModal", title = "Add Employee Type" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body py-5 border-0">
+        <div class="form-floating">
+          <input
+            type="text"
+            id="employee_type"
+            name="employee_type"
+            class="form-input"
+            placeholder=""
+          />
+          <label for="employee_type">
+            Employee Status &nbsp;<span>*</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white"
+          data-bs-dismiss="modal"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

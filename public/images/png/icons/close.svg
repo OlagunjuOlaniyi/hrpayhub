@@ -1,0 +1,10 @@
+<div className="d-flex btn-close justify-content-end">
+          <button
+            className="p-0 bg-transparent border-0 pe-auto"
+            type="button"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <CloseCircleIcon />
+          </button>
+        </div>

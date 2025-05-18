@@ -660,3 +660,27 @@ body {
     padding: 10px;
   }
 }
+
+/* employeement management */
+
+.bulk_input {
+  width: 407px;
+}
+
+.upload_bulk {
+  width: 407px;
+  height: 170px;
+  border-radius: 10px;
+  gap: 10px;
+  border: 2px dashed #c1c1c1;
+}
+
+@media (max-width: 769px) {
+  .bulk_input {
+    width: 100%;
+  }
+  .upload_bulk {
+    width: 100%;
+    padding: 10px;
+  }
+}
