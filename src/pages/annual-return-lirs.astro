@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import FormContextIndicator from "../components/ui/TaxFormContextIndicator";
+import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
 ---
 
 <Layout title="HRPayHub :: Annaul Return - LIRS">
@@ -58,12 +60,76 @@ import Layout from "../layouts/Layout.astro";
           <div class="">
             <div class="d-flex flex-row justify-content-between gap-5">
               <!---- Search  -->
-              <div class="">
+              <div class="d-flex gap-3">
                 <input
                   type="text"
                   class="form-control search-input search-width fs-14"
                   placeholder="Search..."
+                  style={{
+                    width: "200px",
+                  }}
                 />
+
+                <!---- amount --->
+
+                <div class="d-flex align-items-center gap-2 m-0 p-0">
+                  <div
+                    class="form-floating"
+                    style={{
+                      width: "120px",
+                    }}
+                  >
+                    <input
+                      type="text"
+                      id="dev_levy"
+                      name="dev_levy"
+                      class="form-input py-2"
+                      placeholder=""
+                    />
+                    <label for="dev_levy">
+                      Dev. Levy &nbsp;<span>*</span>
+                    </label>
+                  </div>
+
+                  <div
+                    class="d-flex flex-row justify-content-between align-items-center gap-1 px-2"
+                    style={{
+                      border: "1px solid #C1C1C1",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    <div
+                      role="button"
+                      class="d-flex form-check form-switch switchForDeductionsFields"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="amount"
+                        defaultChecked
+                        data-bs-html="true"
+                        data-bs-placement="top"
+                        data-bs-toggle="tooltip"
+                        data-bs-custom-class="tooltip-left-align"
+                        title="<div><div><div><strong>Turn On/Off</strong></div><em style = 'font-size: 7px;'>Enable if applicable; Disable if not</em></div></div>"
+                      />
+                    </div>
+
+                    <div style={{ cursor: "pointer" }}>
+                      <img
+                        src="images/png/icons/colored/edit-2.svg"
+                        alt="edit_icon"
+                        data-bs-html="true"
+                        data-bs-placement="top"
+                        data-bs-toggle="tooltip"
+                        data-bs-custom-class="tooltip-left-align"
+                        title="<div><div><div><strong>Restore</strong></div><em style = 'font-size: 7px'>Reset to disable calculation</em></div></div>"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <!-- Others -->

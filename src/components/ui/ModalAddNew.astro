@@ -1,6 +1,10 @@
 ---
 // components/ui/ModalAddNew.astro
-const { modalId = "myModal", title = "Add Employee Type" } = Astro.props;
+const {
+  modalId = "myModal",
+  title = "Add Employee Type",
+  inputPlace = "Designation",
+} = Astro.props;
 import { CloseCircleIcon } from "../Icons";
 ---
 
@@ -16,20 +20,132 @@ import { CloseCircleIcon } from "../Icons";
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body py-5 border-0">
-        <div class="form-floating">
-          <input
-            type="text"
-            id="employee_type"
-            name="employee_type"
-            class="form-input"
-            placeholder=""
-          />
-          <label for="employee_type">
-            Employee Status &nbsp;<span>*</span>
-          </label>
-        </div>
-      </div>
+      {
+        inputPlace === "Pay Grade" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating ">
+              <select
+                id="employment_id"
+                name="employment_id"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">E1001</option>
+                <option value="2">E1002</option>
+                <option value="3">E1003</option>
+              </select>
+              <label for="employment_id">
+                Employment Type &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="grade_band"
+                name="grade_band"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="grade_band">
+                Grade Band &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="pay_grade"
+                name="pay_grade"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="pay_grade">
+                Pay Grade &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="salary_type"
+                name="salary_type"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">E1001</option>
+                <option value="2">E1002</option>
+                <option value="3">E1003</option>
+              </select>
+              <label for="salary_type">
+                Salary Type &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="Hourly Rate"
+                name="Hourly Rate"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="Hourly Rate">
+                Hourly Rate &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="afs"
+                name="afs"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="afs">
+                Annual Fixed Salary &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "Generate Onboarding Link" ? (
+          <div class="modal-body py-5 border-0">
+            <div class="form-floating ">
+              <select
+                id="salary_type"
+                name="salary_type"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">E1001</option>
+                <option value="2">E1002</option>
+                <option value="3">E1003</option>
+              </select>
+              <label for="salary_type">
+                Salary Type &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : (
+          <div class="modal-body py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="employee_type"
+                name="employee_type"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="employee_type">
+                {inputPlace} &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        )
+      }
 
       <!-- Modal footer -->
       <div class="modal-footer border-0">

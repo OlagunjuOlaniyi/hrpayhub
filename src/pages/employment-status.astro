@@ -4,7 +4,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
 import DeleteModal from "../components/ui/DeleteModal.astro";
 ---
 
-<Layout title="HRPayHub :: Employment Type">
+<Layout title="HRPayHub :: Employment Status">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -40,7 +40,9 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue">Employment Type</span>
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Employment Status</span
+            >
           </div>
           <!-- Actual Breadcrumb here -->
         </div>
@@ -53,14 +55,14 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
     <section class="px-lg-4">
       <div class="screenFrame">
         <div
-          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5 employment_status_width"
           id="manage_list_of_payslip"
         >
           {/* Page Title */}
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >Employment Type</span
+                >Employment Status</span
               >
             </div>
           </div>
@@ -86,7 +88,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                   type="button"
                   data-bs-toggle="modal"
                   data-bs-target="#myModal"
-                  data-title="Add Employment Type"
+                  data-title="Add Employment Status"
                 >
                   <span class="me-2">Add New</span> +
                 </button>
@@ -112,19 +114,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                   >
                   <th
                     class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
-                    style="min-width: 200px;">Employment Type</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Created By</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Creation Date</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Creation Time</th
+                    style="min-width: 200px;">Employment Status</th
                   >
 
                   <th
@@ -144,60 +134,30 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                   [
                     {
                       emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
                     },
                     {
                       emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
                     },
                     {
                       emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
                     },
                     {
                       emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
                     },
                     {
                       emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
                     },
                     {
                       emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
                     },
                     {
                       emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
                     },
                   ].map((ele, index) => (
                     <tr class="fs-88">
                       <td class="text-center fs-14">{index + 1}</td>
                       <td class="fs-14 text-nowrap px-3 text-left column">
                         {ele.emp_type}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.created_by}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.creation_date}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.creation_time}
                       </td>
 
                       <td class="fs-14 px-3 text-center d-flex justify-content-center column">
@@ -208,7 +168,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                             type="button"
                             data-bs-toggle="modal"
                             data-bs-target="#myModal"
-                            data-title="Edit Employment Type"
+                            data-title="Edit Employment Status"
                             data-emp-type="{ele.emp_type}"
                           >
                             <img src="images/png/icons/edit-2.svg" alt="" />
@@ -304,10 +264,10 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
         </div>
         <ModalAddNew
           modalId="myModal"
-          title={"Add Employment Type"}
-          inputPlace="Employment Type"
+          title={"Add Employment Status"}
+          inputPlace="Employment Status"
         />
-        <DeleteModal modalId="deleteModal" title="Employment Type" />
+        <DeleteModal modalId="deleteModal" title="Employment Status" />
 
         <!---- end of Modal --->
       </div>
@@ -333,8 +293,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
           }
 
           // Update input field
-          const employeeStatusInput =
-            document.getElementById("employee_type");
+          const employeeStatusInput = document.getElementById("employee_type");
           if (employeeStatusInput) {
             employeeStatusInput.value = empType;
           }

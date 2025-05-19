@@ -4,7 +4,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
 import DeleteModal from "../components/ui/DeleteModal.astro";
 ---
 
-<Layout title="HRPayHub :: Employment Type">
+<Layout title="HRPayHub :: Onboarding Links">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -40,7 +40,18 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue">Employment Type</span>
+            <a
+              href="/add-employee"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Add Employee</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Onboarding Links</span
+            >
           </div>
           <!-- Actual Breadcrumb here -->
         </div>
@@ -60,7 +71,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >Employment Type</span
+                >Add Employee</span
               >
             </div>
           </div>
@@ -71,24 +82,46 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
               class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
             >
               <!---- Search  -->
-              <div class="">
+              <div class="d-flex gap-3">
                 <input
                   type="text"
                   class="form-control search-input search-width fs-14"
                   placeholder="Search..."
                 />
+                <img
+                  src="images/png/icons/initialize.svg"
+                  class="initialize"
+                  alt="arrow-down"
+                />
               </div>
 
               <!-- Others -->
               <div class="d-flex justify-content-end">
+                <!------ Filters  ----->
                 <button
-                  class="btn bg-primary-blue text-white"
+                  class="delon-primary-btn bg-white border-0 d-flex align-items-center gap-2 fs-14"
+                  type="button"
+                >
+                  <img src="images/png/icons/filter.svg" alt="arrow-down" />
+                  <span>Filter</span>
+                </button>
+
+                <!------ sorts  ----->
+                <button
+                  class="delon-primary-btn bg-white border-0 fw-600 fs-14 d-flex align-items-center gap-2"
+                  type="button"
+                >
+                  <img src="images/png/icons/sort.svg" alt="arrow-down" />
+                  <span>Sort</span>
+                </button>
+                <button
+                  class="btn bg-primary-blue text-white fs-14"
                   type="button"
                   data-bs-toggle="modal"
                   data-bs-target="#myModal"
-                  data-title="Add Employment Type"
+                  data-title="Generate Onboarding Link"
                 >
-                  <span class="me-2">Add New</span> +
+                  <span class="me-2">Generate Onboarding Link</span> +
                 </button>
               </div>
 
@@ -112,19 +145,27 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                   >
                   <th
                     class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
-                    style="min-width: 200px;">Employment Type</th
+                    style="min-width: 200px;">Employee Name</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Employee ID</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Created By</th
+                    >Link Status</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Creation Date</th
+                    >Submission Date</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Creation Time</th
+                    >Submission Time</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >% Field Completed</th
                   >
 
                   <th
@@ -143,86 +184,103 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                 {
                   [
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      employee_name: "Lorem Ipsum",
+                      employee_id: "D63739",
+                      link_status: "Pending",
+                      submission_date: "9, Nov 2025",
+                      submission_time: "9:45 PM",
+                      field_completed: "50%",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      employee_name: "Lorem Ipsum",
+                      employee_id: "D63739",
+                      link_status: "Opened",
+                      submission_date: "9, Nov 2025",
+                      submission_time: "9:45 PM",
+                      field_completed: "50%",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      employee_name: "Lorem Ipsum",
+                      employee_id: "D63739",
+                      link_status: "Submitted",
+                      submission_date: "9, Nov 2025",
+                      submission_time: "9:45 PM",
+                      field_completed: "50%",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      employee_name: "Lorem Ipsum",
+                      employee_id: "D63739",
+                      link_status: "Expired",
+                      submission_date: "9, Nov 2025",
+                      submission_time: "9:45 PM",
+                      field_completed: "50%",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      employee_name: "Lorem Ipsum",
+                      employee_id: "D63739",
+                      link_status: "Pending",
+                      submission_date: "9, Nov 2025",
+                      submission_time: "9:45 PM",
+                      field_completed: "50%",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      employee_name: "Lorem Ipsum",
+                      employee_id: "D63739",
+                      link_status: "Pending",
+                      submission_date: "9, Nov 2025",
+                      submission_time: "9:45 PM",
+                      field_completed: "50%",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      employee_name: "Lorem Ipsum",
+                      employee_id: "D63739",
+                      link_status: "Pending",
+                      submission_date: "9, Nov 2025",
+                      submission_time: "9:45 PM",
+                      field_completed: "50%",
                     },
                   ].map((ele, index) => (
                     <tr class="fs-88">
                       <td class="text-center fs-14">{index + 1}</td>
                       <td class="fs-14 text-nowrap px-3 text-left column">
-                        {ele.emp_type}
+                        {ele.employee_name}
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        {ele.employee_id}
                       </td>
                       <td class="fs-14 px-3 text-left column">
-                        {ele.created_by}
+                        {ele.submission_date}
                       </td>
                       <td class="fs-14 px-3 text-left column">
-                        {ele.creation_date}
+                        {ele.submission_time}
                       </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.creation_time}
+                      <td
+                        class="fs-14 px-3 text-left column fw-700"
+                        style={`color: ${
+                          ele.link_status === "Expired"
+                            ? "red"
+                            : ele.link_status === "Opened"
+                              ? "#2271B6"
+                              : ele.link_status === "Submitted"
+                                ? "#2BC700"
+                                : ele.link_status === "Pending"
+                                  ? "#B6B000"
+                                  : "inherit"
+                        };`}
+                      >
+                        {ele.link_status}
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        {ele.field_completed}
                       </td>
 
                       <td class="fs-14 px-3 text-center d-flex justify-content-center column">
                         <div class="d-flex gap-2">
                           <button
-                            class="border-0 edit-button"
-                            style="background-color: inherit;"
+                            class="btn bg-primary-blue text-white fs-14"
                             type="button"
-                            data-bs-toggle="modal"
-                            data-bs-target="#myModal"
-                            data-title="Edit Employment Type"
-                            data-emp-type="{ele.emp_type}"
                           >
-                            <img src="images/png/icons/edit-2.svg" alt="" />
-                          </button>
-                          <button
-                            class="border-0"
-                            style="background-color: inherit;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#deleteModal"
-                          >
-                            <img
-                              src="images/png/icons/colored/delete.svg"
-                              alt=""
-                            />
+                            <span>Resend Link</span>
                           </button>
                         </div>
                       </td>
@@ -304,8 +362,8 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
         </div>
         <ModalAddNew
           modalId="myModal"
-          title={"Add Employment Type"}
-          inputPlace="Employment Type"
+          title={"Generate Onboarding Link"}
+          inputPlace="Generate Onboarding Link"
         />
         <DeleteModal modalId="deleteModal" title="Employment Type" />
 
@@ -333,8 +391,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
           }
 
           // Update input field
-          const employeeStatusInput =
-            document.getElementById("employee_type");
+          const employeeStatusInput = document.getElementById("employee_type");
           if (employeeStatusInput) {
             employeeStatusInput.value = empType;
           }

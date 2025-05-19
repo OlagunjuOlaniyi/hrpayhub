@@ -667,12 +667,17 @@ body {
   width: 407px;
 }
 
+
 .upload_bulk {
   width: 407px;
   height: 170px;
   border-radius: 10px;
   gap: 10px;
   border: 2px dashed #c1c1c1;
+}
+
+.employment_status_width {
+  width: 50%;
 }
 
 @media (max-width: 769px) {
@@ -683,4 +688,9 @@ body {
     width: 100%;
     padding: 10px;
   }
+
+  .employment_status_width {
+  width: 100%;
+}
+
 }
