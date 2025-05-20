@@ -257,6 +257,20 @@ input.no_focus:focus {
   transform: translateY(-50%) scale(1);
 }
 
+.add_employee_width #custom_select_new {
+  font-size: 14px !important;
+  margin-left: 20px;
+}
+.add_employee_width #multiple-select-field {
+  font-size: 14px !important;
+  margin-left: 20px;
+}
+
+#multiple-select-field {
+  font-size: 10px;
+  height: 150px;
+}
+
 .form-select_custom:focus + label span,
 .form-select_custom:not(:placeholder-shown) + label span {
   color: #fd0000 !important;
@@ -667,7 +681,6 @@ body {
   width: 407px;
 }
 
-
 .upload_bulk {
   width: 407px;
   height: 170px;
@@ -680,6 +693,23 @@ body {
   width: 50%;
 }
 
+.add_employee_width {
+  width: 344px;
+}
+
+.upload_employee_panel {
+  width: 344px;
+  height: 170px;
+  border-radius: 10px;
+  gap: 10px;
+  border: 2px dashed #c1c1c1;
+}
+
+.multiple-select-field {
+  position: absolute;
+  top: 10% !important;
+}
+
 @media (max-width: 769px) {
   .bulk_input {
     width: 100%;
@@ -690,7 +720,9 @@ body {
   }
 
   .employment_status_width {
-  width: 100%;
-}
-
+    width: 100%;
+  }
+  .add_employee_width {
+    width: 100%;
+  }
 }

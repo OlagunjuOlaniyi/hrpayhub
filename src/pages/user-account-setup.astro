@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: Employee Management">
+<Layout title="HRPayHub :: User Account Setup">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -30,7 +30,7 @@ import Layout from "../layouts/Layout.astro";
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >Employee Management</span
+              >User Account Setup</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -48,18 +48,18 @@ import Layout from "../layouts/Layout.astro";
           <div class="vstack gap-2">
             <div class="d-flex gap-3 align-items-center">
               <img
-                src="images/png/icons/employee-mgt.svg"
+                src="images/png/icons/user-setup.svg"
                 alt="receipt-minus-icon"
                 width="30px"
                 height="30px"
               />
               <span
                 class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Employee Management</span
+                >User Account Setup</span
               >
             </div>
             <div class="fw-bold">
-              Manage all employee profile, records, departments and duties.
+              Create and manage login accounts for system users.
             </div>
           </div>
           {/* Page Title */}
@@ -69,51 +69,19 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Pay Grades",
-                  desc: "Send request for expense approval",
-                  url: "/pay-grades",
-                  src: "images/png/icons/pay-grade.svg",
+                  title: "New User",
+                  desc: "Create login accounts for existing employees",
+                  url: "/new-user-account",
                 },
                 {
-                  title: "Designation",
-                  desc: "Send request for expense retirement",
-                  url: "/designation",
-                  src: "images/png/icons/designation.svg",
-                },
-                {
-                  title: "Employement Status",
-                  desc: "Send request for expense retirement",
-                  url: "/employment-status",
-                  src: "images/png/icons/employee-status.svg",
-                },
-                {
-                  title: "Employement Type",
-                  desc: "Send request for expense retirement",
-                  url: "/employment-type",
-                  src: "images/png/icons/employee-type.svg",
-                },
-                {
-                  title: "Add Employee",
-                  desc: "Send request for expense retirement",
-                  url: "/add-employee",
-                  src: "images/png/icons/add-employee.svg",
-                },
-                {
-                  title: "Employee List",
-                  desc: "Send request for expense retirement",
-                  url: "#",
-                  src: "images/png/icons/employee-list.svg",
-                },
-                {
-                  title: "Bulk Upload",
-                  desc: "Send request for expense retirement",
-                  url: "/bulk-upload",
-                  src: "images/png/icons/bulk-upload.svg",
+                  title: "User Management",
+                  desc: "Update, deactivate, or reset user login accounts",
+                  url: "/user-management",
                 },
               ].map((ele) => (
                 <div
                   class="col-4 p-2 payslip-card-panel"
-                  style="width: 330px"
+                  style="width: 360px"
                   role="button"
                   title={ele.title}
                   data-url={ele.url}
@@ -121,12 +89,11 @@ import Layout from "../layouts/Layout.astro";
                   <div class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
                     <div class="vstack gap-2 d-flex flex-column align-items-center">
                       <img
-                        src={ele.src}
+                        src="images/png/icons/user-setup.svg"
                         alt="receipt-minus-icon"
                         width="30px"
                         height="30px"
                       />
-
                       <div class="fw-bold fs-18 font-ubuntu-bold text-primary-blue">
                         {ele.title}
                       </div>

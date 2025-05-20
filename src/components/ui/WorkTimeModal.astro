@@ -1,0 +1,43 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "workTime", title = "Work Time Policy" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-2">
+      <!-- Modal Header -->
+      <div class="modal-header border-0">
+        <h4 class="modal-title fs-18 fw-700" id="modalTitle">
+          How Company Work Time and Restricted Days Work
+        </h4>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-left py-2 border-0">
+        <ul class="d-flex flex-column gap-2">
+          <li>
+            The Company Work Time Window sets the maximum timeframe when
+            employees are allowed to clock in and out, allowing for controlled
+            overtime.
+          </li>
+          <li>Restricted Work Days block clock-ins on specific days.</li>
+          <li>
+            If employees clock in outside these settings, they’ll see:
+            "Clock-in/out is not allowed outside defined hours or on restricted
+            days."
+          </li>
+          <li>
+            This setup provides flexibility and ensures a controlled schedule.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Modal footer -->
+    </div>
+  </div>
+</div>

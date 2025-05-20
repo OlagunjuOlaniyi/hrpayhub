@@ -133,7 +133,7 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
               <div class="d-flex justify-content-end expense_input">
                 <button
                   type="button"
-                  id="calculate"
+                  id="upload"
                   class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
                 >
                   <span>Upload</span>
@@ -169,6 +169,26 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
         $("#fileInputDetails span:first-child").text("");
         $("#fileInputDetails").addClass("d-none");
         $("#fileInputBtn").removeClass("d-none");
+      });
+
+      // 🔁 Redirect based on dropdown value
+      $("#upload").click(() => {
+        const selected = $("#select_plan").val();
+        if (!selected) {
+          alert("Please select an upload type before continuing.");
+          return;
+        }
+
+        const routes = {
+          plan_1: "/pay-grades-bulk-upload",
+          plan_2: "/designation-bulk-upload",
+          plan_3: "/add-employee",
+        };
+
+        const route = routes[selected];
+        if (route) {
+          window.location.href = route;
+        }
       });
     });
   </script>

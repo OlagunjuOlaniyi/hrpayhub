@@ -109,24 +109,26 @@ import { CloseCircleIcon } from "../Icons";
             </div>
           </div>
         ) : inputPlace === "Generate Onboarding Link" ? (
-          <div class="modal-body py-5 border-0">
-            <div class="form-floating ">
-              <select
-                id="salary_type"
-                name="salary_type"
-                class="form-select_custom fs-14"
-                required
-              >
-                <option value="" selected>
-                  Select
-                </option>
-                <option value="1">E1001</option>
-                <option value="2">E1002</option>
-                <option value="3">E1003</option>
-              </select>
-              <label for="salary_type">
-                Salary Type &nbsp;<span>*</span>
+          <div class="modal-body py-4 border-0">
+            <div class="">
+              <label for="multiple-select-field" id="custom_select_new">
+                Select Employee
               </label>
+
+              <select
+                class="form-select_custom fs-14 py-3"
+                id="multiple-select-field"
+                placeholder="Restricted Work Days"
+                multiple
+              >
+                <option value="1">Robert Fox</option>
+                <option value="2">Wade Warren</option>
+                <option value="3">Jerome Bell</option>
+                <option value="4">Guy Hawkins</option>
+                <option value="5">Jenny Wilson</option>
+                <option value="6">Kathryn Murphy</option>
+                <option value="7">Floyd Miles</option>
+              </select>
             </div>
           </div>
         ) : (
@@ -160,3 +162,19 @@ import { CloseCircleIcon } from "../Icons";
     </div>
   </div>
 </div>
+
+<script is:inline type="text/javascript">
+  // Handle opening the modal
+  document.addEventListener("DOMContentLoaded", () => {
+    $("#multiple-select-field").select2({
+      theme: "bootstrap-5",
+      width: $(this).data("width")
+        ? $(this).data("width")
+        : $(this).hasClass("w-100")
+          ? "100%"
+          : "style",
+      placeholder: $(this).data("placeholder"),
+      closeOnSelect: false,
+    });
+  });
+</script>

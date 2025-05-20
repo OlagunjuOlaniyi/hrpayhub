@@ -1,0 +1,416 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: New User">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="index.html"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/user-account-setup"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >User Account Setup</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">New User</span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4" id="new_user_account">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!------ Add new --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-18 fw-700 text-primary-blue">New User</div>
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="emp_id"
+                  name="emp_id"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="emp_id">Employee ID &nbsp;<span>*</span></label>
+              </div>
+            </div>
+            <div
+              class="d-flex justify-content-end gap-4 mt-5 add_employee_width"
+            >
+              {
+                [0].map((ele) => (
+                  <button class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 viewUserBtn">
+                    <span>Validate</span>
+                  </button>
+                ))
+              }
+            </div>
+          </div><!-- End of Global Roles -->
+        </div>
+      </div>
+      {/* Page Content Box */}
+    </section>
+
+    <!------- New User form ---->
+
+    <section className="px-4">
+      <div className="screenFrame">
+        <div
+          class="rounded-4 d-none shadow p-4 vstack gap-5 px-5 mx-4"
+          id="view_user_form"
+        >
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- User details line --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">User Details</div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="emp_id"
+                  name="emp_id"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="emp_id">Employee ID &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="first_name"
+                  name="first_name"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="first_name">First Name &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="last_name"
+                  name="last_name"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="last_name">Last Name &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="global_role"
+                  name="global_role"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="global_role">Global Role &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <!----- primary department --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Primary Department and Role
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <select
+                  id="dpt_selection"
+                  name="dpt_selection"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected>Select</option>
+                  <option value="1">Super Admin</option>
+                  <option value="2">HR/Admin</option>
+                  <option value="3">Accountant</option>
+                  <option value="4">Employee</option>
+                </select>
+                <label for="dpt_selection"
+                  >Department Selection &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="pry_selection"
+                  name="pry_selection"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected>Select</option>
+                  <option value="1">Super Admin</option>
+                  <option value="2">HR/Admin</option>
+                  <option value="3">Accountant</option>
+                  <option value="4">Employee</option>
+                </select>
+                <label for="pry_selection"
+                  >Primary Role Selection &nbsp;<span>*</span></label
+                >
+              </div>
+              <!-----  Secondary Department and Role --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Secondary Department and Role
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <select
+                  id="dpt_selection"
+                  name="dpt_selection"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected>Select</option>
+                  <option value="1">Super Admin</option>
+                  <option value="2">HR/Admin</option>
+                  <option value="3">Accountant</option>
+                  <option value="4">Employee</option>
+                </select>
+                <label for="dpt_selection"
+                  >Department &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="pry_selection"
+                  name="pry_selection"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected>Select</option>
+                  <option value="1">Super Admin</option>
+                  <option value="2">HR/Admin</option>
+                  <option value="3">Accountant</option>
+                  <option value="4">Employee</option>
+                </select>
+                <label for="pry_selection"
+                  >Secondary Role &nbsp;<span>*</span></label
+                >
+              </div>
+              <!-----  Other Department and Role --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Other Department and Role
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <select
+                  id="dpt_selection"
+                  name="dpt_selection"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected>Select</option>
+                  <option value="1">Super Admin</option>
+                  <option value="2">HR/Admin</option>
+                  <option value="3">Accountant</option>
+                  <option value="4">Employee</option>
+                </select>
+                <label for="dpt_selection"
+                  >Department &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="pry_selection"
+                  name="pry_selection"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected>Select</option>
+                  <option value="1">Super Admin</option>
+                  <option value="2">HR/Admin</option>
+                  <option value="3">Accountant</option>
+                  <option value="4">Employee</option>
+                </select>
+                <label for="pry_selection"
+                  >Secondary Role &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <!-----  Employee details --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Employee Details
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <select
+                  id="employment_status"
+                  name="employment_status"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected>Select</option>
+                  <option value="1">Super Admin</option>
+                  <option value="2">HR/Admin</option>
+                  <option value="3">Accountant</option>
+                  <option value="4">Employee</option>
+                </select>
+                <label for="employment_status"
+                  >Employment Status &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="email">Employee Email &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="password">Password &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="password"
+                  id="confirm_pwd"
+                  name="confirm_pwd"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="confirm_pwd"
+                  >Confirm Password &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="created_by"
+                  name="created_by"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="created_by">Created By &nbsp;<span>*</span></label>
+              </div>
+              <div
+                class="d-flex justify-content-between gap-3 add_employee_width"
+              >
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="date"
+                    id="start_date"
+                    name="start_date"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="start_date">Created Date</label>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="time"
+                    id="created_time"
+                    name="created_time"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="created_time">Created Time</label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="d-flex justify-content-between gap-4 mt-5 add_employee_width"
+            >
+              <button
+                type="button"
+                class="white_button next_tab_btn"
+                id="back_to_new_user"
+              >
+                <span>Back</span>
+              </button>
+              <button
+                class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+              >
+                <span>Create User Account</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script is:inline type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+      $(".viewUserBtn").click((evt) => {
+        $("#view_user_form").removeClass("d-none");
+        $("#new_user_account").addClass("d-none");
+      });
+
+      $("#back_to_new_user").click((evt) => {
+        $("#view_user_form").addClass("d-none");
+        $("#new_user_account").removeClass("d-none");
+      });
+    });
+  </script>
+</Layout>
+
+<!-- Main content ends here -->
