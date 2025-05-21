@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ModalModulesAccessed from "../components/ui/ModalModulesAccessed.astro";
+import ModalChangesMade from "../components/ui/ModalChangesMade.astro";
 ---
 
 <Layout title="HRPayHub :: System Admin Logs">
@@ -531,7 +532,7 @@ import ModalModulesAccessed from "../components/ui/ModalModulesAccessed.astro";
                           class="border-0"
                           style="background-color: inherit;"
                           data-bs-toggle="modal"
-                          data-bs-target="#modulesAccessed"
+                          data-bs-target="#changesMade"
                         >
                           <img src={ele.changes} alt="vision" />
                         </button>
@@ -616,6 +617,7 @@ import ModalModulesAccessed from "../components/ui/ModalModulesAccessed.astro";
 
       <!---- Modals --->
       <ModalModulesAccessed title="Modules Accessed" />
+      <ModalChangesMade title="Changes Made" />
     </section>
   </main>
   <!-- Main content ends here -->

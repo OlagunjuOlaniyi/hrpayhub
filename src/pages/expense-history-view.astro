@@ -138,32 +138,12 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                         <td class="text-left px-3 fs-14 column">Approved</td>
 
                         <td class="fs-14 px-3 text-center d-flex justify-content-center column">
-                          <div class="dropdown">
-                            <button
-                              class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
-                              type="button"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                              data-bs-offset="-20,10"
-                            >
-                              <span>Action</span>
-                              <img
-                                src="images/png/icons/arrow-down.svg"
-                                alt="arrow-down"
-                              />
-                            </button>
-                            <div class="dropdown-menu p-0 border-0">
-                              <ul class="list-group border-0 fw-600 fs-14">
-                                <li class="list-group-item pointer viewPayslpBtn">
-                                  <div>View Offer Letter</div>
-                                </li>
-
-                                <li class="list-group-item">
-                                  <div>Download Offer</div>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
+                          <button
+                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                            type="button"
+                          >
+                            <span>View Details</span>
+                          </button>
                         </td>
                       </tr>
                     ),
@@ -245,7 +225,113 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
       </div>
     </section>
 
-    <ViewOfferLetter />
+    <!------ Approved Section ------->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <div
+                class="d-flex justify-content-between align-items-center expense_input"
+              >
+                <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                  >Expense Request Form</span
+                >
+                <span class="text-primary-blue bg-light py-2 px-4 rounded"
+                  >Approved</span
+                >
+              </div>
+
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="ex_title"
+                  name="ex_title"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
+
+              <div class="form-floating expense_input">
+                <select
+                  id="select_plan"
+                  name="select_plan"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="plan_1">Mixed</option>
+                  <option value="plan_2">Cost of Goods Sold (COGS)</option>
+                  <option value="plan_3">OPEX</option>
+                  <option value="plan_3">ASSET</option>
+                </select>
+                <label for="select_plan"
+                  >Expense Category &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Amount &nbsp;<span>*</span></label>
+              </div>
+
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating expense_input">
+                <textarea class="form-input" rows="3" id="description"
+                ></textarea>
+                <label for="ex_title">Description &nbsp;<span>*</span></label>
+              </div>
+
+              <!---- upload ---->
+
+              <div class="fs-14 fw-700">Documents</div>
+              <div class="d-flex border justify-content-center expense_input">
+                <div class="d-flex justify-content-end">
+                  <div class="d-flex gap-2">
+                    <img src="images/png/icons/vision.svg" alt="document" />
+                    <span>Document 1</span>
+                  </div>
+                  <div>
+                    <img src="images/png/icons/vision.svg" alt="vision" />
+                  </div>
+                </div>
+              </div>
+
+              <!---- submit ---->
+              <div class="d-flex justify-content-start expense_input">
+                <button
+                  type="button"
+                  id="calculate"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                >
+                  <span>Submit Request</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
   </main>
 </Layout>
 

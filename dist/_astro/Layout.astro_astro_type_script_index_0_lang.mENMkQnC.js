@@ -1,0 +1,1 @@
+import"https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js";
