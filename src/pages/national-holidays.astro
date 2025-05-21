@@ -1,10 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import ModalAddHoliday from "../components/ui/ModalAddHoliday.astro";
 import DeleteModal from "../components/ui/DeleteModal.astro";
 ---
 
-<Layout title="HRPayHub :: Designation">
+<Layout title="HRPayHub :: National Holidays">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -31,16 +32,18 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
               alt="angle-right-back"
             />
             <a
-              href="/expense-management"
+              href="/company-setup"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Employee Management</a
+              >Company Setup</a
             >
 
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue">Designation</span>
+            <span class="fs-16 fw-bold text-primary-blue"
+              >National Holidays</span
+            >
           </div>
           <!-- Actual Breadcrumb here -->
         </div>
@@ -60,7 +63,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >Designation</span
+                >National Holidays</span
               >
             </div>
           </div>
@@ -81,12 +84,29 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
 
               <!-- Others -->
               <div class="d-flex justify-content-end">
+              <!------ Filters  ----->
+                <button
+                  class="delon-primary-btn bg-white border-0 d-flex align-items-center gap-2 fs-14"
+                  type="button"
+                >
+                  <img src="images/png/icons/filter.svg" alt="arrow-down" />
+                  <span>Filter</span>
+                </button>
+
+                <!------ sorts  ----->
+                <button
+                  class="delon-primary-btn bg-white border-0 fw-600 fs-14 d-flex align-items-center gap-2"
+                  type="button"
+                >
+                  <img src="images/png/icons/sort.svg" alt="arrow-down" />
+                  <span>Sort</span>
+                </button>
                 <button
                   class="btn bg-primary-blue text-white fs-14"
                   type="button"
                   data-bs-toggle="modal"
-                  data-bs-target="#myModal"
-                  data-title="Add Designation"
+                  data-bs-target="#holidayModal"
+                  data-title="Add Holiday"
                 >
                   <span class="me-2">Add New</span> +
                 </button>
@@ -112,11 +132,11 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                   >
                   <th
                     class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
-                    style="min-width: 200px;">Designation Type</th
+                    style="min-width: 200px;">Holiday Name</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Created By</th
+                    >Location</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
@@ -124,7 +144,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Creation Time</th
+                    >Creation Date</th
                   >
 
                   <th
@@ -146,43 +166,43 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       emp_type: "Lorem Ipsum",
                       created_by: "Lorem Ipsum",
                       creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      creation_time: "7th April 2025",
                     },
                     {
                       emp_type: "Lorem Ipsum",
                       created_by: "Lorem Ipsum",
                       creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      creation_time: "7th April 2025",
                     },
                     {
                       emp_type: "Lorem Ipsum",
                       created_by: "Lorem Ipsum",
                       creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      creation_time: "7th April 2025",
                     },
                     {
                       emp_type: "Lorem Ipsum",
                       created_by: "Lorem Ipsum",
                       creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      creation_time: "7th April 2025",
                     },
                     {
                       emp_type: "Lorem Ipsum",
                       created_by: "Lorem Ipsum",
                       creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      creation_time: "7th April 2025",
                     },
                     {
                       emp_type: "Lorem Ipsum",
                       created_by: "Lorem Ipsum",
                       creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      creation_time: "7th April 2025",
                     },
                     {
                       emp_type: "Lorem Ipsum",
                       created_by: "Lorem Ipsum",
                       creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      creation_time: "7th April 2025",
                     },
                   ].map((ele, index) => (
                     <tr class="fs-88">
@@ -208,7 +228,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                             type="button"
                             data-bs-toggle="modal"
                             data-bs-target="#myModal"
-                            data-title="Edit Designation"
+                            data-title="Edit Holiday"
                             data-emp-type="{ele.emp_type}"
                           >
                             <img src="images/png/icons/edit-2.svg" alt="" />
@@ -304,10 +324,15 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
         </div>
         <ModalAddNew
           modalId="myModal"
-          title={"Add Employee Type"}
-          inputPlace="Designation"
+          title={"Add National Holiday"}
+          inputPlace="Holiday"
         />
-        <DeleteModal modalId="deleteModal" title="Designation" />
+        <ModalAddHoliday
+          modalId="holidayModal"
+          title={"Add National Holiday"}
+          inputPlace="Holiday"
+        />
+        <DeleteModal modalId="deleteModal" title="Holiday" />
 
         <!---- end of Modal --->
       </div>
