@@ -118,7 +118,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 									"Manage all employee profile, records, departments and duties.",
 								icon: "images/png/icons/colored/people-colored.svg",
 								color: "bronze-module",
-								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+								href: `employment-management`,
 							},
 							{
 								title: "User Roles",
@@ -126,7 +126,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 									"Create users and assign roles to control access and permissions.",
 								icon: "images/png/icons/colored/user-circle-add-colored.svg",
 								color: "bronze-module",
-								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+								href: `user-account-setup`,
 							},
 							{
 								title: "On/Offboarding",
@@ -141,7 +141,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 									"Track user logins and in-app activities for security, audit, and compliance.",
 								icon: "images/png/icons/user-card-details.svg",
 								color: "bronze-module",
-								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+								href: `user-logs`,
 							},
 							{
 								title: "Time Management",
@@ -197,7 +197,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 									"Estimate taxes automatically for payroll planning.",
 								icon: "images/png/icons/colored/ticket-percent-colored.svg",
 								color: "gold-module",
-								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+								href: `calculate-taxes`,
 							},
 							{
 								title: "Payroll List",
@@ -205,7 +205,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 									"View and manage a list of payroll records for easy tracking & reference ",
 								icon: "images/png/icons/colored/archive-colored.svg",
 								color: "gold-module",
-								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+								href: `payroll-list`,
 							},
 							{
 								title: "Annual Return - NG",
@@ -213,7 +213,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 									"File annual tax returns in compliance with Nigerian tax requirements.",
 								icon: "images/png/icons/colored/money-tick-colored.svg",
 								color: "gold-module",
-								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+								href: `annual-return`,
 							},
 							{
 								title: "Monthly Payee Return - NG",
@@ -221,7 +221,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 									"Prepare monthly PAYE tax returns for Nigerian employees.",
 								icon: "images/png/icons/colored/naira-square-colored.svg",
 								color: "gold-module",
-								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+								href: `paye-returns`,
 							},
 							{
 								title: "Payroll Bank Upload - NG",
@@ -253,7 +253,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 									"Submit and approve expense requests to streamline financial management.",
 								icon: "images/png/icons/colored/ticket-colored.svg",
 								color: "platinum-module",
-								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+								href: `#`,
 							},
 							{
 								title: "Financial Reports & Analytics",
@@ -269,7 +269,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 									"Auto-fill and send offer letters for digital signing.",
 								icon: "images/png/icons/colored/signature-pen-colored.svg",
 								color: "platinum-module",
-								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+								href: `send-and-sign-offer`,
 							},
 						].map((ele, idx) => (
 							<DashboardModuleCard {...ele} />

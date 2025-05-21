@@ -1,0 +1,382 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ViewOfferLetter from "../components/offers/ViewOfferLetter";
+---
+
+<Layout title="HRPayHub :: Expense History View">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/send-and-sign-offer-ng"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a href="" class="fs-14 text-decoration-none text-primary-dark"
+              >Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/expense-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Expense Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/expense-approval-request"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Expense Approval Request</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Expense History View</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-4">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+          id="manage_list_of_payslip"
+        >
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div class="d-flex gap-3 align-items-center">
+              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                >Expense History View</span
+              >
+            </div>
+          </div>
+          {/* Page Title */}
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead
+                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+              >
+                <tr>
+                  <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
+                    >S/N</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white fw-600 fs-14 text-center"
+                    style="min-width: 200px;">Date</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Title</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Category</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Amount</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Status</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-left"
+                    >Action</th
+                  >
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 180px;
+                  }
+                </style>
+                {
+                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(
+                    (item, index) => (
+                      <tr class="fs-88">
+                        <td class="text-center fs-14">{index + 1}</td>
+                        <td class="fs-14 text-nowrap text-center column">
+                          7th April 2025
+                        </td>
+                        <td class="fs-14 px-3 text-left column">
+                          Lorem Ipsum Lorem Ipsum
+                        </td>
+                        <td class="fs-14 px-3 text-left column">Mixed</td>
+                        <td class="fs-14 px-3 text-left column">N124,676</td>
+                        <td class="text-left px-3 fs-14 column">Approved</td>
+
+                        <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                          <button
+                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                            type="button"
+                          >
+                            <span>View Details</span>
+                          </button>
+                        </td>
+                      </tr>
+                    ),
+                  )
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
+          </div>
+
+          <!---- End of table --->
+
+          <!-- Pagination Row -->
+          <div
+            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+          >
+            <!-- Left: Pagination Text -->
+            <div class="fs-14 text-muted">
+              Showing <strong>1–20</strong> of <strong>1000</strong>
+            </div>
+
+            <!-- Right: Go to Page + Pagination -->
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <!-- Go to Page -->
+              <form class="d-flex align-items-center gap-2">
+                <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+                <input
+                  type="number"
+                  min="1"
+                  max="100"
+                  id="gotoPage"
+                  class="form-control form-control-sm"
+                  style="width: 60px;"
+                  placeholder="—"
+                />
+              </form>
+
+              <!-- Page Navigation -->
+
+              <nav>
+                <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                  <li class="page-item">
+                    <a
+                      class="page-link text-primary-blue px-2"
+                      href="#"
+                      aria-label="Previous"
+                    >
+                      &lsaquo;
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">1</a>
+                  </li>
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">2</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">3</a>
+                  </li>
+                  <li class="page-item disabled">
+                    <span class="page-link text-primary-blue">...</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">100</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link hello" href="#" aria-label="Next">
+                      &rsaquo;
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <!---- Pagination ---->
+        </div>
+      </div>
+    </section>
+
+    <!------ Approved Section ------->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <div
+                class="d-flex justify-content-between align-items-center expense_input"
+              >
+                <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                  >Expense Request Form</span
+                >
+                <span class="text-primary-blue bg-light py-2 px-4 rounded"
+                  >Approved</span
+                >
+              </div>
+
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="ex_title"
+                  name="ex_title"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
+
+              <div class="form-floating expense_input">
+                <select
+                  id="select_plan"
+                  name="select_plan"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="plan_1">Mixed</option>
+                  <option value="plan_2">Cost of Goods Sold (COGS)</option>
+                  <option value="plan_3">OPEX</option>
+                  <option value="plan_3">ASSET</option>
+                </select>
+                <label for="select_plan"
+                  >Expense Category &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Amount &nbsp;<span>*</span></label>
+              </div>
+
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating expense_input">
+                <textarea class="form-input" rows="3" id="description"
+                ></textarea>
+                <label for="ex_title">Description &nbsp;<span>*</span></label>
+              </div>
+
+              <!---- upload ---->
+
+              <div class="fs-14 fw-700">Documents</div>
+              <div class="d-flex border justify-content-center expense_input">
+                <div class="d-flex justify-content-end">
+                  <div class="d-flex gap-2">
+                    <img src="images/png/icons/vision.svg" alt="document" />
+                    <span>Document 1</span>
+                  </div>
+                  <div>
+                    <img src="images/png/icons/vision.svg" alt="vision" />
+                  </div>
+                </div>
+              </div>
+
+              <!---- submit ---->
+              <div class="d-flex justify-content-start expense_input">
+                <button
+                  type="button"
+                  id="calculate"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                >
+                  <span>Submit Request</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<!-- Main content ends here -->
+
+<script is:inline type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    $(".viewPayslpBtn").click((evt) => {
+      $("#view_employee_payslip").removeClass("d-none");
+      $("#manage_list_of_payslip").addClass("d-none");
+    });
+
+    $("#back_to_list_of_payslips").click((evt) => {
+      $("#view_employee_payslip").addClass("d-none");
+      $("#manage_list_of_payslip").removeClass("d-none");
+    });
+  });
+</script>
+<script>
+  document
+    .querySelectorAll(".dropdown-submenu > a")
+    .forEach(function (element) {
+      element.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const submenu = this.nextElementSibling;
+
+        // Close all other submenus
+        document
+          .querySelectorAll(".dropdown-submenu .dropdown-menu")
+          .forEach(function (el) {
+            if (el !== submenu) el.classList.remove("show");
+          });
+
+        submenu.classList.toggle("show");
+      });
+    });
+
+  // Optional: close submenus when clicking outside
+  document.addEventListener("click", function () {
+    document
+      .querySelectorAll(".dropdown-submenu .dropdown-menu")
+      .forEach(function (el) {
+        el.classList.remove("show");
+      });
+  });
+</script>

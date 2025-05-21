@@ -1,10 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import FormContextIndicator from "../components/ui/TaxFormContextIndicator";
-import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
+import ViewOfferLetter from "../components/offers/ViewOfferLetter";
 ---
 
-<Layout title="HRPayHub :: Annaul Return - LIRS">
+<Layout title="HRPayHub :: Manage Offer Letter">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -13,7 +12,7 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href=""
+            href="/send-and-sign-offer-ng"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -23,15 +22,21 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
 
           <!-- Actual Breadcrumb here -->
           <div class="d-flex align-items-center gap-2">
-            <a href="" class="fs-14 text-decoration-none text-primary-dark"
-              >Dashboard</a
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
             >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
+            <span class="fs-14 text-primary-dark">Send & Sign Offer - NG</span>
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
             <span class="fs-16 fw-bold text-primary-blue"
-              >Annual Return - LIRS</span
+              >Manage Offer Letter</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -44,12 +49,15 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
     <!-- First section of Back button and Breadcrumb -->
     <section class="px-lg-4">
       <div class="screenFrame">
-        <div class="rounded-4 shadow p-4 vstack gap-3 px-lg-5">
+        <div
+          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+          id="manage_list_of_payslip"
+        >
           {/* Page Title */}
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >Annual Return - LIRS</span
+                >Manage Offer Letter</span
               >
             </div>
           </div>
@@ -57,7 +65,7 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
 
           {/* Page Content Box */}
 
-          <div class="">
+          <div>
             <div class="d-flex flex-row justify-content-between gap-5">
               <!---- Search  -->
               <div class="d-flex gap-3">
@@ -65,105 +73,16 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                   type="text"
                   class="form-control search-input search-width fs-14"
                   placeholder="Search..."
-                  style={{
-                    width: "200px",
-                  }}
                 />
-
-                <!---- amount --->
-
-                <div class="d-flex align-items-center gap-2 m-0 p-0">
-                  <div
-                    class="form-floating"
-                    style={{
-                      width: "120px",
-                    }}
-                  >
-                    <input
-                      type="text"
-                      id="dev_levy"
-                      name="dev_levy"
-                      class="form-input py-2"
-                      placeholder=""
-                    />
-                    <label for="dev_levy">
-                      Dev. Levy &nbsp;<span>*</span>
-                    </label>
-                  </div>
-
-                  <div
-                    class="d-flex flex-row justify-content-between align-items-center gap-1 px-2"
-                    style={{
-                      border: "1px solid #C1C1C1",
-                      borderRadius: "10px",
-                    }}
-                  >
-                    <div
-                      role="button"
-                      class="d-flex form-check form-switch switchForDeductionsFields"
-                      style={{ cursor: "pointer" }}
-                    >
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        role="switch"
-                        id="amount"
-                        defaultChecked
-                        data-bs-html="true"
-                        data-bs-placement="top"
-                        data-bs-toggle="tooltip"
-                        data-bs-custom-class="tooltip-left-align"
-                        title="<div><div><div><strong>Turn On/Off</strong></div><em style = 'font-size: 7px;'>Enable if applicable; Disable if not</em></div></div>"
-                      />
-                    </div>
-
-                    <div style={{ cursor: "pointer" }}>
-                      <img
-                        src="images/png/icons/colored/edit-2.svg"
-                        alt="edit_icon"
-                        data-bs-html="true"
-                        data-bs-placement="top"
-                        data-bs-toggle="tooltip"
-                        data-bs-custom-class="tooltip-left-align"
-                        title="<div><div><div><strong>Restore</strong></div><em style = 'font-size: 7px'>Reset to disable calculation</em></div></div>"
-                      />
-                    </div>
-                  </div>
-                </div>
+                <img
+                  src="images/png/icons/initialize.svg"
+                  class="initialize"
+                  alt="arrow-down"
+                />
               </div>
 
               <!-- Others -->
               <div class="responsive gap-1">
-                <!-- Number of Months Dropdown -->
-                <div class="d-flex align-items-center">
-                  <span style="min-width: 130px;" class="fs-14"
-                    >Number of Months
-                  </span>
-                  <div class="dropdown me-2">
-                    <button
-                      class="delon-primary-btn bg-white border dropdown-toggle fs-14"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                    >
-                      1
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">1</a></li>
-                      <li><a class="dropdown-item" href="#">3</a></li>
-                      <li><a class="dropdown-item" href="#">6</a></li>
-                      <li><a class="dropdown-item" href="#">12</a></li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- Calendar Selector -->
-                <input
-                  type="month"
-                  class="form-control fs-14"
-                  style="max-width: 200px;"
-                  value="2025-05"
-                />
-
                 <!-- Filter Dropdown -->
 
                 <style>
@@ -383,35 +302,6 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                     </ul>
                   </div>
                 </div>
-
-                <!-- Download Dropdown -->
-
-                <div class="dropdown">
-                  <button
-                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    data-bs-offset="-20,10"
-                  >
-                    <img src="images/png/icons/download.svg" alt="arrow-down" />
-                    <span>Download</span>
-                    <img
-                      src="images/png/icons/arrow-down.svg"
-                      alt="arrow-down"
-                    />
-                  </button>
-                  <div class="dropdown-menu p-0 border-0">
-                    <ul class="list-group border-0 fw-600 fs-14">
-                      <li class="list-group-item">
-                        <div>CSV Format</div>
-                      </li>
-                      <li class="list-group-item">
-                        <div>Excel Format</div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
               </div>
 
               <!---- End of Others ---->
@@ -435,56 +325,45 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                     >S/N</th
                   >
                   <th
-                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
-                    style="min-width: 200px;">Surname</th
+                    class="bg-primary-blue text-white fw-600 fs-14 text-center"
+                    style="min-width: 200px;">Employee_ID</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >First_Name</th
+                    >Employee_Name</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Middle_Name</th
+                    >Pay_Grade</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Designation</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Nationality</th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Branch</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
-                    >Number_of_Months</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Development_Levy</th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-left"
+                    >Country</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Gross_Income</th
+                    >Offer_Letter_Date</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Status</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Chargeable_Income</th
+                    >Annual_Gross_Salary</th
                   >
+
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Annual_Tax_Paid</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Taxpayer_ID</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Staff_Phone_Number</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Staff_Email_Address</th
+                    >Actions</th
                   >
                 </tr>
               </thead>
@@ -496,30 +375,54 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                   }
                 </style>
                 {
-                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item) => (
-                    <tr class="fs-88">
-                      <td class="text-center fs-14">1</td>
-                      <td class="fs-14 px-3 text-nowrap text-left column">
-                        Howard
-                      </td>
-                      <td class="fs-14 px-3 text-left column">Wade</td>
-                      <td class="fs-14 px-3 text-left column">Warren</td>
-                      <td class="fs-14  px-3 text-left column">Accountant</td>
-                      <td class="text-center fs-14 column">Nigerian</td>
-                      <td class="fs-14 px-3 text-center column">8</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">TX2025</td>
-                      <td class="fs-14 px-3 text-center column">
-                        080 0000 0000
-                      </td>
-                      <td class="fs-14 px-3 text-center column">
-                        example@example.com
-                      </td>
-                    </tr>
-                  ))
+                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(
+                    (item, index) => (
+                      <tr class="fs-88">
+                        <td class="text-center fs-14">{index + 1}</td>
+                        <td class="fs-14 text-nowrap text-center column">
+                          TIN239201
+                        </td>
+                        <td class="fs-14 px-3 text-left column">Wade Warren</td>
+                        <td class="fs-14 px-3 text-left column">12</td>
+                        <td class="fs-14 px-3 text-left column">Accountant</td>
+                        <td class="text-left px-3 fs-14 column">Lagos</td>
+                        <td class="fs-14 px-3 text-left column">Country</td>
+                        <td class="fs-14 px-3 text-center column">
+                          April, 2025
+                        </td>
+                        <td class="fs-14 px-3 text-left column">Active</td>
+                        <td class="fs-14 px-3 text-left column">N500,000</td>
+                        <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                          <div class="dropdown">
+                            <button
+                              class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                              type="button"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                              data-bs-offset="-20,10"
+                            >
+                              <span>Action</span>
+                              <img
+                                src="images/png/icons/arrow-down.svg"
+                                alt="arrow-down"
+                              />
+                            </button>
+                            <div class="dropdown-menu p-0 border-0">
+                              <ul class="list-group border-0 fw-600 fs-14">
+                                <li class="list-group-item pointer viewPayslpBtn">
+                                  <div>View Offer Letter</div>
+                                </li>
+
+                                <li class="list-group-item">
+                                  <div>Download Offer</div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    ),
+                  )
                 }
 
                 <!-- Repeat for more employees -->
@@ -591,41 +494,58 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
               </nav>
             </div>
           </div>
+
           <!---- Pagination ---->
         </div>
       </div>
     </section>
+
+    <ViewOfferLetter />
   </main>
-  <!-- Main content ends here -->
-
-  <script>
-    document
-      .querySelectorAll(".dropdown-submenu > a")
-      .forEach(function (element) {
-        element.addEventListener("click", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-
-          const submenu = this.nextElementSibling;
-
-          // Close all other submenus
-          document
-            .querySelectorAll(".dropdown-submenu .dropdown-menu")
-            .forEach(function (el) {
-              if (el !== submenu) el.classList.remove("show");
-            });
-
-          submenu.classList.toggle("show");
-        });
-      });
-
-    // Optional: close submenus when clicking outside
-    document.addEventListener("click", function () {
-      document
-        .querySelectorAll(".dropdown-submenu .dropdown-menu")
-        .forEach(function (el) {
-          el.classList.remove("show");
-        });
-    });
-  </script>
 </Layout>
+
+<!-- Main content ends here -->
+
+<script is:inline type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    $(".viewPayslpBtn").click((evt) => {
+      $("#view_employee_payslip").removeClass("d-none");
+      $("#manage_list_of_payslip").addClass("d-none");
+    });
+
+    $("#back_to_list_of_payslips").click((evt) => {
+      $("#view_employee_payslip").addClass("d-none");
+      $("#manage_list_of_payslip").removeClass("d-none");
+    });
+  });
+</script>
+<script>
+  document
+    .querySelectorAll(".dropdown-submenu > a")
+    .forEach(function (element) {
+      element.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const submenu = this.nextElementSibling;
+
+        // Close all other submenus
+        document
+          .querySelectorAll(".dropdown-submenu .dropdown-menu")
+          .forEach(function (el) {
+            if (el !== submenu) el.classList.remove("show");
+          });
+
+        submenu.classList.toggle("show");
+      });
+    });
+
+  // Optional: close submenus when clicking outside
+  document.addEventListener("click", function () {
+    document
+      .querySelectorAll(".dropdown-submenu .dropdown-menu")
+      .forEach(function (el) {
+        el.classList.remove("show");
+      });
+  });
+</script>

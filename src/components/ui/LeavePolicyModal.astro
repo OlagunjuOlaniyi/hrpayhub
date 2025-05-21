@@ -1,0 +1,60 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "leavePolicy", title = "Leave Policy" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-2">
+      <!-- Modal Header -->
+
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">
+          Leave Policies Explained
+        </h4>
+
+        <img
+          type="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-left py-2 border-0">
+        <ul class="d-flex flex-column gap-2">
+          <li>
+            No Carryover: Unused leave resets to zero at the start of each new
+            calendar year.
+          </li>
+          <li>
+            Regular Policy: When "Regular" is selected, leave days are granted
+            upfront and deducted with each approved request. Accrual fields are
+            disabled.
+          </li>
+          <li>
+            Accrual Policy: When "Accrual" is selected, employees earn leave
+            progressively. Leave balance builds up and deducts during use;
+            regular leave fields are disabled.
+          </li>
+          <li>
+            Changing from Regular to Accrual: The system starts accruing leave
+            for the rest of the year based on the company's accrual formula.
+          </li>
+          <li>
+            Changing from Accrual to Regular: The accrued leave balance is
+            rounded up to the nearest full day and converted into regular leave.
+          </li>
+        </ul>
+        <p>
+          Tip: It's best to avoid changing leave policy mid-year unless
+          necessary to prevent confusion for employees.
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+    </div>
+  </div>
+</div>

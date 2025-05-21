@@ -1,0 +1,184 @@
+---
+// components/ui/ModalAddNew.astro
+const {
+  modalId = "myModal",
+  title = "Add Employee Type",
+  inputPlace = "Designation",
+} = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
+
+        <img
+          type="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      {
+        inputPlace === "Pay Grade" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating ">
+              <select
+                id="employment_id"
+                name="employment_id"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">E1001</option>
+                <option value="2">E1002</option>
+                <option value="3">E1003</option>
+              </select>
+              <label for="employment_id">
+                Employment Type &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="grade_band"
+                name="grade_band"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="grade_band">
+                Grade Band &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="pay_grade"
+                name="pay_grade"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="pay_grade">
+                Pay Grade &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="salary_type"
+                name="salary_type"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">E1001</option>
+                <option value="2">E1002</option>
+                <option value="3">E1003</option>
+              </select>
+              <label for="salary_type">
+                Salary Type &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="Hourly Rate"
+                name="Hourly Rate"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="Hourly Rate">
+                Hourly Rate &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="afs"
+                name="afs"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="afs">
+                Annual Fixed Salary &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "Generate Onboarding Link" ? (
+          <div class="modal-body py-4 border-0">
+            <div class="">
+              <label for="multiple-select-field" id="custom_select_new">
+                Select Employee
+              </label>
+
+              <select
+                class="form-select_custom fs-14 py-3"
+                id="multiple-select-field"
+                placeholder="Restricted Work Days"
+                multiple
+              >
+                <option value="1">Robert Fox</option>
+                <option value="2">Wade Warren</option>
+                <option value="3">Jerome Bell</option>
+                <option value="4">Guy Hawkins</option>
+                <option value="5">Jenny Wilson</option>
+                <option value="6">Kathryn Murphy</option>
+                <option value="7">Floyd Miles</option>
+              </select>
+            </div>
+          </div>
+        ) : (
+          <div class="modal-body py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="employee_type"
+                name="employee_type"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="employee_type">
+                {inputPlace} &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        )
+      }
+
+      <!-- Modal footer -->
+      <div class="modal-footer border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white"
+          data-bs-dismiss="modal"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline type="text/javascript">
+  // Handle opening the modal
+  document.addEventListener("DOMContentLoaded", () => {
+    $("#multiple-select-field").select2({
+      theme: "bootstrap-5",
+      width: $(this).data("width")
+        ? $(this).data("width")
+        : $(this).hasClass("w-100")
+          ? "100%"
+          : "style",
+      placeholder: $(this).data("placeholder"),
+      closeOnSelect: false,
+    });
+  });
+</script>

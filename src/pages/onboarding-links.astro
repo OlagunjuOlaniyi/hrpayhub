@@ -1,0 +1,402 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import DeleteModal from "../components/ui/DeleteModal.astro";
+---
+
+<Layout title="HRPayHub :: Onboarding Links">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/send-and-sign-offer-ng"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a href="" class="fs-14 text-decoration-none text-primary-dark"
+              >Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/expense-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Employee Management</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/add-employee"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Add Employee</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Onboarding Links</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-4">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+          id="manage_list_of_payslip"
+        >
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div class="d-flex gap-3 align-items-center">
+              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                >Track Onboarding Links</span
+              >
+            </div>
+          </div>
+          {/* Page Title */}
+
+          <div class="">
+            <div
+              class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
+            >
+              <!---- Search  -->
+              <div class="d-flex gap-3">
+                <input
+                  type="text"
+                  class="form-control search-input search-width fs-14"
+                  placeholder="Search..."
+                />
+                <img
+                  src="images/png/icons/initialize.svg"
+                  class="initialize"
+                  alt="arrow-down"
+                />
+              </div>
+
+              <!-- Others -->
+              <div class="d-flex justify-content-end">
+                <!------ Filters  ----->
+                <button
+                  class="delon-primary-btn bg-white border-0 d-flex align-items-center gap-2 fs-14"
+                  type="button"
+                >
+                  <img src="images/png/icons/filter.svg" alt="arrow-down" />
+                  <span>Filter</span>
+                </button>
+
+                <!------ sorts  ----->
+                <button
+                  class="delon-primary-btn bg-white border-0 fw-600 fs-14 d-flex align-items-center gap-2"
+                  type="button"
+                >
+                  <img src="images/png/icons/sort.svg" alt="arrow-down" />
+                  <span>Sort</span>
+                </button>
+                <button
+                  class="btn bg-primary-blue text-white fs-14"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#myModal"
+                  data-title="Generate Onboarding Link"
+                >
+                  <span class="me-2">Generate Onboarding Link</span> +
+                </button>
+              </div>
+
+              <!---- End of Others ---->
+            </div>
+          </div>
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead
+                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+              >
+                <tr>
+                  <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
+                    >S/N</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
+                    style="min-width: 200px;">Employee Name</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Employee ID</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Link Status</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Submission Date</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Submission Time</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >% Field Completed</th
+                  >
+
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Actions</th
+                  >
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 180px;
+                  }
+                </style>
+                {
+                  [
+                    {
+                      employee_name: "Lorem Ipsum",
+                      employee_id: "D63739",
+                      link_status: "Pending",
+                      submission_date: "9, Nov 2025",
+                      submission_time: "9:45 PM",
+                      field_completed: "50%",
+                    },
+                    {
+                      employee_name: "Lorem Ipsum",
+                      employee_id: "D63739",
+                      link_status: "Opened",
+                      submission_date: "9, Nov 2025",
+                      submission_time: "9:45 PM",
+                      field_completed: "50%",
+                    },
+                    {
+                      employee_name: "Lorem Ipsum",
+                      employee_id: "D63739",
+                      link_status: "Submitted",
+                      submission_date: "9, Nov 2025",
+                      submission_time: "9:45 PM",
+                      field_completed: "50%",
+                    },
+                    {
+                      employee_name: "Lorem Ipsum",
+                      employee_id: "D63739",
+                      link_status: "Expired",
+                      submission_date: "9, Nov 2025",
+                      submission_time: "9:45 PM",
+                      field_completed: "50%",
+                    },
+                    {
+                      employee_name: "Lorem Ipsum",
+                      employee_id: "D63739",
+                      link_status: "Pending",
+                      submission_date: "9, Nov 2025",
+                      submission_time: "9:45 PM",
+                      field_completed: "50%",
+                    },
+                    {
+                      employee_name: "Lorem Ipsum",
+                      employee_id: "D63739",
+                      link_status: "Pending",
+                      submission_date: "9, Nov 2025",
+                      submission_time: "9:45 PM",
+                      field_completed: "50%",
+                    },
+                    {
+                      employee_name: "Lorem Ipsum",
+                      employee_id: "D63739",
+                      link_status: "Pending",
+                      submission_date: "9, Nov 2025",
+                      submission_time: "9:45 PM",
+                      field_completed: "50%",
+                    },
+                  ].map((ele, index) => (
+                    <tr class="fs-88">
+                      <td class="text-center fs-14">{index + 1}</td>
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        {ele.employee_name}
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        {ele.employee_id}
+                      </td>
+                      <td
+                        class="fs-14 px-3 text-left column fw-700"
+                        style={`color: ${
+                          ele.link_status === "Expired"
+                            ? "red"
+                            : ele.link_status === "Opened"
+                              ? "#2271B6"
+                              : ele.link_status === "Submitted"
+                                ? "#2BC700"
+                                : ele.link_status === "Pending"
+                                  ? "#B6B000"
+                                  : "inherit"
+                        };`}
+                      >
+                        {ele.link_status}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.submission_date}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.submission_time}
+                      </td>
+
+                      <td class="fs-14 px-3 text-center column">
+                        {ele.field_completed}
+                      </td>
+
+                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                        <div class="d-flex gap-2">
+                          <button
+                            class="btn bg-primary-blue text-white fs-14"
+                            type="button"
+                          >
+                            <span>Resend Link</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
+          </div>
+
+          <!---- End of table --->
+
+          <!-- Pagination Row -->
+          <div
+            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+          >
+            <!-- Left: Pagination Text -->
+            <div class="fs-14 text-muted">
+              Showing <strong>1–20</strong> of <strong>1000</strong>
+            </div>
+
+            <!-- Right: Go to Page + Pagination -->
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <!-- Go to Page -->
+              <form class="d-flex align-items-center gap-2">
+                <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+                <input
+                  type="number"
+                  min="1"
+                  max="100"
+                  id="gotoPage"
+                  class="form-control form-control-sm"
+                  style="width: 60px;"
+                  placeholder="—"
+                />
+              </form>
+
+              <!-- Page Navigation -->
+
+              <nav>
+                <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                  <li class="page-item">
+                    <a
+                      class="page-link text-primary-blue px-2"
+                      href="#"
+                      aria-label="Previous"
+                    >
+                      &lsaquo;
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">1</a>
+                  </li>
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">2</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">3</a>
+                  </li>
+                  <li class="page-item disabled">
+                    <span class="page-link text-primary-blue">...</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">100</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link hello" href="#" aria-label="Next">
+                      &rsaquo;
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <!---- Pagination ---->
+        </div>
+        <ModalAddNew
+          modalId="myModal"
+          title={"Generate Onboarding Link"}
+          inputPlace="Generate Onboarding Link"
+        />
+        <DeleteModal modalId="deleteModal" title="Employment Type" />
+
+        <!---- end of Modal --->
+      </div>
+    </section>
+  </main>
+
+  <!-- Main content ends here -->
+
+  <script is:inline type="text/javascript">
+    // Handle opening the modal
+    document
+      .querySelectorAll('[data-bs-target="#myModal"]')
+      .forEach((button) => {
+        button.addEventListener("click", function () {
+          const modalTitle =
+            this.getAttribute("data-title") || "Add Employee Type";
+          const empType = this.getAttribute("data-emp-type") || "";
+
+          // Update modal title
+          const modalTitleElement = document.getElementById("modalTitle");
+          if (modalTitleElement) {
+            modalTitleElement.textContent = modalTitle;
+          }
+
+          // Update input field
+          const employeeStatusInput = document.getElementById("employee_type");
+          if (employeeStatusInput) {
+            employeeStatusInput.value = empType;
+          }
+        });
+      });
+  </script>
+</Layout>
