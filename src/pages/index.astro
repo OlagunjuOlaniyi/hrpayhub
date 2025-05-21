@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import DashboardModuleCard from "../components/modules/DashboardModuleCard";
 import { AlertComponent } from "../components/ui/Alerts";
-import { FeatureUpgradeModal } from "../components/ui/Modals";
+import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 ---
 
 <Layout title="HRPayHub :: Dashboard">
@@ -110,7 +110,7 @@ import { FeatureUpgradeModal } from "../components/ui/Modals";
 									"Configure company information, locations and departments.",
 								icon: "images/png/icons/colored/building-colored.svg",
 								color: "bronze-module",
-								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+								href: `company_setup.html`,
 							},
 							{
 								title: "Employee Management",
@@ -129,8 +129,8 @@ import { FeatureUpgradeModal } from "../components/ui/Modals";
 								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
 							},
 							{
-								title: "On/Off Boarding",
-								subtitle: "Track process and asset checklists.",
+								title: "On/Offboarding",
+								subtitle: "Track progress and asset checklists during onboarding and offboarding.",
 								icon: "images/png/icons/colored/task-square-colored.svg",
 								color: "bronze-module",
 								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
@@ -138,7 +138,7 @@ import { FeatureUpgradeModal } from "../components/ui/Modals";
 							{
 								title: "User Access Logs",
 								subtitle:
-									"Track all user logins and in-app activities for security, audit, and compliance.",
+									"Track user logins and in-app activities for security, audit, and compliance.",
 								icon: "images/png/icons/user-card-details.svg",
 								color: "bronze-module",
 								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
@@ -160,9 +160,9 @@ import { FeatureUpgradeModal } from "../components/ui/Modals";
 								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
 							},
 							{
-								title: "360° Appraisal",
+								title: "360° Appraisal Management",
 								subtitle:
-									"Configure company information, locations and departments.",
+									"Conduct well-rounded performance reviews with multi-source feedback.",
 								icon: "images/png/icons/colored/building-3-colored.svg",
 								color: "silver-module",
 								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
@@ -218,7 +218,7 @@ import { FeatureUpgradeModal } from "../components/ui/Modals";
 							{
 								title: "Monthly Payee Return - NG",
 								subtitle:
-									"Prepare and submit monthly PAYE tax returns for Nigerian employees.",
+									"Prepare monthly PAYE tax returns for Nigerian employees.",
 								icon: "images/png/icons/colored/naira-square-colored.svg",
 								color: "gold-module",
 								href: `@Url.Action("Controller", "Action", new { acc = 0})`,

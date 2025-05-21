@@ -1,4 +1,4 @@
-import { CloseCircleIcon } from '../Icons'
+import { CloseCircleIcon } from '../../Icons'
 
 export const FeatureUpgradeModal = () => {
   return (

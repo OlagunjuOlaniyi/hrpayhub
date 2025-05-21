@@ -1,64 +1,80 @@
 ---
+import ContactusModal from "../components/ui/modals/ContactusModal";
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
 interface Props {
-	title: string;
+  title: string;
 }
 const { title = "" } = Astro.props as Props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="favicon.png" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<link
-			href="libs/bootstrap-5.3.5-dist/css/bootstrap.min.css"
-			rel="stylesheet"
-		/>
-		<link href = 'css/site.css' rel = "stylesheet" />
-		<link href="css/styles.css" rel="stylesheet" />
-	</head>
-	<body>
-		<!-- Header / Navigation -->
-		<Header />
-		<!-- Header / Navigation -->
-		<slot />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link
+      href="libs/bootstrap-5.3.5-dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <!-- <link href="css/site.css" rel="stylesheet" /> -->
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header / Navigation -->
+    <Header />
+    <ContactusModal />
+    <!-- Header / Navigation -->
+    <slot />
 
-		<!-- Footer content starts here -->
-		<Footer />
-		<!-- Footer content ends here -->
+    <!-- Footer content starts here -->
+    <Footer />
+    <!-- Footer content ends here -->
 
-		<script defer src="libs/jquery/jquery-3.7.1.min.js"></script>
-		<script
-			is:inline
-			src="libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="libs/jquery/jquery-3.7.1.min.js"></script>
+    <script is:inline src="libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"
+    ></script>
 
-		<!-- Alert Notice For whole Page -->
-		<script is:inline>
-			document.addEventListener("DOMContentLoaded", () => {
-				$(".closeButton").click(function () {
-					const alertNotice = $(this).closest(".alertNotice");
-					alertNotice.remove();
-				});
-			});
-		</script>
-		<!-- Alert Notice For whole Page -->
+    <!-- Alert Notice For whole Page -->
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {
+        $(".closeButton").click(function () {
+          const alertNotice = $(this).closest(".alertNotice");
+          alertNotice.remove();
+        });
+      });
+    </script>
+    <!-- Alert Notice For whole Page -->
 
-		<!-- Tooltip Trigger for whole page -->
-		<script is:inline>
-			document.addEventListener("DOMContentLoaded", function () {
-				const tooltipTriggerList = [].slice.call(
-					document.querySelectorAll('[data-bs-toggle="tooltip"]'),
-				);
-				tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-					new bootstrap.Tooltip(tooltipTriggerEl);
-				});
-			});
-		</script>
-		<!-- Tooltip Trigger for whole page -->
-	</body>
+    <!-- Tooltip Trigger for whole page -->
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tooltipTriggerList = [].slice.call(
+          document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        );
+        tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+          new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        $("#contactus").click((e) => {
+          if (e.currentTarget.id == "contactus") {
+            const myModal = new bootstrap.Modal("#contactusModal", {
+              keyboard: true,
+            });
+            myModal.show();
+          }
+        });
+
+        $("#managesubscriptions").click((e) => {
+          console.log("hello inside");
+          window.location.href = "/manage_subscription";
+        });
+      });
+    </script>
+    <!-- Tooltip Trigger for whole page -->
+  </body>
 </html>
