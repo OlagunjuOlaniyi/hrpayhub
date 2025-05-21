@@ -7,7 +7,7 @@ import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePrevie
 import ListOfNigStates from "../components/ui/ListOfNigStates";
 ---
 
-<Layout title="HRPayHub :: Create Payslip">
+<Layout title="HRPayHub :: Create Payslip - Hourly">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -29,7 +29,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
             data={[
               { name: "Dashboard", url: "index.html" },
               { name: "Payslip Nigeria", url: "payslip.html" },
-              { name: "Monthly Payslip - Nigeria (Salaried)" },
+              { name: "Hourly Payslip - Nigeria (Salaried)" },
             ]}
           />
           <!-- Actual Breadcrumb here -->
@@ -54,7 +54,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
               />
               <span
                 class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Create Payslip (Individual)</span
+                >Create Payslip (Individual - Hourly)</span
               >
             </div>
             <div class="fw-bold">
@@ -224,8 +224,8 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                         style="color: rgb(200, 200, 200)">Please choose</option
                       >
                       <option value="">Please select</option>
-                      <option value="fulltime">Full-time</option>
                       <option value="parttime">Part-time</option>
+                      <option value="fulltime">Full-time</option>
                     </select>
                     <label for="employment_type"
                       >Employment Type &nbsp;<span>*</span></label
@@ -271,15 +271,18 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
 
                   <!-- Postcode only shows for UK version -->
                   <!-- <div class="form-floating">
-                    <input
-                      type="text"
-                      id="post_code"
-                      name="post_code"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="post_code">Postcode &nbsp;<span>*</span></label>
-                  </div> -->
+                                        <input
+                                            type="text"
+                                            id="post_code"
+                                            name="post_code"
+                                            class="form-input"
+                                            placeholder=" "
+                                        />
+                                        <label for="post_code"
+                                            >Postcode &nbsp;<span>*</span
+                                            ></label
+                                        >
+                                    </div> -->
 
                   <div class="d-flex align-items-center gap-4 mb- mt-2">
                     <div class="fs-14 fw-600 text-primary-blue">
@@ -363,132 +366,120 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                 </div>
 
                 <div class="vstack" style="gap: 2.3rem">
-                  <div class="form-floating">
-                    <input
-                      type="date"
-                      id="date"
-                      name="date"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="date">Date &nbsp;<span>*</span></label>
+                  <div class="d-flex gap-3">
+                    <div class="form-floating flex-fill">
+                      <select
+                        id="month_select"
+                        name="month_select"
+                        class="form-select_custom"
+                        required
+                      >
+                        <option
+                          value=""
+                          selected
+                          style="color: rgb(200, 200, 200)"
+                          >Please choose</option
+                        >
+                        {
+                          [
+                            { label: "January" },
+                            { label: "February" },
+                            { label: "March" },
+                            { label: "April" },
+                            { label: "May" },
+                            { label: "June" },
+                            { label: "July" },
+                            { label: "August" },
+                            { label: "September" },
+                            { label: "October" },
+                            { label: "November" },
+                            { label: "December" },
+                          ].map((ele) => (
+                            <option value={ele.label}>{ele.label}</option>
+                          ))
+                        }
+                      </select>
+                      <label for="month_select"
+                        >Month &nbsp;<span>*</span></label
+                      >
+                    </div>
+                    <div class="form-floating flex-fill">
+                      <select
+                        id="year_select"
+                        name="year_select"
+                        class="form-select_custom"
+                        required
+                      >
+                        <option
+                          value=""
+                          selected
+                          style="color: rgb(200, 200, 200)"
+                          >Please choose</option
+                        >
+                        {
+                          [
+                            { label: "2025" },
+                            { label: "2024" },
+                            { label: "2023" },
+                            { label: "2022" },
+                            { label: "2021" },
+                            { label: "2020" },
+                            { label: "2019" },
+                            { label: "2018" },
+                            { label: "2017" },
+                            { label: "2016" },
+                            { label: "2015" },
+                            { label: "2014" },
+                          ].map((ele) => (
+                            <option value={ele.label}>{ele.label}</option>
+                          ))
+                        }
+                      </select>
+                      <label for="year_select">Year &nbsp;<span>*</span></label>
+                    </div>
                   </div>
 
                   <div class="form-floating">
                     <input
-                      type="text"
-                      id="salary_fixed"
-                      name="salary_fixed"
-                      class="form-input"
+                      type="number"
+                      id="hourly_rate"
+                      name="hourly_rate"
+                      class="form-input salary_parameter"
                       placeholder=" "
+                      min="0"
                     />
-                    <label for="salary_fixed"
-                      >Monthly Fixed Salary &nbsp;<span>*</span></label
+                    <label for="hourly_rate"
+                      >Hourly Rate &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="number"
+                      id="salary_hours"
+                      name="salary_hours"
+                      class="form-input salary_parameter"
+                      placeholder=" "
+                      min="0"
+                    />
+                    <label for="salary_hours"
+                      >Salary Hours &nbsp;<span>*</span></label
                     >
                   </div>
 
                   <div class="form-floating">
                     <input
                       type="text"
-                      id="variable_admin_expense"
-                      name="variable_admin_expense"
+                      id="salary_amount"
+                      name="salary_amount"
                       class="form-input"
                       placeholder=" "
+                      readonly
+                      tabindex="-1"
+                      style="pointer-events: none;"
                     />
-                    <label for="variable_admin_expense"
-                      >Variable Admin Expense &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <div class="form-floating">
-                    <input
-                      type="text"
-                      id="variable_op_expense"
-                      name="variable_op_expense"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="variable_op_expense"
-                      >Variable Operational Expense &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <div class="form-floating">
-                    <input
-                      type="text"
-                      id="bonus"
-                      name="bonus"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="bonus"
-                      >Bonus / Commission &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <div class="form-floating">
-                    <input
-                      type="text"
-                      id="days_absent"
-                      name="days_absent"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="days_absent"
-                      >Days Absent &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <div class="form-floating">
-                    <input
-                      type="text"
-                      id="unpaid_leave"
-                      name="unpaid_leave"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="unpaid_leave"
-                      >Unpaid Leave Days &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <div class="form-floating">
-                    <input
-                      type="text"
-                      id="working_days"
-                      name="working_days"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="working_days"
-                      >Monthly Working Days &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <div class="form-floating">
-                    <input
-                      type="text"
-                      id="days_deduction"
-                      name="days_deduction"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="days_deduction"
-                      >Unpaid Days Deduction &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <div class="form-floating">
-                    <input
-                      type="text"
-                      id="days_variable_deduction"
-                      name="days_variable_deduction"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="days_variable_deduction"
-                      >Unpaid Days Variable Deduction &nbsp;<span>*</span
-                      ></label
+                    <label for="salary_amount"
+                      >Salary &nbsp;<span>*</span></label
                     >
                   </div>
 
@@ -508,6 +499,46 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                   <div class="form-floating">
                     <input
                       type="text"
+                      id="bonus_commission"
+                      name="bonus_commission"
+                      class="form-input"
+                      placeholder=" "
+                      min = 0
+                    />
+                    <label for="bonus_commission"
+                      >Bonus / Commission &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="variable_operational_expense"
+                      name="variable_operational_expense"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="variable_operational_expense"
+                      >Variable Operational Expense &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="variable_admin_expense"
+                      name="variable_admin_expense"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="variable_admin_expense"
+                      >Variable Admin Expense &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="text"
                       id="monthly_variable_expense"
                       name="monthly_variable_expense"
                       class="form-input"
@@ -517,6 +548,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                       >Monthly Variable Expense &nbsp;<span>*</span></label
                     >
                   </div>
+
                 </div>
                 <div class="d-flex justify-content-between mt-5">
                   <button
@@ -657,26 +689,13 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                   <div class="form-floating">
                     <input
                       type="date"
-                      id="salary_pay_date"
-                      name="salary_pay_date"
+                      id="pay_date"
+                      name="pay_date"
                       class="form-input"
                       placeholder=" "
                     />
-                    <label for="salary_pay_date"
-                      >Salary Pay Date &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <div class="form-floating">
-                    <input
-                      type="date"
-                      id="expense_pay_date"
-                      name="expense_pay_date"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="expense_pay_date"
-                      >Expense Pay Date &nbsp;<span>*</span></label
+                    <label for="pay_date"
+                      >Pay Date &nbsp;<span>*</span></label
                     >
                   </div>
                 </div>
@@ -801,6 +820,34 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
         $(clickedTab).prop("aria-selected", "true");
       });
 
+      $("#salary_hours, #hourly_rate").on("input", (evt) => {
+        const salary_hours = $("#salary_hours").val();
+        const hourly_rate = $("#hourly_rate").val();
+        const salary_amount =
+          parseFloat(salary_hours) * parseFloat(hourly_rate);
+        if (!Number.isNaN(salary_amount)) {
+          $("#salary_amount, #monthly_salary").val(salary_amount);
+        }
+        else {
+            $("#salary_amount, #monthly_salary").val(0);
+        }
+      });
+
+      $("#variable_admin_expense, #variable_operational_expense, #bonus_commission").on('input', (evt) => {
+        const variable_admin_expense = parseFloat($("#variable_admin_expense").val())
+        const variable_operational_expense = parseFloat($("#variable_operational_expense").val())
+        const bonus_commission = parseFloat($("#bonus_commission").val())
+
+        const monthly_variable_expense = variable_admin_expense + variable_operational_expense + bonus_commission
+        
+        if (Number.isNaN(monthly_variable_expense)) {
+            $("#monthly_variable_expense").val(0)
+        }
+        else {
+            $("#monthly_variable_expense").val(monthly_variable_expense)
+        }
+      })
+
       $("#creat_payslip_form").submit((evt) => {
         evt.preventDefault();
 
@@ -810,7 +857,6 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
       $(".next_tab_btn").click((evt) => {
         const clickedBtn = evt.currentTarget;
         const targetTab = $(clickedBtn).attr("data-tab-target");
-
         $(targetTab).click();
       });
 

@@ -2,268 +2,301 @@
 import Layout from "../layouts/Layout.astro";
 import DashboardModuleCard from "../components/modules/DashboardModuleCard";
 import { AlertComponent } from "../components/ui/Alerts";
+import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 ---
 
 <Layout title="HRPayHub :: Dashboard">
-  <!-- Main content starts here -->
-  <main>
-    <!-- Notice Board Area -->
-    <AlertComponent client:load />
-    <!-- Notice Board Area -->
+	<!-- Main content starts here -->
+	<main>
+		<!-- Notice Board Area -->
+		<AlertComponent />
+		<!-- Notice Board Area -->
 
-    <!-- Employee details * Count stats -->
-    <section class="p-5 bg-gold">
-      <div class="screenFrame">
-        <div
-          class="row justify-content-between align-content-center row_adjustment h-180"
-        >
-          <div class="col-6 ps-0">
-            <div
-              class="d-flex gap-5 align-items-center justify-content-between h-100 bg-primary-blue rounded-3 overflow-hidden"
-            >
-              <div
-                class="p-4 align-self-stretch d-flex flex-column justify-content-between flex-fill text-white"
-              >
-                <div>
-                  <div class="fs-6">Welcome</div>
-                  <div class="font-ubuntu-bold fs-18">Joseph Olawale</div>
-                </div>
-                <hr
-                  class="border-white border-2 opacity-100 hr-profile-divide"
-                />
+		<!-- Employee details * Count stats -->
+		<section class="p-5 bg-gold">
+			<div class="screenFrame">
+				<div
+					class="row justify-content-between align-content-center row_adjustment gold_container"
+				>
+					<div class="col-xl-6 col-12 ps-0 pe-0 pe-xl-2 mb-4 mb-xl-0">
+						<div
+							class="d-flex gap-5 align-items-center justify-content-between h-100 bg-primary-blue rounded-3 overflow-hidden"
+						>
+							<div
+								class="p-4 align-self-stretch d-flex flex-column justify-content-between flex-fill text-white"
+							>
+								<div>
+									<div class="fs-6">Welcome</div>
+									<div class="font-ubuntu-bold fs-18">
+										Joseph Olawale
+									</div>
+								</div>
+								<hr
+									class="border-white border-2 opacity-100 hr-profile-divide"
+								/>
 
-                <div>
-                  <div class="font-ubuntu-bold fs-18">Delon Apps LLC.</div>
-                  <div class="fs-6">You last logged in on: 4/8/2025 3:44PM</div>
-                </div>
-              </div>
-              <img
-                src="images/persons/delon_hr_lady_smiling.png"
-                width="128px"
-                height="100%"
-                alt="delon_hr_lady_smiling"
-                class="object-fit-cover"
-              />
-            </div>
-          </div>
-          <div class="col-3">
-            <div
-              class="mx-2 shadow bg-white rounded-3 d-flex flex-column justify-content-between align-items-center h-100 py-4"
-            >
-              <div>
-                <img
-                  src="images/png/icons/colored/people-colored.svg"
-                  alt="people-colored"
-                />
-              </div>
-              <div class="text-black font-ubuntu-bold fs-5">
-                Active Employee Count
-              </div>
-              <button
-                class="btn bg-primary-blue rounded-2 text-white font-ubuntu-bold"
-                >10</button
-              >
-            </div>
-          </div>
-          <div class="col-3 pe-0">
-            <div
-              class="shadow py-4 rounded-3 h-100 bg-primary-blue d-flex flex-column justify-content-between align-items-center"
-            >
-              <div>
-                <img src="images/png/icons/medal-star.svg" alt="medal" />
-              </div>
-              <div class="text-white font-ubuntu-bold fs-5">
-                Subscription Package
-              </div>
-              <button class="btn bg-white rounded-2 text-black font-ubuntu-bold"
-                >Silver</button
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Employee details * Count stats -->
+								<div>
+									<div class="font-ubuntu-bold fs-18">
+										Delon Apps LLC.
+									</div>
+									<div class="fs-6">
+										You last logged in on: 4/8/2025 3:44PM
+									</div>
+								</div>
+							</div>
+							<img
+								src="images/persons/delon_hr_lady_smiling.png"
+								width="128px"
+								height="100%"
+								alt="delon_hr_lady_smiling"
+								class="object-fit-cover"
+							/>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-6 col-12 ps-0 ps-xl-3 pe-0 pe-lg-2 mb-4 mb-xl-0">
+						<div
+							class="shadow bg-white rounded-3 d-flex flex-column justify-content-between align-items-center py-4 vstack gap-3"
+						>
+							<div>
+								<img
+									src="images/png/icons/colored/people-colored.svg"
+									alt="people-colored"
+								/>
+							</div>
+							<div class="text-black font-ubuntu-bold fs-5">
+								Active Employee Count
+							</div>
+							<button
+								class="btn bg-primary-blue rounded-2 text-white font-ubuntu-bold"
+								>10</button
+							>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-6 col-12 pe-0 pe-xl-3 ps-0 ps-lg-3">
+						<div
+							class="shadow py-4 rounded-3 bg-primary-blue d-flex flex-column justify-content-between align-items-center vstack gap-3"
+						>
+							<div>
+								<img
+									src="images/png/icons/medal-star.svg"
+									alt="medal"
+								/>
+							</div>
+							<div class="text-white font-ubuntu-bold fs-5">
+								Subscription Package
+							</div>
+							<button
+								class="btn bg-white rounded-2 text-black font-ubuntu-bold"
+								>Silver</button
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Employee details * Count stats -->
 
-    <!-- 3 Grid Column for Module cards -->
-    <section class="p-5">
-      <div class="screenFrame">
-        <div
-          class="row align-items-stretch justify-content-between row_adjustment employee-grid-gap"
-        >
-          {
-            [
-              {
-                title: "Company Setup",
-                subtitle:
-                  "Configure company information, locations and departments.",
-                icon: "images/png/icons/colored/building-colored.svg",
-                color: "#FFD8A8",
-                href: `@Url.Action("Controller", "Action", new { acc = 0})`,
-              },
-              {
-                title: "Employee Management",
-                subtitle:
-                  "Manage all employee profile, records, departments and duties.",
-                icon: "images/png/icons/colored/people-colored.svg",
-                color: "#FFD8A8",
-                href: `/employee-management`,
-              },
-              {
-                title: "User Account Setup",
-                subtitle:
-                  "Create users and assign roles to control access and permissions.",
-                icon: "images/png/icons/colored/user-circle-add-colored.svg",
-                color: "#FFD8A8",
-                href: `/user-account-setup`,
-              },
-              {
-                title: "On/Off Boarding",
-                subtitle: "Track process and asset checklists.",
-                icon: "images/png/icons/colored/task-square-colored.svg",
-                color: "#FFD8A8",
-                href: `@Url.Action("Controller", "Action", new { acc = 0})`,
-              },
-              {
-                title: "User Access Logs",
-                subtitle:
-                  "Track all user logins and in-app activities for security, audit, and compliance.",
-                icon: "images/png/icons/user-card-details.svg",
-                color: "#FFD8A8",
-                href: `/user-access-logs`,
-              },
-              {
-                title: "Time Management",
-                subtitle:
-                  "Effectively track and manage employee work hours and attendance.",
-                icon: "images/png/icons/colored/clock-colored.svg",
-                color: "#FCC2D7",
-                href: "#",
-              },
-              {
-                title: "Leave Management",
-                subtitle:
-                  "Handle employee leave requests, approvals, and leave balance tracking.",
-                icon: "images/png/icons/colored/calendar-tick-colored.svg",
-                color: "#FCC2D7",
-                href: `@Url.Action("Controller", "Action", new { acc = 0})`,
-              },
-              {
-                title: "360° Appraisal",
-                subtitle:
-                  "Configure company information, locations and departments.",
-                icon: "images/png/icons/colored/building-3-colored.svg",
-                color: "#FCC2D7",
-                href: `@Url.Action("Controller", "Action", new { acc = 0})`,
-              },
-              {
-                title: "Document Management",
-                subtitle:
-                  "Organize and store important email and document correspondence.",
-                icon: "images/png/icons/colored/folder-2-colored.svg",
-                color: "#FCC2D7",
-                href: `@Url.Action("Controller", "Action", new { acc = 0})`,
-              },
-              {
-                title: "Payslip",
-                subtitle:
-                  "View and manage monthly payslips by country and pay type.",
-                icon: "images/png/icons/colored/receipt-minus-colored.svg",
-                color: "#D0BFFF",
-                href: `payslip.html`,
-              },
-              {
-                title: "Offer Breakdown",
-                subtitle:
-                  "Configure salary, benefits, tax, and deductions before sending an offer.",
-                icon: "images/png/icons/colored/document-colored.svg",
-                color: "#D0BFFF",
-                href: `@Url.Action("Controller", "Action", new { acc = 0})`,
-              },
-              {
-                title: "Calculate Taxes",
-                subtitle: "Estimate taxes automatically for payroll planning.",
-                icon: "images/png/icons/colored/ticket-percent-colored.svg",
-                color: "#D0BFFF",
-                href: `/calculate-taxes`,
-              },
-              {
-                title: "Payroll List",
-                subtitle:
-                  "View and manage a list of payroll records for easy tracking & reference ",
-                icon: "images/png/icons/colored/archive-colored.svg",
-                color: "#D0BFFF",
-                href: `/payroll-list`,
-              },
-              {
-                title: "Annual Return - NG",
-                subtitle:
-                  "File annual tax returns in compliance with Nigerian tax requirements.",
-                icon: "images/png/icons/colored/money-tick-colored.svg",
-                color: "#D0BFFF",
-                href: `/annual-returns`,
-              },
-              {
-                title: "Monthly Payee Return - NG",
-                subtitle:
-                  "Prepare and submit monthly PAYE tax returns for Nigerian employees.",
-                icon: "images/png/icons/colored/naira-square-colored.svg",
-                color: "#D0BFFF",
-                href: `/paye-returns`,
-              },
-              {
-                title: "Payroll Bank Upload - NG",
-                subtitle:
-                  "Generate bank upload files for processing payroll payments in Nigeria.",
-                icon: "images/png/icons/colored/bank-colored.svg",
-                color: "#A5D8FF",
-                href: `@Url.Action("Controller", "Action", new { acc = 0})`,
-              },
-              {
-                title: "Full Payment Submission - UK",
-                subtitle:
-                  "Create UK-complaint files for full payroll submission to HMRC.",
-                icon: "images/png/icons/colored/pound-square-colored.svg",
-                color: "#A5D8FF",
-                href: `@Url.Action("Controller", "Action", new { acc = 0})`,
-              },
-              {
-                title: "Task Management",
-                subtitle:
-                  "Assign, track, and manage tasks to ensure accountability and productivity.",
-                icon: "images/png/icons/colored/task-square-colored.svg",
-                color: "#A5D8FF",
-                href: `@Url.Action("Controller", "Action", new { acc = 0})`,
-              },
-              {
-                title: "Expense Management",
-                subtitle:
-                  "Submit and approve expense requests to streamline financial management.",
-                icon: "images/png/icons/colored/ticket-colored.svg",
-                color: "#A5D8FF",
-                href: `#`,
-              },
-              {
-                title: "Financial Reports & Analytics",
-                subtitle:
-                  "Access detailed reports and analytics to support data-driven decision-making.",
-                icon: "images/png/icons/colored/chart-colored.svg",
-                color: "#A5D8FF",
-                href: `@Url.Action("Controller", "Action", new { acc = 0})`,
-              },
-              {
-                title: "Send & Sign Offer",
-                subtitle:
-                  "Auto-fill and send offer letters for digital signing.",
-                icon: "images/png/icons/colored/signature-pen-colored.svg",
-                color: "#A5D8FF",
-                href: `/send-and-sign-offer`,
-              },
-            ].map((ele, idx) => <DashboardModuleCard {...ele} client:load />)
-          }
-        </div>
-      </div>
-    </section>
-  </main>
-  <!-- Main content ends here -->
+		<!-- 3 Grid Column for Module cards -->
+		<section class="p-5">
+			<div class="screenFrame">
+				<div
+					class="row align-items-stretch justify-content-center justify-content-xl-between row_adjustment employee-grid-gap"
+				>
+					{
+						[
+							{
+								title: "Company Setup",
+								subtitle:
+									"Configure company information, locations and departments.",
+								icon: "images/png/icons/colored/building-colored.svg",
+								color: "bronze-module",
+								href: `company_setup.html`,
+							},
+							{
+								title: "Employee Management",
+								subtitle:
+									"Manage all employee profile, records, departments and duties.",
+								icon: "images/png/icons/colored/people-colored.svg",
+								color: "bronze-module",
+								href: `employment-management`,
+							},
+							{
+								title: "User Roles",
+								subtitle:
+									"Create users and assign roles to control access and permissions.",
+								icon: "images/png/icons/colored/user-circle-add-colored.svg",
+								color: "bronze-module",
+								href: `user-account-setup`,
+							},
+							{
+								title: "On/Offboarding",
+								subtitle: "Track progress and asset checklists during onboarding and offboarding.",
+								icon: "images/png/icons/colored/task-square-colored.svg",
+								color: "bronze-module",
+								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+							},
+							{
+								title: "User Access Logs",
+								subtitle:
+									"Track user logins and in-app activities for security, audit, and compliance.",
+								icon: "images/png/icons/user-card-details.svg",
+								color: "bronze-module",
+								href: `user-logs`,
+							},
+							{
+								title: "Time Management",
+								subtitle:
+									"Effectively track and manage employee work hours and attendance.",
+								icon: "images/png/icons/colored/clock-colored.svg",
+								color: "silver-module",
+								href: "#",
+							},
+							{
+								title: "Leave Management",
+								subtitle:
+									"Handle employee leave requests, approvals, and leave balance tracking.",
+								icon: "images/png/icons/colored/calendar-tick-colored.svg",
+								color: "silver-module",
+								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+							},
+							{
+								title: "360° Appraisal Management",
+								subtitle:
+									"Conduct well-rounded performance reviews with multi-source feedback.",
+								icon: "images/png/icons/colored/building-3-colored.svg",
+								color: "silver-module",
+								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+							},
+							{
+								title: "Document Management",
+								subtitle:
+									"Organize and store important email and document correspondence.",
+								icon: "images/png/icons/colored/folder-2-colored.svg",
+								color: "silver-module",
+								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+							},
+							{
+								title: "Payslip",
+								subtitle:
+									"View and manage monthly payslips by country and pay type.",
+								icon: "images/png/icons/colored/receipt-minus-colored.svg",
+								color: "gold-module",
+								href: `payslip.html`,
+							},
+							{
+								title: "Offer Breakdown",
+								subtitle:
+									"Configure salary, benefits, tax, and deductions before sending an offer.",
+								icon: "images/png/icons/colored/document-colored.svg",
+								color: "gold-module",
+								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+							},
+							{
+								title: "Calculate Taxes",
+								subtitle:
+									"Estimate taxes automatically for payroll planning.",
+								icon: "images/png/icons/colored/ticket-percent-colored.svg",
+								color: "gold-module",
+								href: `calculate-taxes`,
+							},
+							{
+								title: "Payroll List",
+								subtitle:
+									"View and manage a list of payroll records for easy tracking & reference ",
+								icon: "images/png/icons/colored/archive-colored.svg",
+								color: "gold-module",
+								href: `payroll-list`,
+							},
+							{
+								title: "Annual Return - NG",
+								subtitle:
+									"File annual tax returns in compliance with Nigerian tax requirements.",
+								icon: "images/png/icons/colored/money-tick-colored.svg",
+								color: "gold-module",
+								href: `annual-return`,
+							},
+							{
+								title: "Monthly Payee Return - NG",
+								subtitle:
+									"Prepare monthly PAYE tax returns for Nigerian employees.",
+								icon: "images/png/icons/colored/naira-square-colored.svg",
+								color: "gold-module",
+								href: `paye-returns`,
+							},
+							{
+								title: "Payroll Bank Upload - NG",
+								subtitle:
+									"Generate bank upload files for processing payroll payments in Nigeria.",
+								icon: "images/png/icons/colored/bank-colored.svg",
+								color: "platinum-module",
+								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+							},
+							{
+								title: "Full Payment Submission - UK",
+								subtitle:
+									"Create UK-complaint files for full payroll submission to HMRC.",
+								icon: "images/png/icons/colored/pound-square-colored.svg",
+								color: "platinum-module",
+								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+							},
+							{
+								title: "Task Management",
+								subtitle:
+									"Assign, track, and manage tasks to ensure accountability and productivity.",
+								icon: "images/png/icons/colored/task-square-colored.svg",
+								color: "platinum-module",
+								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+							},
+							{
+								title: "Expense Management",
+								subtitle:
+									"Submit and approve expense requests to streamline financial management.",
+								icon: "images/png/icons/colored/ticket-colored.svg",
+								color: "platinum-module",
+								href: `#`,
+							},
+							{
+								title: "Financial Reports & Analytics",
+								subtitle:
+									"Access detailed reports and analytics to support data-driven decision-making.",
+								icon: "images/png/icons/colored/chart-colored.svg",
+								color: "platinum-module",
+								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+							},
+							{
+								title: "Send & Sign Offer",
+								subtitle:
+									"Auto-fill and send offer letters for digital signing.",
+								icon: "images/png/icons/colored/signature-pen-colored.svg",
+								color: "platinum-module",
+								href: `send-and-sign-offer`,
+							},
+						].map((ele, idx) => (
+							<DashboardModuleCard {...ele} />
+						))
+					}
+				</div>
+			</div>
+		</section>
+	</main>
+	<FeatureUpgradeModal />
+	<!-- Main content ends here -->
+
+	<script is:inline>
+		document.addEventListener("DOMContentLoaded", () => {
+			$(".dashboard_module_card").click(function (evt) {
+				evt.preventDefault();
+				const href = $(this).attr("href");
+				const title = $(this).attr("title");
+				if (href != "#") {
+					window.open(href, title);
+				} else {
+					const myModal = new bootstrap.Modal("#showUpgradeModal", {
+						keyboard: true,
+					});
+					myModal.show();
+				}
+			});
+		});
+	</script>
 </Layout>

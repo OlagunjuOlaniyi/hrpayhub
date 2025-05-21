@@ -1,0 +1,513 @@
+---
+import BreadCrumbs from "../components/ui/BreadCrumbs";
+import Layout from "../layouts/Layout.astro";
+import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePreview";
+import { Naira } from "../components/Symbols";
+import AddLocationModal from "../components/ui/modals/AddLocationModal";
+import DeleteLocationModal from "../components/ui/modals/DeleteLocationModal";
+import { NoticeToast } from "../components/ui/NoticeToast";
+import EditLocationModal from "../components/ui/modals/EditLocationModal";
+---
+
+<style>
+  .work_location_select .work_location_select_item:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+
+  .actionButton {
+    background-color: transparent;
+  }
+
+  .actionButton:hover {
+    background-color: rgb(240, 240, 240);
+  }
+</style>
+
+<Layout title="HRPayHub :: Work Locations">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full">
+          <a
+            href="payslip.html"
+            title="Back to Payslip"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <BreadCrumbs
+            data={[
+              { name: "Dashboard", url: "index.html" },
+              { name: "Company Setup", url: "company_setup.html" },
+              { name: "Work Locations" },
+            ]}
+          />
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- Main Page content -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack px-5">
+          {/* Page Title */}
+          <div class="vstack gap-2">
+            <div class="d-flex gap-3 align-items-center">
+              <img
+                src="images/png/icons/colored/location.svg"
+                alt="receipt-minus-icon"
+                width="30px"
+                height="30px"
+              />
+              <span
+                class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
+                >Company Setup - Work Locations</span
+              >
+            </div>
+            <div class="fw-bold hidden">&nbsp;</div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+          <div class="" id="work_locations_table">
+            <div
+              class="d-flex flex-column justify-content-between gap-4 border p-4"
+              style="border-radius: 10px 10px 0px 0px"
+            >
+              <div class="font-ubuntu-bold fs-18">Work Locations</div>
+              <div
+                class="d-flex flex-column flex-xl-row gap-3 lg:gap-0 justify-content-between lg:align-items-center"
+              >
+                <div class="d-flex flex-wrap gap-2 w-50 mw-100">
+                  <!-- Search input box -->
+                  <div
+                    class="d-flex align-items-center px-2 gap-1 overflow-hidden"
+                    style="background: rgb(250, 250, 250); border: 1px solid #D1D5DB; height: 41px; border-radius: 10px;"
+                  >
+                    <button class="border-0 bg-transparent py-2">
+                      <img
+                        src="images/png/icons/search-normal.svg"
+                        alt="Search icon"
+                        style="margin-top: -3px"
+                      />
+                    </button>
+                    <input
+                      type="text"
+                      class="flex-fill mw-100 w-100 flex-shrink py-2 bg-transparent border-0 fs-14 rounded-0 no_focus"
+                      placeholder="Search..."
+                    />
+                  </div>
+                  <!-- Search input box -->
+                  <div class="dropdown work_location_select">
+                    <button
+                      class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      data-bs-offset="0,10"
+                    >
+                      <span>Location Title</span>
+                      <img
+                        src="images/png/icons/arrow-down.svg"
+                        alt="arrow-down"
+                      />
+                    </button>
+                    <div class="dropdown-menu p-0 border-0" style="width: auto">
+                      <div
+                        style="color: #111928"
+                        class="shadow rounded-3 overflow-hidden"
+                      >
+                        <div class="fs-14 fw-600 p-2 work_location_select_item">
+                          Location Title
+                        </div>
+                        <div class="fs-14 fw-600 p-2 work_location_select_item">
+                          Address
+                        </div>
+                        <div class="fs-14 fw-600 p-2 work_location_select_item">
+                          City
+                        </div>
+                        <div class="fs-14 fw-600 p-2 work_location_select_item">
+                          Postal Code
+                        </div>
+                        <div class="fs-14 fw-600 p-2 work_location_select_item">
+                          State
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-shrink flex-grow-0 flex-column flex-md-row gap-3 lg:align-items-center"
+                >
+                  <div class="d-flex gap-3 align-items-center">
+                    <button
+                      class="d-flex align-items-center gap-2 border-0 bg-transparent"
+                    >
+                      <img
+                        src="images/png/icons/filter.svg"
+                        alt="filter icon"
+                      />
+                      <span class="fs-14 fw-600" style="color: #202020"
+                        >Filter</span
+                      >
+                    </button>
+                    <button
+                      class="d-flex align-items-center gap-2 border-0 bg-transparent"
+                    >
+                      <img
+                        src="images/png/icons/sort-descending.svg"
+                        alt="filter icon"
+                      />
+                      <span class="fs-14 fw-600" style="color: #202020"
+                        >Filter</span
+                      >
+                    </button>
+                  </div>
+                  <button
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 dropdown-toggle dropdown-no-arrow d-flex justify-content-center align-items-center gap-2"
+                    type="button"
+                    id="addNewWorkLocationBtn"
+                  >
+                    <span>Add New</span>
+                    <img src="images/png/icons/add.svg" alt="arrow-down" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Table section -->
+            <div class="table-responsive w-full" style="max-width: 100%">
+              <table
+                class="table table-bordered payslip_table"
+                style="table-layout: auto; width: 100%"
+              >
+                <!-- Table Header -->
+                <thead class="bg-primary-blue text-white fs-14 fw-700">
+                  <th
+                    class="bg-primary-blue text-white text-center text-nowrap"
+                    style="min-width: 60px">S/N</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white text-nowrap"
+                    style="min-width: 130px">Location Title</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white text-nowrap"
+                    style="min-width: 200px">Location Type</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white text-nowrap"
+                    style="min-width: 200px">Address</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white text-nowrap"
+                    style="min-width: 200px">City</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white text-nowrap text-center"
+                    style="min-width: 200px">Postal Code</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white text-nowrap text-center"
+                    style="min-width: 200px">State</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white text-nowrap text-center"
+                    style="min-width: 200px">Country</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white text-center text-nowrap"
+                    style="width: 200px">Actions</th
+                  >
+                </thead>
+                <!-- Table Header -->
+                <tbody class="font-avenir">
+                  {
+                    [
+                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
+                      {title: "Lorem 1", type: "Tertiary", address: "7529 E. Pecan St.", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
+                      {title: "Lorem 1", type: "Retail", address: "3890 Poplar Dr.", city: "Ikeja", postalCode: '—', state: "Lagos", country: "Nigeria"},
+                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
+                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
+                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
+                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
+                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
+                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
+                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"}
+                    ].map((ele, idx) => (
+                      <tr>
+                        <td
+                          valign="middle"
+                          class="text-black text-center px-12px fs-14"
+                        >
+                          {idx + 1}
+                        </td>
+                        <td valign="middle" class="text-black px-12px fs-14">
+                          {ele.title}
+                        </td>
+                        <td valign="middle" class="text-black px-12px fs-14">
+                          {ele.type}
+                        </td>
+                        <td
+                          valign="middle"
+                          class="text-black px-12px fs-14"
+                        >
+                          {ele.address}
+                        </td>
+                        <td
+                          valign="middle"
+                          class="text-black px-12px fs-14"
+                        >
+                          {ele.city}
+                        </td>
+                        <td
+                          valign="middle"
+                          class="text-black px-12px fs-14 text-center"
+                        >
+                          {ele.postalCode}
+                        </td>
+                        <td
+                          valign="middle"
+                          class="text-black px-12px fs-14 text-center"
+                        >
+                          {ele.state}
+                        </td>
+                        <td
+                          valign="middle"
+                          class="text-black px-12px fs-14 text-center"
+                        >
+                          {ele.country}
+                        </td>
+                        <td
+                          valign="middle"
+                          class="text-black px-12px fs-14 d-flex gap-2 justify-content-center"
+                        >
+                          <button
+                            class="rounded-3 px-2 text-white border-0 text-nowrap actionButton actionButtonEdit d-flex gap-2 align-items-center justify-content-center"
+                            style="height: 28px"
+                          >
+                            <img
+                              src="images/png/icons/edit-2.svg"
+                              alt="document_file_icon"
+                              class="flex-shrink-0"
+                            />
+                          </button>
+
+                          <button
+                            class="rounded-3 px-2 text-white border-0 text-nowrap actionButton actionButtonDelete d-flex gap-2 align-items-center justify-content-center"
+                            style="height: 28px"
+                          >
+                            <img
+                              src="images/png/icons/trash.svg"
+                              alt="document_file_icon"
+                              class="flex-shrink-0"
+                            />
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+            <!-- Table section -->
+
+            <!-- Pagination Row -->
+            <div
+              class="d-flex justify-content-between align-items-center flex-wrap gap-3 pt-3"
+            >
+              <!-- Left: Pagination Text -->
+              <div class="fs-14 text-muted">
+                Showing <strong>1–20</strong> of <strong>1000</strong>
+              </div>
+
+              <!-- Right: Go to Page + Pagination -->
+              <div class="d-flex align-items-center gap-3 flex-wrap">
+                <!-- Go to Page -->
+                <form class="d-flex align-items-center gap-2">
+                  <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+                  <input
+                    type="text"
+                    min="1"
+                    max="100"
+                    id="gotoPage"
+                    class="form-control form-control-sm text-center"
+                    style="width: 60px;"
+                    placeholder="—"
+                  />
+                </form>
+
+                <!-- Page Navigation -->
+
+                <nav>
+                  <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                    <li
+                      class="page-item d-flex align-items-center justify-content-center"
+                      style="width: 35px"
+                    >
+                      <a
+                        class="page-link text-primary-blue"
+                        href="#"
+                        aria-label="Next"
+                        style="width: 35px; padding-right: 15px;"
+                      >
+                        <img
+                          src="images/png/icons/angle-left.svg"
+                          style="margin-top: -2.5px"
+                          alt="angle-left"
+                        />
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a
+                        class="page-link text-primary-dark d-flex align-items-center justify-content-center"
+                        href="#"
+                        style="width: 35px">1</a
+                      >
+                    </li>
+                    <li class="page-item active" aria-current="page">
+                      <a
+                        class="page-link d-flex align-items-center justify-content-center"
+                        href="#"
+                        style="width: 35px">2</a
+                      >
+                    </li>
+                    <li class="page-item">
+                      <a
+                        class="page-link text-primary-dark d-flex align-items-center justify-content-center"
+                        href="#"
+                        style="width: 35px">3</a
+                      >
+                    </li>
+                    <li class="page-item">
+                      <span class="page-link text-primary-dark">...</span>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">100</a>
+                    </li>
+                    <li
+                      class="page-item d-flex align-items-center justify-content-center"
+                      style="width: 35px"
+                    >
+                      <a
+                        class="page-link text-primary-blue"
+                        href="#"
+                        aria-label="Next"
+                        style="width: 35px; padding-left: 15px;"
+                      >
+                        <img
+                          src="images/png/icons/angle-right.svg"
+                          style="margin-top: -2.5px"
+                          alt="angle-right"
+                        />
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <!---- Pagination ---->
+          </div>
+          {/* Page Content Box */}
+        </div>
+      </div>
+    </section>
+    <AddLocationModal />
+    <DeleteLocationModal />
+    <EditLocationModal />
+  </main>
+  <!-- Main content ends here -->
+
+  <!-- Notfy -->
+  <script is:inline src="libs/notyf/notyf.min.js"></script>
+
+  <script is:inline>
+    let targetLocationToDelete;
+    var notyf = new Notyf({
+      position: {
+        x: "center",
+        y: "top",
+      },
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Modal Object declared here
+      const myModal = new bootstrap.Modal("#deleteLocationModal", {
+        keyboard: true,
+      });
+
+      const myEditModal = new bootstrap.Modal("#editLocationModal", {
+        keyboard: true,
+      });
+      // Modal Object declared here
+
+      $(".work_location_select_item").on("click", function (evt) {
+        const selected = evt.currentTarget.textContent.trim();
+        const parent = $(this).closest(".work_location_select");
+        const span = parent.find("span");
+        $(span).text(selected);
+      });
+
+      $("#addNewWorkLocationBtn").click((e) => {
+        const myModal = new bootstrap.Modal("#addLocationModal", {
+          keyboard: true,
+        });
+        myModal.show();
+      });
+
+      $(".actionButtonEdit").on("click", function (evt) {
+        const html = $(this).html();
+        $(this).html(`
+            <span>
+                <span class="spinner-border spinner-border-sm text-dark" aria-hidden="true"></span>
+            </span>
+        `);
+
+        setTimeout(() => {
+          myEditModal.show();
+          $(this).html(html);
+        }, 1500);
+      });
+
+      $(".actionButtonDelete").on("click", function (evt) {
+        const html = $(this).html();
+        targetLocationToDelete = this;
+
+        $(this).html(`
+            <span>
+                <span class="spinner-border spinner-border-sm text-dark" aria-hidden="true"></span>
+            </span>
+        `);
+
+        setTimeout(() => {
+          if (Math.random() < 0.5) {
+            // 80% chance of success
+            myModal.show();
+
+            $(this).html(html);
+          } else {
+            // 20% chance of failure
+            notyf.error("An error occurred. Try again!");
+            $(this).html(html);
+          }
+        }, 1000);
+      });
+
+      $("#deleteLocationConfirmBtn").click(() => {
+        $(targetLocationToDelete).closest("tr").remove();
+        notyf.success("Your changes have been successfully saved!");
+        myModal.hide();
+      });
+    });
+  </script>
+</Layout>

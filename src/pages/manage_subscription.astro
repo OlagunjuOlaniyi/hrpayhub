@@ -1,0 +1,181 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BreadCrumbs from "../components/ui/BreadCrumbs";
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: Payslips Activity Logs">
+  <!-- Main content starts here -->
+  <main class="w-full">
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4 w-full">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full">
+          <a
+            href="payslip_monthly_nigeria_salaried.html"
+            title="Back to Payslip"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <BreadCrumbs
+            data={[
+              { name: "Dashboard", url: "index.html" },
+              { name: "Manage Subscription" },
+            ]}
+          />
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- Main content section :: Manage Payslip - Show list of employees payslips -->
+    <section class="px-4" id="manage_list_of_payslip">
+      <div class="screenFrame">
+        <div class="d-flex flex-column justify-content-between">
+          <div
+            class="rounded-4 shadow p-4 d-flex flex-column gap-5 px-md-5 px-3"
+            style="flex-basis: auto;"
+          >
+            {/* Page Tab */}
+            <ul class="nav nav-tabs fs-14" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link border-0 active"
+                  id="manage-sub-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#manage-sub-pane"
+                  type="button"
+                  role="tab"
+                  aria-controls="home-tab-pane"
+                  aria-selected="true">Manage Subscription</button
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link border-0"
+                  id="profile-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#billing-section-pane"
+                  type="button"
+                  role="tab"
+                  aria-controls="profile-tab-pane"
+                  aria-selected="false">Billing Section</button
+                >
+              </li>
+            </ul>
+            {/* Page Tab */}
+
+            {/* Page Content Box */}
+            <div class="row">
+              <div class="col-12 col-lg-4">
+                <div class="tab-content" id="myTabContent">
+                  <div
+                    class="tab-pane fade show active"
+                    id="manage-sub-pane"
+                    role="tabpanel"
+                    aria-labelledby="home-tab"
+                    tabindex="0"
+                  >
+                    <div
+                      class="bronze-card d-flex flex-column gap-1 justify-content-center align-items-center"
+                    >
+                      <div class="text-center vstack gap-2">
+                        <div class="fs-12 fw-600">Current Package</div>
+                        <div class="fs-18 fw-700 font-ubuntu-bold">Bronze</div>
+                        <div class="fs-18 fw-700 font-ubuntu-bold">
+                          <Pounds /> 0.99 / <Naira /> 999
+                        </div>
+                      </div>
+                      <div class="w-100 text-center vstack gap-3 mt-2">
+                        <div style="height: 1.5px; background-color: black">
+                        </div>
+                        <div class="fs-14 fw-700 action-text">
+                          Cancel Subscription
+                        </div>
+                      </div>
+                    </div>
+
+                    <form class="vstack gap-4 mt-5">
+                      <div class="d-flex align-items-center gap-4 mb-2 mt-2">
+                        <div class="fs-14 fw-600 text-primary-blue">
+                          Upgrade / Downgrade Subscription
+                        </div>
+                        <div class="flex-grow-1">
+                          <div class="demarcator_line">&nbsp;</div>
+                        </div>
+                      </div>
+
+                      <div class="form-floating">
+                        <select
+                          id="new_package"
+                          name="new_package"
+                          class="form-select_custom"
+                          required
+                        >
+                          <option
+                            value=""
+                            selected
+                            style="color: rgb(200, 200, 200)"
+                            >Please choose</option
+                          >
+                          <option value="bronze">Bronze</option>
+                          <option value="platinum">Platinum</option>
+                          <option value="silver">Silver</option>
+                          <option value="gold">Gold</option>
+                        </select>
+                        <label for="employment_type"
+                          >Select New Package &nbsp;<span>*</span></label
+                        >
+                      </div>
+
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          id="amount"
+                          name="amount"
+                          class="form-input"
+                          placeholder=" "
+                        />
+                        <label for="address">Prorated Amount Due &nbsp;<span>*</span></label
+                        >
+                      </div>
+
+                      <div>
+                        <button class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn">Change Subscription</button>
+                      </div>
+                    </form>
+                  </div>
+
+                  <div
+                    class="tab-pane fade"
+                    id="billing-section-pane"
+                    role="tabpanel"
+                    aria-labelledby="profile-tab"
+                    tabindex="0"
+                  >
+                    2
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Page Content Box */}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Main content ends here -->
+
+  <script is:inline type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("Page loaded!!!");
+    });
+  </script>
+</Layout>

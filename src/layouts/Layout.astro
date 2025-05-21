@@ -1,4 +1,5 @@
 ---
+import ContactusModal from "../components/ui/modals/ContactusModal";
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
 interface Props {
@@ -57,6 +58,20 @@ const { title = "" } = Astro.props as Props;
         );
         tooltipTriggerList.forEach(function (tooltipTriggerEl) {
           new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        $("#contactus").click((e) => {
+          if (e.currentTarget.id == "contactus") {
+            const myModal = new bootstrap.Modal("#contactusModal", {
+              keyboard: true,
+            });
+            myModal.show();
+          }
+        });
+
+        $("#managesubscriptions").click((e) => {
+          console.log("hello inside");
+          window.location.href = "/manage_subscription";
         });
       });
     </script>
