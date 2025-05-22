@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: Add Employee">
+<Layout title="HRPayHub :: Expense Retirement Request">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/employee-management"
+            href="/expense-management"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -30,15 +30,17 @@ import Layout from "../layouts/Layout.astro";
               alt="angle-right-back"
             />
             <a
-              href="/employee-management"
+              href="/expense-management"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Employee Management</a
+              >Expense Management</a
             >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue">Add Employee</span>
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Expense Retirement Request</span
+            >
           </div>
           <!-- Actual Breadcrumb here -->
         </div>
@@ -55,17 +57,19 @@ import Layout from "../layouts/Layout.astro";
           <div class="vstack gap-2">
             <div class="d-flex gap-3 align-items-center">
               <img
-                src="images/png/icons/add-employee.svg"
+                src="images/png/icons/expense-mgt.svg"
                 alt="receipt-minus-icon"
                 width="30px"
                 height="30px"
               />
               <span
                 class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Add Employee</span
+                >Expense Retirement Request</span
               >
             </div>
-            <div class="fw-bold">Setup a new employee</div>
+            <div class="fw-bold">
+              Send request for expense retirement
+            </div>
           </div>
           {/* Page Title */}
 
@@ -74,19 +78,19 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Add Employee (Individual)",
-                  desc: "Setup a new employee",
-                  url: "/add-employee-individual",
+                  title: "Expense Retirement Form",
+                  desc: "Lorem Ipsum",
+                  url: "/expense-retirement-form",
                 },
                 {
-                  title: "Employee Self Onboarding Link ",
-                  desc: "Share link with an employee to perform self onboarding",
-                  url: "/onboarding-links",
+                  title: "Expense Retirement History View",
+                  desc: "Lorem Ipsum",
+                  url: "/expense-retirement-history-view",
                 },
               ].map((ele) => (
                 <div
                   class="col-4 p-2 payslip-card-panel"
-                  style="width: 340px"
+                  style="width: 360px"
                   role="button"
                   title={ele.title}
                   data-url={ele.url}
@@ -94,11 +98,12 @@ import Layout from "../layouts/Layout.astro";
                   <div class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
                     <div class="vstack gap-2 d-flex flex-column align-items-center">
                       <img
-                        src="images/png/icons/add-employee.svg"
+                        src="images/png/icons/expense-mgt.svg"
                         alt="receipt-minus-icon"
                         width="30px"
                         height="30px"
                       />
+
 
                       <div class="fw-bold fs-18 font-ubuntu-bold text-primary-blue">
                         {ele.title}

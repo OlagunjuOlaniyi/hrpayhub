@@ -118,22 +118,15 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 									"Manage all employee profile, records, departments and duties.",
 								icon: "images/png/icons/colored/people-colored.svg",
 								color: "bronze-module",
-								href: `employment-management`,
+								href: `employee-management`,
 							},
 							{
-								title: "User Roles",
+								title: "User Account Setup",
 								subtitle:
-									"Create users and assign roles to control access and permissions.",
+									"Create and manage login accounts for system users.",
 								icon: "images/png/icons/colored/user-circle-add-colored.svg",
 								color: "bronze-module",
 								href: `user-account-setup`,
-							},
-							{
-								title: "On/Offboarding",
-								subtitle: "Track progress and asset checklists during onboarding and offboarding.",
-								icon: "images/png/icons/colored/task-square-colored.svg",
-								color: "bronze-module",
-								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
 							},
 							{
 								title: "User Access Logs",
@@ -143,6 +136,14 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 								color: "bronze-module",
 								href: `user-logs`,
 							},
+							{
+								title: "On/Offboarding",
+								subtitle: "Track progress and asset checklists during onboarding and offboarding.",
+								icon: "images/png/icons/colored/task-square-colored.svg",
+								color: "bronze-module",
+								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
+							},
+							
 							{
 								title: "Time Management",
 								subtitle:
@@ -160,7 +161,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 								href: `@Url.Action("Controller", "Action", new { acc = 0})`,
 							},
 							{
-								title: "360° Appraisal Management",
+								title: "360° Appraisal",
 								subtitle:
 									"Conduct well-rounded performance reviews with multi-source feedback.",
 								icon: "images/png/icons/colored/building-3-colored.svg",
@@ -183,6 +184,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 								color: "gold-module",
 								href: `payslip.html`,
 							},
+							
 							{
 								title: "Offer Breakdown",
 								subtitle:
@@ -258,7 +260,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
 							{
 								title: "Financial Reports & Analytics",
 								subtitle:
-									"Access detailed reports and analytics to support data-driven decision-making.",
+									"Access P&L, VAT, WTH, and Balaance Sheet reports for informed decisions.",
 								icon: "images/png/icons/colored/chart-colored.svg",
 								color: "platinum-module",
 								href: `@Url.Action("Controller", "Action", new { acc = 0})`,

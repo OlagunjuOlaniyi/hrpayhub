@@ -12,7 +12,7 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/send-and-sign-offer-ng"
+            href="/expense-approval-request"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -59,11 +59,11 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
     <!-- First section of Back button and Breadcrumb -->
 
     <!-- First section of Back button and Breadcrumb -->
-    <section class="px-lg-4">
+    <section class="px-lg-4" id="expense_history_view">
       <div class="screenFrame">
         <div
           class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
-          id="manage_list_of_payslip"
+          id="employee_request_form"
         >
           {/* Page Title */}
           <div class="vstack gap-3">
@@ -110,7 +110,7 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                     >Status</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-left"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
                     >Action</th
                   >
                 </tr>
@@ -123,27 +123,99 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                   }
                 </style>
                 {
-                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(
+                  [
+                    {
+                      date: "Lorem Ipsum",
+                      title: "Lorem Ipsum",
+                      category: "Mixed",
+                      amount: "N124,676",
+                      status: "Approved",
+                    },
+                    {
+                       date: "Lorem Ipsum",
+                      title: "Lorem Ipsum",
+                      category: "Mixed",
+                      amount: "N124,676",
+                      status: "Rejected",
+                    },
+                    {
+                       date: "Lorem Ipsum",
+                      title: "Lorem Ipsum",
+                      category: "Mixed",
+                      amount: "N124,676",
+                      status: "Pending",
+                    },
+                    {
+                       date: "Lorem Ipsum",
+                      title: "Lorem Ipsum",
+                      category: "Mixed",
+                      amount: "N124,676",
+                      status: "Approved",
+                    },
+                    {
+                       date: "Lorem Ipsum",
+                      title: "Lorem Ipsum",
+                      category: "Mixed",
+                      amount: "N124,676",
+                      status: "Approved",
+                    },
+                    {
+                       date: "Lorem Ipsum",
+                      title: "Lorem Ipsum",
+                      category: "Mixed",
+                      amount: "N124,676",
+                      status: "Approved",
+                    },
+                    {
+                       date: "Lorem Ipsum",
+                      title: "Lorem Ipsum",
+                      category: "Mixed",
+                      amount: "N124,676",
+                      status: "Approved",
+                    },
+                  ].map(
                     (item, index) => (
                       <tr class="fs-88">
                         <td class="text-center fs-14">{index + 1}</td>
                         <td class="fs-14 text-nowrap text-center column">
-                          7th April 2025
+                          {item.date}
                         </td>
                         <td class="fs-14 px-3 text-left column">
-                          Lorem Ipsum Lorem Ipsum
+                          {item.title}
                         </td>
-                        <td class="fs-14 px-3 text-left column">Mixed</td>
-                        <td class="fs-14 px-3 text-left column">N124,676</td>
-                        <td class="text-left px-3 fs-14 column">Approved</td>
+                        <td class="fs-14 px-3 text-left column">{item.category}</td>
+                        <td class="fs-14 px-3 text-left column">{item.amount}</td>
+                        <td class="text-left px-3 fs-14 column fw-600" style={`color: ${
+                          item.status === "Approved"
+                            ? "#2BC700"
+                            : item.status === "Rejected"
+                              ? "#FD0000"
+                              : item.status === "Pending"
+                                ? "#B6B000" : "inherit"
+                        };`}>{item.status}</td>
 
                         <td class="fs-14 px-3 text-center d-flex justify-content-center column">
-                          <button
-                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+
+                        {item.status === "Approved" ? (<button
+                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 d-flex align-items-center gap-2 approved"
                             type="button"
+                            
                           >
                             <span>View Details</span>
-                          </button>
+                          </button>) : item.status === "Rejected" ? (<button
+                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 d-flex align-items-center gap-2 rejected"
+                            type="button"
+                            
+                          >
+                            <span>View Details</span>
+                          </button>) : (<button
+                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 d-flex align-items-center gap-2 pending"
+                            type="button"
+                            
+                          >
+                            <span>View Details</span>
+                          </button>)}
+                          
                         </td>
                       </tr>
                     ),
@@ -228,7 +300,7 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
     <!------ Approved Section ------->
     <section class="px-4">
       <div class="screenFrame">
-        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+        <div class="rounded-4 d-none shadow p-4 vstack gap-5 px-5" id="expense_request_form">
           {/* Page Content Box */}
           <div class="p-lg-5">
             <div class="vstack" style="gap: 2.3rem">
@@ -238,7 +310,7 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                 <span class="text-dark font-ubuntu-bold fs-18 inline-block"
                   >Expense Request Form</span
                 >
-                <span class="text-primary-blue bg-light py-2 px-4 rounded"
+                <span class="text-primary-blue approved_bg py-2 px-4 rounded"
                   >Approved</span
                 >
               </div>
@@ -296,37 +368,281 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                 <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
               </div>
               <div class="form-floating expense_input">
-                <textarea class="form-input" rows="3" id="description"
+                <textarea class="form-input" rows="2" id="description"
                 ></textarea>
                 <label for="ex_title">Description &nbsp;<span>*</span></label>
               </div>
 
               <!---- upload ---->
 
-              <div class="fs-14 fw-700">Documents</div>
-              <div class="d-flex border justify-content-center expense_input">
-                <div class="d-flex justify-content-end">
-                  <div class="d-flex gap-2">
-                    <img src="images/png/icons/vision.svg" alt="document" />
+              <div class="fs-14 fw-600">Documents</div>
+              <div class="expense_request_doc d-flex flex-column gap-2 p-4 expense_input">
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex justify-content-center align-items-center gap-3">
+                    <img src="images/png/icons/document-download.svg" alt="document" />
                     <span>Document 1</span>
                   </div>
                   <div>
-                    <img src="images/png/icons/vision.svg" alt="vision" />
+                    <img type="button" src="images/png/icons/vision-dark.svg" alt="vision" />
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between w-100 border-top pt-2">
+                  <div class="d-flex justify-content-center align-items-center gap-3">
+                    <img src="images/png/icons/document-download.svg" alt="document" />
+                    <span>Document 2</span>
+                  </div>
+                  <div>
+                    <img type="button" src="images/png/icons/vision-dark.svg" alt="vision" />
                   </div>
                 </div>
               </div>
 
-              <!---- submit ---->
-              <div class="d-flex justify-content-start expense_input">
+              
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+
+
+    <!------ Pending Section ------->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 d-none shadow p-4 vstack gap-5 px-5" id="expense_request_form_pending">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <div
+                class="d-flex justify-content-between align-items-center expense_input"
+              >
+                <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                  >Expense Request Form</span
+                >
+                <span class="pending_bg fs-14 py-2 px-2 rounded text-nowrap"
+                  style={"color: #B6B000"}>Pending Review</span
+                >
+              </div>
+
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="ex_title"
+                  name="ex_title"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
+
+              <div class="form-floating expense_input">
+                <select
+                  id="select_plan"
+                  name="select_plan"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="plan_1">Mixed</option>
+                  <option value="plan_2">Cost of Goods Sold (COGS)</option>
+                  <option value="plan_3">OPEX</option>
+                  <option value="plan_3">ASSET</option>
+                </select>
+                <label for="select_plan"
+                  >Expense Category &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Amount &nbsp;<span>*</span></label>
+              </div>
+
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating expense_input">
+                <textarea class="form-input" rows="2" id="description"
+                ></textarea>
+                <label for="ex_title">Description &nbsp;<span>*</span></label>
+              </div>
+
+              <!---- upload ---->
+
+              <div class="fs-14 fw-600">Documents</div>
+              <div class="expense_request_doc d-flex flex-column gap-2 p-4 expense_input">
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex justify-content-center align-items-center gap-3">
+                    <img src="images/png/icons/document-download.svg" alt="document" />
+                    <span>Document 1</span>
+                  </div>
+                  <div>
+                    <img type="button" src="images/png/icons/vision-dark.svg" alt="vision" />
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between w-100 border-top pt-2">
+                  <div class="d-flex justify-content-center align-items-center gap-3">
+                    <img src="images/png/icons/document-download.svg" alt="document" />
+                    <span>Document 2</span>
+                  </div>
+                  <div>
+                    <img type="button" src="images/png/icons/vision-dark.svg" alt="vision" />
+                  </div>
+                </div>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+    
+    
+    <!------ Rejected Section ------->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 d-none vstack gap-5 px-5" id="expense_request_form_rejected">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+          <div class="d-flex flex-column flex-lg-row" style="gap: 7rem">
+            <div class="d-flex flex-column" style="gap: 2.3rem">
+              <div
+                class="d-flex justify-content-between align-items-center expense_input"
+              >
+                <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                  >Expense Request Form</span
+                >
+                <span class="rejected_bg fs-14 py-2 px-4 rounded text-nowrap"
+                  style={"color:#FD0000"}>Rejected</span
+                >
+              </div>
+
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="ex_title"
+                  name="ex_title"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
+
+              <div class="form-floating expense_input">
+                <select
+                  id="select_plan"
+                  name="select_plan"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="plan_1">Mixed</option>
+                  <option value="plan_2">Cost of Goods Sold (COGS)</option>
+                  <option value="plan_3">OPEX</option>
+                  <option value="plan_3">ASSET</option>
+                </select>
+                <label for="select_plan"
+                  >Expense Category &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Amount &nbsp;<span>*</span></label>
+              </div>
+
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating expense_input">
+                <textarea class="form-input" rows="2" id="description"
+                ></textarea>
+                <label for="ex_title">Description &nbsp;<span>*</span></label>
+              </div>
+
+              <!---- upload ---->
+
+              <div class="fs-14 fw-600">Documents</div>
+              <div class="expense_request_doc d-flex flex-column gap-2 p-4 expense_input">
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex justify-content-center align-items-center gap-3">
+                    <img src="images/png/icons/document-download.svg" alt="document" />
+                    <span>Document 1</span>
+                  </div>
+                  <div>
+                    <img type="button" src="images/png/icons/vision-dark.svg" alt="vision" />
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between w-100 border-top pt-2">
+                  <div class="d-flex justify-content-center align-items-center gap-3">
+                    <img src="images/png/icons/document-download.svg" alt="document" />
+                    <span>Document 2</span>
+                  </div>
+                  <div>
+                    <img type="button" src="images/png/icons/vision-dark.svg" alt="vision" />
+                  </div>
+                </div>
+              </div>
+
+              
+            </div>
+            <!---- another form ---->
+            <div class="d-flex flex-column align-items-center justify-content-center gap-5">
+              <div class="form-floating expense_input">
+                <textarea class="form-input" rows="3" id="comment"
+                ></textarea>
+                <label for="ex_title">Reviewer's Comment &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating expense_input">
+                <textarea class="form-input" rows="3" id="reply"
+                ></textarea>
+                <label for="ex_title">Reply &nbsp;<span>*</span></label>
+              </div>
+
+              <div class="d-flex justify-content-end expense_input">
                 <button
                   type="button"
                   id="calculate"
-                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
                 >
-                  <span>Submit Request</span>
+                  <span>Re-Apply</span>
                 </button>
               </div>
+           
             </div>
+          </div>
           </div>
         </div>
         {/* Page Content Box */}
@@ -339,15 +655,20 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
 
 <script is:inline type="text/javascript">
   document.addEventListener("DOMContentLoaded", () => {
-    $(".viewPayslpBtn").click((evt) => {
-      $("#view_employee_payslip").removeClass("d-none");
-      $("#manage_list_of_payslip").addClass("d-none");
+    $(".approved").click((evt) => {
+      $("#expense_request_form").removeClass("d-none");
+      $("#expense_history_view").addClass("d-none");
+    });
+    $(".pending").click((evt) => {
+      $("#expense_request_form_pending").removeClass("d-none");
+      $("#expense_history_view").addClass("d-none");
+    });
+    $(".rejected").click((evt) => {
+      $("#expense_request_form_rejected").removeClass("d-none");
+      $("#expense_history_view").addClass("d-none");
     });
 
-    $("#back_to_list_of_payslips").click((evt) => {
-      $("#view_employee_payslip").addClass("d-none");
-      $("#manage_list_of_payslip").removeClass("d-none");
-    });
+    
   });
 </script>
 <script>

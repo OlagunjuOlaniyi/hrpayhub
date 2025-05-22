@@ -943,6 +943,11 @@ body {
   border: 2px dashed #c1c1c1;
 }
 
+.expense_request_doc {
+  border-radius: 10px;
+  border: 2px dashed #c1c1c1;
+}
+
 @media (max-width: 769px) {
   .expense_input {
     width: 100%;
@@ -1008,4 +1013,51 @@ body {
 /* national holiday accordion */
 .accordion-button::after {
   filter: brightness(0) invert(1);
+}
+
+/* Expense retirement history */
+
+.expense_retirement_input {
+  width: 801px;
+}
+
+.approved_bg {
+  background-color: #2271b61a;
+}
+.pending_bg {
+  background-color: #b6b0001a;
+}
+.rejected_bg {
+  background-color: #fd00001a;
+}
+
+.breakdown_line {
+  width: 310px;
+  background-color: #000;
+  height: 2px;
+}
+
+.upload_bucket_expense_retirement {
+  width: 801px;
+  height: 170px;
+  border-radius: 10px;
+  gap: 10px;
+  border: 2px dashed #c1c1c1;
+}
+.upload_bucket_expense_accordion {
+  height: 170px;
+  border-radius: 10px;
+  gap: 10px;
+  border: 2px dashed #c1c1c1;
+}
+
+@media (max-width: 769px) {
+  .expense_retirement_input {
+    width: 100%;
+  }
+
+  .upload_bucket_expense_retirement {
+    width: 100%;
+    padding: 10px;
+  }
 }

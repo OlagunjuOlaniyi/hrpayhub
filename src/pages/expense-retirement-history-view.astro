@@ -1,0 +1,1384 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ViewOfferLetter from "../components/offers/ViewOfferLetter";
+---
+
+<Layout title="HRPayHub :: Expense Retirement History View">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/expense-retirement-request"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a href="" class="fs-14 text-decoration-none text-primary-dark"
+              >Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/expense-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Expense Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/expense-retirement-request"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Expense Retirement Request</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Expense Retirement History View</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-4" id="expense_history_view">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+          id="employee_request_form"
+        >
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div class="d-flex gap-3 align-items-center">
+              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                >Expense Retirement History View</span
+              >
+            </div>
+          </div>
+          {/* Page Title */}
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead
+                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+              >
+                <tr>
+                  <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
+                    >S/N</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
+                    style="min-width: 200px;">Expense Reference</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Retired Amount</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Expense Category</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Status</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Date</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Action</th
+                  >
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 180px;
+                  }
+                </style>
+                {
+                  [
+                    {
+                      expense_ref: "Lorem Ipsum",
+                      amount: "N124,676",
+                      category: "Mixed",
+                      date: "7th April 2025",
+                      status: "Approved",
+                    },
+                    {
+                      expense_ref: "Lorem Ipsum",
+                      amount: "N124,676",
+                      category: "Mixed",
+                      date: "7th April 2025",
+                      status: "Rejected",
+                    },
+                    {
+                      expense_ref: "Lorem Ipsum",
+                      amount: "N124,676",
+                      category: "Mixed",
+                      date: "7th April 2025",
+                      status: "Pending",
+                    },
+                    {
+                      expense_ref: "Lorem Ipsum",
+                      amount: "N124,676",
+                      category: "Mixed",
+                      date: "7th April 2025",
+                      status: "Approved",
+                    },
+                    {
+                      expense_ref: "Lorem Ipsum",
+                      amount: "N124,676",
+                      category: "Mixed",
+                      date: "7th April 2025",
+                      status: "Approved",
+                    },
+                    {
+                      expense_ref: "Lorem Ipsum",
+                      amount: "N124,676",
+                      category: "Mixed",
+                      date: "7th April 2025",
+                      status: "Approved",
+                    },
+                    {
+                      expense_ref: "Lorem Ipsum",
+                      amount: "N124,676",
+                      category: "Mixed",
+                      date: "7th April 2025",
+                      status: "Approved",
+                    },
+                  ].map((item, index) => (
+                    <tr class="fs-88">
+                      <td class="text-center fs-14">{index + 1}</td>
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        {item.expense_ref}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">{item.amount}</td>
+                      <td class="fs-14 px-3 text-left column">
+                        {item.category}
+                      </td>
+
+                      <td
+                        class="text-left px-3 fs-14 column fw-600"
+                        style={`color: ${
+                          item.status === "Approved"
+                            ? "#2BC700"
+                            : item.status === "Rejected"
+                              ? "#FD0000"
+                              : item.status === "Pending"
+                                ? "#B6B000"
+                                : "inherit"
+                        };`}
+                      >
+                        {item.status}
+                      </td>
+
+                      <td class="fs-14 px-3 text-left column">{item.date}</td>
+
+                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                        {item.status === "Approved" ? (
+                          <button
+                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 d-flex align-items-center gap-2 approved"
+                            type="button"
+                          >
+                            <span>View Details</span>
+                          </button>
+                        ) : item.status === "Rejected" ? (
+                          <button
+                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 d-flex align-items-center gap-2 rejected"
+                            type="button"
+                          >
+                            <span>View Details</span>
+                          </button>
+                        ) : (
+                          <button
+                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 d-flex align-items-center gap-2 pending"
+                            type="button"
+                          >
+                            <span>View Details</span>
+                          </button>
+                        )}
+                      </td>
+                    </tr>
+                  ))
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
+          </div>
+
+          <!---- End of table --->
+
+          <!-- Pagination Row -->
+          <div
+            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+          >
+            <!-- Left: Pagination Text -->
+            <div class="fs-14 text-muted">
+              Showing <strong>1–20</strong> of <strong>1000</strong>
+            </div>
+
+            <!-- Right: Go to Page + Pagination -->
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <!-- Go to Page -->
+              <form class="d-flex align-items-center gap-2">
+                <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+                <input
+                  type="number"
+                  min="1"
+                  max="100"
+                  id="gotoPage"
+                  class="form-control form-control-sm"
+                  style="width: 60px;"
+                  placeholder="—"
+                />
+              </form>
+
+              <!-- Page Navigation -->
+
+              <nav>
+                <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                  <li class="page-item">
+                    <a
+                      class="page-link text-primary-blue px-2"
+                      href="#"
+                      aria-label="Previous"
+                    >
+                      &lsaquo;
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">1</a>
+                  </li>
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">2</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">3</a>
+                  </li>
+                  <li class="page-item disabled">
+                    <span class="page-link text-primary-blue">...</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">100</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link hello" href="#" aria-label="Next">
+                      &rsaquo;
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <!---- Pagination ---->
+        </div>
+      </div>
+    </section>
+
+    <!------ Approved Section ------->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 d-none shadow p-4 vstack gap-5 px-5"
+          id="expense_request_form"
+        >
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <div
+                class="d-flex justify-content-between align-items-center expense_retirement_input"
+              >
+                <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                  >Expense Retirement History View</span
+                >
+                <span class="text-primary-blue approved_bg py-2 px-4 rounded"
+                  >Approved</span
+                >
+              </div>
+
+              <button
+                type="button"
+                class="white_button fs-14"
+                style="width: 182px"
+              >
+                <span>Download Breakdown</span>
+              </button>
+
+              <div class="form-floating expense_retirement_input">
+                <input
+                  type="text"
+                  id="ex_title"
+                  name="ex_title"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
+
+              <div class="form-floating expense_retirement_input">
+                <select
+                  id="select_plan"
+                  name="select_plan"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="plan_1">Mixed</option>
+                  <option value="plan_2">Cost of Goods Sold (COGS)</option>
+                  <option value="plan_3">OPEX</option>
+                  <option value="plan_3">ASSET</option>
+                </select>
+                <label for="select_plan"
+                  >Expense Category &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating expense_retirement_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title"
+                  >Original Approved Amount &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating expense_retirement_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="amount">Amount Retired &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating expense_retirement_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="amount">Excess Amount &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating expense_retirement_input">
+                <input
+                  type="text"
+                  id="refund_amount"
+                  name="refund_amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="refund_amount"
+                  >Refund Amount &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <!----- Expense Breakdown line ----->
+
+              <div
+                class="d-flex align-items-center justify-content-center gap-3 expense_retirement_input"
+              >
+                <span class="breakdown_line"></span>
+                <span class="fs-14 fw-600 text-nowrap">Expense Breakdown</span>
+                <span class="breakdown_line"></span>
+              </div>
+
+              <!---- Accordion ---->
+
+              <div
+                class="accordion accordion-flush d-flex flex-column gap-3 expense_retirement_input"
+                id="holidayAccordion"
+              >
+                <div class="accordion-item" id="accordion-item-One">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                      class="accordion-button collapsed bg-primary-blue text-white fs-14 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseOne"
+                      aria-expanded="true"
+                      aria-controls="flush-collapseOne"
+                    >
+                      Subcategory 1
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body d-flex flex-column gap-4">
+                      <div class="form-floating mt-3">
+                        <select
+                          id="select_sub_cat"
+                          name="select_sub_cat"
+                          class="form-select_custom fs-14"
+                          required
+                        >
+                          <option
+                            value=""
+                            selected
+                            style="color: rgb(200, 200, 200)">Select</option
+                          >
+                          <option value="sub_cat_1">Mixed</option>
+                          <option value="sub_cat_2"
+                            >Cost of Goods Sold (COGS)</option
+                          >
+                          <option value="sub_cat_3">OPEX</option>
+                          <option value="sub_cat_3">ASSET</option>
+                        </select>
+                        <label for="select_sub_cat"
+                          >Subcategory Selection &nbsp;<span>*</span></label
+                        >
+                      </div>
+
+                      <div class="form-floating">
+                        <textarea class="form-input" rows="2" id="details"
+                        ></textarea>
+                        <label for="details">Details &nbsp;<span>*</span></label
+                        >
+                      </div>
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          id="subcat_amount"
+                          name="subcat_amount"
+                          class="form-input"
+                          placeholder=""
+                          required
+                        />
+                        <label for="subcat_amount">
+                          Amount &nbsp;<span>*</span>
+                        </label>
+                      </div>
+                      <div class="form-floating">
+                        <input
+                          type="date"
+                          id="subcat_date_One"
+                          name="date"
+                          class="form-input"
+                          placeholder=""
+                          required
+                        />
+                        <label for="subcat_date_One">
+                          Select Date &nbsp;<span>*</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item" id="accordion-item-Two">
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button
+                      class="accordion-button collapsed bg-primary-blue text-white fs-14 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseTwo"
+                      aria-expanded="true"
+                      aria-controls="flush-collapseTwo"
+                    >
+                      Subcategory 2
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseTwo"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="flush-headingTwo"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body d-flex flex-column gap-4">
+                      <div class="form-floating mt-3">
+                        <select
+                          id="select_sub_cat"
+                          name="select_sub_cat"
+                          class="form-select_custom fs-14"
+                          required
+                        >
+                          <option
+                            value=""
+                            selected
+                            style="color: rgb(200, 200, 200)">Select</option
+                          >
+                          <option value="sub_cat_1">Mixed</option>
+                          <option value="sub_cat_2"
+                            >Cost of Goods Sold (COGS)</option
+                          >
+                          <option value="sub_cat_3">OPEX</option>
+                          <option value="sub_cat_3">ASSET</option>
+                        </select>
+                        <label for="select_sub_cat"
+                          >Subcategory Selection &nbsp;<span>*</span></label
+                        >
+                      </div>
+
+                      <div class="form-floating">
+                        <textarea class="form-input" rows="2" id="details"
+                        ></textarea>
+                        <label for="details">Details &nbsp;<span>*</span></label
+                        >
+                      </div>
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          id="subcat_amount"
+                          name="subcat_amount"
+                          class="form-input"
+                          placeholder=""
+                          required
+                        />
+                        <label for="subcat_amount">
+                          Amount &nbsp;<span>*</span>
+                        </label>
+                      </div>
+                      <div class="form-floating mt-3">
+                        <input
+                          type="date"
+                          id="subcat_date_One"
+                          name="date"
+                          class="form-input"
+                          placeholder=""
+                          required
+                        />
+                        <label for="subcat_date_One">
+                          Select Date &nbsp;<span>*</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-------- Documents ----->
+              <div class="fs-14 fw-600">Documents</div>
+              <div
+                class="expense_request_doc d-flex flex-column gap-2 p-4 expense_retirement_input"
+              >
+                <div class="d-flex justify-content-between py-2">
+                  <div
+                    class="d-flex justify-content-center align-items-center gap-3"
+                  >
+                    <img
+                      src="images/png/icons/document-download.svg"
+                      alt="document"
+                    />
+                    <span class="fs-12">Document 1</span>
+                  </div>
+                  <div>
+                    <img
+                      type="button"
+                      src="images/png/icons/vision-dark.svg"
+                      alt="vision"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="d-flex justify-content-between py-2 w-100 border-top pt-2"
+                >
+                  <div
+                    class="d-flex justify-content-center align-items-center gap-3"
+                  >
+                    <img
+                      src="images/png/icons/document-download.svg"
+                      alt="document"
+                    />
+                    <span class="fs-12">Document 2</span>
+                  </div>
+                  <div>
+                    <img
+                      type="button"
+                      src="images/png/icons/vision-dark.svg"
+                      alt="vision"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+
+    <!------ Pending Section ------->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 d-none shadow p-4 vstack gap-5 px-5"
+          id="expense_request_form_pending"
+        >
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <div
+                class="d-flex justify-content-between align-items-center expense_retirement_input"
+              >
+                <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                  >Expense Retirement History View</span
+                >
+                <span
+                  class="pending_bg fs-14 py-2 px-2 rounded text-nowrap"
+                  style={"color: #B6B000"}>Pending Review</span
+                >
+              </div>
+
+              <button
+                type="button"
+                class="white_button fs-14"
+                style="width: 182px"
+              >
+                <span>Download Breakdown</span>
+              </button>
+
+              <div class="form-floating expense_retirement_input">
+                <input
+                  type="text"
+                  id="ex_title"
+                  name="ex_title"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
+
+              <div class="form-floating expense_retirement_input">
+                <select
+                  id="select_plan"
+                  name="select_plan"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="plan_1">Mixed</option>
+                  <option value="plan_2">Cost of Goods Sold (COGS)</option>
+                  <option value="plan_3">OPEX</option>
+                  <option value="plan_3">ASSET</option>
+                </select>
+                <label for="select_plan"
+                  >Expense Category &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating expense_retirement_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title"
+                  >Original Approved Amount &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating expense_retirement_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="amount">Amount Retired &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating expense_retirement_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="amount">Excess Amount &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating expense_retirement_input">
+                <input
+                  type="text"
+                  id="refund_amount"
+                  name="refund_amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="refund_amount"
+                  >Refund Amount &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <!----- Expense Breakdown line ----->
+
+              <div
+                class="d-flex align-items-center justify-content-center gap-3 expense_retirement_input"
+              >
+                <span class="breakdown_line"></span>
+                <span class="fs-14 fw-600 text-nowrap">Expense Breakdown</span>
+                <span class="breakdown_line"></span>
+              </div>
+
+              <!---- Accordion ---->
+
+              <div
+                class="accordion accordion-flush d-flex flex-column gap-3 expense_retirement_input"
+                id="holidayAccordion"
+              >
+                <div class="accordion-item" id="accordion-item-One">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                      class="accordion-button collapsed bg-primary-blue text-white fs-14 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseOne"
+                      aria-expanded="true"
+                      aria-controls="flush-collapseOne"
+                    >
+                      Subcategory 1
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body d-flex flex-column gap-4">
+                      <div class="form-floating mt-3">
+                        <select
+                          id="select_sub_cat"
+                          name="select_sub_cat"
+                          class="form-select_custom fs-14"
+                          required
+                        >
+                          <option
+                            value=""
+                            selected
+                            style="color: rgb(200, 200, 200)">Select</option
+                          >
+                          <option value="sub_cat_1">Mixed</option>
+                          <option value="sub_cat_2"
+                            >Cost of Goods Sold (COGS)</option
+                          >
+                          <option value="sub_cat_3">OPEX</option>
+                          <option value="sub_cat_3">ASSET</option>
+                        </select>
+                        <label for="select_sub_cat"
+                          >Subcategory Selection &nbsp;<span>*</span></label
+                        >
+                      </div>
+
+                      <div class="form-floating">
+                        <textarea class="form-input" rows="2" id="details"
+                        ></textarea>
+                        <label for="details">Details &nbsp;<span>*</span></label
+                        >
+                      </div>
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          id="subcat_amount"
+                          name="subcat_amount"
+                          class="form-input"
+                          placeholder=""
+                          required
+                        />
+                        <label for="subcat_amount">
+                          Amount &nbsp;<span>*</span>
+                        </label>
+                      </div>
+                      <div class="form-floating">
+                        <input
+                          type="date"
+                          id="subcat_date_One"
+                          name="date"
+                          class="form-input"
+                          placeholder=""
+                          required
+                        />
+                        <label for="subcat_date_One">
+                          Select Date &nbsp;<span>*</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item" id="accordion-item-Two">
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button
+                      class="accordion-button collapsed bg-primary-blue text-white fs-14 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseTwo"
+                      aria-expanded="true"
+                      aria-controls="flush-collapseTwo"
+                    >
+                      Subcategory 2
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseTwo"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="flush-headingTwo"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body d-flex flex-column gap-4">
+                      <div class="form-floating mt-3">
+                        <select
+                          id="select_sub_cat"
+                          name="select_sub_cat"
+                          class="form-select_custom fs-14"
+                          required
+                        >
+                          <option
+                            value=""
+                            selected
+                            style="color: rgb(200, 200, 200)">Select</option
+                          >
+                          <option value="sub_cat_1">Mixed</option>
+                          <option value="sub_cat_2"
+                            >Cost of Goods Sold (COGS)</option
+                          >
+                          <option value="sub_cat_3">OPEX</option>
+                          <option value="sub_cat_3">ASSET</option>
+                        </select>
+                        <label for="select_sub_cat"
+                          >Subcategory Selection &nbsp;<span>*</span></label
+                        >
+                      </div>
+
+                      <div class="form-floating">
+                        <textarea class="form-input" rows="2" id="details"
+                        ></textarea>
+                        <label for="details">Details &nbsp;<span>*</span></label
+                        >
+                      </div>
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          id="subcat_amount"
+                          name="subcat_amount"
+                          class="form-input"
+                          placeholder=""
+                          required
+                        />
+                        <label for="subcat_amount">
+                          Amount &nbsp;<span>*</span>
+                        </label>
+                      </div>
+                      <div class="form-floating mt-3">
+                        <input
+                          type="date"
+                          id="subcat_date_One"
+                          name="date"
+                          class="form-input"
+                          placeholder=""
+                          required
+                        />
+                        <label for="subcat_date_One">
+                          Select Date &nbsp;<span>*</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-------- Documents ----->
+              <div class="fs-14 fw-600">Documents</div>
+              <div
+                class="expense_request_doc d-flex flex-column gap-2 p-4 expense_retirement_input"
+              >
+                <div class="d-flex justify-content-between py-2">
+                  <div
+                    class="d-flex justify-content-center align-items-center gap-3"
+                  >
+                    <img
+                      src="images/png/icons/document-download.svg"
+                      alt="document"
+                    />
+                    <span class="fs-12">Document 1</span>
+                  </div>
+                  <div>
+                    <img
+                      type="button"
+                      src="images/png/icons/vision-dark.svg"
+                      alt="vision"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="d-flex justify-content-between py-2 w-100 border-top pt-2"
+                >
+                  <div
+                    class="d-flex justify-content-center align-items-center gap-3"
+                  >
+                    <img
+                      src="images/png/icons/document-download.svg"
+                      alt="document"
+                    />
+                    <span class="fs-12">Document 2</span>
+                  </div>
+                  <div>
+                    <img
+                      type="button"
+                      src="images/png/icons/vision-dark.svg"
+                      alt="vision"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+
+    <!------ Rejected Section ------->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 d-none shadow p-4 vstack gap-5 px-3"
+          id="expense_request_form_rejected"
+        >
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="d-flex flex-column flex-lg-row" style="gap: 4rem">
+              <div class="d-flex flex-column" style="gap: 2.3rem">
+                <div
+                  class="d-flex justify-content-between align-items-center expense_retirement_input"
+                >
+                  <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                    >Expense Retirement History View</span
+                  >
+                  <span
+                    class="rejected_bg fs-14 py-2 px-4 rounded text-nowrap"
+                    style={"color:#FD0000"}>Rejected</span
+                  >
+                </div>
+                <button
+                  type="button"
+                  class="white_button fs-14"
+                  style="width: 182px"
+                >
+                  <span>Download Breakdown</span>
+                </button>
+
+                <div class="form-floating expense_retirement_input">
+                  <input
+                    type="text"
+                    id="ex_title"
+                    name="ex_title"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="ex_title"
+                    >Expense Title &nbsp;<span>*</span></label
+                  >
+                </div>
+
+                <div class="form-floating expense_retirement_input">
+                  <select
+                    id="select_plan"
+                    name="select_plan"
+                    class="form-select_custom fs-14"
+                    required
+                  >
+                    <option value="" selected style="color: rgb(200, 200, 200)"
+                      >Select</option
+                    >
+                    <option value="plan_1">Mixed</option>
+                    <option value="plan_2">Cost of Goods Sold (COGS)</option>
+                    <option value="plan_3">OPEX</option>
+                    <option value="plan_3">ASSET</option>
+                  </select>
+                  <label for="select_plan"
+                    >Expense Category &nbsp;<span>*</span></label
+                  >
+                </div>
+
+                <div class="form-floating expense_retirement_input">
+                  <input
+                    type="text"
+                    id="amount"
+                    name="amount"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="ex_title"
+                    >Original Approved Amount &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating expense_retirement_input">
+                  <input
+                    type="text"
+                    id="amount"
+                    name="amount"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="amount">Amount Retired &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating expense_retirement_input">
+                  <input
+                    type="text"
+                    id="amount"
+                    name="amount"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="amount">Excess Amount &nbsp;<span>*</span></label>
+                </div>
+                <div class="form-floating expense_retirement_input">
+                  <input
+                    type="text"
+                    id="refund_amount"
+                    name="refund_amount"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="refund_amount"
+                    >Refund Amount &nbsp;<span>*</span></label
+                  >
+                </div>
+
+                <!----- Expense Breakdown line ----->
+
+                <div
+                  class="d-flex align-items-center justify-content-center gap-3 expense_retirement_input"
+                >
+                  <span class="breakdown_line"></span>
+                  <span class="fs-14 fw-600 text-nowrap">Expense Breakdown</span
+                  >
+                  <span class="breakdown_line"></span>
+                </div>
+
+                <!---- Accordion ---->
+
+                <div
+                  class="accordion accordion-flush d-flex flex-column gap-3 expense_retirement_input"
+                  id="holidayAccordion"
+                >
+                  <div class="accordion-item" id="accordion-item-One">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button
+                        class="accordion-button collapsed bg-primary-blue text-white fs-14 rounded"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne"
+                        aria-expanded="true"
+                        aria-controls="flush-collapseOne"
+                      >
+                        Subcategory 1
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseOne"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="flush-headingOne"
+                      data-bs-parent="#holidayAccordion"
+                    >
+                      <div class="accordion-body d-flex flex-column gap-4">
+                        <div class="form-floating mt-3">
+                          <select
+                            id="select_sub_cat"
+                            name="select_sub_cat"
+                            class="form-select_custom fs-14"
+                            required
+                          >
+                            <option
+                              value=""
+                              selected
+                              style="color: rgb(200, 200, 200)">Select</option
+                            >
+                            <option value="sub_cat_1">Mixed</option>
+                            <option value="sub_cat_2"
+                              >Cost of Goods Sold (COGS)</option
+                            >
+                            <option value="sub_cat_3">OPEX</option>
+                            <option value="sub_cat_3">ASSET</option>
+                          </select>
+                          <label for="select_sub_cat"
+                            >Subcategory Selection &nbsp;<span>*</span></label
+                          >
+                        </div>
+
+                        <div class="form-floating">
+                          <textarea class="form-input" rows="2" id="details"
+                          ></textarea>
+                          <label for="details"
+                            >Details &nbsp;<span>*</span></label
+                          >
+                        </div>
+                        <div class="form-floating">
+                          <input
+                            type="text"
+                            id="subcat_amount"
+                            name="subcat_amount"
+                            class="form-input"
+                            placeholder=""
+                            required
+                          />
+                          <label for="subcat_amount">
+                            Amount &nbsp;<span>*</span>
+                          </label>
+                        </div>
+                        <div class="form-floating">
+                          <input
+                            type="date"
+                            id="subcat_date_One"
+                            name="date"
+                            class="form-input"
+                            placeholder=""
+                            required
+                          />
+                          <label for="subcat_date_One">
+                            Select Date &nbsp;<span>*</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item" id="accordion-item-Two">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                      <button
+                        class="accordion-button collapsed bg-primary-blue text-white fs-14 rounded"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseTwo"
+                        aria-expanded="true"
+                        aria-controls="flush-collapseTwo"
+                      >
+                        Subcategory 2
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseTwo"
+                      class="accordion-collapse collapse show"
+                      aria-labelledby="flush-headingTwo"
+                      data-bs-parent="#holidayAccordion"
+                    >
+                      <div class="accordion-body d-flex flex-column gap-4">
+                        <div class="form-floating mt-3">
+                          <select
+                            id="select_sub_cat"
+                            name="select_sub_cat"
+                            class="form-select_custom fs-14"
+                            required
+                          >
+                            <option
+                              value=""
+                              selected
+                              style="color: rgb(200, 200, 200)">Select</option
+                            >
+                            <option value="sub_cat_1">Mixed</option>
+                            <option value="sub_cat_2"
+                              >Cost of Goods Sold (COGS)</option
+                            >
+                            <option value="sub_cat_3">OPEX</option>
+                            <option value="sub_cat_3">ASSET</option>
+                          </select>
+                          <label for="select_sub_cat"
+                            >Subcategory Selection &nbsp;<span>*</span></label
+                          >
+                        </div>
+
+                        <div class="form-floating">
+                          <textarea class="form-input" rows="2" id="details"
+                          ></textarea>
+                          <label for="details"
+                            >Details &nbsp;<span>*</span></label
+                          >
+                        </div>
+                        <div class="form-floating">
+                          <input
+                            type="text"
+                            id="subcat_amount"
+                            name="subcat_amount"
+                            class="form-input"
+                            placeholder=""
+                            required
+                          />
+                          <label for="subcat_amount">
+                            Amount &nbsp;<span>*</span>
+                          </label>
+                        </div>
+                        <div class="form-floating mt-3">
+                          <input
+                            type="date"
+                            id="subcat_date_One"
+                            name="date"
+                            class="form-input"
+                            placeholder=""
+                            required
+                          />
+                          <label for="subcat_date_One">
+                            Select Date &nbsp;<span>*</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-------- Documents ----->
+                <div class="fs-14 fw-600">Documents</div>
+                <div
+                  class="expense_request_doc d-flex flex-column gap-2 p-4 expense_retirement_input"
+                >
+                  <div class="d-flex justify-content-between py-2">
+                    <div
+                      class="d-flex justify-content-center align-items-center gap-3"
+                    >
+                      <img
+                        src="images/png/icons/document-download.svg"
+                        alt="document"
+                      />
+                      <span class="fs-12">Document 1</span>
+                    </div>
+                    <div>
+                      <img
+                        type="button"
+                        src="images/png/icons/vision-dark.svg"
+                        alt="vision"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between py-2 w-100 border-top pt-2"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center gap-3"
+                    >
+                      <img
+                        src="images/png/icons/document-download.svg"
+                        alt="document"
+                      />
+                      <span class="fs-12">Document 2</span>
+                    </div>
+                    <div>
+                      <img
+                        type="button"
+                        src="images/png/icons/vision-dark.svg"
+                        alt="vision"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!---- another form ---->
+              <div class="d-flex flex-column align-items-center gap-5 mt-5">
+                <div class="form-floating expense_input">
+                  <textarea class="form-input" rows="3" id="comment"></textarea>
+                  <label for="ex_title"
+                    >Reviewer's Comment &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating expense_input">
+                  <textarea class="form-input" rows="3" id="reply"></textarea>
+                  <label for="ex_title">Reply &nbsp;<span>*</span></label>
+                </div>
+
+                <div class="d-flex justify-content-end expense_input">
+                  <button
+                    type="button"
+                    id="calculate"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
+                  >
+                    <span>Re-Apply</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<!-- Main content ends here -->
+
+<script is:inline type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    $(".approved").click((evt) => {
+      $("#expense_request_form").removeClass("d-none");
+      $("#expense_history_view").addClass("d-none");
+    });
+    $(".pending").click((evt) => {
+      $("#expense_request_form_pending").removeClass("d-none");
+      $("#expense_history_view").addClass("d-none");
+    });
+    $(".rejected").click((evt) => {
+      $("#expense_request_form_rejected").removeClass("d-none");
+      $("#expense_history_view").addClass("d-none");
+    });
+  });
+</script>
+<script>
+  document
+    .querySelectorAll(".dropdown-submenu > a")
+    .forEach(function (element) {
+      element.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const submenu = this.nextElementSibling;
+
+        // Close all other submenus
+        document
+          .querySelectorAll(".dropdown-submenu .dropdown-menu")
+          .forEach(function (el) {
+            if (el !== submenu) el.classList.remove("show");
+          });
+
+        submenu.classList.toggle("show");
+      });
+    });
+
+  // Optional: close submenus when clicking outside
+  document.addEventListener("click", function () {
+    document
+      .querySelectorAll(".dropdown-submenu .dropdown-menu")
+      .forEach(function (el) {
+        el.classList.remove("show");
+      });
+  });
+</script>
