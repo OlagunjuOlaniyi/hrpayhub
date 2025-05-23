@@ -1062,15 +1062,21 @@ body {
   }
 }
 
-
 /*  Create Offer  */
-
 
 .offer_breakdown_w {
   width: 508px;
 }
+
+.view_offer_breakdown {
+  width: 809px;
+}
 @media (max-width: 769px) {
   .offer_breakdown_w {
+    width: 100%;
+  }
+
+  .view_offer_breakdown {
     width: 100%;
   }
 }
