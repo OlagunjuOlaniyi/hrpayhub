@@ -1061,3 +1061,16 @@ body {
     padding: 10px;
   }
 }
+
+
+/*  Create Offer  */
+
+
+.offer_breakdown_w {
+  width: 508px;
+}
+@media (max-width: 769px) {
+  .offer_breakdown_w {
+    width: 100%;
+  }
+}

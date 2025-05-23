@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: Pay Grades Bulk Upload">
+<Layout title="HRPayHub :: Work Location Bulk Upload">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -29,16 +29,16 @@ import Layout from "../layouts/Layout.astro";
               alt="angle-right-back"
             />
             <a
-              href="/expense-management"
+              href="/company-setup"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Employee Management</a
+              >Company Setup</a
             >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
             <a
-              href="/bulk-upload"
+              href="/company-setup-bulk-upload"
               class="fs-14 text-decoration-none text-primary-dark"
               >Bulk Upload</a
             >
@@ -48,7 +48,7 @@ import Layout from "../layouts/Layout.astro";
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >Pay Grades Bulk Upload</span
+              >Work Location Bulk Upload</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -72,7 +72,7 @@ import Layout from "../layouts/Layout.astro";
               <!---- title  -->
               <div class="d-flex gap-3 align-items-center">
                 <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                  >Pay Grades Bulk Upload</span
+                  >Work Location Bulk Upload</span
                 >
               </div>
 
@@ -106,23 +106,31 @@ import Layout from "../layouts/Layout.astro";
                   >
                   <th
                     class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
-                    style="min-width: 200px;">Employment Type</th
+                    style="min-width: 200px;">Location Title</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Grade Band</th
+                    >Location Type</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Pay Grade</th
+                    >Address</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Salary Type</th
+                    >City</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Amount</th
+                    >Postal Code</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >State</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Country</th
                   >
                 </tr>
               </thead>
@@ -136,70 +144,84 @@ import Layout from "../layouts/Layout.astro";
                 {
                   [
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "Lorem 1",
-                      salary_type: "Annual Fixed Salary",
-                      amount: "N124,676",
+                      location_title: "Lorem Ipsum",
+                      location_type: "Primary",
+                      address: "8080 Railroad St.",
+                      city: "Michigan",
+                      postal_code: "124676",
+                      state: "---",
+                      country: "UK",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "Lorem 1",
-                      salary_type: "Annual Fixed Salary",
-                      amount: "N124,676",
+                      location_title: "Lorem Ipsum",
+                      location_type: "Primary",
+                      address: "8080 Railroad St.",
+                      city: "Michigan",
+                      postal_code: "124676",
+                      state: "---",
+                      country: "UK",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "Lorem 1",
-                      salary_type: "Annual Fixed Salary",
-                      amount: "N124,676",
+                      location_title: "Lorem Ipsum",
+                      location_type: "Primary",
+                      address: "8080 Railroad St.",
+                      city: "Michigan",
+                      postal_code: "124676",
+                      state: "---",
+                      country: "UK",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "Lorem 1",
-                      salary_type: "Annual Fixed Salary",
-                      amount: "N124,676",
+                      location_title: "Lorem Ipsum",
+                      location_type: "Primary",
+                      address: "8080 Railroad St.",
+                      city: "Michigan",
+                      postal_code: "124676",
+                      state: "---",
+                      country: "UK",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "Lorem 1",
-                      salary_type: "Annual Fixed Salary",
-                      amount: "N124,676",
+                      location_title: "Lorem Ipsum",
+                      location_type: "Primary",
+                      address: "8080 Railroad St.",
+                      city: "Michigan",
+                      postal_code: "124676",
+                      state: "---",
+                      country: "UK",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "Lorem 1",
-                      salary_type: "Annual Fixed Salary",
-                      amount: "N124,676",
+                      location_title: "Lorem Ipsum",
+                      location_type: "Primary",
+                      address: "8080 Railroad St.",
+                      city: "Michigan",
+                      postal_code: "124676",
+                      state: "---",
+                      country: "UK",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "Lorem 1",
-                      salary_type: "Annual Fixed Salary",
-                      amount: "N124,676",
+                      location_title: "Lorem Ipsum",
+                      location_type: "Primary",
+                      address: "8080 Railroad St.",
+                      city: "Michigan",
+                      postal_code: "124676",
+                      state: "---",
+                      country: "UK",
                     },
                   ].map((ele, index) => (
                     <tr class="fs-88">
                       <td class="text-center fs-14">{index + 1}</td>
                       <td class="fs-14 text-nowrap px-3 text-left column">
-                        {ele.emp_type}
+                        {ele.location_title}
                       </td>
                       <td class="fs-14 px-3 text-left column">
-                        {ele.created_by}
+                        {ele.location_type}
                       </td>
+                      <td class="fs-14 px-3 text-left column">{ele.address}</td>
+                      <td class="fs-14 px-3 text-left column">{ele.city}</td>
                       <td class="fs-14 px-3 text-left column">
-                        {ele.creation_date}
+                        {ele.postal_code}
                       </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.salary_type}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">{ele.amount}</td>
+                      <td class="fs-14 px-3 text-left column">{ele.state}</td>
+                      <td class="fs-14 px-3 text-left column">{ele.country}</td>
                     </tr>
                   ))
                 }

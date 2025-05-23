@@ -4,7 +4,7 @@ import FormContextIndicator from "../components/ui/TaxFormContextIndicator";
 import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
 ---
 
-<Layout title="HRPayHub :: Bulk Upload">
+<Layout title="HRPayHub :: Company Setup Bulk Upload">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -13,7 +13,7 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="index.html"
+            href="/company_setup"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -32,15 +32,17 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
               alt="angle-right-back"
             />
             <a
-              href="/employee-management"
+              href="/company_setup"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Employee Management</a
+              >Company Setup</a
             >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue">Bulk Upload</span>
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Company Setup Bulk Upload</span
+            >
           </div>
           <!-- Actual Breadcrumb here -->
         </div>
@@ -66,9 +68,8 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                   <option value="" selected style="color: rgb(200, 200, 200)"
                     >Select</option
                   >
-                  <option value="plan_1">Pay Grades</option>
-                  <option value="plan_2">Designation</option>
-                  <option value="plan_3">Add Employee</option>
+                  <option value="plan_1">Work Location</option>
+                  <option value="plan_2">Department</option>
                 </select>
                 <label for="select_plan"
                   >Select Upload Type &nbsp;<span>*</span></label
@@ -180,9 +181,8 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
         }
 
         const routes = {
-          plan_1: "/pay-grade-bulk-upload",
-          plan_2: "/designation-bulk-upload",
-          plan_3: "/add-employee",
+          plan_1: "/work-location-bulk-upload",
+          plan_2: "/department-bulk-upload",
         };
 
         const route = routes[selected];
