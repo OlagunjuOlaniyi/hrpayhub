@@ -1,0 +1,133 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: Time Management">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="index.html"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Time Management</span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Title */}
+          <div class="vstack gap-2">
+            <div class="d-flex gap-3 align-items-center">
+              <img
+                src="images/png/icons/colored/clock-colored.svg"
+                alt="receipt-minus-icon"
+                width="30px"
+                height="30px"
+              />
+              <span
+                class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
+                >Time Management</span
+              >
+            </div>
+            <div class="fw-bold">
+              Effectively track and manage employee work hours and attendance.
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+          <div class="row payslip-grid-gap mb-5">
+            {
+              [
+                {
+                  title: "Clock-In/Clock-Out",
+                  desc: "Record daily work hours with automatic time tracking.",
+                  url: "/clock-in-clock-out",
+                },
+                {
+                  title: "Timesheet History",
+                  desc: "View personal attendance records in a read-only format. ",
+                  url: "/timesheet-history",
+                },
+              ].map((ele) => (
+                <div
+                  class="col-4 p-2 payslip-card-panel"
+                  style="width: 360px"
+                  role="button"
+                  title={ele.title}
+                  data-url={ele.url}
+                >
+                  <div class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
+                    <div class="vstack gap-2 d-flex flex-column align-items-center">
+                      <img
+                        src="images/png/icons/colored/clock-colored.svg"
+                        alt="receipt-minus-icon"
+                        width="30px"
+                        height="30px"
+                      />
+                      <div class="fw-bold fs-18 font-ubuntu-bold text-primary-blue">
+                        {ele.title}
+                      </div>
+                    </div>
+
+                    <div
+                      class="fw-600 fs-16"
+                      style="width: 90%; margin: 0 auto"
+                    >
+                      {ele.desc}
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+          {/* Page Content Box */}
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Main content ends here -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const payslipCardPanels = document.querySelectorAll(
+        ".payslip-card-panel",
+      );
+
+      payslipCardPanels.forEach((ele, index) => {
+        ele?.addEventListener("click", (e) => {
+          const url = ele.getAttribute("data-url") || "";
+          const title = ele.getAttribute("title") || "";
+          window.open(url, title);
+        });
+      });
+    });
+  </script>
+</Layout>

@@ -1080,3 +1080,59 @@ body {
     width: 100%;
   }
 }
+
+/* clock in clock out */
+
+.clock_in_out {
+  background-color: #eaecf0;
+  width: 556px;
+  border-radius: 16px;
+}
+
+.clock_in_out_border {
+  border-radius: 16px;
+}
+
+.clock_in_out_bg {
+  background-color: #eaecf0;
+  border-radius: 16px;
+}
+
+.clock_in_out_border_left {
+  border-left: 1px solid #989898;
+}
+
+.clock_in_out_width {
+  width: 329px;
+}
+
+.clock_in_time {
+  border: 2px solid #2271b6;
+}
+
+.clock_border_left {
+  width: 1px;
+  background-color: #989898;
+}
+
+.clock_out_time {
+  border: 2px solid #c7a930;
+}
+
+.clock_out_bg {
+  background-color: #c7a930;
+}
+
+.clock_in_bg {
+  background-color: #75abda !important;
+}
+
+@media (max-width: 769px) {
+  .clock_in_out {
+    width: 100%;
+  }
+
+  .clock_in_out_width {
+    width: 100%;
+  }
+}
