@@ -113,6 +113,8 @@ import Layout from "../layouts/Layout.astro";
                   name="emp_id"
                   class="form-input fs-14"
                   placeholder=""
+                  value="E12525"
+                  disabled
                 />
                 <label for="emp_id">Employee ID &nbsp;<span>*</span></label>
               </div>
@@ -123,6 +125,8 @@ import Layout from "../layouts/Layout.astro";
                   name="first_name"
                   class="form-input fs-14"
                   placeholder=""
+                  value="John"
+                  disabled
                 />
                 <label for="first_name">First Name &nbsp;<span>*</span></label>
               </div>
@@ -133,6 +137,8 @@ import Layout from "../layouts/Layout.astro";
                   name="last_name"
                   class="form-input fs-14"
                   placeholder=""
+                  value="Doe"
+                  disabled
                 />
                 <label for="last_name">Last Name &nbsp;<span>*</span></label>
               </div>
@@ -143,6 +149,8 @@ import Layout from "../layouts/Layout.astro";
                   name="global_role"
                   class="form-input fs-14"
                   placeholder=""
+                  value="Admin"
+                  disabled
                 />
                 <label for="global_role">Global Role &nbsp;<span>*</span></label
                 >
@@ -164,9 +172,10 @@ import Layout from "../layouts/Layout.astro";
                   name="dpt_selection"
                   class="form-select_custom fs-14"
                   required
+                  disabled
                 >
-                  <option value="" selected>Select</option>
-                  <option value="1">Super Admin</option>
+                  <option value="">Select</option>
+                  <option value="1" selected>Super Admin</option>
                   <option value="2">HR/Admin</option>
                   <option value="3">Accountant</option>
                   <option value="4">Employee</option>
@@ -181,9 +190,10 @@ import Layout from "../layouts/Layout.astro";
                   name="pry_selection"
                   class="form-select_custom fs-14"
                   required
+                  disabled
                 >
-                  <option value="" selected>Select</option>
-                  <option value="1">Super Admin</option>
+                  <option value="">Select</option>
+                  <option value="1" selected>Super Admin</option>
                   <option value="2">HR/Admin</option>
                   <option value="3">Accountant</option>
                   <option value="4">Employee</option>
@@ -208,9 +218,10 @@ import Layout from "../layouts/Layout.astro";
                   name="dpt_selection"
                   class="form-select_custom fs-14"
                   required
+                  disabled
                 >
-                  <option value="" selected>Select</option>
-                  <option value="1">Super Admin</option>
+                  <option value="">Select</option>
+                  <option value="1" selected>Super Admin</option>
                   <option value="2">HR/Admin</option>
                   <option value="3">Accountant</option>
                   <option value="4">Employee</option>
@@ -225,9 +236,10 @@ import Layout from "../layouts/Layout.astro";
                   name="pry_selection"
                   class="form-select_custom fs-14"
                   required
+                  disabled
                 >
-                  <option value="" selected>Select</option>
-                  <option value="1">Super Admin</option>
+                  <option value="">Select</option>
+                  <option value="1" selected>Super Admin</option>
                   <option value="2">HR/Admin</option>
                   <option value="3">Accountant</option>
                   <option value="4">Employee</option>
@@ -252,9 +264,10 @@ import Layout from "../layouts/Layout.astro";
                   name="dpt_selection"
                   class="form-select_custom fs-14"
                   required
+                  disabled
                 >
-                  <option value="" selected>Select</option>
-                  <option value="1">Super Admin</option>
+                  <option value="">Select</option>
+                  <option value="1" selected>Super Admin</option>
                   <option value="2">HR/Admin</option>
                   <option value="3">Accountant</option>
                   <option value="4">Employee</option>
@@ -269,9 +282,10 @@ import Layout from "../layouts/Layout.astro";
                   name="pry_selection"
                   class="form-select_custom fs-14"
                   required
+                  disabled
                 >
-                  <option value="" selected>Select</option>
-                  <option value="1">Super Admin</option>
+                  <option value="">Select</option>
+                  <option value="1" selected>Super Admin</option>
                   <option value="2">HR/Admin</option>
                   <option value="3">Accountant</option>
                   <option value="4">Employee</option>
@@ -297,9 +311,10 @@ import Layout from "../layouts/Layout.astro";
                   name="employment_status"
                   class="form-select_custom fs-14"
                   required
+                  disabled
                 >
-                  <option value="" selected>Select</option>
-                  <option value="1">Super Admin</option>
+                  <option value="">Select</option>
+                  <option value="1" selected>Super Admin</option>
                   <option value="2">HR/Admin</option>
                   <option value="3">Accountant</option>
                   <option value="4">Employee</option>
@@ -316,18 +331,28 @@ import Layout from "../layouts/Layout.astro";
                   name="email"
                   class="form-input fs-14"
                   placeholder=""
+                  value="example@example.com"
+                  disabled
                 />
                 <label for="email">Employee Email &nbsp;<span>*</span></label>
               </div>
-              <div class="form-floating add_employee_width">
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  class="form-input fs-14"
-                  placeholder=""
-                />
-                <label for="password">Password &nbsp;<span>*</span></label>
+              <div class="d-flex flex-column gap-3">
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="form-input fs-14"
+                    placeholder=""
+                    value="@Abcdefjh_512"
+                    disabled
+                  />
+                  <label for="password">Password &nbsp;<span>*</span></label>
+                </div>
+                <span class="fs-12 text-danger"
+                  >At least 8 characters, including a number and a special
+                  character.</span
+                >
               </div>
               <div class="form-floating add_employee_width">
                 <input
@@ -336,6 +361,8 @@ import Layout from "../layouts/Layout.astro";
                   name="confirm_pwd"
                   class="form-input fs-14"
                   placeholder=""
+                  value="@Abcdefjh_512"
+                  disabled
                 />
                 <label for="confirm_pwd"
                   >Confirm Password &nbsp;<span>*</span></label
@@ -348,6 +375,8 @@ import Layout from "../layouts/Layout.astro";
                   name="created_by"
                   class="form-input fs-14"
                   placeholder=""
+                  value="John Doe"
+                  disabled
                 />
                 <label for="created_by">Created By &nbsp;<span>*</span></label>
               </div>
@@ -361,6 +390,7 @@ import Layout from "../layouts/Layout.astro";
                     name="start_date"
                     class="form-input fs-14"
                     placeholder=""
+                    disabled
                   />
                   <label for="start_date">Date Created</label>
                 </div>
@@ -371,6 +401,7 @@ import Layout from "../layouts/Layout.astro";
                     name="created_time"
                     class="form-input fs-14"
                     placeholder=""
+                    disabled
                   />
                   <label for="created_time">Time Created</label>
                 </div>
