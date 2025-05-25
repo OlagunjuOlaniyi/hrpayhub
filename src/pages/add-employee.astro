@@ -75,7 +75,8 @@ import Layout from "../layouts/Layout.astro";
               [
                 {
                   title: "Add Employee (Individual)",
-                  desc: "Setup a new employee",
+                  desc: "Setup a new",
+                  desc2: "employee",
                   url: "/add-employee-individual",
                 },
                 {
@@ -86,7 +87,7 @@ import Layout from "../layouts/Layout.astro";
               ].map((ele) => (
                 <div
                   class="col-4 p-2 payslip-card-panel"
-                  style="width: 340px"
+                  style="width: 350px"
                   role="button"
                   title={ele.title}
                   data-url={ele.url}
@@ -107,9 +108,9 @@ import Layout from "../layouts/Layout.astro";
 
                     <div
                       class="fw-600 fs-16"
-                      style="width: 90%; margin: 0 auto"
+                      style="width: 70%; margin: 0 auto"
                     >
-                      {ele.desc}
+                      {ele.desc} <br /> {ele.desc2}
                     </div>
                   </div>
                 </div>

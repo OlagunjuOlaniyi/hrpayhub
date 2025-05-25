@@ -23,8 +23,9 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
 
           <!-- Actual Breadcrumb here -->
           <div class="d-flex align-items-center gap-2">
-            <a href="index.html" class="fs-14 text-decoration-none text-primary-dark"
-              >Dashboard</a
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
             >
             <img
               src="images/png/icons/angle-right.svg"
@@ -82,7 +83,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
               <!-- Others -->
               <div class="d-flex justify-content-end">
                 <button
-                  class="btn bg-primary-blue text-white"
+                  class="btn bg-primary-blue text-white px-3 fs-14 fw-600"
                   type="button"
                   data-bs-toggle="modal"
                   data-bs-target="#myModal"
@@ -143,43 +144,43 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                 {
                   [
                     {
-                      emp_type: "Lorem Ipsum",
+                      emp_type: "Full-time",
                       created_by: "Lorem Ipsum",
                       creation_date: "7th April 2025",
                       creation_time: "9:45 PM",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
+                      emp_type: "Contract",
                       created_by: "Lorem Ipsum",
                       creation_date: "7th April 2025",
                       creation_time: "9:45 PM",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
+                      emp_type: "Intern",
                       created_by: "Lorem Ipsum",
                       creation_date: "7th April 2025",
                       creation_time: "9:45 PM",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
+                      emp_type: "Full-time",
                       created_by: "Lorem Ipsum",
                       creation_date: "7th April 2025",
                       creation_time: "9:45 PM",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
+                      emp_type: "Full-time",
                       created_by: "Lorem Ipsum",
                       creation_date: "7th April 2025",
                       creation_time: "9:45 PM",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
+                      emp_type: "Full-time",
                       created_by: "Lorem Ipsum",
                       creation_date: "7th April 2025",
                       creation_time: "9:45 PM",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
+                      emp_type: "Full-time",
                       created_by: "Lorem Ipsum",
                       creation_date: "7th April 2025",
                       creation_time: "9:45 PM",
@@ -333,8 +334,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
           }
 
           // Update input field
-          const employeeStatusInput =
-            document.getElementById("employee_type");
+          const employeeStatusInput = document.getElementById("employee_type");
           if (employeeStatusInput) {
             employeeStatusInput.value = empType;
           }

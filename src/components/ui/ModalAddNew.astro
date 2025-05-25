@@ -37,12 +37,29 @@ import { CloseCircleIcon } from "../Icons";
                 <option value="" selected>
                   Select
                 </option>
-                <option value="1">E1001</option>
-                <option value="2">E1002</option>
-                <option value="3">E1003</option>
+                <option value="1">Full-time</option>
+                <option value="2">Contractor</option>
+                <option value="3">Intern</option>
               </select>
               <label for="employment_id">
                 Employment Type &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="country"
+                name="country"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">UK</option>
+                <option value="2">Nigeria</option>
+              </select>
+              <label for="country">
+                Country &nbsp;<span>*</span>
               </label>
             </div>
             <div class="form-floating">
@@ -79,27 +96,28 @@ import { CloseCircleIcon } from "../Icons";
                 <option value="" selected>
                   Select
                 </option>
-                <option value="1">E1001</option>
-                <option value="2">E1002</option>
-                <option value="3">E1003</option>
+                <option value="1">Annual Fixed Salary</option>
+                <option value="2">Hourly Rate</option>
               </select>
               <label for="salary_type">
                 Salary Type &nbsp;<span>*</span>
               </label>
             </div>
-            <div class="form-floating">
+
+            <div class="form-floating" id="hourlyRateField">
               <input
                 type="text"
-                id="Hourly Rate"
-                name="Hourly Rate"
+                id="hourly_rate"
+                name="hourly_rate"
                 class="form-input"
                 placeholder=""
               />
-              <label for="Hourly Rate">
+              <label for="hourly_rate">
                 Hourly Rate &nbsp;<span>*</span>
               </label>
             </div>
-            <div class="form-floating">
+
+            <div class="form-floating" id="afsField">
               <input
                 type="text"
                 id="afs"
@@ -180,5 +198,52 @@ import { CloseCircleIcon } from "../Icons";
       placeholder: $(this).data("placeholder"),
       closeOnSelect: false,
     });
+
+    const countrySelect = document.getElementById("country");
+    const salaryTypeSelect = document.getElementById("salary_type");
+    const hourlyRateField = document.getElementById("hourlyRateField");
+    const afsField = document.getElementById("afsField");
+
+    // Utility function to show/hide based on salary type
+    function updateSalaryFields(salaryTypeValue) {
+      if (salaryTypeValue === "2") {
+        // Hourly Rate
+        hourlyRateField.style.display = "block";
+        afsField.style.display = "none";
+      } else if (salaryTypeValue === "1") {
+        // Annual Fixed Salary
+        hourlyRateField.style.display = "none";
+        afsField.style.display = "block";
+      } else {
+        // Neither selected
+        hourlyRateField.style.display = "none";
+        afsField.style.display = "none";
+      }
+    }
+
+    // On country change
+    countrySelect.addEventListener("change", () => {
+      const country = countrySelect.value;
+
+      if (country === "1") {
+        // UK
+        salaryTypeSelect.value = "2"; // Hourly Rate
+      } else if (country === "2") {
+        // Nigeria
+        salaryTypeSelect.value = "1"; // Annual Fixed Salary
+      } else {
+        salaryTypeSelect.value = "";
+      }
+
+      updateSalaryFields(salaryTypeSelect.value);
+    });
+
+    // On salary type change (user manual switch)
+    salaryTypeSelect.addEventListener("change", () => {
+      updateSalaryFields(salaryTypeSelect.value);
+    });
+
+    // Initialize on page load if default values are present
+    updateSalaryFields(salaryTypeSelect.value);
   });
 </script>
