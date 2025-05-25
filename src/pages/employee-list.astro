@@ -4,7 +4,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
 import DeleteModal from "../components/ui/DeleteModal.astro";
 ---
 
-<Layout title="HRPayHub :: Designation">
+<Layout title="HRPayHub :: Employee List">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -40,7 +40,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue">Designation</span>
+            <span class="fs-16 fw-bold text-primary-blue">Employee List</span>
           </div>
           <!-- Actual Breadcrumb here -->
         </div>
@@ -53,14 +53,14 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
     <section class="px-lg-4">
       <div class="screenFrame">
         <div
-          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5 employment_status_width"
+          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
           id="manage_list_of_payslip"
         >
           {/* Page Title */}
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >Designation</span
+                >Employee List</span
               >
             </div>
           </div>
@@ -81,15 +81,12 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
 
               <!-- Others -->
               <div class="d-flex justify-content-end">
-                <button
-                  class="btn bg-primary-blue text-white fs-14"
-                  type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#myModal"
-                  data-title="Add Designation"
+                <a
+                  class="btn bg-primary-blue d-flex align-items-center text-white px-3 fs-14 fw-600"
+                  href="/new-user-account"
                 >
-                  <span class="me-2">Add New</span> +
-                </button>
+                  <span class="me-2">Add Employee</span> +
+                </a>
               </div>
 
               <!---- End of Others ---->
@@ -112,7 +109,59 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                   >
                   <th
                     class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
-                    style="min-width: 200px;">Designation</th
+                    style="min-width: 200px;">Employee ID</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >First Name</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Last Name</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Country of Work</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >City</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Global Role</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Primary Department</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Primary Role</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Designation</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Employement Type</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Employement Status</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Work Location</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Pay Grade</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Resumption Date</th
                   >
 
                   <th
@@ -131,67 +180,168 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                 {
                   [
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      emp_id: "E12525",
+                      first_name: "Lorem Ipsum",
+                      last_name: "Lorem Ipsum",
+                      country: "Nigeria",
+                      city: "Lagos",
+                      global_role: "Super Admin",
+                      pry_dpt: "Admin",
+                      pry_role: "Admin",
+                      designation: "Admin",
+                      emp_type: "Full-time",
+                      emp_status: "Full-time",
+                      work_location: "Remote",
+                      pay_grade: "15",
+                      resumption_date: "7th April 2025",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      emp_id: "E12525",
+                      first_name: "Lorem Ipsum",
+                      last_name: "Lorem Ipsum",
+                      country: "Nigeria",
+                      city: "Lagos",
+                      global_role: "Super Admin",
+                      pry_dpt: "Admin",
+                      pry_role: "Admin",
+                      designation: "Admin",
+                      emp_type: "Full-time",
+                      emp_status: "Full-time",
+                      work_location: "Remote",
+                      pay_grade: "15",
+                      resumption_date: "7th April 2025",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      emp_id: "E12525",
+                      first_name: "Lorem Ipsum",
+                      last_name: "Lorem Ipsum",
+                      country: "Nigeria",
+                      city: "Lagos",
+                      global_role: "Super Admin",
+                      pry_dpt: "Admin",
+                      pry_role: "Admin",
+                      designation: "Admin",
+                      emp_type: "Full-time",
+                      emp_status: "Full-time",
+                      work_location: "Remote",
+                      pay_grade: "15",
+                      resumption_date: "7th April 2025",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      emp_id: "E12525",
+                      first_name: "Lorem Ipsum",
+                      last_name: "Lorem Ipsum",
+                      country: "Nigeria",
+                      city: "Lagos",
+                      global_role: "Super Admin",
+                      pry_dpt: "Admin",
+                      pry_role: "Admin",
+                      designation: "Admin",
+                      emp_type: "Full-time",
+                      emp_status: "Full-time",
+                      work_location: "Remote",
+                      pay_grade: "15",
+                      resumption_date: "7th April 2025",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      emp_id: "E12525",
+                      first_name: "Lorem Ipsum",
+                      last_name: "Lorem Ipsum",
+                      country: "Nigeria",
+                      city: "Lagos",
+                      global_role: "Super Admin",
+                      pry_dpt: "Admin",
+                      pry_role: "Admin",
+                      designation: "Admin",
+                      emp_type: "Full-time",
+                      emp_status: "Full-time",
+                      work_location: "Remote",
+                      pay_grade: "15",
+                      resumption_date: "7th April 2025",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      emp_id: "E12525",
+                      first_name: "Lorem Ipsum",
+                      last_name: "Lorem Ipsum",
+                      country: "Nigeria",
+                      city: "Lagos",
+                      global_role: "Super Admin",
+                      pry_dpt: "Admin",
+                      pry_role: "Admin",
+                      designation: "Admin",
+                      emp_type: "Full-time",
+                      emp_status: "Full-time",
+                      work_location: "Remote",
+                      pay_grade: "15",
+                      resumption_date: "7th April 2025",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      emp_id: "E12525",
+                      first_name: "Lorem Ipsum",
+                      last_name: "Lorem Ipsum",
+                      country: "Nigeria",
+                      city: "Lagos",
+                      global_role: "Super Admin",
+                      pry_dpt: "Admin",
+                      pry_role: "Admin",
+                      pry_role: "Admin",
+                      designation: "Admin",
+                      emp_type: "Full-time",
+                      emp_status: "Full-time",
+                      work_location: "Remote",
+                      pay_grade: "15",
+                      resumption_date: "7th April 2025",
                     },
                   ].map((ele, index) => (
                     <tr class="fs-88">
                       <td class="text-center fs-14">{index + 1}</td>
                       <td class="fs-14 text-nowrap px-3 text-left column">
+                        {ele.emp_id}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.first_name}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.last_name}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">{ele.country}</td>
+                      <td class="fs-14 px-3 text-left column">{ele.city}</td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.global_role}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">{ele.pry_dpt}</td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.pry_role}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.designation}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
                         {ele.emp_type}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.emp_status}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.work_location}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.pay_grade}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.resumption_date}
                       </td>
 
                       <td class="fs-14 px-3 text-center d-flex justify-content-center column">
                         <div class="d-flex gap-2">
-                          <button
+                          <a
                             class="border-0 edit-button"
                             style="background-color: inherit;"
                             type="button"
-                            data-bs-toggle="modal"
-                            data-bs-target="#myModal"
-                            data-title="Edit Designation"
-                            data-emp-type="{ele.emp_type}"
+                            href="/new-user-account"
                           >
                             <img src="images/png/icons/edit-2.svg" alt="" />
-                          </button>
+                          </a>
                           <button
                             class="border-0"
                             style="background-color: inherit;"
@@ -286,7 +436,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
           title={"Add Employee Type"}
           inputPlace="Designation"
         />
-        <DeleteModal modalId="deleteModal" title="Designation" />
+        <DeleteModal modalId="deleteModal" title="Employee" />
 
         <!---- end of Modal --->
       </div>
