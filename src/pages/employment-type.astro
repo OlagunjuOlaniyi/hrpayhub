@@ -54,7 +54,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
     <section class="px-lg-4">
       <div class="screenFrame">
         <div
-          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5 employment_status_width"
           id="manage_list_of_payslip"
         >
           {/* Page Title */}
@@ -114,18 +114,6 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                   <th
                     class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
                     style="min-width: 200px;">Employment Type</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Created By</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Creation Date</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Creation Time</th
                   >
 
                   <th
@@ -190,15 +178,6 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       <td class="text-center fs-14">{index + 1}</td>
                       <td class="fs-14 text-nowrap px-3 text-left column">
                         {ele.emp_type}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.created_by}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.creation_date}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.creation_time}
                       </td>
 
                       <td class="fs-14 px-3 text-center d-flex justify-content-center column">
