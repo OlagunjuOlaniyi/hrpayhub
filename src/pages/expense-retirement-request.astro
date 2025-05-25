@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: Expense Approval Request">
+<Layout title="HRPayHub :: Expense Retirement Request">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -39,7 +39,7 @@ import Layout from "../layouts/Layout.astro";
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >Expense Approval Request</span
+              >Expense Retirement Request</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -64,10 +64,12 @@ import Layout from "../layouts/Layout.astro";
               />
               <span
                 class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Expense Approval Request</span
+                >Expense Retirement Request</span
               >
             </div>
-            <div class="fw-bold">Send request for expense approval</div>
+            <div class="fw-bold">
+              Send request for expense retirement
+            </div>
           </div>
           {/* Page Title */}
 
@@ -76,14 +78,14 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Expense Request Form",
+                  title: "Expense Retirement Form",
                   desc: "Lorem Ipsum",
-                  url: "/expense-request-form",
+                  url: "/expense-retirement-form",
                 },
                 {
-                  title: "Expense History View",
+                  title: "Expense Retirement History View",
                   desc: "Lorem Ipsum",
-                  url: "/expense-history-view",
+                  url: "/expense-retirement-history-view",
                 },
               ].map((ele) => (
                 <div
@@ -101,6 +103,7 @@ import Layout from "../layouts/Layout.astro";
                         width="30px"
                         height="30px"
                       />
+
 
                       <div class="fw-bold fs-18 font-ubuntu-bold text-primary-blue">
                         {ele.title}

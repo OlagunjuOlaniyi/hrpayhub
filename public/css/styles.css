@@ -943,6 +943,11 @@ body {
   border: 2px dashed #c1c1c1;
 }
 
+.expense_request_doc {
+  border-radius: 10px;
+  border: 2px dashed #c1c1c1;
+}
+
 @media (max-width: 769px) {
   .expense_input {
     width: 100%;
@@ -1008,4 +1013,126 @@ body {
 /* national holiday accordion */
 .accordion-button::after {
   filter: brightness(0) invert(1);
+}
+
+/* Expense retirement history */
+
+.expense_retirement_input {
+  width: 801px;
+}
+
+.approved_bg {
+  background-color: #2271b61a;
+}
+.pending_bg {
+  background-color: #b6b0001a;
+}
+.rejected_bg {
+  background-color: #fd00001a;
+}
+
+.breakdown_line {
+  width: 310px;
+  background-color: #000;
+  height: 2px;
+}
+
+.upload_bucket_expense_retirement {
+  width: 801px;
+  height: 170px;
+  border-radius: 10px;
+  gap: 10px;
+  border: 2px dashed #c1c1c1;
+}
+.upload_bucket_expense_accordion {
+  height: 170px;
+  border-radius: 10px;
+  gap: 10px;
+  border: 2px dashed #c1c1c1;
+}
+
+@media (max-width: 769px) {
+  .expense_retirement_input {
+    width: 100%;
+  }
+
+  .upload_bucket_expense_retirement {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/*  Create Offer  */
+
+.offer_breakdown_w {
+  width: 508px;
+}
+
+.view_offer_breakdown {
+  width: 809px;
+}
+@media (max-width: 769px) {
+  .offer_breakdown_w {
+    width: 100%;
+  }
+
+  .view_offer_breakdown {
+    width: 100%;
+  }
+}
+
+/* clock in clock out */
+
+.clock_in_out {
+  background-color: #eaecf0;
+  width: 556px;
+  border-radius: 16px;
+}
+
+.clock_in_out_border {
+  border-radius: 16px;
+}
+
+.clock_in_out_bg {
+  background-color: #eaecf0;
+  border-radius: 16px;
+}
+
+.clock_in_out_border_left {
+  border-left: 1px solid #989898;
+}
+
+.clock_in_out_width {
+  width: 329px;
+}
+
+.clock_in_time {
+  border: 2px solid #2271b6;
+}
+
+.clock_border_left {
+  width: 1px;
+  background-color: #989898;
+}
+
+.clock_out_time {
+  border: 2px solid #c7a930;
+}
+
+.clock_out_bg {
+  background-color: #c7a930;
+}
+
+.clock_in_bg {
+  background-color: #75abda !important;
+}
+
+@media (max-width: 769px) {
+  .clock_in_out {
+    width: 100%;
+  }
+
+  .clock_in_out_width {
+    width: 100%;
+  }
 }

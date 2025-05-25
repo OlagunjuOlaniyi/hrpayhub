@@ -4,142 +4,133 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="HRPayHub :: Company Setup">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full">
+          <a
+            href="index.html"
+            title="Back to Payslip"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
 
-    <!-- Main content starts here -->
-    <main>
-        <!-- First section of Back button and Breadcrumb -->
-        <section class="p-4">
-            <div class="screenFrame">
-                <!-- Back Navigation button and BreadCrumbs -->
-                <div
-                    class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full"
+          <!-- Actual Breadcrumb here -->
+          <BreadCrumbs
+            data={[{ name: "Dashboard", url: "/" }, { name: "Company Setup" }]}
+          />
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Title */}
+          <div class="vstack gap-2">
+            <div class="d-flex gap-3 align-items-center">
+              <img
+                src="images/png/icons/colored/receipt-minus-colored.svg"
+                alt="receipt-minus-icon"
+                width="30px"
+                height="30px"
+              />
+              <span
+                class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
+                >Company Setup</span
+              >
+            </div>
+            <div class="fw-bold">
+              Configure company information, locations and departments.
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+          <div class="row payslip-grid-gap mb-5">
+            {
+              [
+                {
+                  title: "Signup Details",
+                  desc: "Non editable details provided while signing up",
+                  url: "signup_details.html",
+                  icon: "images/png/icons/colored/information.svg",
+                },
+                {
+                  title: "Work Locations",
+                  desc: "Organization’s multiple work location",
+                  url: "work_locations.html",
+                  icon: "images/png/icons/colored/location.svg",
+                },
+                {
+                  title: "General Information",
+                  desc: "Company general details",
+                  url: "general_information.html",
+                  icon: "images/png/icons/colored/warning-2.svg",
+                },
+                {
+                  title: "Departments",
+                  desc: "Organisation’s departments",
+                  url: "departments.html",
+                  icon: "images/png/icons/colored/building.svg",
+                },
+                {
+                  title: "National Holidays",
+                  desc: "Setup national holidays",
+                  url: "/national-holidays",
+                  icon: "images/png/icons/colored/courthouse.svg",
+                },
+                {
+                  title: "Bulk upload",
+                  desc: "Upload information in bulk",
+                  url: "/company-setup-bulk-upload",
+                  icon: "images/png/icons/colored/layer.svg",
+                },
+              ].map((ele) => (
+                <a
+                  class="col-4 p-2 payslip-card-panel text-decoration-none"
+                  style="width: 340px; color: #202020 !important"
+                  role="button"
+                  title={ele.title}
+                  href={ele.url}
                 >
-                    <a
-                        href="index.html"
-                        title="Back to Payslip"
-                        class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+                  <div class="shadow h-100 p-3 px-3 rounded-3 d-flex flex-column gap-3 text-center">
+                    <div class="d-flex flex-column align-items-center">
+                      <img
+                        src={ele.icon}
+                        alt="receipt-minus-icon"
+                        width="40px"
+                        height="40px"
+                      />
+                      <div class="fw-bold fs-18 font-ubuntu-bold text-primary-blue">
+                        {ele.title}
+                      </div>
+                    </div>
+
+                    <div
+                      class="fw-600 fs-16"
+                      style="width: 90%; margin: 0 auto"
                     >
-                        <img
-                            src="images/png/icons/angle-left.svg"
-                            alt="angle-left-back"
-                        />
-                        <span class="fs-16 fw-bold font-avenir-bold">Back</span>
-                    </a>
-
-                    <!-- Actual Breadcrumb here -->
-                    <BreadCrumbs
-                        data={[
-                            { name: "Dashboard", url: "/" },
-                            { name: "Company Setup" },
-                        ]}
-                    />
-                    <!-- Actual Breadcrumb here -->
-                </div>
-                <!-- Back Navigation button and BreadCrumbs -->
-            </div>
-        </section>
-        <!-- First section of Back button and Breadcrumb -->
-
-        <!-- First section of Back button and Breadcrumb -->
-        <section class="px-4">
-            <div class="screenFrame">
-                <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
-                    {/* Page Title */}
-                    <div class="vstack gap-2">
-                        <div class="d-flex gap-3 align-items-center">
-                            <img
-                                src="images/png/icons/colored/receipt-minus-colored.svg"
-                                alt="receipt-minus-icon"
-                                width="30px"
-                                height="30px"
-                            />
-                            <span
-                                class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                                >Company Setup</span
-                            >
-                        </div>
-                        <div class="fw-bold">
-                            Configure company information, locations and departments.
-                        </div>
+                      {ele.desc}
                     </div>
-                    {/* Page Title */}
-
-                    {/* Page Content Box */}
-                    <div class="row justify-content-between payslip-grid-gap">
-                        {
-                            [
-                                {
-                                    title: "Signup Details",
-                                    desc: "Non editable details provided while signing up",
-                                    url: "signup_details.html",
-                                    icon: "images/png/icons/colored/information.svg"
-                                },
-                                {
-                                    title: "Work Locations",
-                                    desc: "Organization’s multiple work location",
-                                    url: "work_locations.html",
-                                    icon: "images/png/icons/colored/location.svg"
-                                },
-                                {
-                                    title: "General Information",
-                                    desc: "Company general details",
-                                    url: "general_information.html",
-                                    icon: "images/png/icons/colored/warning-2.svg"
-                                },
-                                {
-                                    title: "Departments",
-                                    desc: "Organisation’s departments",
-                                    url: "departments.html",
-                                    icon: "images/png/icons/colored/building.svg"
-                                },
-                                {
-                                    title: "National Holidays",
-                                    desc: "Setup national holidays",
-                                    url: "/national-holidays",
-                                    icon: "images/png/icons/colored/courthouse.svg"
-                                },
-                                {
-                                    title: "Bulk upload",
-                                    desc: "Upload information in bulk",
-                                    url: "payslip_hourly_nigeria_salaried.html",
-                                    icon: "images/png/icons/colored/layer.svg"
-                                },
-                            ].map((ele) => (
-                                <a
-                                    class="col-4 p-2 payslip-card-panel text-decoration-none"
-                                    style="width: 360px; color: #202020 !important"
-                                    role="button"
-                                    title={ele.title}
-                                    href={ele.url}
-                                >
-                                    <div class="shadow h-100 p-3 px-3 rounded-3 d-flex flex-column gap-3 text-center">
-                                        <div class="d-flex flex-column align-items-center">
-                                            <img
-                                                src={ele.icon}
-                                                alt="receipt-minus-icon"
-                                                width="40px"
-                                                height="40px"
-                                            />
-                                            <div class="fw-bold fs-18 font-ubuntu-bold text-primary-blue">
-                                                {ele.title}
-                                            </div>
-                                        </div>
-
-                                        <div
-                                            class="fw-600 fs-16"
-                                            style="width: 90%; margin: 0 auto"
-                                        >
-                                            {ele.desc}
-                                        </div>
-                                    </div>
-                                </a>
-                            ))
-                        }
-                    </div>
-                    {/* Page Content Box */}
-                </div>
-            </div>
-        </section>
-    </main>
-    <!-- Main content ends here -->
+                  </div>
+                </a>
+              ))
+            }
+          </div>
+          {/* Page Content Box */}
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Main content ends here -->
 </Layout>

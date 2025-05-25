@@ -21,7 +21,7 @@ import EditDepartmentModal from "../components/ui/modals/EditDepartmentModal";
   }
 </style>
 
-<Layout title="HRPayHub :: Work Locations">
+<Layout title="HRPayHub :: Departments">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -30,7 +30,7 @@ import EditDepartmentModal from "../components/ui/modals/EditDepartmentModal";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full">
           <a
-            href="payslip.html"
+            href="/company_setup"
             title="Back to Payslip"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -395,26 +395,26 @@ import EditDepartmentModal from "../components/ui/modals/EditDepartmentModal";
       });
       // Modal Object declared here
 
-        $("#addDepartmentBtn").click((e) => {
-          const myModal = new bootstrap.Modal("#addDeptModal", {
-            keyboard: true,
-          });
-          myModal.show();
+      $("#addDepartmentBtn").click((e) => {
+        const myModal = new bootstrap.Modal("#addDeptModal", {
+          keyboard: true,
         });
+        myModal.show();
+      });
 
-        $(".actionButtonEdit").on("click", function (evt) {
-          const html = $(this).html();
-          $(this).html(`
+      $(".actionButtonEdit").on("click", function (evt) {
+        const html = $(this).html();
+        $(this).html(`
               <span>
                   <span class="spinner-border spinner-border-sm text-dark" aria-hidden="true"></span>
               </span>
           `);
 
-          setTimeout(() => {
-            myEditModal.show();
-            $(this).html(html);
-          }, 1500);
-        });
+        setTimeout(() => {
+          myEditModal.show();
+          $(this).html(html);
+        }, 1500);
+      });
 
       $(".actionButtonDelete").on("click", function (evt) {
         const html = $(this).html();

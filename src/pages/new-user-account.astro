@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="index.html"
+            href="/user-account-setup"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -111,8 +111,10 @@ import Layout from "../layouts/Layout.astro";
                   type="text"
                   id="emp_id"
                   name="emp_id"
-                  class="form-input"
+                  class="form-input fs-14"
                   placeholder=""
+                  value="E12525"
+                  disabled
                 />
                 <label for="emp_id">Employee ID &nbsp;<span>*</span></label>
               </div>
@@ -121,8 +123,10 @@ import Layout from "../layouts/Layout.astro";
                   type="text"
                   id="first_name"
                   name="first_name"
-                  class="form-input"
+                  class="form-input fs-14"
                   placeholder=""
+                  value="John"
+                  disabled
                 />
                 <label for="first_name">First Name &nbsp;<span>*</span></label>
               </div>
@@ -131,8 +135,10 @@ import Layout from "../layouts/Layout.astro";
                   type="text"
                   id="last_name"
                   name="last_name"
-                  class="form-input"
+                  class="form-input fs-14"
                   placeholder=""
+                  value="Doe"
+                  disabled
                 />
                 <label for="last_name">Last Name &nbsp;<span>*</span></label>
               </div>
@@ -141,8 +147,10 @@ import Layout from "../layouts/Layout.astro";
                   type="text"
                   id="global_role"
                   name="global_role"
-                  class="form-input"
+                  class="form-input fs-14"
                   placeholder=""
+                  value="Admin"
+                  disabled
                 />
                 <label for="global_role">Global Role &nbsp;<span>*</span></label
                 >
@@ -164,9 +172,10 @@ import Layout from "../layouts/Layout.astro";
                   name="dpt_selection"
                   class="form-select_custom fs-14"
                   required
+                  disabled
                 >
-                  <option value="" selected>Select</option>
-                  <option value="1">Super Admin</option>
+                  <option value="">Select</option>
+                  <option value="1" selected>Super Admin</option>
                   <option value="2">HR/Admin</option>
                   <option value="3">Accountant</option>
                   <option value="4">Employee</option>
@@ -181,9 +190,10 @@ import Layout from "../layouts/Layout.astro";
                   name="pry_selection"
                   class="form-select_custom fs-14"
                   required
+                  disabled
                 >
-                  <option value="" selected>Select</option>
-                  <option value="1">Super Admin</option>
+                  <option value="">Select</option>
+                  <option value="1" selected>Super Admin</option>
                   <option value="2">HR/Admin</option>
                   <option value="3">Accountant</option>
                   <option value="4">Employee</option>
@@ -208,9 +218,10 @@ import Layout from "../layouts/Layout.astro";
                   name="dpt_selection"
                   class="form-select_custom fs-14"
                   required
+                  disabled
                 >
-                  <option value="" selected>Select</option>
-                  <option value="1">Super Admin</option>
+                  <option value="">Select</option>
+                  <option value="1" selected>Super Admin</option>
                   <option value="2">HR/Admin</option>
                   <option value="3">Accountant</option>
                   <option value="4">Employee</option>
@@ -225,9 +236,10 @@ import Layout from "../layouts/Layout.astro";
                   name="pry_selection"
                   class="form-select_custom fs-14"
                   required
+                  disabled
                 >
-                  <option value="" selected>Select</option>
-                  <option value="1">Super Admin</option>
+                  <option value="">Select</option>
+                  <option value="1" selected>Super Admin</option>
                   <option value="2">HR/Admin</option>
                   <option value="3">Accountant</option>
                   <option value="4">Employee</option>
@@ -252,9 +264,10 @@ import Layout from "../layouts/Layout.astro";
                   name="dpt_selection"
                   class="form-select_custom fs-14"
                   required
+                  disabled
                 >
-                  <option value="" selected>Select</option>
-                  <option value="1">Super Admin</option>
+                  <option value="">Select</option>
+                  <option value="1" selected>Super Admin</option>
                   <option value="2">HR/Admin</option>
                   <option value="3">Accountant</option>
                   <option value="4">Employee</option>
@@ -269,9 +282,10 @@ import Layout from "../layouts/Layout.astro";
                   name="pry_selection"
                   class="form-select_custom fs-14"
                   required
+                  disabled
                 >
-                  <option value="" selected>Select</option>
-                  <option value="1">Super Admin</option>
+                  <option value="">Select</option>
+                  <option value="1" selected>Super Admin</option>
                   <option value="2">HR/Admin</option>
                   <option value="3">Accountant</option>
                   <option value="4">Employee</option>
@@ -297,9 +311,10 @@ import Layout from "../layouts/Layout.astro";
                   name="employment_status"
                   class="form-select_custom fs-14"
                   required
+                  disabled
                 >
-                  <option value="" selected>Select</option>
-                  <option value="1">Super Admin</option>
+                  <option value="">Select</option>
+                  <option value="1" selected>Super Admin</option>
                   <option value="2">HR/Admin</option>
                   <option value="3">Accountant</option>
                   <option value="4">Employee</option>
@@ -314,28 +329,40 @@ import Layout from "../layouts/Layout.astro";
                   type="email"
                   id="email"
                   name="email"
-                  class="form-input"
+                  class="form-input fs-14"
                   placeholder=""
+                  value="example@example.com"
+                  disabled
                 />
                 <label for="email">Employee Email &nbsp;<span>*</span></label>
               </div>
-              <div class="form-floating add_employee_width">
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  class="form-input"
-                  placeholder=""
-                />
-                <label for="password">Password &nbsp;<span>*</span></label>
+              <div class="d-flex flex-column gap-3">
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="form-input fs-14"
+                    placeholder=""
+                    value="@Abcdefjh_512"
+                    disabled
+                  />
+                  <label for="password">Password &nbsp;<span>*</span></label>
+                </div>
+                <span class="fs-12 text-danger"
+                  >At least 8 characters, including a number and a special
+                  character.</span
+                >
               </div>
               <div class="form-floating add_employee_width">
                 <input
                   type="password"
                   id="confirm_pwd"
                   name="confirm_pwd"
-                  class="form-input"
+                  class="form-input fs-14"
                   placeholder=""
+                  value="@Abcdefjh_512"
+                  disabled
                 />
                 <label for="confirm_pwd"
                   >Confirm Password &nbsp;<span>*</span></label
@@ -346,8 +373,10 @@ import Layout from "../layouts/Layout.astro";
                   type="text"
                   id="created_by"
                   name="created_by"
-                  class="form-input"
+                  class="form-input fs-14"
                   placeholder=""
+                  value="John Doe"
+                  disabled
                 />
                 <label for="created_by">Created By &nbsp;<span>*</span></label>
               </div>
@@ -359,20 +388,22 @@ import Layout from "../layouts/Layout.astro";
                     type="date"
                     id="start_date"
                     name="start_date"
-                    class="form-input"
+                    class="form-input fs-14"
                     placeholder=""
+                    disabled
                   />
-                  <label for="start_date">Created Date</label>
+                  <label for="start_date">Date Created</label>
                 </div>
                 <div class="form-floating add_employee_width">
                   <input
                     type="time"
                     id="created_time"
                     name="created_time"
-                    class="form-input"
+                    class="form-input fs-14"
                     placeholder=""
+                    disabled
                   />
-                  <label for="created_time">Created Time</label>
+                  <label for="created_time">Time Created</label>
                 </div>
               </div>
             </div>

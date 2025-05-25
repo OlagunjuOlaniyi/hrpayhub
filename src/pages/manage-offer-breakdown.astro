@@ -1,10 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ModalModulesAccessed from "../components/ui/ModalModulesAccessed.astro";
-import ModalChangesMade from "../components/ui/ModalChangesMade.astro";
+import ViewOfferBreakdown from "../components/offers/ViewOfferBreakdown";
 ---
 
-<Layout title="HRPayHub :: System Admin Logs">
+<Layout title="HRPayHub :: Manage Offer Breakdown">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -13,7 +12,7 @@ import ModalChangesMade from "../components/ui/ModalChangesMade.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/user-logs"
+            href="/offer-breakdown-ng"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -32,16 +31,16 @@ import ModalChangesMade from "../components/ui/ModalChangesMade.astro";
               alt="angle-right-back"
             />
             <a
-              href="/user-logs"
+              href="/offer-breakdown-ng"
               class="fs-14 text-decoration-none text-primary-dark"
-              >User Access Logs</a
+              >Offer Breakdown - NG</a
             >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >System Admin Logs</span
+              >Manage Offer Breakdown</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -54,12 +53,15 @@ import ModalChangesMade from "../components/ui/ModalChangesMade.astro";
     <!-- First section of Back button and Breadcrumb -->
     <section class="px-lg-4">
       <div class="screenFrame">
-        <div class="rounded-4 shadow p-4 vstack gap-3 px-lg-5">
+        <div
+          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+          id="manage_list_of_payslip"
+        >
           {/* Page Title */}
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >System Admin Logs</span
+                >Manage Offer Breakdown</span
               >
             </div>
           </div>
@@ -67,7 +69,7 @@ import ModalChangesMade from "../components/ui/ModalChangesMade.astro";
 
           {/* Page Content Box */}
 
-          <div class="">
+          <div>
             <div class="d-flex flex-row justify-content-between gap-5">
               <!---- Search  -->
               <div class="d-flex gap-3">
@@ -85,14 +87,6 @@ import ModalChangesMade from "../components/ui/ModalChangesMade.astro";
 
               <!-- Others -->
               <div class="responsive gap-1">
-                <!-- Calendar Selector -->
-                <input
-                  type="month"
-                  class="form-control fs-14"
-                  style="max-width: 200px;"
-                  value="2025-05"
-                />
-
                 <!-- Filter Dropdown -->
 
                 <style>
@@ -312,38 +306,6 @@ import ModalChangesMade from "../components/ui/ModalChangesMade.astro";
                     </ul>
                   </div>
                 </div>
-
-                <!-- Download Dropdown -->
-
-                <div class="dropdown">
-                  <button
-                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    data-bs-offset="-20,10"
-                  >
-                    <img src="images/png/icons/download.svg" alt="arrow-down" />
-                    <span>Download</span>
-                    <img
-                      src="images/png/icons/arrow-down.svg"
-                      alt="arrow-down"
-                    />
-                  </button>
-                  <div class="dropdown-menu p-0 border-0">
-                    <ul class="list-group border-0 fw-600 fs-14">
-                      <li class="list-group-item">
-                        <div>CSV</div>
-                      </li>
-                      <li class="list-group-item">
-                        <div>Excel</div>
-                      </li>
-                      <li class="list-group-item">
-                        <div>PDF</div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
               </div>
 
               <!---- End of Others ---->
@@ -368,40 +330,44 @@ import ModalChangesMade from "../components/ui/ModalChangesMade.astro";
                   >
                   <th
                     class="bg-primary-blue text-white fw-600 fs-14 text-center"
-                    style="min-width: 200px;">Employee Name</th
+                    style="min-width: 200px;">Employee_ID</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    style="min-width: 200px;">Email Address</th
+                    >Employee_Name</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Unique ID</th
+                    >Pay_Grade</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Role</th
+                    >Designation</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Login Date & Time</th
+                    >Branch</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-left"
-                    >Logout Date & Time</th
+                    >Country</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Offer_Breakdown_Date</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Annual_Gross_Salary</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Monthly_Net_Salary_After_Tax</th
                   >
 
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Key Actions</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Module Accessed</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Changes Made</th
+                    >Actions</th
                   >
                 </tr>
               </thead>
@@ -411,135 +377,60 @@ import ModalChangesMade from "../components/ui/ModalChangesMade.astro";
                   .column {
                     min-width: 180px;
                   }
-                  .column2 {
-                    min-width: 250px;
-                  }
                 </style>
                 {
-                  [
-                    {
-                      emp_name: "Lorem Ipsum",
-                      email_id: "example@example.com",
-                      unique_id: "N12343534",
-                      role: "Lorem Ipsum",
-                      login: "5, Apr 2025 | 7:45 AM",
-                      logout: "5, Apr 2025 | 6:45 PM",
-                      access_modified: "Lorem Ipsum",
-                      key_actions: "Lorem Ipsum",
-                      changes: "images/png/icons/vision.svg",
-                    },
-                    {
-                      emp_name: "Lorem Ipsum",
-                      email_id: "example@example.com",
-                      unique_id: "N12343534",
-                      role: "Lorem Ipsum",
-                      login: "5, Apr 2025 | 7:45 AM",
-                      logout: "5, Apr 2025 | 6:45 PM",
-                      access_modified: "Lorem Ipsum",
-                      key_actions: "Lorem Ipsum",
-                      changes: "images/png/icons/vision.svg",
-                    },
-                    {
-                      emp_name: "Lorem Ipsum",
-                      email_id: "example@example.com",
-                      unique_id: "N12343534",
-                      role: "Lorem Ipsum",
-                      login: "5, Apr 2025 | 7:45 AM",
-                      logout: "5, Apr 2025 | 6:45 PM",
-                      access_modified: "Lorem Ipsum",
-                      key_actions: "Lorem Ipsum",
-                      changes: "images/png/icons/vision.svg",
-                    },
-                    {
-                      emp_name: "Lorem Ipsum",
-                      email_id: "example@example.com",
-                      unique_id: "N12343534",
-                      role: "Lorem Ipsum",
-                      login: "5, Apr 2025 | 7:45 AM",
-                      logout: "5, Apr 2025 | 6:45 PM",
-                      access_modified: "Lorem Ipsum",
-                      key_actions: "Lorem Ipsum",
-                      changes: "images/png/icons/vision.svg",
-                    },
-                    {
-                      emp_name: "Lorem Ipsum",
-                      email_id: "example@example.com",
-                      unique_id: "N12343534",
-                      role: "Lorem Ipsum",
-                      login: "5, Apr 2025 | 7:45 AM",
-                      logout: "5, Apr 2025 | 6:45 PM",
-                      access_modified: "Lorem Ipsum",
-                      key_actions: "Lorem Ipsum",
-                      changes: "images/png/icons/vision.svg",
-                    },
-                    {
-                      emp_name: "Lorem Ipsum",
-                      email_id: "example@example.com",
-                      unique_id: "N12343534",
-                      role: "Lorem Ipsum",
-                      login: "5, Apr 2025 | 7:45 AM",
-                      logout: "5, Apr 2025 | 6:45 PM",
-                      access_modified: "Lorem Ipsum",
-                      key_actions: "Lorem Ipsum",
-                      changes: "images/png/icons/vision.svg",
-                    },
-                    {
-                      emp_name: "Lorem Ipsum",
-                      email_id: "example@example.com",
-                      unique_id: "N12343534",
-                      role: "Lorem Ipsum",
-                      login: "5, Apr 2025 | 7:45 AM",
-                      logout: "5, Apr 2025 | 6:45 PM",
-                      access_modified: "Lorem Ipsum",
-                      key_actions: "Lorem Ipsum",
-                      changes: "images/png/icons/vision.svg",
-                    },
-                  ].map((ele, index) => (
-                    <tr class="fs-88">
-                      <td class="text-center fs-14">{index + 1}</td>
-                      <td class="fs-14 text-nowrap px-3 text-left column">
-                        {ele.emp_name}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.email_id}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.unique_id}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">{ele.role}</td>
+                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(
+                    (item, index) => (
+                      <tr class="fs-88">
+                        <td class="text-center fs-14">{index + 1}</td>
+                        <td class="fs-14 text-nowrap text-center column">
+                          TIN239201
+                        </td>
+                        <td class="fs-14 px-3 text-left column">Wade Warren</td>
+                        <td class="fs-14 px-3 text-left column">12</td>
+                        <td class="fs-14 px-3 text-left column">Accountant</td>
+                        <td class="text-left px-3 fs-14 column">Lagos</td>
+                        <td class="fs-14 px-3 text-left column">Country</td>
+                        <td class="fs-14 px-3 text-center column">
+                          April, 2025
+                        </td>
+                        <td class="fs-14 px-3 text-left column">N500,000</td>
+                        <td class="fs-14 px-3 text-left column">N124,000</td>
+                        <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                          <div class="dropdown">
+                            <button
+                              class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                              type="button"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                              data-bs-offset="-20,10"
+                            >
+                              <span>Action</span>
+                              <img
+                                src="images/png/icons/arrow-down.svg"
+                                alt="arrow-down"
+                              />
+                            </button>
+                            <div class="dropdown-menu p-0 border-0">
+                              <ul class="list-group border-0 fw-600 fs-14">
+                                <li class="list-group-item pointer viewPayslpBtn">
+                                  <div class="text-nowrap">
+                                    View Offer Breakdown
+                                  </div>
+                                </li>
 
-                      <td class="fs-14 px-3 text-left column">{ele.login}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.logout}</td>
-                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
-                        {ele.key_actions}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        <div class="d-flex justify-content-between">
-                          <span>{ele.access_modified}</span>
-
-                          <button
-                            class="border-0"
-                            style="background-color: inherit;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#modulesAccessed"
-                          >
-                            <img src="images/png/icons/dots.svg" alt="info" />
-                          </button>
-                        </div>
-                      </td>
-
-                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
-                        <button
-                          class="border-0"
-                          style="background-color: inherit;"
-                          data-bs-toggle="modal"
-                          data-bs-target="#changesMade"
-                        >
-                          <img src={ele.changes} alt="vision" />
-                        </button>
-                      </td>
-                    </tr>
-                  ))
+                                <li class="list-group-item">
+                                  <div class="text-nowrap">
+                                    Download Offer Breakdown
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    ),
+                  )
                 }
 
                 <!-- Repeat for more employees -->
@@ -615,42 +506,54 @@ import ModalChangesMade from "../components/ui/ModalChangesMade.astro";
           <!---- Pagination ---->
         </div>
       </div>
-
-      <!---- Modals --->
-      <ModalModulesAccessed title="Modules Accessed" />
-      <ModalChangesMade title="Changes Made" />
     </section>
+
+    <ViewOfferBreakdown />
   </main>
-  <!-- Main content ends here -->
-
-  <script>
-    document
-      .querySelectorAll(".dropdown-submenu > a")
-      .forEach(function (element) {
-        element.addEventListener("click", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-
-          const submenu = this.nextElementSibling;
-
-          // Close all other submenus
-          document
-            .querySelectorAll(".dropdown-submenu .dropdown-menu")
-            .forEach(function (el) {
-              if (el !== submenu) el.classList.remove("show");
-            });
-
-          submenu.classList.toggle("show");
-        });
-      });
-
-    // Optional: close submenus when clicking outside
-    document.addEventListener("click", function () {
-      document
-        .querySelectorAll(".dropdown-submenu .dropdown-menu")
-        .forEach(function (el) {
-          el.classList.remove("show");
-        });
-    });
-  </script>
 </Layout>
+
+<!-- Main content ends here -->
+
+<script is:inline type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    $(".viewPayslpBtn").click((evt) => {
+      $("#view_employee_payslip").removeClass("d-none");
+      $("#manage_list_of_payslip").addClass("d-none");
+    });
+
+    $("#back_to_list_of_payslips").click((evt) => {
+      $("#view_employee_payslip").addClass("d-none");
+      $("#manage_list_of_payslip").removeClass("d-none");
+    });
+  });
+</script>
+<script>
+  document
+    .querySelectorAll(".dropdown-submenu > a")
+    .forEach(function (element) {
+      element.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const submenu = this.nextElementSibling;
+
+        // Close all other submenus
+        document
+          .querySelectorAll(".dropdown-submenu .dropdown-menu")
+          .forEach(function (el) {
+            if (el !== submenu) el.classList.remove("show");
+          });
+
+        submenu.classList.toggle("show");
+      });
+    });
+
+  // Optional: close submenus when clicking outside
+  document.addEventListener("click", function () {
+    document
+      .querySelectorAll(".dropdown-submenu .dropdown-menu")
+      .forEach(function (el) {
+        el.classList.remove("show");
+      });
+  });
+</script>

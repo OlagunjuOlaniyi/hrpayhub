@@ -13,7 +13,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/send-and-sign-offer-ng"
+            href="/employee-management"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -23,15 +23,16 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
 
           <!-- Actual Breadcrumb here -->
           <div class="d-flex align-items-center gap-2">
-            <a href="" class="fs-14 text-decoration-none text-primary-dark"
-              >Dashboard</a
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
             >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
             <a
-              href="/expense-management"
+              href="/employee-management"
               class="fs-14 text-decoration-none text-primary-dark"
               >Employee Management</a
             >
@@ -84,7 +85,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
               <!-- Others -->
               <div class="d-flex justify-content-end">
                 <button
-                  class="btn bg-primary-blue text-white"
+                  class="btn bg-primary-blue text-white px-3 fs-14 fw-600"
                   type="button"
                   data-bs-toggle="modal"
                   data-bs-target="#myModal"
@@ -133,31 +134,31 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                 {
                   [
                     {
-                      emp_type: "Lorem Ipsum",
+                      emp_status: "Offer Sent",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
+                      emp_status: "Offer Accepted",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
+                      emp_status: "Offer Declined",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
+                      emp_status: "Offer Revoked",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
+                      emp_status: "Pre-Employment Check",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
+                      emp_status: "Confirmed",
                     },
                     {
-                      emp_type: "Lorem Ipsum",
+                      emp_status: "Seconded",
                     },
                   ].map((ele, index) => (
                     <tr class="fs-88">
                       <td class="text-center fs-14">{index + 1}</td>
                       <td class="fs-14 text-nowrap px-3 text-left column">
-                        {ele.emp_type}
+                        {ele.emp_status}
                       </td>
 
                       <td class="fs-14 px-3 text-center d-flex justify-content-center column">

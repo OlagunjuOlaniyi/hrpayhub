@@ -8,7 +8,7 @@ import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePrevie
 
 <style></style>
 
-<Layout title="HRPayHub :: Create Payslip">
+<Layout title="HRPayHub :: Create Offer Letter">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -160,11 +160,42 @@ import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePrevie
                 tabindex="0"
               >
                 <div class="vstack" style="gap: 2.3rem">
-                  <form
-                    class="vstack gap-2 generate_payslip_form"
-                    id="generate_payslip_form"
-                  >
-                    <div class="fs-14 fw-600">
+                  <div class="d-flex gap-4 align-items-center">
+                    <div class="form-floating bulk_input">
+                      <select
+                        id="select_template"
+                        name="select_template"
+                        class="form-select_custom fs-14"
+                        required
+                      >
+                        <option
+                          value=""
+                          selected
+                          style="color: rgb(200, 200, 200)">Select</option
+                        >
+                        <option value="template_1">Template 1</option>
+                        <option value="template_2">Template 2</option>
+                        <option value="template_3">Template 3</option>
+                      </select>
+                      <label for="select_template"
+                        >Select Template &nbsp;<span>*</span></label
+                      >
+                    </div>
+                    <div
+                      class=""
+                      data-bs-html="true"
+                      data-bs-placement="right"
+                      data-bs-toggle="tooltip"
+                      data-bs-custom-class="tooltip-left-align"
+                      title="<div>Users can choose from previously saved templates</div>"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <img src="images/png/icons/info.svg" alt="info" />
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-4 align-items-center">
+                    <div class="fs-14 fw-600 bulk_input">
                       Download the <a
                         style="color: #2271B6"
                         class="text-decoration-none"
@@ -173,7 +204,23 @@ import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePrevie
                       > and upload the prepared file
                     </div>
                     <div
-                      class="upload_bucket_panel p-3 d-flex flex-column align-items-center justify-content-center"
+                      class=""
+                      data-bs-html="true"
+                      data-bs-placement="right"
+                      data-bs-toggle="tooltip"
+                      data-bs-custom-class="tooltip-left-align"
+                      title="<div>Kindly assign a unique name to each template for easy identification</div>"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <img src="images/png/icons/info.svg" alt="info" />
+                    </div>
+                  </div>
+                  <form
+                    class="vstack gap-2 generate_payslip_form"
+                    id="generate_payslip_form"
+                  >
+                    <div
+                      class="upload_bulk p-3 d-flex flex-column align-items-center justify-content-center"
                     >
                       <img
                         src="images/png/icons/cloud_upload.svg"
@@ -220,6 +267,61 @@ import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePrevie
                       <input type="file" class="d-none" id="fileInput" />
                     </div>
                   </form>
+
+                  <div
+                    class="expense_request_doc d-none d-flex flex-column gap-2 p-4 bulk_input"
+                    id="uploadHere"
+                  >
+                    <div class="d-flex justify-content-between py-2">
+                      <div
+                        class="d-flex justify-content-center align-items-center gap-3"
+                      >
+                        <img
+                          src="images/png/icons/document-download.svg"
+                          alt="document"
+                        />
+                        <span class="fs-12">Document 1</span>
+                      </div>
+                      <div>
+                        <img
+                          type="button"
+                          src="images/png/icons/colored/delete.svg"
+                          alt="delete"
+                          id="deleteUploadedFile"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between py-2 w-100 border-top pt-2"
+                    >
+                      <div class="form-floating mt-3 bulk_input">
+                        <select
+                          id="select_template"
+                          name="select_template"
+                          class="form-select_custom fs-14"
+                          required
+                        >
+                          <option
+                            value=""
+                            selected
+                            style="color: rgb(200, 200, 200)">Select</option
+                          >
+                          <option value="template_1"
+                            >Full-Time Employee
+                          </option>
+                          <option value="template_2"
+                            >Duration-Based Employee</option
+                          >
+                        </select>
+                        <label for="select_template">Select Type </label>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                      <span role="button" class="text-primary-blue fs-14 fw-700"
+                        >Upload</span
+                      >
+                    </div>
+                  </div>
 
                   <div class="d-flex justify-content-end upload_offer">
                     <button
@@ -781,26 +883,44 @@ import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePrevie
         );
       });
 
-      $("#fileInputBtn").click((evt) => {
-        $("#fileInput").click();
+      const fileInput = $("#fileInput");
+      const fileInputBtn = $("#fileInputBtn");
+      const fileInputDetails = $("#fileInputDetails");
+      const uploadHere = $("#uploadHere");
+      const uploadForm = $(".generate_payslip_form");
+
+      // When "Browse Files" button is clicked
+      fileInputBtn.click(() => {
+        fileInput.click();
       });
 
-      document
-        .getElementById("fileInput")
-        .addEventListener("change", function () {
-          if (fileInput.files.length > 0) {
-            const fileName = fileInput.files[0].name;
-            $("#fileInputDetails span:first-child").text(fileName);
-            $("#fileInputDetails").removeClass("d-none");
-            $("#fileInputBtn").addClass("d-none");
-            console.log("Selected file name:", fileName);
-          }
-        });
-      $("#fileInputDetails span:nth-child(2)").click(() => {
-        $("#fileInput").val("");
-        $("#fileInputDetails span:first-child").text("");
-        $("#fileInputDetails").addClass("d-none");
-        $("#fileInputBtn").removeClass("d-none");
+      // When a file is selected
+      fileInput.on("change", function () {
+        if (this.files.length > 0) {
+          const fileName = this.files[0].name;
+
+          // Move filename to "Document here"
+          uploadHere.find("span.fs-12").text(fileName);
+
+          // Hide form and show uploadHere section
+          uploadForm.addClass("d-none");
+          uploadHere.removeClass("d-none");
+
+          console.log("File uploaded:", fileName);
+        }
+      });
+
+      // When delete icon in uploadHere is clicked
+      $("#deleteUploadedFile").on("click", () => {
+        // Clear file input
+        fileInput.val("");
+
+        // Reset file name text
+        uploadHere.find("span.fs-12").text("Document here");
+
+        // Show form and hide uploadHere
+        uploadForm.removeClass("d-none");
+        uploadHere.addClass("d-none");
       });
 
       $("#viewPayslpBtn").click((evt) => {

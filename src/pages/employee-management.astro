@@ -69,51 +69,56 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Pay Grades",
-                  desc: "Send request for expense approval",
-                  url: "/pay-grades",
-                  src: "images/png/icons/pay-grade.svg",
-                },
-                {
-                  title: "Designation",
-                  desc: "Send request for expense retirement",
-                  url: "/designation",
-                  src: "images/png/icons/designation.svg",
-                },
-                {
-                  title: "Employement Status",
-                  desc: "Send request for expense retirement",
-                  url: "/employment-status",
-                  src: "images/png/icons/employee-status.svg",
-                },
-                {
-                  title: "Employement Type",
-                  desc: "Send request for expense retirement",
+                  title: "Employment Type",
+                  desc: "Classify employees by full-time, contract, or custom categories.",
                   url: "/employment-type",
                   src: "images/png/icons/employee-type.svg",
                 },
                 {
+                  title: "Employment Status",
+                  desc: "List of defined employee employmet statuses",
+                  url: "/employment-status",
+                  src: "images/png/icons/employee-status.svg",
+                },
+                {
+                  title: "Designation",
+                  desc: "Add company’s",
+                  desc2: "designations",
+                  url: "/designation",
+                  src: "images/png/icons/designation.svg",
+                },
+                {
+                  title: "Pay Grades",
+                  desc: "Setup company",
+                  desc2: "paygrades",
+                  url: "/pay-grades",
+                  src: "images/png/icons/pay-grade.svg",
+                },
+                {
                   title: "Add Employee",
-                  desc: "Send request for expense retirement",
+                  desc: "Setup a new",
+                  desc2: "employee",
                   url: "/add-employee",
                   src: "images/png/icons/add-employee.svg",
                 },
                 {
                   title: "Employee List",
-                  desc: "Send request for expense retirement",
+                  desc: "List of registered",
+                  desc2: "employees",
                   url: "#",
                   src: "images/png/icons/employee-list.svg",
                 },
                 {
                   title: "Bulk Upload",
-                  desc: "Send request for expense retirement",
+                  desc: "Upload information in",
+                  desc2: "bulk",
                   url: "/bulk-upload",
                   src: "images/png/icons/bulk-upload.svg",
                 },
               ].map((ele) => (
                 <div
                   class="col-4 p-2 payslip-card-panel"
-                  style="width: 330px"
+                  style="width: 350px"
                   role="button"
                   title={ele.title}
                   data-url={ele.url}
@@ -134,9 +139,9 @@ import Layout from "../layouts/Layout.astro";
 
                     <div
                       class="fw-600 fs-16"
-                      style="width: 90%; margin: 0 auto"
+                      style="width: 75%; margin: 0 auto"
                     >
-                      {ele.desc}
+                      {ele.desc} <br /> {ele.desc2}
                     </div>
                   </div>
                 </div>

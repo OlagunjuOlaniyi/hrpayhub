@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: Expense Approval Request">
+<Layout title="HRPayHub :: Offer Breakdown - NG">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/expense-management"
+            href="/offer-breakdown"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -30,16 +30,17 @@ import Layout from "../layouts/Layout.astro";
               alt="angle-right-back"
             />
             <a
-              href="/expense-management"
+              href="/offer-breakdown"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Expense Management</a
+              >Offer Breakdown</a
             >
+
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >Expense Approval Request</span
+              >Offer Breakdown - NG</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -57,17 +58,19 @@ import Layout from "../layouts/Layout.astro";
           <div class="vstack gap-2">
             <div class="d-flex gap-3 align-items-center">
               <img
-                src="images/png/icons/expense-mgt.svg"
+                src="images/png/icons/sendsign.svg"
                 alt="receipt-minus-icon"
                 width="30px"
                 height="30px"
               />
               <span
                 class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Expense Approval Request</span
+                >Offer Breakdown - NG</span
               >
             </div>
-            <div class="fw-bold">Send request for expense approval</div>
+            <div class="fw-bold">
+              Set up salary and benefits for Nigeria-based hires
+            </div>
           </div>
           {/* Page Title */}
 
@@ -76,14 +79,14 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Expense Request Form",
+                  title: "Create Offer Breakdown",
                   desc: "Lorem Ipsum",
-                  url: "/expense-request-form",
+                  url: "/create-offer-breakdown",
                 },
                 {
-                  title: "Expense History View",
+                  title: "Manage Offer Breakdown",
                   desc: "Lorem Ipsum",
-                  url: "/expense-history-view",
+                  url: "/manage-offer-breakdown",
                 },
               ].map((ele) => (
                 <div
@@ -96,12 +99,11 @@ import Layout from "../layouts/Layout.astro";
                   <div class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
                     <div class="vstack gap-2 d-flex flex-column align-items-center">
                       <img
-                        src="images/png/icons/expense-mgt.svg"
+                        src="images/png/icons/sendsign.svg"
                         alt="receipt-minus-icon"
                         width="30px"
                         height="30px"
                       />
-
                       <div class="fw-bold fs-18 font-ubuntu-bold text-primary-blue">
                         {ele.title}
                       </div>

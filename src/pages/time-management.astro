@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: Expense Approval Request">
+<Layout title="HRPayHub :: Time Management">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/expense-management"
+            href="index.html"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -29,18 +29,7 @@ import Layout from "../layouts/Layout.astro";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <a
-              href="/expense-management"
-              class="fs-14 text-decoration-none text-primary-dark"
-              >Expense Management</a
-            >
-            <img
-              src="images/png/icons/angle-right.svg"
-              alt="angle-right-back"
-            />
-            <span class="fs-16 fw-bold text-primary-blue"
-              >Expense Approval Request</span
-            >
+            <span class="fs-16 fw-bold text-primary-blue">Time Management</span>
           </div>
           <!-- Actual Breadcrumb here -->
         </div>
@@ -57,17 +46,19 @@ import Layout from "../layouts/Layout.astro";
           <div class="vstack gap-2">
             <div class="d-flex gap-3 align-items-center">
               <img
-                src="images/png/icons/expense-mgt.svg"
+                src="images/png/icons/colored/clock-colored.svg"
                 alt="receipt-minus-icon"
                 width="30px"
                 height="30px"
               />
               <span
                 class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Expense Approval Request</span
+                >Time Management</span
               >
             </div>
-            <div class="fw-bold">Send request for expense approval</div>
+            <div class="fw-bold">
+              Effectively track and manage employee work hours and attendance.
+            </div>
           </div>
           {/* Page Title */}
 
@@ -76,14 +67,14 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Expense Request Form",
-                  desc: "Lorem Ipsum",
-                  url: "/expense-request-form",
+                  title: "Clock-In/Clock-Out",
+                  desc: "Record daily work hours with automatic time tracking.",
+                  url: "/clock-in-clock-out",
                 },
                 {
-                  title: "Expense History View",
-                  desc: "Lorem Ipsum",
-                  url: "/expense-history-view",
+                  title: "Timesheet History",
+                  desc: "View personal attendance records in a read-only format. ",
+                  url: "/timesheet-history",
                 },
               ].map((ele) => (
                 <div
@@ -96,12 +87,11 @@ import Layout from "../layouts/Layout.astro";
                   <div class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
                     <div class="vstack gap-2 d-flex flex-column align-items-center">
                       <img
-                        src="images/png/icons/expense-mgt.svg"
+                        src="images/png/icons/colored/clock-colored.svg"
                         alt="receipt-minus-icon"
                         width="30px"
                         height="30px"
                       />
-
                       <div class="fw-bold fs-18 font-ubuntu-bold text-primary-blue">
                         {ele.title}
                       </div>

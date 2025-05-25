@@ -1,10 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ModalAddNew from "../components/ui/ModalAddNew.astro";
-import DeleteModal from "../components/ui/DeleteModal.astro";
 ---
 
-<Layout title="HRPayHub :: Employment Type">
+<Layout title="HRPayHub :: Work Location Bulk Upload">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -13,7 +11,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/employee-management"
+            href="/company-setup-bulk-upload"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -23,25 +21,35 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
 
           <!-- Actual Breadcrumb here -->
           <div class="d-flex align-items-center gap-2">
-            <a
-              href="index.html"
-              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            <a href="index.html" class="fs-14 text-decoration-none text-primary-dark"
+              >Dashboard</a
             >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
             <a
-              href="/employee-management"
+              href="/company-setup"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Employee Management</a
+              >Company Setup</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/company-setup-bulk-upload"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Bulk Upload</a
             >
 
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue">Employment Type</span>
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Work Location Bulk Upload</span
+            >
           </div>
           <!-- Actual Breadcrumb here -->
         </div>
@@ -57,39 +65,24 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
           class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
           id="manage_list_of_payslip"
         >
-          {/* Page Title */}
-          <div class="vstack gap-3">
-            <div class="d-flex gap-3 align-items-center">
-              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >Employment Type</span
-              >
-            </div>
-          </div>
-          {/* Page Title */}
-
           <div class="">
             <div
               class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
             >
-              <!---- Search  -->
-              <div class="">
-                <input
-                  type="text"
-                  class="form-control search-input search-width fs-14"
-                  placeholder="Search..."
-                />
+              <!---- title  -->
+              <div class="d-flex gap-3 align-items-center">
+                <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                  >Work Location Bulk Upload</span
+                >
               </div>
 
               <!-- Others -->
               <div class="d-flex justify-content-end">
                 <button
-                  class="btn bg-primary-blue text-white px-3 fs-14 fw-600"
+                  class="btn bg-primary-blue fs-14 text-white"
                   type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#myModal"
-                  data-title="Add Employment Type"
                 >
-                  <span class="me-2">Add New</span> +
+                  <span class="me-2">Confirm Upload</span>
                 </button>
               </div>
 
@@ -113,24 +106,31 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                   >
                   <th
                     class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
-                    style="min-width: 200px;">Employment Type</th
+                    style="min-width: 200px;">Location Title</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Created By</th
+                    >Location Type</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Creation Date</th
+                    >Address</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Creation Time</th
+                    >City</th
                   >
-
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
-                    >Actions</th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Postal Code</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >State</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Country</th
                   >
                 </tr>
               </thead>
@@ -144,89 +144,84 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                 {
                   [
                     {
-                      emp_type: "Full-time",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      location_title: "Lorem Ipsum",
+                      location_type: "Primary",
+                      address: "8080 Railroad St.",
+                      city: "Michigan",
+                      postal_code: "124676",
+                      state: "---",
+                      country: "UK",
                     },
                     {
-                      emp_type: "Contract",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      location_title: "Lorem Ipsum",
+                      location_type: "Primary",
+                      address: "8080 Railroad St.",
+                      city: "Michigan",
+                      postal_code: "124676",
+                      state: "---",
+                      country: "UK",
                     },
                     {
-                      emp_type: "Intern",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      location_title: "Lorem Ipsum",
+                      location_type: "Primary",
+                      address: "8080 Railroad St.",
+                      city: "Michigan",
+                      postal_code: "124676",
+                      state: "---",
+                      country: "UK",
                     },
                     {
-                      emp_type: "Full-time",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      location_title: "Lorem Ipsum",
+                      location_type: "Primary",
+                      address: "8080 Railroad St.",
+                      city: "Michigan",
+                      postal_code: "124676",
+                      state: "---",
+                      country: "UK",
                     },
                     {
-                      emp_type: "Full-time",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      location_title: "Lorem Ipsum",
+                      location_type: "Primary",
+                      address: "8080 Railroad St.",
+                      city: "Michigan",
+                      postal_code: "124676",
+                      state: "---",
+                      country: "UK",
                     },
                     {
-                      emp_type: "Full-time",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      location_title: "Lorem Ipsum",
+                      location_type: "Primary",
+                      address: "8080 Railroad St.",
+                      city: "Michigan",
+                      postal_code: "124676",
+                      state: "---",
+                      country: "UK",
                     },
                     {
-                      emp_type: "Full-time",
-                      created_by: "Lorem Ipsum",
-                      creation_date: "7th April 2025",
-                      creation_time: "9:45 PM",
+                      location_title: "Lorem Ipsum",
+                      location_type: "Primary",
+                      address: "8080 Railroad St.",
+                      city: "Michigan",
+                      postal_code: "124676",
+                      state: "---",
+                      country: "UK",
                     },
                   ].map((ele, index) => (
                     <tr class="fs-88">
                       <td class="text-center fs-14">{index + 1}</td>
                       <td class="fs-14 text-nowrap px-3 text-left column">
-                        {ele.emp_type}
+                        {ele.location_title}
                       </td>
                       <td class="fs-14 px-3 text-left column">
-                        {ele.created_by}
+                        {ele.location_type}
                       </td>
+                      <td class="fs-14 px-3 text-left column">{ele.address}</td>
+                      <td class="fs-14 px-3 text-left column">{ele.city}</td>
                       <td class="fs-14 px-3 text-left column">
-                        {ele.creation_date}
+                        {ele.postal_code}
                       </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.creation_time}
-                      </td>
-
-                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
-                        <div class="d-flex gap-2">
-                          <button
-                            class="border-0 edit-button"
-                            style="background-color: inherit;"
-                            type="button"
-                            data-bs-toggle="modal"
-                            data-bs-target="#myModal"
-                            data-title="Edit Employment Type"
-                            data-emp-type="{ele.emp_type}"
-                          >
-                            <img src="images/png/icons/edit-2.svg" alt="" />
-                          </button>
-                          <button
-                            class="border-0"
-                            style="background-color: inherit;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#deleteModal"
-                          >
-                            <img
-                              src="images/png/icons/colored/delete.svg"
-                              alt=""
-                            />
-                          </button>
-                        </div>
-                      </td>
+                      <td class="fs-14 px-3 text-left column">{ele.state}</td>
+                      <td class="fs-14 px-3 text-left column">{ele.country}</td>
                     </tr>
                   ))
                 }
@@ -303,12 +298,6 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
 
           <!---- Pagination ---->
         </div>
-        <ModalAddNew
-          modalId="myModal"
-          title={"Add Employment Type"}
-          inputPlace="Employment Type"
-        />
-        <DeleteModal modalId="deleteModal" title="Employment Type" />
 
         <!---- end of Modal --->
       </div>
@@ -317,28 +306,5 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
 
   <!-- Main content ends here -->
 
-  <script is:inline type="text/javascript">
-    // Handle opening the modal
-    document
-      .querySelectorAll('[data-bs-target="#myModal"]')
-      .forEach((button) => {
-        button.addEventListener("click", function () {
-          const modalTitle =
-            this.getAttribute("data-title") || "Add Employee Type";
-          const empType = this.getAttribute("data-emp-type") || "";
-
-          // Update modal title
-          const modalTitleElement = document.getElementById("modalTitle");
-          if (modalTitleElement) {
-            modalTitleElement.textContent = modalTitle;
-          }
-
-          // Update input field
-          const employeeStatusInput = document.getElementById("employee_type");
-          if (employeeStatusInput) {
-            employeeStatusInput.value = empType;
-          }
-        });
-      });
-  </script>
+  <script is:inline type="text/javascript"></script>
 </Layout>
