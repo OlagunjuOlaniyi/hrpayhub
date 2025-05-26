@@ -71,12 +71,19 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
               class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
             >
               <!---- Search  -->
-              <div class="">
+              <div class="d-flex gap-3">
                 <input
                   type="text"
                   class="form-control search-input search-width fs-14"
                   placeholder="Search..."
                 />
+
+                <button
+                  type="button"
+                  class="btn bg-primary-blue d-flex align-items-center text-white px-3 fs-14 fw-600"
+                >
+                  <span class="me-2">Show All</span>
+                </button>
               </div>
 
               <!-- Others -->
@@ -145,11 +152,11 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Employement Type</th
+                    >Employment Type</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Employement Status</th
+                    >Employment Status</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"

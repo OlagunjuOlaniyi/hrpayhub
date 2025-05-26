@@ -966,7 +966,7 @@ body {
 
 .upload_bulk {
   width: 407px;
-  height: 170px;
+  height: 197px;
   border-radius: 10px;
   gap: 10px;
   border: 2px dashed #c1c1c1;
@@ -1125,6 +1125,10 @@ body {
 
 .clock_in_bg {
   background-color: #75abda !important;
+}
+
+.text_sec {
+  color: #20202069;
 }
 
 @media (max-width: 769px) {
