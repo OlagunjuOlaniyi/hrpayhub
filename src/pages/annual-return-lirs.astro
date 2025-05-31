@@ -99,6 +99,19 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                       borderRadius: "10px",
                     }}
                   >
+                    <div role="button" class="me-2">
+                      <img
+                        style="width: 20px; height: 20px"
+                        class="rounded"
+                        src="images/png/send.png"
+                        alt="edit_icon"
+                        data-bs-html="true"
+                        data-bs-placement="top"
+                        data-bs-toggle="tooltip"
+                        data-bs-custom-class="tooltip-left-align"
+                        title="<div><div><em style = 'font-size: 7px;'>Apply development levy</em></div></div>"
+                      />
+                    </div>
                     <div
                       role="button"
                       class="d-flex form-check form-switch switchForDeductionsFields"
@@ -135,28 +148,6 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
 
               <!-- Others -->
               <div class="responsive gap-1">
-                <!-- Number of Months Dropdown -->
-                <div class="d-flex align-items-center">
-                  <span style="min-width: 130px;" class="fs-14"
-                    >Number of Months
-                  </span>
-                  <div class="dropdown me-2">
-                    <button
-                      class="delon-primary-btn bg-white border dropdown-toggle fs-14"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                    >
-                      1
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">1</a></li>
-                      <li><a class="dropdown-item" href="#">3</a></li>
-                      <li><a class="dropdown-item" href="#">6</a></li>
-                      <li><a class="dropdown-item" href="#">12</a></li>
-                    </ul>
-                  </div>
-                </div>
-
                 <!-- Calendar Selector -->
                 <input
                   type="month"
@@ -429,62 +420,63 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
             <table class="table table-bordered table-hover">
               <!---- Table head --->
               <thead
-                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+                class="bg-primary-blue sticky_header text-white px-4 fw-600 fs-14 text-nowrap"
               >
                 <tr>
-                  <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
+                  <th
+                    class="bg-primary-blue sticky_header text-white px-4 fw-600 fs-14"
                     >S/N</th
                   >
                   <th
-                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
+                    class="bg-primary-blue sticky_header text-white fw-600 fs-14 px-3 text-left"
                     style="min-width: 200px;">Surname</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >First_Name</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Middle_Name</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Designation</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Nationality</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-nowrap text-center"
                     >Number_of_Months</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Development_Levy</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Gross_Income</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Chargeable_Income</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Annual_Tax_Paid</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Taxpayer_ID</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Staff_Phone_Number</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Staff_Email_Address</th
                   >
                 </tr>
@@ -497,30 +489,32 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                   }
                 </style>
                 {
-                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item) => (
-                    <tr class="fs-88">
-                      <td class="text-center fs-14">1</td>
-                      <td class="fs-14 px-3 text-nowrap text-left column">
-                        Howard
-                      </td>
-                      <td class="fs-14 px-3 text-left column">Wade</td>
-                      <td class="fs-14 px-3 text-left column">Warren</td>
-                      <td class="fs-14  px-3 text-left column">Accountant</td>
-                      <td class="text-center fs-14 column">Nigerian</td>
-                      <td class="fs-14 px-3 text-center column">8</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">TX2025</td>
-                      <td class="fs-14 px-3 text-center column">
-                        080 0000 0000
-                      </td>
-                      <td class="fs-14 px-3 text-center column">
-                        example@example.com
-                      </td>
-                    </tr>
-                  ))
+                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
+                    (item, index) => (
+                      <tr class="fs-88">
+                        <td class="text-center fs-14">{index + 1}</td>
+                        <td class="fs-14 px-3 text-nowrap text-left column">
+                          Howard
+                        </td>
+                        <td class="fs-14 px-3 text-left column">Wade</td>
+                        <td class="fs-14 px-3 text-left column">Warren</td>
+                        <td class="fs-14  px-3 text-left column">Accountant</td>
+                        <td class="text-center fs-14 column">Nigerian</td>
+                        <td class="fs-14 px-3 text-center column">8</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">TX2025</td>
+                        <td class="fs-14 px-3 text-center column">
+                          080 0000 0000
+                        </td>
+                        <td class="fs-14 px-3 text-center column">
+                          example@example.com
+                        </td>
+                      </tr>
+                    ),
+                  )
                 }
 
                 <!-- Repeat for more employees -->

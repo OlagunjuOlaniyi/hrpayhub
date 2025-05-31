@@ -1,0 +1,171 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "approveModal", title = "Request" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <!-- Modal Header -->
+
+      <!-- Modal body -->
+      <div class="modal-body text-left py-2 border-0">
+        <!-- Scrollable Table -->
+        <div
+          class="table-responsive"
+          style="max-height: 600px; overflow: auto;"
+        >
+          <table class="table table-bordered table-hover">
+            <!---- Table head --->
+            <thead
+              class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+            >
+              <tr>
+                <th class="bg-primary-blue text-white px-4 fw-600 fs-14"></th>
+                <th class="bg-primary-blue text-white px-4 fw-600 fs-14">S/N</th
+                >
+                <th
+                  class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
+                  >Date</th
+                >
+                <th
+                  class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
+                  style="min-width: 200px;">Title</th
+                >
+                <th
+                  class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
+                  >Category</th
+                >
+                <th
+                  class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
+                  >Amount</th
+                >
+
+                <th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-left"
+                  >Status</th
+                >
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Table body and Row -->
+              <style>
+                .column {
+                  min-width: 180px;
+                }
+              </style>
+              {
+                [
+                  {
+                    date: "7th April 2025",
+                    title: "Lorem Ipsum Lorem Ipsum",
+                    category: "Mixed",
+                    amount: "N124,676",
+                    status: "Approved",
+                    img: "images/png/icons/checked-dot.svg",
+                  },
+                  {
+                    date: "7th April 2025",
+                    title: "Lorem Ipsum Lorem Ipsum",
+                    category: "Mixed",
+                    amount: "N124,676",
+                    status: "Approved",
+                    img: "images/png/icons/unchecked-dot.svg",
+                  },
+                  {
+                    date: "7th April 2025",
+                    title: "Lorem Ipsum Lorem Ipsum",
+                    category: "Mixed",
+                    amount: "N124,676",
+                    status: "Approved",
+                    img: "images/png/icons/unchecked-dot.svg",
+                  },
+                  {
+                    date: "7th April 2025",
+                    title: "Lorem Ipsum Lorem Ipsum",
+                    category: "Mixed",
+                    amount: "N124,676",
+                    status: "Approved",
+                    img: "images/png/icons/unchecked-dot.svg",
+                  },
+                  {
+                    date: "7th April 2025",
+                    title: "Lorem Ipsum Lorem Ipsum",
+                    category: "Mixed",
+                    amount: "N124,676",
+                    status: "Approved",
+                    img: "images/png/icons/unchecked-dot.svg",
+                  },
+                  {
+                    date: "7th April 2025",
+                    title: "Lorem Ipsum Lorem Ipsum",
+                    category: "Mixed",
+                    amount: "N124,676",
+                    status: "Approved",
+                    img: "images/png/icons/unchecked-dot.svg",
+                  },
+                  {
+                    date: "7th April 2025",
+                    title: "Lorem Ipsum Lorem Ipsum",
+                    category: "Mixed",
+                    amount: "N124,676",
+                    status: "Approved",
+                    img: "images/png/icons/unchecked-dot.svg",
+                  },
+                ].map((ele, index) => (
+                  <tr class="fs-88">
+                    <td class="fs-14 px-3 d-flex justify-content-center">
+                      <div class="d-flex gap-2">
+                        <button
+                          class="border-0 edit-button"
+                          style="background-color: inherit;"
+                          type="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myModal"
+                          data-title="Edit Employment Type"
+                          data-emp-type="{ele.emp_type}"
+                        >
+                          <img src={ele.img} alt="" />
+                        </button>
+                      </div>
+                    </td>
+                    <td class="text-center fs-14">{index + 1}</td>
+                    <td class="fs-14 text-nowrap px-3 text-left column">
+                      {ele.date}
+                    </td>
+                    <td class="fs-14 text-nowrap px-3 text-left column">
+                      {ele.title}
+                    </td>
+                    <td class="fs-14 text-nowrap px-3 text-left column">
+                      {ele.category}
+                    </td>
+                    <td class="fs-14 text-nowrap px-3 text-left column">
+                      {ele.amount}
+                    </td>
+                    <td class="fs-14 text-nowrap px-3 text-left column">
+                      <span style="color: #2BC700">{ele.status}</span>
+                    </td>
+                  </tr>
+                ))
+              }
+
+              <!-- Repeat for more employees -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-end border-0">
+        <button
+          type="button"
+          class="btn text-white bg-primary-blue px-5 fs-14"
+          data-bs-dismiss="modal"
+        >
+          Retire
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

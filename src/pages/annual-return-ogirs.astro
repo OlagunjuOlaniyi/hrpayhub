@@ -69,28 +69,6 @@ import Layout from "../layouts/Layout.astro";
 
               <!-- Others -->
               <div class="responsive gap-1">
-                <!-- Number of Months Dropdown -->
-                <div class="d-flex align-items-center">
-                  <span style="min-width: 130px;" class="fs-14"
-                    >Number of Months
-                  </span>
-                  <div class="dropdown me-2">
-                    <button
-                      class="delon-primary-btn bg-white border dropdown-toggle fs-14"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                    >
-                      1
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">1</a></li>
-                      <li><a class="dropdown-item" href="#">3</a></li>
-                      <li><a class="dropdown-item" href="#">6</a></li>
-                      <li><a class="dropdown-item" href="#">12</a></li>
-                    </ul>
-                  </div>
-                </div>
-
                 <!-- Calendar Selector -->
                 <input
                   type="month"
@@ -363,78 +341,79 @@ import Layout from "../layouts/Layout.astro";
             <table class="table table-bordered table-hover">
               <!---- Table head --->
               <thead
-                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+                class="bg-primary-blue sticky_header text-white px-4 fw-600 fs-14 text-nowrap"
               >
                 <tr>
-                  <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
+                  <th
+                    class="bg-primary-blue sticky_header text-white px-4 fw-600 fs-14"
                     >S/N</th
                   >
                   <th
-                    class="bg-primary-blue text-white fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white fw-600 fs-14 text-center"
                     style="min-width: 200px;">Staff_TIN_Number</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Surname</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Other_Names</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Designation</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Number_of_Months_Worked</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-nowrap text-center"
                     >Annual_Basic</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Annual_Housing</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Annual_Transport</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Annual_Meal</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Other_Allowances</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Total_Income</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Pension</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >NHF</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >NHIS</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Gratuity</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Total_Tax_Deducted</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Total_Tax_Remitted</th
                   >
                 </tr>
@@ -447,30 +426,32 @@ import Layout from "../layouts/Layout.astro";
                   }
                 </style>
                 {
-                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item) => (
-                    <tr class="fs-88">
-                      <td class="text-center fs-14">1</td>
-                      <td class="fs-14 text-nowrap text-center column">
-                        TIN239201
-                      </td>
-                      <td class="fs-14 px-3 text-left column">Wade</td>
-                      <td class="fs-14 px-3 text-left column">Warren</td>
-                      <td class="fs-14 px-3 text-left column">Accountant</td>
-                      <td class="text-center fs-14 column">5</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">₦500,000</td>
-                    </tr>
-                  ))
+                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17].map(
+                    (item, index) => (
+                      <tr class="fs-88">
+                        <td class="text-center fs-14">{index + 1}</td>
+                        <td class="fs-14 text-nowrap text-center column">
+                          TIN239201
+                        </td>
+                        <td class="fs-14 px-3 text-left column">Wade</td>
+                        <td class="fs-14 px-3 text-left column">Warren</td>
+                        <td class="fs-14 px-3 text-left column">Accountant</td>
+                        <td class="text-center fs-14 column">5</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                        <td class="fs-14 px-3 text-center column">₦500,000</td>
+                      </tr>
+                    ),
+                  )
                 }
 
                 <!-- Repeat for more employees -->

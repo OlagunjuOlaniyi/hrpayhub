@@ -21,8 +21,9 @@ import Layout from "../layouts/Layout.astro";
 
           <!-- Actual Breadcrumb here -->
           <div class="d-flex align-items-center gap-2">
-            <a href="index.html" class="fs-14 text-decoration-none text-primary-dark"
-              >Dashboard</a
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
             >
             <img
               src="images/png/icons/angle-right.svg"
@@ -69,24 +70,31 @@ import Layout from "../layouts/Layout.astro";
               <!-- Others -->
               <div class="responsive gap-1">
                 <!-- Number of Months Dropdown -->
-                <div class="d-flex align-items-center">
+
+                <div class="d-flex align-items-center me-2">
                   <span style="min-width: 130px;" class="fs-14"
                     >Number of Months
                   </span>
-                  <div class="dropdown me-2">
-                    <button
-                      class="delon-primary-btn bg-white border dropdown-toggle fs-14"
-                      type="button"
-                      data-bs-toggle="dropdown"
+                  <div class="form-floating" style="min-width: 50px;">
+                    <select
+                      id="no_of_month"
+                      name="no_of_month"
+                      class="form-select_custom fs-14"
+                      required
                     >
-                      1
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">1</a></li>
-                      <li><a class="dropdown-item" href="#">3</a></li>
-                      <li><a class="dropdown-item" href="#">6</a></li>
-                      <li><a class="dropdown-item" href="#">12</a></li>
-                    </ul>
+                      <option value="1" selected>1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                    </select>
                   </div>
                 </div>
 
@@ -362,58 +370,59 @@ import Layout from "../layouts/Layout.astro";
             <table class="table table-bordered table-hover">
               <!---- Table head --->
               <thead
-                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+                class="bg-primary-blue sticky_header text-white px-4 fw-600 fs-14 text-nowrap"
               >
                 <tr>
-                  <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
+                  <th
+                    class="bg-primary-blue sticky_header text-white px-4 fw-600 fs-14"
                     >S/N</th
                   >
                   <th
-                    class="bg-primary-blue text-white fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white fw-600 fs-14 text-center"
                     style="min-width: 200px;">Staff_TIN_Number</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Surname</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Other_Names</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Basic</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Housing</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-nowrap text-center"
                     >Transport</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Other_Allowances</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Total_Income</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Pension</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >NHF</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >NHIS</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Tax_Paid</th
                   >
                 </tr>
@@ -426,9 +435,11 @@ import Layout from "../layouts/Layout.astro";
                   }
                 </style>
                 {
-                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item) => (
+                  [
+                    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
+                  ].map((item, index) => (
                     <tr class="fs-88">
-                      <td class="text-center fs-14">1</td>
+                      <td class="text-center fs-14">{index + 1}</td>
                       <td class="fs-14 text-nowrap text-center column">
                         TIN239201
                       </td>

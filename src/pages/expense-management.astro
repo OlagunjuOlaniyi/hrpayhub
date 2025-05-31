@@ -59,7 +59,7 @@ import Layout from "../layouts/Layout.astro";
               >
             </div>
             <div class="fw-bold">
-              Submit and approve expense requests to streamline financial management.
+              Review and manage employee expense requests and retirements.
             </div>
           </div>
           {/* Page Title */}
@@ -69,13 +69,81 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Expense Approval Request",
-                  desc: "Send request for expense approval",
+                  title: "Expense Request Review",
+                  desc: "Review and approve submitted expense requests.",
+                  url: "/expense-request-review",
+                },
+                {
+                  title: "Expense Retirement Review",
+                  desc: "Evaluate and approve employee expense retirements.",
+                  url: "/expense-retirement-review",
+                },
+              ].map((ele) => (
+                <div
+                  class="col-4 p-2 payslip-card-panel"
+                  style="width: 360px"
+                  role="button"
+                  title={ele.title}
+                  data-url={ele.url}
+                >
+                  <div class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
+                    <div class="vstack gap-2 d-flex flex-column align-items-center">
+                      <img
+                        src="images/png/icons/expense-mgt.svg"
+                        alt="receipt-minus-icon"
+                        width="30px"
+                        height="30px"
+                      />
+
+                      <div class="fw-bold fs-18 font-ubuntu-bold text-primary-blue">
+                        {ele.title}
+                      </div>
+                    </div>
+
+                    <div
+                      class="fw-600 fs-16"
+                      style="width: 75%; margin: 0 auto"
+                    >
+                      {ele.desc}
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+
+          <!----- employee ---->
+          <div class="vstack gap-2">
+            <div class="d-flex gap-3 align-items-center">
+              <img
+                src="images/png/icons/expense-mgt.svg"
+                alt="receipt-minus-icon"
+                width="30px"
+                height="30px"
+              />
+              <span
+                class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
+                >Expense Management - Employee Module</span
+              >
+            </div>
+            <div class="fw-bold">
+              Submit expense requests and retirement details for approval.
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+          <div class="row payslip-grid-gap mb-5">
+            {
+              [
+                {
+                  title: "Submit Expense Request",
+                  desc: "Send an expense request for approval",
                   url: "/expense-approval-request",
                 },
                 {
-                  title: "Expense Retirement Request",
-                  desc: "Send request for expense retirement",
+                  title: "Submit Expense Retirement",
+                  desc: "Submit retirement details for prior expenses",
                   url: "/expense-retirement-request",
                 },
               ].map((ele) => (
@@ -95,7 +163,6 @@ import Layout from "../layouts/Layout.astro";
                         height="30px"
                       />
 
-
                       <div class="fw-bold fs-18 font-ubuntu-bold text-primary-blue">
                         {ele.title}
                       </div>
@@ -103,7 +170,7 @@ import Layout from "../layouts/Layout.astro";
 
                     <div
                       class="fw-600 fs-16"
-                      style="width: 90%; margin: 0 auto"
+                      style="width: 60%; margin: 0 auto"
                     >
                       {ele.desc}
                     </div>

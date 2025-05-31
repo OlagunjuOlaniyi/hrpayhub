@@ -21,8 +21,9 @@ import Layout from "../layouts/Layout.astro";
 
           <!-- Actual Breadcrumb here -->
           <div class="d-flex align-items-center gap-2">
-            <a href="index.html" class="fs-14 text-decoration-none text-primary-dark"
-              >Dashboard</a
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
             >
             <img
               src="images/png/icons/angle-right.svg"
@@ -66,28 +67,6 @@ import Layout from "../layouts/Layout.astro";
 
               <!-- Others -->
               <div class="responsive gap-1">
-                <!-- Number of Months Dropdown -->
-                <div class="d-flex align-items-center">
-                  <span style="min-width: 130px;" class="fs-14"
-                    >Number of Months
-                  </span>
-                  <div class="dropdown me-2">
-                    <button
-                      class="delon-primary-btn bg-white border dropdown-toggle fs-14"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                    >
-                      1
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">1</a></li>
-                      <li><a class="dropdown-item" href="#">3</a></li>
-                      <li><a class="dropdown-item" href="#">6</a></li>
-                      <li><a class="dropdown-item" href="#">12</a></li>
-                    </ul>
-                  </div>
-                </div>
-
                 <!-- Calendar Selector -->
                 <input
                   type="month"
@@ -360,95 +339,101 @@ import Layout from "../layouts/Layout.astro";
             <table class="table table-bordered table-hover">
               <!---- Table head --->
               <thead
-                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+                class="bg-primary-blue sticky_header text-white px-4 fw-600 fs-14 text-nowrap"
               >
                 <tr>
-                  <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
+                  <th
+                    class="bg-primary-blue sticky_header text-white px-4 fw-600 fs-14"
                     >S/N</th
                   >
                   <th
-                    class="bg-primary-blue text-white fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white fw-600 fs-14 text-center"
                     style="min-width: 200px;">Employee_ID</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >First_Name & Last_Name</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Employment_Status</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Designation</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Department</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-nowrap text-left"
                     >Employment_Type</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Pay_Grade</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Country_of_Work</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Work_Location</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >City</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Resumption_Date</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Bank_Name</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Account_Number</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-left"
                     >Bank_Branch</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Monthly_Fixed_Salary</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Total_Monthly_Deductions</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Monthly_Net_Salary</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Monthly_Tax</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Net_Pay</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Monthly_Variable_Expense</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
                     >Salary_Pay_Date</th
+                  >
+
+                  <th
+                    class="bg-primary-blue sticky_header text-white px-3 fw-600 fs-14 text-center"
+                    >Actions</th
                   >
                 </tr>
               </thead>
@@ -463,16 +448,307 @@ import Layout from "../layouts/Layout.astro";
                   }
                 </style>
                 {
-                  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item) => (
+                  [
+                    {
+                      Employee_ID: "HR340",
+                      First_Name: "Wade Warren",
+                      Employment_Status: "Active",
+                      Designation: "Accountant",
+                      Department: "Administration",
+                      Employment_Type: "Full Time",
+                      Pay_Grade: "12",
+                      Country_of_Work: "Nigeria",
+                      Work_Location: "Lagos",
+                      city: "Lagos",
+                      Resumption_Date: "May 2025",
+                      Bank_Name: "First Bank",
+                      Account_Number: "1234567890",
+                      Bank_Branch: "Lagos",
+                      Monthly_Fixed_Salary: "₦500,000",
+                      Total_Monthly_Deductions: "₦500,000",
+                      Monthly_Net_Salary: "₦500,000",
+                      Monthly_Tax: "₦500,000",
+                      Net_Pay: "₦500,000",
+                      Monthly_Variable_Expense: "₦500,000",
+                      Salary_Pay_Date: "28th April, 2025",
+                    },
+                    {
+                      Employee_ID: "HR340",
+                      First_Name: "Wade Warren",
+                      Employment_Status: "Terminated",
+                      Designation: "Accountant",
+                      Department: "Administration",
+                      Employment_Type: "Full Time",
+                      Pay_Grade: "12",
+                      Country_of_Work: "Nigeria",
+                      Work_Location: "Lagos",
+                      city: "Lagos",
+                      Resumption_Date: "May 2025",
+                      Bank_Name: "First Bank",
+                      Account_Number: "1234567890",
+                      Bank_Branch: "Lagos",
+                      Monthly_Fixed_Salary: "₦500,000",
+                      Total_Monthly_Deductions: "₦500,000",
+                      Monthly_Net_Salary: "₦500,000",
+                      Monthly_Tax: "₦500,000",
+                      Net_Pay: "₦500,000",
+                      Monthly_Variable_Expense: "₦500,000",
+                      Salary_Pay_Date: "28th April, 2025",
+                    },
+                    {
+                      Employee_ID: "HR340",
+                      First_Name: "Wade Warren",
+                      Employment_Status: "Probation",
+                      Designation: "Accountant",
+                      Department: "Administration",
+                      Employment_Type: "Full Time",
+                      Pay_Grade: "12",
+                      Country_of_Work: "Nigeria",
+                      Work_Location: "Lagos",
+                      city: "Lagos",
+                      Resumption_Date: "May 2025",
+                      Bank_Name: "First Bank",
+                      Account_Number: "1234567890",
+                      Bank_Branch: "Lagos",
+                      Monthly_Fixed_Salary: "₦500,000",
+                      Total_Monthly_Deductions: "₦500,000",
+                      Monthly_Net_Salary: "₦500,000",
+                      Monthly_Tax: "₦500,000",
+                      Net_Pay: "₦500,000",
+                      Monthly_Variable_Expense: "₦500,000",
+                      Salary_Pay_Date: "28th April, 2025",
+                    },
+                    {
+                      Employee_ID: "HR340",
+                      First_Name: "Wade Warren",
+                      Employment_Status: "Active",
+                      Designation: "Accountant",
+                      Department: "Administration",
+                      Employment_Type: "Full Time",
+                      Pay_Grade: "12",
+                      Country_of_Work: "Nigeria",
+                      Work_Location: "Lagos",
+                      city: "Lagos",
+                      Resumption_Date: "May 2025",
+                      Bank_Name: "First Bank",
+                      Account_Number: "1234567890",
+                      Bank_Branch: "Lagos",
+                      Monthly_Fixed_Salary: "₦500,000",
+                      Total_Monthly_Deductions: "₦500,000",
+                      Monthly_Net_Salary: "₦500,000",
+                      Monthly_Tax: "₦500,000",
+                      Net_Pay: "₦500,000",
+                      Monthly_Variable_Expense: "₦500,000",
+                      Salary_Pay_Date: "28th April, 2025",
+                    },
+                    {
+                      Employee_ID: "HR340",
+                      First_Name: "Wade Warren",
+                      Employment_Status: "Active",
+                      Designation: "Accountant",
+                      Department: "Administration",
+                      Employment_Type: "Full Time",
+                      Pay_Grade: "12",
+                      Country_of_Work: "Nigeria",
+                      Work_Location: "Lagos",
+                      city: "Lagos",
+                      Resumption_Date: "May 2025",
+                      Bank_Name: "First Bank",
+                      Account_Number: "1234567890",
+                      Bank_Branch: "Lagos",
+                      Monthly_Fixed_Salary: "₦500,000",
+                      Total_Monthly_Deductions: "₦500,000",
+                      Monthly_Net_Salary: "₦500,000",
+                      Monthly_Tax: "₦500,000",
+                      Net_Pay: "₦500,000",
+                      Monthly_Variable_Expense: "₦500,000",
+                      Salary_Pay_Date: "28th April, 2025",
+                    },
+                    {
+                      Employee_ID: "HR340",
+                      First_Name: "Wade Warren",
+                      Employment_Status: "Active",
+                      Designation: "Accountant",
+                      Department: "Administration",
+                      Employment_Type: "Full Time",
+                      Pay_Grade: "12",
+                      Country_of_Work: "Nigeria",
+                      Work_Location: "Lagos",
+                      city: "Lagos",
+                      Resumption_Date: "May 2025",
+                      Bank_Name: "First Bank",
+                      Account_Number: "1234567890",
+                      Bank_Branch: "Lagos",
+                      Monthly_Fixed_Salary: "₦500,000",
+                      Total_Monthly_Deductions: "₦500,000",
+                      Monthly_Net_Salary: "₦500,000",
+                      Monthly_Tax: "₦500,000",
+                      Net_Pay: "₦500,000",
+                      Monthly_Variable_Expense: "₦500,000",
+                      Salary_Pay_Date: "28th April, 2025",
+                    },
+                    {
+                      Employee_ID: "HR340",
+                      First_Name: "Wade Warren",
+                      Employment_Status: "Active",
+                      Designation: "Accountant",
+                      Department: "Administration",
+                      Employment_Type: "Full Time",
+                      Pay_Grade: "12",
+                      Country_of_Work: "Nigeria",
+                      Work_Location: "Lagos",
+                      city: "Lagos",
+                      Resumption_Date: "May 2025",
+                      Bank_Name: "First Bank",
+                      Account_Number: "1234567890",
+                      Bank_Branch: "Lagos",
+                      Monthly_Fixed_Salary: "₦500,000",
+                      Total_Monthly_Deductions: "₦500,000",
+                      Monthly_Net_Salary: "₦500,000",
+                      Monthly_Tax: "₦500,000",
+                      Net_Pay: "₦500,000",
+                      Monthly_Variable_Expense: "₦500,000",
+                      Salary_Pay_Date: "28th April, 2025",
+                    },
+                    {
+                      Employee_ID: "HR340",
+                      First_Name: "Wade Warren",
+                      Employment_Status: "Active",
+                      Designation: "Accountant",
+                      Department: "Administration",
+                      Employment_Type: "Full Time",
+                      Pay_Grade: "12",
+                      Country_of_Work: "Nigeria",
+                      Work_Location: "Lagos",
+                      city: "Lagos",
+                      Resumption_Date: "May 2025",
+                      Bank_Name: "First Bank",
+                      Account_Number: "1234567890",
+                      Bank_Branch: "Lagos",
+                      Monthly_Fixed_Salary: "₦500,000",
+                      Total_Monthly_Deductions: "₦500,000",
+                      Monthly_Net_Salary: "₦500,000",
+                      Monthly_Tax: "₦500,000",
+                      Net_Pay: "₦500,000",
+                      Monthly_Variable_Expense: "₦500,000",
+                      Salary_Pay_Date: "28th April, 2025",
+                    },
+                    {
+                      Employee_ID: "HR340",
+                      First_Name: "Wade Warren",
+                      Employment_Status: "Active",
+                      Designation: "Accountant",
+                      Department: "Administration",
+                      Employment_Type: "Full Time",
+                      Pay_Grade: "12",
+                      Country_of_Work: "Nigeria",
+                      Work_Location: "Lagos",
+                      city: "Lagos",
+                      Resumption_Date: "May 2025",
+                      Bank_Name: "First Bank",
+                      Account_Number: "1234567890",
+                      Bank_Branch: "Lagos",
+                      Monthly_Fixed_Salary: "₦500,000",
+                      Total_Monthly_Deductions: "₦500,000",
+                      Monthly_Net_Salary: "₦500,000",
+                      Monthly_Tax: "₦500,000",
+                      Net_Pay: "₦500,000",
+                      Monthly_Variable_Expense: "₦500,000",
+                      Salary_Pay_Date: "28th April, 2025",
+                    },
+                    {
+                      Employee_ID: "HR340",
+                      First_Name: "Wade Warren",
+                      Employment_Status: "Active",
+                      Designation: "Accountant",
+                      Department: "Administration",
+                      Employment_Type: "Full Time",
+                      Pay_Grade: "12",
+                      Country_of_Work: "Nigeria",
+                      Work_Location: "Lagos",
+                      city: "Lagos",
+                      Resumption_Date: "May 2025",
+                      Bank_Name: "First Bank",
+                      Account_Number: "1234567890",
+                      Bank_Branch: "Lagos",
+                      Monthly_Fixed_Salary: "₦500,000",
+                      Total_Monthly_Deductions: "₦500,000",
+                      Monthly_Net_Salary: "₦500,000",
+                      Monthly_Tax: "₦500,000",
+                      Net_Pay: "₦500,000",
+                      Monthly_Variable_Expense: "₦500,000",
+                      Salary_Pay_Date: "28th April, 2025",
+                    },
+
+                    {
+                      Employee_ID: "HR340",
+                      First_Name: "Wade Warren",
+                      Employment_Status: "Active",
+                      Designation: "Accountant",
+                      Department: "Administration",
+                      Employment_Type: "Full Time",
+                      Pay_Grade: "12",
+                      Country_of_Work: "Nigeria",
+                      Work_Location: "Lagos",
+                      city: "Lagos",
+                      Resumption_Date: "May 2025",
+                      Bank_Name: "First Bank",
+                      Account_Number: "1234567890",
+                      Bank_Branch: "Lagos",
+                      Monthly_Fixed_Salary: "₦500,000",
+                      Total_Monthly_Deductions: "₦500,000",
+                      Monthly_Net_Salary: "₦500,000",
+                      Monthly_Tax: "₦500,000",
+                      Net_Pay: "₦500,000",
+                      Monthly_Variable_Expense: "₦500,000",
+                      Salary_Pay_Date: "28th April, 2025",
+                    },
+                    {
+                      Employee_ID: "HR340",
+                      First_Name: "Wade Warren",
+                      Employment_Status: "Active",
+                      Designation: "Accountant",
+                      Department: "Administration",
+                      Employment_Type: "Full Time",
+                      Pay_Grade: "12",
+                      Country_of_Work: "Nigeria",
+                      Work_Location: "Lagos",
+                      city: "Lagos",
+                      Resumption_Date: "May 2025",
+                      Bank_Name: "First Bank",
+                      Account_Number: "1234567890",
+                      Bank_Branch: "Lagos",
+                      Monthly_Fixed_Salary: "₦500,000",
+                      Total_Monthly_Deductions: "₦500,000",
+                      Monthly_Net_Salary: "₦500,000",
+                      Monthly_Tax: "₦500,000",
+                      Net_Pay: "₦500,000",
+                      Monthly_Variable_Expense: "₦500,000",
+                      Salary_Pay_Date: "28th April, 2025",
+                    },
+                  ].map((item, index) => (
                     <tr class="fs-88">
-                      <td class="text-center fs-14">1</td>
+                      <td class="text-center fs-14">{index + 1}</td>
                       <td class="fs-14 text-nowrap text-center column">
-                        HR340
+                        {item.Employee_ID}
                       </td>
                       <td class="fs-14 text-nowrap px-3 text-left column2">
                         Wade Warren
                       </td>
-                      <td class="fs-14 px-3 text-left column2">Active</td>
+                      <td
+                        class="fs-14 px-3 text-left column"
+                        style={`color: ${
+                          item.Employment_Status === "Active"
+                            ? "#2BC700"
+                            : item.Employment_Status === "Terminated"
+                              ? "#FD0000"
+                              : item.Employment_Status === "Probation"
+                                ? "#B6B000"
+                                : "inherit"
+                        };`}
+                      >
+                        {item.Employment_Status}
+                      </td>
                       <td class="fs-14 px-3 text-left column">Accountant</td>
                       <td class="text-left text-nowrap px-3 fs-14 column2">
                         Administration
@@ -496,7 +772,60 @@ import Layout from "../layouts/Layout.astro";
                       <td class="fs-14 px-3 text-center column">₦500,000</td>
                       <td class="fs-14 px-3 text-center column">₦500,000</td>
                       <td class="fs-14 px-3 text-center column">₦500,000</td>
-                      <td class="fs-14 px-3 text-center column">28th April, 2025</td>
+                      <td class="fs-14 px-3 text-center column">
+                        28th April, 2025
+                      </td>
+                      <td class="fs-14 px-3 text-center column d-flex justify-content-center">
+                        <div
+                          class="d-flex flex-row justify-content-between align-items-center gap-1 px-2"
+                          style={{
+                            border: "1px solid #C1C1C1",
+                            borderRadius: "10px",
+                            width: "100px",
+                          }}
+                        >
+                          <div
+                            role="button"
+                            class="d-flex form-check form-switch switchForDeductionsFields"
+                            style={{ cursor: "pointer" }}
+                          >
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              role="switch"
+                              id="amount"
+                              defaultChecked
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><div><strong>Turn On/Off</strong></div><em style = 'font-size: 7px;'>Enable if applicable; Disable if not</em></div></div>"
+                            />
+                          </div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/refresh.svg"
+                              alt="refresh icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><div><strong>Restore</strong></div><em style = 'font-size: 7px'>Reset to disable employee</em></div></div>"
+                            />
+                          </div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><div><strong>Edit</strong></div><em style = 'font-size: 7px'>Update if the value has changed</em></div></div>"
+                            />
+                          </div>
+                        </div>
+                      </td>
                     </tr>
                   ))
                 }
