@@ -106,6 +106,9 @@ li.nav-item .active {
 .fw-700 {
   font-weight: 700 !important;
 }
+.fw-900 {
+  font-weight: 900 !important;
+}
 
 .fw-650 {
   font-weight: 650 !important;
@@ -966,7 +969,7 @@ body {
 
 .upload_bulk {
   width: 407px;
-  height: 170px;
+  height: 197px;
   border-radius: 10px;
   gap: 10px;
   border: 2px dashed #c1c1c1;
@@ -1037,6 +1040,10 @@ body {
   height: 2px;
 }
 
+.expense_employer_title {
+  width: 500px;
+}
+
 .upload_bucket_expense_retirement {
   width: 801px;
   height: 170px;
@@ -1051,6 +1058,10 @@ body {
   border: 2px dashed #c1c1c1;
 }
 
+.border_color_red {
+  border: 1px solid red;
+}
+
 @media (max-width: 769px) {
   .expense_retirement_input {
     width: 100%;
@@ -1059,6 +1070,10 @@ body {
   .upload_bucket_expense_retirement {
     width: 100%;
     padding: 10px;
+  }
+
+  .expense_employer_title {
+    width: 100%;
   }
 }
 
@@ -1085,7 +1100,7 @@ body {
 
 .clock_in_out {
   background-color: #eaecf0;
-  width: 556px;
+  width: 741px;
   border-radius: 16px;
 }
 
@@ -1107,7 +1122,7 @@ body {
 }
 
 .clock_in_time {
-  border: 2px solid #2271b6;
+  border: 3px solid #2271b6;
 }
 
 .clock_border_left {
@@ -1116,7 +1131,7 @@ body {
 }
 
 .clock_out_time {
-  border: 2px solid #c7a930;
+  border: 3px solid #c7a930;
 }
 
 .clock_out_bg {
@@ -1127,6 +1142,10 @@ body {
   background-color: #75abda !important;
 }
 
+.text_sec {
+  color: #20202069;
+}
+
 @media (max-width: 769px) {
   .clock_in_out {
     width: 100%;
@@ -1134,5 +1153,72 @@ body {
 
   .clock_in_out_width {
     width: 100%;
+  }
+}
+
+/* sticker header */
+.sticky_header {
+  position: sticky;
+  top: 0;
+}
+
+/* send and sign */
+.upload_offer_bg {
+  background-color: rgba(34, 113, 182, 0.2) !important;
+  border-radius: 20px;
+}
+
+.upload_offer_bg .nav-link {
+  color: rgba(32, 32, 32, 1) !important;
+}
+.upload_offer_bg .active {
+  background-color: #2271b6 !important;
+  border-radius: 20px;
+}
+
+ul.upload_offer_bg li.nav-item .active {
+  color: #fff !important;
+  font-weight: normal !important;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+/* Sigin In Section */
+.sign_in_img_bg {
+  background-color: rgba(236, 241, 245, 1);
+}
+
+.sign_in_img_bg h1 {
+  width: 60%;
+}
+
+.sign_in_input {
+  width: 381px;
+}
+
+.toggle_password {
+  position: relative;
+}
+
+.toggle_password span {
+  position: absolute;
+  top: 30%;
+  right: 5%;
+  cursor: pointer;
+}
+
+@media (max-width: 769px) {
+  .sign_logo {
+    width: 160px !important;
+  }
+
+  .sign_in_input {
+    min-width: 100%;
+  }
+
+  .sign_area {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 }

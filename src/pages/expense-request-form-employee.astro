@@ -13,7 +13,7 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/expense-approval-request"
+            href="/expense-approval-request-employee"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -32,7 +32,7 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
               alt="angle-right-back"
             />
             <a
-              href="/expense-approval-request"
+              href="/expense-approval-request-employee"
               class="fs-14 text-decoration-none text-primary-dark"
               >Expense Approval Request</a
             >
@@ -106,6 +106,16 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                 <label for="ex_title">Amount &nbsp;<span>*</span></label>
               </div>
 
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
               <div class="form-floating expense_input">
                 <textarea class="form-input" rows="3" id="description"
                 ></textarea>

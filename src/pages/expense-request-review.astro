@@ -1,9 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ViewOfferLetter from "../components/offers/ViewOfferLetter";
+import RejectModal from "../components/ui/RejectModal.astro";
+import ApproveModal from "../components/ui/ApproveModal.astro";
 ---
 
-<Layout title="HRPayHub :: Expense History View">
+<Layout title="HRPayHub :: Expense Request Review">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -12,7 +13,7 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/expense-approval-request"
+            href="/expense-management"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -38,17 +39,9 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <a
-              href="/expense-approval-request"
-              class="fs-14 text-decoration-none text-primary-dark"
-              >Expense Approval Request</a
-            >
-            <img
-              src="images/png/icons/angle-right.svg"
-              alt="angle-right-back"
-            />
+
             <span class="fs-16 fw-bold text-primary-blue"
-              >Expense History View</span
+              >Expense Request Review</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -69,11 +62,258 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >Expense History View</span
+                >Expense Request Review</span
               >
             </div>
           </div>
           {/* Page Title */}
+
+          <div class="">
+            <div
+              class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
+            >
+              <!---- Search  -->
+              <div class="">
+                <input
+                  type="text"
+                  class="form-control search-input search-width fs-14"
+                  placeholder="Search..."
+                />
+              </div>
+
+              <!-- Others -->
+              <div class="responsive gap-3">
+                <!-- Calendar Selector -->
+                <input
+                  type="month"
+                  class="form-control fs-14"
+                  style="max-width: 200px;"
+                  value="2025-05"
+                />
+                <!-- Filter Dropdown -->
+
+                <style>
+                  .dropdown-submenu {
+                    position: relative;
+                  }
+
+                  /* Accordion style: drop below, not to the right */
+                  .dropdown-submenu > .dropdown-menu {
+                    position: static;
+                    float: none;
+                    margin-top: 0.5rem;
+                    padding-left: 1rem;
+                    display: none;
+                  }
+
+                  .dropdown-submenu > .dropdown-menu.show {
+                    display: block;
+                  }
+
+                  /* a small caret indicator */
+                  .dropdown-submenu > a::after {
+                    content: " ";
+                    float: right;
+                  }
+                </style>
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-white border dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2 fs-14"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/filter.svg" alt="arrow-down" />
+                    <span>Filter</span>
+                  </button>
+                  <ul class="dropdown-menu" style="min-width:250px">
+                    <li
+                      class="d-flex flex-row justify-content-between px-3 py-2 border-bottom fs-14"
+                    >
+                      <span class="fw-bold">Filter</span>
+                      <span class="fw-bold text-primary-blue">Reset Filter</span
+                      >
+                    </li>
+                    <!-- Designation Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Designation</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 1"
+                            /> Category 1
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 2"
+                            /> Category 2
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 2"
+                            /> Category 2
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- Employment Status Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Employment Status</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="employed"
+                            /> Employed
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="unemployed"
+                            /> Unemployed
+                          </label>
+                        </li>
+
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="contract"
+                            /> Contract
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- Country of Work Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Country of Work</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="usa"
+                            /> USA
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="uk"
+                            /> UK
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="Nigeria"
+                            /> Nigeria
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- apply filter button -->
+                    <li
+                      class="d-flex flex-row justify-content-end px-3 py-2 mt-2"
+                    >
+                      <button
+                        type="submit"
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fs-14"
+                      >
+                        <span>Apply Filter</span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Sort Dropdown -->
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-white border fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/sort.svg" alt="arrow-down" />
+                    <span>Sort</span>
+                  </button>
+                  <div
+                    class="dropdown-menu p-0 border-0"
+                    style="min-width:200px"
+                  >
+                    <ul class="list-group border-0 fw-600 fs-14">
+                      <li class="list-group-item">
+                        <span class="fw-bold">Sort</span>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Alphabetically
+                        </label>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Date of Resumption
+                        </label>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Date of Confirmation
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!---- End of Others ---->
+            </div>
+          </div>
 
           <!-- Scrollable Table -->
           <div
@@ -90,12 +330,12 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                     >S/N</th
                   >
                   <th
-                    class="bg-primary-blue text-white fw-600 fs-14 text-center"
+                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
                     style="min-width: 200px;">Date</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Title</th
+                    >Employee Name</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
@@ -125,49 +365,49 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                 {
                   [
                     {
-                      date: "Lorem Ipsum",
+                      date: "7th Apr 2025",
                       title: "Lorem Ipsum",
                       category: "Mixed",
                       amount: "N124,676",
                       status: "Approved",
                     },
                     {
-                      date: "Lorem Ipsum",
+                      date: "7th Apr 2025",
                       title: "Lorem Ipsum",
                       category: "Mixed",
                       amount: "N124,676",
                       status: "Rejected",
                     },
                     {
-                      date: "Lorem Ipsum",
+                      date: "7th Apr 2025",
                       title: "Lorem Ipsum",
                       category: "Mixed",
                       amount: "N124,676",
                       status: "Pending",
                     },
                     {
-                      date: "Lorem Ipsum",
+                      date: "7th Apr 2025",
                       title: "Lorem Ipsum",
                       category: "Mixed",
                       amount: "N124,676",
                       status: "Approved",
                     },
                     {
-                      date: "Lorem Ipsum",
+                      date: "7th Apr 2025",
                       title: "Lorem Ipsum",
                       category: "Mixed",
                       amount: "N124,676",
                       status: "Approved",
                     },
                     {
-                      date: "Lorem Ipsum",
+                      date: "7th Apr 2025",
                       title: "Lorem Ipsum",
                       category: "Mixed",
                       amount: "N124,676",
                       status: "Approved",
                     },
                     {
-                      date: "Lorem Ipsum",
+                      date: "7th Apr 2025",
                       title: "Lorem Ipsum",
                       category: "Mixed",
                       amount: "N124,676",
@@ -176,7 +416,7 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                   ].map((item, index) => (
                     <tr class="fs-88">
                       <td class="text-center fs-14">{index + 1}</td>
-                      <td class="fs-14 text-nowrap text-center column">
+                      <td class="fs-14 text-nowrap text-left px-3 column">
                         {item.date}
                       </td>
                       <td class="fs-14 px-3 text-left column">{item.title}</td>
@@ -313,13 +553,21 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
           <div class="p-lg-5">
             <div class="vstack" style="gap: 2.3rem">
               <div
-                class="d-flex justify-content-between align-items-center expense_input"
+                class="d-flex justify-content-between align-items-center expense_employer_title"
               >
-                <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                  >Expense Request Form</span
+                <span
+                  class="text-dark
+                font-ubuntu-bold
+                fs-18
+                inline-block"
                 >
-                <span class="text-primary-blue approved_bg py-2 px-4 rounded"
-                  >Approved</span
+                  Expense Request Review
+                </span>
+                <span
+                  role="button"
+                  class="text-primary-blue approved_bg py-2 px-4 rounded"
+                  data-bs-toggle="modal"
+                  data-bs-target="#approveModal">Approved</span
                 >
               </div>
 
@@ -365,6 +613,16 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                 <label for="ex_title">Amount &nbsp;<span>*</span></label>
               </div>
 
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
               <div class="form-floating expense_input">
                 <textarea class="form-input" rows="2" id="description"
                 ></textarea>
@@ -437,11 +695,7 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                 class="d-flex justify-content-between align-items-center expense_input"
               >
                 <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                  >Expense Request Form</span
-                >
-                <span
-                  class="pending_bg fs-14 py-2 px-2 rounded text-nowrap"
-                  style={"color: #B6B000"}>Pending Review</span
+                  >Expense Request Review</span
                 >
               </div>
 
@@ -488,6 +742,16 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
               </div>
 
               <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating expense_input">
                 <textarea class="form-input" rows="2" id="description"
                 ></textarea>
                 <label for="ex_title">Description &nbsp;<span>*</span></label>
@@ -507,7 +771,7 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                       src="images/png/icons/document-download.svg"
                       alt="document"
                     />
-                    <span class="fs-14">Document 1</span>
+                    <span cla="fs-14">Document 1</span>
                   </div>
                   <div>
                     <img
@@ -538,6 +802,26 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                   </div>
                 </div>
               </div>
+
+              <div class="d-flex gap-5 expense_input">
+                <button
+                  class="btn bg-primary-blue text-white fs-14"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#approveModal"
+                >
+                  Approve Request
+                </button>
+                <button
+                  class="btn border_color_red fs-14 px-3"
+                  type="button"
+                  style="color: red;"
+                  data-bs-toggle="modal"
+                  data-bs-target="#rejectModal"
+                >
+                  Reject Request
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -554,207 +838,202 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
         >
           {/* Page Content Box */}
           <div class="p-lg-5">
-            <div class="d-flex flex-column flex-lg-row" style="gap: 7rem">
-              <div class="d-flex flex-column" style="gap: 2.3rem">
+            <div class="d-flex flex-column flex-lg-row" style="gap: 3rem">
+              <div>
                 <div
-                  class="d-flex justify-content-between align-items-center expense_input"
+                  class="d-flex justify-content-between mb-5 align-items-center expense_employer_title"
                 >
                   <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                    >Expense Request Form</span
+                    >Expense Request Review</span
                   >
                   <span
                     class="rejected_bg fs-14 py-2 px-4 rounded text-nowrap"
-                    style={"color:#FD0000"}>Rejected</span
+                    style={"color:#FD0000"}
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#rejectModal">Rejected</span
                   >
                 </div>
-
-                <div class="form-floating expense_input">
-                  <input
-                    type="text"
-                    id="ex_title"
-                    name="ex_title"
-                    class="form-input"
-                    placeholder=""
-                  />
-                  <label for="ex_title"
-                    >Expense Title &nbsp;<span>*</span></label
-                  >
-                </div>
-
-                <div class="form-floating expense_input">
-                  <select
-                    id="select_plan"
-                    name="select_plan"
-                    class="form-select_custom fs-14"
-                    required
-                  >
-                    <option value="" selected style="color: rgb(200, 200, 200)"
-                      >Select</option
+                <div class="d-flex flex-column" style="gap: 2.3rem">
+                  <div class="form-floating expense_input">
+                    <input
+                      type="text"
+                      id="ex_title"
+                      name="ex_title"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="ex_title"
+                      >Expense Title &nbsp;<span>*</span></label
                     >
-                    <option value="plan_1">Mixed</option>
-                    <option value="plan_2">Cost of Goods Sold (COGS)</option>
-                    <option value="plan_3">OPEX</option>
-                    <option value="plan_3">ASSET</option>
-                  </select>
-                  <label for="select_plan"
-                    >Expense Category &nbsp;<span>*</span></label
-                  >
-                </div>
-
-                <div class="form-floating expense_input">
-                  <input
-                    type="text"
-                    id="amount"
-                    name="amount"
-                    class="form-input"
-                    placeholder=""
-                  />
-                  <label for="ex_title">Amount &nbsp;<span>*</span></label>
-                </div>
-
-                <div class="form-floating expense_input">
-                  <input
-                    type="text"
-                    id="amount"
-                    name="amount"
-                    class="form-input"
-                    placeholder=""
-                  />
-                  <label for="ex_title"
-                    >Expense Title &nbsp;<span>*</span></label
-                  >
-                </div>
-                <div class="form-floating expense_input">
-                  <textarea class="form-input" rows="2" id="description"
-                  ></textarea>
-                  <label for="ex_title">Description &nbsp;<span>*</span></label>
-                </div>
-
-                <!---- upload ---->
-
-                <div class="fs-14 fw-600">Documents</div>
-                <div
-                  class="expense_request_doc d-flex flex-column gap-2 p-4 expense_input"
-                >
-                  <div class="d-flex justify-content-between">
-                    <div
-                      class="d-flex justify-content-center align-items-center gap-3"
-                    >
-                      <img
-                        src="images/png/icons/document-download.svg"
-                        alt="document"
-                      />
-                      <span class="fs-14">Document 1</span>
-                    </div>
-                    <div>
-                      <img
-                        type="button"
-                        src="images/png/icons/vision-dark.svg"
-                        alt="vision"
-                      />
-                    </div>
                   </div>
-                  <div
-                    class="d-flex justify-content-between w-100 border-top pt-2"
-                  >
-                    <div
-                      class="d-flex justify-content-center align-items-center gap-3"
+
+                  <div class="form-floating expense_input">
+                    <select
+                      id="select_plan"
+                      name="select_plan"
+                      class="form-select_custom fs-14"
+                      required
                     >
-                      <img
-                        src="images/png/icons/document-download.svg"
-                        alt="document"
-                      />
-                      <span class="fs-14">Document 2</span>
+                      <option
+                        value=""
+                        selected
+                        style="color: rgb(200, 200, 200)">Select</option
+                      >
+                      <option value="plan_1">Mixed</option>
+                      <option value="plan_2">Cost of Goods Sold (COGS)</option>
+                      <option value="plan_3">OPEX</option>
+                      <option value="plan_3">ASSET</option>
+                    </select>
+                    <label for="select_plan"
+                      >Expense Category &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating expense_input">
+                    <input
+                      type="text"
+                      id="amount"
+                      name="amount"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="ex_title">Amount &nbsp;<span>*</span></label>
+                  </div>
+
+                  <div class="form-floating expense_input">
+                    <input
+                      type="text"
+                      id="amount"
+                      name="amount"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="ex_title"
+                      >Expense Title &nbsp;<span>*</span></label
+                    >
+                  </div>
+                  <div class="form-floating expense_input">
+                    <textarea class="form-input" rows="2" id="description"
+                    ></textarea>
+                    <label for="ex_title"
+                      >Description &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <!---- upload ---->
+
+                  <div class="fs-14 fw-600">Documents</div>
+                  <div
+                    class="expense_request_doc d-flex flex-column gap-2 p-4 expense_input"
+                  >
+                    <div class="d-flex justify-content-between">
+                      <div
+                        class="d-flex justify-content-center align-items-center gap-3"
+                      >
+                        <img
+                          src="images/png/icons/document-download.svg"
+                          alt="document"
+                        />
+                        <span class="fs-14">Document 1</span>
+                      </div>
+                      <div>
+                        <img
+                          type="button"
+                          src="images/png/icons/vision-dark.svg"
+                          alt="vision"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <img
-                        type="button"
-                        src="images/png/icons/vision-dark.svg"
-                        alt="vision"
-                      />
+                    <div
+                      class="d-flex justify-content-between w-100 border-top pt-2"
+                    >
+                      <div
+                        class="d-flex justify-content-center align-items-center gap-3"
+                      >
+                        <img
+                          src="images/png/icons/document-download.svg"
+                          alt="document"
+                        />
+                        <span class="fs-14">Document 2</span>
+                      </div>
+                      <div>
+                        <img
+                          type="button"
+                          src="images/png/icons/vision-dark.svg"
+                          alt="vision"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
               <!---- another form ---->
-              <div
-                class="d-flex flex-column align-items-center justify-content-center gap-5"
-              >
-                <div class="form-floating expense_input">
+              <div class="d-flex flex-column align-items-center gap-5 mt-5">
+                <div class="form-floating expense_input mt-lg-3">
                   <textarea class="form-input" rows="3" id="comment"></textarea>
                   <label for="ex_title"
                     >Reviewer's Comment &nbsp;<span>*</span></label
                   >
-                </div>
-                <div class="form-floating expense_input">
-                  <textarea class="form-input" rows="3" id="reply"></textarea>
-                  <label for="ex_title">Reply &nbsp;<span>*</span></label>
-                </div>
-
-                <div class="d-flex justify-content-end expense_input">
-                  <button
-                    type="button"
-                    id="calculate"
-                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
-                  >
-                    <span>Re-Apply</span>
-                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
         {/* Page Content Box */}
+
+        <RejectModal modalId="rejectModal" title="Request" />
+        <ApproveModal modalId="approveModal" title="Request" />
       </div>
     </section>
   </main>
-</Layout>
 
-<!-- Main content ends here -->
+  <!-- Main content ends here -->
 
-<script is:inline type="text/javascript">
-  document.addEventListener("DOMContentLoaded", () => {
-    $(".approved").click((evt) => {
-      $("#expense_request_form").removeClass("d-none");
-      $("#expense_history_view").addClass("d-none");
-    });
-    $(".pending").click((evt) => {
-      $("#expense_request_form_pending").removeClass("d-none");
-      $("#expense_history_view").addClass("d-none");
-    });
-    $(".rejected").click((evt) => {
-      $("#expense_request_form_rejected").removeClass("d-none");
-      $("#expense_history_view").addClass("d-none");
-    });
-  });
-</script>
-<script>
-  document
-    .querySelectorAll(".dropdown-submenu > a")
-    .forEach(function (element) {
-      element.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const submenu = this.nextElementSibling;
-
-        // Close all other submenus
-        document
-          .querySelectorAll(".dropdown-submenu .dropdown-menu")
-          .forEach(function (el) {
-            if (el !== submenu) el.classList.remove("show");
-          });
-
-        submenu.classList.toggle("show");
+  <script is:inline type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+      $(".approved").click((evt) => {
+        $("#expense_request_form").removeClass("d-none");
+        $("#expense_history_view").addClass("d-none");
+      });
+      $(".pending").click((evt) => {
+        $("#expense_request_form_pending").removeClass("d-none");
+        $("#expense_history_view").addClass("d-none");
+      });
+      $(".rejected").click((evt) => {
+        $("#expense_request_form_rejected").removeClass("d-none");
+        $("#expense_history_view").addClass("d-none");
       });
     });
-
-  // Optional: close submenus when clicking outside
-  document.addEventListener("click", function () {
+  </script>
+  <script>
     document
-      .querySelectorAll(".dropdown-submenu .dropdown-menu")
-      .forEach(function (el) {
-        el.classList.remove("show");
+      .querySelectorAll(".dropdown-submenu > a")
+      .forEach(function (element) {
+        element.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const submenu = this.nextElementSibling;
+
+          // Close all other submenus
+          document
+            .querySelectorAll(".dropdown-submenu .dropdown-menu")
+            .forEach(function (el) {
+              if (el !== submenu) el.classList.remove("show");
+            });
+
+          submenu.classList.toggle("show");
+        });
       });
-  });
-</script>
+
+    // Optional: close submenus when clicking outside
+    document.addEventListener("click", function () {
+      document
+        .querySelectorAll(".dropdown-submenu .dropdown-menu")
+        .forEach(function (el) {
+          el.classList.remove("show");
+        });
+    });
+  </script>
+</Layout>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="favicon.png" />
+    <meta name="generator" content="generator" />
+    <title>HRPayHub :: Sign In</title>
+    <link
+      href="libs/bootstrap-5.3.5-dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Select2 CSS -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css"
+    />
+  </head>
+
+  <body>
+    <main>
+      <section>
+        <div class="d-flex">
+          <!------- sign in picture ------>
+          <div
+            class="d-none d-lg-flex flex-column sign_in_img_bg align-items-center justify-content-center gap-5 py-5"
+          >
+            <h1 class="text-primary-blue font-ubuntu-bold fs-40 fw-900">
+              Simplify your HR and payroll management
+            </h1>
+
+            <img
+              class="w-100"
+              src="images/png/signin_img.png"
+              alt="sign in image"
+            />
+          </div>
+
+          <!------- sign in form ------>
+          <div
+            class="d-flex flex-column py-5 px-3 align-items-center gap-5 sign_area"
+          >
+            <img
+              class="mt-5 w-25 sign_logo"
+              src="images/logo.png"
+              alt="hrpayhub logo"
+            />
+
+            <div>
+              <h3 class="fs-14 font-ubuntu fw-700">Sign into your account</h3>
+            </div>
+
+            <form
+              class="d-flex flex-column justify-content-center align-items-center"
+            >
+              <div class="d-flex flex-column gap-4 sign_in_input">
+                <div class="form-floating">
+                  <input
+                    type="email"
+                    id="email_id"
+                    name="email_id"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="email_id"
+                    >Email Address &nbsp;<span>*</span></label
+                  >
+                </div>
+
+                <div class="toggle_password">
+                  <div class="form-floating mt-2">
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="password">Password &nbsp;<span>*</span></label>
+                  </div>
+                  <span class="cursor-pointer toggle-eye"
+                    ><img
+                      class="show-eye"
+                      style="display: block;"
+                      src="images/png/icons/vision-dark.svg"
+                      alt="Show Password"
+                    />
+                    <img
+                      style="display: none;"
+                      class="hide-eye"
+                      src="images/png/icons/vision-strike.svg"
+                      alt="Hide Password"
+                    />
+                  </span>
+                </div>
+
+                <a
+                  href="#"
+                  class="text-primary-blue text-decoration-none font-avenir-bold fs-14 fw-600"
+                  >Forgot Password?</a
+                >
+              </div>
+
+              <div
+                class="d-flex justify-content-between align-items-end w-100 mt-5"
+              >
+                <div class="fw-600 fs-14">
+                  Don’t have an account? <a
+                    href="#"
+                    class="text-primary-blue font-avenir-bold fs-14 fw-700"
+                    >Sign Up</a
+                  >
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    id="login"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white font-avenir-bold fs-14 d-flex align-items-center gap-2"
+                  >
+                    <span>Login</span>
+                    <img
+                      src="images/png/icons/arrow-right.svg"
+                      alt="arrow-right"
+                    />
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script defer src="libs/jquery/jquery-3.7.1.min.js"></script>
+    <script is:inline src="libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <!-- Select2 JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"
+    ></script>
+
+    <script>
+      $(document).ready(function () {
+        $(".toggle-eye").on("click", function () {
+          const $passwordInput = $("#password");
+          const $showEye = $(this).find(".show-eye");
+          const $hideEye = $(this).find(".hide-eye");
+
+          if ($passwordInput.attr("type") === "password") {
+            $passwordInput.attr("type", "text");
+            $showEye.hide();
+            $hideEye.show();
+          } else {
+            $passwordInput.attr("type", "password");
+            $showEye.show();
+            $hideEye.hide();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

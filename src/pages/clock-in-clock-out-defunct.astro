@@ -13,7 +13,7 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/time-management"
+            href="/time-management-employee"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -32,7 +32,7 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
               alt="angle-right-back"
             />
             <a
-              href="/time-management"
+              href="/time-management-employee"
               class="fs-14 text-decoration-none text-primary-dark"
               >Time Management</a
             >
@@ -90,14 +90,7 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                 <span class="clock_border_left"></span>
                 <div class="d-flex flex-column px-lg-3">
                   <span class="fs-12 text-secondary">Location</span>
-                  <span class="fs-14 fw-700">Ikeja</span>
-                </div>
-                <span class="clock_border_left"></span>
-                <div class="d-flex flex-column px-lg-3">
-                  <span class="fs-12 text-secondary"
-                    >Contracted Monthly Hour</span
-                  >
-                  <span class="fs-14 fw-700">180Hrs</span>
+                  <span class="fs-14 fw-700">Lagos</span>
                 </div>
               </div>
 
@@ -106,9 +99,26 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                 class="d-flex flex-column flex-lg-row gap-3 gap-lg-5 py-4 px-4 clock_in_out_bg"
               >
                 <div
+                  class="d-flex flex-column gap-3 bg-primary-blue clock_in_out_width clock_in_out_border p-3 text-white pe-4"
+                >
+                  <span class="fs-14">Total Hours Worked for the Day</span>
+                  <div class="d-flex gap-3 align-items-center">
+                    <span
+                      class="fs-16 fw-700 rounded border border-light p-2 px-3"
+                      >5hr 37m 20s</span
+                    >
+                    <span class="fs-16 fw-700">of</span>
+                    <span
+                      class="fs-16 fw-700 rounded border border-light p-2 px-3"
+                      >9hr</span
+                    >
+                  </div>
+                </div>
+                <span class="clock_border_left"></span>
+                <div
                   class="d-flex flex-column px-3 clock_in_out_width clock_in_time gap-3 bg-white clock_in_out_border p-3 pe-4"
                 >
-                  <span class="fs-16 fw-700 text-center">Clock-In Time</span>
+                  <span class="fs-16 fw-700">Clock-In Time</span>
                   <div
                     class="d-flex gap-3 justify-content-between align-items-center"
                   >
@@ -123,40 +133,22 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                     >
                   </div>
                 </div>
-
                 <span class="clock_border_left"></span>
                 <div
                   class="d-flex flex-column px-3 clock_in_out_width clock_in_out_border clock_out_time gap-3 bg-white clock_in_out_border p-3 pe-4"
                 >
-                  <span class="fs-16 fw-700 text-center">Clock-Out Time</span>
+                  <span class="fs-16 fw-700">Clock-Out Time</span>
                   <div
                     class="d-flex gap-3 align-items-center justify-content-between"
                   >
                     <span
-                      class="fs-16 fw-700 text-white rounded bg-primary-blue border border-light p-2"
-                      >_ _ : _ _</span
+                      class="fs-16 fw-700 text-white rounded clock_out_bg border border-light p-2"
+                      >06:00 PM</span
                     >
 
                     <span
-                      class="fs-16 fw-700 text-white rounded bg-primary-blue border border-light p-2"
+                      class="fs-16 fw-700 text-white rounded clock_out_bg border border-light p-2"
                       >Clock-Out</span
-                    >
-                  </div>
-                </div>
-                <span class="clock_border_left"></span>
-
-                <div
-                  class="d-flex flex-column gap-3 bg-primary-blue clock_in_out_width clock_in_out_border p-3 text-white pe-4"
-                >
-                  <span class="fs-14 text-center"
-                    >Total Hours Worked for the Day</span
-                  >
-                  <div
-                    class="d-flex gap-3 justify-content-center align-items-center"
-                  >
-                    <span
-                      class="fs-16 fw-700 rounded border border-light p-2 px-3"
-                      >5hr 37m 20s</span
                     >
                   </div>
                 </div>

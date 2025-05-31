@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ExpenseRetirementModal from "../components/ui/ExpenseRetirementModal.astro";
 ---
 
 <Layout title="HRPayHub :: Expense Retirement Form">
@@ -12,7 +11,7 @@ import ExpenseRetirementModal from "../components/ui/ExpenseRetirementModal.astr
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/expense-retirement-request"
+            href="/expense-retirement-request-employee"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -23,7 +22,7 @@ import ExpenseRetirementModal from "../components/ui/ExpenseRetirementModal.astr
           <!-- Actual Breadcrumb here -->
           <div class="d-flex align-items-center gap-2">
             <a
-              href="index.html"
+              href="/index.html"
               class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
             >
             <img
@@ -31,7 +30,7 @@ import ExpenseRetirementModal from "../components/ui/ExpenseRetirementModal.astr
               alt="angle-right-back"
             />
             <a
-              href="/expense-management"
+              href="/expense-management-employee"
               class="fs-14 text-decoration-none text-primary-dark"
               >Expense Management</a
             >
@@ -40,7 +39,7 @@ import ExpenseRetirementModal from "../components/ui/ExpenseRetirementModal.astr
               alt="angle-right-back"
             />
             <a
-              href="/expense-retirement-request"
+              href="/expense-retirement-request-employee"
               class="fs-14 text-decoration-none text-primary-dark"
               >Expense Retirement Request</a
             >
@@ -80,21 +79,30 @@ import ExpenseRetirementModal from "../components/ui/ExpenseRetirementModal.astr
                 <select
                   id="select_plan"
                   name="select_plan"
-                  class="form-select_custom fs-14 viewUserBtn"
+                  class="form-select_custom fs-14"
                   required
-                  data-bs-toggle="modal"
-                  data-bs-target="#myModal"
-                  data-title="Expense Retirement Modal"
-                  data-emp-type=""
                 >
                   <option value="" selected style="color: rgb(200, 200, 200)"
                     >Select</option
                   >
+                  <option value="plan_1">Mixed</option>
+                  <option value="plan_2">Cost of Goods Sold (COGS)</option>
+                  <option value="plan_3">OPEX</option>
+                  <option value="plan_3">ASSET</option>
                 </select>
                 <label for="select_plan"
                   >Expense Title &nbsp;<span>*</span></label
                 >
               </div>
+            </div>
+            <div
+              class="d-flex justify-content-end gap-4 mt-5 expense_retirement_input"
+            >
+              <button
+                class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 viewUserBtn"
+              >
+                <span>Validate</span>
+              </button>
             </div>
           </div><!-- End of Global Roles -->
         </div>
@@ -330,12 +338,6 @@ import ExpenseRetirementModal from "../components/ui/ExpenseRetirementModal.astr
           </div>
         </div>
       </div>
-
-      <ExpenseRetirementModal
-        modalId="myModal"
-        title={"Expense Retirement Modal"}
-        inputPlace="Employment Type"
-      />
     </section>
 
     <script is:inline type="text/javascript">

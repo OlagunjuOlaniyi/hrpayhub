@@ -1,0 +1,580 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: Employee Timesheet List">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/time-management"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/time-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Time Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Employee Timesheet List</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-3 px-lg-5">
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div class="d-flex gap-3 align-items-center">
+              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                >Employee Timesheet List</span
+              >
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+
+          <div class="">
+            <div class="d-flex flex-row justify-content-between gap-5">
+              <!---- Search  -->
+              <div class="d-flex gap-3">
+                <input
+                  type="text"
+                  class="form-control search-input search-width fs-14"
+                  placeholder="Search..."
+                />
+                <img
+                  src="images/png/icons/initialize.svg"
+                  class="initialize"
+                  alt="arrow-down"
+                />
+              </div>
+
+              <!-- Others -->
+              <div class="responsive gap-2">
+                <!-- Calendar Selector -->
+                <input
+                  type="month"
+                  class="form-control fs-14"
+                  style="width: 150px;"
+                  value="2025-08"
+                />
+
+                <!-- Download Dropdown -->
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/download.svg" alt="arrow-down" />
+                    <span>Export</span>
+                    <img
+                      src="images/png/icons/arrow-down.svg"
+                      alt="arrow-down"
+                    />
+                  </button>
+                  <div class="dropdown-menu p-0 border-0">
+                    <ul class="list-group border-0 fw-600 fs-14">
+                      <li class="list-group-item">
+                        <div>CSV</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>Excel</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>PDF</div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!---- End of Others ---->
+            </div>
+          </div>
+
+          {/* Page Content Box */}
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead
+                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+              >
+                <tr>
+                  <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
+                    >S/N</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white fw-600 fs-14 text-left"
+                    style="min-width: 200px;">Employee ID</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    style="min-width: 200px;">Employee Name</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Contracted Monthly Hours</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Monthly Hours Worked</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                  >
+                    <div class="d-flex justify-content-center flex-row gap-2">
+                      <div>Overtime Hours</div>
+                      <img
+                        data-bs-html="true"
+                        data-bs-placement="right"
+                        data-bs-toggle="tooltip"
+                        data-bs-custom-class="tooltip-left-align"
+                        title="<div class='d-flex flex-column gap-2'><div><strong>Overtime Hours</strong></div>
+                        <div>Hours worked beyond the contracted monthly hours.</div>
+                        <div>Calculated as Monthly Hours Worked minus Contracted Monthly Hours.</div>
+                        </div>"
+                        src="images/png/icons/info-white.svg"
+                        alt="info"
+                      />
+                    </div></th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Overtime Approval</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                  >
+                    <div class="d-flex justify-content-center flex-row gap-2">
+                      <div>Overtime Rate Multiplier</div>
+                      <img
+                        data-bs-html="true"
+                        data-bs-placement="right"
+                        data-bs-toggle="tooltip"
+                        data-bs-custom-class="tooltip-left-align"
+                        title="<div class='d-flex flex-column gap-2'><div><strong>Overtime Rate Multiplier</strong></div>
+                        <div>Multiplier applied to overtime hours (e.g., 1.5x) for pay calculation.</div>
+                        </div>"
+                        src="images/png/icons/info-white.svg"
+                        alt="info"
+                      />
+                    </div>
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                  >
+                    <div class="d-flex justify-content-center gap-2">
+                      <div>Holiday Hours</div>
+                      <img
+                        data-bs-html="true"
+                        data-bs-placement="right"
+                        data-bs-toggle="tooltip"
+                        data-bs-custom-class="tooltip-left-align"
+                        title="<div class='d-flex flex-column gap-2'><div><strong>Holiday Hours</strong></div>
+                        <div>Total hours worked on recognized holidays or approved leave days.</div>
+                        </div>"
+                        src="images/png/icons/info-white.svg"
+                        alt="info"
+                      />
+                    </div>
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Holiday Hours Approval</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                  >
+                    <div class="d-flex justify-content-center gap-2">
+                      <div>Holiday Rate Multiplier</div>
+                      <img
+                        data-bs-html="true"
+                        data-bs-placement="right"
+                        data-bs-toggle="tooltip"
+                        data-bs-custom-class="tooltip-left-align"
+                        title="<div class='d-flex flex-column gap-2'><div><strong>Holiday Rate Multiplier</strong></div>
+                        <div>Multiplier applied to holiday hours (e.g., 2x) for pay calculation. </div>
+                        </div>"
+                        src="images/png/icons/info-white.svg"
+                        alt="info"
+                      />
+                    </div>
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Salary Hours</th
+                  >
+                </tr>
+              </thead>
+
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 180px;
+                  }
+                  .column2 {
+                    min-width: 250px;
+                  }
+                </style>
+                {
+                  [
+                    {
+                      emp_id: "E12525",
+                      emp_name: "Wade Warren",
+                      contracted_monthly_hours: "180 Hrs",
+                      monthly_hours_worked: "170 Hrs",
+                      overtime_hours: "10Hrs",
+                      overtime_approval: "toggle",
+                      overtime_rate_multiplier: "1",
+                      holiday_hours: "10Hrs",
+                      holiday_hours_approval: "toggle",
+                      holiday_rate_multiplier: "1",
+                      salary_hours: "180 Hrs",
+                    },
+                    {
+                      emp_id: "E12525",
+                      emp_name: "Wade Warren",
+                      contracted_monthly_hours: "180 Hrs",
+                      monthly_hours_worked: "170 Hrs",
+                      overtime_hours: "10Hrs",
+                      overtime_approval: "toggle",
+                      overtime_rate_multiplier: "1",
+                      holiday_hours: "10Hrs",
+                      holiday_hours_approval: "toggle",
+                      holiday_rate_multiplier: "1",
+                      salary_hours: "180 Hrs",
+                    },
+                    {
+                      emp_id: "E12525",
+                      emp_name: "Wade Warren",
+                      contracted_monthly_hours: "180 Hrs",
+                      monthly_hours_worked: "170 Hrs",
+                      overtime_hours: "10Hrs",
+                      overtime_approval: "toggle",
+                      overtime_rate_multiplier: "1",
+                      holiday_hours: "10Hrs",
+                      holiday_hours_approval: "toggle",
+                      holiday_rate_multiplier: "1",
+                      salary_hours: "180 Hrs",
+                    },
+                    {
+                      emp_id: "E12525",
+                      emp_name: "Wade Warren",
+                      contracted_monthly_hours: "180 Hrs",
+                      monthly_hours_worked: "170 Hrs",
+                      overtime_hours: "10Hrs",
+                      overtime_approval: "toggle",
+                      overtime_rate_multiplier: "1",
+                      holiday_hours: "10Hrs",
+                      holiday_hours_approval: "toggle",
+                      holiday_rate_multiplier: "1",
+                      salary_hours: "180 Hrs",
+                    },
+                    {
+                      emp_id: "E12525",
+                      emp_name: "Wade Warren",
+                      contracted_monthly_hours: "180 Hrs",
+                      monthly_hours_worked: "170 Hrs",
+                      overtime_hours: "10Hrs",
+                      overtime_approval: "toggle",
+                      overtime_rate_multiplier: "1",
+                      holiday_hours: "10Hrs",
+                      holiday_hours_approval: "toggle",
+                      holiday_rate_multiplier: "1",
+                      salary_hours: "180 Hrs",
+                    },
+                    {
+                      emp_id: "E12525",
+                      emp_name: "Wade Warren",
+                      contracted_monthly_hours: "180 Hrs",
+                      monthly_hours_worked: "170 Hrs",
+                      overtime_hours: "10Hrs",
+                      overtime_approval: "toggle",
+                      overtime_rate_multiplier: "1",
+                      holiday_hours: "10Hrs",
+                      holiday_hours_approval: "toggle",
+                      holiday_rate_multiplier: "1",
+                      salary_hours: "180 Hrs",
+                    },
+                    {
+                      emp_id: "E12525",
+                      emp_name: "Wade Warren",
+                      contracted_monthly_hours: "180 Hrs",
+                      monthly_hours_worked: "170 Hrs",
+                      overtime_hours: "10Hrs",
+                      overtime_approval: "toggle",
+                      overtime_rate_multiplier: "1",
+                      holiday_hours: "10Hrs",
+                      holiday_hours_approval: "toggle",
+                      holiday_rate_multiplier: "1",
+                      salary_hours: "180 Hrs",
+                    },
+                  ].map((ele, index) => (
+                    <tr class="fs-88">
+                      <td class="text-center fs-14">{index + 1}</td>
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        {ele.emp_id}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.emp_name}
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        {ele.contracted_monthly_hours}
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <div>{ele.monthly_hours_worked}</div>
+                          <div
+                            class="d-flex flex-row justify-content-between align-items-center gap-2 px-2"
+                            style={{
+                              border: "1px solid #EAECF0",
+                              borderRadius: "8px",
+                              backgroundColor: "#EAECF0",
+                            }}
+                          >
+                            <div
+                              role="button"
+                              class="d-flex "
+                              style={{ cursor: "pointer" }}
+                            >
+                              <img
+                                src="images/png/icons/initialize.svg"
+                                class="initialize w-100"
+                                alt="arrow-down"
+                              />
+                            </div>
+
+                            <div style={{ cursor: "pointer" }}>
+                              <img
+                                src="images/png/icons/colored/edit-2.svg"
+                                alt="edit_icon"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <span class="overtime-hours text_sec">
+                          {ele.overtime_hours}
+                        </span>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div
+                          role="button"
+                          class="d-flex form-check form-switch switchForDeductionsFields justify-content-center"
+                          style={{ cursor: "pointer" }}
+                        >
+                          <input
+                            class="form-check-input toggle-overtime"
+                            type="checkbox"
+                            role="switch"
+                            data-target="overtime"
+                          />
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center bg-light column">
+                        {ele.overtime_rate_multiplier}
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <span class="holiday-hours text_sec">
+                          {ele.holiday_hours}
+                        </span>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div
+                          role="button"
+                          class="d-flex form-check form-switch switchForDeductionsFields justify-content-center"
+                          style={{ cursor: "pointer" }}
+                        >
+                          <input
+                            class="form-check-input toggle-holiday"
+                            type="checkbox"
+                            role="switch"
+                            data-target="holiday"
+                          />
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center bg-light column">
+                        {ele.holiday_rate_multiplier}
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        {ele.salary_hours}
+                      </td>
+                    </tr>
+                  ))
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!---- End of table --->
+
+        <!-- Pagination Row -->
+        <div
+          class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+        >
+          <!-- Left: Pagination Text -->
+          <div class="fs-14 text-muted">
+            Showing <strong>1–20</strong> of <strong>1000</strong>
+          </div>
+
+          <!-- Right: Go to Page + Pagination -->
+          <div class="d-flex align-items-center gap-3 flex-wrap">
+            <!-- Go to Page -->
+            <form class="d-flex align-items-center gap-2">
+              <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+              <input
+                type="number"
+                min="1"
+                max="100"
+                id="gotoPage"
+                class="form-control form-control-sm"
+                style="width: 60px;"
+                placeholder="—"
+              />
+            </form>
+
+            <!-- Page Navigation -->
+
+            <nav>
+              <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                <li class="page-item">
+                  <a
+                    class="page-link text-primary-blue px-2"
+                    href="#"
+                    aria-label="Previous"
+                  >
+                    &lsaquo;
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">1</a>
+                </li>
+                <li class="page-item active" aria-current="page">
+                  <span class="page-link">2</span>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">3</a>
+                </li>
+                <li class="page-item disabled">
+                  <span class="page-link text-primary-blue">...</span>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">100</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link hello" href="#" aria-label="Next">
+                    &rsaquo;
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!---- Pagination ---->
+      </div>
+    </section>
+  </main>
+</Layout>
+<!-- Main content ends here -->
+
+<script>
+  document
+    .querySelectorAll(".dropdown-submenu > a")
+    .forEach(function (element) {
+      element.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const submenu = this.nextElementSibling;
+
+        // Close all other submenus
+        document
+          .querySelectorAll(".dropdown-submenu .dropdown-menu")
+          .forEach(function (el) {
+            if (el !== submenu) el.classList.remove("show");
+          });
+
+        submenu.classList.toggle("show");
+      });
+    });
+
+  // Optional: close submenus when clicking outside
+  document.addEventListener("click", function () {
+    document
+      .querySelectorAll(".dropdown-submenu .dropdown-menu")
+      .forEach(function (el) {
+        el.classList.remove("show");
+      });
+
+    // Overtime toggle
+    $(".toggle-overtime").on("change", function () {
+      const $row = $(this).closest("tr");
+      const $target = $row.find(".overtime-hours");
+
+      if ($(this).is(":checked")) {
+        $target.removeClass("text_sec").addClass("text-dark");
+      } else {
+        $target.removeClass("text-dark").addClass("text_sec");
+      }
+    });
+
+    // Holiday toggle
+    $(".toggle-holiday").on("change", function () {
+      const $row = $(this).closest("tr");
+      const $target = $row.find(".holiday-hours");
+
+      if ($(this).is(":checked")) {
+        $target.removeClass("text_sec").addClass("text-dark");
+      } else {
+        $target.removeClass("text-dark").addClass("text_sec");
+      }
+    });
+  });
+</script>

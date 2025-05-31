@@ -12,7 +12,7 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/expense-approval-request"
+            href="/expense-approval-request-employee"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -30,7 +30,7 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
               alt="angle-right-back"
             />
             <a
-              href="/expense-management"
+              href="/expense-management-employee"
               class="fs-14 text-decoration-none text-primary-dark"
               >Expense Management</a
             >
@@ -39,7 +39,7 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
               alt="angle-right-back"
             />
             <a
-              href="/expense-approval-request"
+              href="/expense-approval-request-employee"
               class="fs-14 text-decoration-none text-primary-dark"
               >Expense Approval Request</a
             >
@@ -366,6 +366,16 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
               </div>
 
               <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating expense_input">
                 <textarea class="form-input" rows="2" id="description"
                 ></textarea>
                 <label for="ex_title">Description &nbsp;<span>*</span></label>
@@ -487,6 +497,16 @@ import ViewOfferLetter from "../components/offers/ViewOfferLetter";
                 <label for="ex_title">Amount &nbsp;<span>*</span></label>
               </div>
 
+              <div class="form-floating expense_input">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
+              </div>
               <div class="form-floating expense_input">
                 <textarea class="form-input" rows="2" id="description"
                 ></textarea>
