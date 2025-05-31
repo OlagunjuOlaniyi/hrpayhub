@@ -122,8 +122,7 @@ import EditDepartmentModal from "../components/ui/modals/EditDepartmentModal";
             </div>
 
             <!-- Table section -->
-            <div class="table-responsive w-full" style="max-width: 100%">
-              <table
+            <table
                 class="table table-bordered payslip_table"
                 style="table-layout: auto; width: 100%"
               >
@@ -263,7 +262,6 @@ import EditDepartmentModal from "../components/ui/modals/EditDepartmentModal";
                   }
                 </tbody>
               </table>
-            </div>
             <!-- Table section -->
 
             <!-- Pagination Row -->
@@ -434,15 +432,16 @@ import EditDepartmentModal from "../components/ui/modals/EditDepartmentModal";
             $(this).html(html);
           } else {
             // 20% chance of failure
-            notyf.error("An error occurred. Try again!");
+            notyf.error("This is a sample notification shown for delete operation!");
             $(this).html(html);
+            console.log("No delete")
           }
         }, 1000);
       });
 
       $("#deleteDeptConfirmBtn").click(() => {
         $(targetLocationToDelete).closest("tr").remove();
-        notyf.success("Your changes have been successfully saved!");
+        notyf.success("The department have been successfully deleted!");
         myModal.hide();
       });
     });
