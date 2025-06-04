@@ -16,8 +16,8 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full">
           <a
-            href="payslip.html"
-            title="Back to Payslip"
+            href="/"
+            title="Back to Company Setup"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
             <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
@@ -27,7 +27,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
           <!-- Actual Breadcrumb here -->
           <BreadCrumbs
             data={[
-              { name: "Dashboard", url: "index.html" },
+              { name: "Dashboard", url: "/" },
               { name: "Company Setup", url: "company_setup.html" },
               { name: "Signup Details" },
             ]}
@@ -62,141 +62,167 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
           {/* Page Title */}
 
           {/* Page Content Box */}
-          <form class="w-25 vstack gap-4" id = "signup_details_form">
-            <div class="d-flex align-items-center gap-4">
-              <div class="fs-14 fw-600 text-primary-blue">Signup Details</div>
-              <div class="flex-grow-1">
-                <div class="demarcator_line">&nbsp;</div>
-              </div>
+          <div class="row">
+            <div class="col-12 col-md-8 col-lg-4">
+              <form class="vstack gap-4" id="signup_details_form">
+                <div class="d-flex align-items-center gap-4">
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    Signup Details
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+
+                <div class="vstack" style="gap: 2.3rem">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="company_name"
+                      name="company_name"
+                      class="form-input"
+                      placeholder=" "
+                      value="Delon Apps LLC"
+                      disabled
+                    />
+                    <label for="company_name"
+                      >Company Name &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="fullname"
+                      name="fullname"
+                      class="form-input"
+                      placeholder=" "
+                      disabled
+                      value="Olaniyan Ajidewe"
+                    />
+                    <label for="fullname">Full Name &nbsp;<span>*</span></label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="company_email"
+                      name="company_email"
+                      class="form-input"
+                      placeholder=" "
+                      disabled
+                      value="olaniyan@gmail.com"
+                    />
+                    <label for="company_email"
+                      >Company Email &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="company_phone"
+                      name="company_phone"
+                      class="form-input"
+                      placeholder=" "
+                      disabled
+                      value="+23480979765678"
+                    />
+                    <label for="company_phone"
+                      >Company Phone Number &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <select
+                      id="package"
+                      name="package"
+                      class="form-select_custom"
+                      required
+                      disabled
+                    >
+                      <option
+                        value=""
+                        selected
+                        style="color: rgb(200, 200, 200)">Please choose</option
+                      >
+                      <option value="fulltime" selected>Option 1</option>
+                      <option value="parttime">Option 2</option>
+                    </select>
+                    <label for="package"
+                      >Selected Package &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="users"
+                      name="users"
+                      class="form-input"
+                      placeholder=" "
+                      disabled
+                      value="23"
+                    />
+                    <label for="users"
+                      >Number of Users &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <select
+                      id="account_status"
+                      name="account_status"
+                      class="form-select_custom"
+                      required
+                      disabled
+                    >
+                      <option
+                        value=""
+                        selected
+                        style="color: rgb(200, 200, 200)">Please choose</option
+                      >
+                      <option value="fulltime" selected>Active</option>
+                      <option value="parttime">Suspended</option>
+                    </select>
+                    <label for="account_status"
+                      >Account Status &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="created_date"
+                      name="created_date"
+                      class="form-input"
+                      placeholder=" "
+                      disabled
+                      value="2019-12-05"
+                    />
+                    <label for="created_date"
+                      >Date Created&nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="time"
+                      id="created_time"
+                      name="created_time"
+                      class="form-input"
+                      placeholder=" "
+                      disabled
+                      value="14:30"
+                    />
+                    <label for="created_time"
+                      >Time Created&nbsp;<span>*</span></label
+                    >
+                  </div>
+                </div>
+              </form>
             </div>
-
-            <div class="vstack" style="gap: 2.3rem">
-              <div class="form-floating">
-                <input
-                  type="text"
-                  id="company_name"
-                  name="company_name"
-                  class="form-input"
-                  placeholder=" "
-                />
-                <label for="company_name">Company Name &nbsp;<span>*</span></label
-                >
-              </div>
-
-              <div class="form-floating">
-                <input
-                  type="text"
-                  id="fullname"
-                  name="fullname"
-                  class="form-input"
-                  placeholder=" "
-                />
-                <label for="fullname"
-                  >Full Name &nbsp;<span>*</span></label
-                >
-              </div>
-
-              <div class="form-floating">
-                <input
-                  type="text"
-                  id="company_email"
-                  name="company_email"
-                  class="form-input"
-                  placeholder=" "
-                />
-                <label for="company_email"
-                  >Company Email &nbsp;<span>*</span></label
-                >
-              </div>
-
-              <div class="form-floating">
-                <input
-                  type="text"
-                  id="company_phone"
-                  name="company_phone"
-                  class="form-input"
-                  placeholder=" "
-                />
-                <label for="company_phone"
-                  >Company Phone Number &nbsp;<span>*</span></label
-                >
-              </div>
-
-              <div class="form-floating">
-                <input
-                  type="text"
-                  id="package"
-                  name="package"
-                  class="form-input"
-                  placeholder=" "
-                />
-                <label for="package"
-                  >Selected Package &nbsp;<span>*</span></label
-                >
-              </div>
-
-              <div class="form-floating">
-                <input
-                  type="text"
-                  id="users"
-                  name="users"
-                  class="form-input"
-                  placeholder=" "
-                />
-                <label for="users"
-                  >Number of Users &nbsp;<span>*</span></label
-                >
-              </div>
-
-              <div class="form-floating">
-                <input
-                  type="text"
-                  id="account_status"
-                  name="account_status"
-                  class="form-input"
-                  placeholder=" "
-                />
-                <label for="account_status"
-                  >Account Status &nbsp;<span>*</span></label
-                >
-              </div>
-
-              <div class="form-floating">
-                <input
-                  type="text"
-                  id="created_date"
-                  name="created_date"
-                  class="form-input"
-                  placeholder=" "
-                />
-                <label for="created_date"
-                  >Created Date &nbsp;<span>*</span></label
-                >
-              </div>
-
-              <div class="form-floating">
-                <input
-                  type="text"
-                  id="created_time"
-                  name="created_time"
-                  class="form-input"
-                  placeholder=" "
-                />
-                <label for="created_time"
-                  >Created Time &nbsp;<span>*</span></label
-                >
-              </div>
-
-              <div class="d-flex justify-content-end">
-                <button
-                  type="submit"
-                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
-                >
-                  <span>Submit</span>
-                </button>
-              </div>
-            </div>
-          </form>
+          </div>
           {/* Page Content Box */}
         </div>
       </div>
@@ -207,8 +233,6 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
 
   <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
-      
-
       $("#signup_details_form").submit((evt) => {
         evt.preventDefault();
 

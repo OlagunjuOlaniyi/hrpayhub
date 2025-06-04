@@ -24,7 +24,7 @@ import EditLocationModal from "../components/ui/modals/EditLocationModal";
   }
 </style>
 
-<Layout title="HRPayHub :: Work Locations">
+<Layout title="HRPayHub :: Branch">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -46,7 +46,7 @@ import EditLocationModal from "../components/ui/modals/EditLocationModal";
             data={[
               { name: "Dashboard", url: "index.html" },
               { name: "Company Setup", url: "company_setup.html" },
-              { name: "Work Locations" },
+              { name: "Branch" },
             ]}
           />
           <!-- Actual Breadcrumb here -->
@@ -71,7 +71,7 @@ import EditLocationModal from "../components/ui/modals/EditLocationModal";
               />
               <span
                 class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Company Setup - Work Locations</span
+                >Company Setup - Branch</span
               >
             </div>
             <div class="fw-bold hidden">&nbsp;</div>
@@ -84,7 +84,7 @@ import EditLocationModal from "../components/ui/modals/EditLocationModal";
               class="d-flex flex-column justify-content-between gap-4 border p-4"
               style="border-radius: 10px 10px 0px 0px"
             >
-              <div class="font-ubuntu-bold fs-18">Work Locations</div>
+              <div class="font-ubuntu-bold fs-18">Branch</div>
               <div
                 class="d-flex flex-column flex-xl-row gap-3 lg:gap-0 justify-content-between lg:align-items-center"
               >
@@ -108,7 +108,7 @@ import EditLocationModal from "../components/ui/modals/EditLocationModal";
                     />
                   </div>
                   <!-- Search input box -->
-                  <div class="dropdown work_location_select">
+                  <div class="dropdown work_location_select d-none">
                     <button
                       class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
                       type="button"
@@ -174,7 +174,7 @@ import EditLocationModal from "../components/ui/modals/EditLocationModal";
                     </button>
                   </div>
                   <button
-                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 dropdown-toggle dropdown-no-arrow d-flex justify-content-center align-items-center gap-2"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex justify-content-center align-items-center gap-2"
                     type="button"
                     id="addNewWorkLocationBtn"
                   >
@@ -199,11 +199,7 @@ import EditLocationModal from "../components/ui/modals/EditLocationModal";
                   >
                   <th
                     class="bg-primary-blue text-white text-nowrap"
-                    style="min-width: 130px">Location Title</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white text-nowrap"
-                    style="min-width: 200px">Location Type</th
+                    style="min-width: 130px">Branch</th
                   >
                   <th
                     class="bg-primary-blue text-white text-nowrap"
@@ -215,7 +211,7 @@ import EditLocationModal from "../components/ui/modals/EditLocationModal";
                   >
                   <th
                     class="bg-primary-blue text-white text-nowrap text-center"
-                    style="min-width: 200px">Postal Code</th
+                    style="min-width: 200px">Postcode</th
                   >
                   <th
                     class="bg-primary-blue text-white text-nowrap text-center"
@@ -234,16 +230,96 @@ import EditLocationModal from "../components/ui/modals/EditLocationModal";
                 <tbody class="font-avenir">
                   {
                     [
-                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
-                      {title: "Lorem 1", type: "Tertiary", address: "7529 E. Pecan St.", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
-                      {title: "Lorem 1", type: "Retail", address: "3890 Poplar Dr.", city: "Ikeja", postalCode: '—', state: "Lagos", country: "Nigeria"},
-                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
-                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
-                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
-                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
-                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
-                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"},
-                      {title: "Lorem 1", type: "Primary", address: "8080 Railroad street", city: "Michigan", postalCode: 12476, state: "-", country: "UK"}
+                      {
+                        title: "Lorem 1",
+                        type: "Primary",
+                        address: "8080 Railroad street",
+                        city: "Michigan",
+                        postalCode: 12476,
+                        state: "-",
+                        country: "UK",
+                      },
+                      {
+                        title: "Lorem 1",
+                        type: "Tertiary",
+                        address: "7529 E. Pecan St.",
+                        city: "Michigan",
+                        postalCode: 12476,
+                        state: "-",
+                        country: "UK",
+                      },
+                      {
+                        title: "Lorem 1",
+                        type: "Retail",
+                        address: "3890 Poplar Dr.",
+                        city: "Ikeja",
+                        postalCode: "—",
+                        state: "Lagos",
+                        country: "Nigeria",
+                      },
+                      {
+                        title: "Lorem 1",
+                        type: "Primary",
+                        address: "8080 Railroad street",
+                        city: "Michigan",
+                        postalCode: 12476,
+                        state: "-",
+                        country: "UK",
+                      },
+                      {
+                        title: "Lorem 1",
+                        type: "Primary",
+                        address: "8080 Railroad street",
+                        city: "Michigan",
+                        postalCode: 12476,
+                        state: "-",
+                        country: "UK",
+                      },
+                      {
+                        title: "Lorem 1",
+                        type: "Primary",
+                        address: "8080 Railroad street",
+                        city: "Michigan",
+                        postalCode: 12476,
+                        state: "-",
+                        country: "UK",
+                      },
+                      {
+                        title: "Lorem 1",
+                        type: "Primary",
+                        address: "8080 Railroad street",
+                        city: "Michigan",
+                        postalCode: 12476,
+                        state: "-",
+                        country: "UK",
+                      },
+                      {
+                        title: "Lorem 1",
+                        type: "Primary",
+                        address: "8080 Railroad street",
+                        city: "Michigan",
+                        postalCode: 12476,
+                        state: "-",
+                        country: "UK",
+                      },
+                      {
+                        title: "Lorem 1",
+                        type: "Primary",
+                        address: "8080 Railroad street",
+                        city: "Michigan",
+                        postalCode: 12476,
+                        state: "-",
+                        country: "UK",
+                      },
+                      {
+                        title: "Lorem 1",
+                        type: "Primary",
+                        address: "8080 Railroad street",
+                        city: "Michigan",
+                        postalCode: 12476,
+                        state: "-",
+                        country: "UK",
+                      },
                     ].map((ele, idx) => (
                       <tr>
                         <td
@@ -256,18 +332,9 @@ import EditLocationModal from "../components/ui/modals/EditLocationModal";
                           {ele.title}
                         </td>
                         <td valign="middle" class="text-black px-12px fs-14">
-                          {ele.type}
-                        </td>
-                        <td
-                          valign="middle"
-                          class="text-black px-12px fs-14"
-                        >
                           {ele.address}
                         </td>
-                        <td
-                          valign="middle"
-                          class="text-black px-12px fs-14"
-                        >
+                        <td valign="middle" class="text-black px-12px fs-14">
                           {ele.city}
                         </td>
                         <td
@@ -508,6 +575,33 @@ import EditLocationModal from "../components/ui/modals/EditLocationModal";
         notyf.success("Your changes have been successfully saved!");
         myModal.hide();
       });
+
+      $("#country, #country_edit").on("change", function (evt) {
+        const value = $(this).val();
+        console.log(value);
+
+        if (value == "UK") {
+          $("#state_section, #state_section_edit")
+            .addClass("d-none")
+            .prop("disabled", "true");
+          $("#postcode_section, #postcode_section_edit")
+            .removeClass("d-none")
+            .prop("disabled", "false");
+        }
+
+        if (value == "Nigeria") {
+          $("#state_section, #state_section_edit")
+            .removeClass("d-none")
+            .prop("disabled", "false");
+          $("#postcode_section, #postcode_section")
+            .addClass("d-none")
+            .prop("disabled", "true");
+        }
+      });
+
+      // $("#country_edit").on('change', function() {
+      //   console.log('Hello')
+      // })
     });
   </script>
 </Layout>

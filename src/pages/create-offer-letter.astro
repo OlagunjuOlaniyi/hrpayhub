@@ -884,6 +884,8 @@ import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePrevie
     document.addEventListener("DOMContentLoaded", () => {
       $(".tab_indicator").click((evt) => {
         const clickedTab = evt.currentTarget;
+        const prevTabs = $(clickedTab).prevAll();
+        $(prevTabs).addClass("selected");
         $(".tab_indicator").removeClass("active");
         $(".tab_indicator").prop("aria-selected", "false");
         $(clickedTab).addClass("active");

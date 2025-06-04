@@ -652,6 +652,10 @@ body {
   font-family: "Avenir";
   font-weight: 700;
 }
+.font-avenir {
+  font-family: "Avenir";
+  font-weight: normal;
+}
 
 .initialize {
   width: 30px;
@@ -1207,18 +1211,118 @@ ul.upload_offer_bg li.nav-item .active {
   cursor: pointer;
 }
 
+.sign_area {
+  width: 50%;
+}
+
 @media (max-width: 769px) {
-  .sign_logo {
+  /* .sign_logo {
     width: 160px !important;
-  }
+  } */
 
   .sign_in_input {
-    min-width: 100%;
+    width: 345px;
   }
 
   .sign_area {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    width: 100%;
+  }
+}
+
+/* Sign up section */
+.step-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-active,
+.step-complete {
+  background-color: #2271b6;
+}
+
+.step-line {
+  width: 108px;
+  height: 2px;
+  background-color: #ccc;
+}
+
+.form-step {
+  animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.step-circle .progress_inner {
+  width: 15px !important;
+  height: 15px !important;
+  background-color: #fff !important;
+
+  border-radius: 50%;
+}
+
+/* .btn-check:checked + .btn-outline-primary {
+  background-color: #0d6efd;
+  color: #fff;
+  border-color: #0d6efd;
+} */
+
+.btn-check:checked + .btn-outline-secondary {
+  background-color: transparent;
+  color: #131212;
+  border: 2px solid;
+
+  border-color: #2271b6;
+}
+
+.form-check-input:checked {
+  background-color: #2271b6;
+}
+
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 999;
+  width: 50%;
+  padding: 20px 0;
+}
+
+.first_login {
+  width: 60%;
+}
+
+@media (max-width: 769px) {
+  .fixed-footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 999;
+    width: 100%;
+    padding: 20px 10px;
+  }
+
+  .first_login {
+    width: 100%;
   }
 }

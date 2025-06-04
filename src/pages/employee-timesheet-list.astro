@@ -414,8 +414,48 @@ import Layout from "../layouts/Layout.astro";
                           />
                         </div>
                       </td>
-                      <td class="fs-14 px-3 text-center bg-light column">
-                        {ele.overtime_rate_multiplier}
+                      <td class="fs-14 px-3 text-center d-flex justify-content-center gap-2 bg-light column">
+                        <div class="d-flex w-50 justify-content-center">
+                          <input
+                            type="number"
+                            step="0.01"
+                            class="form-control py-1"
+                            placeholder="1"
+                          />
+                        </div>
+                        <div
+                          class="d-flex flex-row justify-content-between align-items-center gap-2 px-2"
+                          style={{
+                            border: "1px solid #EAECF0",
+                            borderRadius: "8px",
+                            backgroundColor: "#EAECF0",
+                          }}
+                        >
+                          <div
+                            role="button"
+                            class="d-flex "
+                            style={{ cursor: "pointer" }}
+                          >
+                            <img
+                              style="width: 20px; height: 20px"
+                              class="rounded"
+                              src="images/png/send.png"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Save</em></div></div>"
+                            />
+                          </div>
+
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                            />
+                          </div>
+                        </div>
                       </td>
                       <td class="fs-14 px-3 text-center column">
                         <span class="holiday-hours text_sec">
@@ -436,8 +476,48 @@ import Layout from "../layouts/Layout.astro";
                           />
                         </div>
                       </td>
-                      <td class="fs-14 px-3 text-center bg-light column">
-                        {ele.holiday_rate_multiplier}
+                      <td class="fs-14 px-3 text-center d-flex justify-content-center gap-2 bg-light column">
+                        <div class="d-flex w-50 justify-content-center">
+                          <input
+                            type="number"
+                            step="0.01"
+                            class="form-control py-1"
+                            placeholder="1"
+                          />
+                        </div>
+                        <div
+                          class="d-flex flex-row justify-content-between align-items-center gap-2 px-2"
+                          style={{
+                            border: "1px solid #EAECF0",
+                            borderRadius: "8px",
+                            backgroundColor: "#EAECF0",
+                          }}
+                        >
+                          <div
+                            role="button"
+                            class="d-flex "
+                            style={{ cursor: "pointer" }}
+                          >
+                            <img
+                              style="width: 20px; height: 20px"
+                              class="rounded"
+                              src="images/png/send.png"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Save</em></div></div>"
+                            />
+                          </div>
+
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                            />
+                          </div>
+                        </div>
                       </td>
                       <td class="fs-14 px-3 text-center column">
                         {ele.salary_hours}

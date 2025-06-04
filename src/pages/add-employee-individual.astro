@@ -271,7 +271,6 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                     aria-selected="false">Work History</span
                   >
                 </li>
-                
               </ul>
 
               <!-- Tab Panel -->
@@ -422,7 +421,7 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                       placeholder=""
                     />
                     <label for="post_code"
-                      >Postal Code &nbsp;<span>*</span></label
+                      >Post Code &nbsp;<span>*</span></label
                     >
                   </div>
                   <div class="form-floating add_employee_width">
@@ -901,7 +900,6 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                       <option value="1">Engineering</option>
                       <option value="2">Finance</option>
                       <option value="3">Admin</option>
-                      
                     </select>
                     <label for="dpt_selection"
                       >Department Selection &nbsp;<span>*</span></label
@@ -917,7 +915,6 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                       <option value="" selected>Select</option>
                       <option value="1">Manager</option>
                       <option value="2">Member</option>
-                      
                     </select>
                     <label for="pry_selection"
                       >Primary Role Selection &nbsp;<span>*</span></label
@@ -1196,7 +1193,7 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                       <option value="3">Hybrid</option>
                     </select>
                     <label for="work_location"
-                      >Work Location &nbsp;<span>*</span></label
+                      >Branch &nbsp;<span>*</span></label
                     >
                   </div>
                   <div class="form-floating add_employee_width">
@@ -1350,7 +1347,6 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                       id="multiple-select-field"
                       placeholder="Restricted Work Days"
                       multiple
-                      
                     >
                       <option value="1">Monday</option>
                       <option value="2">Tuesday</option>
@@ -2645,6 +2641,8 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
       document.addEventListener("DOMContentLoaded", () => {
         $(".tab_indicator").click((evt) => {
           const clickedTab = evt.currentTarget;
+          const prevTabs = $(clickedTab).prevAll();
+          $(prevTabs).addClass("selected");
           $(".tab_indicator").removeClass("active");
           $(".tab_indicator").prop("aria-selected", "false");
           $(clickedTab).addClass("active");
