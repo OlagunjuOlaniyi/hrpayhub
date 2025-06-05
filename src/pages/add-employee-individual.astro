@@ -12,7 +12,7 @@ import ListOfCountries from "../components/ui/ListOfCountries";
 
 <style></style>
 
-<Layout title="HRPayHub :: Add Employee (Individual)">
+<Layout title="HRPayHub :: Add Employee (Individually)">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -21,7 +21,7 @@ import ListOfCountries from "../components/ui/ListOfCountries";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full">
           <a
-            href="/add-employee"
+            href="/employee-management"
             title="Back to Payslip"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -37,11 +37,8 @@ import ListOfCountries from "../components/ui/ListOfCountries";
                 name: "Employee Management",
                 url: "employee-management.html",
               },
-              {
-                name: "Add Employee",
-                url: "add-employee.html",
-              },
-              { name: "Add Employee (Individual)" },
+
+              { name: "Add Employee (Individually)" },
             ]}
           />
           <!-- Actual Breadcrumb here -->
@@ -298,6 +295,8 @@ import ListOfCountries from "../components/ui/ListOfCountries";
                     </div>
                   </div>
 
+                  
+
                   <div class="form-floating add_employee_width">
                     <input
                       type="text"
@@ -408,7 +407,9 @@ import ListOfCountries from "../components/ui/ListOfCountries";
                       <option value="1">Nigeria</option>
                       <option value="2">UK</option>
                     </select>
-                    <label for="country">Country &nbsp;<span>*</span></label>
+                    <label for="country"
+                      >Country of Work &nbsp;<span>*</span></label
+                    >
                   </div>
                   <div
                     class="form-floating add_employee_width"
@@ -2794,6 +2795,8 @@ import ListOfCountries from "../components/ui/ListOfCountries";
             $("#view_employee_details").removeClass("d-none");
           }
         });
+
+        
       });
     </script>
   </main>
