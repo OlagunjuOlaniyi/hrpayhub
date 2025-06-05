@@ -335,6 +335,10 @@ input.no_focus:focus {
   justify-content: center;
   align-items: center;
   z-index: 1 !important;
+
+  span {
+    color: #fd0000 !important;
+  }
 }
 
 .form-input:focus + label span,
@@ -1187,6 +1191,15 @@ ul.upload_offer_bg li.nav-item .active {
   padding-right: 25px;
 }
 
+.download_sample {
+  border-radius: 15px;
+  border: 2px solid #c1c1c1;
+}
+
+.text_underline {
+  text-decoration: underline;
+}
+
 /* Sigin In Section */
 .sign_in_img_bg {
   background-color: rgba(236, 241, 245, 1);
@@ -1279,12 +1292,6 @@ ul.upload_offer_bg li.nav-item .active {
   border-radius: 50%;
 }
 
-/* .btn-check:checked + .btn-outline-primary {
-  background-color: #0d6efd;
-  color: #fff;
-  border-color: #0d6efd;
-} */
-
 .btn-check:checked + .btn-outline-secondary {
   background-color: transparent;
   color: #131212;
@@ -1298,31 +1305,15 @@ ul.upload_offer_bg li.nav-item .active {
 }
 
 .fixed-footer {
-  position: fixed;
+  position: sticky;
   bottom: 0;
   right: 0;
   background-color: #fff;
   z-index: 999;
-  width: 50%;
+
   padding: 20px 0;
 }
 
 .first_login {
-  width: 60%;
-}
-
-@media (max-width: 769px) {
-  .fixed-footer {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    background-color: #fff;
-    z-index: 999;
-    width: 100%;
-    padding: 20px 10px;
-  }
-
-  .first_login {
-    width: 100%;
-  }
+  width: 100%;
 }

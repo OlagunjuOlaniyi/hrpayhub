@@ -55,7 +55,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
           >
             <div>
               <img
-                class="mt-5 sign_logo"
+                class="mt-lg-5 sign_logo"
                 src="images/png/icons/hrpayhub-logo.svg"
                 alt="hrpayhub logo"
               />
@@ -67,7 +67,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
             >
               <button
                 type="button"
-                class="btn ms-4 text-decoration-none d-flex align-items-center invisible back-btn font-ubuntu fw-700 fs-14"
+                class="btn ms-lg-4 text-decoration-none d-flex align-items-center invisible back-btn font-ubuntu fw-700 fs-14"
               >
                 <img
                   src="images/png/icons/angle-left.svg"
@@ -174,26 +174,6 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                   >
                 </div>
 
-                <div
-                  class="fixed-footer d-flex flex-column justify-content-center align-items-center"
-                >
-                  <div class="d-flex justify-content-end mb-3 first_login">
-                    <button
-                      type="button"
-                      class="btn bg-primary-blue text-white next-btn"
-                      >Next</button
-                    >
-                  </div>
-
-                  <div class="fw-600 fs-14 text-center mt-2 mb-3">
-                    Already have an account? <a
-                      href="/sign-in"
-                      class="text-primary-blue font-avenir-bold fs-14 fw-700"
-                      >Login</a
-                    >
-                  </div>
-                </div>
-
                 <div class="form-floating mb-4 mt-5">
                   <select
                     id="country"
@@ -275,10 +255,10 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     />
                   </span>
                 </div>
-                <span class="fs-14 fs-sm-12 fs-lg-12 font-avenir"
-                  >Password should contain 8–16 characters, including <br /> uppercase,
-                  lowercase, number, and special character.</span
-                >
+                <div class="font-avenir fs-12 sign_in_input">
+                  Password should contain 8–16 characters, including uppercase,
+                  lowercase, number, and special character.
+                </div>
                 <div class="toggle_password mb-2 mt-4">
                   <div class="form-floating mt-2 sign_in_input">
                     <input
@@ -307,10 +287,30 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     />
                   </span>
                 </div>
-                <span class="fs-14 font-avenir"
-                  >Password should contain 8–16 characters, including <br /> uppercase,
-                  lowercase, number, and special character.</span
+                <div class="font-avenir mb-5 fs-12 sign_in_input">
+                  Password should contain 8–16 characters, including uppercase,
+                  lowercase, number, and special character.
+                </div>
+
+                <div
+                  class="fixed-footer d-flex flex-column justify-content-center align-items-center"
                 >
+                  <div class="d-flex justify-content-end mb-3 first_login">
+                    <button
+                      type="button"
+                      class="btn bg-primary-blue fs-14 fw-700 text-white next-btn"
+                      >Next</button
+                    >
+                  </div>
+
+                  <div class="fw-600 fs-14 text-center mt-2 mb-3">
+                    Already have an account? <a
+                      href="/sign-in"
+                      class="text-primary-blue font-avenir-bold fs-14 fw-700"
+                      >Login</a
+                    >
+                  </div>
+                </div>
               </div>
 
               <!-- Step 2 -->
@@ -391,6 +391,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     name="packages"
                     class="form-select_custom fs-12 packages_ng"
                     required
+                    disabled
                   >
                     <option value="" selected> Select </option>
                     <option value="1" class="d-flex justify-content-between"
@@ -424,6 +425,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     name="packages"
                     class="form-select_custom fs-12 packages_uk"
                     required
+                    disabled
                   >
                     <option value="" selected> Select </option>
                     <option value="1" class="d-flex justify-content-between"
@@ -455,35 +457,77 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     Packages &nbsp;<span>*</span>
                   </label>
                 </div>
-                <div class="form-floating sign_in_input mb-5">
+                <div class="form-floating sign_in_input mt-5 mb-5">
                   <input
                     type="text"
                     id="no_of_users"
                     name="no_of_users"
-                    class="form-control form-input fs-12"
+                    class="form-input fs-12 no_of_users"
                     placeholder=""
                     required
+                    disabled
                   />
                   <label for="no_of_users fs-14"
                     >Number of Users &nbsp;<span>*</span></label
                   >
                 </div>
-                <div class="form-floating sign_in_input mb-5">
-                  <input
-                    type="text"
-                    id="total_amount"
-                    name="total_amount"
-                    class="form-control form-input fs-12"
-                    placeholder=""
-                    required
-                  />
-                  <label for="total_amount fs-14"
-                    >Total Amount &nbsp;<span>*</span></label
-                  >
-                </div>
 
                 <div
-                  class="d-flex justify-content-between sign_in_input mt-5 mb-5"
+                  class="d-flex d-none justify-content-between gap-3"
+                  id="amount_vat"
+                >
+                  <div>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="amount"
+                        name="amount"
+                        class="form-input fs-12"
+                        placeholder=""
+                      />
+                      <label for="amount fs-14">Amount </label>
+                    </div>
+                    <div class="mt-2">
+                      <span class="fs-12">Package Amount x No of Users</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="vat"
+                        name="vat"
+                        class="form-input fs-12"
+                        placeholder=""
+                      />
+                      <label for="vat fs-14">VAT</label>
+                    </div>
+                    <div class="mt-2">
+                      <span class="fs-12">7.5% x Amount</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-5 mb-5">
+                  <div class="form-floating sign_in_input mt-5">
+                    <input
+                      type="text"
+                      id="total_amount"
+                      name="total_amount"
+                      class="form-input fs-12 total_amount"
+                      placeholder=""
+                      disabled
+                    />
+                    <label for="total_amount fs-14">Total Amount </label>
+                  </div>
+                  <div class="mt-2 d-none" id="amount_vat_txt">
+                    <span class="fs-12">Amount + VAT</span>
+                  </div>
+                </div>
+
+                <!------ next button here ----->
+                <div
+                  class="fixed-footer d-flex justify-content-between sign_in_input mt-5 mb-5"
                 >
                   <button
                     type="button"
@@ -499,26 +543,6 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     id="subscribe-pay"
                     disabled>Subscribe and Pay</button
                   >
-                </div>
-
-                <!------ next button here ----->
-                <div class="d-none mt-5 mb-5" id="total_amount">
-                  <div class="form-floating sign_in_input mt-5">
-                    <input
-                      type="text"
-                      id="total_amount"
-                      name="total_amount"
-                      class="form-control form-input fs-12"
-                      placeholder=""
-                      required
-                    />
-                    <label for="total_amount fs-14"
-                      >Total Amount &nbsp;<span>*</span></label
-                    >
-                  </div>
-                  <div class="mt-2">
-                    <span class="fs-12">Amount + VAT</span>
-                  </div>
                 </div>
               </div>
 
@@ -670,8 +694,20 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     </div>
                   </div>
 
-                  <div class="mt-5">
+                  <div class="mt-5 fs-14 d-flex gap-4">
                     Billing Address Same as Company Address ?
+                    <div
+                      role="button"
+                      class="d-flex ms-4 form-check form-switch switchForDeductionsFields justify-content-start"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        data-target="#"
+                      />
+                    </div>
                   </div>
 
                   <div class="form-floating mb-4 mt-5">
@@ -756,10 +792,12 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     >
                   </div>
 
-                  <div class="d-flex justify-content-end mb-3 mt-5">
+                  <div
+                    class="fixed-footer d-flex justify-content-end mb-3 mt-5"
+                  >
                     <button
                       type="button"
-                      class="btn bg-primary-blue text-white"
+                      class="btn bg-primary-blue text-white fs-14 fw-700"
                       data-bs-toggle="modal"
                       data-bs-target="#successModal">Place Order</button
                     >
@@ -922,7 +960,12 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
           // Disable both buttons by default
           $("#start-free-trial").prop("disabled", true);
           $("#subscribe-pay").prop("disabled", true);
-          $("#total_amount").addClass("d-none"); // hide unchecked
+          $(".packages_ng").prop("disabled", true);
+          $(".packages_uk").prop("disabled", true);
+          $(".no_of_users").prop("disabled", true);
+          $(".total_amount").prop("disabled", true);
+          $("#amount_vat").addClass("d-none");
+          $("#amount_vat_txt").addClass("d-none");
 
           $('label[for="free-trial"] img:last-child').removeClass("d-none"); // unchecked
           $('label[for="buy-now"] img:last-child').removeClass("d-none"); // unchecked
@@ -932,6 +975,10 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
             $('label[for="free-trial"] .checked').removeClass("d-none"); // checked
             $('label[for="free-trial"] .unchecked').addClass("d-none"); // hide unchecked
             $("#start-free-trial").prop("disabled", false);
+            $(".packages_ng").prop("disabled", false);
+            $(".packages_uk").prop("disabled", false);
+            $(".no_of_users").prop("disabled", false);
+            $(".total_amount").prop("disabled", false);
           }
 
           if ($("#buy-now").is(":checked")) {
@@ -939,7 +986,12 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
             $('label[for="buy-now"] .unchecked').addClass("d-none"); // hide unchecked
             $("#start-free-trial").prop("disabled", "true");
             $("#subscribe-pay").prop("disabled", false);
-            $("#total_amount").removeClass("d-none"); // hide unchecked
+            $(".total_amount").prop("disabled", false);
+            $(".packages_ng").prop("disabled", false);
+            $(".packages_uk").prop("disabled", false);
+            $(".no_of_users").prop("disabled", false);
+            $("#amount_vat").removeClass("d-none");
+            $("#amount_vat_txt").removeClass("d-none");
           }
         });
 

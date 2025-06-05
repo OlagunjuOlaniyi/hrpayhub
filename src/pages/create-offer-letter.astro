@@ -4,6 +4,8 @@ import FormContextIndicator from "../components/ui/FormContextIndicator";
 import Layout from "../layouts/Layout.astro";
 import { FormFieldComponent } from "../components/ui/FormFieldControl";
 import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePreview";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import DeleteModal from "../components/ui/DeleteModal.astro";
 ---
 
 <style></style>
@@ -70,12 +72,46 @@ import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePrevie
                   </div>
                   <span
                     class="fs-14 fw-600 tab_text active"
-                    id="employee_company_details"
+                    id="download_sample_offer_letter"
                     data-bs-toggle="tab"
-                    data-bs-target="#employee_company_details_panel"
+                    data-bs-target="#download_sample_offer_letter_panel"
                     role="tab"
-                    aria-controls="employee_company_details_panel"
-                    aria-selected="true">Upload Offer Letter Template</span
+                    aria-controls="download_sample_offer_letter_panel"
+                    aria-selected="true">Download Sample Offer Letter</span
+                  >
+                </li>
+                <li
+                  class="tab_link d-flex gap-3 align-items-center tab_indicator"
+                  role="presentation"
+                >
+                  <div class="flex-shrink-0">
+                    <div class="center_spot"></div>
+                  </div>
+                  <span
+                    class="fs-14 fw-600 tab_text"
+                    id="save_offer_letter_template"
+                    data-bs-toggle="tab"
+                    data-bs-target="#save_offer_letter_template_panel"
+                    role="tab"
+                    aria-controls="save_offer_letter_template_panel"
+                    aria-selected="true">Save Offer Letter Template</span
+                  >
+                </li>
+                <li
+                  class="tab_link d-flex gap-3 align-items-center tab_indicator"
+                  role="presentation"
+                >
+                  <div class="flex-shrink-0">
+                    <div class="center_spot"></div>
+                  </div>
+                  <span
+                    class="fs-14 fw-600 tab_text"
+                    id="select_and_upload_template"
+                    data-bs-toggle="tab"
+                    data-bs-target="#select_and_upload_template_panel"
+                    role="tab"
+                    aria-controls="select_and_upload_template_panel"
+                    aria-selected="true">Select and Upload Template</span
                   >
                 </li>
                 <li
@@ -151,224 +187,464 @@ import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePrevie
             </div>
             <!-- Tab content here -->
             <div class="flex-grow-1 border-start ps-md-5 ps-0 tab-content">
-              <!-- Employee Details -->
+              <!-- download sample letter -->
               <div
                 class="tab-pane fade active show"
-                id="employee_company_details_panel"
+                id="download_sample_offer_letter_panel"
                 role="tabpanel"
-                aria-labelledby="employee_company_details_panel"
+                aria-labelledby="download_sample_offer_letter_panel"
                 tabindex="0"
               >
-                <!-- Nav pills -->
-                <ul
-                  class="nav nav-pills d-flex justify-content-between p-1 upload_offer_bg bulk_input"
-                  role="tablist"
-                >
-                  <li class="nav-item">
-                    <a
-                      class="nav-link active fs-14 fw-600"
-                      data-bs-toggle="pill"
-                      href="#home">Select a Template</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link fs-14 fw-600"
-                      data-bs-toggle="pill"
-                      href="#menu1">Download and Upload</a
-                    >
-                  </li>
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content">
-                  <div id="home" class="container tab-pane active">
-                    <br />
-                    <div class="vstack" style="gap: 2.3rem">
-                      <div class="d-flex gap-4 mt-3 align-items-center">
-                        <div class="form-floating bulk_input">
-                          <select
-                            id="select_template"
-                            name="select_template"
-                            class="form-select_custom fs-14"
-                            required
-                          >
-                            <option
-                              value=""
-                              selected
-                              style="color: rgb(200, 200, 200)">Select</option
-                            >
-                            <option value="template_1">Template 1</option>
-                            <option value="template_2">Template 2</option>
-                            <option value="template_3">Template 3</option>
-                          </select>
-                          <label for="select_template"
-                            >Select Template &nbsp;<span>*</span></label
-                          >
-                        </div>
-                        <div
-                          class=""
-                          data-bs-html="true"
-                          data-bs-placement="right"
-                          data-bs-toggle="tooltip"
-                          data-bs-custom-class="tooltip-left-align"
-                          title="<div>Users can choose from previously saved templates</div>"
-                          style={{ cursor: "pointer" }}
-                        >
-                          <img src="images/png/icons/info.svg" alt="info" />
-                        </div>
-                      </div>
-                      <div class="d-flex justify-content-end upload_offer mb-5">
-                        <button
-                          type="button"
-                          id="salary_pay_next"
-                          data-tab-target="#salary_pay"
-                          role="tab"
-                          aria-controls="salary_pay_panel"
-                          aria-selected="false"
-                          class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
-                        >
-                          <span>Next</span>
-                        </button>
-                      </div>
-                    </div>
+                <div class="d-flex gap-4 mb-5 align-items-center">
+                  <div class="fs-16 fw-700 text-primary-blue">
+                    Download a customizable sample
                   </div>
-                  <div id="menu1" class="container tab-pane fade">
-                    <br />
-                    <div class="vstack mb-5" style="gap: 1rem">
-                      <div class="d-flex gap-4 align-items-center">
-                        <div class="fs-14 fw-600 bulk_input">
-                          Download the <a
-                            style="color: #2271B6"
-                            class="text-decoration-none"
-                            href="/offer_letter_template.xls"
-                            download>template here</a
-                          > and upload the prepared file
-                        </div>
-                        <div
-                          class=""
-                          data-bs-html="true"
-                          data-bs-placement="right"
-                          data-bs-toggle="tooltip"
-                          data-bs-custom-class="tooltip-left-align"
-                          title="<div>Kindly assign a unique name to each template for easy identification</div>"
-                          style={{ cursor: "pointer" }}
-                        >
-                          <img src="images/png/icons/info.svg" alt="info" />
-                        </div>
-                      </div>
-                      <form
-                        class="vstack gap-2 generate_payslip_form"
-                        id="generate_payslip_form"
+                  <div
+                    class=""
+                    data-bs-html="true"
+                    data-bs-placement="right"
+                    data-bs-toggle="tooltip"
+                    data-bs-custom-class="tooltip-left-align"
+                    title="<div>You can include your logo, scanned signature, headers, and footers, and replace the black text with your company-specific content. The red text represents candidate-specific information from the database, please ensure it remains in red and within square brackets. You may delete any unnecessary red text, but do not introduce any new ones. </div>"
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img src="images/png/icons/info.svg" alt="info" />
+                  </div>
+                </div>
+                <div
+                  class="download_sample d-flex flex-column gap-2 px-2 py-1 mb-4 bulk_input"
+                >
+                  <div class="d-flex justify-content-between py-2">
+                    <div
+                      class="d-flex justify-content-center align-items-center gap-2"
+                    >
+                      <img
+                        src="images/png/icons/document-2.svg"
+                        alt="document"
+                      />
+                      <span class="fs-12"
+                        >Full-Time Employee – Nigeria Default</span
                       >
-                        <div
-                          class="upload_bulk p-3 d-flex flex-column align-items-center justify-content-center"
-                        >
-                          <img
-                            src="images/png/icons/cloud_upload.svg"
-                            width="35px"
-                            height="35px"
-                            alt="cloud upload icon"
-                          />
-                          <div class="fs-14 fw-700" style="color: #6B7280">
-                            Click to upload <span class="fw-400"
-                              >or drag and drop</span
-                            >
-                          </div>
-                          <div class="fs-12 fw-700" style="color: #6B7280">
-                            PDF or DOCX (Max File Size: 2MB)
-                          </div>
-                          <button
-                            type="button"
-                            id="fileInputBtn"
-                            class="delon-primary-btn d-flex gap-2 bg-primary-blue border-0 text-white fs-14"
-                          >
-                            <img
-                              src="images/png/icons/search.svg"
-                              alt="arrow-down"
-                            />
-                            <span>Browse Files</span>
-                          </button>
-                          <div
-                            id="fileInputDetails"
-                            class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 mt-2 rounded-3 fs-14 d-flex gap-1 align-items-center"
-                            role="button"
-                          >
-                            <span class="flex-fill text-truncate"
-                              >gvfyguytctrcjrct.webp</span
-                            >
-                            <span class="flex-fill">
-                              <img
-                                src="images/png/icons/close-circle-6.svg"
-                                width="15"
-                                height="15"
-                                alt="close_icon"
-                              />
-                            </span>
-                          </div>
-                          <input type="file" class="d-none" id="fileInput" />
-                        </div>
-                      </form>
-
-                      <div
-                        class="expense_request_doc d-none d-flex flex-column gap-2 p-4 bulk_input"
-                        id="uploadHere"
+                    </div>
+                    <div>
+                      <button
+                        type="button"
+                        class="btn bg-primary-blue d-flex align-items-center text-white px-3 fs-12"
                       >
-                        <div class="d-flex justify-content-between py-2">
-                          <div
-                            class="d-flex justify-content-center align-items-center gap-3"
-                          >
-                            <img
-                              src="images/png/icons/document-download.svg"
-                              alt="document"
-                            />
-                            <span class="fs-12">Document 1</span>
-                          </div>
-                          <div>
-                            <img
-                              type="button"
-                              src="images/png/icons/colored/delete.svg"
-                              alt="delete"
-                              id="deleteUploadedFile"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="d-flex justify-content-between py-2 w-100 border-top pt-2"
-                        >
-                          <div class="form-floating mt-3 bulk_input">
-                            <select
-                              id="select_template"
-                              name="select_template"
-                              class="form-select_custom fs-14"
-                              required
-                            >
-                              <option
-                                value=""
-                                selected
-                                style="color: rgb(200, 200, 200)">Select</option
-                              >
-                              <option value="template_1"
-                                >Full-Time Employee
-                              </option>
-                              <option value="template_2"
-                                >Duration-Based Employee</option
-                              >
-                            </select>
-                            <label for="select_template">Select Type </label>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                          <span
-                            role="button"
-                            class="text-primary-blue fs-14 fw-700">Upload</span
-                          >
-                        </div>
-                      </div>
+                        Download
+                      </button>
                     </div>
                   </div>
                 </div>
-              </div><!-- Upload Offer -->
+                <div
+                  class="download_sample d-flex flex-column gap-2 px-2 py-1 mb-4 bulk_input"
+                >
+                  <div class="d-flex justify-content-between py-2">
+                    <div
+                      class="d-flex justify-content-center align-items-center gap-2"
+                    >
+                      <img
+                        src="images/png/icons/document-2.svg"
+                        alt="document"
+                      />
+                      <span class="fs-12"
+                        >Duration-Based Employee – Nigeria Default</span
+                      >
+                    </div>
+                    <div>
+                      <button
+                        type="button"
+                        class="btn bg-primary-blue d-flex align-items-center text-white px-3 fs-12"
+                      >
+                        Download
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="d-flex justify-content-between align-items-end bulk_input my-5"
+                >
+                  <div class="d-flex flex-column gap-3">
+                    <span
+                      type="button"
+                      class="fs-14 fw-700 text-primary-blue text_underline next_tab_btn"
+                      id="save_offer_letter_template_next"
+                      data-tab-target="#save_offer_letter_template"
+                      role="tab"
+                      aria-controls="save_offer_letter_template_panel"
+                      aria-selected="false"
+                      >Skip to Save Offer Letter Template</span
+                    >
+                    <span
+                      type="button"
+                      class="fs-14 fw-700 text-primary-blue text_underline next_tab_btn"
+                      id="select_and_upload_template_next"
+                      data-tab-target="#select_and_upload_template"
+                      role="tab"
+                      aria-controls="select_and_upload_template_panel"
+                      aria-selected="false"
+                      >Skip to Select and Upload Template</span
+                    >
+                  </div>
+                  <div>
+                    <button
+                      type="button"
+                      id="save_offer_letter_template_next"
+                      data-tab-target="#save_offer_letter_template"
+                      role="tab"
+                      aria-controls="save_offer_letter_template_panel"
+                      aria-selected="false"
+                      class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                    >
+                      <span>Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div><!-- download sample letter -->
+
+              <!-- Save Offer Letter Template -->
+              <div
+                class="tab-pane fade"
+                id="save_offer_letter_template_panel"
+                role="tabpanel"
+                aria-labelledby="save_offer_letter_template_panel"
+                tabindex="0"
+              >
+                <div class="vstack mb-5" style="gap: 1rem">
+                  <div class="d-flex gap-4 mb-3">
+                    <div class="fs-16 fw-700 text-primary-blue">
+                      Save your branded template
+                    </div>
+                    <div
+                      class=""
+                      data-bs-html="true"
+                      data-bs-placement="right"
+                      data-bs-toggle="tooltip"
+                      data-bs-custom-class="tooltip-left-align"
+                      title="<div>Save your branded template—including company-specific logos, signatures, and layout—for consistent use in future hiring processes.</div>"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <img src="images/png/icons/info.svg" alt="info" />
+                    </div>
+                  </div>
+                  <form
+                    class="vstack gap-2 generate_payslip_form"
+                    id="generate_payslip_form"
+                  >
+                    <div
+                      class="upload_bulk p-3 d-flex flex-column align-items-center justify-content-center"
+                    >
+                      <img
+                        src="images/png/icons/cloud_upload.svg"
+                        width="35px"
+                        height="35px"
+                        alt="cloud upload icon"
+                      />
+                      <div class="fs-14 fw-700" style="color: #6B7280">
+                        Click to upload <span class="fw-400"
+                          >or drag and drop</span
+                        >
+                      </div>
+                      <div class="fs-12 fw-700" style="color: #6B7280">
+                        PDF or DOCX (Max File Size: 2MB)
+                      </div>
+                      <button
+                        type="button"
+                        id="fileInputBtn"
+                        class="delon-primary-btn d-flex gap-2 bg-primary-blue border-0 text-white fs-14"
+                      >
+                        <img
+                          src="images/png/icons/search.svg"
+                          alt="arrow-down"
+                        />
+                        <span>Browse Files</span>
+                      </button>
+                      <div
+                        id="fileInputDetails"
+                        class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 mt-2 rounded-3 fs-14 d-flex gap-1 align-items-center"
+                        role="button"
+                      >
+                        <span class="flex-fill text-truncate"
+                          >gvfyguytctrcjrct.webp</span
+                        >
+                        <span class="flex-fill">
+                          <img
+                            src="images/png/icons/close-circle-6.svg"
+                            width="15"
+                            height="15"
+                            alt="close_icon"
+                          />
+                        </span>
+                      </div>
+                      <input type="file" class="d-none" id="fileInput" />
+                    </div>
+                  </form>
+
+                  <div
+                    class="expense_request_doc d-none d-flex flex-column gap-2 p-4 bulk_input"
+                    id="uploadHere"
+                  >
+                    <div class="d-flex justify-content-between py-2">
+                      <div
+                        class="d-flex justify-content-center align-items-center gap-3"
+                      >
+                        <img
+                          src="images/png/icons/document-download.svg"
+                          alt="document"
+                        />
+                        <span class="fs-12">Document 1</span>
+                      </div>
+                      <div>
+                        <img
+                          type="button"
+                          src="images/png/icons/colored/delete.svg"
+                          alt="delete"
+                          id="deleteUploadedFile"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex flex-column gap-3 py-2 w-100 border-top pt-2"
+                    >
+                      <div class="form-floating mt-3">
+                        <select
+                          id="select_template"
+                          name="select_template"
+                          class="form-select_custom fs-14"
+                          required
+                        >
+                          <option
+                            value=""
+                            selected
+                            style="color: rgb(200, 200, 200)">Select</option
+                          >
+                          <option value="template_1">Template 1 </option>
+                          <option value="template_2">Template 2</option>
+                        </select>
+                        <label for="select_template"
+                          >Classify Template &nbsp;<span>*</span></label
+                        >
+                      </div>
+                      <div class="form-floating mt-3">
+                        <select
+                          id="assign_name"
+                          name="assign_name"
+                          class="form-select_custom fs-14"
+                          required
+                        >
+                          <option
+                            value=""
+                            selected
+                            style="color: rgb(200, 200, 200)">Select</option
+                          >
+                          <option value="name_1">Name 1 </option>
+                          <option value="name_2">Name 2</option>
+                        </select>
+                        <label for="assign_name"
+                          >Assign Name &nbsp;<span>*</span></label
+                        >
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                      <span role="button" class="text-primary-blue fs-14 fw-700"
+                        >Upload</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="d-flex justify-content-between align-items-end bulk_input my-5"
+                >
+                  <div class="d-flex flex-column gap-3">
+                    <span
+                      type="button"
+                      class="fs-14 fw-700 text-primary-blue text_underline next_tab_btn"
+                      id="select_and_upload_template_next"
+                      data-tab-target="#select_and_upload_template"
+                      role="tab"
+                      aria-controls="select_and_upload_template_panel"
+                      aria-selected="false"
+                      >Skip to Select and Upload Template</span
+                    >
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <button
+                      type="button"
+                      id="select_and_upload_template_next"
+                      data-tab-target="#select_and_upload_template"
+                      role="tab"
+                      aria-controls="select_and_upload_template_panel"
+                      aria-selected="false"
+                      class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                    >
+                      <span>Next</span>
+                    </button>
+                  </div>
+                </div>
+              </div><!-- Save offer  -->
+
+              <!-- Select and Upload Template -->
+              <div
+                class="tab-pane fade"
+                id="select_and_upload_template_panel"
+                role="tabpanel"
+                aria-labelledby="select_and_upload_template_panel"
+                tabindex="0"
+              >
+                <div class="d-flex gap-4 mb-5 align-items-center">
+                  <div class="fs-16 fw-700 text-primary-blue">
+                    Upload from saved templates.
+                  </div>
+                  <div
+                    class=""
+                    data-bs-html="true"
+                    data-bs-placement="right"
+                    data-bs-toggle="tooltip"
+                    data-bs-custom-class="tooltip-left-align"
+                    title="<div>Choose a saved offer letter template and upload it to begin the candidate data and offer breakdown population process.</div>"
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img src="images/png/icons/info.svg" alt="info" />
+                  </div>
+                </div>
+                <div
+                  class="download_sample d-flex flex-column gap-2 px-3 py-1 mb-4 bulk_input"
+                >
+                  <div class="d-flex justify-content-between py-2">
+                    <div
+                      class="d-flex justify-content-center align-items-center gap-2"
+                    >
+                      <img
+                        src="images/png/icons/document-2.svg"
+                        alt="document"
+                      />
+                      <span class="fs-12"
+                        >Full-Time Employee – Nigeria Default</span
+                      >
+                    </div>
+                    <div class="d-flex gap-2">
+                      <button
+                        class="border-0 edit-button"
+                        style="background-color: inherit;"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                        data-title="Edit Template"
+                        data-emp-type="{ele.emp_type}"
+                      >
+                        <img src="images/png/icons/edit-2.svg" alt="" />
+                      </button>
+                      <button
+                        class="border-0"
+                        style="background-color: inherit;"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteModal"
+                      >
+                        <img src="images/png/icons/colored/delete.svg" alt="" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="download_sample d-flex flex-column gap-2 px-3 py-1 mb-4 bulk_input"
+                >
+                  <div class="d-flex justify-content-between py-2">
+                    <div
+                      class="d-flex justify-content-center align-items-center gap-2"
+                    >
+                      <img
+                        src="images/png/icons/document-2.svg"
+                        alt="document"
+                      />
+                      <span class="fs-12"
+                        >Duration-Based Employee – Nigeria Default</span
+                      >
+                    </div>
+                    <div class="d-flex gap-2">
+                      <button
+                        class="border-0 edit-button"
+                        style="background-color: inherit;"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                        data-title="Edit Template"
+                        data-emp-type="{ele.emp_type}"
+                      >
+                        <img src="images/png/icons/edit-2.svg" alt="" />
+                      </button>
+                      <button
+                        class="border-0"
+                        style="background-color: inherit;"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteModal"
+                      >
+                        <img src="images/png/icons/colored/delete.svg" alt="" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="download_sample d-flex flex-column gap-2 px-3 py-1 mb-4 bulk_input"
+                >
+                  <div class="d-flex justify-content-between py-2">
+                    <div
+                      class="d-flex justify-content-center align-items-center gap-2"
+                    >
+                      <img
+                        src="images/png/icons/document-2.svg"
+                        alt="document"
+                      />
+                      <span class="fs-12"
+                        >Duration-Based Employee – Nigeria Default</span
+                      >
+                    </div>
+                    <div class="d-flex gap-2">
+                      <button
+                        class="border-0 edit-button"
+                        style="background-color: inherit;"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                        data-title="Edit Template"
+                        data-emp-type="{ele.emp_type}"
+                      >
+                        <img src="images/png/icons/edit-2.svg" alt="" />
+                      </button>
+                      <button
+                        class="border-0"
+                        style="background-color: inherit;"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteModal"
+                      >
+                        <img src="images/png/icons/colored/delete.svg" alt="" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end bulk_input mt-5">
+                  <button
+                    type="button"
+                    id="salary_pay_next"
+                    data-tab-target="#salary_pay"
+                    role="tab"
+                    aria-controls="salary_pay_panel"
+                    aria-selected="false"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                  >
+                    <span>Next</span>
+                  </button>
+                </div>
+
+                <ModalAddNew
+                  modalId="myModal"
+                  title={"Edit Template"}
+                  inputPlace="Template"
+                />
+                <DeleteModal modalId="deleteModal" title="Template" />
+              </div><!-- select and upload  -->
 
               <!-- Load & Review Offer Breakdown Components -->
               <div
@@ -599,10 +875,10 @@ import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePrevie
                 <div class="d-flex justify-content-end gap-4 mt-5">
                   <button
                     type="button"
-                    id="employee_company_details_next"
-                    data-tab-target="#employee_company_details"
+                    id="select_and_upload_template_next"
+                    data-tab-target="#select_and_upload_template"
                     role="tab"
-                    aria-controls="employee_company_details_panel"
+                    aria-controls="select_and_upload_template_panel"
                     aria-selected="false"
                     class="white_button next_tab_btn"
                   >

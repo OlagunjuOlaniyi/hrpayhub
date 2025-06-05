@@ -6,6 +6,8 @@ import { FormFieldComponent } from "../components/ui/FormFieldControl";
 import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePreview";
 import LeavePolicyModal from "../components/ui/LeavePolicyModal.astro";
 import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
+import ListOfNigStates from "../components/ui/ListOfNigStates";
+import ListOfCountries from "../components/ui/ListOfCountries";
 ---
 
 <style></style>
@@ -316,9 +318,7 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                       class="form-input"
                       placeholder=""
                     />
-                    <label for="middle_name"
-                      >Middle Name &nbsp;<span>*</span></label
-                    >
+                    <label for="middle_name">Middle Name </label>
                   </div>
                   <div class="form-floating add_employee_width">
                     <input
@@ -328,9 +328,7 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                       class="form-input"
                       placeholder=""
                     />
-                    <label for="maiden_name"
-                      >Maiden Name &nbsp;<span>*</span></label
-                    >
+                    <label for="maiden_name">Maiden Name </label>
                   </div>
                   <div class="form-floating add_employee_width">
                     <input
@@ -377,6 +375,9 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                       <option value="1">Single</option>
                       <option value="2">Married</option>
                       <option value="3">Divorced</option>
+                      <option value="4">Separated</option>
+                      <option value="5">Widowed</option>
+                      <option value="6">Civil Union</option>
                     </select>
                     <label for="m_status"
                       >Marital Status &nbsp;<span>*</span></label
@@ -390,9 +391,7 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                       required
                     >
                       <option value="" selected>Select</option>
-                      <option value="1">Nigeria</option>
-                      <option value="2">UK</option>
-                      <option value="3">US</option>
+                      <ListOfCountries />
                     </select>
                     <label for="nationality"
                       >Nationality &nbsp;<span>*</span></label
@@ -400,29 +399,44 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                   </div>
                   <div class="form-floating add_employee_width">
                     <select
+                      id="country"
+                      name="country"
+                      class="form-select_custom fs-14"
+                      required
+                    >
+                      <option value="" selected>Select</option>
+                      <option value="1">Nigeria</option>
+                      <option value="2">UK</option>
+                    </select>
+                    <label for="country">Country &nbsp;<span>*</span></label>
+                  </div>
+                  <div
+                    class="form-floating add_employee_width"
+                    id="state_select"
+                  >
+                    <select
                       id="state"
                       name="state"
                       class="form-select_custom fs-14"
                       required
                     >
                       <option value="" selected>Select</option>
-                      <option value="1">Lagos</option>
-                      <option value="2">Abuja</option>
-                      <option value="3">Ibadan</option>
+                      <ListOfNigStates />
                     </select>
                     <label for="state">State &nbsp;<span>*</span></label>
                   </div>
-                  <div class="form-floating add_employee_width">
+                  <div
+                    class="form-floating add_employee_width"
+                    id="postcode_select"
+                  >
                     <input
                       type="text"
-                      id="post_code"
-                      name="post_code"
+                      id="postcode"
+                      name="postcode"
                       class="form-input"
                       placeholder=""
                     />
-                    <label for="post_code"
-                      >Post Code &nbsp;<span>*</span></label
-                    >
+                    <label for="postcode">Postcode &nbsp;<span>*</span></label>
                   </div>
                   <div class="form-floating add_employee_width">
                     <textarea class="form-input" rows="2" id="address"
@@ -1044,19 +1058,30 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                       type="text"
                       id="emp_id"
                       name="emp_id"
+                      minlength="4"
+                      maxlength="10"
                       class="form-input"
                       placeholder=""
                     />
                     <label for="emp_id">Employee ID &nbsp;<span>*</span></label>
                   </div>
+
                   <div class="form-floating add_employee_width">
-                    <input
-                      type="text"
+                    <select
                       id="designation"
                       name="designation"
-                      class="form-input"
-                      placeholder=""
-                    />
+                      class="form-select_custom fs-14"
+                      required
+                    >
+                      <option value="" selected>Select</option>
+                      <option value="1">Pharmacist</option>
+                      <option value="2">Senior Pharmacist</option>
+                      <option value="3">Intern Pharmacist</option>
+                      <option value="4">Software Engineer</option>
+                      <option value="5">HR & Admin Manager</option>
+                      <option value="6">Pharmacy Technician</option>
+                      <option value="7">Call Center Agent</option>
+                    </select>
                     <label for="designation"
                       >Designation &nbsp;<span>*</span></label
                     >
@@ -1069,10 +1094,30 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                       required
                     >
                       <option value="" selected>Select</option>
-                      <option value="1">Super Admin</option>
-                      <option value="2">HR/Admin</option>
-                      <option value="3">Accountant</option>
-                      <option value="4">Employee</option>
+                      <option value="1">Offer Sent</option>
+                      <option value="2">Offer Accepted</option>
+                      <option value="3">Offer Declined</option>
+                      <option value="4">Offer Revoked</option>
+                      <option value="5">Pre-Employment Check</option>
+                      <option value="6">Resumed (On Probation)</option>
+                      <option value="7">Confirmed</option>
+                      <option value="8">Seconded</option>
+                      <option value="9">On Leave</option>
+                      <option value="10">Extended Leave</option>
+                      <option value="11">Resigned (With Adequate Notice)</option
+                      >
+                      <option value="12"
+                        >Resigned (With Inadequate Notice)</option
+                      >
+                      <option value="13">Resigned Abruptly</option>
+                      <option value="14">Absconded (Without Resignation)</option
+                      >
+                      <option value="15">Contract Ended</option>
+                      <option value="16">Suspended</option>
+                      <option value="17">Terminated</option>
+                      <option value="18">Laid Off</option>
+                      <option value="19">Retired</option>
+                      <option value="20">Deceased</option>
                     </select>
                     <label for="employment_status"
                       >Employment Status &nbsp;<span>*</span></label
@@ -1123,9 +1168,9 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                       required
                     >
                       <option value="" selected>Select</option>
-                      <option value="1">Full Time</option>
-                      <option value="2">Part Time</option>
-                      <option value="3">Contract</option>
+                      <option value="1">Full-time</option>
+                      <option value="2">Contractor</option>
+                      <option value="3">Intern</option>
                     </select>
                     <label for="employment_type"
                       >Employment Type &nbsp;<span>*</span></label
@@ -1519,10 +1564,10 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
 
                   <div class="form-floating add_employee_width">
                     <input
-                      type="text"
+                      type="number"
                       id="annual_leave"
                       name="annual_leave"
-                      class="form-input"
+                      class="form-input fs-14"
                       placeholder=""
                     />
                     <label for="annual_leave">
@@ -1531,10 +1576,10 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                   </div>
                   <div class="form-floating add_employee_width">
                     <input
-                      type="text"
+                      type="number"
                       id="personal_leave"
                       name="personal_leave"
-                      class="form-input"
+                      class="form-input fs-14"
                       placeholder=""
                     />
                     <label for="personal_leave"> Personal Leave </label>
@@ -1590,20 +1635,34 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                       <img src="images/png/icons/info.svg" alt="info" />
                     </div>
                   </div>
-                  <div class="form-floating add_employee_width">
-                    <select
-                      id="annual_leave_policy"
-                      name="annual_leave_policy"
-                      class="form-select_custom fs-14"
-                      required
+
+                  <div class="d-flex gap-3 align-items-center">
+                    <div class="form-floating add_employee_width">
+                      <select
+                        id="annual_leave_policy"
+                        name="annual_leave_policy"
+                        class="form-select_custom fs-14"
+                        required
+                      >
+                        <option value="" selected> Select </option>
+                        <option value="1">Regular</option>
+                        <option value="2">Accrual</option>
+                      </select>
+                      <label for="annual_leave_policy">
+                        Annual Leave Policy &nbsp;<span>*</span>
+                      </label>
+                    </div>
+                    <div
+                      class=""
+                      data-bs-html="true"
+                      data-bs-placement="right"
+                      data-bs-toggle="tooltip"
+                      data-bs-custom-class="tooltip-left-align"
+                      title="<div>Choose ‘Regular’ to give the full annual leave at once. Choose ‘Accrual’ to allow employees earn leave gradually each month (e.g., 1.67 days per month for 20 days/year).</div>"
+                      style={{ cursor: "pointer" }}
                     >
-                      <option value="" selected> Select </option>
-                      <option value="1">Regular</option>
-                      <option value="2">Accrual</option>
-                    </select>
-                    <label for="annual_leave_policy">
-                      Annual Leave Policy &nbsp;<span>*</span>
-                    </label>
+                      <img src="images/png/icons/info.svg" alt="info" />
+                    </div>
                   </div>
 
                   <div class="d-flex gap-3 align-items-center">
@@ -2088,9 +2147,7 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                   <div class="form-floating add_employee_width">
                     <textarea class="form-input" rows="2" id="condition"
                     ></textarea>
-                    <label for="ex_title"
-                      >Medical Conditions/Allergies &nbsp;<span>*</span></label
-                    >
+                    <label for="ex_title">Medical Conditions/Allergies</label>
                   </div>
 
                   <div
@@ -2179,9 +2236,7 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                   <div class="form-floating add_employee_width">
                     <textarea class="form-input" rows="2" id="pension_details"
                     ></textarea>
-                    <label for="ex_title"
-                      >Pension Details &nbsp;<span>*</span></label
-                    >
+                    <label for="ex_title">Pension Details</label>
                   </div>
 
                   <div
@@ -2348,6 +2403,7 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                       <option value="1">O Levels</option>
                       <option value="2">A Levels</option>
                       <option value="3">OND</option>
+                      <option value="9">NCE</option>
                       <option value="4">HND</option>
                       <option value="5">Bachelor's</option>
                       <option value="6">Master's</option>
@@ -2404,9 +2460,8 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
                     <textarea class="form-input" rows="2" id="certifications"
                     ></textarea>
                     <label for="ex_title"
-                      >Certifications and Special Skills &nbsp;<span>*</span
-                      ></label
-                    >
+                      >Certifications and Special Skills
+                    </label>
                   </div>
                   <div class="form-floating add_employee_width">
                     <textarea class="form-input" rows="2" id="memberships"
@@ -2671,6 +2726,28 @@ import WorkTimeModal from "../components/ui/WorkTimeModal.astro";
               ).children("input")[0],
             ).prop("disabled", !selectState),
           );
+        });
+
+        const countrySelect = document.getElementById("country");
+        const stateSelect = document.getElementById("state_select");
+        const postcodeField = document.getElementById("postcode_select");
+
+        // On country change
+        countrySelect.addEventListener("change", () => {
+          const country = countrySelect.value;
+
+          if (country === "1") {
+            // Nigeria
+            stateSelect.style.display = "block";
+            postcodeField.style.display = "none";
+          } else if (country === "2") {
+            // UK
+            stateSelect.style.display = "none";
+            postcodeField.style.display = "block";
+          } else {
+            stateSelect.style.display = "none";
+            postcodeField.style.display = "none";
+          }
         });
 
         $("#fileInputBtn").click((evt) => {
