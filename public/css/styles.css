@@ -130,8 +130,11 @@ li.nav-item .active {
   font-size: 18px !important;
 }
 
+.fs-10 {
+  font-size: 10px !important;
+}
 .fs-12 {
-  font-size: 13px !important;
+  font-size: 12px !important;
 }
 
 .fs-13 {
@@ -1316,4 +1319,13 @@ ul.upload_offer_bg li.nav-item .active {
 
 .first_login {
   width: 100%;
+}
+
+/* on off boarding */
+.upload_bulk_status {
+  width: auto;
+  height: 197px;
+  border-radius: 10px;
+  gap: 10px;
+  border: 2px dashed #c1c1c1;
 }

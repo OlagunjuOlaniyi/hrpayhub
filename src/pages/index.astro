@@ -9,7 +9,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
   <!-- Main content starts here -->
   <main>
     <!-- Notice Board Area -->
-    <AlertComponent />
+    <AlertComponent client:load />
     <!-- Notice Board Area -->
 
     <!-- Employee details * Count stats -->
@@ -169,12 +169,12 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
                 href: `#`,
               },
               {
-                title: "Payslip",
+                title: "Payslip Management",
                 subtitle:
                   "View and manage monthly payslips by country and pay type.",
                 icon: "images/png/icons/colored/receipt-minus-colored.svg",
                 color: "gold-module",
-                href: `payslip.html`,
+                href: `payslip-management.html`,
               },
 
               {

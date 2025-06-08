@@ -1,0 +1,743 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalApproveAsset from "../components/ui/ModalApproveAsset.astro";
+import ModalComment from "../components/ui/ModalComment.astro";
+---
+
+<Layout title="HRPayHub :: Asset Management">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/on-offboarding"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/on-offboarding"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >On/Offboarding</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Asset Management</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-3 px-lg-5">
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div class="d-flex gap-3 align-items-center">
+              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                >Asset Management</span
+              >
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+
+          <div class="">
+            <div class="d-flex flex-row justify-content-between gap-5">
+              <!---- Search  -->
+              <div class="d-flex gap-3">
+                <input
+                  type="text"
+                  class="form-control search-input search-width fs-14"
+                  placeholder="Search..."
+                />
+                <img
+                  src="images/png/icons/initialize.svg"
+                  class="initialize"
+                  alt="arrow-down"
+                />
+              </div>
+
+              <!-- Others -->
+              <div class="responsive gap-1">
+                <!-- Calendar Selector -->
+                <input
+                  type="month"
+                  class="form-control fs-14"
+                  style="max-width: 200px;"
+                  value="2025-05"
+                />
+
+                <!-- Filter Dropdown -->
+
+                <style>
+                  .dropdown-submenu {
+                    position: relative;
+                  }
+
+                  /* Accordion style: drop below, not to the right */
+                  .dropdown-submenu > .dropdown-menu {
+                    position: static;
+                    float: none;
+                    margin-top: 0.5rem;
+                    padding-left: 1rem;
+                    display: none;
+                  }
+
+                  .dropdown-submenu > .dropdown-menu.show {
+                    display: block;
+                  }
+
+                  /* a small caret indicator */
+                  .dropdown-submenu > a::after {
+                    content: " ";
+                    float: right;
+                  }
+                </style>
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-white border-0 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2 fs-14"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/filter.svg" alt="arrow-down" />
+                    <span>Filter</span>
+                  </button>
+                  <ul class="dropdown-menu" style="min-width:250px">
+                    <li
+                      class="d-flex flex-row justify-content-between px-3 py-2 border-bottom fs-14"
+                    >
+                      <span class="fw-bold">Filter</span>
+                      <span class="fw-bold text-primary-blue">Reset Filter</span
+                      >
+                    </li>
+                    <!-- Designation Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Designation</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 1"
+                            /> Category 1
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 2"
+                            /> Category 2
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 2"
+                            /> Category 2
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- Employment Status Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Employment Status</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="employed"
+                            /> Employed
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="unemployed"
+                            /> Unemployed
+                          </label>
+                        </li>
+
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="contract"
+                            /> Contract
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- Country of Work Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Country of Work</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="usa"
+                            /> USA
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="uk"
+                            /> UK
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="Nigeria"
+                            /> Nigeria
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- apply filter button -->
+                    <li
+                      class="d-flex flex-row justify-content-end px-3 py-2 mt-2"
+                    >
+                      <button
+                        type="submit"
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fs-14"
+                      >
+                        <span>Apply Filter</span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Sort Dropdown -->
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-white border-0 fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/sort.svg" alt="arrow-down" />
+                    <span>Sort</span>
+                  </button>
+                  <div
+                    class="dropdown-menu p-0 border-0"
+                    style="min-width:200px"
+                  >
+                    <ul class="list-group border-0 fw-600 fs-14">
+                      <li class="list-group-item">
+                        <span class="fw-bold">Sort</span>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Alphabetically
+                        </label>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Date of Resumption
+                        </label>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Date of Confirmation
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Download Dropdown -->
+
+                <div class="dropdown">
+                  <button
+                    class="white_button fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-20,10"
+                  >
+                    <img
+                      src="images/png/icons/download-blue.svg"
+                      alt="arrow-down"
+                    />
+                    <span>Export</span>
+                    <img
+                      src="images/png/icons/arrow-down-blue.svg"
+                      alt="arrow-down"
+                    />
+                  </button>
+                  <div class="dropdown-menu p-0 border-0">
+                    <ul class="list-group border-0 fw-600 fs-14">
+                      <li class="list-group-item">
+                        <div>CSV</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>Excel</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>PDF</div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!---- End of Others ---->
+            </div>
+          </div>
+
+          {/* Page Content Box */}
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead
+                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+              >
+                <tr>
+                  <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
+                    >S/N</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white fw-600 fs-14 text-center"
+                    style="min-width: 200px;">Employee Name</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    style="min-width: 200px;">Employee ID</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Asset Name</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Assigned By</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Model</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-left"
+                    >Quantity</th
+                  >
+
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Condition</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Assignment Date</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Return Date</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Acceptance Status</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Employee’s Comment</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                  ></th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 180px;
+                  }
+                  .column2 {
+                    min-width: 250px;
+                  }
+                </style>
+                {
+                  [
+                    {
+                      emp_name: "Wade Warren",
+                      emp_id: "N12343534",
+                      asset_name: "Lorem Ipsum",
+                      assigned_by: "Wade Warren",
+                      model: "Lorem Ipsum",
+                      quantity: "Lorem Ipsum",
+                      condition: "New",
+                      assignment_date: "5, Apr 2025",
+                      return_date: "5, Apr 2025",
+                      acceptance_stat: "Accepted",
+                      emp_comment: "images/png/icons/vision.svg",
+                    },
+                    {
+                      emp_name: "Wade Warren",
+                      emp_id: "N12343534",
+                      asset_name: "Lorem Ipsum",
+                      assigned_by: "Wade Warren",
+                      model: "Lorem Ipsum",
+                      quantity: "Lorem Ipsum",
+                      condition: "Used",
+                      assignment_date: "5, Apr 2025",
+                      return_date: "5, Apr 2025",
+                      acceptance_stat: "Pending",
+                      emp_comment: "images/png/icons/vision.svg",
+                    },
+                    {
+                      emp_name: "Wade Warren",
+                      emp_id: "N12343534",
+                      asset_name: "Lorem Ipsum",
+                      assigned_by: "Wade Warren",
+                      model: "Lorem Ipsum",
+                      quantity: "Lorem Ipsum",
+                      condition: "Refurbished",
+                      assignment_date: "5, Apr 2025",
+                      return_date: "5, Apr 2025",
+                      acceptance_stat: "Pending",
+                      emp_comment: "images/png/icons/vision.svg",
+                    },
+                    {
+                      emp_name: "Wade Warren",
+                      emp_id: "N12343534",
+                      asset_name: "Lorem Ipsum",
+                      assigned_by: "Wade Warren",
+                      model: "Lorem Ipsum",
+                      quantity: "Lorem Ipsum",
+                      condition: "New",
+                      assignment_date: "5, Apr 2025",
+                      return_date: "5, Apr 2025",
+                      acceptance_stat: "Accepted",
+                      emp_comment: "images/png/icons/vision.svg",
+                    },
+                    {
+                      emp_name: "Wade Warren",
+                      emp_id: "N12343534",
+                      asset_name: "Lorem Ipsum",
+                      assigned_by: "Wade Warren",
+                      model: "Lorem Ipsum",
+                      quantity: "Lorem Ipsum",
+                      condition: "New",
+                      assignment_date: "5, Apr 2025",
+                      return_date: "5, Apr 2025",
+                      acceptance_stat: "Accepted",
+                      emp_comment: "images/png/icons/vision.svg",
+                    },
+                    {
+                      emp_name: "Wade Warren",
+                      emp_id: "N12343534",
+                      asset_name: "Lorem Ipsum",
+                      assigned_by: "Wade Warren",
+                      model: "Lorem Ipsum",
+                      quantity: "Lorem Ipsum",
+                      condition: "New",
+                      assignment_date: "5, Apr 2025",
+                      return_date: "5, Apr 2025",
+                      acceptance_stat: "Accepted",
+                      emp_comment: "images/png/icons/vision.svg",
+                    },
+                    {
+                      emp_name: "Wade Warren",
+                      emp_id: "N12343534",
+                      asset_name: "Lorem Ipsum",
+                      assigned_by: "Wade Warren",
+                      model: "Lorem Ipsum",
+                      quantity: "Lorem Ipsum",
+                      condition: "New",
+                      assignment_date: "5, Apr 2025",
+                      return_date: "5, Apr 2025",
+                      acceptance_stat: "Pending",
+                      emp_comment: "images/png/icons/vision.svg",
+                    },
+                  ].map((ele, index) => (
+                    <tr class="fs-88">
+                      <td class="text-center fs-14">{index + 1}</td>
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        {ele.emp_name}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">{ele.emp_id}</td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.asset_name}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.assigned_by}
+                      </td>
+
+                      <td class="fs-14 px-3 text-left column">{ele.model}</td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.quantity}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.condition}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.assignment_date}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.return_date}
+                      </td>
+                      <td
+                        class="fs-14 px-3 text-left column"
+                        style={`color: ${
+                          ele.acceptance_stat === "Accepted"
+                            ? "#2BC700"
+                            : ele.acceptance_stat === "Pending"
+                              ? "#B6B000"
+                              : "inherit"
+                        };`}
+                      >
+                        {ele.acceptance_stat}
+                      </td>
+
+                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                        {ele.acceptance_stat === "Accepted" ? (
+                          <button
+                            class="border-0"
+                            style="background-color: inherit;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#comment"
+                            disabled
+                          >
+                            <img
+                              src={
+                                ele.acceptance_stat === "Accepted"
+                                  ? "images/png/icons/vision-disabled.svg"
+                                  : "images/png/icons/vision.svg"
+                              }
+                              alt="vision"
+                            />
+                          </button>
+                        ) : (
+                          <button
+                            class="border-0"
+                            style="background-color: inherit;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#comment"
+                          >
+                            <img
+                              src={
+                                ele.acceptance_stat === "Accepted"
+                                  ? "images/png/icons/vision-disabled.svg"
+                                  : "images/png/icons/vision.svg"
+                              }
+                              alt="vision"
+                            />
+                          </button>
+                        )}
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center">
+                          {ele.acceptance_stat === "Accepted" ? (
+                            <button
+                              type="button"
+                              class="btn bg-primary-blue d-flex align-items-center text-white text-nowrap px-3 py-1 fs-14 fw-600"
+                              disabled
+                            >
+                              Approve
+                            </button>
+                          ) : (
+                            <button
+                              type="button"
+                              class="btn bg-primary-blue d-flex align-items-center text-white text-nowrap px-3 py-1 fs-14 fw-600"
+                              data-bs-toggle="modal"
+                              data-bs-target="#myModal"
+                              data-title="Assign Asset"
+                              data-emp-type="{ele.emp_type}"
+                            >
+                              Accept
+                            </button>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
+          </div>
+
+          <!---- End of table --->
+
+          <!-- Pagination Row -->
+          <div
+            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+          >
+            <!-- Left: Pagination Text -->
+            <div class="fs-14 text-muted">
+              Showing <strong>1–20</strong> of <strong>1000</strong>
+            </div>
+
+            <!-- Right: Go to Page + Pagination -->
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <!-- Go to Page -->
+              <form class="d-flex align-items-center gap-2">
+                <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+                <input
+                  type="number"
+                  min="1"
+                  max="100"
+                  id="gotoPage"
+                  class="form-control form-control-sm"
+                  style="width: 60px;"
+                  placeholder="—"
+                />
+              </form>
+
+              <!-- Page Navigation -->
+
+              <nav>
+                <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                  <li class="page-item">
+                    <a
+                      class="page-link text-primary-blue px-2"
+                      href="#"
+                      aria-label="Previous"
+                    >
+                      &lsaquo;
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">1</a>
+                  </li>
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">2</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">3</a>
+                  </li>
+                  <li class="page-item disabled">
+                    <span class="page-link text-primary-blue">...</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">100</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link hello" href="#" aria-label="Next">
+                      &rsaquo;
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <!---- Pagination ---->
+        </div>
+      </div>
+
+      <!---- Modals --->
+      <ModalApproveAsset
+        title="Assign Asset"
+        modalId="myModal"
+        inputPlace="Assign Asset"
+      />
+      <ModalComment title="Employee's Comment" />
+    </section>
+  </main>
+  <!-- Main content ends here -->
+
+  <script>
+    document
+      .querySelectorAll(".dropdown-submenu > a")
+      .forEach(function (element) {
+        element.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const submenu = this.nextElementSibling;
+
+          // Close all other submenus
+          document
+            .querySelectorAll(".dropdown-submenu .dropdown-menu")
+            .forEach(function (el) {
+              if (el !== submenu) el.classList.remove("show");
+            });
+
+          submenu.classList.toggle("show");
+        });
+      });
+
+    // Optional: close submenus when clicking outside
+    document.addEventListener("click", function () {
+      document
+        .querySelectorAll(".dropdown-submenu .dropdown-menu")
+        .forEach(function (el) {
+          el.classList.remove("show");
+        });
+    });
+  </script>
+</Layout>

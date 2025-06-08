@@ -153,6 +153,175 @@ import { CloseCircleIcon } from "../Icons";
               </select>
             </div>
           </div>
+        ) : inputPlace === "Assign Asset" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <select
+                id="emp_id_name"
+                name="emp_id_name"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Robert Fox - N12343534</option>
+                <option value="2">Robert Fox - N12343534</option>
+                <option value="3">Robert Fox - N12343534</option>
+              </select>
+              <label for="emp_id_name">
+                Employee ID/Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="asset_name"
+                name="asset_name"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="asset_name">
+                Asset Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="serial_No"
+                name="serial_No"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="serial_No">
+                Serial Number &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="model"
+                name="model"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="model">
+                Model &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="quantity"
+                name="quantity"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="quantity">
+                Quantity &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="condition"
+                name="condition"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">New</option>
+                <option value="2">Used</option>
+                <option value="3">Refurbished</option>
+              </select>
+              <label for="condition">
+                Condition &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                id="assign_date"
+                name="assign_date"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="assign_date">
+                Assignment Date &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                id="return_date"
+                name="return_date"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="return_date">
+                Return Date &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "Create Task" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <select
+                id="emp_id_name"
+                name="emp_id_name"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Robert Fox - N12343534</option>
+                <option value="2">Robert Fox - N12343534</option>
+                <option value="3">Robert Fox - N12343534</option>
+              </select>
+              <label for="emp_id_name">
+                Employee ID/Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="task_name"
+                name="task_name"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="task_name">
+                Task Name &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="date"
+                id="assign_date"
+                name="assign_date"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="assign_date">
+                Assiged Date &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                id="completion_date"
+                name="completion_date"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="completion_date">
+                Target Completion Date &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
         ) : (
           <div class="modal-body py-5 border-0">
             <div class="form-floating">
