@@ -1,0 +1,366 @@
+---
+// components/ui/ModalAddNew.astro
+const {
+  modalId = "myModal",
+  title = "Review Leave Request",
+  inputPlace = "Review Leave Request",
+} = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
+
+        <img
+          type="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+
+      <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+        <div
+          class="d-flex flex-column flex-lg-row gap-2 p-3 px-4 mb-5 clock_in_out_modal"
+        >
+          <div class="d-flex flex-column px-lg-3">
+            <span class="fs-12 text-secondary">Employee Name</span>
+            <span class="fs-14 fw-700">Toluwalase Obasun</span>
+          </div>
+
+          <span class="clock_border_left"></span>
+          <div class="d-flex flex-column px-lg-3">
+            <span class="fs-12 text-secondary">Designation</span>
+            <span class="fs-14 fw-700">Lorem Ipsum</span>
+          </div>
+        </div>
+        <div class="form-floating">
+          <select
+            id="select_plan"
+            name="select_plan"
+            class="form-select_custom fs-14"
+            required
+            disabled
+          >
+            <option value="" style="color: rgb(200, 200, 200)">Select</option>
+            <option value="1" selected>Retail</option>
+            <option value="2">Primary</option>
+            <option value="3">Tertiary</option>
+          </select>
+          <label for="select_plan">Leave Type</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="leave_bal"
+            name="leave_bal"
+            class="form-input fs-14"
+            placeholder=""
+            value="N200,000"
+            disabled
+            required
+          />
+          <label for="leave_bal">Leave Balance</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="no_of_days"
+            name="no_of_days"
+            class="form-input fs-14"
+            placeholder=""
+            value="10"
+            disabled
+            required
+          />
+          <label for="no_of_days">Number of Days </label>
+        </div>
+        <div class="d-flex justify-content-between gap-3">
+          <div class="form-floating">
+            <input
+              type="date"
+              id="start_time"
+              name="start_time"
+              class="form-input"
+              placeholder=""
+              value="2025-06-01"
+              disabled
+            />
+            <label for="start_time">Start Date </label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="date"
+              id="end_time"
+              name="end_time"
+              class="form-input"
+              placeholder=""
+              value="2025-06-01"
+              disabled
+            />
+            <label for="end_time">End Date </label>
+          </div>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="contact_phone_no"
+            name="contact_phone_no"
+            class="form-input fs-14"
+            placeholder=""
+            value="1234567890"
+            disabled
+            required
+          />
+          <label for="contact_phone_no">Contact Phone Number</label>
+        </div>
+        <div class="form-floating">
+          <textarea class="form-input" rows="2" id="reason"></textarea>
+          <label for="reason">Reason for Leave </label>
+        </div>
+        <div class="form-floating">
+          <textarea class="form-input" rows="2" id="notes"></textarea>
+          <label for="notes">Leave handover notes</label>
+        </div>
+
+        {
+          inputPlace === "Review Leave Request" ? (
+            <section class="d-flex flex-column gap-4">
+              <div class="d-flex align-items-center gap-4">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Workload and Coverage
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <div class="form-floating">
+                <select
+                  id="impact"
+                  name="impact"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)">
+                    Select
+                  </option>
+                  <option value="1">Yes</option>
+                  <option value="2">No</option>
+                </select>
+                <label for="impact">
+                  Impact on Team/Projects: &nbsp;<span>*</span>
+                </label>
+              </div>
+              <div class="form-floating">
+                <select
+                  id="replacement"
+                  name="replacement"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)">
+                    Select
+                  </option>
+                  <option value="1">Yes</option>
+                  <option value="2">No</option>
+                </select>
+                <label for="replacement">
+                  Is a Replacement Needed During the Leave &nbsp;<span>*</span>
+                </label>
+              </div>
+              <div class="form-floating">
+                <select
+                  id="cover"
+                  name="cover"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)">
+                    Select
+                  </option>
+                  <option value="1">Warren Buffet</option>
+                  <option value="2">John Doe</option>
+                </select>
+                <label for="cover">Who Will Cover the Employee’s Tasks?</label>
+              </div>
+              <div class="d-flex align-items-center gap-4">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Manager’s Approval
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <div class="form-floating">
+                <select
+                  id="decision"
+                  name="decision"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)">
+                    Select
+                  </option>
+                  <option value="1">Approve</option>
+                  <option value="2">Disapprove</option>
+                </select>
+                <label for="decision">
+                  Approval Decision &nbsp;<span>*</span>
+                </label>
+              </div>
+
+              <div class="form-floating">
+                <textarea class="form-input" rows="2" id="comments" />
+                <label for="comments">Comments</label>
+              </div>
+            </section>
+          ) : (
+            <section class="d-flex flex-column gap-4">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  id="mgt_decision"
+                  name="mgt_decision"
+                  class="form-input fs-14"
+                  placeholder=""
+                  required
+                />
+                <label for="mgt_decision">
+                  Manager's Decision &nbsp;<span>*</span>
+                </label>
+              </div>
+              <div class="form-floating">
+                <textarea class="form-input" rows="2" id="comments" />
+                <label for="comments">Manager's Comments</label>
+              </div>
+
+              <div class="d-flex align-items-center gap-4">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  HR/Admin’s Approval
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <div class="form-floating">
+                <select
+                  id="decision"
+                  name="decision"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)">
+                    Select
+                  </option>
+                  <option value="1">Approve</option>
+                  <option value="2">Disapprove</option>
+                </select>
+                <label for="decision">
+                  Approval Decision &nbsp;<span>*</span>
+                </label>
+              </div>
+
+              <div class="form-floating">
+                <textarea class="form-input" rows="2" id="comments" />
+                <label for="comments">Comments</label>
+              </div>
+
+              <form class="vstack gap-2" id="generate_payslip_form">
+                <div class="fs-14 fw-600">
+                  Supporting Document Upload <span style="color: red">*</span>
+                  <div class="upload_bucket_expense p-3 d-flex flex-column align-items-center justify-content-center">
+                    <img
+                      src="images/png/icons/cloud_upload.svg"
+                      width="35px"
+                      height="35px"
+                      alt="cloud upload icon"
+                    />
+                    <div class="fs-14 fw-700" style="color: #6B7280">
+                      Click to upload{" "}
+                      <span class="fw-400">or drag and drop</span>
+                    </div>
+                    <div class="fs-12 fw-700" style="color: #6B7280">
+                      PDF or DOCX (Max File Size: 2MB)
+                    </div>
+                    <button
+                      type="button"
+                      id="fileInputBtn"
+                      class="delon-primary-btn d-flex gap-2 mt-2 bg-primary-blue border-0 text-white fs-14"
+                    >
+                      <img src="images/png/icons/search.svg" alt="arrow-down" />
+                      <span>Browse Files</span>
+                    </button>
+                    <div
+                      id="fileInputDetails"
+                      class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 mt-2 rounded-3 fs-14 d-flex gap-1 align-items-center"
+                      role="button"
+                    >
+                      <span class="flex-fill text-truncate">
+                        gvfyguytctrcjrct.webp
+                      </span>
+                      <span class="flex-fill">
+                        <img
+                          src="images/png/icons/close-circle-6.svg"
+                          width="15"
+                          height="15"
+                          alt="close_icon"
+                        />
+                      </span>
+                    </div>
+                    <input type="file" class="d-none" id="fileInput" />
+                  </div>
+                </div>
+              </form>
+            </section>
+          )
+        }
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex fs-14 justify-content-end border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white"
+          data-bs-dismiss="modal"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    $("#fileInputBtn").click((evt) => {
+      $("#fileInput").click();
+    });
+
+    document
+      .getElementById("fileInput")
+      .addEventListener("change", function () {
+        if (fileInput.files.length > 0) {
+          const fileName = fileInput.files[0].name;
+          $("#fileInputDetails span:first-child").text(fileName);
+          $("#fileInputDetails").removeClass("d-none");
+          $("#fileInputBtn").addClass("d-none");
+          console.log("Selected file name:", fileName);
+        }
+      });
+    $("#fileInputDetails span:nth-child(2)").click(() => {
+      $("#fileInput").val("");
+      $("#fileInputDetails span:first-child").text("");
+      $("#fileInputDetails").addClass("d-none");
+      $("#fileInputBtn").removeClass("d-none");
+    });
+  });
+</script>

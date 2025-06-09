@@ -1,10 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ModalAddNew from "../components/ui/ModalAddNew.astro";
-import ModalComment from "../components/ui/ModalComment.astro";
 ---
 
-<Layout title="HRPayHub :: Asset Management">
+<Layout title="HRPayHub :: Leave Tracking & Reporting">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -13,7 +11,7 @@ import ModalComment from "../components/ui/ModalComment.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/on-offboarding"
+            href="/leave-management"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -32,15 +30,16 @@ import ModalComment from "../components/ui/ModalComment.astro";
               alt="angle-right-back"
             />
             <a
-              href="/on-offboarding"
+              href="/leave-management"
               class="fs-14 text-decoration-none text-primary-dark"
-              >On/Offboarding</a
+              >Leave Management</a
             >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue">Asset Management</span
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Leave Tracking & Reporting</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -58,7 +57,7 @@ import ModalComment from "../components/ui/ModalComment.astro";
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >Asset Management</span
+                >Leave Tracking & Reporting</span
               >
             </div>
           </div>
@@ -69,29 +68,23 @@ import ModalComment from "../components/ui/ModalComment.astro";
           <div class="">
             <div class="d-flex flex-row justify-content-between gap-5">
               <!---- Search  -->
-              <div class="d-flex gap-3">
+              <div class="d-flex align-items-center gap-3">
                 <input
                   type="text"
-                  class="form-control search-input search-width fs-14"
+                  class="form-control search-input search-width py-2 fs-14"
                   placeholder="Search..."
                 />
                 <img
                   src="images/png/icons/initialize.svg"
                   class="initialize"
+                  width="24"
+                  height="24"
                   alt="arrow-down"
                 />
               </div>
 
               <!-- Others -->
               <div class="responsive gap-1">
-                <!-- Calendar Selector -->
-                <input
-                  type="month"
-                  class="form-control fs-14"
-                  style="max-width: 200px;"
-                  value="2025-05"
-                />
-
                 <!-- Filter Dropdown -->
 
                 <style>
@@ -311,53 +304,20 @@ import ModalComment from "../components/ui/ModalComment.astro";
                     </ul>
                   </div>
                 </div>
-
                 <!-- Download Dropdown -->
 
                 <div class="dropdown">
                   <button
-                    class="white_button fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 d-flex align-items-center gap-2"
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                     data-bs-offset="-20,10"
                   >
-                    <img
-                      src="images/png/icons/download-blue.svg"
-                      alt="arrow-down"
-                    />
                     <span>Export</span>
-                    <img
-                      src="images/png/icons/arrow-down-blue.svg"
-                      alt="arrow-down"
-                    />
+                    <img src="images/png/icons/download.svg" alt="arrow-down" />
                   </button>
-                  <div class="dropdown-menu p-0 border-0">
-                    <ul class="list-group border-0 fw-600 fs-14">
-                      <li class="list-group-item">
-                        <div>CSV</div>
-                      </li>
-                      <li class="list-group-item">
-                        <div>Excel</div>
-                      </li>
-                      <li class="list-group-item">
-                        <div>PDF</div>
-                      </li>
-                    </ul>
-                  </div>
                 </div>
-
-                <!------ Assign Asset --->
-                <button
-                  type="button"
-                  class="btn bg-primary-blue d-flex align-items-center text-white text-nowrap px-3 fs-14 ms-2 fw-600"
-                  data-bs-toggle="modal"
-                  data-bs-target="#myModal"
-                  data-title="Assign Asset"
-                  data-emp-type="{ele.emp_type}"
-                >
-                  <span class="me-2">Assign Asset</span> +
-                </button>
               </div>
 
               <!---- End of Others ---->
@@ -376,54 +336,88 @@ import ModalComment from "../components/ui/ModalComment.astro";
               <thead
                 class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
               >
-                <tr>
+                <tr class="">
                   <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
                     >S/N</th
                   >
                   <th
-                    class="bg-primary-blue text-white fw-600 fs-14 text-left"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     style="min-width: 200px;">Employee Name</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    style="min-width: 200px;">Employee ID</th
+                    class="bg-primary-blue text-white fw-600 fs-14 text-left"
+                    style="min-width: 200px;">Designation</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Asset Name</th
+                    >Location</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Assigned By</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Model</th
+                    >Leave Status</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-left"
-                    >Quantity</th
-                  >
-
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Condition</th
+                    >No of Active Leave Days</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Assignment Date</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Return Date</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Acceptance Status</th
+                    >Active Leave Type</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Employee’s Comment</th
+                    >Prorated 1st-Year Annual Leave <br />
+                    Approved Leave Days | Outstanding Leave Days</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Prorated 1st-Year Personal Leave <br />
+                    Approved Leave Days | Outstanding Leave Days</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Prorated 1st-Year Annual Leave Accrual <br />
+                    Approved Leave Days | Outstanding Leave Days</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Prorated 1st-Year Personal Leave Accrual <br />
+                    Approved Leave Days | Outstanding Leave Days</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Tenure Leave <br />
+                    Approved Leave Days | Outstanding Leave Days</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Parental Leave <br />
+                    Approved Leave Days | Outstanding Leave Days</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Unpaid Leave <br />
+                    Approved Leave Days | Outstanding Leave Days</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Annual Leave <br />
+                    Approved Leave Days | Outstanding Leave Days</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Personal Leave <br />
+                    Approved Leave Days | Outstanding Leave Days</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Annual Leave Accrual <br />
+                    Approved Leave Days | Outstanding Leave Days</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Personal Leave Accrual <br />
+                    Approved Leave Days | Outstanding Leave Days</th
                   >
                 </tr>
               </thead>
@@ -441,144 +435,322 @@ import ModalComment from "../components/ui/ModalComment.astro";
                   [
                     {
                       emp_name: "Wade Warren",
-                      emp_id: "N12343534",
-                      asset_name: "Lorem Ipsum",
-                      assigned_by: "Wade Warren",
-                      model: "Lorem Ipsum",
-                      quantity: "Lorem Ipsum",
-                      condition: "New",
-                      assignment_date: "5, Apr 2025",
-                      return_date: "5, Apr 2025",
-                      acceptance_stat: "Accepted",
-                      emp_comment: "images/png/icons/vision.svg",
+                      designation: "Lorem Ipsum",
+                      location: "Lorem Ipsum",
+                      status: "On Leave",
+                      no_of_days: "2",
+                      leave_type: "Lorem Ipsum",
+                      approved: "5",
+                      outstanding: "5",
                     },
                     {
                       emp_name: "Wade Warren",
-                      emp_id: "N12343534",
-                      asset_name: "Lorem Ipsum",
-                      assigned_by: "Wade Warren",
-                      model: "Lorem Ipsum",
-                      quantity: "Lorem Ipsum",
-                      condition: "Used",
-                      assignment_date: "5, Apr 2025",
-                      return_date: "5, Apr 2025",
-                      acceptance_stat: "Pending",
-                      emp_comment: "images/png/icons/vision.svg",
+                      designation: "Lorem Ipsum",
+                      location: "Lorem Ipsum",
+                      status: "Not on Leave",
+                      no_of_days: "2",
+                      leave_type: "Lorem Ipsum",
+                      approved: "5",
+                      outstanding: "5",
                     },
                     {
                       emp_name: "Wade Warren",
-                      emp_id: "N12343534",
-                      asset_name: "Lorem Ipsum",
-                      assigned_by: "Wade Warren",
-                      model: "Lorem Ipsum",
-                      quantity: "Lorem Ipsum",
-                      condition: "Refurbished",
-                      assignment_date: "5, Apr 2025",
-                      return_date: "5, Apr 2025",
-                      acceptance_stat: "Pending",
-                      emp_comment: "images/png/icons/vision.svg",
+                      designation: "Lorem Ipsum",
+                      location: "Lorem Ipsum",
+                      status: "On Leave",
+                      no_of_days: "2",
+                      leave_type: "Lorem Ipsum",
+                      approved: "5",
+                      outstanding: "5",
                     },
                     {
                       emp_name: "Wade Warren",
-                      emp_id: "N12343534",
-                      asset_name: "Lorem Ipsum",
-                      assigned_by: "Wade Warren",
-                      model: "Lorem Ipsum",
-                      quantity: "Lorem Ipsum",
-                      condition: "New",
-                      assignment_date: "5, Apr 2025",
-                      return_date: "5, Apr 2025",
-                      acceptance_stat: "Accepted",
-                      emp_comment: "images/png/icons/vision.svg",
+                      designation: "Lorem Ipsum",
+                      location: "Lorem Ipsum",
+                      status: "Not on Leave",
+                      no_of_days: "2",
+                      leave_type: "Lorem Ipsum",
+                      approved: "5",
+                      outstanding: "5",
                     },
                     {
                       emp_name: "Wade Warren",
-                      emp_id: "N12343534",
-                      asset_name: "Lorem Ipsum",
-                      assigned_by: "Wade Warren",
-                      model: "Lorem Ipsum",
-                      quantity: "Lorem Ipsum",
-                      condition: "New",
-                      assignment_date: "5, Apr 2025",
-                      return_date: "5, Apr 2025",
-                      acceptance_stat: "Accepted",
-                      emp_comment: "images/png/icons/vision.svg",
+                      designation: "Lorem Ipsum",
+                      location: "Lorem Ipsum",
+                      status: "Not on Leave",
+                      no_of_days: "2",
+                      leave_type: "Lorem Ipsum",
+                      approved: "5",
+                      outstanding: "5",
                     },
                     {
                       emp_name: "Wade Warren",
-                      emp_id: "N12343534",
-                      asset_name: "Lorem Ipsum",
-                      assigned_by: "Wade Warren",
-                      model: "Lorem Ipsum",
-                      quantity: "Lorem Ipsum",
-                      condition: "New",
-                      assignment_date: "5, Apr 2025",
-                      return_date: "5, Apr 2025",
-                      acceptance_stat: "Accepted",
-                      emp_comment: "images/png/icons/vision.svg",
+                      designation: "Lorem Ipsum",
+                      location: "Lorem Ipsum",
+                      status: "Not on Leave",
+                      no_of_days: "2",
+                      leave_type: "Lorem Ipsum",
+                      approved: "5",
+                      outstanding: "5",
                     },
                     {
                       emp_name: "Wade Warren",
-                      emp_id: "N12343534",
-                      asset_name: "Lorem Ipsum",
-                      assigned_by: "Wade Warren",
-                      model: "Lorem Ipsum",
-                      quantity: "Lorem Ipsum",
-                      condition: "New",
-                      assignment_date: "5, Apr 2025",
-                      return_date: "5, Apr 2025",
-                      acceptance_stat: "Pending",
-                      emp_comment: "images/png/icons/vision.svg",
+                      designation: "Lorem Ipsum",
+                      location: "Lorem Ipsum",
+                      status: "On Leave",
+                      no_of_days: "2",
+                      leave_type: "Lorem Ipsum",
+                      approved: "5",
+                      outstanding: "5",
                     },
                   ].map((ele, index) => (
                     <tr class="fs-88">
                       <td class="text-center fs-14">{index + 1}</td>
+
                       <td class="fs-14 text-nowrap px-3 text-left column">
                         {ele.emp_name}
                       </td>
-                      <td class="fs-14 px-3 text-left column">{ele.emp_id}</td>
                       <td class="fs-14 px-3 text-left column">
-                        {ele.asset_name}
+                        {ele.designation}
                       </td>
                       <td class="fs-14 px-3 text-left column">
-                        {ele.assigned_by}
+                        {ele.location}
                       </td>
 
-                      <td class="fs-14 px-3 text-left column">{ele.model}</td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.quantity}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.condition}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.assignment_date}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.return_date}
-                      </td>
-                      <td
-                        class="fs-14 px-3 text-left column"
-                        style={`color: ${
-                          ele.acceptance_stat === "Accepted"
-                            ? "#2BC700"
-                            : ele.acceptance_stat === "Pending"
-                              ? "#B6B000"
-                              : "inherit"
-                        };`}
-                      >
-                        {ele.acceptance_stat}
-                      </td>
-
-                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
-                        <button
-                          class="border-0"
-                          style="background-color: inherit;"
-                          data-bs-toggle="modal"
-                          data-bs-target="#comment"
+                      <td class="fs-14 px-3 text-left text-nowrap column">
+                        <span
+                          style={`color: ${
+                            ele.status === "On Leave" ? "#2BC700" : "inherit"
+                          };`}
                         >
-                          <img src={ele.emp_comment} alt="vision" />
-                        </button>
+                          {ele.status}
+                        </span>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        {ele.no_of_days}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.leave_type}
+                      </td>
+                      <td class="fs-14 px-3 text-center  column">
+                        <div class="d-flex align-items-center justify-content-center gap-3">
+                          <span
+                            class=" py-1 px-3 rounded"
+                            style="background-color: #EAECF0"
+                          >
+                            {ele.approved}
+                          </span>
+                          <img
+                            src="images/png/icons/divider.svg"
+                            alt="divider"
+                          />
+                          <button
+                            type="button"
+                            class="btn bg-primary-blue d-flex align-items-center text-white text-nowrap px-3 py-1 fs-14"
+                          >
+                            {ele.outstanding}
+                          </button>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center  column">
+                        <div class="d-flex align-items-center justify-content-center gap-3">
+                          <span
+                            class=" py-1 px-3 rounded"
+                            style="background-color: #EAECF0"
+                          >
+                            {ele.approved}
+                          </span>
+                          <img
+                            src="images/png/icons/divider.svg"
+                            alt="divider"
+                          />
+                          <button
+                            type="button"
+                            class="btn bg-primary-blue d-flex align-items-center text-white text-nowrap px-3 py-1 fs-14"
+                          >
+                            {ele.outstanding}
+                          </button>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center  column">
+                        <div class="d-flex align-items-center justify-content-center gap-3">
+                          <span
+                            class=" py-1 px-3 rounded"
+                            style="background-color: #EAECF0"
+                          >
+                            {ele.approved}
+                          </span>
+                          <img
+                            src="images/png/icons/divider.svg"
+                            alt="divider"
+                          />
+                          <button
+                            type="button"
+                            class="btn bg-primary-blue d-flex align-items-center text-white text-nowrap px-3 py-1 fs-14"
+                          >
+                            {ele.outstanding}
+                          </button>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center  column">
+                        <div class="d-flex align-items-center justify-content-center gap-3">
+                          <span
+                            class=" py-1 px-3 rounded"
+                            style="background-color: #EAECF0"
+                          >
+                            {ele.approved}
+                          </span>
+                          <img
+                            src="images/png/icons/divider.svg"
+                            alt="divider"
+                          />
+                          <button
+                            type="button"
+                            class="btn bg-primary-blue d-flex align-items-center text-white text-nowrap px-3 py-1 fs-14"
+                          >
+                            {ele.outstanding}
+                          </button>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center  column">
+                        <div class="d-flex align-items-center justify-content-center gap-3">
+                          <span
+                            class=" py-1 px-3 rounded"
+                            style="background-color: #EAECF0"
+                          >
+                            {ele.approved}
+                          </span>
+                          <img
+                            src="images/png/icons/divider.svg"
+                            alt="divider"
+                          />
+                          <button
+                            type="button"
+                            class="btn bg-primary-blue d-flex align-items-center text-white text-nowrap px-3 py-1 fs-14"
+                          >
+                            {ele.outstanding}
+                          </button>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center  column">
+                        <div class="d-flex align-items-center justify-content-center gap-3">
+                          <span
+                            class=" py-1 px-3 rounded"
+                            style="background-color: #EAECF0"
+                          >
+                            {ele.approved}
+                          </span>
+                          <img
+                            src="images/png/icons/divider.svg"
+                            alt="divider"
+                          />
+                          <button
+                            type="button"
+                            class="btn bg-primary-blue d-flex align-items-center text-white text-nowrap px-3 py-1 fs-14"
+                          >
+                            {ele.outstanding}
+                          </button>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center  column">
+                        <div class="d-flex align-items-center justify-content-center gap-3">
+                          <span
+                            class=" py-1 px-3 rounded"
+                            style="background-color: #EAECF0"
+                          >
+                            {ele.approved}
+                          </span>
+                          <img
+                            src="images/png/icons/divider.svg"
+                            alt="divider"
+                          />
+                          <button
+                            type="button"
+                            class="btn bg-primary-blue d-flex align-items-center text-white text-nowrap px-3 py-1 fs-14"
+                          >
+                            {ele.outstanding}
+                          </button>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center  column">
+                        <div class="d-flex align-items-center justify-content-center gap-3">
+                          <span
+                            class=" py-1 px-3 rounded"
+                            style="background-color: #EAECF0"
+                          >
+                            {ele.approved}
+                          </span>
+                          <img
+                            src="images/png/icons/divider.svg"
+                            alt="divider"
+                          />
+                          <button
+                            type="button"
+                            class="btn bg-primary-blue d-flex align-items-center text-white text-nowrap px-3 py-1 fs-14"
+                          >
+                            {ele.outstanding}
+                          </button>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center  column">
+                        <div class="d-flex align-items-center justify-content-center gap-3">
+                          <span
+                            class=" py-1 px-3 rounded"
+                            style="background-color: #EAECF0"
+                          >
+                            {ele.approved}
+                          </span>
+                          <img
+                            src="images/png/icons/divider.svg"
+                            alt="divider"
+                          />
+                          <button
+                            type="button"
+                            class="btn bg-primary-blue d-flex align-items-center text-white text-nowrap px-3 py-1 fs-14"
+                          >
+                            {ele.outstanding}
+                          </button>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center  column">
+                        <div class="d-flex align-items-center justify-content-center gap-3">
+                          <span
+                            class=" py-1 px-3 rounded"
+                            style="background-color: #EAECF0"
+                          >
+                            {ele.approved}
+                          </span>
+                          <img
+                            src="images/png/icons/divider.svg"
+                            alt="divider"
+                          />
+                          <button
+                            type="button"
+                            class="btn bg-primary-blue d-flex align-items-center text-white text-nowrap px-3 py-1 fs-14"
+                          >
+                            {ele.outstanding}
+                          </button>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center  column">
+                        <div class="d-flex align-items-center justify-content-center gap-3">
+                          <span
+                            class=" py-1 px-3 rounded"
+                            style="background-color: #EAECF0"
+                          >
+                            {ele.approved}
+                          </span>
+                          <img
+                            src="images/png/icons/divider.svg"
+                            alt="divider"
+                          />
+                          <button
+                            type="button"
+                            class="btn bg-primary-blue d-flex align-items-center text-white text-nowrap px-3 py-1 fs-14"
+                          >
+                            {ele.outstanding}
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))
@@ -657,14 +829,6 @@ import ModalComment from "../components/ui/ModalComment.astro";
           <!---- Pagination ---->
         </div>
       </div>
-
-      <!---- Modals --->
-      <ModalAddNew
-        title="Assign Asset"
-        modalId="myModal"
-        inputPlace="Assign Asset"
-      />
-      <ModalComment title="Employee's Comment" />
     </section>
   </main>
   <!-- Main content ends here -->

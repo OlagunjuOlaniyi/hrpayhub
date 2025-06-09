@@ -1329,3 +1329,9 @@ ul.upload_offer_bg li.nav-item .active {
   gap: 10px;
   border: 2px dashed #c1c1c1;
 }
+
+.clock_in_out_modal {
+  background-color: #eaecf0;
+  width: auto;
+  border-radius: 16px;
+}

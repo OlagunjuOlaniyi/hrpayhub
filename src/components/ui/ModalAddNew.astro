@@ -322,6 +322,69 @@ import { CloseCircleIcon } from "../Icons";
               </label>
             </div>
           </div>
+        ) : inputPlace === "Minimum Staffing" ? (
+          <div class="modal-body py-5 d-flex flex-column gap-4 border-0">
+            <div class="form-floating">
+              <select
+                id="location"
+                name="location"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="">Select</option>
+                <option value="1" selected>
+                  Lagos
+                </option>
+                <option value="2">Abuja</option>
+                <option value="3">Ibadan</option>
+              </select>
+              <label for="location">
+                Location &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="designation"
+                name="designation"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Pharmacist</option>
+                <option value="2">Senior Pharmacist</option>
+                <option value="3">Intern Pharmacist</option>
+                <option value="4">Software Engineer</option>
+                <option value="5">HR & Admin Manager</option>
+                <option value="6">Pharmacy Technician</option>
+                <option value="7">Call Center Agent</option>
+              </select>
+              <label for="designation">
+                Designation &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="employee_count"
+                name="employee_count"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="employee_count">Employee Count</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="minimum_staff"
+                name="minimum_staff"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="minimum_staff">Minimum Staffing</label>
+            </div>
+          </div>
         ) : (
           <div class="modal-body py-5 border-0">
             <div class="form-floating">
