@@ -1268,6 +1268,14 @@ ul.upload_offer_bg li.nav-item .active {
   background-color: #2271b6;
 }
 
+.white_button_signup {
+  background: white;
+  color: #2271b6 !important;
+  border: 1.5px solid #2271b6 !important;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
 .step-line {
   width: 108px;
   height: 2px;
@@ -1333,5 +1341,5 @@ ul.upload_offer_bg li.nav-item .active {
 .clock_in_out_modal {
   background-color: #eaecf0;
   width: auto;
-  border-radius: 16px;
+  border-radius: 16px;  
 }

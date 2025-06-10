@@ -1,0 +1,372 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+---
+
+<Layout title="HRPayHub :: Create Templates">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/manage-templates"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/document-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Document Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/email-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Email Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Send Emails</span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+
+            <!---- create template --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">Create Template</div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+              <div class="form-floating add_employee_width">
+                <select
+                  id="select_recp"
+                  name="select_recp"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="type_1">Recipient 1</option>
+                  <option value="type_2">Recipient 2</option>
+                  <option value="type_3">Recipient 3</option>
+                </select>
+                <label for="select_recp"
+                  >Select Internal Recipients &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="d-flex gap-4 justify-content-between align-items-center add_employee_width">
+                <span class="fs-14 fw-600">Send external email</span>
+                <div
+                  role="button"
+                  class="form-check form-switch switchForDeductionsFields"
+                  style="margin-top: 5px; cursor: pointer"
+                >
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="toggleSwitch"
+                  />
+                </div>
+              </div>
+
+              <div id="template" class="d-flex flex-column " style="gap: 2.3rem" >
+              
+              
+              <div class="form-floating add_employee_width">
+                <select
+                  id="email_temp"
+                  name="email_temp"
+                  class="form-select_custom fs-14"
+                  
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="type_1">Excel</option>
+                  <option value="type_2">PDF</option>
+                  <option value="type_3">CSV</option>
+                </select>
+                <label for="email_temp"
+                  >Email Template</label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  class="form-input fs-14"
+                  placeholder=""
+                  
+                />
+                <label for="subject">Subject &nbsp;<span>*</span></label>
+              </div>
+
+              
+                <!-- Textarea -->
+                <div class="add_employee_width">
+                <div class="fs-14 fw-500">Message Body <span style="color: red">*</span></div>
+                    <textarea id="myTextarea"></textarea>
+                </div>             
+
+              <!---- upload ---->
+              <form class="vstack gap-2" id="generate_payslip_form">
+                <div class="fs-14 fw-500">Upload Documents <span style="color: red">*</span></div>
+                <div
+                  class="upload_bucket_expense p-3 d-flex flex-column align-items-center justify-content-center"
+                >
+                  <img
+                    src="images/png/icons/cloud_upload.svg"
+                    width="35px"
+                    height="35px"
+                    alt="cloud upload icon"
+                  />
+                  <div class="fs-14 fw-700" style="color: #6B7280">
+                    Click to upload <span class="fw-400">or drag and drop</span>
+                  </div>
+                  <div class="fs-12 fw-700" style="color: #6B7280">
+                    PDF or DOCX (Max File Size: 2MB)
+                  </div>
+                  <button
+                    type="button"
+                    id="fileInputBtn"
+                    class="delon-primary-btn d-flex gap-2 mt-2 bg-primary-blue border-0 text-white fs-14"
+                  >
+                    <img src="images/png/icons/search.svg" alt="arrow-down" />
+                    <span>Browse Files</span>
+                  </button>
+                  <div
+                    id="fileInputDetails"
+                    class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 mt-2 rounded-3 fs-14 d-flex gap-1 align-items-center"
+                    role="button"
+                  >
+                    <span class="flex-fill text-truncate"
+                      >gvfyguytctrcjrct.webp</span
+                    >
+                    <span class="flex-fill">
+                      <img
+                        src="images/png/icons/close-circle-6.svg"
+                        width="15"
+                        height="15"
+                        alt="close_icon"
+                      />
+                    </span>
+                  </div>
+                  <input type="file" class="d-none" id="fileInput" />
+                </div>
+              </form>
+
+              </div>
+
+
+              <div id="templateFile" class="d-flex flex-column d-none" style="gap: 2.3rem;" >
+              
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="ext_recipient"
+                  name="ext_recipient"
+                  class="form-input fs-14"
+                  placeholder=""                  
+                />
+                <label for="ext_recipient">External Recipients</label>
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <select
+                  id="email_temp"
+                  name="email_temp"
+                  class="form-select_custom fs-14"
+                  
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="type_1">Excel</option>
+                  <option value="type_2">PDF</option>
+                  <option value="type_3">CSV</option>
+                </select>
+                <label for="email_temp"
+                  >Email Template</label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  class="form-input fs-14"
+                  placeholder=""
+                  
+                />
+                <label for="subject">Subject &nbsp;<span>*</span></label>
+              </div>
+
+              
+                <!-- Textarea -->
+                <div class="add_employee_width">
+                <div class="fs-14 fw-500">Message Body <span style="color: red">*</span></div>
+                    <textarea id="myTextarea"></textarea>
+                </div>             
+
+              <!---- upload ---->
+              <form class="vstack gap-2" id="generate_payslip_form">
+                <div class="fs-14 fw-500">Upload Documents <span style="color: red">*</span></div>
+                <div
+                  class="upload_bucket_expense p-3 d-flex flex-column align-items-center justify-content-center"
+                >
+                  <img
+                    src="images/png/icons/cloud_upload.svg"
+                    width="35px"
+                    height="35px"
+                    alt="cloud upload icon"
+                  />
+                  <div class="fs-14 fw-700" style="color: #6B7280">
+                    Click to upload <span class="fw-400">or drag and drop</span>
+                  </div>
+                  <div class="fs-12 fw-700" style="color: #6B7280">
+                    PDF or DOCX (Max File Size: 2MB)
+                  </div>
+                  <button
+                    type="button"
+                    id="fileInputBtn"
+                    class="delon-primary-btn d-flex gap-2 mt-2 bg-primary-blue border-0 text-white fs-14"
+                  >
+                    <img src="images/png/icons/search.svg" alt="arrow-down" />
+                    <span>Browse Files</span>
+                  </button>
+                  <div
+                    id="fileInputDetails"
+                    class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 mt-2 rounded-3 fs-14 d-flex gap-1 align-items-center"
+                    role="button"
+                  >
+                    <span class="flex-fill text-truncate"
+                      >gvfyguytctrcjrct.webp</span
+                    >
+                    <span class="flex-fill">
+                      <img
+                        src="images/png/icons/close-circle-6.svg"
+                        width="15"
+                        height="15"
+                        alt="close_icon"
+                      />
+                    </span>
+                  </div>
+                  <input type="file" class="d-none" id="fileInput" />
+                </div>
+              </form>
+              </div>
+
+              <!---- submit ---->
+              <div class="d-flex justify-content-end gap-3 add_employee_width">
+              <button
+                    type="button"
+                    class="btn white_button px-4 fs-14 fw-700"
+                    id="#"
+                    >Schedule Email</button
+                  >
+                <button
+                  type="button"
+                  id="upload"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                >
+                  <span>Send Mail</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+  </main>
+
+
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      $("#fileInputBtn").click((evt) => {
+        $("#fileInput").click();
+      });
+
+      tinymce.init({
+      selector: '#myTextarea',
+      menubar: false,
+      plugins: 'lists link',
+      toolbar: 'bold italic underline | bullist numlist | link',
+      branding: false
+    });
+
+      document
+        .getElementById("fileInput")
+        .addEventListener("change", function () {
+          if (fileInput.files.length > 0) {
+            const fileName = fileInput.files[0].name;
+            $("#fileInputDetails span:first-child").text(fileName);
+            $("#fileInputDetails").removeClass("d-none");
+            $("#fileInputBtn").addClass("d-none");
+            console.log("Selected file name:", fileName);
+          }
+        });
+      $("#fileInputDetails span:nth-child(2)").click(() => {
+        $("#fileInput").val("");
+        $("#fileInputDetails span:first-child").text("");
+        $("#fileInputDetails").addClass("d-none");
+        $("#fileInputBtn").removeClass("d-none");
+      });
+
+      $("#template").removeClass("d-none");
+
+        $("#toggleSwitch").on("change", function () {
+          if ($(this).is(":checked")) {
+            $("#templateFile").removeClass("d-none");
+            $("#template").addClass("d-none");
+          } else {
+            $("#template").removeClass("d-none");
+            $("#templateFile").addClass("d-none");
+          }
+        });
+      
+    });
+  </script>
+</Layout>
+<!-- Main content ends here -->

@@ -63,20 +63,11 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
 
             <!-- Top Back Button -->
             <div
-              class="d-flex justify-content-between ps-lg-5 align-items-center w-100"
+              class="text-center w-100"
             >
-              <button
-                type="button"
-                class="btn ms-lg-4 text-decoration-none d-flex align-items-center invisible back-btn font-ubuntu fw-700 fs-14"
-              >
-                <img
-                  src="images/png/icons/angle-left.svg"
-                  alt="angle-left-back"
-                />
-                Back
-              </button>
+              
               <h3
-                class="fs-14 font-ubuntu fw-700 flex-grow-1 me-5 pe-lg-5 text-center"
+                class="fs-14 font-ubuntu fw-700 text-center"
               >
                 Sign Up
               </h3>
@@ -96,10 +87,10 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                 <div class="step-circle" data-step="3"></div>
               </div>
               <div
-                class="fw-bold text-primary-blue fs-14 d-flex justify-content-between"
+                class="fw-bold text-primary-blue fs-14 d-flex gap-5"
               >
-                <span>Account Details</span>
-                <span>Package Preference</span>
+                <span class="text-nowrap">Account Details</span>
+                <span class="ms-2 me-5">Package</span>
                 <span>Payment</span>
               </div>
             </div>
@@ -255,9 +246,9 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     />
                   </span>
                 </div>
-                <div class="font-avenir fs-12 sign_in_input">
-                  Password should contain 8–16 characters, including uppercase,
-                  lowercase, number, and special character.
+                <div class="font-avenir text-danger fs-12 sign_in_input">
+                  At least 8 characters, including a number and a special
+                  character.
                 </div>
                 <div class="toggle_password mb-2 mt-4">
                   <div class="form-floating mt-2 sign_in_input">
@@ -287,9 +278,9 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     />
                   </span>
                 </div>
-                <div class="font-avenir mb-5 fs-12 sign_in_input">
-                  Password should contain 8–16 characters, including uppercase,
-                  lowercase, number, and special character.
+                <div class="font-avenir text-danger mb-5 fs-12 sign_in_input">
+                  At least 8 characters, including a number and a special
+                  character.
                 </div>
 
                 <div
@@ -337,7 +328,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                       for="free-trial"
                     >
                       <span class="fs-12"
-                        >Limited to Silver <br />Monthly Plan</span
+                        >Limited to Silver<br />Monthly Plan</span
                       >
                       <img
                         class="d-none checked"
@@ -502,8 +493,11 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                       />
                       <label for="vat fs-14">VAT</label>
                     </div>
-                    <div class="mt-2">
+                    <div class="mt-2 d-none packages_ng">
                       <span class="fs-12">7.5% x Amount</span>
+                    </div>
+                    <div class="mt-2 d-none packages_uk">
+                      <span class="fs-12">20% x Amount</span>
                     </div>
                   </div>
                 </div>
@@ -527,8 +521,11 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
 
                 <!------ next button here ----->
                 <div
-                  class="fixed-footer d-flex justify-content-between sign_in_input mt-5 mb-5"
+                  class="fixed-footer d-flex justify-content-between flex-column gap-5 sign_in_input mt-5 mb-5"
                 >
+
+                
+                  <div class="d-flex justify-content-between">
                   <button
                     type="button"
                     class="btn white_button px-4 fs-14 fw-700 start-free-trial"
@@ -543,6 +540,16 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     id="subscribe-pay"
                     disabled>Subscribe and Pay</button
                   >
+                  </div>
+                  <div>
+                <button
+                    type="button"
+                    class="white_button_signup back-btn d-flex gap-2 align-items-center font-ubuntu fw-700 fs-14"
+                  >
+                  <img src="images/png/icons/angle-left-white.svg" alt="angle-left-back" />
+                    <span>Back</span>
+                  </button>
+                  </div>
                 </div>
               </div>
 
@@ -793,8 +800,15 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                   </div>
 
                   <div
-                    class="fixed-footer d-flex justify-content-end mb-3 mt-5"
+                    class="fixed-footer d-flex justify-content-end gap-4 mb-3 mt-5"
                   >
+                  <button
+                    type="button"
+                    class="white_button_signup back-btn d-flex gap-2 align-items-center font-ubuntu fw-700 fs-14"
+                  >
+                  <img src="images/png/icons/angle-left-white.svg" alt="angle-left-back" />
+                    <span>Back</span>
+                  </button>
                     <button
                       type="button"
                       class="btn bg-primary-blue text-white fs-14 fw-700"
@@ -975,9 +989,9 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
             $('label[for="free-trial"] .checked').removeClass("d-none"); // checked
             $('label[for="free-trial"] .unchecked').addClass("d-none"); // hide unchecked
             $("#start-free-trial").prop("disabled", false);
-            $(".packages_ng").prop("disabled", false);
-            $(".packages_uk").prop("disabled", false);
-            $(".no_of_users").prop("disabled", false);
+            $(".packages_ng").prop("value", "3");            
+            $(".packages_uk").prop("value", "3");
+            $(".no_of_users").prop("value", "3");
             $(".total_amount").prop("disabled", false);
           }
 
