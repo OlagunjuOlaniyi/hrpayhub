@@ -67,7 +67,7 @@ import Layout from "../layouts/Layout.astro";
               >
             </div>
             <div class="fw-bold">
-              Organize and store important email and document correspondence.
+              Send, receive, and schedule emails internally or externally
             </div>
           </div>
           {/* Page Title */}
@@ -77,24 +77,24 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Send Emails",
-                  desc: "Lorem Ipsum",
-                  url: "/send-emails",
+                  title: "Internal Emails",
+                  desc: "View, send, and reply to emails from HR and colleagues",
+                  url: "/internal-emails",
                 },
                 {
-                  title: "My Emails",
-                  desc: "Lorem Ipsum",
-                  url: "/view-templates",
+                  title: "Configure and Manage External Emails",
+                  desc: "Configure and send external emails to candidates and external contacts.",
+                  url: "/configure-and-manage-external-emails",
                 },
               ].map((ele) => (
                 <div
                   class="col-4 p-2 payslip-card-panel"
-                  style="width: 360px"
+                  style="width: 370px"
                   role="button"
                   title={ele.title}
                   data-url={ele.url}
                 >
-                  <div class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
+                  <div class="shadow p-3 px-2 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
                     <div class="vstack gap-2 d-flex flex-column align-items-center">
                       <img
                         src="images/png/icons/colored/folder-2-colored.svg"

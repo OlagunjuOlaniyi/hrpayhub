@@ -1343,3 +1343,14 @@ ul.upload_offer_bg li.nav-item .active {
   width: auto;
   border-radius: 16px;  
 }
+
+/* leave management */
+.leave_policy {
+  width: 803px;
+}
+
+@media (max-width: 769px) {
+  .leave_policy {
+  width: 100%;
+}
+}

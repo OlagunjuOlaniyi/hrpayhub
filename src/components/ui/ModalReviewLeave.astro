@@ -40,7 +40,14 @@ import { CloseCircleIcon } from "../Icons";
             <span class="fs-14 fw-700">Lorem Ipsum</span>
           </div>
         </div>
-        <div class="form-floating">
+        
+
+        {
+          inputPlace === "Review Leave Request" ? (
+            <section class="d-flex flex-column gap-4">
+              
+
+              <div class="form-floating">
           <select
             id="select_plan"
             name="select_plan"
@@ -55,19 +62,7 @@ import { CloseCircleIcon } from "../Icons";
           </select>
           <label for="select_plan">Leave Type</label>
         </div>
-        <div class="form-floating">
-          <input
-            type="text"
-            id="leave_bal"
-            name="leave_bal"
-            class="form-input fs-14"
-            placeholder=""
-            value="N200,000"
-            disabled
-            required
-          />
-          <label for="leave_bal">Leave Balance</label>
-        </div>
+        
         <div class="form-floating">
           <input
             type="text"
@@ -129,9 +124,6 @@ import { CloseCircleIcon } from "../Icons";
           <label for="notes">Leave handover notes</label>
         </div>
 
-        {
-          inputPlace === "Review Leave Request" ? (
-            <section class="d-flex flex-column gap-4">
               <div class="d-flex align-items-center gap-4">
                 <div class="fs-14 fw-600 text-primary-blue">
                   Workload and Coverage
@@ -140,7 +132,6 @@ import { CloseCircleIcon } from "../Icons";
                   <div class="demarcator_line">&nbsp;</div>
                 </div>
               </div>
-
               <div class="form-floating">
                 <select
                   id="impact"
@@ -224,6 +215,108 @@ import { CloseCircleIcon } from "../Icons";
             </section>
           ) : (
             <section class="d-flex flex-column gap-4">
+
+            <div class="form-floating">
+          <select
+            id="select_plan"
+            name="select_plan"
+            class="form-select_custom fs-14"
+            required
+            disabled
+          >
+            <option value="" style="color: rgb(200, 200, 200)">Select</option>
+            <option value="1" selected>Retail</option>
+            <option value="2">Primary</option>
+            <option value="3">Tertiary</option>
+          </select>
+          <label for="select_plan">Leave Type</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="leave_bal"
+            name="leave_bal"
+            class="form-input fs-14"
+            placeholder=""
+            value="N200,000"
+            disabled
+            required
+          />
+          <label for="leave_bal">Current Leave Balance</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="leave_requested"
+            name="leave_requested"
+            class="form-input fs-14"
+            placeholder=""
+            value="Lorem Ipsum"
+            disabled
+            required
+          />
+          <label for="leave_requested">Leave Requested </label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="rm_leave_requested"
+            name="rm_leave_requested"
+            class="form-input fs-14"
+            placeholder=""
+            value="Lorem Ipsum"
+            disabled
+            required
+          />
+          <label for="rm_leave_requested">Remaining Leave After Request </label>
+        </div>
+        <div class="d-flex justify-content-between gap-3">
+          <div class="form-floating">
+            <input
+              type="date"
+              id="start_time"
+              name="start_time"
+              class="form-input"
+              placeholder=""
+              value="2025-06-01"
+              disabled
+            />
+            <label for="start_time">Start Date </label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="date"
+              id="end_time"
+              name="end_time"
+              class="form-input"
+              placeholder=""
+              value="2025-06-01"
+              disabled
+            />
+            <label for="end_time">End Date </label>
+          </div>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="contact_phone_no"
+            name="contact_phone_no"
+            class="form-input fs-14"
+            placeholder=""
+            value="1234567890"
+            disabled
+            required
+          />
+          <label for="contact_phone_no">Contact Phone Number</label>
+        </div>
+        <div class="form-floating">
+          <textarea class="form-input" rows="2" id="reason"></textarea>
+          <label for="reason">Reason for Leave </label>
+        </div>
+        <div class="form-floating">
+          <textarea class="form-input" rows="2" id="notes"></textarea>
+          <label for="notes">Leave handover notes</label>
+        </div>
               <div class="form-floating">
                 <input
                   type="text"
@@ -277,7 +370,7 @@ import { CloseCircleIcon } from "../Icons";
               <form class="vstack gap-2" id="generate_payslip_form">
                 <div class="fs-14 fw-600">
                   Supporting Document Upload <span style="color: red">*</span>
-                  <div class="upload_bucket_expense p-3 d-flex flex-column align-items-center justify-content-center">
+                  <div class="upload_bulk_status p-3 d-flex flex-column align-items-center justify-content-center">
                     <img
                       src="images/png/icons/cloud_upload.svg"
                       width="35px"

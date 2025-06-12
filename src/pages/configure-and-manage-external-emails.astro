@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: Manage Templates">
+<Layout title="HRPayHub :: Email Management">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/document-management"
+            href="/email-management"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -38,7 +38,16 @@ import Layout from "../layouts/Layout.astro";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue">Manage Templates</span
+            <a
+              href="/email-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Email Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Configure and Manage External Emails</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -63,11 +72,11 @@ import Layout from "../layouts/Layout.astro";
               />
               <span
                 class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Manage Templates</span
+                >Email Management</span
               >
             </div>
             <div class="fw-bold">
-              Create and manage HR letter templates for reuse.
+              Send, receive, and schedule emails internally or externally
             </div>
           </div>
           {/* Page Title */}
@@ -77,14 +86,14 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Create Template",
-                  desc: "Create HR letter templates for consistent communication.",
-                  url: "/create-templates",
+                  title: "Configure Email",
+                  desc: "Set up external email settings for reliable delivery and integration.",
+                  url: "/configure-emails",
                 },
                 {
-                  title: "View Templates",
-                  desc: "Access and view reusable HR letter templates.",
-                  url: "/view-templates",
+                  title: "External Emails",
+                  desc: "View, send, and reply to emails to candidates and external contacts.",
+                  url: "/external-emails",
                 },
               ].map((ele) => (
                 <div
@@ -128,7 +137,7 @@ import Layout from "../layouts/Layout.astro";
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const payslipCardPanels = document.querySelectorAll(
-        ".payslip-card-panel"
+        ".payslip-card-panel",
       );
 
       payslipCardPanels.forEach((ele, index) => {
