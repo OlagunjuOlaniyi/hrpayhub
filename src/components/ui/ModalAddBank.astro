@@ -1,0 +1,85 @@
+---
+const {
+  modalId = "addCard",
+  title = "Edit Bank Transfer Info",
+  inputPlace = "Add Card",
+} = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
+
+        <img
+          type="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      
+        <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="d-flex flex-column sign_in_input gap-4">
+            <div class="form-floating ">
+              <select
+                id="bank_name"
+                name="bank_name"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Wema Bank</option>
+                <option value="2">First Bank</option>
+                <option value="3">GT Bank</option>
+              </select>
+              <label for="bank_name">
+                Bank Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+                <input
+                    type="text"
+                    id="acct_no"
+                    name="acct_no"
+                    class="form-input fs-12"
+                    placeholder=""
+                    
+                />
+                <label for="acct_no fs-14">Account Number </label>
+                </div>
+            <div class="form-floating">
+                <input
+                    type="text"
+                    id="acct_name"
+                    name="acct_name"
+                    class="form-input fs-12"
+                    placeholder=""
+                    
+                />
+                <label for="acct_name fs-14">Account Name </label>
+                </div>
+            
+            </div>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-start border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white"
+          data-bs-dismiss="modal"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

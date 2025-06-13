@@ -1,0 +1,78 @@
+---
+const {
+  modalId = "myModal",
+  title = "Add Employee Type",
+  inputPlace = "Designation",
+} = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+import SuccessModal from "./SuccessModal.astro";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
+
+        <img
+          type="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+        <div class="form-floating">
+          <select
+            id="reason"
+            name="reason"
+            class="form-select_custom fs-14"
+            required
+          >
+            <option value="" selected> Select </option>
+            <option value="1">Service No Longer Needed</option>
+            <option value="2">Cost Concerns</option>
+            <option value="3">Using Another Solution</option>
+            <option value="4">Dissatisfied with Features</option>
+            <option value="5">Technical Difficulties</option>
+            <option value="6">Poor Customer Support</option>
+            <option value="7">Business Needs Changed</option>
+            <option value="8">Other</option>
+          </select>
+          <label for="reason"> Reason for Cancellation </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="agreement"
+            name="agreement"
+            value="agreement"
+            checked
+          />
+          <label class="form-check-label fs-14 font-avenir fw-600"
+            >I understand that by cancelling, I will lose access to my
+            subscription on 2-Apr-2025</label
+          >
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-start border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white"
+          data-bs-dismiss="modal"
+          data-bs-toggle="modal"
+          data-bs-target="#successModal"
+        >
+          Confirm Cancellation
+        </button>
+      </div>
+
+      <SuccessModal modalId="successModal" title="Silver" />
+    </div>
+  </div>
+</div>

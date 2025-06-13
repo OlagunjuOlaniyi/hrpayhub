@@ -1354,3 +1354,46 @@ ul.upload_offer_bg li.nav-item .active {
   width: 100%;
 }
 }
+
+/* subscription */
+.subscription_tab {
+  
+  border-bottom: 1px solid lightgray;
+}
+
+.subscription_tab .nav-link {
+  color: #101828 !important;
+}
+.subscription_tab .active {
+  color: #2271b6 !important;
+  
+   border-bottom: 1px solid lightgray;
+}
+
+ul.subscription_tab li.nav-item .active {
+  color: #2271b6 !important;
+  background-color: transparent !important;
+  border-radius: 0;
+   border-bottom: 0.5px solid #2271b6 !important;
+  font-weight: normal !important;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.add_new_card {
+  width: 213px;
+  height: auto;
+  border-radius: 10px;
+  
+  border: 1px dashed #2271b6;
+}
+
+.subscription_tab_width {
+  width: 248px;
+}
+
+@media (max-width: 769px) {
+  .subscription_tab_width {
+  width: 100%;
+}
+}
