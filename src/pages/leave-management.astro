@@ -42,7 +42,7 @@ import Layout from "../layouts/Layout.astro";
     <!-- First section of Back button and Breadcrumb -->
     <section class="px-4">
       <div class="screenFrame">
-        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-lg-5">
           {/* Page Title */}
           <div class="vstack gap-2">
             <div class="d-flex gap-3 align-items-center">
@@ -53,13 +53,12 @@ import Layout from "../layouts/Layout.astro";
                 height="30px"
               />
               <span
-                class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Leave Management</span
+                class="text-primary-blue font-ubuntu-bold fs-24 fs-sm-18 inline-block"
+                >Leave Management - HR/Admin Module</span
               >
             </div>
             <div class="fw-bold">
-              Handle employee leave requests, approvals, and leave balance
-              tracking.
+              Configure leave types and manage requests.
             </div>
           </div>
           {/* Page Title */}
@@ -136,14 +135,11 @@ import Layout from "../layouts/Layout.astro";
                 height="30px"
               />
               <span
-                class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Leave Management - Employee/Manager Module</span
+                class="text-primary-blue font-ubuntu-bold fs-24 fs-sm-18 inline-block"
+                >Leave Management - Employee Module (Manager)</span
               >
             </div>
-            <div class="fw-bold">
-              Handle employee leave requests, approvals, and leave balance tracking.
-              
-            </div>
+            <div class="fw-bold">Submit leave and manage team requests.</div>
           </div>
           {/* Page Title */}
 
@@ -172,7 +168,7 @@ import Layout from "../layouts/Layout.astro";
                   url: "/leave-policy",
                 },
                 {
-                  title: "Review Leave Requests",
+                  title: "Manager - Review Leave Requests",
                   desc: "Approve or reject leave based on policy and staffing.",
                   url: "/leave-approval-workflow-manager",
                 },
@@ -219,14 +215,11 @@ import Layout from "../layouts/Layout.astro";
                 height="30px"
               />
               <span
-                class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
+                class="text-primary-blue font-ubuntu-bold fs-24 fs-sm-18 inline-block"
                 >Leave Management - Employee Module</span
               >
             </div>
-            <div class="fw-bold">
-              Handle employee leave requests, approvals, and leave balance
-              tracking.
-            </div>
+            <div class="fw-bold">Submit and track your leave requests.</div>
           </div>
           {/* Page Title */}
 
@@ -296,7 +289,7 @@ import Layout from "../layouts/Layout.astro";
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const payslipCardPanels = document.querySelectorAll(
-        ".payslip-card-panel",
+        ".payslip-card-panel"
       );
 
       payslipCardPanels.forEach((ele, index) => {

@@ -29,7 +29,8 @@ import Layout from "../layouts/Layout.astro";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue">Document Management</span
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Document Management</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -77,7 +78,67 @@ import Layout from "../layouts/Layout.astro";
                   desc: "Create and manage HR letter templates for reuse.",
                   url: "/manage-templates",
                 },
-                
+              ].map((ele) => (
+                <div
+                  class="col-4 p-2 payslip-card-panel"
+                  style="width: 360px"
+                  role="button"
+                  title={ele.title}
+                  data-url={ele.url}
+                >
+                  <div class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
+                    <div class="vstack gap-2 d-flex flex-column align-items-center">
+                      <img
+                        src="images/png/icons/colored/folder-2-colored.svg"
+                        alt="receipt-minus-icon"
+                        width="30px"
+                        height="30px"
+                      />
+                      <div class="fw-bold fs-18 font-ubuntu-bold text-primary-blue">
+                        {ele.title}
+                      </div>
+                    </div>
+
+                    <div
+                      class="fw-600 fs-16"
+                      style="width: 90%; margin: 0 auto"
+                    >
+                      {ele.desc}
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+          {/* Page Content Box */}
+          <div class="vstack gap-2">
+            <div class="d-flex gap-3 align-items-center">
+              <img
+                src="images/png/icons/colored/folder-2-colored.svg"
+                alt="receipt-minus-icon"
+                width="30px"
+                height="30px"
+              />
+              <span
+                class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
+                >Document Management - Employee</span
+              >
+            </div>
+            <div class="fw-bold">
+              Organize and store important email and document correspondence.
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+          <div class="row payslip-grid-gap mb-5">
+            {
+              [
+                {
+                  title: "Email Management",
+                  desc: "View, send, and reply to emails from HR and colleagues.",
+                  url: "/internal-emails-employee",
+                },
               ].map((ele) => (
                 <div
                   class="col-4 p-2 payslip-card-panel"
@@ -120,7 +181,7 @@ import Layout from "../layouts/Layout.astro";
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const payslipCardPanels = document.querySelectorAll(
-        ".payslip-card-panel",
+        ".payslip-card-panel"
       );
 
       payslipCardPanels.forEach((ele, index) => {

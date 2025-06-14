@@ -130,6 +130,8 @@ li.nav-item .active {
   font-size: 18px !important;
 }
 
+
+
 .fs-10 {
   font-size: 10px !important;
 }
@@ -155,6 +157,12 @@ li.nav-item .active {
 
 .fs-24 {
   font-size: 24px !important;
+}
+
+@media (max-width: 769px) {
+  .fs-sm-18 {
+  font-size: 18px !important;
+}
 }
 
 .sr-only {
@@ -1396,4 +1404,8 @@ ul.subscription_tab li.nav-item .active {
   .subscription_tab_width {
   width: 100%;
 }
+}
+
+.email_nav button.active {
+  background-color: #2271b6 !important;
 }

@@ -97,7 +97,7 @@ import ModalReviewLeave from "../components/ui/ModalReviewLeave.astro";
                     data-bs-offset="-20,10"
                   >
                     <img src="images/png/icons/download.svg" alt="arrow-down" />
-                    <span>Export</span>
+                    <span>Download</span>
                     <img
                       src="images/png/icons/arrow-down.svg"
                       alt="arrow-down"
@@ -144,7 +144,7 @@ import ModalReviewLeave from "../components/ui/ModalReviewLeave.astro";
                     style="min-width: 200px;">Employee ID</th
                   >
                   <th
-                    class="bg-primary-blue text-white fw-600 fs-14 text-left"
+                    class="bg-primary-blue px-3 text-white fw-600 fs-14 text-left"
                     style="min-width: 200px;">Employee Name</th
                   >
                   <th
@@ -160,7 +160,7 @@ import ModalReviewLeave from "../components/ui/ModalReviewLeave.astro";
                     >Leave Type</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-left"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
                     >Number of Days</th
                   >
 
@@ -196,8 +196,8 @@ import ModalReviewLeave from "../components/ui/ModalReviewLeave.astro";
                       designation: "Lorem Ipsum",
                       leave_type: "Prorated 1st-Year Annual Leave",
                       no_of_days: "2",
-                      start_date: "5, Apr 2025",
-                      end_date: "5, Apr 2025",
+                      start_date: "5 Apr, 2025",
+                      end_date: "5 Apr, 2025",
                     },
                     {
                       emp_name: "Wade Warren",
@@ -206,8 +206,8 @@ import ModalReviewLeave from "../components/ui/ModalReviewLeave.astro";
                       designation: "Lorem Ipsum",
                       leave_type: "Prorated 1st-Year Annual Leave",
                       no_of_days: "2",
-                      start_date: "5, Apr 2025",
-                      end_date: "5, Apr 2025",
+                      start_date: "5 Apr, 2025",
+                      end_date: "5 Apr, 2025",
                     },
                     {
                       emp_name: "Wade Warren",
@@ -216,8 +216,8 @@ import ModalReviewLeave from "../components/ui/ModalReviewLeave.astro";
                       designation: "Lorem Ipsum",
                       leave_type: "Prorated 1st-Year Annual Leave",
                       no_of_days: "2",
-                      start_date: "5, Apr 2025",
-                      end_date: "5, Apr 2025",
+                      start_date: "5 Apr, 2025",
+                      end_date: "5 Apr, 2025",
                     },
                     {
                       emp_name: "Wade Warren",
@@ -226,8 +226,8 @@ import ModalReviewLeave from "../components/ui/ModalReviewLeave.astro";
                       designation: "Lorem Ipsum",
                       leave_type: "Prorated 1st-Year Annual Leave",
                       no_of_days: "2",
-                      start_date: "5, Apr 2025",
-                      end_date: "5, Apr 2025",
+                      start_date: "5 Apr, 2025",
+                      end_date: "5 Apr, 2025",
                     },
                     {
                       emp_name: "Wade Warren",
@@ -236,8 +236,8 @@ import ModalReviewLeave from "../components/ui/ModalReviewLeave.astro";
                       designation: "Lorem Ipsum",
                       leave_type: "Prorated 1st-Year Annual Leave",
                       no_of_days: "2",
-                      start_date: "5, Apr 2025",
-                      end_date: "5, Apr 2025",
+                      start_date: "5 Apr, 2025",
+                      end_date: "5 Apr, 2025",
                     },
                     {
                       emp_name: "Wade Warren",
@@ -246,8 +246,8 @@ import ModalReviewLeave from "../components/ui/ModalReviewLeave.astro";
                       designation: "Lorem Ipsum",
                       leave_type: "Prorated 1st-Year Annual Leave",
                       no_of_days: "2",
-                      start_date: "5, Apr 2025",
-                      end_date: "5, Apr 2025",
+                      start_date: "5 Apr, 2025",
+                      end_date: "5 Apr, 2025",
                     },
                     {
                       emp_name: "Wade Warren",
@@ -256,8 +256,8 @@ import ModalReviewLeave from "../components/ui/ModalReviewLeave.astro";
                       designation: "Lorem Ipsum",
                       leave_type: "Prorated 1st-Year Annual Leave",
                       no_of_days: "2",
-                      start_date: "5, Apr 2025",
-                      end_date: "5, Apr 2025",
+                      start_date: "5 Apr, 2025",
+                      end_date: "5 Apr, 2025",
                     },
                   ].map((ele, index) => (
                     <tr class="fs-88">
@@ -276,7 +276,7 @@ import ModalReviewLeave from "../components/ui/ModalReviewLeave.astro";
                       <td class="fs-14 px-3 text-left text-nowrap column">
                         {ele.leave_type}
                       </td>
-                      <td class="fs-14 px-3 text-left column">
+                      <td class="fs-14 px-3 text-center column">
                         {ele.no_of_days}
                       </td>
                       <td class="fs-14 px-3 text-center column">
