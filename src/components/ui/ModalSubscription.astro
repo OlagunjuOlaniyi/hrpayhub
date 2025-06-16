@@ -4,12 +4,10 @@ const {
   title = "Add Employee Type",
   inputPlace = "Designation",
 } = Astro.props;
-import { CloseCircleIcon } from "../Icons";
-import SuccessModal from "./SuccessModal.astro";
 ---
 
 <div class="modal fade" id={modalId} tabindex="-1">
-  <div class="modal-dialog">
+  <div class="modal-dialog confirmCancel">
     <div class="modal-content p-5">
       <!-- Modal Header -->
       <div class="modal-header border-0 d-flex justify-content-between">
@@ -40,9 +38,14 @@ import SuccessModal from "./SuccessModal.astro";
             <option value="5">Technical Difficulties</option>
             <option value="6">Poor Customer Support</option>
             <option value="7">Business Needs Changed</option>
-            <option value="8">Other</option>
+            <option value="other">Other</option>
           </select>
           <label for="reason"> Reason for Cancellation </label>
+        </div>
+        <div class="form-floating" id="additionalDetails">
+          <textarea class="form-input" rows="2" id="additionalDetails"
+          ></textarea>
+          <label for="additionalDetails">Additional Details </label>
         </div>
         <div class="form-check">
           <input
@@ -64,15 +67,73 @@ import SuccessModal from "./SuccessModal.astro";
         <button
           type="button"
           class="btn bg-primary-blue text-white"
-          data-bs-dismiss="modal"
-          data-bs-toggle="modal"
-          data-bs-target="#successModal"
+          id="confirm"
         >
           Confirm Cancellation
         </button>
       </div>
+    </div>
+  </div>
 
-      <SuccessModal modalId="successModal" title="Silver" />
+  <!----- confirm -->
+  <div class="modal-dialog d-none successfulCancel">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div
+        class="modal-header fs-24 fw-700 border-0 d-flex justify-content-center"
+      >
+        Successful Cancellation
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-center py-2 border-0">
+        <img src="images/png/icons/success-check.svg" alt="success check" />
+
+        <p class="fs-16">
+          Your subscription has been canceled. A confirmation email has been
+          sent to your registered email address.
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <button
+          type="button"
+          class="btn text-white bg-primary-blue fs-14 px-4"
+          data-bs-dismiss="modal"
+        >
+          Done
+        </button>
+      </div>
     </div>
   </div>
 </div>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const reasonSelect = document.getElementById("reason");
+    const additionalDetailsSelect =
+      document.getElementById("additionalDetails");
+
+    additionalDetailsSelect.style.display = "none"; // default
+
+    // On reason change
+    reasonSelect.addEventListener("change", () => {
+      const reason = reasonSelect.value;
+
+      if (reason === "other") {
+        // Other
+        additionalDetailsSelect.style.display = "block";
+      } else {
+        additionalDetailsSelect.style.display = "none";
+      }
+    });
+
+    $(".successfulCancel").addClass("d-none");
+
+    $("#confirm").click((evt) => {
+      $(".confirmCancel").addClass("d-none");
+      $(".successfulCancel").removeClass("d-none");
+    });
+  });
+</script>

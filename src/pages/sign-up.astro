@@ -62,15 +62,8 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
             </div>
 
             <!-- Top Back Button -->
-            <div
-              class="text-center w-100"
-            >
-              
-              <h3
-                class="fs-14 font-ubuntu fw-700 text-center"
-              >
-                Sign Up
-              </h3>
+            <div class="text-center w-100">
+              <h3 class="fs-14 font-ubuntu fw-700 text-center">Sign Up</h3>
             </div>
 
             <!-- Progress Steps -->
@@ -86,9 +79,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                 <div class="step-line"></div>
                 <div class="step-circle" data-step="3"></div>
               </div>
-              <div
-                class="fw-bold text-primary-blue fs-14 d-flex gap-5"
-              >
+              <div class="fw-bold text-primary-blue fs-14 d-flex gap-5">
                 <span class="text-nowrap">Account Details</span>
                 <span class="ms-2 me-5">Package</span>
                 <span>Payment</span>
@@ -523,32 +514,33 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                 <div
                   class="fixed-footer d-flex justify-content-between flex-column gap-5 sign_in_input mt-5 mb-5"
                 >
-
-                
                   <div class="d-flex justify-content-between">
-                  <button
-                    type="button"
-                    class="btn white_button px-4 fs-14 fw-700 start-free-trial"
-                    id="start-free-trial"
-                    data-bs-toggle="modal"
-                    data-bs-target="#successModal"
-                    disabled>Start Free Trial</button
-                  >
-                  <button
-                    type="button"
-                    class="btn bg-primary-blue text-white fs-14 px-4 fw-700 subscribe-pay next-btn"
-                    id="subscribe-pay"
-                    disabled>Subscribe and Pay</button
-                  >
+                    <button
+                      type="button"
+                      class="btn white_button px-4 fs-14 fw-700 start-free-trial"
+                      id="start-free-trial"
+                      data-bs-toggle="modal"
+                      data-bs-target="#successModal"
+                      disabled>Start Free Trial</button
+                    >
+                    <button
+                      type="button"
+                      class="btn bg-primary-blue text-white fs-14 px-4 fw-700 subscribe-pay next-btn"
+                      id="subscribe-pay"
+                      disabled>Subscribe and Pay</button
+                    >
                   </div>
                   <div>
-                <button
-                    type="button"
-                    class="white_button_signup back-btn d-flex gap-2 align-items-center font-ubuntu fw-700 fs-14"
-                  >
-                  <img src="images/png/icons/angle-left-white.svg" alt="angle-left-back" />
-                    <span>Back</span>
-                  </button>
+                    <button
+                      type="button"
+                      class="white_button_signup back-btn d-flex gap-2 align-items-center font-ubuntu fw-700 fs-14"
+                    >
+                      <img
+                        src="images/png/icons/angle-left-white.svg"
+                        alt="angle-left-back"
+                      />
+                      <span>Back</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -802,13 +794,16 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                   <div
                     class="fixed-footer d-flex justify-content-end gap-4 mb-3 mt-5"
                   >
-                  <button
-                    type="button"
-                    class="white_button_signup back-btn d-flex gap-2 align-items-center font-ubuntu fw-700 fs-14"
-                  >
-                  <img src="images/png/icons/angle-left-white.svg" alt="angle-left-back" />
-                    <span>Back</span>
-                  </button>
+                    <button
+                      type="button"
+                      class="white_button_signup back-btn d-flex gap-2 align-items-center font-ubuntu fw-700 fs-14"
+                    >
+                      <img
+                        src="images/png/icons/angle-left-white.svg"
+                        alt="angle-left-back"
+                      />
+                      <span>Back</span>
+                    </button>
                     <button
                       type="button"
                       class="btn bg-primary-blue text-white fs-14 fw-700"
@@ -989,7 +984,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
             $('label[for="free-trial"] .checked').removeClass("d-none"); // checked
             $('label[for="free-trial"] .unchecked').addClass("d-none"); // hide unchecked
             $("#start-free-trial").prop("disabled", false);
-            $(".packages_ng").prop("value", "3");            
+            $(".packages_ng").prop("value", "3");
             $(".packages_uk").prop("value", "3");
             $(".no_of_users").prop("value", "3");
             $(".total_amount").prop("disabled", false);

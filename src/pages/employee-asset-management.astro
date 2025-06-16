@@ -368,14 +368,7 @@ import ModalComment from "../components/ui/ModalComment.astro";
                   <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
                     >S/N</th
                   >
-                  <th
-                    class="bg-primary-blue text-white fw-600 fs-14 text-left"
-                    style="min-width: 200px;">Employee Name</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    style="min-width: 200px;">Employee ID</th
-                  >
+
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Asset Name</th
@@ -383,6 +376,10 @@ import ModalComment from "../components/ui/ModalComment.astro";
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Assigned By</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    style="min-width: 200px;">Serial Number</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
@@ -394,21 +391,22 @@ import ModalComment from "../components/ui/ModalComment.astro";
                   >
 
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Condition</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
                     >Assignment Date</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Return Date</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Acceptance Status</th
                   >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Return Date</th
+                  >
+
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
                     >Employee’s Comment</th
@@ -431,10 +429,9 @@ import ModalComment from "../components/ui/ModalComment.astro";
                 {
                   [
                     {
-                      emp_name: "Wade Warren",
-                      emp_id: "N12343534",
                       asset_name: "Lorem Ipsum",
                       assigned_by: "Wade Warren",
+                      serial_id: "N12343534",
                       model: "Lorem Ipsum",
                       quantity: "Lorem Ipsum",
                       condition: "New",
@@ -444,10 +441,9 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       emp_comment: "images/png/icons/vision.svg",
                     },
                     {
-                      emp_name: "Wade Warren",
-                      emp_id: "N12343534",
                       asset_name: "Lorem Ipsum",
                       assigned_by: "Wade Warren",
+                      serial_id: "N12343534",
                       model: "Lorem Ipsum",
                       quantity: "Lorem Ipsum",
                       condition: "Used",
@@ -457,10 +453,9 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       emp_comment: "images/png/icons/vision.svg",
                     },
                     {
-                      emp_name: "Wade Warren",
-                      emp_id: "N12343534",
                       asset_name: "Lorem Ipsum",
                       assigned_by: "Wade Warren",
+                      serial_id: "N12343534",
                       model: "Lorem Ipsum",
                       quantity: "Lorem Ipsum",
                       condition: "Refurbished",
@@ -470,10 +465,9 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       emp_comment: "images/png/icons/vision.svg",
                     },
                     {
-                      emp_name: "Wade Warren",
-                      emp_id: "N12343534",
                       asset_name: "Lorem Ipsum",
                       assigned_by: "Wade Warren",
+                      serial_id: "N12343534",
                       model: "Lorem Ipsum",
                       quantity: "Lorem Ipsum",
                       condition: "New",
@@ -483,10 +477,9 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       emp_comment: "images/png/icons/vision.svg",
                     },
                     {
-                      emp_name: "Wade Warren",
-                      emp_id: "N12343534",
                       asset_name: "Lorem Ipsum",
                       assigned_by: "Wade Warren",
+                      serial_id: "N12343534",
                       model: "Lorem Ipsum",
                       quantity: "Lorem Ipsum",
                       condition: "New",
@@ -496,10 +489,9 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       emp_comment: "images/png/icons/vision.svg",
                     },
                     {
-                      emp_name: "Wade Warren",
-                      emp_id: "N12343534",
                       asset_name: "Lorem Ipsum",
                       assigned_by: "Wade Warren",
+                      serial_id: "N12343534",
                       model: "Lorem Ipsum",
                       quantity: "Lorem Ipsum",
                       condition: "New",
@@ -509,10 +501,9 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       emp_comment: "images/png/icons/vision.svg",
                     },
                     {
-                      emp_name: "Wade Warren",
-                      emp_id: "N12343534",
                       asset_name: "Lorem Ipsum",
                       assigned_by: "Wade Warren",
+                      serial_id: "N12343534",
                       model: "Lorem Ipsum",
                       quantity: "Lorem Ipsum",
                       condition: "New",
@@ -524,17 +515,16 @@ import ModalComment from "../components/ui/ModalComment.astro";
                   ].map((ele, index) => (
                     <tr class="fs-88">
                       <td class="text-center fs-14">{index + 1}</td>
-                      <td class="fs-14 text-nowrap px-3 text-left column">
-                        {ele.emp_name}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">{ele.emp_id}</td>
+
                       <td class="fs-14 px-3 text-left column">
                         {ele.asset_name}
                       </td>
                       <td class="fs-14 px-3 text-left column">
                         {ele.assigned_by}
                       </td>
-
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.serial_id}
+                      </td>
                       <td class="fs-14 px-3 text-left column">{ele.model}</td>
                       <td class="fs-14 px-3 text-left column">
                         {ele.quantity}
@@ -542,11 +532,8 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       <td class="fs-14 px-3 text-left column">
                         {ele.condition}
                       </td>
-                      <td class="fs-14 px-3 text-left column">
+                      <td class="fs-14 px-3 text-center column">
                         {ele.assignment_date}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.return_date}
                       </td>
                       <td
                         class="fs-14 px-3 text-left column"
@@ -559,6 +546,9 @@ import ModalComment from "../components/ui/ModalComment.astro";
                         };`}
                       >
                         {ele.acceptance_stat}
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        {ele.return_date}
                       </td>
 
                       <td class="fs-14 px-3 text-center d-flex justify-content-center column">

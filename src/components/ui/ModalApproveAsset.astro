@@ -26,21 +26,52 @@ import { CloseCircleIcon } from "../Icons";
       <!-- Modal body -->
 
       <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+        <div
+          class="d-flex flex-column flex-lg-row flex-wrap gap-2 p-3 px-2 mb-3 clock_in_out_modal"
+        >
+          <div class="d-flex flex-column w-50 px-lg-3">
+            <span class="fs-12 text-secondary text-nowrap">
+              Employee Name
+            </span>
+            <span class="fs-14 fw-700 text-nowrap">Toluwalase Obasun</span>
+          </div>
+
+          <span class="clock_border_left"></span>
+          <div class="d-flex flex-column px-lg-3">
+            <span class="fs-12 text-secondary">Branch</span>
+            <span class="fs-14 fw-700">Lorem Ipsum</span>
+          </div>
+
+          <div class="d-flex flex-column w-50 px-lg-3">
+            <span class="fs-12 text-secondary text-nowrap"> Designation </span>
+            <span class="fs-14 fw-700 text-nowrap">Lorem Ipsum</span>
+          </div>
+
+          <span class="clock_border_left"></span>
+          <div class="d-flex flex-column px-lg-3">
+            <span class="fs-12 text-secondary text-nowrap">
+              Primary Department
+            </span>
+            <span class="fs-14 fw-700 text-nowrap">Lorem Ipsum</span>
+          </div>
+
+          <div class="d-flex flex-column px-lg-3">
+            <span class="fs-12 text-secondary">Primary Function</span>
+            <span class="fs-14 fw-700">Lorem Ipsum</span>
+          </div>
+        </div>
         <div class="form-floating">
-          <select
-            id="emp_id_name"
-            name="emp_id_name"
-            class="form-select_custom fs-14"
-            required
+          <input
+            type="text"
+            id="assigned_by"
+            name="assigned_by"
+            class="form-input"
+            placeholder=""
+            value="Lorem Ipsum"
             disabled
-          >
-            <option value=""> Select </option>
-            <option value="1" selected>Robert Fox - N12343534</option>
-            <option value="2">Robert Fox - N12343534</option>
-            <option value="3">Robert Fox - N12343534</option>
-          </select>
-          <label for="emp_id_name">
-            Employee ID/Name &nbsp;<span>*</span>
+          />
+          <label for="assigned_by">
+            Assigned By &nbsp;<span>*</span>
           </label>
         </div>
         <div class="form-floating">
@@ -130,19 +161,10 @@ import { CloseCircleIcon } from "../Icons";
             Assignment Date &nbsp;<span>*</span>
           </label>
         </div>
+
         <div class="form-floating">
-          <input
-            type="date"
-            id="return_date"
-            name="return_date"
-            class="form-input"
-            placeholder=""
-            value="2025-06-01"
-            disabled
-          />
-          <label for="return_date">
-            Return Date &nbsp;<span>*</span>
-          </label>
+          <textarea class="form-input" rows="2" id="comment"></textarea>
+          <label for="comment">Comment </label>
         </div>
 
         <div class="form-check">

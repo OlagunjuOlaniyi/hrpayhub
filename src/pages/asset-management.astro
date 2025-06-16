@@ -381,7 +381,7 @@ import ModalComment from "../components/ui/ModalComment.astro";
                     >S/N</th
                   >
                   <th
-                    class="bg-primary-blue text-white fw-600 fs-14 text-left"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     style="min-width: 200px;">Employee Name</th
                   >
                   <th
@@ -391,6 +391,22 @@ import ModalComment from "../components/ui/ModalComment.astro";
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Asset Name</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Branch</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Designation</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Primary Department</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Primary Function</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
@@ -406,15 +422,15 @@ import ModalComment from "../components/ui/ModalComment.astro";
                   >
 
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Condition</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
                     >Assignment Date</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
                     >Return Date</th
                   >
                   <th
@@ -443,6 +459,10 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       emp_name: "Wade Warren",
                       emp_id: "N12343534",
                       asset_name: "Lorem Ipsum",
+                      branch: "Lorem Ipsum",
+                      designation: "Lorem Ipsum",
+                      pry_dpt: "Lorem Ipsum",
+                      pry_func: "Lorem Ipsum",
                       assigned_by: "Wade Warren",
                       model: "Lorem Ipsum",
                       quantity: "Lorem Ipsum",
@@ -456,6 +476,10 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       emp_name: "Wade Warren",
                       emp_id: "N12343534",
                       asset_name: "Lorem Ipsum",
+                      branch: "Lorem Ipsum",
+                      designation: "Lorem Ipsum",
+                      pry_dpt: "Lorem Ipsum",
+                      pry_func: "Lorem Ipsum",
                       assigned_by: "Wade Warren",
                       model: "Lorem Ipsum",
                       quantity: "Lorem Ipsum",
@@ -469,6 +493,10 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       emp_name: "Wade Warren",
                       emp_id: "N12343534",
                       asset_name: "Lorem Ipsum",
+                      branch: "Lorem Ipsum",
+                      designation: "Lorem Ipsum",
+                      pry_dpt: "Lorem Ipsum",
+                      pry_func: "Lorem Ipsum",
                       assigned_by: "Wade Warren",
                       model: "Lorem Ipsum",
                       quantity: "Lorem Ipsum",
@@ -482,6 +510,10 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       emp_name: "Wade Warren",
                       emp_id: "N12343534",
                       asset_name: "Lorem Ipsum",
+                      branch: "Lorem Ipsum",
+                      designation: "Lorem Ipsum",
+                      pry_dpt: "Lorem Ipsum",
+                      pry_func: "Lorem Ipsum",
                       assigned_by: "Wade Warren",
                       model: "Lorem Ipsum",
                       quantity: "Lorem Ipsum",
@@ -495,6 +527,10 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       emp_name: "Wade Warren",
                       emp_id: "N12343534",
                       asset_name: "Lorem Ipsum",
+                      branch: "Lorem Ipsum",
+                      designation: "Lorem Ipsum",
+                      pry_dpt: "Lorem Ipsum",
+                      pry_func: "Lorem Ipsum",
                       assigned_by: "Wade Warren",
                       model: "Lorem Ipsum",
                       quantity: "Lorem Ipsum",
@@ -508,6 +544,10 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       emp_name: "Wade Warren",
                       emp_id: "N12343534",
                       asset_name: "Lorem Ipsum",
+                      branch: "Lorem Ipsum",
+                      designation: "Lorem Ipsum",
+                      pry_dpt: "Lorem Ipsum",
+                      pry_func: "Lorem Ipsum",
                       assigned_by: "Wade Warren",
                       model: "Lorem Ipsum",
                       quantity: "Lorem Ipsum",
@@ -521,6 +561,10 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       emp_name: "Wade Warren",
                       emp_id: "N12343534",
                       asset_name: "Lorem Ipsum",
+                      branch: "Lorem Ipsum",
+                      designation: "Lorem Ipsum",
+                      pry_dpt: "Lorem Ipsum",
+                      pry_func: "Lorem Ipsum",
                       assigned_by: "Wade Warren",
                       model: "Lorem Ipsum",
                       quantity: "Lorem Ipsum",
@@ -540,6 +584,14 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       <td class="fs-14 px-3 text-left column">
                         {ele.asset_name}
                       </td>
+                      <td class="fs-14 px-3 text-left column">{ele.branch}</td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.designation}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">{ele.pry_dpt}</td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.pry_func}
+                      </td>
                       <td class="fs-14 px-3 text-left column">
                         {ele.assigned_by}
                       </td>
@@ -551,10 +603,10 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       <td class="fs-14 px-3 text-left column">
                         {ele.condition}
                       </td>
-                      <td class="fs-14 px-3 text-left column">
+                      <td class="fs-14 px-3 text-center column">
                         {ele.assignment_date}
                       </td>
-                      <td class="fs-14 px-3 text-left column">
+                      <td class="fs-14 px-3 text-center column">
                         {ele.return_date}
                       </td>
                       <td

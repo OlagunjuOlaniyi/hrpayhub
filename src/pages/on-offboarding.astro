@@ -66,17 +66,17 @@ import Layout from "../layouts/Layout.astro";
               [
                 {
                   title: "Asset Management",
-                  desc: "Enable HR/Admin to assign, document, and track assets assigned to employees",
+                  desc: "Assign, track and manage assets digitally",
                   url: "/asset-management",
                 },
                 {
                   title: "Onboarding Checklist",
-                  desc: "Assign and track onboarding tasks for new hires",
+                  desc: "Assign and track onboarding tasks with real - time visibility",
                   url: "/onboarding-checklist",
                 },
                 {
                   title: "Offboarding Checklist",
-                  desc: "Ensure all necessary offboarding actions are taken for a departing employee",
+                  desc: "Track exit, manage asset returns, and control system access",
                   url: "/offboarding-checklist",
                 },
               ].map((ele) => (
@@ -134,19 +134,19 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Asset Management",
-                  desc: "Enable HR/Admin to assign, document, and track assets assigned to employees",
+                  title: "View & Acknowledge Assigned Assets",
+                  desc: "Easily confirm receipt and return of company assigned assets",
                   url: "/employee-asset-management",
                 },
                 {
-                  title: "Onboarding Checklist",
-                  desc: "Assign and track onboarding tasks for new hires",
-                  url: "/employee-onboarding-checklist",
+                  title: "Onboarding Tasks",
+                  desc: "Complete and track assigned onboarding tasks",
+                  url: "/onboarding-tasks",
                 },
                 {
-                  title: "Offboarding Checklist",
-                  desc: "Ensure all necessary offboarding actions are taken for a departing employee",
-                  url: "/employee-offboarding-checklist",
+                  title: "Offboarding Tasks",
+                  desc: "Complete assigned exit tasks and return all company property.",
+                  url: "/offboarding-tasks",
                 },
               ].map((ele) => (
                 <div
@@ -190,7 +190,7 @@ import Layout from "../layouts/Layout.astro";
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const payslipCardPanels = document.querySelectorAll(
-        ".payslip-card-panel",
+        ".payslip-card-panel"
       );
 
       payslipCardPanels.forEach((ele, index) => {

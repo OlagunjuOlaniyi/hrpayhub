@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import ModalSubscription from "../components/ui/ModalSubscription.astro";
 import ModalAddCard from "../components/ui/ModalAddCard.astro";
 import ModalAddBank from "../components/ui/ModalAddBank.astro";
+import { Naira, Pounds } from "../components/Symbols";
 ---
 
 <Layout title="HRPayHub :: Subscription Manager">
@@ -64,8 +65,9 @@ import ModalAddBank from "../components/ui/ModalAddBank.astro";
                   <a
                     class="nav-link"
                     data-bs-toggle="pill"
-                    href="#billingSection">Billing Section</a
-                  >
+                    href="#billingSection"
+                    >Billing
+                  </a>
                 </li>
               </ul>
 
@@ -79,7 +81,9 @@ import ModalAddBank from "../components/ui/ModalAddBank.astro";
                     >
                       <span class="fs-12">Current Package</span>
                       <span class="fw-700 fs-18 font-ubuntu-bold">Bronze</span>
-                      <span class="fw-700 fs-18">$ 0.99 / N 999</span>
+                      <span class="fw-700 fs-18"
+                        ><Pounds /> 0.99 / <Naira /> 999</span
+                      >
                       <img src="images/png/icons/line.svg" alt="line" />
                       <p
                         class="fs-14 fw-700 text_underline mt-2"
@@ -115,9 +119,10 @@ import ModalAddBank from "../components/ui/ModalAddBank.astro";
                           selected
                           style="color: rgb(200, 200, 200)">Select</option
                         >
-                        <option value="type_1">Package 1</option>
-                        <option value="type_2">Package 2</option>
-                        <option value="type_3">Package 3</option>
+                        <option value="type_1">Bronze</option>
+                        <option value="type_2">Platinum</option>
+                        <option value="type_3">Silver</option>
+                        <option value="type_4">Gold</option>
                       </select>
                       <label for="select_recp">Select New Package </label>
                     </div>
