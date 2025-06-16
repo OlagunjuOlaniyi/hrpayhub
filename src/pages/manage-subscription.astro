@@ -1,0 +1,413 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalSubscription from "../components/ui/ModalSubscription.astro";
+import ModalAddCard from "../components/ui/ModalAddCard.astro";
+import ModalAddBank from "../components/ui/ModalAddBank.astro";
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: Subscription Manager">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="index.html"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Manage Subscription</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!-- Nav pills -->
+              <ul class="nav nav-pills subscription_tab">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    data-bs-toggle="pill"
+                    href="#manageSubscription">Manage Subscription</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    data-bs-toggle="pill"
+                    href="#billingSection"
+                    >Billing
+                  </a>
+                </li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane container active" id="manageSubscription">
+                  <div class="vstack" style="gap: 2.3rem">
+                    <div
+                      class="p-3 px-4 d-flex justify-content-center gap-2 text-center flex-column add_employee_width"
+                      style="background-color: #FFD8A8; border-radius: 15px"
+                    >
+                      <span class="fs-12">Current Package</span>
+                      <span class="fw-700 fs-18 font-ubuntu-bold">Bronze</span>
+                      <span class="fw-700 fs-18"
+                        ><Pounds /> 0.99 / <Naira /> 999</span
+                      >
+                      <img src="images/png/icons/line.svg" alt="line" />
+                      <p
+                        class="fs-14 fw-700 text_underline mt-2"
+                        style="color: #FD0000;"
+                        role="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                        data-title="Cancel Subscription"
+                      >
+                        Cancel Subscription
+                      </p>
+                    </div>
+                    <div
+                      class="d-flex align-items-center gap-4 add_employee_width"
+                    >
+                      <div class="fs-14 fw-600 text-primary-blue">
+                        Upgrade/Downgrade Subscription
+                      </div>
+                      <div class="flex-grow-1">
+                        <div class="demarcator_line">&nbsp;</div>
+                      </div>
+                    </div>
+
+                    <div class="form-floating add_employee_width">
+                      <select
+                        id="select_recp"
+                        name="select_recp"
+                        class="form-select_custom fs-14"
+                        required
+                      >
+                        <option
+                          value=""
+                          selected
+                          style="color: rgb(200, 200, 200)">Select</option
+                        >
+                        <option value="type_1">Bronze</option>
+                        <option value="type_2">Platinum</option>
+                        <option value="type_3">Silver</option>
+                        <option value="type_4">Gold</option>
+                      </select>
+                      <label for="select_recp">Select New Package </label>
+                    </div>
+
+                    <div class="form-floating add_employee_width">
+                      <input
+                        type="text"
+                        id="at_due"
+                        name="at_due"
+                        class="form-input fs-14"
+                        placeholder=""
+                      />
+                      <label for="at_due">Prorated amount due </label>
+                    </div>
+
+                    <div
+                      class="d-flex justify-content-start gap-3 add_employee_width"
+                    >
+                      <button
+                        type="button"
+                        id="upload"
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                      >
+                        <span>Change Subscription</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane container fade" id="billingSection">
+                  <div class="vstack" style="gap: 1.3rem">
+                    <div
+                      class="d-flex align-items-center gap-4 add_employee_width"
+                    >
+                      <div class="fs-14 fw-600 text-primary-blue">
+                        Save Cards
+                      </div>
+                      <div class="flex-grow-1">
+                        <div class="demarcator_line">&nbsp;</div>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-column gap-3">
+                      {
+                        [
+                          {
+                            card_no: "**** **** **** 5678",
+                            exp: "07/20",
+                          },
+                          {
+                            card_no: "**** **** **** 5678",
+                            exp: "07/20",
+                          },
+                        ].map((ele, index) => (
+                          <div class="download_sample d-flex flex-column gap-2 px-2 py-1 add_employee_width">
+                            <div class="d-flex justify-content-between py-2">
+                              <div class="d-flex justify-content-center align-items-center gap-3">
+                                <img
+                                  src="images/png/icons/mastercard.svg"
+                                  alt="document"
+                                />
+                                <span class="fs-14">{ele.card_no}</span>
+                              </div>
+                              <span class="fs-14">{ele.exp}</span>
+                              <div class="d-flex gap-2">
+                                <button
+                                  class="border-0 edit-button"
+                                  style="background-color: inherit;"
+                                  type="button"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#addCard"
+                                  data-title="Edit Card"
+                                  data-emp-type="{ele.emp_type}"
+                                >
+                                  <img
+                                    src="images/png/icons/edit-2.svg"
+                                    alt=""
+                                  />
+                                </button>
+                                <button
+                                  class="border-0"
+                                  style="background-color: inherit;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#deleteModal"
+                                >
+                                  <img
+                                    src="images/png/icons/colored/delete.svg"
+                                    alt=""
+                                  />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        ))
+                      }
+                    </div>
+                    <div class="add_new_card">
+                      <button
+                        type="button"
+                        class="white_button fs-14 d-flex gap-2 align-items-center"
+                        data-bs-toggle="modal"
+                        data-bs-target="#addCard"
+                        data-title="Add New Card"
+                        data-emp-type="{ele.emp_type}"
+                        style="border: 0px !important;"
+                      >
+                        <img
+                          src="images/png/icons/add-circle.svg"
+                          alt="add new"
+                        />
+                        <span>Add New Card</span>
+                      </button>
+                    </div>
+
+                    <div
+                      class="d-flex justify-content-start add_employee_width"
+                    >
+                      <button
+                        type="button"
+                        id="upload"
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 mb-4"
+                      >
+                        <span>Make Immediate Payment</span>
+                      </button>
+                    </div>
+
+                    <div
+                      class="d-flex align-items-center gap-4 add_employee_width"
+                    >
+                      <div class="fs-14 fw-600 text-primary-blue">
+                        Billing Plan
+                      </div>
+                      <div class="flex-grow-1">
+                        <div class="demarcator_line">&nbsp;</div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <!-- Nav pills -->
+                      <ul
+                        class="nav nav-pills d-flex justify-content-between p-1 upload_offer_bg subscription_tab_width"
+                        role="tablist"
+                      >
+                        <li class="nav-item">
+                          <a
+                            class="nav-link fs-14 fw-600"
+                            data-bs-toggle="pill"
+                            href="#monthlyPlan">Monthly Plan</a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a
+                            class="nav-link active fs-14 fw-600"
+                            data-bs-toggle="pill"
+                            href="#annualPlan">Annual Plan</a
+                          >
+                        </li>
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                        <div id="monthlyPlan" class="container tab-pane fade">
+                          <br />
+                        </div>
+                        <div id="annualPlan" class="container tab-pane active">
+                          <br />
+                          <div class="d-flex flex-column gap-4">
+                            <div class="d-flex gap-3">
+                              <span class="fs-14 fw-600">N 999</span>
+                              <span class="fs-12 fw-600"
+                                >(Save 15% with annual billing)</span
+                              >
+                            </div>
+                            <div
+                              class="d-flex justify-content-start gap-3 add_employee_width"
+                            >
+                              <button
+                                type="button"
+                                id="upload"
+                                class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
+                              >
+                                <span>Save</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="d-flex align-items-center gap-4 mt-5 add_employee_width"
+                      >
+                        <div class="fs-14 fw-600 text-primary-blue">
+                          Bank Transfer Infomation
+                        </div>
+                        <div class="flex-grow-1">
+                          <div class="demarcator_line">&nbsp;</div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="d-flex flex-column p-4 gap-4 mt-4 add_employee_width"
+                        style="border-radius: 15px; background-color: #D3E3F0;"
+                      >
+                        <div class="d-flex justify-content-between">
+                          <div class="d-flex flex-column">
+                            <span class="fs-14">Account Number</span>
+                            <span class="fs-16 fw-700">0123456785</span>
+                          </div>
+                          <div class="d-flex flex-column">
+                            <span class="fs-14">Account Number</span>
+                            <span class="fs-16 fw-700">0123456785</span>
+                          </div>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between align-items-end"
+                        >
+                          <div class="d-flex flex-column">
+                            <span class="fs-14">Bank Name</span>
+                            <span class="fs-16 fw-700">Wema Bank</span>
+                          </div>
+                          <div class="d-flex flex-column">
+                            <button
+                              class="border-0 edit-button"
+                              style="background-color: inherit;"
+                              type="button"
+                              data-bs-toggle="modal"
+                              data-bs-target="#addBank"
+                              data-title="Edit Bank Transfer Info"
+                              data-emp-type="{ele.emp_type}"
+                            >
+                              <img src="images/png/icons/edit-2.svg" alt="" />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ModalAddCard
+            modalId="addCard"
+            title={"Add New Card"}
+            inputPlace="Add Card"
+          />
+          <ModalAddBank
+            modalId="addBank"
+            title={"Edit Bank Transfer Info"}
+            inputPlace="Edit Bank Transfer Info"
+          />
+          <ModalSubscription
+            modalId="myModal"
+            title={"Cancel Subscription"}
+            inputPlace="Cancel Subscription"
+          />
+        </div>
+      </div>
+      <!-- Main content ends here -->
+    </section>
+
+    <script is:inline type="text/javascript">
+      // Handle opening the modal
+      document
+        .querySelectorAll('[data-bs-target="#addCard"]')
+        .forEach((button) => {
+          button.addEventListener("click", function () {
+            const modalTitle =
+              this.getAttribute("data-title") || "Edit Bank Transfer Info";
+            const empType = this.getAttribute("data-emp-type") || "";
+
+            // Update modal title
+            const modalTitleElement = document.getElementById("modalTitle");
+            if (modalTitleElement) {
+              modalTitleElement.textContent = modalTitle;
+            }
+
+            // Update input field
+            const employeeStatusInput =
+              document.getElementById("employee_title");
+            if (employeeStatusInput) {
+              employeeStatusInput.value = empType;
+            }
+          });
+        });
+    </script>
+  </main>
+</Layout>

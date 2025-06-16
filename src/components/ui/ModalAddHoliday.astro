@@ -39,7 +39,7 @@ import { CloseCircleIcon } from "../Icons";
             <option value="3">E1003</option>
           </select>
           <label for="work_location">
-            Work Location &nbsp;<span>*</span>
+            Branch &nbsp;<span>*</span>
           </label>
         </div>
 
@@ -127,19 +127,22 @@ import { CloseCircleIcon } from "../Icons";
                 Holiday Name &nbsp;<span>*</span>
               </label>
             </div>
-            <div class="form-floating mt-3">
-              <input
-                type="date"
-                id="holiday_date_${index}"
-                name="date[]"
-                class="form-input"
-                placeholder=""
-                required
-              />
-              <label for="holiday_date_${index}">
-                Select Date &nbsp;<span>*</span>
-              </label>
-            </div>
+
+            <div class="form-group mt-3">
+                    <label for="holiday_range" class="form-label fs-14"
+                      >Select Holiday &nbsp;<span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="holiday_range_${index}"
+                      name="holiday_range[]"
+                      class="form-control fs-14 py-3"
+                      placeholder="Select date"
+                      autocomplete="off"
+                    />
+
+                  </div>
+            
           </div>
         </div>
       </div>
@@ -161,12 +164,15 @@ import { CloseCircleIcon } from "../Icons";
 
     // Add first accordion item on load
     container.insertAdjacentHTML("beforeend", getAccordionItem(holidayIndex));
+    initFlatpickr(holidayIndex);
+
     holidayIndex++;
     updateDeleteVisibility();
 
     // Add new accordion
     addBtn.addEventListener("click", function () {
       container.insertAdjacentHTML("beforeend", getAccordionItem(holidayIndex));
+      initFlatpickr(holidayIndex);
       holidayIndex++;
       updateDeleteVisibility();
     });
@@ -181,5 +187,13 @@ import { CloseCircleIcon } from "../Icons";
         updateDeleteVisibility();
       }
     });
+
+    // Initiate date range
+    function initFlatpickr(index) {
+      flatpickr(`#holiday_range_${index}`, {
+        mode: "range",
+        dateFormat: "Y-m-d",
+      });
+    }
   });
 </script>

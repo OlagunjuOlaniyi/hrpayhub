@@ -1,0 +1,139 @@
+---
+const {
+  modalId = "myModal",
+  title = "Add Employee Type",
+  inputPlace = "Designation",
+} = Astro.props;
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog confirmCancel">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
+
+        <img
+          type="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+        <div class="form-floating">
+          <select
+            id="reason"
+            name="reason"
+            class="form-select_custom fs-14"
+            required
+          >
+            <option value="" selected> Select </option>
+            <option value="1">Service No Longer Needed</option>
+            <option value="2">Cost Concerns</option>
+            <option value="3">Using Another Solution</option>
+            <option value="4">Dissatisfied with Features</option>
+            <option value="5">Technical Difficulties</option>
+            <option value="6">Poor Customer Support</option>
+            <option value="7">Business Needs Changed</option>
+            <option value="other">Other</option>
+          </select>
+          <label for="reason"> Reason for Cancellation </label>
+        </div>
+        <div class="form-floating" id="additionalDetails">
+          <textarea class="form-input" rows="2" id="additionalDetails"
+          ></textarea>
+          <label for="additionalDetails">Additional Details </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="agreement"
+            name="agreement"
+            value="agreement"
+            checked
+          />
+          <label class="form-check-label fs-14 font-avenir fw-600"
+            >I understand that by cancelling, I will lose access to my
+            subscription on 2-Apr-2025</label
+          >
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-start border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white"
+          id="confirm"
+        >
+          Confirm Cancellation
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!----- confirm -->
+  <div class="modal-dialog d-none successfulCancel">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div
+        class="modal-header fs-24 fw-700 border-0 d-flex justify-content-center"
+      >
+        Successful Cancellation
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-center py-2 border-0">
+        <img src="images/png/icons/success-check.svg" alt="success check" />
+
+        <p class="fs-16">
+          Your subscription has been canceled. A confirmation email has been
+          sent to your registered email address.
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <button
+          type="button"
+          class="btn text-white bg-primary-blue fs-14 px-4"
+          data-bs-dismiss="modal"
+        >
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const reasonSelect = document.getElementById("reason");
+    const additionalDetailsSelect =
+      document.getElementById("additionalDetails");
+
+    additionalDetailsSelect.style.display = "none"; // default
+
+    // On reason change
+    reasonSelect.addEventListener("change", () => {
+      const reason = reasonSelect.value;
+
+      if (reason === "other") {
+        // Other
+        additionalDetailsSelect.style.display = "block";
+      } else {
+        additionalDetailsSelect.style.display = "none";
+      }
+    });
+
+    $(".successfulCancel").addClass("d-none");
+
+    $("#confirm").click((evt) => {
+      $(".confirmCancel").addClass("d-none");
+      $(".successfulCancel").removeClass("d-none");
+    });
+  });
+</script>

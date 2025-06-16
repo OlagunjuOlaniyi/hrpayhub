@@ -130,8 +130,13 @@ li.nav-item .active {
   font-size: 18px !important;
 }
 
+
+
+.fs-10 {
+  font-size: 10px !important;
+}
 .fs-12 {
-  font-size: 13px !important;
+  font-size: 12px !important;
 }
 
 .fs-13 {
@@ -152,6 +157,12 @@ li.nav-item .active {
 
 .fs-24 {
   font-size: 24px !important;
+}
+
+@media (max-width: 769px) {
+  .fs-sm-18 {
+  font-size: 18px !important;
+}
 }
 
 .sr-only {
@@ -335,6 +346,10 @@ input.no_focus:focus {
   justify-content: center;
   align-items: center;
   z-index: 1 !important;
+
+  span {
+    color: #fd0000 !important;
+  }
 }
 
 .form-input:focus + label span,
@@ -651,6 +666,10 @@ body {
 .font-avenir-bold {
   font-family: "Avenir";
   font-weight: 700;
+}
+.font-avenir {
+  font-family: "Avenir";
+  font-weight: normal;
 }
 
 .initialize {
@@ -1183,6 +1202,15 @@ ul.upload_offer_bg li.nav-item .active {
   padding-right: 25px;
 }
 
+.download_sample {
+  border-radius: 15px;
+  border: 2px solid #c1c1c1;
+}
+
+.text_underline {
+  text-decoration: underline;
+}
+
 /* Sigin In Section */
 .sign_in_img_bg {
   background-color: rgba(236, 241, 245, 1);
@@ -1207,18 +1235,177 @@ ul.upload_offer_bg li.nav-item .active {
   cursor: pointer;
 }
 
+.sign_area {
+  width: 50%;
+}
+
 @media (max-width: 769px) {
-  .sign_logo {
+  /* .sign_logo {
     width: 160px !important;
-  }
+  } */
 
   .sign_in_input {
-    min-width: 100%;
+    width: 345px;
   }
 
   .sign_area {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    width: 100%;
   }
+}
+
+/* Sign up section */
+.step-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-active,
+.step-complete {
+  background-color: #2271b6;
+}
+
+.white_button_signup {
+  background: white;
+  color: #2271b6 !important;
+  border: 1.5px solid #2271b6 !important;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.step-line {
+  width: 108px;
+  height: 2px;
+  background-color: #ccc;
+}
+
+.form-step {
+  animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.step-circle .progress_inner {
+  width: 15px !important;
+  height: 15px !important;
+  background-color: #fff !important;
+
+  border-radius: 50%;
+}
+
+.btn-check:checked + .btn-outline-secondary {
+  background-color: transparent;
+  color: #131212;
+  border: 2px solid;
+
+  border-color: #2271b6;
+}
+
+.form-check-input:checked {
+  background-color: #2271b6;
+}
+
+.fixed-footer {
+  position: sticky;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 999;
+
+  padding: 20px 0;
+}
+
+.first_login {
+  width: 100%;
+}
+
+/* on off boarding */
+.upload_bulk_status {
+  width: auto;
+  height: 197px;
+  border-radius: 10px;
+  gap: 10px;
+  border: 2px dashed #c1c1c1;
+}
+
+.clock_in_out_modal {
+  background-color: #eaecf0;
+  width: auto;
+  border-radius: 16px;  
+}
+
+/* leave management */
+.leave_policy {
+  width: 803px;
+}
+
+@media (max-width: 769px) {
+  .leave_policy {
+  width: 100%;
+}
+}
+
+/* subscription */
+.subscription_tab {
+  
+  border-bottom: 1px solid lightgray;
+}
+
+.subscription_tab .nav-link {
+  color: #101828 !important;
+}
+.subscription_tab .active {
+  color: #2271b6 !important;
+  
+   border-bottom: 1px solid lightgray;
+}
+
+ul.subscription_tab li.nav-item .active {
+  color: #2271b6 !important;
+  background-color: transparent !important;
+  border-radius: 0;
+   border-bottom: 0.5px solid #2271b6 !important;
+  font-weight: normal !important;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.add_new_card {
+  width: 213px;
+  height: auto;
+  border-radius: 10px;
+  
+  border: 1px dashed #2271b6;
+}
+
+.subscription_tab_width {
+  width: 248px;
+}
+
+@media (max-width: 769px) {
+  .subscription_tab_width {
+  width: 100%;
+}
+}
+
+.email_nav button.active {
+  background-color: #2271b6 !important;
 }

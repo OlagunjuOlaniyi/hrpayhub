@@ -28,7 +28,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
           <BreadCrumbs
             data={[
               { name: "Dashboard", url: "index.html" },
-              { name: "Payslip Nigeria", url: "payslip.html" },
+              { name: "Payslip Nigeria", url: "payslip-management.html" },
               { name: "Hourly Payslip - Nigeria (Salaried)" },
             ]}
           />
@@ -503,7 +503,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                       name="bonus_commission"
                       class="form-input"
                       placeholder=" "
-                      min = 0
+                      min="0"
                     />
                     <label for="bonus_commission"
                       >Bonus / Commission &nbsp;<span>*</span></label
@@ -548,7 +548,6 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                       >Monthly Variable Expense &nbsp;<span>*</span></label
                     >
                   </div>
-
                 </div>
                 <div class="d-flex justify-content-between mt-5">
                   <button
@@ -694,9 +693,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                       class="form-input"
                       placeholder=" "
                     />
-                    <label for="pay_date"
-                      >Pay Date &nbsp;<span>*</span></label
-                    >
+                    <label for="pay_date">Pay Date &nbsp;<span>*</span></label>
                   </div>
                 </div>
 
@@ -827,26 +824,33 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
           parseFloat(salary_hours) * parseFloat(hourly_rate);
         if (!Number.isNaN(salary_amount)) {
           $("#salary_amount, #monthly_salary").val(salary_amount);
-        }
-        else {
-            $("#salary_amount, #monthly_salary").val(0);
+        } else {
+          $("#salary_amount, #monthly_salary").val(0);
         }
       });
 
-      $("#variable_admin_expense, #variable_operational_expense, #bonus_commission").on('input', (evt) => {
-        const variable_admin_expense = parseFloat($("#variable_admin_expense").val())
-        const variable_operational_expense = parseFloat($("#variable_operational_expense").val())
-        const bonus_commission = parseFloat($("#bonus_commission").val())
+      $(
+        "#variable_admin_expense, #variable_operational_expense, #bonus_commission",
+      ).on("input", (evt) => {
+        const variable_admin_expense = parseFloat(
+          $("#variable_admin_expense").val(),
+        );
+        const variable_operational_expense = parseFloat(
+          $("#variable_operational_expense").val(),
+        );
+        const bonus_commission = parseFloat($("#bonus_commission").val());
 
-        const monthly_variable_expense = variable_admin_expense + variable_operational_expense + bonus_commission
-        
+        const monthly_variable_expense =
+          variable_admin_expense +
+          variable_operational_expense +
+          bonus_commission;
+
         if (Number.isNaN(monthly_variable_expense)) {
-            $("#monthly_variable_expense").val(0)
+          $("#monthly_variable_expense").val(0);
+        } else {
+          $("#monthly_variable_expense").val(monthly_variable_expense);
         }
-        else {
-            $("#monthly_variable_expense").val(monthly_variable_expense)
-        }
-      })
+      });
 
       $("#creat_payslip_form").submit((evt) => {
         evt.preventDefault();
@@ -865,9 +869,9 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
         console.log(
           $(
             $($($($(evt.target).parent()).parent()[0]).siblings()[0]).children(
-              "input"
-            )[0]
-          ).prop("disabled", !selectState)
+              "input",
+            )[0],
+          ).prop("disabled", !selectState),
         );
       });
 

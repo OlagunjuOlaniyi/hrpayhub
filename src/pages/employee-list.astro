@@ -87,7 +87,35 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
               </div>
 
               <!-- Others -->
-              <div class="d-flex justify-content-end">
+              <div class="d-flex justify-content-end gap-3">
+                <!-- Download Dropdown -->
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/download.svg" alt="arrow-down" />
+                    <span>Download</span>
+                    <img
+                      src="images/png/icons/arrow-down.svg"
+                      alt="arrow-down"
+                    />
+                  </button>
+                  <div class="dropdown-menu p-0 border-0">
+                    <ul class="list-group border-0 fw-600 fs-14">
+                      <li class="list-group-item">
+                        <div>CSV Format</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>Excel Format</div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
                 <a
                   class="btn bg-primary-blue d-flex align-items-center text-white px-3 fs-14 fw-600"
                   href="/new-user-account"
@@ -160,7 +188,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Work Location</th
+                    >Branch</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
@@ -198,7 +226,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       designation: "Admin",
                       emp_type: "Full-time",
                       emp_status: "Full-time",
-                      work_location: "Remote",
+                      work_location: "Lagos",
                       pay_grade: "15",
                       resumption_date: "7th April 2025",
                     },
@@ -214,7 +242,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       designation: "Admin",
                       emp_type: "Full-time",
                       emp_status: "Full-time",
-                      work_location: "Remote",
+                      work_location: "Lagos",
                       pay_grade: "15",
                       resumption_date: "7th April 2025",
                     },
@@ -230,7 +258,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       designation: "Admin",
                       emp_type: "Full-time",
                       emp_status: "Full-time",
-                      work_location: "Remote",
+                      work_location: "Lagos",
                       pay_grade: "15",
                       resumption_date: "7th April 2025",
                     },
@@ -246,7 +274,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       designation: "Admin",
                       emp_type: "Full-time",
                       emp_status: "Full-time",
-                      work_location: "Remote",
+                      work_location: "Lagos",
                       pay_grade: "15",
                       resumption_date: "7th April 2025",
                     },
@@ -262,7 +290,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       designation: "Admin",
                       emp_type: "Full-time",
                       emp_status: "Full-time",
-                      work_location: "Remote",
+                      work_location: "Lagos",
                       pay_grade: "15",
                       resumption_date: "7th April 2025",
                     },
@@ -278,7 +306,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       designation: "Admin",
                       emp_type: "Full-time",
                       emp_status: "Full-time",
-                      work_location: "Remote",
+                      work_location: "Lagos",
                       pay_grade: "15",
                       resumption_date: "7th April 2025",
                     },
@@ -295,7 +323,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       designation: "Admin",
                       emp_type: "Full-time",
                       emp_status: "Full-time",
-                      work_location: "Remote",
+                      work_location: "Lagos",
                       pay_grade: "15",
                       resumption_date: "7th April 2025",
                     },

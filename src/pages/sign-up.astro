@@ -1,0 +1,1037 @@
+---
+import SuccessModal from "../components/ui/SuccessModal.astro";
+import ListOfNigStates from "../components/ui/ListOfNigStates";
+---
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="favicon.png" />
+    <meta name="generator" content="generator" />
+    <title>HRPayHub :: Sign Up</title>
+
+    <link
+      href="libs/bootstrap-5.3.5-dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Select2 CSS -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css"
+    />
+  </head>
+
+  <body>
+    <main>
+      <section>
+        <div class="d-flex">
+          <SuccessModal modalId="successModal" title="Silver" />
+          <!------- sign in picture ------>
+          <div
+            class="d-none d-lg-flex flex-column w-50 sign_in_img_bg align-items-center gap-3 py-5"
+          >
+            <h1 class="text-primary-blue font-ubuntu-bold fs-40 fw-900">
+              Simplify your HR and payroll management
+            </h1>
+
+            <img
+              class="w-100"
+              src="images/png/signin_img.png"
+              alt="sign in image"
+            />
+          </div>
+
+          <!------- sign in form ------>
+          <div
+            class="d-flex flex-column py-5 px-3 align-items-center gap-5 sign_area"
+          >
+            <div>
+              <img
+                class="mt-lg-5 sign_logo"
+                src="images/png/icons/hrpayhub-logo.svg"
+                alt="hrpayhub logo"
+              />
+            </div>
+
+            <!-- Top Back Button -->
+            <div class="text-center w-100">
+              <h3 class="fs-14 font-ubuntu fw-700 text-center">Sign Up</h3>
+            </div>
+
+            <!-- Progress Steps -->
+            <div class="d-flex flex-column justify-content-between gap-1 mb-4">
+              <div
+                class="d-flex justify-content-center align-items-center gap-2 gap-lg-3"
+              >
+                <div class="step-circle step-active" data-step="1">
+                  <span class="progress_inner"></span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-circle" data-step="2"></div>
+                <div class="step-line"></div>
+                <div class="step-circle" data-step="3"></div>
+              </div>
+              <div class="fw-bold text-primary-blue fs-14 d-flex gap-5">
+                <span class="text-nowrap">Account Details</span>
+                <span class="ms-2 me-5">Package</span>
+                <span>Payment</span>
+              </div>
+            </div>
+
+            <!-- Step Forms -->
+            <form id="signupForm" class="">
+              <!-- Step 1 -->
+              <div class="form-step step-1">
+                <div class="form-floating sign_in_input mb-5">
+                  <input
+                    type="text"
+                    id="buss_acct"
+                    name="buss_acct"
+                    class="form-control form-input fs-12"
+                    placeholder=""
+                    required
+                  />
+                  <label for="buss_acct fs-14"
+                    >Business Account/Title &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating sign_in_input mb-5">
+                  <input
+                    type="text"
+                    id="first_name"
+                    name="first_name"
+                    class="form-control form-input fs-12"
+                    placeholder=""
+                    required
+                  />
+                  <label for="first_name fs-14"
+                    >First Name &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating sign_in_input mb-5">
+                  <input
+                    type="text"
+                    id="last_name"
+                    name="last_name"
+                    class="form-control form-input fs-12"
+                    placeholder=""
+                    required
+                  />
+                  <label for="last_name fs-14"
+                    >Last Name &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating sign_in_input mb-5">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-control form-input fs-12"
+                    placeholder=""
+                    required
+                  />
+                  <label for="email fs-14"
+                    >Email Address &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating sign_in_input mb-5">
+                  <input
+                    type="text"
+                    id="phone_no"
+                    name="phone_no"
+                    class="form-control form-input fs-12"
+                    placeholder=""
+                    required
+                  />
+                  <label for="phone_no fs-14"
+                    >Phone Number &nbsp;<span>*</span></label
+                  >
+                </div>
+
+                <div class="form-floating mb-4 mt-5">
+                  <select
+                    id="country"
+                    name="country"
+                    class="form-select_custom fs-12"
+                    required
+                  >
+                    <option value="" selected> Select </option>
+                    <option value="1">Nigeria</option>
+                    <option value="2">United Kingdom</option>
+                  </select>
+                  <label for="country">
+                    Country &nbsp;<span>*</span>
+                  </label>
+                </div>
+                <div class="form-floating mb-4" id="state_select">
+                  <select
+                    id="state"
+                    name="state"
+                    class="form-select_custom fs-12"
+                  >
+                    <option value="" selected> Select </option>
+                    <ListOfNigStates />
+                  </select>
+                  <label for="state">
+                    State &nbsp;<span>*</span>
+                  </label>
+                </div>
+
+                <div class="form-floating sign_in_input mb-4">
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    class="form-control form-input fs-12"
+                    placeholder=""
+                    required
+                  />
+                  <label for="city fs-14">City &nbsp;<span>*</span></label>
+                </div>
+                <div
+                  class="form-floating sign_in_input mb-4"
+                  id="postcode_select"
+                >
+                  <input
+                    type="text"
+                    id="postcode"
+                    name="postcode"
+                    class="form-control form-input fs-12"
+                    placeholder=""
+                  />
+                  <label for="postcode fs-14"
+                    >Postcode &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="toggle_password mb-2">
+                  <div class="form-floating mt-2 sign_in_input">
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      class="form-input fs-12"
+                      placeholder=""
+                    />
+                    <label for="password">Password &nbsp;<span>*</span></label>
+                  </div>
+                  <span class="cursor-pointer toggle-eye"
+                    ><img
+                      class="show-eye"
+                      style="display: block;"
+                      src="images/png/icons/vision-dark.svg"
+                      alt="Show Password"
+                    />
+                    <img
+                      style="display: none;"
+                      class="hide-eye bg-transparent"
+                      src="images/png/icons/vision-strike.svg"
+                      alt="Hide Password"
+                    />
+                  </span>
+                </div>
+                <div class="font-avenir text-danger fs-12 sign_in_input">
+                  At least 8 characters, including a number and a special
+                  character.
+                </div>
+                <div class="toggle_password mb-2 mt-4">
+                  <div class="form-floating mt-2 sign_in_input">
+                    <input
+                      type="password"
+                      id="confirm_password"
+                      name="confirm_password"
+                      class="form-input fs-12"
+                      placeholder=""
+                    />
+                    <label for="confirm_password"
+                      >Confirm Password &nbsp;<span>*</span></label
+                    >
+                  </div>
+                  <span class="cursor-pointer toggle-eye-confirm"
+                    ><img
+                      class="show-eye"
+                      style="display: block;"
+                      src="images/png/icons/vision-dark.svg"
+                      alt="Show Password"
+                    />
+                    <img
+                      style="display: none;"
+                      class="hide-eye bg-transparent"
+                      src="images/png/icons/vision-strike.svg"
+                      alt="Hide Password"
+                    />
+                  </span>
+                </div>
+                <div class="font-avenir text-danger mb-5 fs-12 sign_in_input">
+                  At least 8 characters, including a number and a special
+                  character.
+                </div>
+
+                <div
+                  class="fixed-footer d-flex flex-column justify-content-center align-items-center"
+                >
+                  <div class="d-flex justify-content-end mb-3 first_login">
+                    <button
+                      type="button"
+                      class="btn bg-primary-blue fs-14 fw-700 text-white next-btn"
+                      >Next</button
+                    >
+                  </div>
+
+                  <div class="fw-600 fs-14 text-center mt-2 mb-3">
+                    Already have an account? <a
+                      href="/sign-in"
+                      class="text-primary-blue font-avenir-bold fs-14 fw-700"
+                      >Login</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="form-step step-2 d-none">
+                <div
+                  class="btn-group d-flex justify-content-between sign_in_input gap-3 mt-2 mb-5"
+                  role="group"
+                  aria-label="Subscription Options"
+                >
+                  <div
+                    class="w-50 d-flex flex-column gap-2"
+                    style="height: 56px"
+                  >
+                    <span class="fs-14 fw-650">Free Trial</span>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="subscription"
+                      id="free-trial"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-outline-secondary text-left d-flex align-items-center justify-content-between"
+                      for="free-trial"
+                    >
+                      <span class="fs-12"
+                        >Limited to Silver<br />Monthly Plan</span
+                      >
+                      <img
+                        class="d-none checked"
+                        src="images/png/icons/checked-dot.svg"
+                        alt="checked"
+                      />
+                      <img
+                        class="unchecked"
+                        src="images/png/icons/unchecked-dot.svg"
+                        alt="unchecked"
+                      />
+                    </label>
+                  </div>
+
+                  <div
+                    class="w-50 d-flex flex-column gap-2"
+                    style="height: 56px"
+                  >
+                    <span class="fs-14 fw-650">Buy Now</span>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="subscription"
+                      id="buy-now"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-outline-secondary d-flex align-items-center justify-content-between p-3"
+                      for="buy-now"
+                    >
+                      <small>Choose Any Plan</small>
+                      <img
+                        class="d-none checked"
+                        src="images/png/icons/checked-dot.svg"
+                        alt="checked"
+                      />
+                      <img
+                        class="unchecked"
+                        src="images/png/icons/unchecked-dot.svg"
+                        alt="unchecked"
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                <div
+                  class="form-floating d-none sign_in_input mb-4 mt-5 packages_ng"
+                >
+                  <select
+                    id="packages"
+                    name="packages"
+                    class="form-select_custom fs-12 packages_ng"
+                    required
+                    disabled
+                  >
+                    <option value="" selected> Select </option>
+                    <option value="1" class="d-flex justify-content-between"
+                      >Bronze (Monthly) N1,149</option
+                    >
+                    <option value="2" class="d-flex justify-content-between"
+                      >Bronze (Annually) N999 x 12</option
+                    >
+                    <option value="3" class="d-flex justify-content-between"
+                      >Silver (Monthly) N3,449</option
+                    >
+                    <option value="4" class="d-flex justify-content-between"
+                      >Silver (Annually) N2,999 x 12</option
+                    >
+                    <option value="5" class="d-flex justify-content-between"
+                      >Gold (Monthly) N5,749</option
+                    >
+                    <option value="6" class="d-flex justify-content-between"
+                      >Gold (Annually) N4,999 x 12</option
+                    >
+                  </select>
+                  <label for="packages">
+                    Packages &nbsp;<span>*</span>
+                  </label>
+                </div>
+                <div
+                  class="form-floating d-none sign_in_input mb-4 mt-5 packages_uk"
+                >
+                  <select
+                    id="packages"
+                    name="packages"
+                    class="form-select_custom fs-12 packages_uk"
+                    required
+                    disabled
+                  >
+                    <option value="" selected> Select </option>
+                    <option value="1" class="d-flex justify-content-between"
+                      >Bronze (Monthly) £1.14</option
+                    >
+                    <option value="2" class="d-flex justify-content-between"
+                      >Bronze (Annually) £0.99 x 12</option
+                    >
+                    <option value="3" class="d-flex justify-content-between"
+                      >Silver (Monthly) £3.44</option
+                    >
+                    <option value="4" class="d-flex justify-content-between"
+                      >Silver (Annually) £2.99 x 12</option
+                    >
+                    <option value="5" class="d-flex justify-content-between"
+                      >Gold (Monthly) £5.74</option
+                    >
+                    <option value="6" class="d-flex justify-content-between"
+                      >Gold (Annually) £4.99 x 12
+                    </option>
+                    <option value="7" class="d-flex justify-content-between"
+                      >Platinum (Annually) £9.19</option
+                    >
+                    <option value="8" class="d-flex justify-content-between"
+                      >Platinum (Annually) £7.99 x 12</option
+                    >
+                  </select>
+                  <label for="packages">
+                    Packages &nbsp;<span>*</span>
+                  </label>
+                </div>
+                <div class="form-floating sign_in_input mt-5 mb-5">
+                  <input
+                    type="text"
+                    id="no_of_users"
+                    name="no_of_users"
+                    class="form-input fs-12 no_of_users"
+                    placeholder=""
+                    required
+                    disabled
+                  />
+                  <label for="no_of_users fs-14"
+                    >Number of Users &nbsp;<span>*</span></label
+                  >
+                </div>
+
+                <div
+                  class="d-flex d-none justify-content-between gap-3"
+                  id="amount_vat"
+                >
+                  <div>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="amount"
+                        name="amount"
+                        class="form-input fs-12"
+                        placeholder=""
+                      />
+                      <label for="amount fs-14">Amount </label>
+                    </div>
+                    <div class="mt-2">
+                      <span class="fs-12">Package Amount x No of Users</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="vat"
+                        name="vat"
+                        class="form-input fs-12"
+                        placeholder=""
+                      />
+                      <label for="vat fs-14">VAT</label>
+                    </div>
+                    <div class="mt-2 d-none packages_ng">
+                      <span class="fs-12">7.5% x Amount</span>
+                    </div>
+                    <div class="mt-2 d-none packages_uk">
+                      <span class="fs-12">20% x Amount</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-5 mb-5">
+                  <div class="form-floating sign_in_input mt-5">
+                    <input
+                      type="text"
+                      id="total_amount"
+                      name="total_amount"
+                      class="form-input fs-12 total_amount"
+                      placeholder=""
+                      disabled
+                    />
+                    <label for="total_amount fs-14">Total Amount </label>
+                  </div>
+                  <div class="mt-2 d-none" id="amount_vat_txt">
+                    <span class="fs-12">Amount + VAT</span>
+                  </div>
+                </div>
+
+                <!------ next button here ----->
+                <div
+                  class="fixed-footer d-flex justify-content-between flex-column gap-5 sign_in_input mt-5 mb-5"
+                >
+                  <div class="d-flex justify-content-between">
+                    <button
+                      type="button"
+                      class="btn white_button px-4 fs-14 fw-700 start-free-trial"
+                      id="start-free-trial"
+                      data-bs-toggle="modal"
+                      data-bs-target="#successModal"
+                      disabled>Start Free Trial</button
+                    >
+                    <button
+                      type="button"
+                      class="btn bg-primary-blue text-white fs-14 px-4 fw-700 subscribe-pay next-btn"
+                      id="subscribe-pay"
+                      disabled>Subscribe and Pay</button
+                    >
+                  </div>
+                  <div>
+                    <button
+                      type="button"
+                      class="white_button_signup back-btn d-flex gap-2 align-items-center font-ubuntu fw-700 fs-14"
+                    >
+                      <img
+                        src="images/png/icons/angle-left-white.svg"
+                        alt="angle-left-back"
+                      />
+                      <span>Back</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="form-step step-3 d-none">
+                <!----- step 3 design ------>
+                <div
+                  class="btn-group d-flex justify-content-between align-items-center sign_in_input gap-3 mt-2 mb-5"
+                  role="group"
+                  aria-label="Payment Options"
+                >
+                  <div
+                    class="w-50 d-flex flex-column gap-2"
+                    style="height: 56px"
+                  >
+                    <span class="fs-14 fw-650">Payment Mode</span>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="payment"
+                      id="card-details"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-outline-secondary text-left d-flex align-items-center justify-content-between p-3"
+                      for="card-details"
+                    >
+                      <span class="fs-12">Debit/Credit Card</span>
+                      <img
+                        class="d-none checked"
+                        src="images/png/icons/checked-dot.svg"
+                        alt="checked"
+                      />
+                      <img
+                        class="unchecked"
+                        src="images/png/icons/unchecked-dot.svg"
+                        alt="unchecked"
+                      />
+                    </label>
+                  </div>
+
+                  <div
+                    class="w-50 d-flex flex-column gap-2"
+                    style="height: 56px"
+                  >
+                    <span class="fs-14 invisible fw-650">1</span>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="payment"
+                      id="bank-details"
+                      autocomplete="off"
+                    />
+                    <label
+                      class="btn btn-outline-secondary d-flex align-items-center justify-content-between p-3"
+                      for="bank-details"
+                    >
+                      <small>Bank Transfer</small>
+                      <img
+                        class="d-none checked"
+                        src="images/png/icons/checked-dot.svg"
+                        alt="checked"
+                      />
+                      <img
+                        class="unchecked"
+                        src="images/png/icons/unchecked-dot.svg"
+                        alt="unchecked"
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                <div class="d-none payment_information">
+                  <div
+                    class="d-flex d-none flex-column sign_in_input gap-4"
+                    id="card_details"
+                  >
+                    <div class="form-floating mt-4">
+                      <input
+                        type="text"
+                        id="card_no"
+                        name="card_no"
+                        class="form-control form-input fs-12"
+                        placeholder=""
+                        required
+                      />
+                      <label for="card_no fs-14"
+                        >Debit/Credit Card Number &nbsp;<span>*</span></label
+                      >
+                    </div>
+                    <div class="d-flex justify-content-between gap-4">
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          id="exp_date"
+                          name="exp_date"
+                          class="form-control form-input fs-12"
+                          placeholder=""
+                          required
+                        />
+                        <label for="exp_date fs-14"
+                          >Expiry Date &nbsp;<span>*</span></label
+                        >
+                      </div>
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          id="cvv_code"
+                          name="cvv_code"
+                          class="form-control form-input fs-12"
+                          placeholder=""
+                          required
+                        />
+                        <label for="cvv_code fs-14"
+                          >CVV Code &nbsp;<span>*</span></label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex d-none flex-column sign_in_input gap-4"
+                    id="bank_details"
+                  >
+                    <div class="form-floating mt-4">
+                      <input
+                        type="text"
+                        id="bank_name"
+                        name="bank_name"
+                        class="form-control form-input fs-12"
+                        placeholder=""
+                        required
+                      />
+                      <label for="bank_name fs-14"
+                        >Bank Name &nbsp;<span>*</span></label
+                      >
+                    </div>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="acc_no"
+                        name="acc_no"
+                        class="form-control form-input fs-12"
+                        placeholder=""
+                        required
+                      />
+                      <label for="acc_no fs-14"
+                        >Account Number &nbsp;<span>*</span></label
+                      >
+                    </div>
+                  </div>
+
+                  <div class="mt-5 fs-14 d-flex gap-4">
+                    Billing Address Same as Company Address ?
+                    <div
+                      role="button"
+                      class="d-flex ms-4 form-check form-switch switchForDeductionsFields justify-content-start"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        data-target="#"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-floating mb-4 mt-5">
+                    <select
+                      id="country2"
+                      name="country"
+                      class="form-select_custom fs-12"
+                      required
+                    >
+                      <option value="" selected> Select </option>
+                      <option value="1">Nigeria</option>
+                      <option value="2">United Kingdom</option>
+                    </select>
+                    <label for="country2">
+                      Country &nbsp;<span>*</span>
+                    </label>
+                  </div>
+                  <div class="form-floating mb-4" id="state_select2">
+                    <select
+                      id="state2"
+                      name="state"
+                      class="form-select_custom fs-12"
+                    >
+                      <option value="" selected> Select </option>
+                      <ListOfNigStates />
+                    </select>
+                    <label for="state2">
+                      State &nbsp;<span>*</span>
+                    </label>
+                  </div>
+
+                  <div class="form-floating sign_in_input mb-4">
+                    <input
+                      type="text"
+                      id="city"
+                      name="city"
+                      class="form-control form-input fs-12"
+                      placeholder=""
+                      required
+                    />
+                    <label for="city fs-14">City &nbsp;<span>*</span></label>
+                  </div>
+                  <div
+                    class="form-floating sign_in_input mb-4"
+                    id="postcode_select2"
+                  >
+                    <input
+                      type="text"
+                      id="postcode2"
+                      name="postcode"
+                      class="form-control form-input fs-12"
+                      placeholder=""
+                    />
+                    <label for="postcode2 fs-14"
+                      >Postcode &nbsp;<span>*</span></label
+                    >
+                  </div>
+                  <div class="form-check mb-4">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="agreement"
+                      name="agreement"
+                      value="agreement"
+                    />
+                    <label class="form-check-label fs-14 font-avenir fw-600"
+                      >I agree to the Terms & Conditions Agreement</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="subscribe"
+                      name="subscribe"
+                      value="subscribe"
+                      checked
+                    />
+                    <label class="form-check-label fs-14 font-avenir fw-600"
+                      >Check this box to automatically renew your subscription<br
+                      /> at the end of each billing cycle</label
+                    >
+                  </div>
+
+                  <div
+                    class="fixed-footer d-flex justify-content-end gap-4 mb-3 mt-5"
+                  >
+                    <button
+                      type="button"
+                      class="white_button_signup back-btn d-flex gap-2 align-items-center font-ubuntu fw-700 fs-14"
+                    >
+                      <img
+                        src="images/png/icons/angle-left-white.svg"
+                        alt="angle-left-back"
+                      />
+                      <span>Back</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn bg-primary-blue text-white fs-14 fw-700"
+                      data-bs-toggle="modal"
+                      data-bs-target="#successModal">Place Order</button
+                    >
+                  </div>
+                </div>
+                <!------ step 3 design end ----->
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script defer src="libs/jquery/jquery-3.7.1.min.js"></script>
+    <script is:inline src="libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <!-- Select2 JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"
+    ></script>
+
+    <script>
+      $(document).ready(function () {
+        $(".toggle-eye").on("click", function () {
+          const $passwordInput = $("#password");
+
+          const $showEye = $(this).find(".show-eye");
+          const $hideEye = $(this).find(".hide-eye");
+
+          if ($passwordInput.attr("type") === "password") {
+            $passwordInput.attr("type", "text");
+            $showEye.hide();
+            $hideEye.show();
+          } else {
+            $passwordInput.attr("type", "password");
+            $showEye.show();
+            $hideEye.hide();
+          }
+        });
+        $(".toggle-eye-confirm").on("click", function () {
+          const $confirmPasswordInput = $("#confirm_password");
+          const $showEye = $(this).find(".show-eye");
+          const $hideEye = $(this).find(".hide-eye");
+
+          if ($confirmPasswordInput.attr("type") === "password") {
+            $confirmPasswordInput.attr("type", "text");
+            $showEye.hide();
+            $hideEye.show();
+          } else {
+            $confirmPasswordInput.attr("type", "password");
+            $showEye.show();
+            $hideEye.hide();
+          }
+        });
+
+        let currentStep = 1;
+
+        function updateSteps() {
+          $(".form-step").addClass("d-none");
+          $(`.step-${currentStep}`).removeClass("d-none");
+
+          // Show top back button if not on step 1
+          if (currentStep > 1) {
+            $(".back-btn").removeClass("invisible");
+          } else {
+            $(".back-btn").addClass("invisible");
+          }
+
+          // Update step circles
+          $(".step-circle").each(function () {
+            const step = parseInt($(this).data("step"));
+
+            if (step < currentStep) {
+              $(this)
+                .html("✔")
+                .addClass("step-complete")
+                .removeClass("step-active");
+            } else if (step === currentStep) {
+              $(this)
+                .html("<span class='progress_inner'></span>")
+                .addClass("step-active")
+                .removeClass("step-complete");
+            } else {
+              $(this).html("").removeClass("step-active step-complete");
+            }
+          });
+        }
+
+        $(".next-btn").on("click", function () {
+          const $currentForm = $(`.step-${currentStep}`);
+          const inputs = $currentForm.find("input, select");
+
+          let isValid = true;
+          inputs.each(function () {
+            if ($(this).prop("required") && !$(this).val()) {
+              isValid = false;
+              $(this).addClass("is-invalid");
+            } else {
+              $(this).removeClass("is-invalid");
+            }
+          });
+
+          if (isValid && currentStep < 3) {
+            currentStep++;
+            updateSteps();
+          }
+        });
+
+        $(".back-btn").on("click", function () {
+          if (currentStep > 1) {
+            currentStep--;
+            updateSteps();
+          }
+        });
+
+        $("#signupForm").on("submit", function (e) {
+          e.preventDefault();
+          alert("Form submitted!");
+        });
+
+        const countrySelect = document.getElementById("country");
+        const stateSelect = document.getElementById("state_select");
+        const postcodeField = document.getElementById("postcode_select");
+        const stateSelect2 = document.getElementById("state_select2");
+        const postcodeField2 = document.getElementById("postcode_select2");
+
+        // On country change
+        countrySelect.addEventListener("change", () => {
+          const country = countrySelect.value;
+
+          if (country === "1") {
+            // Nigeria
+            stateSelect.style.display = "block";
+            postcodeField.style.display = "none";
+            stateSelect2.style.display = "block";
+            postcodeField2.style.display = "none";
+            $(".packages_ng").removeClass("d-none"); // show ng
+            $(".packages_uk").addClass("d-none").prop("required", false); // hide uk
+          } else if (country === "2") {
+            // UK
+            stateSelect.style.display = "none";
+            postcodeField.style.display = "block";
+            stateSelect2.style.display = "none";
+            postcodeField2.style.display = "block";
+            $(".packages_uk").removeClass("d-none"); // show ng
+            $(".packages_ng").addClass("d-none").prop("required", false); // hide uk
+          } else {
+            stateSelect.style.display = "none";
+            postcodeField.style.display = "none";
+            $(".packages_ng").addClass("d-none"); // show ng
+            $(".packages_uk").addClass("d-none"); // hide uk
+          }
+        });
+
+        $('input[name="subscription"]').change(function () {
+          // Reset all to unchecked
+          $('label[for="free-trial"] img').addClass("d-none");
+          $('label[for="buy-now"] img').addClass("d-none");
+
+          // Disable both buttons by default
+          $("#start-free-trial").prop("disabled", true);
+          $("#subscribe-pay").prop("disabled", true);
+          $(".packages_ng").prop("disabled", true);
+          $(".packages_uk").prop("disabled", true);
+          $(".no_of_users").prop("disabled", true);
+          $(".total_amount").prop("disabled", true);
+          $("#amount_vat").addClass("d-none");
+          $("#amount_vat_txt").addClass("d-none");
+
+          $('label[for="free-trial"] img:last-child').removeClass("d-none"); // unchecked
+          $('label[for="buy-now"] img:last-child').removeClass("d-none"); // unchecked
+
+          // Show checked-dot for selected radio
+          if ($("#free-trial").is(":checked")) {
+            $('label[for="free-trial"] .checked').removeClass("d-none"); // checked
+            $('label[for="free-trial"] .unchecked').addClass("d-none"); // hide unchecked
+            $("#start-free-trial").prop("disabled", false);
+            $(".packages_ng").prop("value", "3");
+            $(".packages_uk").prop("value", "3");
+            $(".no_of_users").prop("value", "3");
+            $(".total_amount").prop("disabled", false);
+          }
+
+          if ($("#buy-now").is(":checked")) {
+            $('label[for="buy-now"] .checked').removeClass("d-none"); // checked
+            $('label[for="buy-now"] .unchecked').addClass("d-none"); // hide unchecked
+            $("#start-free-trial").prop("disabled", "true");
+            $("#subscribe-pay").prop("disabled", false);
+            $(".total_amount").prop("disabled", false);
+            $(".packages_ng").prop("disabled", false);
+            $(".packages_uk").prop("disabled", false);
+            $(".no_of_users").prop("disabled", false);
+            $("#amount_vat").removeClass("d-none");
+            $("#amount_vat_txt").removeClass("d-none");
+          }
+        });
+
+        $('input[name="payment"]').change(function () {
+          // Reset all to unchecked
+          $('label[for="free-trial"] img').addClass("d-none");
+          $('label[for="buy-now"] img').addClass("d-none");
+
+          // Disable card  and bank details by default
+          $(".payment_information").addClass("d-none");
+          $("#card_details").addClass("d-none"); // hide unchecked
+          $("#bank_details").addClass("d-none"); // hide unchecked
+
+          // Show checked-dot for selected radio
+          if ($("#card-details").is(":checked")) {
+            $('label[for="card-details"] .checked').removeClass("d-none"); // checked
+            $('label[for="card-details"] .unchecked').addClass("d-none"); // hide unchecked
+            $(".payment_information").removeClass("d-none");
+            $("#card_details").removeClass("d-none");
+            $("#bank_details").addClass("d-none");
+          }
+
+          if ($("#bank-details").is(":checked")) {
+            $('label[for="bank-details"] .checked').removeClass("d-none"); // checked
+            $('label[for="bank-details"] .unchecked').addClass("d-none"); // hide unchecked
+            $(".payment_information").removeClass("d-none");
+            $("#bank_details").removeClass("d-none");
+            $("#card_details").addClass("d-none");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

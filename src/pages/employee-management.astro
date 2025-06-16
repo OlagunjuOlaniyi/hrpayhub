@@ -69,51 +69,29 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Employment Type",
-                  desc: "Classify employees by full-time, contract, or custom categories.",
-                  url: "/employment-type",
-                  src: "images/png/icons/employee-type.svg",
+                  title: "Add Employee (Individually)",
+                  desc: "Set up new employees one at a time.",
+                  url: "/add-employee-individual",
+                  src: "images/png/icons/add-employee.svg",
                 },
                 {
-                  title: "Employment Status",
-                  desc: "List of defined employee employmet statuses",
-                  url: "/employment-status",
-                  src: "images/png/icons/employee-status.svg",
+                  title: "Bulk Upload",
+                  desc: "Set up multiple employees simultaneously using bulk upload.",
+                  url: "/bulk-upload",
+                  src: "images/png/icons/bulk-upload.svg",
                 },
                 {
-                  title: "Designation",
-                  desc: "Add company’s",
-                  desc2: "designations",
-                  url: "/designation",
-                  src: "images/png/icons/designation.svg",
-                },
-                {
-                  title: "Pay Grades",
-                  desc: "Setup company",
-                  desc2: "paygrades",
-                  url: "/pay-grades",
-                  src: "images/png/icons/pay-grade.svg",
-                },
-                {
-                  title: "Add Employee",
-                  desc: "Setup a new",
-                  desc2: "employee",
-                  url: "/add-employee",
+                  title: "Employee Self-Upload Link",
+                  desc: "Share a link with employees to complete self-onboarding.",
+                  url: "/employee-self-upload-link",
                   src: "images/png/icons/add-employee.svg",
                 },
                 {
                   title: "Employee List",
-                  desc: "List of registered",
-                  desc2: "employees",
+                  desc: "Manage, view, or edit the list of already set up employees.",
+
                   url: "/employee-list",
                   src: "images/png/icons/employee-list.svg",
-                },
-                {
-                  title: "Bulk Upload",
-                  desc: "Upload information in",
-                  desc2: "bulk",
-                  url: "/bulk-upload",
-                  src: "images/png/icons/bulk-upload.svg",
                 },
               ].map((ele) => (
                 <div
@@ -139,7 +117,7 @@ import Layout from "../layouts/Layout.astro";
 
                     <div
                       class="fw-600 fs-16"
-                      style="width: 75%; margin: 0 auto"
+                      style="width: 80%; margin: 0 auto"
                     >
                       {ele.desc} <br /> {ele.desc2}
                     </div>

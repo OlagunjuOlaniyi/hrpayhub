@@ -1,0 +1,206 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: Leave Policy">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/leave-management"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/leave-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Leave Management</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Leave Policy</span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-4">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+          id="manage_list_of_payslip"
+        >
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div class="d-flex gap-3 align-items-center">
+              <span
+                class="text-primary-blue font-ubuntu-bold fs-18 inline-block"
+                >Leave Policy Summary</span
+              >
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Body */}
+          <div
+            class="leave_policy d-flex flex-column gap-3 fs-14 font-avenir fw-600"
+          >
+            <p class="fs-14 fw-600">
+              The leave policy in HRPayHub is designed to ensure fair,
+              transparent, and flexible leave management for all employees.
+              Here’s a detailed summary of the key policy settings and their
+              functions:
+            </p>
+            <p>
+              ✅ Leave Calendar Year: <br />
+              <span
+                >Every company must define a start and end date for their leave
+                calendar year to ensure consistency in leave calculations.</span
+              >
+            </p>
+            <p>
+              ✅ Leave Entitlement Start Date: <br />
+              <span
+                >Employees’ leave entitlements begin on their resumption or
+                confirmation date, as chosen during setup.</span
+              >
+            </p>
+            <p>
+              ✅ Annual Leave and Personal Leave: <br />
+              <span
+                >Annual leave (mandatory) and personal leave (optional)
+                entitlements are set as numeric values representing the total
+                days allocated for each leave type.</span
+              >
+            </p>
+            <p>
+              ✅ Prorated 1st-Year Leave:  <br />
+              <span
+                >For employees who start mid-year, annual and personal leave
+                entitlements are prorated based on their start date (resumption
+                or confirmation). If confirmation is pending, the system will
+                delay calculation until the date is confirmed.</span
+              >
+            </p>
+            <div>
+              <p>
+                ✅ Leave Policy Types:  <br />
+                <span>Companies can choose between: </span>
+              </p>
+              <ul>
+                <li>Regular: Full leave entitlement is granted upfront.</li>
+                <li>
+                  Accrual: Leave is earned progressively each month (e.g., 1.67
+                  days/month for 20 days/year). <br />
+                  This policy applies to both annual and personal leave.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                ✅ Accrual Method: <br />
+                <span>Choose between:</span>
+              </p>
+              <ul>
+                <li>365: Leave accrual spread evenly over 365 days.</li>
+                <li>
+                  300: Leave earned by October to manage end-of-year staffing
+                  better.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                ✅ Tenure-Based Leave Increases: <br />
+                <span
+                  >There is a default setting for UK pharmacies where employees
+                  earn additional leave days based on length of service:
+                </span>
+              </p>
+              <ul>
+                <li>+3 days after 2 years</li>
+                <li>+6 days after 5 years</li>
+                <li>+7 days after 10 years</li>
+                <li>+8 days after 15 years</li>
+                <li>+9 days after 20 years</li>
+                <li>
+                  +10 days after 30 years <br />
+                  These bonuses are prorated for part-time staff.
+                </li>
+              </ul>
+            </div>
+            <p>
+              ✅ Blocked Leave Days:  <br />
+              <span
+                >Admins can block leave on specific dates (e.g., busy periods
+                like December) to ensure sufficient staffing. Weekends and
+                public holidays are blocked by default but can be adjusted as
+                needed.</span
+              >
+            </p>
+            <div>
+              <p>✅ Leave Carryover and Policy Changes:</p>
+              <ul>
+                <li>
+                  No Carryover: Unused leave does not carry over to the next
+                  calendar year.
+                </li>
+                <li>
+                  If switching from Regular to Accrual mid-year, the system
+                  starts accruing for the rest of the year based on the formula.
+                </li>
+                <li>
+                  If switching from Accrual to Regular mid-year, the accrued
+                  balance is rounded up and converted to regular leave.
+                </li>
+              </ul>
+            </div>
+            <p>
+              ✅ Accrual Calculations:  <br />
+              <span
+                >For new joiners, the system automatically calculates the
+                prorated 1st-year leave accruals based on the actual days worked
+                in that year.
+              </span>
+            </p>
+            <p>
+              🧠 Pro Tip: <br />
+              <span
+                >HR/Admin should avoid changing leave policies mid-year unless
+                absolutely necessary to prevent confusion and ensure smooth
+                leave management for employees.</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Main content ends here -->
+</Layout>

@@ -1,0 +1,305 @@
+---
+import BreadCrumbs from "../components/ui/BreadCrumbs";
+import FormContextIndicator from "../components/ui/FormContextIndicator";
+import Layout from "../layouts/Layout.astro";
+import { FormFieldComponent } from "../components/ui/FormFieldControl";
+import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePreview";
+import ListOfNigStates from "../components/ui/ListOfNigStates";
+---
+
+<Layout title="HRPayHub :: General Information">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full">
+          <a
+            href="company-setup.html"
+            title="Back to Payslip"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <BreadCrumbs
+            data={[
+              { name: "Dashboard", url: "index.html" },
+              { name: "Company Setup", url: "company-setup.html" },
+              { name: "General Information" },
+            ]}
+          />
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- Main Page content -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Title */}
+          <div class="vstack gap-2">
+            <div class="d-flex gap-3 align-items-center">
+              <img
+                src="images/png/icons/colored/warning-2.svg"
+                alt="receipt-minus-icon"
+                width="30px"
+                height="30px"
+              />
+              <span
+                class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
+                >General Information</span
+              >
+            </div>
+            <div class="fw-bold hidden">&nbsp;</div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+          <div class="row">
+            <div class="col-12 col-md-8 col-lg-4">
+              <form class="vstack gap-4" id="general_information_form">
+                <div class="d-flex align-items-center gap-4">
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    General Information
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+
+                <div class="vstack" style="gap: 2.3rem">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="company_name"
+                      name="company_name"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="company_name"
+                      >Company Name &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="reg_number"
+                      name="reg_number"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="reg_number"
+                      >Company Registration Number &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="company_email"
+                      name="company_email"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="company_email"
+                      >Company Email &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="phone"
+                      name="phone"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="phone">Phone Number &nbsp;<span>*</span></label>
+                  </div>
+
+                  <div class="form-floating">
+                    <select
+                      id="business_type"
+                      name="business_type"
+                      class="form-select_custom"
+                      required
+                    >
+                      <option
+                        value=""
+                        selected
+                        style="color: rgb(200, 200, 200)">Please choose</option
+                      >
+                      <option value="public">Public</option>
+                      <option value="private">Private</option>
+                      <option value="ngo">NGO</option>
+                    </select>
+                    <label for="business_type"
+                      >Business Type &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <select
+                      id="industry"
+                      name="industry"
+                      class="form-select_custom"
+                      required
+                    >
+                      <option
+                        value=""
+                        selected
+                        style="color: rgb(200, 200, 200)">Please choose</option
+                      >
+                      <option value="pharmacy">Pharmacy</option>
+                      <option value="sme">SME</option>
+                      <option value="oilgas">Oil and Gas</option>
+                      <option value="banking">Banking</option>
+                      <option value="healthcare">Healthcare</option>
+                      <option value="fintech">FinTech</option>
+                      <option value="fmcg">FMCG</option>
+                      <option value="insurance">Insurance</option>
+                      <option value="others">Others</option>
+                    </select>
+                    <label for="industry">Industry &nbsp;<span>*</span></label>
+                  </div>
+
+                  <div class="form-floating">
+                    <select
+                      id="country"
+                      name="country"
+                      class="form-select_custom"
+                      required
+                    >
+                      <option
+                        value=""
+                        selected
+                        style="color: rgb(200, 200, 200)">Please choose</option
+                      >
+                      <option value="UK">UK</option>
+                      <option value="Nigeria">Nigeria</option>
+                    </select>
+                    <label for="country">Country &nbsp;<span>*</span></label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="company_address"
+                      name="company_address"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="company_address"
+                      >Company Address &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="city"
+                      name="citty"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="city">City &nbsp;<span>*</span></label>
+                  </div>
+
+                  <div class="form-floating d-none" id="postcode_section">
+                    <input
+                      type="text"
+                      id="postalcode"
+                      name="postalcode"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="postalcode">Postcode &nbsp;<span>*</span></label
+                    >
+                  </div>
+
+                  <div class="form-floating d-none" id="state_section">
+                    <select
+                      id="state"
+                      name="state"
+                      class="form-select_custom"
+                      required
+                    >
+                      <option
+                        value=""
+                        selected
+                        style="color: rgb(200, 200, 200)">Please choose</option
+                      >
+                      <ListOfNigStates />
+                    </select>
+                    <label for="state">State &nbsp;<span>*</span></label>
+                  </div>
+
+                  <div class="d-flex justify-content-end gap-3">
+                    <button
+                      id="edit_button"
+                      type="submit"
+                      class="delon-primary-btn border fw-bold fs-14"
+                    >
+                      <span>Edit</span>
+                    </button>
+                    <button
+                      type="submit"
+                      class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
+                    >
+                      <span>Save</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          {/* Page Content Box */}
+        </div>
+      </div>
+    </section>
+    <PayslipGeneratePreview />
+  </main>
+  <!-- Main content ends here -->
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      $(".form-input").prop("disabled", true);
+      $("form").find("select").attr("disabled", true);
+
+      $("#general_information_form").submit((evt) => {
+        evt.preventDefault();
+
+        alert("General information!!!");
+      });
+
+      $("#edit_button").on("click", () => {
+        $(".form-input").prop("disabled", false);
+        $("form").find("select").attr("disabled", false);
+      });
+
+      $("#country").on("change", function (evt) {
+        const value = $(this).val();
+
+        if (value == "UK") {
+          $("#state_section").addClass("d-none").prop("disabled", "true");
+          $("#postcode_section")
+            .removeClass("d-none")
+            .prop("disabled", "false");
+        }
+
+        if (value == "Nigeria") {
+          $("#state_section").removeClass("d-none").prop("disabled", "false");
+          $("#postcode_section").addClass("d-none").prop("disabled", "true");
+        }
+      });
+    });
+  </script>
+</Layout>

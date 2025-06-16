@@ -9,7 +9,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
   <!-- Main content starts here -->
   <main>
     <!-- Notice Board Area -->
-    <AlertComponent />
+    <AlertComponent client:load />
     <!-- Notice Board Area -->
 
     <!-- Employee details * Count stats -->
@@ -102,7 +102,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
                   "Configure company information, locations and departments.",
                 icon: "images/png/icons/colored/building-colored.svg",
                 color: "bronze-module",
-                href: `/company_setup`,
+                href: `/company-setup`,
               },
               {
                 title: "Employee Management",
@@ -150,7 +150,7 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
                   "Handle employee leave requests, approvals, and leave balance tracking.",
                 icon: "images/png/icons/colored/calendar-tick-colored.svg",
                 color: "silver-module",
-                href: `#`,
+                href: `leave-management`,
               },
               {
                 title: "360° Appraisal Management",
@@ -166,15 +166,15 @@ import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
                   "Organize and store important email and document correspondence.",
                 icon: "images/png/icons/colored/folder-2-colored.svg",
                 color: "silver-module",
-                href: `#`,
+                href: `/document-management`,
               },
               {
-                title: "Payslip",
+                title: "Payslip Management",
                 subtitle:
                   "View and manage monthly payslips by country and pay type.",
                 icon: "images/png/icons/colored/receipt-minus-colored.svg",
                 color: "gold-module",
-                href: `payslip.html`,
+                href: `payslip-management.html`,
               },
 
               {

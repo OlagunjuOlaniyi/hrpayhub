@@ -1,0 +1,39 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "successModal", title = "Silver" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div
+        class="modal-header fs-24 fw-700 border-0 d-flex justify-content-center"
+      >
+        Successful Activation
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-center py-2 border-0">
+        <img src="images/png/icons/success-check.svg" alt="success check" />
+
+        <p class="fs-16">
+          You now have access to the ‘{title}’ subscription <br /> for the next 30
+          days
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <button
+          type="button"
+          class="btn text-white bg-primary-blue fs-14 px-4"
+          data-bs-dismiss="modal"
+        >
+          Get Started
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

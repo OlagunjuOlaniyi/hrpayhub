@@ -1,0 +1,196 @@
+---
+// components/ui/ModalAddNew.astro
+const {
+  modalId = "myModal",
+  title = "Assign Asset",
+  inputPlace = "Assign Asset",
+} = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
+
+        <img
+          type="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+
+      <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+        <div
+          class="d-flex flex-column flex-lg-row flex-wrap gap-2 p-3 px-2 mb-3 clock_in_out_modal"
+        >
+          <div class="d-flex flex-column w-50 px-lg-3">
+            <span class="fs-12 text-secondary text-nowrap">
+              Employee Name
+            </span>
+            <span class="fs-14 fw-700 text-nowrap">Toluwalase Obasun</span>
+          </div>
+
+          <span class="clock_border_left"></span>
+          <div class="d-flex flex-column px-lg-3">
+            <span class="fs-12 text-secondary">Branch</span>
+            <span class="fs-14 fw-700">Lorem Ipsum</span>
+          </div>
+
+          <div class="d-flex flex-column w-50 px-lg-3">
+            <span class="fs-12 text-secondary text-nowrap"> Designation </span>
+            <span class="fs-14 fw-700 text-nowrap">Lorem Ipsum</span>
+          </div>
+
+          <span class="clock_border_left"></span>
+          <div class="d-flex flex-column px-lg-3">
+            <span class="fs-12 text-secondary text-nowrap">
+              Primary Department
+            </span>
+            <span class="fs-14 fw-700 text-nowrap">Lorem Ipsum</span>
+          </div>
+
+          <div class="d-flex flex-column px-lg-3">
+            <span class="fs-12 text-secondary">Primary Function</span>
+            <span class="fs-14 fw-700">Lorem Ipsum</span>
+          </div>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="assigned_by"
+            name="assigned_by"
+            class="form-input"
+            placeholder=""
+            value="Lorem Ipsum"
+            disabled
+          />
+          <label for="assigned_by">
+            Assigned By &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="asset_name"
+            name="asset_name"
+            class="form-input"
+            placeholder=""
+            value="Lorem Ipsum"
+            disabled
+          />
+          <label for="asset_name">
+            Asset Name &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="serial_No"
+            name="serial_No"
+            class="form-input"
+            placeholder=""
+            value="N129DR"
+            disabled
+          />
+          <label for="serial_No">
+            Serial Number &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="model"
+            name="model"
+            class="form-input"
+            placeholder=""
+            value="N129DR"
+            disabled
+          />
+          <label for="model">
+            Model &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="quantity"
+            name="quantity"
+            class="form-input"
+            placeholder=""
+            value="3992"
+            disabled
+          />
+          <label for="quantity">
+            Quantity &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <select
+            id="condition"
+            name="condition"
+            class="form-select_custom fs-14"
+            required
+            disabled
+          >
+            <option value=""> Select </option>
+            <option value="1" selected>New</option>
+            <option value="2">Used</option>
+            <option value="3">Refurbished</option>
+          </select>
+          <label for="condition">
+            Condition &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="date"
+            id="assign_date"
+            name="assign_date"
+            class="form-input"
+            placeholder=""
+            value="2025-06-01"
+            disabled
+          />
+          <label for="assign_date">
+            Assignment Date &nbsp;<span>*</span>
+          </label>
+        </div>
+
+        <div class="form-floating">
+          <textarea class="form-input" rows="2" id="comment"></textarea>
+          <label for="comment">Comment </label>
+        </div>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="agreement"
+            name="agreement"
+            value="agreement"
+          />
+          <label class="form-check-label fs-14 font-avenir fw-600"
+            >I agree to the acceptance of the asset</label
+          >
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex fs-14 justify-content-start border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white"
+          data-bs-dismiss="modal"
+        >
+          Accept
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

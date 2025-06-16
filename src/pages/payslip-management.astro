@@ -3,7 +3,7 @@ import BreadCrumbs from "../components/ui/BreadCrumbs";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: Company Setup">
+<Layout title="HRPayHub :: Payslip">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -22,7 +22,10 @@ import Layout from "../layouts/Layout.astro";
 
           <!-- Actual Breadcrumb here -->
           <BreadCrumbs
-            data={[{ name: "Dashboard", url: "/" }, { name: "Company Setup" }]}
+            data={[
+              { name: "Dashboard", url: "index.html" },
+              { name: "Payslip Management" },
+            ]}
           />
           <!-- Actual Breadcrumb here -->
         </div>
@@ -46,67 +49,51 @@ import Layout from "../layouts/Layout.astro";
               />
               <span
                 class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Company Setup</span
+                >Payslip Management</span
               >
             </div>
             <div class="fw-bold">
-              Configure company information, locations and departments.
+              View and manage monthly payslips by country and pay type
             </div>
           </div>
           {/* Page Title */}
 
           {/* Page Content Box */}
-          <div class="row justify-content-between payslip-grid-gap mb-5">
+          <div class="row justify-content-between payslip-grid-gap">
             {
               [
                 {
-                  title: "Signup Details",
-                  desc: "Non editable details provided while signing up",
-                  url: "signup_details.html",
-                  icon: "images/png/icons/colored/information.svg",
+                  title: "Monthly Payslip – UK (Salaried)",
+                  desc: "View and manage payslip for UK salaried employees.",
+                  url: "payslip-management",
                 },
                 {
-                  title: "Work Locations",
-                  desc: "Organization’s multiple work location",
-                  url: "work_locations.html",
-                  icon: "images/png/icons/colored/location.svg",
+                  title: "Monthly Payslip – UK (Hourly)",
+                  desc: "View and manage payslip for UK hourly-paid employees.",
+                  url: "payslip-management",
                 },
                 {
-                  title: "General Information",
-                  desc: "Company general details",
-                  url: "general_information.html",
-                  icon: "images/png/icons/colored/warning-2.svg",
+                  title: "Monthly Payslip – Nigeria (Salaried)",
+                  desc: "View and manage payslip for Nigeria salaried employees.",
+                  url: "payslip_monthly_nigeria_salaried.html",
                 },
                 {
-                  title: "Departments",
-                  desc: "Organisation’s departments",
-                  url: "departments.html",
-                  icon: "images/png/icons/colored/building.svg",
-                },
-                {
-                  title: "National Holidays",
-                  desc: "Setup national holidays",
-                  url: "/national-holidays",
-                  icon: "images/png/icons/colored/courthouse.svg",
-                },
-                {
-                  title: "Bulk upload",
-                  desc: "Upload information in bulk",
-                  url: "/company-setup-bulk-upload",
-                  icon: "images/png/icons/colored/layer.svg",
+                  title: "Monthly Payslip – Nigeria (Hourly)",
+                  desc: "View and manage payslip for Nigeria hourly-paid employees.",
+                  url: "payslip_hourly_nigeria_salaried.html",
                 },
               ].map((ele) => (
                 <a
                   class="col-4 p-2 payslip-card-panel text-decoration-none"
-                  style="width: 340px; color: #202020 !important"
+                  style="width: 360px; color: #202020 !important"
                   role="button"
                   title={ele.title}
                   href={ele.url}
                 >
-                  <div class="shadow h-100 p-3 px-3 rounded-3 d-flex flex-column gap-3 text-center">
-                    <div class="d-flex flex-column align-items-center">
+                  <div class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
+                    <div class="vstack gap-2 d-flex flex-column align-items-center">
                       <img
-                        src={ele.icon}
+                        src="images/png/icons/colored/receipt-minus-colored.svg"
                         alt="receipt-minus-icon"
                         width="40px"
                         height="40px"
@@ -133,4 +120,19 @@ import Layout from "../layouts/Layout.astro";
     </section>
   </main>
   <!-- Main content ends here -->
+
+  <!-- <script is:inline type = "text/javascript">
+        document.addEventListener("DOMContentLoaded", () => {
+            const payslipCardPanels = document.querySelectorAll(".payslip-card-panel")
+
+            payslipCardPanels.forEach((ele) => {
+                ele?.addEventListener("click", (e) => {
+                    const url = ele.getAttribute('data-url') || '';
+                    const title = ele.getAttribute('title') || ''
+                    console.log(url)
+                    window.open(url, title);
+                });
+            })
+        });
+    </script> -->
 </Layout>
