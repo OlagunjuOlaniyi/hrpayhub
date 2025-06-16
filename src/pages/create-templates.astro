@@ -96,20 +96,20 @@ import Layout from "../layouts/Layout.astro";
               <div id="template" class="d-flex flex-column" style="gap: 2.3rem">
                 <div class="form-floating add_employee_width">
                   <select
-                    id="doc_type"
-                    name="doc_type"
+                    id="templateType"
+                    name="templateType"
                     class="form-select_custom fs-14"
                     required
                   >
                     <option value="" selected style="color: rgb(200, 200, 200)"
                       >Select</option
                     >
-                    <option value="type_1">Confirmation Letter</option>
-                    <option value="type_2">Query Letter</option>
-                    <option value="type_3">Termination Letter</option>
-                    <option value="type_4">Announcement Letter</option>
+                    <option value="confirmation">Confirmation Letter</option>
+                    <option value="query">Query Letter</option>
+                    <option value="termination">Termination Letter</option>
+                    <option value="announcement">Announcement Letter</option>
                   </select>
-                  <label for="doc_type"
+                  <label for="templateType"
                     >Template Type &nbsp;<span>*</span></label
                   >
                 </div>
@@ -123,21 +123,7 @@ import Layout from "../layouts/Layout.astro";
                   />
                   <label for="temp_name">Template Name</label>
                 </div>
-                <div class="form-floating add_employee_width">
-                  <select
-                    id="email_temp"
-                    name="email_temp"
-                    class="form-select_custom fs-14"
-                  >
-                    <option value="" selected style="color: rgb(200, 200, 200)"
-                      >Select</option
-                    >
-                    <option value="type_1">Excel</option>
-                    <option value="type_2">PDF</option>
-                    <option value="type_3">CSV</option>
-                  </select>
-                  <label for="email_temp">Email Template</label>
-                </div>
+
                 <div class="form-floating add_employee_width">
                   <input
                     type="text"
@@ -151,7 +137,7 @@ import Layout from "../layouts/Layout.astro";
 
                 <!-- Textarea -->
                 <div class="add_employee_width">
-                  <textarea id="myTextarea"></textarea>
+                  <textarea id="myTextarea"> </textarea>
                 </div>
               </div>
 
@@ -170,10 +156,10 @@ import Layout from "../layouts/Layout.astro";
                     <option value="" selected style="color: rgb(200, 200, 200)"
                       >Select</option
                     >
-                    <option value="type_1">Confirmation Letter</option>
-                    <option value="type_2">Query Letter</option>
-                    <option value="type_3">Termination Letter</option>
-                    <option value="type_4">Announcement Letter</option>
+                    <option value="confirmation">Confirmation Letter</option>
+                    <option value="query">Query Letter</option>
+                    <option value="termination">Termination Letter</option>
+                    <option value="announcement">Announcement Letter</option>
                   </select>
                   <label for="doc_type"
                     >Template Type &nbsp;<span>*</span></label
