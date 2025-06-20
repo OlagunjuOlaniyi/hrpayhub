@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import ModalAddNew from "../components/ui/ModalAddNew.astro";
 import ModalComment from "../components/ui/ModalComment.astro";
+import DeleteModal from "../components/ui/DeleteModal.astro";
 ---
 
 <Layout title="HRPayHub :: Asset Management">
@@ -326,7 +327,7 @@ import ModalComment from "../components/ui/ModalComment.astro";
                       src="images/png/icons/download-blue.svg"
                       alt="arrow-down"
                     />
-                    <span>Export</span>
+                    <span>Download</span>
                     <img
                       src="images/png/icons/arrow-down-blue.svg"
                       alt="arrow-down"
@@ -377,6 +378,7 @@ import ModalComment from "../components/ui/ModalComment.astro";
                 class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
               >
                 <tr>
+                  <th class="bg-primary-blue text-white px-4 fw-600 fs-14"></th>
                   <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
                     >S/N</th
                   >
@@ -440,6 +442,10 @@ import ModalComment from "../components/ui/ModalComment.astro";
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
                     >Employee’s Comment</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Actions</th
                   >
                 </tr>
               </thead>
@@ -576,6 +582,16 @@ import ModalComment from "../components/ui/ModalComment.astro";
                     },
                   ].map((ele, index) => (
                     <tr class="fs-88">
+                      <td class="text-center fs-14">
+                        <div class="form-check d-flex justify-content-center">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="view"
+                            name="view"
+                          />
+                        </div>
+                      </td>
                       <td class="text-center fs-14">{index + 1}</td>
                       <td class="fs-14 text-nowrap px-3 text-left column">
                         {ele.emp_name}
@@ -631,6 +647,34 @@ import ModalComment from "../components/ui/ModalComment.astro";
                         >
                           <img src={ele.emp_comment} alt="vision" />
                         </button>
+                      </td>
+                      <td class="fs-14 px-3 text-center  column">
+                        <div class="d-flex justify-content-center">
+                          <div class="d-flex gap-2">
+                            <button
+                              class="border-0 edit-button"
+                              style="background-color: inherit;"
+                              type="button"
+                              data-bs-toggle="modal"
+                              data-bs-target="#myModal"
+                              data-title="Edit Asset"
+                              data-emp-type="{ele.emp_type}"
+                            >
+                              <img src="images/png/icons/edit-2.svg" alt="" />
+                            </button>
+                            <button
+                              class="border-0"
+                              style="background-color: inherit;"
+                              data-bs-toggle="modal"
+                              data-bs-target="#deleteModal"
+                            >
+                              <img
+                                src="images/png/icons/colored/delete.svg"
+                                alt=""
+                              />
+                            </button>
+                          </div>
+                        </div>
                       </td>
                     </tr>
                   ))
@@ -712,6 +756,7 @@ import ModalComment from "../components/ui/ModalComment.astro";
 
       <!---- Modals --->
       <ModalComment title="Employee's Comment" />
+      <DeleteModal modalId="deleteModal" title="Asset" />
       <ModalAddNew
         title="Assign Asset"
         modalId="myModal"
