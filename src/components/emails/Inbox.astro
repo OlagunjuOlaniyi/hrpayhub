@@ -1,0 +1,254 @@
+---
+// Inbox.astro
+const emails = [
+  {
+    id: 1,
+    sender: "michelle.rivera@example.com",
+    name: "Michelle Rivera",
+    subject: "Query on xxxxxxx",
+    body: "Dear [Employee Name] lorem ipsum lorem ipsum lorem ipsum...",
+    fullBody:
+      "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim.",
+    date: "23 June, 2025",
+    time: "9:14 AM",
+    hoursAgo: 8,
+  },
+  {
+    id: 2,
+    sender: "michelle.rivera@example.com",
+    name: "Michelle Rivera",
+    subject: "Query on yyyyyyy",
+    body: "Dear [Employee Name] lorem ipsum lorem ipsum lorem ipsum...",
+    fullBody:
+      "This is a different message content for testing second message detail rendering.",
+    date: "23 June, 2025",
+    time: "10:00 AM",
+    hoursAgo: 7,
+  },
+];
+---
+
+<div class="container-fluid mt-3" id="inbox-component">
+  <div id="emailList">
+    <div class="d-flex justify-content-between mb-4">
+      <h5 class="mb-3 fs-22 fw-700">Inbox</h5>
+      <div class="d-flex gap-3 align-items-center">
+        <span class="fs-14 text-secondary">1–50 of 2,619</span>
+        <div class="d-flex">
+          <a class="page-link border px-3" href="#">&lsaquo;</a>
+          <a class="page-link border px-3" href="#">&rsaquo;</a>
+        </div>
+      </div>
+    </div>
+
+    <ul class="list-group">
+      {
+        emails.map((email) => (
+          <li
+            class="list-group-item border-0 border-bottom d-flex justify-content-between align-items-center"
+            data-id={email.id}
+          >
+            <div
+              class="d-flex justify-content-between align-items-center flex-grow-1 email-item"
+              style="cursor: pointer;"
+            >
+              <div class="form-check me-2">
+                <input class="form-check-input" type="checkbox" />
+              </div>
+              <div>{email.name}</div>
+              <div class="fw-bold">{email.subject}</div>
+              <div class="fw-bold">-</div>
+              <small class="text-muted">{email.body}</small>
+              <small class="d-block text-muted">{email.date}</small>
+            </div>
+            <div class="text-end ms-3">
+              <button
+                class="btn btn-sm delete-btn"
+                data-id={email.id}
+                title="Delete"
+              >
+                <img src="images/png/icons/colored/delete.svg" alt="" />
+              </button>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <!-- Detail View -->
+  <div id="emailDetail" style="display: none;">
+    <div class="d-flex justify-content-between">
+      <button class="btn fw-700 mb-3" id="backToList">
+        <img src="images/png/icons/angle-left.svg" class="me-2" alt="Back" /> Back
+      </button>
+      <div class="d-flex gap-3 align-items-center">
+        <span class="fs-14 text-secondary">1–50 of 2,619</span>
+        <div class="d-flex">
+          <a class="page-link border px-3" href="#" aria-label="Previous">
+            &lsaquo;
+          </a>
+          <a class="page-link border px-3" href="#" aria-label="Next">
+            &rsaquo;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex gap-2 align-items-center">
+      <h5 class="fw-700 fs-22 mt-3" id="detailSubject"></h5>
+      <img class="mt-2" role="button" src="images/png/icons/double-arrow.svg" />
+    </div>
+    <div class="d-flex justify-content-between my-3">
+      <div class="d-flex gap-2">
+        <img src="images/png/icons/user-icons.svg" alt="" />
+        <p class="text-muted fs-12 mb-1">
+          <strong class="fs-16" id="detailName"></strong> &lt;<span
+            id="detailSender"></span>&gt;<br />to me
+        </p>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <p
+          class="text-muted fs-12 fw-500 d-flex gap-2 align-items-center"
+          id="detailTime"
+        >
+        </p>
+        <button
+          class="btn btn-sm d-flex align-items-center mb-3 delete-btn"
+          title="Delete"
+        >
+          <img src="images/png/icons/colored/delete.svg" alt="" />
+        </button>
+      </div>
+    </div>
+
+    <p class="mt-3 ms-lg-5 fs-12" id="detailBody"></p>
+
+    <button
+      class="btn btn-outline-secondary fs-14 d-flex gap-2 mt-5 ms-5"
+      id="showReply"
+    >
+      <img src="images/png/icons/slant-back-arrow.svg" alt="" /> Reply
+    </button>
+
+    <div class="card mt-lg-5 mx-lg-5" id="replyBox" style="display: none;">
+      <div class="card-body">
+        <p class="text-muted fs-14 fw-700 mb-2 d-flex gap-3">
+          <img src="images/png/icons/slant-back-arrow.svg" alt="" />
+          <span id="replyTo"></span>
+        </p>
+        <textarea
+          class="form-control mb-3 border-0 fs-14"
+          rows="2"
+          placeholder="Type your reply..."></textarea>
+        <div class="d-flex justify-content-between align-items-end">
+          <div class="d-flex gap-3">
+            <button class="btn bg-primary-blue text-white">Send</button>
+            <img src="images/png/icons/attached-icon.svg" alt="" />
+          </div>
+          <img
+            role="button"
+            id="cancelReply"
+            src="images/png/icons/colored/delete.svg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  const emails = [
+    {
+      id: 1,
+      sender: "michelle.rivera@example.com",
+      name: "Michelle Rivera",
+      subject: "Query on xxxxxxx",
+      body: "Dear [Employee Name] lorem ipsum lorem ipsum lorem ipsum...",
+      fullBody:
+        "Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim.",
+      date: "23 June, 2025",
+      time: "9:14 AM",
+      hoursAgo: 8,
+    },
+    {
+      id: 2,
+      sender: "michelle.rivera@example.com",
+      name: "Michelle Rivera",
+      subject: "Query on yyyyyyy",
+      body: "Dear [Employee Name] lorem ipsum lorem ipsum lorem ipsum...",
+      fullBody:
+        "This is a different message content for testing second message detail rendering.",
+      date: "23 June, 2025",
+      time: "10:00 AM",
+      hoursAgo: 7,
+    },
+  ];
+
+  let currentEmailId = null;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const emailList = document.getElementById("emailList");
+    const emailDetail = document.getElementById("emailDetail");
+    const replyBox = document.getElementById("replyBox");
+
+    const refreshDeleteButtons = () => {
+      document.querySelectorAll(".delete-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const li = btn.closest("li");
+          if (li) {
+            li.remove(); // Deleting from inbox list
+          } else {
+            // Deleting from detail view
+            const item = document.querySelector(
+              `[data-id="${currentEmailId}"]`
+            );
+            if (item) item.remove();
+            emailDetail.style.display = "none";
+            emailList.style.display = "block";
+            replyBox.style.display = "none";
+          }
+        });
+      });
+    };
+
+    document.querySelectorAll(".email-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        const id = item.closest("li").dataset.id;
+        const email = emails.find((e) => e.id == id);
+        if (!email) return;
+
+        currentEmailId = email.id;
+
+        emailList.style.display = "none";
+        emailDetail.style.display = "block";
+
+        document.getElementById("detailSubject").textContent = email.subject;
+        document.getElementById("detailName").textContent = email.name;
+        document.getElementById("detailSender").textContent = email.sender;
+        document.getElementById("detailTime").textContent =
+          `${email.time} (${email.hoursAgo} hours ago)`;
+        document.getElementById("detailBody").textContent = email.fullBody;
+        document.getElementById("replyTo").textContent = email.sender;
+      });
+    });
+
+    document.getElementById("backToList").addEventListener("click", () => {
+      emailDetail.style.display = "none";
+      emailList.style.display = "block";
+      replyBox.style.display = "none";
+    });
+
+    document.getElementById("showReply").addEventListener("click", () => {
+      replyBox.style.display = "block";
+    });
+
+    document.getElementById("cancelReply").addEventListener("click", () => {
+      replyBox.style.display = "none";
+    });
+
+    refreshDeleteButtons(); // Attach delete handlers
+  });
+</script>

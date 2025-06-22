@@ -139,7 +139,7 @@ const Inbox = () => {
                     <span className='fs-14 text-secondary'>1–50 of 2,619</span>
                     <div className='d-flex'>
                         <a
-                      class="page-link border px-3"
+                      className="page-link border px-3"
                       href="#"
                       aria-label="Previous"
                     >

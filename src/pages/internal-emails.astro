@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Inbox from "../components/emails/Inbox.jsx";
-import Sent from "../components/emails/Sent.jsx";
+import Inbox from "../components/emails/Inbox.astro";
+import Sent from "../components/emails/Sent.astro";
 ---
 
 <Layout title="HRPayHub :: Internal Emails">
@@ -123,7 +123,7 @@ import Sent from "../components/emails/Sent.jsx";
                 role="tabpanel"
                 aria-labelledby="v-pills-inbox-tab"
               >
-                <Inbox client:visible />
+                <Inbox />
               </div>
               <div
                 class="tab-pane fade"
@@ -131,7 +131,7 @@ import Sent from "../components/emails/Sent.jsx";
                 role="tabpanel"
                 aria-labelledby="v-pills-sent-tab"
               >
-                <Sent client:visible />
+                <Sent />
               </div>
             </div>
           </div>
