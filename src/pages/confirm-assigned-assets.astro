@@ -4,7 +4,7 @@ import ModalApproveAsset from "../components/ui/ModalApproveAsset.astro";
 import ModalComment from "../components/ui/ModalComment.astro";
 ---
 
-<Layout title="HRPayHub :: Asset Management">
+<Layout title="HRPayHub :: Confirm Assigned Assets">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -40,7 +40,8 @@ import ModalComment from "../components/ui/ModalComment.astro";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue">Asset Management</span
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Confirm Assigned Assets</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -58,7 +59,7 @@ import ModalComment from "../components/ui/ModalComment.astro";
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >Asset Management</span
+                >Confirm Assigned Assets</span
               >
             </div>
           </div>
@@ -313,22 +314,18 @@ import ModalComment from "../components/ui/ModalComment.astro";
                 </div>
 
                 <!-- Download Dropdown -->
-
                 <div class="dropdown">
                   <button
-                    class="white_button fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                     data-bs-offset="-20,10"
                   >
-                    <img
-                      src="images/png/icons/download-blue.svg"
-                      alt="arrow-down"
-                    />
+                    <img src="images/png/icons/download.svg" alt="arrow-down" />
                     <span>Download</span>
                     <img
-                      src="images/png/icons/arrow-down-blue.svg"
+                      src="images/png/icons/arrow-down.svg"
                       alt="arrow-down"
                     />
                   </button>
