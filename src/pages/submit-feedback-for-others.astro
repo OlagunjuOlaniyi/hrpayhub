@@ -1,0 +1,1311 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: Submit Feedback for Others">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/appraisal-management"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/appraisal-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Appraisal Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Submit Feedback for Others</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-4" id="expense_history_view">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+          id="employee_request_form"
+        >
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div class="d-flex gap-3 align-items-center">
+              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                >Submit Feedback for Others</span
+              >
+            </div>
+          </div>
+          {/* Page Title */}
+
+          <div class="">
+            <div
+              class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
+            >
+              <!---- Search  -->
+              <div class="">
+                <input
+                  type="text"
+                  class="form-control search-input search-width fs-14"
+                  placeholder="Search..."
+                />
+              </div>
+
+              <!-- Others -->
+              <div class="responsive gap-3">
+                <!-- Calendar Selector -->
+                <input
+                  type="month"
+                  class="form-control fs-14"
+                  style="max-width: 200px;"
+                  value="2025-08"
+                />
+                <!-- Filter Dropdown -->
+
+                <style>
+                  .dropdown-submenu {
+                    position: relative;
+                  }
+
+                  /* Accordion style: drop below, not to the right */
+                  .dropdown-submenu > .dropdown-menu {
+                    position: static;
+                    float: none;
+                    margin-top: 0.5rem;
+                    padding-left: 1rem;
+                    display: none;
+                  }
+
+                  .dropdown-submenu > .dropdown-menu.show {
+                    display: block;
+                  }
+
+                  /* a small caret indicator */
+                  .dropdown-submenu > a::after {
+                    content: " ";
+                    float: right;
+                  }
+                </style>
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-white border dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2 fs-14"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/filter.svg" alt="arrow-down" />
+                    <span>Filter</span>
+                  </button>
+                  <ul class="dropdown-menu" style="min-width:250px">
+                    <li
+                      class="d-flex flex-row justify-content-between px-3 py-2 border-bottom fs-14"
+                    >
+                      <span class="fw-bold">Filter</span>
+                      <span class="fw-bold text-primary-blue">Reset Filter</span
+                      >
+                    </li>
+                    <!-- Designation Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Designation</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 1"
+                            /> Category 1
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 2"
+                            /> Category 2
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 2"
+                            /> Category 2
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- Employment Status Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Employment Status</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="employed"
+                            /> Employed
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="unemployed"
+                            /> Unemployed
+                          </label>
+                        </li>
+
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="contract"
+                            /> Contract
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- Country of Work Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Country of Work</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="usa"
+                            /> USA
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="uk"
+                            /> UK
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="Nigeria"
+                            /> Nigeria
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- apply filter button -->
+                    <li
+                      class="d-flex flex-row justify-content-end px-3 py-2 mt-2"
+                    >
+                      <button
+                        type="submit"
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fs-14"
+                      >
+                        <span>Apply Filter</span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Sort Dropdown -->
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-white border fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/sort.svg" alt="arrow-down" />
+                    <span>Sort</span>
+                  </button>
+                  <div
+                    class="dropdown-menu p-0 border-0"
+                    style="min-width:200px"
+                  >
+                    <ul class="list-group border-0 fw-600 fs-14">
+                      <li class="list-group-item">
+                        <span class="fw-bold">Sort</span>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Alphabetically
+                        </label>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Date of Resumption
+                        </label>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Date of Confirmation
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Download Dropdown -->
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/download.svg" alt="arrow-down" />
+                    <span>Download</span>
+                    <img
+                      src="images/png/icons/arrow-down.svg"
+                      alt="arrow-down"
+                    />
+                  </button>
+                  <div class="dropdown-menu p-0 border-0">
+                    <ul class="list-group border-0 fw-600 fs-14">
+                      <li class="list-group-item">
+                        <div>CSV</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>Excel</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>PDF</div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!---- End of Others ---->
+            </div>
+          </div>
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead
+                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+              >
+                <tr>
+                  <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
+                    >S/N</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
+                    style="min-width: 200px;">Employee Being Appraised</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Relationship Type</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Primary Department</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Function</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Feedback Status</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Deadline</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Action</th
+                  >
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 180px;
+                  }
+                </style>
+                {
+                  [
+                    {
+                      emp: "Wade Warren",
+                      relationship: "Peer",
+                      pry_dpt: "Lorem Ipsum",
+                      function: "Lorem Ipsum",
+                      status: "Not Started",
+                      deadline: "7th Apr 2025",
+                    },
+                    {
+                      emp: "Wade Warren",
+                      relationship: "Manager",
+                      pry_dpt: "Lorem Ipsum",
+                      function: "Lorem Ipsum",
+                      status: "Completed",
+                      deadline: "7th Apr 2025",
+                    },
+                    {
+                      emp: "Wade Warren",
+                      relationship: "Subordinate",
+                      pry_dpt: "Lorem Ipsum",
+                      function: "Lorem Ipsum",
+                      status: "Completed",
+                      deadline: "7th Apr 2025",
+                    },
+                    {
+                      emp: "Wade Warren",
+                      relationship: "Peer",
+                      pry_dpt: "Lorem Ipsum",
+                      function: "Lorem Ipsum",
+                      status: "Not Started",
+                      deadline: "7th Apr 2025",
+                    },
+                    {
+                      emp: "Wade Warren",
+                      relationship: "Manager",
+                      pry_dpt: "Lorem Ipsum",
+                      function: "Lorem Ipsum",
+                      status: "Not Started",
+                      deadline: "7th Apr 2025",
+                    },
+                    {
+                      emp: "Wade Warren",
+                      relationship: "Subordinate",
+                      pry_dpt: "Lorem Ipsum",
+                      function: "Lorem Ipsum",
+                      status: "Completed",
+                      deadline: "7th Apr 2025",
+                    },
+                    {
+                      emp: "Wade Warren",
+                      relationship: "Subordinate",
+                      pry_dpt: "Lorem Ipsum",
+                      function: "Lorem Ipsum",
+                      status: "Completed",
+                      deadline: "7th Apr 2025",
+                    },
+                  ].map((item, index) => (
+                    <tr class="fs-88">
+                      <td class="text-center fs-14">{index + 1}</td>
+                      <td class="fs-14 text-nowrap text-left px-3 column">
+                        {item.emp}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {item.relationship}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {item.pry_dpt}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {item.function}
+                      </td>
+                      <td
+                        class="text-left px-3 fs-14 column fw-600"
+                        style={`color: ${
+                          item.status === "Completed"
+                            ? "#2BC700"
+                            : item.status === "Not Started"
+                              ? "#FD0000"
+                              : item.status === "Pending"
+                                ? "#B6B000"
+                                : "inherit"
+                        };`}
+                      >
+                        {item.status}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {item.deadline}
+                      </td>
+                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                        {item.relationship === "Peer" ? (
+                          <button
+                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 d-flex align-items-center gap-2 approved"
+                            type="button"
+                          >
+                            <span>
+                              {item.status === "Completed"
+                                ? "View Submitted"
+                                : "Fill Form"}
+                            </span>
+                          </button>
+                        ) : item.relationship === "Manager" ? (
+                          <button
+                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 d-flex align-items-center gap-2 rejected"
+                            type="button"
+                          >
+                            <span>
+                              {item.status === "Completed"
+                                ? "View Submitted"
+                                : "Fill Form"}
+                            </span>
+                          </button>
+                        ) : (
+                          <button
+                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 d-flex align-items-center gap-2 pending"
+                            type="button"
+                          >
+                            <span>
+                              {item.status === "Completed"
+                                ? "View Submitted"
+                                : "Fill Form"}
+                            </span>
+                          </button>
+                        )}
+                      </td>
+                    </tr>
+                  ))
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
+          </div>
+
+          <!---- End of table --->
+
+          <!-- Pagination Row -->
+          <div
+            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+          >
+            <!-- Left: Pagination Text -->
+            <div class="fs-14 text-muted">
+              Showing <strong>1–20</strong> of <strong>1000</strong>
+            </div>
+
+            <!-- Right: Go to Page + Pagination -->
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <!-- Go to Page -->
+              <form class="d-flex align-items-center gap-2">
+                <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+                <input
+                  type="number"
+                  min="1"
+                  max="100"
+                  id="gotoPage"
+                  class="form-control form-control-sm"
+                  style="width: 60px;"
+                  placeholder="—"
+                />
+              </form>
+
+              <!-- Page Navigation -->
+
+              <nav>
+                <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                  <li class="page-item">
+                    <a
+                      class="page-link text-primary-blue px-2"
+                      href="#"
+                      aria-label="Previous"
+                    >
+                      &lsaquo;
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">1</a>
+                  </li>
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">2</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">3</a>
+                  </li>
+                  <li class="page-item disabled">
+                    <span class="page-link text-primary-blue">...</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">100</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link hello" href="#" aria-label="Next">
+                      &rsaquo;
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <!---- Pagination ---->
+        </div>
+      </div>
+    </section>
+
+    <!------ Approved Section ------->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 d-none shadow p-4 vstack gap-5 px-5"
+          id="expense_request_form"
+        >
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Self Appraisal Form --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Peer Feedback Form
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+              <div class="form-floating add_employee_width">
+                <select
+                  id="emp_assessed"
+                  name="emp_assessed"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="peer1">Toluwalase Obasun - N1203003</option>
+                  <option value="peer2">Toluwalase Obasun - N1203003</option>
+                  <option value="peer3">Toluwalase Obasun - N1203003</option>
+                  <option value="peer4">Toluwalase Obasun - N1203003</option>
+                </select>
+                <label for="emp_assessed"
+                  >Employee Being Assessed &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="relation"
+                  name="relation"
+                  class="form-select_custom fs-14"
+                  disabled
+                >
+                  <option value="" style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="peer1" selected>Peer</option>
+                  <option value="peer2">Manager</option>
+                  <option value="peer3">Subordinate</option>
+                </select>
+                <label for="relation"
+                  >Your Relationship with This Employee</label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="communication"
+                  name="communication"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="communication1">Fair</option>
+                  <option value="communication2">Good</option>
+                  <option value="communication3">Very Good</option>
+                  <option value="communication4">Excellent</option>
+                </select>
+                <label for="communication"
+                  >Rate Communication Skills &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="teamwork"
+                  name="teamwork"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="teamwork1">Fair</option>
+                  <option value="teamwork2">Good</option>
+                  <option value="teamwork3">Very Good</option>
+                  <option value="teamwork4">Excellent</option>
+                </select>
+                <label for="teamwork"
+                  >Rate Teamwork Skills &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="problem"
+                  name="problem"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="problem1">Fair</option>
+                  <option value="problem2">Good</option>
+                  <option value="problem3">Very Good</option>
+                  <option value="problem4">Excellent</option>
+                </select>
+                <label for="problem"
+                  >Rate Problem-Solving Ability &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="adapt"
+                  name="adapt"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="adapt1">Fair</option>
+                  <option value="adapt2">Good</option>
+                  <option value="adapt3">Very Good</option>
+                  <option value="adapt4">Excellent</option>
+                </select>
+                <label for="adapt">Rate Adaptability &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="dedication"
+                  name="dedication"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="dedication1">Fair</option>
+                  <option value="dedication2">Good</option>
+                  <option value="dedication3">Very Good</option>
+                  <option value="dedication4">Excellent</option>
+                </select>
+                <label for="dedication"
+                  >Rate Dedication to work &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="accountability"
+                  name="accountability"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="accountability1">Fair</option>
+                  <option value="accountability2">Good</option>
+                  <option value="accountability3">Very Good</option>
+                  <option value="accountability4">Excellent</option>
+                </select>
+                <label for="peer"
+                  >Rate Accountability &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <select
+                  id="performance"
+                  name="performance"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="performance1">Fair</option>
+                  <option value="performance2">Good</option>
+                  <option value="performance3">Very Good</option>
+                  <option value="performance4">Excellent</option>
+                </select>
+                <label for="performance"
+                  >Overall Performance Rating &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <textarea class="form-input" rows="2" id="comment"></textarea>
+                <label for="comment">Comments </label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <textarea class="form-input" rows="2" id="suggestion"
+                ></textarea>
+                <label for="suggestion">Suggestions for Improvement </label>
+              </div>
+
+              <!---- submit ---->
+              <div class="d-flex justify-content-end add_employee_width">
+                <button
+                  type="button"
+                  id="upload"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                >
+                  <span>Submit</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+
+    <!------ Pending Section ------->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 d-none shadow p-4 vstack gap-5 px-5"
+          id="expense_request_form_pending"
+        >
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Self Appraisal Form --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Subordinate Feedback Form
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+              <div class="form-floating add_employee_width">
+                <select
+                  id="emp_assessed"
+                  name="emp_assessed"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="peer1">Toluwalase Obasun - N1203003</option>
+                  <option value="peer2">Toluwalase Obasun - N1203003</option>
+                  <option value="peer3">Toluwalase Obasun - N1203003</option>
+                  <option value="peer4">Toluwalase Obasun - N1203003</option>
+                </select>
+                <label for="emp_assessed"
+                  >Manager Being Assessed &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="relation"
+                  name="relation"
+                  class="form-select_custom fs-14"
+                  disabled
+                >
+                  <option value="" style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="peer1">Peer</option>
+                  <option value="peer2" selected>Manager</option>
+                  <option value="peer3">Subordinate</option>
+                </select>
+                <label for="relation"
+                  >Your Relationship with This Employee</label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="communication"
+                  name="communication"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="communication1">Fair</option>
+                  <option value="communication2">Good</option>
+                  <option value="communication3">Very Good</option>
+                  <option value="communication4">Excellent</option>
+                </select>
+                <label for="communication"
+                  >Rate Manager’s Communication &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="leadership"
+                  name="leadership"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="leadership1">Fair</option>
+                  <option value="leadership2">Good</option>
+                  <option value="leadership3">Very Good</option>
+                  <option value="leadership4">Excellent</option>
+                </select>
+                <label for="leadership"
+                  >Rate Manager’s Leadership Skills &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="decision"
+                  name="decision"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="decision1">Fair</option>
+                  <option value="decision2">Good</option>
+                  <option value="decision3">Very Good</option>
+                  <option value="decision4">Excellent</option>
+                </select>
+                <label for="decision"
+                  >Rate Decision-Making Ability &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="empathy"
+                  name="empathy"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="empathy1">Fair</option>
+                  <option value="empathy2">Good</option>
+                  <option value="empathy3">Very Good</option>
+                  <option value="empathy4">Excellent</option>
+                </select>
+                <label for="empathy"
+                  >Rate Manager’s Empathy &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="support"
+                  name="support"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="support1">Fair</option>
+                  <option value="support2">Good</option>
+                  <option value="support3">Very Good</option>
+                  <option value="support4">Excellent</option>
+                </select>
+                <label for="support"
+                  >Rate Manager’s Support for Team Development &nbsp;<span
+                    >*</span
+                  ></label
+                >
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <select
+                  id="performance"
+                  name="performance"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="performance1">Fair</option>
+                  <option value="performance2">Good</option>
+                  <option value="performance3">Very Good</option>
+                  <option value="performance4">Excellent</option>
+                </select>
+                <label for="performance"
+                  >Overall Performance Rating &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <textarea class="form-input" rows="2" id="comment"></textarea>
+                <label for="comment">Comments </label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <textarea class="form-input" rows="2" id="suggestion"
+                ></textarea>
+                <label for="suggestion">Suggestions for Improvement </label>
+              </div>
+
+              <!---- submit ---->
+              <div class="d-flex justify-content-end add_employee_width">
+                <button
+                  type="button"
+                  id="upload"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                >
+                  <span>Submit</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+
+    <!------ Rejected Section ------->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 shadow p-4 d-none vstack gap-5 px-5"
+          id="expense_request_form_rejected"
+        >
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Manager Feedback Form --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Manager Feedback Form
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+              <div class="form-floating add_employee_width">
+                <select
+                  id="emp_assessed"
+                  name="emp_assessed"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="peer1">Toluwalase Obasun - N1203003</option>
+                  <option value="peer2">Toluwalase Obasun - N1203003</option>
+                  <option value="peer3">Toluwalase Obasun - N1203003</option>
+                  <option value="peer4">Toluwalase Obasun - N1203003</option>
+                </select>
+                <label for="emp_assessed"
+                  >Employee Being Assessed &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="relation"
+                  name="relation"
+                  class="form-select_custom fs-14"
+                  disabled
+                >
+                  <option value="" style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="peer1">Peer</option>
+                  <option value="peer2">Manager</option>
+                  <option value="peer3" selected>Subordinate</option>
+                </select>
+                <label for="relation"
+                  >Your Relationship with This Employee</label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="performance"
+                  name="performance"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="performance1">Fair</option>
+                  <option value="performance2">Good</option>
+                  <option value="performance3">Very Good</option>
+                  <option value="performance4">Excellent</option>
+                </select>
+                <label for="performance"
+                  >Rate Employee’s Job Performance &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="communication"
+                  name="communication"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="communication1">Fair</option>
+                  <option value="communication2">Good</option>
+                  <option value="communication3">Very Good</option>
+                  <option value="communication4">Excellent</option>
+                </select>
+                <label for="communication"
+                  >Rate Employee’s Communication Skills: &nbsp;<span>*</span
+                  ></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="dedication"
+                  name="dedication"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="dedication1">Fair</option>
+                  <option value="dedication2">Good</option>
+                  <option value="dedication3">Very Good</option>
+                  <option value="dedication4">Excellent</option>
+                </select>
+                <label for="dedication"
+                  >Rate Employee’s Dedication to work</label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="problem"
+                  name="problem"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="problem1">Fair</option>
+                  <option value="problem2">Good</option>
+                  <option value="problem3">Very Good</option>
+                  <option value="problem4">Excellent</option>
+                </select>
+                <label for="problem"
+                  >Rate Employee’s Problem-Solving Skills &nbsp;<span>*</span
+                  ></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="deadline"
+                  name="deadline"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="deadline1">Fair</option>
+                  <option value="deadline2">Good</option>
+                  <option value="deadline3">Very Good</option>
+                  <option value="deadline4">Excellent</option>
+                </select>
+                <label for="deadline"
+                  >Rate Employee’s Ability to Meet Deadlines &nbsp;<span>*</span
+                  ></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="communication"
+                  name="communication"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="communication1">Fair</option>
+                  <option value="communication2">Good</option>
+                  <option value="communication3">Very Good</option>
+                  <option value="communication4">Excellent</option>
+                </select>
+                <label for="communication"
+                  >Rate Communication Skills &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="teamwork"
+                  name="teamwork"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="teamwork1">Fair</option>
+                  <option value="teamwork2">Good</option>
+                  <option value="teamwork3">Very Good</option>
+                  <option value="teamwork4">Excellent</option>
+                </select>
+                <label for="teamwork"
+                  >Rate Teamwork Skills &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="adaptablity"
+                  name="adaptablity"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="adaptablity1">Fair</option>
+                  <option value="adaptablity2">Good</option>
+                  <option value="adaptablity3">Very Good</option>
+                  <option value="adaptablity4">Excellent</option>
+                </select>
+                <label for="adaptablity"
+                  >Rate Adaptability &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <select
+                  id="accountability"
+                  name="accountability"
+                  class="form-select_custom fs-14"
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="accountability1">Fair</option>
+                  <option value="accountability2">Good</option>
+                  <option value="accountability3">Very Good</option>
+                  <option value="accountability4">Excellent</option>
+                </select>
+                <label for="accountability"
+                  >Rate Accountability &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <textarea class="form-input" rows="2" id="comment"></textarea>
+                <label for="comment">Comments </label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <textarea class="form-input" rows="2" id="suggestion"
+                ></textarea>
+                <label for="suggestion">Suggestions for Improvement </label>
+              </div>
+
+              <!---- submit ---->
+              <div class="d-flex justify-content-end add_employee_width">
+                <button
+                  type="button"
+                  id="upload"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                >
+                  <span>Submit</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+  </main>
+
+  <!-- Main content ends here -->
+
+  <script is:inline type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+      $(".approved").click((evt) => {
+        $("#expense_request_form").removeClass("d-none");
+        $("#expense_history_view").addClass("d-none");
+      });
+      $(".pending").click((evt) => {
+        $("#expense_request_form_pending").removeClass("d-none");
+        $("#expense_history_view").addClass("d-none");
+      });
+      $(".rejected").click((evt) => {
+        $("#expense_request_form_rejected").removeClass("d-none");
+        $("#expense_history_view").addClass("d-none");
+      });
+    });
+  </script>
+  <script>
+    document
+      .querySelectorAll(".dropdown-submenu > a")
+      .forEach(function (element) {
+        element.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const submenu = this.nextElementSibling;
+
+          // Close all other submenus
+          document
+            .querySelectorAll(".dropdown-submenu .dropdown-menu")
+            .forEach(function (el) {
+              if (el !== submenu) el.classList.remove("show");
+            });
+
+          submenu.classList.toggle("show");
+        });
+      });
+
+    // Optional: close submenus when clicking outside
+    document.addEventListener("click", function () {
+      document
+        .querySelectorAll(".dropdown-submenu .dropdown-menu")
+        .forEach(function (el) {
+          el.classList.remove("show");
+        });
+    });
+  </script>
+</Layout>

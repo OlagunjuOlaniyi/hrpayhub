@@ -1,0 +1,377 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: View Appraisal Results">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/appraisal-management"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/appraisal-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Appraisal Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+
+            <span class="fs-16 fw-bold text-primary-blue"
+              >View Appraisal Results</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+
+    <section class="px-4">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 shadow p-4 vstack gap-5"
+          id="expense_request_form"
+        >
+          {/* Page Title */}
+          <div
+            class="d-flex flex-column flex-lg-row justify-content-between gap-2 p-3 px-4 appraisal_details"
+          >
+            <div class="d-flex flex-column pe-4">
+              <span class="fs-12 text-secondary">Employee Name</span>
+              <span class="fs-14 fw-700">John Akinyemi</span>
+            </div>
+            <span class="clock_border_left"></span>
+            <div class="d-flex flex-column px-lg-3">
+              <span class="fs-12 text-secondary">Employee ID</span>
+              <span class="fs-14 fw-700">N1424362</span>
+            </div>
+            <span class="clock_border_left"></span>
+            <div class="d-flex flex-column px-lg-3">
+              <span class="fs-12 text-secondary">Dapartment(s)</span>
+              <span class="fs-14 fw-700">Lorem</span>
+            </div>
+            <span class="clock_border_left"></span>
+            <div class="d-flex flex-column px-lg-3">
+              <span class="fs-12 text-secondary">Function(s)</span>
+              <span class="fs-14 fw-700">Lorem</span>
+            </div>
+            <span class="clock_border_left"></span>
+            <div class="d-flex flex-column px-lg-3">
+              <span class="fs-12 text-secondary">Total Feedback Collected</span>
+              <span class="fs-14 fw-700">20</span>
+            </div>
+          </div>
+          {/* Page Title */}
+          {/* Page Content Box */}
+          <div class="screenFrame">
+            <div class="rounded-4 shadow p-4 vstack gap-3">
+              <div class="">
+                <div
+                  class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
+                >
+                  <!---- Search  -->
+                  <div class="fw-700 fs-18">Appraisal Results</div>
+
+                  <!-- Others -->
+                  <div class="responsive gap-3">
+                    <!-- Calendar Selector -->
+                    <input
+                      type="month"
+                      class="form-control fs-14"
+                      style="max-width: 200px;"
+                      value="2025-08"
+                    />
+
+                    <!-- Download Dropdown -->
+                    <div class="dropdown">
+                      <button
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-offset="-20,10"
+                      >
+                        <img
+                          src="images/png/icons/download.svg"
+                          alt="arrow-down"
+                        />
+                        <span>Download</span>
+                        <img
+                          src="images/png/icons/arrow-down.svg"
+                          alt="arrow-down"
+                        />
+                      </button>
+                      <div class="dropdown-menu p-0 border-0">
+                        <ul class="list-group border-0 fw-600 fs-14">
+                          <li class="list-group-item">
+                            <div>CSV</div>
+                          </li>
+                          <li class="list-group-item">
+                            <div>Excel</div>
+                          </li>
+                          <li class="list-group-item">
+                            <div>PDF</div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!---- End of Others ---->
+                </div>
+              </div>
+
+              <!-- Scrollable Table -->
+              <div
+                class="table-responsive"
+                style="max-height: 600px; overflow: auto;"
+              >
+                <table class="table table-bordered table-hover">
+                  <!---- Table head --->
+                  <thead
+                    class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+                  >
+                    <tr>
+                      <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
+                        >S/N</th
+                      >
+
+                      <th
+                        class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                        >Category</th
+                      >
+                      <th
+                        class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                        >Peer Feedback Score</th
+                      >
+                      <th
+                        class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                        >Manager Feedback Score</th
+                      >
+                      <th
+                        class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                        >Subordinate Feedback Score</th
+                      >
+                      <th
+                        class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                        >Self Appraisal Score</th
+                      >
+                      <th
+                        class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                        >Overall Average</th
+                      >
+                      <th
+                        class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                        >Difference (Self vs. Overall)</th
+                      >
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Table body and Row -->
+                    <style>
+                      .column {
+                        min-width: 180px;
+                      }
+                    </style>
+                    {
+                      [
+                        {
+                          cat: "Communication",
+                          score: "4.3",
+                          category: "Peer",
+                          amount: "Lorem Ipsum",
+                          status: "Completed",
+                        },
+                        {
+                          cat: "Teamwork",
+                          score: "4.3",
+                          category: "Peer",
+                          amount: "Lorem Ipsum",
+                          status: "Completed",
+                        },
+                        {
+                          cat: "Leadership",
+                          score: "4.3",
+                          category: "Peer",
+                          amount: "Lorem Ipsum",
+                          status: "Completed",
+                        },
+                        {
+                          cat: "Problem-Solving",
+                          score: "4.3",
+                          category: "Peer",
+                          amount: "Lorem Ipsum",
+                          status: "Completed",
+                        },
+                        {
+                          cat: "Overall Performance",
+                          score: "4.3",
+                          category: "Peer",
+                          amount: "Lorem Ipsum",
+                          status: "Completed",
+                        },
+                      ].map((item, index) => (
+                        <tr class="fs-88">
+                          <td class="text-center fs-14">{index + 1}</td>
+
+                          <td class="fs-14 px-3 text-left column">
+                            {item.cat}
+                          </td>
+                          <td class="fs-14 px-3 text-left column">
+                            {item.score}
+                          </td>
+                          <td class="fs-14 px-3 text-left column">
+                            {item.score}
+                          </td>
+                          <td class="fs-14 px-3 text-left column">
+                            {item.score}
+                          </td>
+                          <td class="fs-14 px-3 text-left column">
+                            {item.score}
+                          </td>
+                          <td class="fs-14 px-3 text-left column">
+                            {item.score}
+                          </td>
+                          <td class="fs-14 px-3 text-left column">
+                            {item.score}
+                          </td>
+                        </tr>
+                      ))
+                    }
+
+                    <!-- Repeat for more employees -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!---- End of table --->
+            </div>
+          </div>
+
+          <!------textual -->
+          <div class="d-flex flex-column gap-4">
+            <div class="d-flex flex-column gap-2">
+              <div class="fs-14">Peer Feedback Comments:</div>
+              <div class="aggregation_width px-2 py-2">
+                <ul class="fs-12">
+                  <li>
+                    The employee demonstrates excellent communication skills
+                  </li>
+                  <li>Could improve responsiveness during team projects</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <div class="fs-14">Subordinate Feedback Comments</div>
+              <div class="aggregation_width px-2 py-2">
+                <ul class="fs-12">
+                  <li>Shows great leadership and empathy</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <div class="fs-14">Manager Feedback Comments</div>
+              <div class="aggregation_width px-2 py-2">
+                <ul class="fs-12">
+                  <li>consistently exceeds performance expectations</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <div class="fs-14">Subordinate Feedback Comments</div>
+              <div class="aggregation_width px-2 py-2">
+                <ul class="fs-12">
+                  <li>I believe I need to enhance my leadership skills</li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <div class="fs-14">Suggestions for Improvement</div>
+              <div class="aggregation_width px-2 py-2">
+                <ul class="fs-12">
+                  <li>I believe I need to enhance my leadership skills</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+  </main>
+
+  <!-- Main content ends here -->
+
+  <script is:inline type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+      $(".approved").click((evt) => {
+        $("#expense_request_form").removeClass("d-none");
+        $("#expense_history_view").addClass("d-none");
+      });
+      $(".pending").click((evt) => {
+        $("#expense_request_form_pending").removeClass("d-none");
+        $("#expense_history_view").addClass("d-none");
+      });
+      $(".rejected").click((evt) => {
+        $("#expense_request_form_rejected").removeClass("d-none");
+        $("#expense_history_view").addClass("d-none");
+      });
+    });
+  </script>
+  <script>
+    document
+      .querySelectorAll(".dropdown-submenu > a")
+      .forEach(function (element) {
+        element.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const submenu = this.nextElementSibling;
+
+          // Close all other submenus
+          document
+            .querySelectorAll(".dropdown-submenu .dropdown-menu")
+            .forEach(function (el) {
+              if (el !== submenu) el.classList.remove("show");
+            });
+
+          submenu.classList.toggle("show");
+        });
+      });
+
+    // Optional: close submenus when clicking outside
+    document.addEventListener("click", function () {
+      document
+        .querySelectorAll(".dropdown-submenu .dropdown-menu")
+        .forEach(function (el) {
+          el.classList.remove("show");
+        });
+    });
+  </script>
+</Layout>

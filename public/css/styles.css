@@ -1205,6 +1205,7 @@ ul.upload_offer_bg li.nav-item .active {
 .download_sample {
   border-radius: 15px;
   border: 2px solid #c1c1c1;
+  
 }
 
 .text_underline {
@@ -1408,4 +1409,34 @@ ul.subscription_tab li.nav-item .active {
 
 .email_nav button.active {
   background-color: #2271b6 !important;
+}
+
+/* appraisal */
+.appraisal_details {
+  background-color: #eaecf0;
+  /* width: 741px; */
+  border-radius: 16px;
+}
+
+.aggregation_width {
+  border-radius: 15px;
+  border: 2px solid #c1c1c1;
+  width: 437px;
+}
+
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 0rem;
+}
+
+.self_appraisal_info {
+  background-color: #eaecf0;
+  width: 344px;
+  border-radius: 16px;  
+}
+
+@media (max-width: 769px) {
+  .aggregation_width {
+    width: 100%;
+}
 }

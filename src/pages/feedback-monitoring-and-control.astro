@@ -1,10 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import RejectModal from "../components/ui/RejectModal.astro";
-import ApproveModal from "../components/ui/ApproveModal.astro";
 ---
 
-<Layout title="HRPayHub :: Expense Request Review">
+<Layout title="HRPayHub :: Feedback Monitoring & Control">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -13,7 +11,7 @@ import ApproveModal from "../components/ui/ApproveModal.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/expense-management"
+            href="/appraisal-management"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -23,17 +21,18 @@ import ApproveModal from "../components/ui/ApproveModal.astro";
 
           <!-- Actual Breadcrumb here -->
           <div class="d-flex align-items-center gap-2">
-            <a href="index.html" class="fs-14 text-decoration-none text-primary-dark"
-              >Dashboard</a
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
             >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
             <a
-              href="/expense-management"
+              href="/appraisal-management"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Expense Management</a
+              >Appraisal Management</a
             >
             <img
               src="images/png/icons/angle-right.svg"
@@ -41,7 +40,7 @@ import ApproveModal from "../components/ui/ApproveModal.astro";
             />
 
             <span class="fs-16 fw-bold text-primary-blue"
-              >Expense Request Review</span
+              >Feedback Monitoring & Control</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -62,7 +61,7 @@ import ApproveModal from "../components/ui/ApproveModal.astro";
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >Expense Request Review</span
+                >Feedback Monitoring & Control</span
               >
             </div>
           </div>
@@ -88,7 +87,7 @@ import ApproveModal from "../components/ui/ApproveModal.astro";
                   type="month"
                   class="form-control fs-14"
                   style="max-width: 200px;"
-                  value="2025-05"
+                  value="2025-08"
                 />
                 <!-- Filter Dropdown -->
 
@@ -309,6 +308,36 @@ import ApproveModal from "../components/ui/ApproveModal.astro";
                     </ul>
                   </div>
                 </div>
+                <!-- Download Dropdown -->
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/download.svg" alt="arrow-down" />
+                    <span>Download</span>
+                    <img
+                      src="images/png/icons/arrow-down.svg"
+                      alt="arrow-down"
+                    />
+                  </button>
+                  <div class="dropdown-menu p-0 border-0">
+                    <ul class="list-group border-0 fw-600 fs-14">
+                      <li class="list-group-item">
+                        <div>CSV</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>Excel</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>PDF</div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
 
               <!---- End of Others ---->
@@ -329,25 +358,38 @@ import ApproveModal from "../components/ui/ApproveModal.astro";
                   <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
                     >S/N</th
                   >
-                  <th
-                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
-                    style="min-width: 200px;">Date</th
-                  >
+
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Employee Name</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Category</th
+                    >Employee ID</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Amount</th
+                    >Designation</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Status</th
+                    >Primary Department</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Primary Function</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Total Feedback Collected</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Pending Submissions</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Completion Status</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
@@ -365,71 +407,104 @@ import ApproveModal from "../components/ui/ApproveModal.astro";
                 {
                   [
                     {
-                      date: "7th Apr 2025",
-                      title: "Lorem Ipsum",
-                      category: "Mixed",
-                      amount: "N124,676",
-                      status: "Approved",
+                      emp_name: "Lorem Ipsum",
+                      emp_id: "N1702020",
+                      designation: "Lorem Ipsum",
+                      pry_dpt: "Lorem Ipsum",
+                      pry_func: "Lorem Ipsum",
+                      total_feedback: "12",
+                      pending: "-",
+                      status: "Completed",
                     },
                     {
-                      date: "7th Apr 2025",
-                      title: "Lorem Ipsum",
-                      category: "Mixed",
-                      amount: "N124,676",
-                      status: "Rejected",
-                    },
-                    {
-                      date: "7th Apr 2025",
-                      title: "Lorem Ipsum",
-                      category: "Mixed",
-                      amount: "N124,676",
+                      emp_name: "Lorem Ipsum",
+                      emp_id: "N1702020",
+                      designation: "Lorem Ipsum",
+                      pry_dpt: "Lorem Ipsum",
+                      pry_func: "Lorem Ipsum",
+                      total_feedback: "12",
+                      pending: "3",
                       status: "Pending",
                     },
                     {
-                      date: "7th Apr 2025",
-                      title: "Lorem Ipsum",
-                      category: "Mixed",
-                      amount: "N124,676",
-                      status: "Approved",
+                      emp_name: "Lorem Ipsum",
+                      emp_id: "N1702020",
+                      designation: "Lorem Ipsum",
+                      pry_dpt: "Lorem Ipsum",
+                      pry_func: "Lorem Ipsum",
+                      total_feedback: "12",
+                      pending: "-",
+                      status: "Not Started",
                     },
                     {
-                      date: "7th Apr 2025",
-                      title: "Lorem Ipsum",
-                      category: "Mixed",
-                      amount: "N124,676",
-                      status: "Approved",
+                      emp_name: "Lorem Ipsum",
+                      emp_id: "N1702020",
+                      designation: "Lorem Ipsum",
+                      pry_dpt: "Lorem Ipsum",
+                      pry_func: "Lorem Ipsum",
+                      total_feedback: "12",
+                      pending: "-",
+                      status: "Completed",
                     },
                     {
-                      date: "7th Apr 2025",
-                      title: "Lorem Ipsum",
-                      category: "Mixed",
-                      amount: "N124,676",
-                      status: "Approved",
+                      emp_name: "Lorem Ipsum",
+                      emp_id: "N1702020",
+                      designation: "Lorem Ipsum",
+                      pry_dpt: "Lorem Ipsum",
+                      pry_func: "Lorem Ipsum",
+                      total_feedback: "12",
+                      pending: "-",
+                      status: "Completed",
                     },
                     {
-                      date: "7th Apr 2025",
-                      title: "Lorem Ipsum",
-                      category: "Mixed",
-                      amount: "N124,676",
-                      status: "Approved",
+                      emp_name: "Lorem Ipsum",
+                      emp_id: "N1702020",
+                      designation: "Lorem Ipsum",
+                      pry_dpt: "Lorem Ipsum",
+                      pry_func: "Lorem Ipsum",
+                      total_feedback: "12",
+                      pending: "-",
+                      status: "Completed",
+                    },
+                    {
+                      emp_name: "Lorem Ipsum",
+                      emp_id: "N1702020",
+                      designation: "Lorem Ipsum",
+                      pry_dpt: "Lorem Ipsum",
+                      pry_func: "Lorem Ipsum",
+                      total_feedback: "12",
+                      pending: "-",
+                      status: "Completed",
                     },
                   ].map((item, index) => (
                     <tr class="fs-88">
                       <td class="text-center fs-14">{index + 1}</td>
                       <td class="fs-14 text-nowrap text-left px-3 column">
-                        {item.date}
+                        {item.emp_name}
                       </td>
-                      <td class="fs-14 px-3 text-left column">{item.title}</td>
+                      <td class="fs-14 px-3 text-left column">{item.emp_id}</td>
                       <td class="fs-14 px-3 text-left column">
-                        {item.category}
+                        {item.designation}
                       </td>
-                      <td class="fs-14 px-3 text-left column">{item.amount}</td>
+                      <td class="fs-14 px-3 text-left column">
+                        {item.pry_dpt}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {item.pry_func}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {item.total_feedback}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {item.pending}
+                      </td>
+
                       <td
                         class="text-left px-3 fs-14 column fw-600"
                         style={`color: ${
-                          item.status === "Approved"
+                          item.status === "Completed"
                             ? "#2BC700"
-                            : item.status === "Rejected"
+                            : item.status === "Not Started"
                               ? "#FD0000"
                               : item.status === "Pending"
                                 ? "#B6B000"
@@ -440,28 +515,12 @@ import ApproveModal from "../components/ui/ApproveModal.astro";
                       </td>
 
                       <td class="fs-14 px-3 text-center d-flex justify-content-center column">
-                        {item.status === "Approved" ? (
-                          <button
-                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 d-flex align-items-center gap-2 approved"
-                            type="button"
-                          >
-                            <span>View Details</span>
-                          </button>
-                        ) : item.status === "Rejected" ? (
-                          <button
-                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 d-flex align-items-center gap-2 rejected"
-                            type="button"
-                          >
-                            <span>View Details</span>
-                          </button>
-                        ) : (
-                          <button
-                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 d-flex align-items-center gap-2 pending"
-                            type="button"
-                          >
-                            <span>View Details</span>
-                          </button>
-                        )}
+                        <button
+                          class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 d-flex align-items-center gap-2 approved"
+                          type="button"
+                        >
+                          <span>View Details</span>
+                        </button>
                       </td>
                     </tr>
                   ))
@@ -546,415 +605,252 @@ import ApproveModal from "../components/ui/ApproveModal.astro";
     <section class="px-4">
       <div class="screenFrame">
         <div
-          class="rounded-4 d-none shadow p-4 vstack gap-5 px-5"
+          class="rounded-4 d-none shadow p-4 vstack gap-5"
           id="expense_request_form"
         >
-          {/* Page Content Box */}
-          <div class="p-lg-5">
-            <div class="vstack" style="gap: 2.3rem">
-              <div
-                class="d-flex justify-content-between align-items-center expense_employer_title"
-              >
-                <span
-                  class="text-dark
-                font-ubuntu-bold
-                fs-18
-                inline-block"
-                >
-                  Expense Request Review
-                </span>
-                <span
-                  role="button"
-                  class="text-primary-blue approved_bg py-2 px-4 rounded"
-                  data-bs-toggle="modal"
-                  data-bs-target="#approveModal">Approved</span
-                >
-              </div>
-
-              <div class="form-floating expense_input">
-                <input
-                  type="text"
-                  id="ex_title"
-                  name="ex_title"
-                  class="form-input"
-                  placeholder=""
-                />
-                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
-              </div>
-
-              <div class="form-floating expense_input">
-                <select
-                  id="select_plan"
-                  name="select_plan"
-                  class="form-select_custom fs-14"
-                  required
-                >
-                  <option value="" selected style="color: rgb(200, 200, 200)"
-                    >Select</option
-                  >
-                  <option value="plan_1">Mixed</option>
-                  <option value="plan_2">Cost of Goods Sold (COGS)</option>
-                  <option value="plan_3">OPEX</option>
-                  <option value="plan_3">ASSET</option>
-                </select>
-                <label for="select_plan"
-                  >Expense Category &nbsp;<span>*</span></label
-                >
-              </div>
-
-              <div class="form-floating expense_input">
-                <input
-                  type="text"
-                  id="amount"
-                  name="amount"
-                  class="form-input"
-                  placeholder=""
-                />
-                <label for="ex_amount">Amount &nbsp;<span>*</span></label>
-              </div>
-
-              
-              <div class="form-floating expense_input">
-                <textarea class="form-input" rows="2" id="description"
-                ></textarea>
-                <label for="ex_description">Description &nbsp;<span>*</span></label>
-              </div>
-
-              <!---- upload ---->
-
-              <div class="fs-14 fw-600">Documents</div>
-              <div
-                class="expense_request_doc d-flex flex-column gap-2 p-4 expense_input"
-              >
-                <div class="d-flex justify-content-between">
-                  <div
-                    class="d-flex justify-content-center align-items-center gap-3"
-                  >
-                    <img
-                      src="images/png/icons/document-download.svg"
-                      alt="document"
-                    />
-                    <span class="fs-14">Document 1</span>
-                  </div>
-                  <div>
-                    <img
-                      type="button"
-                      src="images/png/icons/vision-dark.svg"
-                      alt="vision"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="d-flex justify-content-between w-100 border-top pt-2"
-                >
-                  <div
-                    class="d-flex justify-content-center align-items-center gap-3"
-                  >
-                    <img
-                      src="images/png/icons/document-download.svg"
-                      alt="document"
-                    />
-                    <span class="fs-14">Document 2</span>
-                  </div>
-                  <div>
-                    <img
-                      type="button"
-                      src="images/png/icons/vision-dark.svg"
-                      alt="vision"
-                    />
-                  </div>
-                </div>
-              </div>
+          {/* Page Title */}
+          <div
+            class="d-flex flex-column flex-lg-row justify-content-between gap-2 p-3 px-4 appraisal_details"
+          >
+            <div class="d-flex flex-column pe-4">
+              <span class="fs-12 text-secondary">Employee Name</span>
+              <span class="fs-14 fw-700">John Akinyemi</span>
+            </div>
+            <span class="clock_border_left"></span>
+            <div class="d-flex flex-column px-lg-3">
+              <span class="fs-12 text-secondary">Employee ID</span>
+              <span class="fs-14 fw-700">N1424362</span>
+            </div>
+            <span class="clock_border_left"></span>
+            <div class="d-flex flex-column px-lg-3">
+              <span class="fs-12 text-secondary">Dapartment(s)</span>
+              <span class="fs-14 fw-700">Lorem</span>
+            </div>
+            <span class="clock_border_left"></span>
+            <div class="d-flex flex-column px-lg-3">
+              <span class="fs-12 text-secondary">Function(s)</span>
+              <span class="fs-14 fw-700">Lorem</span>
+            </div>
+            <span class="clock_border_left"></span>
+            <div class="d-flex flex-column px-lg-3">
+              <span class="fs-12 text-secondary">Total Feedback Collected</span>
+              <span class="fs-14 fw-700">20</span>
+            </div>
+            <span class="clock_border_left"></span>
+            <div class="d-flex flex-column px-lg-3">
+              <span class="fs-12 text-secondary">Pending Submission</span>
+              <span class="fs-14 fw-700">4</span>
             </div>
           </div>
-        </div>
-        {/* Page Content Box */}
-      </div>
-    </section>
-
-    <!------ Pending Section ------->
-    <section class="px-4">
-      <div class="screenFrame">
-        <div
-          class="rounded-4 d-none shadow p-4 vstack gap-5 px-5"
-          id="expense_request_form_pending"
-        >
+          {/* Page Title */}
           {/* Page Content Box */}
-          <div class="p-lg-5">
-            <div class="vstack" style="gap: 2.3rem">
-              <div
-                class="d-flex justify-content-between align-items-center expense_input"
-              >
-                <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                  >Expense Request Review</span
-                >
-              </div>
-
-              <div class="form-floating expense_input">
-                <input
-                  type="text"
-                  id="ex_title"
-                  name="ex_title"
-                  class="form-input"
-                  placeholder=""
-                />
-                <label for="ex_title">Expense Title &nbsp;<span>*</span></label>
-              </div>
-
-              <div class="form-floating expense_input">
-                <select
-                  id="select_plan"
-                  name="select_plan"
-                  class="form-select_custom fs-14"
-                  required
-                >
-                  <option value="" selected style="color: rgb(200, 200, 200)"
-                    >Select</option
-                  >
-                  <option value="plan_1">Mixed</option>
-                  <option value="plan_2">Cost of Goods Sold (COGS)</option>
-                  <option value="plan_3">OPEX</option>
-                  <option value="plan_3">ASSET</option>
-                </select>
-                <label for="select_plan"
-                  >Expense Category &nbsp;<span>*</span></label
-                >
-              </div>
-
-              <div class="form-floating expense_input">
-                <input
-                  type="text"
-                  id="amount"
-                  name="amount"
-                  class="form-input"
-                  placeholder=""
-                />
-                <label for="ex_amount">Amount &nbsp;<span>*</span></label>
-              </div>
-
-              <div class="form-floating expense_input">
-                <textarea class="form-input" rows="2" id="description"
-                ></textarea>
-                <label for="ex_description"
-                  >Description &nbsp;<span>*</span></label
-                >
-              </div>
-
-              <!---- upload ---->
-
-              <div class="fs-14 fw-600">Documents</div>
-              <div
-                class="expense_request_doc d-flex flex-column gap-2 p-4 expense_input"
-              >
-                <div class="d-flex justify-content-between">
-                  <div
-                    class="d-flex justify-content-center align-items-center gap-3"
-                  >
-                    <img
-                      src="images/png/icons/document-download.svg"
-                      alt="document"
-                    />
-                    <span cla="fs-14">Document 1</span>
-                  </div>
-                  <div>
-                    <img
-                      type="button"
-                      src="images/png/icons/vision-dark.svg"
-                      alt="vision"
-                    />
-                  </div>
-                </div>
+          <div class="screenFrame">
+            <div class="rounded-4 shadow p-4 vstack gap-3">
+              <div class="">
                 <div
-                  class="d-flex justify-content-between w-100 border-top pt-2"
+                  class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
                 >
-                  <div
-                    class="d-flex justify-content-center align-items-center gap-3"
-                  >
-                    <img
-                      src="images/png/icons/document-download.svg"
-                      alt="document"
-                    />
-                    <span class="fs-14">Document 2</span>
-                  </div>
-                  <div>
-                    <img
-                      type="button"
-                      src="images/png/icons/vision-dark.svg"
-                      alt="vision"
-                    />
-                  </div>
-                </div>
-              </div>
+                  <!---- Search  -->
+                  <div class="fw-700 fs-18">Reviewers</div>
 
-              <div class="d-flex gap-5 expense_input">
-                <button
-                  class="btn bg-primary-blue text-white fs-14"
-                  type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#approveModal"
-                >
-                  Approve Request
-                </button>
-                <button
-                  class="btn border_color_red fs-14 px-3"
-                  type="button"
-                  style="color: red;"
-                  data-bs-toggle="modal"
-                  data-bs-target="#rejectModal"
-                >
-                  Reject Request
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Page Content Box */}
-      </div>
-    </section>
-
-    <!------ Rejected Section ------->
-    <section class="px-4">
-      <div class="screenFrame">
-        <div
-          class="rounded-4 shadow p-4 d-none vstack gap-5 px-5"
-          id="expense_request_form_rejected"
-        >
-          {/* Page Content Box */}
-          <div class="p-lg-5">
-            <div class="d-flex flex-column flex-lg-row" style="gap: 3rem">
-              <div>
-                <div
-                  class="d-flex justify-content-between mb-5 align-items-center expense_employer_title"
-                >
-                  <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                    >Expense Request Review</span
-                  >
-                  <span
-                    class="rejected_bg fs-14 py-2 px-4 rounded text-nowrap"
-                    style={"color:#FD0000"}
-                    role="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#rejectModal">Rejected</span
-                  >
-                </div>
-                <div class="d-flex flex-column" style="gap: 2.3rem">
-                  <div class="form-floating expense_input">
+                  <!-- Others -->
+                  <div class="responsive gap-3">
+                    <!-- Calendar Selector -->
                     <input
-                      type="text"
-                      id="ex_title"
-                      name="ex_title"
-                      class="form-input"
-                      placeholder=""
+                      type="month"
+                      class="form-control fs-14"
+                      style="max-width: 200px;"
+                      value="2025-08"
                     />
-                    <label for="ex_title"
-                      >Expense Title &nbsp;<span>*</span></label
-                    >
-                  </div>
 
-                  <div class="form-floating expense_input">
-                    <select
-                      id="select_plan"
-                      name="select_plan"
-                      class="form-select_custom fs-14"
-                      required
-                    >
-                      <option
-                        value=""
-                        selected
-                        style="color: rgb(200, 200, 200)">Select</option
-                      >
-                      <option value="plan_1">Mixed</option>
-                      <option value="plan_2">Cost of Goods Sold (COGS)</option>
-                      <option value="plan_3">OPEX</option>
-                      <option value="plan_3">ASSET</option>
-                    </select>
-                    <label for="select_plan"
-                      >Expense Category &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <div class="form-floating expense_input">
-                    <input
-                      type="text"
-                      id="amount"
-                      name="amount"
-                      class="form-input"
-                      placeholder=""
-                    />
-                    <label for="ex_amount">Amount &nbsp;<span>*</span></label>
-                  </div>
-
-                  <div class="form-floating expense_input">
-                    <textarea class="form-input" rows="2" id="description"
-                    ></textarea>
-                    <label for="ex_description"
-                      >Description &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <!---- upload ---->
-
-                  <div class="fs-14 fw-600">Documents</div>
-                  <div
-                    class="expense_request_doc d-flex flex-column gap-2 p-4 expense_input"
-                  >
-                    <div class="d-flex justify-content-between">
-                      <div
-                        class="d-flex justify-content-center align-items-center gap-3"
+                    <!-- Download Dropdown -->
+                    <div class="dropdown">
+                      <button
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-offset="-20,10"
                       >
                         <img
-                          src="images/png/icons/document-download.svg"
-                          alt="document"
+                          src="images/png/icons/download.svg"
+                          alt="arrow-down"
                         />
-                        <span class="fs-14">Document 1</span>
-                      </div>
-                      <div>
+                        <span>Download</span>
                         <img
-                          type="button"
-                          src="images/png/icons/vision-dark.svg"
-                          alt="vision"
+                          src="images/png/icons/arrow-down.svg"
+                          alt="arrow-down"
                         />
-                      </div>
-                    </div>
-                    <div
-                      class="d-flex justify-content-between w-100 border-top pt-2"
-                    >
-                      <div
-                        class="d-flex justify-content-center align-items-center gap-3"
-                      >
-                        <img
-                          src="images/png/icons/document-download.svg"
-                          alt="document"
-                        />
-                        <span class="fs-14">Document 2</span>
-                      </div>
-                      <div>
-                        <img
-                          type="button"
-                          src="images/png/icons/vision-dark.svg"
-                          alt="vision"
-                        />
+                      </button>
+                      <div class="dropdown-menu p-0 border-0">
+                        <ul class="list-group border-0 fw-600 fs-14">
+                          <li class="list-group-item">
+                            <div>CSV</div>
+                          </li>
+                          <li class="list-group-item">
+                            <div>Excel</div>
+                          </li>
+                          <li class="list-group-item">
+                            <div>PDF</div>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
+
+                  <!---- End of Others ---->
                 </div>
               </div>
-              <!---- another form ---->
-              <div class="d-flex flex-column align-items-center gap-5 mt-5">
-                <div class="form-floating expense_input mt-lg-3">
-                  <textarea class="form-input" rows="3" id="comment"></textarea>
-                  <label for="ex_title"
-                    >Reviewer's Comment &nbsp;<span>*</span></label
+
+              <!-- Scrollable Table -->
+              <div
+                class="table-responsive"
+                style="max-height: 600px; overflow: auto;"
+              >
+                <table class="table table-bordered table-hover">
+                  <!---- Table head --->
+                  <thead
+                    class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
                   >
-                </div>
+                    <tr>
+                      <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
+                        >S/N</th
+                      >
+
+                      <th
+                        class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                        >Reviewer Name</th
+                      >
+                      <th
+                        class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                        >Reviewer Type</th
+                      >
+                      <th
+                        class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                        >Relationship to Employee</th
+                      >
+                      <th
+                        class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                        >Completion Status</th
+                      >
+                      <th
+                        class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                        >Action</th
+                      >
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Table body and Row -->
+                    <style>
+                      .column {
+                        min-width: 180px;
+                      }
+                    </style>
+                    {
+                      [
+                        {
+                          date: "Lorem Ipsum",
+                          title: "Lorem Ipsum",
+                          category: "Peer",
+                          amount: "Lorem Ipsum",
+                          status: "Completed",
+                        },
+                        {
+                          date: "Lorem Ipsum",
+                          title: "Lorem Ipsum",
+                          category: "Manager",
+                          amount: "Lorem Ipsum",
+                          status: "Not Started",
+                        },
+                        {
+                          date: "Lorem Ipsum",
+                          title: "Lorem Ipsum",
+                          category: "Subordinate",
+                          amount: "Lorem Ipsum",
+                          status: "Not Started",
+                        },
+                        {
+                          date: "Lorem Ipsum",
+                          title: "Lorem Ipsum",
+                          category: "Mixed",
+                          amount: "Lorem Ipsum",
+                          status: "Completed",
+                        },
+                        {
+                          date: "Lorem Ipsum",
+                          title: "Lorem Ipsum",
+                          category: "Mixed",
+                          amount: "Lorem Ipsum",
+                          status: "Completed",
+                        },
+                        {
+                          date: "Lorem Ipsum",
+                          title: "Lorem Ipsum",
+                          category: "Mixed",
+                          amount: "Lorem Ipsum",
+                          status: "Completed",
+                        },
+                        {
+                          date: "Lorem Ipsum",
+                          title: "Lorem Ipsum",
+                          category: "Mixed",
+                          amount: "Lorem Ipsum",
+                          status: "Completed",
+                        },
+                      ].map((item, index) => (
+                        <tr class="fs-88">
+                          <td class="text-center fs-14">{index + 1}</td>
+
+                          <td class="fs-14 px-3 text-left column">
+                            {item.title}
+                          </td>
+                          <td class="fs-14 px-3 text-left column">
+                            {item.category}
+                          </td>
+                          <td class="fs-14 px-3 text-left column">
+                            {item.amount}
+                          </td>
+                          <td
+                            class="text-left px-3 fs-14 column fw-600"
+                            style={`color: ${
+                              item.status === "Completed"
+                                ? "#2BC700"
+                                : item.status === "Not Started"
+                                  ? "#FD0000"
+                                  : item.status === "Pending"
+                                    ? "#B6B000"
+                                    : "inherit"
+                            };`}
+                          >
+                            {item.status}
+                          </td>
+
+                          <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                            <button
+                              class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 d-flex align-items-center gap-2 approved"
+                              type="button"
+                            >
+                              <span>Remind</span>
+                              <img
+                                src="images/png/icons/alarm.svg"
+                                alt="alarm"
+                              />
+                            </button>
+                          </td>
+                        </tr>
+                      ))
+                    }
+
+                    <!-- Repeat for more employees -->
+                  </tbody>
+                </table>
               </div>
+
+              <!---- End of table --->
             </div>
           </div>
         </div>
         {/* Page Content Box */}
-
-        <RejectModal modalId="rejectModal" title="Request" />
-        <ApproveModal modalId="approveModal" title="Request" />
       </div>
     </section>
   </main>

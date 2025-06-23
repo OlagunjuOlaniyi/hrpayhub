@@ -1,0 +1,234 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: Self Appraisal Form">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/appraisal-management"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/appraisal-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Appraisal Management</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Self-Appraisal Form</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Self Appraisal Form --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Self-Appraisal Form
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+
+              <div
+                class="d-flex flex-column flex-lg-row gap-2 p-3 px-2 mb-3 self_appraisal_info"
+              >
+                <div class="d-flex flex-column px-lg-3">
+                  <span class="fs-12 text-secondary text-nowrap">
+                    Employee ID
+                  </span>
+                  <span class="fs-14 fw-700 text-nowrap">N1040255</span>
+                </div>
+
+                <span class="clock_border_left"></span>
+                <div class="d-flex flex-column px-lg-3">
+                  <span class="fs-12 text-secondary">Employee Name</span>
+                  <span class="fs-14 fw-700">Toluwalase Obasun</span>
+                </div>
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="assigned_dpt"
+                  name="assigned_dpt"
+                  class="form-input fs-14"
+                  placeholder=""
+                  value="Lorem Ipsum"
+                  disabled
+                />
+                <label for="assigned_dpt">All Assigned Department(s) </label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="assigned_dpt_func"
+                  name="assigned_dpt_func"
+                  class="form-input fs-14"
+                  placeholder=""
+                  value="Lorem Ipsum"
+                  disabled
+                />
+                <label for="assigned_dpt_func"
+                  >All Assigned Department Function(s)
+                </label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="job_responsibility"
+                  name="job_responsibility"
+                  class="form-input fs-14"
+                  placeholder=""
+                  value="Lorem Ipsum"
+                  disabled
+                />
+                <label for="job_responsibility">Job Responsibility</label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <select id="peer" name="peer" class="form-select_custom fs-14">
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="peer1">Fair</option>
+                  <option value="peer2">Good</option>
+                  <option value="peer3">Very Good</option>
+                  <option value="peer4">Excellent</option>
+                </select>
+                <label for="peer"
+                  >Rate Your Communication Skills &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select id="peer" name="peer" class="form-select_custom fs-14">
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="peer1">Fair</option>
+                  <option value="peer2">Good</option>
+                  <option value="peer3">Very Good</option>
+                  <option value="peer4">Excellent</option>
+                </select>
+                <label for="peer"
+                  >Rate Your Teamwork Skills &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select id="peer" name="peer" class="form-select_custom fs-14">
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="peer1">Fair</option>
+                  <option value="peer2">Good</option>
+                  <option value="peer3">Very Good</option>
+                  <option value="peer4">Excellent</option>
+                </select>
+                <label for="peer"
+                  >Rate Your Dedication to work &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select id="peer" name="peer" class="form-select_custom fs-14">
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="peer1">Fair</option>
+                  <option value="peer2">Good</option>
+                  <option value="peer3">Very Good</option>
+                  <option value="peer4">Excellent</option>
+                </select>
+                <label for="peer"
+                  >Rate Your Job-Specific Skills &nbsp;<span>*</span></label
+                >
+              </div>
+              <div class="form-floating add_employee_width">
+                <select id="peer" name="peer" class="form-select_custom fs-14">
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="peer1">Fair</option>
+                  <option value="peer2">Good</option>
+                  <option value="peer3">Very Good</option>
+                  <option value="peer4">Excellent</option>
+                </select>
+                <label for="peer"
+                  >Overall Performance Rating &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <textarea class="form-input" rows="2" id="comment"></textarea>
+                <label for="comment">Comments </label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <textarea class="form-input" rows="2" id="suggestion"
+                ></textarea>
+                <label for="suggestion">Suggestions for Improvement </label>
+              </div>
+
+              <!---- submit ---->
+              <div class="d-flex justify-content-end add_employee_width">
+                <button
+                  type="button"
+                  id="upload"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                >
+                  <span>Submit</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+  </main>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      $("#fileInputBtn").click((evt) => {
+        $("#fileInput").click();
+      });
+    });
+  </script>
+</Layout>
+<!-- Main content ends here -->
