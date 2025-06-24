@@ -364,7 +364,7 @@ import Layout from "../layouts/Layout.astro";
                     >Employee Name</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
                     >Employee ID</th
                   >
                   <th
@@ -380,11 +380,11 @@ import Layout from "../layouts/Layout.astro";
                     >Primary Function</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
                     >Total Feedback Collected</th
                   >
                   <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
                     >Pending Submissions</th
                   >
                   <th
@@ -482,7 +482,9 @@ import Layout from "../layouts/Layout.astro";
                       <td class="fs-14 text-nowrap text-left px-3 column">
                         {item.emp_name}
                       </td>
-                      <td class="fs-14 px-3 text-left column">{item.emp_id}</td>
+                      <td class="fs-14 px-3 text-center column">
+                        {item.emp_id}
+                      </td>
                       <td class="fs-14 px-3 text-left column">
                         {item.designation}
                       </td>
@@ -492,10 +494,10 @@ import Layout from "../layouts/Layout.astro";
                       <td class="fs-14 px-3 text-left column">
                         {item.pry_func}
                       </td>
-                      <td class="fs-14 px-3 text-left column">
+                      <td class="fs-14 px-3 text-center column">
                         {item.total_feedback}
                       </td>
-                      <td class="fs-14 px-3 text-left column">
+                      <td class="fs-14 px-3 text-center column">
                         {item.pending}
                       </td>
 
