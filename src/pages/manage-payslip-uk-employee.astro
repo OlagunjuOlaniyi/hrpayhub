@@ -1,0 +1,195 @@
+---
+import { Pounds } from "../components/Symbols";
+import Layout from "../layouts/Layout.astro";
+import PayslipGenerateUKPreview from "../components/payslips/PayslipGenerateUKPreview";
+import BreadCrumbs from "../components/ui/BreadCrumbs";
+---
+
+<style>
+  .manage_payslip_form_control {
+    max-width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .manage_payslip_form_control {
+      width: 300px !important;
+    }
+  }
+</style>
+
+<Layout title="HRPayHub :: Manage Payslips">
+  <!-- Main content starts here -->
+  <main class="w-full">
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4 w-full">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full">
+          <a
+            href="payslip-monthly-uk-salaried.html"
+            title="Back to Payslip"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <BreadCrumbs
+            data={[
+              { name: "Dashboard", url: "index.html" },
+              { name: "Payslip Nigeria", url: "payslip-management.html" },
+              {
+                name: "Monthly Payslip - UK (Salaried)",
+                url: "payslip-monthly-uk-salaried.html",
+              },
+              { name: "Manage Payslips" },
+            ]}
+          />
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- Main content section :: Manage Payslip - Show list of employees payslips -->
+    <section class="px-4" id="manage_list_of_payslip">
+      <div class="screenFrame">
+        <div class="d-flex flex-column justify-content-between">
+          <div
+            class="rounded-4 shadow p-4 d-flex flex-column gap-5 px-md-5 px-3"
+            style="flex-basis: auto;"
+          >
+            {/* Page Title */}
+            <div class="vstack gap-3">
+              <div class="d-flex gap-3 align-items-center">
+                <img
+                  src="images/png/icons/colored/receipt-minus-colored.svg"
+                  alt="receipt-minus-icon"
+                  width="30px"
+                  height="30px"
+                />
+                <span
+                  class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
+                  >Generate Payslip</span
+                >
+              </div>
+            </div>
+            {/* Page Title */}
+
+            {/* Page Content Box */}
+            <div class="vstack gap-5">
+              <form
+                style="max-width: 344px"
+                class="vstack gap-4"
+                id="generate_payslip_form"
+              >
+                <div class="form-section position-relative">
+                  <label class="fs-14 fw-600">Select Date</label>
+                  <input
+                    class="form-control delon-input"
+                    type="date"
+                    placeholder="Default input"
+                    aria-label="default input example"
+                  />
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
+                  >
+                    <span>Proceed</span>
+                  </button>
+                </div>
+              </form>
+
+              
+            </div>
+            {/* Page Content Box */}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <PayslipGenerateUKPreview page="" />
+    <!-- Main content section :: Manage Payslip - Show list of employees payslips -->
+  </main>
+  <!-- Main content ends here -->
+
+  <script is:inline type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+      document
+        .getElementById("generate_payslip_form")
+        ?.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          $("#view_employee_payslip").addClass("d-none");
+          const submitBtn = e.target.querySelector("button");
+
+          submitBtn.innerHTML = `
+                        <span>
+                            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span role="status">Loading...</span>
+                        </span>
+                    `;
+          submitBtn.disabled = true;
+
+          setTimeout(() => {
+            submitBtn.innerHTML = `
+                            <span>Generate</span>
+                        `;
+            submitBtn.disabled = false;
+            $("#manage_list_of_payslip").addClass("d-none");
+            $("#view_employee_payslip").removeClass("d-none");
+          }, 2000);
+        });
+
+      document
+        .getElementById("generate_view_payslip_form")
+        .addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          $("#payslip_generate_table").addClass("d-none");
+          const submitBtn = e.target.querySelector("button");
+
+          submitBtn.innerHTML = `
+                        <span>
+                            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span role="status">Loading...</span>
+                        </span>
+                    `;
+          submitBtn.disabled = true;
+
+          setTimeout(() => {
+            submitBtn.innerHTML = `
+                            <span>Generate</span>
+                        `;
+            submitBtn.disabled = false;
+            const toastLive = document.getElementById("payslipGenerateToast");
+            const toast = new bootstrap.Toast(toastLive);
+            toast.show();
+          }, 2000);
+        });
+
+      $(".viewPayslpBtn").click((evt) => {
+        $("#view_employee_payslip").removeClass("d-none");
+        $("#manage_list_of_payslip").addClass("d-none");
+      });
+
+      $("#back_to_list_of_payslips").click((evt) => {
+        $("#view_employee_payslip").addClass("d-none");
+        $("#manage_list_of_payslip").removeClass("d-none");
+      });
+
+      $("#mainInputCheckbox").change((evt) => {
+        const allInputChecks = $(".input_control");
+        const selectionState = $(evt.target).prop("checked");
+
+        allInputChecks.each((_, ele) => {
+          $(ele).prop("checked", selectionState);
+        });
+      });
+    });
+  </script>
+</Layout>
