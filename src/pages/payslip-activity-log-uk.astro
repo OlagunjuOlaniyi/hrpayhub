@@ -1,0 +1,216 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BreadCrumbs from "../components/ui/BreadCrumbs";
+---
+
+<Layout title="HRPayHub :: Payslips Activity Logs">
+  <!-- Main content starts here -->
+  <main class="w-full">
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4 w-full">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full">
+          <a
+            href="payslip-monthly-uk-salaried.html"
+            title="Back to Payslip"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <BreadCrumbs
+            data={[
+              { name: "Dashboard", url: "index.html" },
+              {
+                name: "Payslip",
+                url: "payslip-management.html",
+              },
+              {
+                name: "Payslip UK - (Salaried)",
+                url: "payslip-monthly-uk-salaried.html",
+              },
+              { name: "Activity Log" },
+            ]}
+          />
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- Main content section :: Manage Payslip - Show list of employees payslips -->
+    <section class="px-4" id="manage_list_of_payslip">
+      <div class="screenFrame">
+        <div class="d-flex flex-column justify-content-between">
+          <div
+            class="rounded-4 shadow p-4 d-flex flex-column gap-5 px-md-5 px-3"
+            style="flex-basis: auto;"
+          >
+            {/* Page Title */}
+            <div class="vstack gap-3">
+              <div class="d-flex gap-3 align-items-center">
+                <img
+                  src="images/png/icons/colored/receipt-minus-colored.svg"
+                  alt="receipt-minus-icon"
+                  width="30px"
+                  height="30px"
+                />
+                <span
+                  class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
+                  >Activity Log</span
+                >
+              </div>
+            </div>
+            {/* Page Title */}
+
+            {/* Page Content Box */}
+            <div class="vstack gap-4 row justify-content-between">
+              <div class="col-12 col-xl-8 vstack gap-4">
+                {
+                  [
+                    {
+                      name: "Wade Warren",
+                      date: "7 April, 2025",
+                      time: "8:00PM",
+                      action: "Viewed his payslip",
+                    },
+                    {
+                      name: "Wade Warren",
+                      date: "7 April, 2025",
+                      time: "1:32PM",
+                      action: "Downloaded his payslip",
+                    },
+                    {
+                      name: "Wade Warren",
+                      date: "7 April, 2025",
+                      time: "4:50PM",
+                      action: "Printed his payslip",
+                    },
+                    {
+                      name: "Wade Warren",
+                      date: "7 April, 2025",
+                      time: "8:00PM",
+                      action: "Downloaded his payslip",
+                    },
+                    {
+                      name: "Wade Warren",
+                      date: "7 April, 2025",
+                      time: "11:40PM",
+                      action: "Emailed his payslip",
+                    },
+                    {
+                      name: "Wade Warren",
+                      date: "7 April, 2025",
+                      time: "7:43AM",
+                      action: "Printed his payslip",
+                    },
+                    {
+                      name: "Wade Warren",
+                      date: "7 April, 2025",
+                      time: "8:00AM",
+                      action: "Viewed his payslip",
+                    },
+                    {
+                      name: "Wade Warren",
+                      date: "7 April, 2025",
+                      time: "12:03PM",
+                      action: "Printed his payslip",
+                    },
+                    {
+                      name: "Wade Warren",
+                      date: "7 April, 2025",
+                      time: "8:00AM",
+                      action: "Viewed his payslip",
+                    },
+                  ].map(() => (
+                    <div class="d-flex flex-column gap-2 pb-4 px-4 border-bottom">
+                      <div class="d-flex gap-2 fs-14">
+                        <div class="text-202020">7 April, 2025</div>
+                        <div class="text-D1D5DB">|</div>
+                        <div class="text-202020">8:00 PM</div>
+                      </div>
+                      <div class="bg-EAECF0 p-3 rounded-3 d-flex align-items-center gap-2">
+                        <div class="activity_log_namebox fs-16 fw-700">
+                          Wade Warren
+                        </div>
+                        <div class="fs-14 text-202020 fw-600">
+                          Viewed his payslip
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                }
+
+                <div
+                  class="d-flex flex-lg-row gap-3 flex-column justify-content-between align-items-center"
+                >
+                  <div class="text-6B7280 fs-14" style="margin-top: -15px">
+                    <div class="h-100 align-self-stretch">
+                      Showing <span class="text-111928">1-20</span> of <span
+                        class="text-111928">1000</span
+                      >
+                    </div>
+                  </div>
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination text-6B7280">
+                      <li class="page-item border-D1D5DB">
+                        <a class="page-link" href="#" aria-label="Previous">
+                          <span aria-hidden="true">
+                            <img
+                              src="images/png/icons/chevron-left.svg"
+                              alt="Chevron left - Previous"
+                            />
+                          </span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                      </li>
+                      <li class="page-item border-D1D5DB active">
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item border-D1D5DB">
+                        <a class="page-link" href="#">2</a>
+                      </li>
+
+                      <li class="page-item border-D1D5DB">
+                        <a class="page-link" href="#">3</a>
+                      </li>
+                      <li class="page-item border-D1D5DB">
+                        <a class="page-link" href="#">...</a>
+                      </li>
+                      <li class="page-item border-D1D5DB">
+                        <a class="page-link" href="#">100</a>
+                      </li>
+                      <li class="page-item border-D1D5DB">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">
+                            <img
+                              src="images/png/icons/chevron-right.svg"
+                              alt="Chevron left - Next"
+                            />
+                          </span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+            {/* Page Content Box */}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Main content ends here -->
+
+  <script is:inline type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("Page loaded!!!");
+    });
+  </script>
+</Layout>

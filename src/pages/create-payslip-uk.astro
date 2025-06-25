@@ -1,10 +1,9 @@
 ---
 import BreadCrumbs from "../components/ui/BreadCrumbs";
-import FormContextIndicator from "../components/ui/FormContextIndicator";
+import FormContextIndicatorUK from "../components/ui/FormContextIndicatorUK";
 import Layout from "../layouts/Layout.astro";
 import { FormFieldComponent } from "../components/ui/FormFieldControl";
-import PayslipGeneratePreview from "../components/payslips/PayslipGeneratePreview";
-import ListOfNigStates from "../components/ui/ListOfNigStates";
+import PayslipGenerateUKPreview from "../components/payslips/PayslipGenerateUKPreview";
 ---
 
 <Layout title="HRPayHub :: Create Payslip">
@@ -16,7 +15,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full">
           <a
-            href="payslip_monthly_nigeria_salaried.html"
+            href="payslip-monthly-uk-salaried.html"
             title="Back to Payslip"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -28,10 +27,10 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
           <BreadCrumbs
             data={[
               { name: "Dashboard", url: "index.html" },
-              { name: "Payslip Nigeria", url: "payslip-management.html" },
+              { name: "Payslip UK", url: "payslip-management.html" },
               {
-                name: "Monthly Payslip - Nigeria (Salaried)",
-                url: "payslip_monthly_nigeria_salaried.html",
+                name: "Monthly Payslip - UK (Salaried)",
+                url: "payslip-monthly-uk-salaried.html",
               },
               { name: "Create Payslip" },
             ]}
@@ -46,27 +45,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
     <!-- Main Page content -->
     <section class="px-4" id="create_payslip">
       <div class="screenFrame">
-        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
-          {/* Page Title */}
-          <div class="vstack gap-2">
-            <div class="d-flex gap-3 align-items-center">
-              <img
-                src="images/png/icons/colored/receipt-minus-colored.svg"
-                alt="receipt-minus-icon"
-                width="30px"
-                height="30px"
-              />
-              <span
-                class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Create Payslip (Individual)</span
-              >
-            </div>
-            <div class="fw-bold">
-              View and manage payslip for Nigeria salaried employees.
-            </div>
-          </div>
-          {/* Page Title */}
-
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5 py-5">
           {/* Page Content Box */}
           <form
             method="POST"
@@ -227,9 +206,9 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                         selected
                         style="color: rgb(200, 200, 200)">Please choose</option
                       >
-                      <option value="">Please select</option>
                       <option value="fulltime">Full-time</option>
                       <option value="parttime">Part-time</option>
+                      <option value="contract">Contract</option>
                     </select>
                     <label for="employment_type"
                       >Employment Type &nbsp;<span>*</span></label
@@ -258,23 +237,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     <label for="city">City &nbsp;<span>*</span></label>
                   </div>
 
-                  <!-- State shows for Nigeria version -->
                   <div class="form-floating">
-                    <select
-                      id="employment_type"
-                      name="employment_type"
-                      class="form-select_custom"
-                      required
-                    >
-                      <ListOfNigStates />
-                    </select>
-                    <label for="employment_type"
-                      >State &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <!-- Postcode only shows for UK version -->
-                  <!-- <div class="form-floating">
                     <input
                       type="text"
                       id="post_code"
@@ -283,7 +246,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                       placeholder=" "
                     />
                     <label for="post_code">Postcode &nbsp;<span>*</span></label>
-                  </div> -->
+                  </div>
 
                   <div class="d-flex align-items-center gap-4 mb- mt-2">
                     <div class="fs-14 fw-600 text-primary-blue">
@@ -394,40 +357,12 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                   <div class="form-floating">
                     <input
                       type="text"
-                      id="variable_admin_expense"
-                      name="variable_admin_expense"
+                      id="bonus_pay"
+                      name="bonus_pay"
                       class="form-input"
                       placeholder=" "
                     />
-                    <label for="variable_admin_expense"
-                      >Variable Admin Expense &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <div class="form-floating">
-                    <input
-                      type="text"
-                      id="variable_op_expense"
-                      name="variable_op_expense"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="variable_op_expense"
-                      >Variable Operational Expense &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <div class="form-floating">
-                    <input
-                      type="text"
-                      id="bonus"
-                      name="bonus"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="bonus"
-                      >Bonus / Commission &nbsp;<span>*</span></label
-                    >
+                    <label for="bonus_pay">Bonus Pay</label>
                   </div>
 
                   <div class="form-floating">
@@ -438,22 +373,18 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                       class="form-input"
                       placeholder=" "
                     />
-                    <label for="days_absent"
-                      >Days Absent &nbsp;<span>*</span></label
-                    >
+                    <label for="days_absent">Days Absent</label>
                   </div>
 
                   <div class="form-floating">
                     <input
                       type="text"
-                      id="unpaid_leave"
-                      name="unpaid_leave"
+                      id="unpaid_leave_days"
+                      name="unpaid_leave_days"
                       class="form-input"
                       placeholder=" "
                     />
-                    <label for="unpaid_leave"
-                      >Unpaid Leave Days &nbsp;<span>*</span></label
-                    >
+                    <label for="unpaid_leave_days">Unpaid Leave Days</label>
                   </div>
 
                   <div class="form-floating">
@@ -464,65 +395,32 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                       class="form-input"
                       placeholder=" "
                     />
-                    <label for="working_days"
-                      >Monthly Working Days &nbsp;<span>*</span></label
-                    >
+                    <label for="working_days">Monthly Working Days</label>
                   </div>
 
                   <div class="form-floating">
                     <input
                       type="text"
-                      id="days_deduction"
-                      name="days_deduction"
+                      id="unpaid_deduction"
+                      name="unpaid_deduction"
                       class="form-input"
                       placeholder=" "
                     />
-                    <label for="days_deduction"
-                      >Unpaid Days Deduction &nbsp;<span>*</span></label
-                    >
+                    <label for="unpaid_deduction">Unpaid Days Deduction</label>
                   </div>
 
                   <div class="form-floating">
                     <input
                       type="text"
-                      id="days_variable_deduction"
-                      name="days_variable_deduction"
+                      id="monthly_gross"
+                      name="monthly_gross"
                       class="form-input"
                       placeholder=" "
                     />
-                    <label for="days_variable_deduction"
-                      >Unpaid Days Variable Deduction &nbsp;<span>*</span
-                      ></label
-                    >
-                  </div>
-
-                  <div class="form-floating">
-                    <input
-                      type="text"
-                      id="monthly_salary"
-                      name="monthly_salary"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="monthly_salary"
-                      >Monthly Salary &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <div class="form-floating">
-                    <input
-                      type="text"
-                      id="monthly_variable_expense"
-                      name="monthly_variable_expense"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="monthly_variable_expense"
-                      >Monthly Variable Expense &nbsp;<span>*</span></label
-                    >
+                    <label for="monthly_gross">Monthly Gross Salary</label>
                   </div>
                 </div>
-                <div class="d-flex justify-content-between mt-5">
+                <div class="d-flex justify-content-end gap-4 mt-5">
                   <button
                     type="button"
                     id="employee_company_details_next"
@@ -530,7 +428,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     role="tab"
                     aria-controls="employee_company_details_panel"
                     aria-selected="false"
-                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                    class="white_button border-0 text-white fw-bold fs-14 next_tab_btn"
                   >
                     <span>Back</span>
                   </button>
@@ -558,7 +456,9 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                 tabindex="0"
               >
                 <div class="d-flex align-items-center gap-4 mb-5">
-                  <div class="fs-14 fw-600 text-primary-blue">Deductions</div>
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    Income Details
+                  </div>
                   <div class="flex-grow-1">
                     <div class="demarcator_line">&nbsp;</div>
                   </div>
@@ -566,44 +466,174 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
 
                 <div class="vstack" style="gap: 2.3rem">
                   {
-                    [
-                      { label: "Health Insurance (MHI)" },
-                      { label: "Life Insurance (MLI)" },
-                      {
-                        label: "Temporary Disability Insurance (MTDI)",
-                      },
-                      {
-                        label: "Permanent Disability Insurance (MPDI)",
-                      },
-                      {
-                        label: "Pension Staff Contribution (MPSC)",
-                      },
-                      {
-                        label: "Pension Employer Contribution (MPEC)",
-                      },
-                      { label: "NSITF (MoNS)" },
-                      { label: "NHF (MNH)" },
-                      {
-                        label: "Total Monthly Deduction",
-                      },
-                      { label: "Monthly Tax (MT)" },
-                      {
-                        label:
-                          "Monthly Salary after Deductions and Taxes (MST)",
-                      },
-                      {
-                        label: "Loan or Other Deductions",
-                      },
-                    ].map((ele, idx) => (
-                      <div class="row justify-content-between m-0 p-0">
-                        <FormFieldComponent index={idx} {...ele} />
-                        <FormContextIndicator index={idx} {...ele} />
-                      </div>
-                    ))
+                    [{ label: "Income Tax" }, { label: "Taxable Income" }].map(
+                      (ele, idx) => (
+                        <div class="d-flex flex-row justify-content-between m-0 p-0">
+                          <FormFieldComponent index={idx} {...ele} />
+                          <FormContextIndicatorUK index={idx} {...ele} />
+                        </div>
+                      )
+                    )
                   }
                 </div>
+                <div class="d-flex align-items-center gap-4 my-5">
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    National Insurance (NI) Contribution
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
 
-                <div class="d-flex justify-content-between mt-5">
+                <div class="vstack" style="gap: 2.3rem">
+                  <div class="form-floating col-md-8 col-12 p-0">
+                    <select
+                      id="select_class"
+                      name="select_class"
+                      class="form-select_custom fs-14"
+                      required
+                    >
+                      <option
+                        value=""
+                        selected
+                        style="color: rgb(200, 200, 200)">Select</option
+                      >
+                      <option value="class">Class 1</option>
+                      <option value="class">Class 2</option>
+                      <option value="class">Class 3</option>
+                    </select>
+                    <label for="select_class">Select Class </label>
+                  </div>
+
+                  <div class="d-flex flex-row justify-content-between m-0 p-0">
+                    <div class="form-floating col-md-8 col-12 p-0">
+                      <input
+                        type="text"
+                        id="unpaid_deduction"
+                        name="unpaid_deduction"
+                        class="form-input"
+                        placeholder=" "
+                      />
+                      <label for="unpaid_deduction">National Insurance </label>
+                    </div>
+                    <FormContextIndicatorUK index={1} />
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-4 my-5">
+                  <div class="fs-14 fw-600 text-primary-blue">Student Loan</div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+
+                <div class="vstack" style="gap: 2.3rem">
+                  <div class="form-floating col-md-8 col-12 p-0">
+                    <select
+                      id="select_plan"
+                      name="select_plan"
+                      class="form-select_custom fs-14"
+                      required
+                    >
+                      <option
+                        value=""
+                        selected
+                        style="color: rgb(200, 200, 200)">Select</option
+                      >
+                      <option value="plan1">Plan 1</option>
+                      <option value="plan2">Plan 2</option>
+                      <option value="plan3">Plan 3</option>
+                    </select>
+                    <label for="select_plan">Select Plan </label>
+                  </div>
+
+                  <div class="d-flex flex-row justify-content-between m-0 p-0">
+                    <div class="form-floating col-md-8 col-12 p-0">
+                      <input
+                        type="text"
+                        id="student_loan"
+                        name="student_loan"
+                        class="form-input"
+                        placeholder=" "
+                      />
+                      <label for="student_loan">Student Loan </label>
+                    </div>
+                    <FormContextIndicatorUK index={1} />
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-4 my-5">
+                  <div class="fs-14 fw-600 text-primary-blue">Pension</div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+
+                <div class="vstack" style="gap: 2.3rem">
+                  <div class="d-flex flex-row justify-content-between m-0 p-0">
+                    <div class="form-floating col-md-8 col-12 p-0">
+                      <input
+                        type="text"
+                        id="pension"
+                        name="pension"
+                        class="form-input"
+                        placeholder=" "
+                      />
+                      <label for="pension">Pension </label>
+                    </div>
+                    <FormContextIndicatorUK index={1} />
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-4 my-5">
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    Other Deductions
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+
+                <div class="vstack" style="gap: 2.3rem">
+                  <div class="d-flex flex-row justify-content-between m-0 p-0">
+                    <div class="form-floating col-md-8 col-12 p-0">
+                      <input
+                        type="text"
+                        id="other_deduction"
+                        name="other_deduction"
+                        class="form-input"
+                        placeholder=" "
+                      />
+                      <label for="other_deduction">Other Deductions </label>
+                    </div>
+                    <FormContextIndicatorUK index={1} />
+                  </div>
+                </div>
+                <div class="d-flex align-items-center gap-4 my-5">
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    Total Deductions
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+
+                <div class="vstack" style="gap: 2.3rem">
+                  <div class="row justify-content-between m-0 p-0">
+                    <div class="form-floating col-md-8 col-12 p-0">
+                      <input
+                        type="text"
+                        id="total_deduction"
+                        name="total_deduction"
+                        class="form-input"
+                        placeholder=" "
+                      />
+                      <label for="total_deduction">Total Deductions </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end gap-4 mt-5">
                   <button
                     type="button"
                     id="salary_pay_back"
@@ -611,7 +641,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     role="tab"
                     aria-controls="salary_pay_panel"
                     aria-selected="false"
-                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                    class="white_button border-0 text-white fw-bold fs-14 next_tab_btn"
                   >
                     <span>Back</span>
                   </button>
@@ -651,12 +681,32 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                   <div class="form-floating">
                     <input
                       type="text"
+                      id="net_salary"
+                      name="net_salary"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="net_salary">Monthly Net Salary</label>
+                  </div>
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      id="loan"
+                      name="loan"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="loan">Loan</label>
+                  </div>
+                  <div class="form-floating">
+                    <input
+                      type="text"
                       id="net_pay"
                       name="net_pay"
                       class="form-input"
                       placeholder=" "
                     />
-                    <label for="net_pay">Net Pay &nbsp;<span>*</span></label>
+                    <label for="net_pay">Net Pay</label>
                   </div>
                   <div class="form-floating">
                     <input
@@ -666,26 +716,11 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                       class="form-input"
                       placeholder=" "
                     />
-                    <label for="salary_pay_date"
-                      >Salary Pay Date &nbsp;<span>*</span></label
-                    >
-                  </div>
-
-                  <div class="form-floating">
-                    <input
-                      type="date"
-                      id="expense_pay_date"
-                      name="expense_pay_date"
-                      class="form-input"
-                      placeholder=" "
-                    />
-                    <label for="expense_pay_date"
-                      >Expense Pay Date &nbsp;<span>*</span></label
-                    >
+                    <label for="salary_pay_date">Pay Date</label>
                   </div>
                 </div>
 
-                <div class="d-flex justify-content-between mt-5">
+                <div class="d-flex justify-content-end gap-4 mt-5">
                   <button
                     type="button"
                     id="deductions_back"
@@ -693,7 +728,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     role="tab"
                     aria-controls="deductions_panel"
                     aria-selected="false"
-                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 next_tab_btn"
+                    class="white_button border-0 text-white fw-bold fs-14 next_tab_btn"
                   >
                     <span>Back</span>
                   </button>
@@ -738,25 +773,43 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                       class="form-input"
                       placeholder=" "
                     />
-                    <label for="net_pay"
-                      >Gross Year-to-date &nbsp;<span>*</span></label
-                    >
+                    <label for="net_pay">Gross Year-to-date</label>
                   </div>
                   <div class="form-floating">
                     <input
                       type="date"
-                      id="salary_pay_date"
-                      name="salary_pay_date"
+                      id="tax_year_to_date"
+                      name="tax_year_to_date"
                       class="form-input"
                       placeholder=" "
                     />
-                    <label for="salary_pay_date"
-                      >Tax Year-to-Date &nbsp;<span>*</span></label
+                    <label for="tax_year_to_date">Tax Year-to-Date</label>
+                  </div>
+                  <div class="form-floating">
+                    <input
+                      type="date"
+                      id="ni_year_to_date"
+                      name="ni_year_to_date"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="ni_year_to_date">NI Year-to-Date</label>
+                  </div>
+                  <div class="form-floating">
+                    <input
+                      type="date"
+                      id="student_year_to_date"
+                      name="student_year_to_date"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="student_year_to_date"
+                      >Student Loan Year-to-Date</label
                     >
                   </div>
                 </div>
 
-                <div class="d-flex gap-3 justify-content-end mt-5">
+                <div class="d-flex gap-3 justify-content-end gap-5 mt-5">
                   <button
                     type="button"
                     id="year_to_date_back"
@@ -764,8 +817,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                     role="tab"
                     aria-controls="final_monthly_panel"
                     aria-selected="false"
-                    class="fw-bold fs-14 next_tab_btn"
-                    style="background: white; color: #2271B6 !important; border: 2px solid #2271B6 !important; padding: 10px 20px; border-radius: 10px"
+                    class="white_button fw-bold fs-14 next_tab_btn"
                   >
                     <span>Back</span>
                   </button>
@@ -789,7 +841,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
         </div>
       </div>
     </section>
-    <PayslipGeneratePreview />
+    <PayslipGenerateUKPreview page="create payslip" />
   </main>
   <!-- Main content ends here -->
 
@@ -823,9 +875,9 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
         console.log(
           $(
             $($($($(evt.target).parent()).parent()[0]).siblings()[0]).children(
-              "input",
-            )[0],
-          ).prop("disabled", !selectState),
+              "input"
+            )[0]
+          ).prop("disabled", !selectState)
         );
       });
 

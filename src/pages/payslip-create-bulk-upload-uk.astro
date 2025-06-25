@@ -1,0 +1,366 @@
+---
+import BreadCrumbs from "../components/ui/BreadCrumbs";
+import Layout from "../layouts/Layout.astro";
+import PayslipGenerateUKPreview from "../components/payslips/PayslipGenerateUKPreview";
+---
+
+<style>
+  .calendar_input {
+    width: 300px;
+  }
+
+  @media (max-width: 768px) {
+    .calendar_input {
+      width: 100%;
+    }
+  }
+
+  .upload_bucket_panel {
+    width: 420px;
+    height: 170px;
+    border-radius: 10px;
+    gap: 10px;
+    border: 2px dashed #c1c1c1;
+  }
+
+  .generate_payslip_form {
+    width: 420px;
+  }
+  @media (max-width: 768px) {
+    .generate_payslip_form {
+      width: 100%;
+    }
+
+    .upload_bucket_panel {
+      width: 100%;
+      padding: 10px;
+    }
+  }
+</style>
+
+<Layout title="HRPayHub :: Create Payslips - Bulk Upload">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex flex-md-row flex-column gap-md-5 gap-1 w-full">
+          <a
+            href="payslip-monthly-uk-salaried.html"
+            title="Back to Payslip"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <BreadCrumbs
+            data={[
+              { name: "Dashboard", url: "index.html" },
+              { name: "Payslip", url: "payslip-management.html" },
+              {
+                name: "Monthly Payslip - UK (Salaried)",
+                url: "payslip-monthly-uk-salaried.html",
+              },
+              { name: "Create Payslips (Bulk Upload)" },
+            ]}
+          />
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 shadow-lg shadow-none p-lg-4 p-2 vstack gap-5 px-lg-5 px-2"
+        >
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div class="d-flex gap-3 align-items-center">
+              <img
+                src="images/png/icons/colored/receipt-minus-colored.svg"
+                alt="receipt-minus-icon"
+                width="30px"
+                height="30px"
+              />
+              <span
+                class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
+                >Create Payslip - Bulk Upload</span
+              >
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+          <div class="vstack gap-5">
+            <form
+              class="vstack gap-4 generate_payslip_form"
+              id="generate_payslip_form"
+            >
+              <div class="fs-14 fw-600">
+                Download the <a
+                  style="color: #2271B6"
+                  class="text-decoration-none"
+                  href="/payslip_template.xls"
+                  download>template here</a
+                > and upload the prepared file
+              </div>
+              <div
+                class="upload_bucket_panel p-3 d-flex flex-column align-items-center justify-content-center"
+              >
+                <img
+                  src="images/png/icons/cloud_upload.svg"
+                  width="35px"
+                  height="35px"
+                  alt="cloud upload icon"
+                />
+                <div class="fs-14 fw-700" style="color: #6B7280">
+                  Click to upload <span class="fw-400">or drag and drop</span>
+                </div>
+                <button
+                  type="button"
+                  id="fileInputBtn"
+                  class="text-primary-blue fw-600 fs-14 bg-transparent border-0 text-decoration-underline"
+                  >Browse Files</button
+                >
+                <div
+                  id="fileInputDetails"
+                  class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 rounded-3 fs-14 d-flex gap-1 align-items-center"
+                  role="button"
+                >
+                  <span class="flex-fill text-truncate"
+                    >gvfyguytctrcjrct.webp</span
+                  >
+                  <span class="flex-fill">
+                    <img
+                      src="images/png/icons/close-circle-6.svg"
+                      width="15"
+                      height="15"
+                      alt="close_icon"
+                    />
+                  </span>
+                </div>
+                <input type="file" class="d-none" id="fileInput" />
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
+                >
+                  <span>Proceed</span>
+                </button>
+              </div>
+            </form>
+
+            <div
+              class="dynamic_responsive_table d-none payslip_table_width"
+              id="payslip_generate_table"
+            >
+              <div
+                class="d-flex flex-lg-row flex-column align-items-lg-center justify-content-between gap-4 border p-4"
+                style="border-radius: 10px 10px 0px 0px"
+              >
+                <div class="font-ubuntu-bold fs-18">Pay Slip</div>
+                <div
+                  class="d-flex flex-shrink flex-grow-0 flex-md-row flex-column gap-3 align-items-lg-center"
+                >
+                  <!-- Calendar Selector -->
+                  <input
+                    type="month"
+                    class="form-control fs-14"
+                    style="width: 200px;"
+                    value="2025-08"
+                  />
+                  <div class="dropdown">
+                    <button
+                      class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      data-bs-offset="-45,10"
+                    >
+                      <img
+                        src="images/png/icons/download-cloud-02.svg"
+                        alt="download_icon"
+                      />
+                      <span>Actions</span>
+                      <img
+                        src="images/png/icons/arrow-down.svg"
+                        alt="arrow-down"
+                      />
+                    </button>
+                    <div class="dropdown-menu p-0 border-0">
+                      <ul class="list-group border-0 fw-600 fs-14">
+                        <li class="list-group-item">
+                          <div>Print Payslip</div>
+                        </li>
+                        <li class="list-group-item">
+                          <div>Download Payslip</div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Table section -->
+              <div class="table-responsive w-full" style="max-width: 100%">
+                <table
+                  class="table table-bordered payslip_table"
+                  style="table-layout: auto; width: 100%"
+                >
+                  <!-- Table Header -->
+                  <thead class="bg-primary-blue text-white fs-14">
+                    <th
+                      class="bg-primary-blue text-center text-white text-center px-4 text-nowrap"
+                      style="width: 70px">S/N</th
+                    >
+                    <th
+                      class="bg-primary-blue text-white text-center text-nowrap"
+                      >Employee ID</th
+                    >
+                    <th class="bg-primary-blue text-white px-3 text-nowrap"
+                      >Employee Name</th
+                    >
+                    <th
+                      class="bg-primary-blue text-white text-center text-nowrap"
+                      >Date</th
+                    >
+                    <th
+                      class="bg-primary-blue text-white px-3 text-nowrap"
+                      style="width: 180px">Action</th
+                    >
+                  </thead>
+                  <!-- Table Header -->
+                  <tbody>
+                    {
+                      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((ele, idx) => (
+                        <tr>
+                          <td
+                            class="text-black text-center px-3 fs-14"
+                            valign="middle"
+                          >
+                            {idx + 1}
+                          </td>
+                          <td
+                            class="text-black px-3 text-center fs-14 text-nowrap"
+                            valign="middle"
+                          >
+                            N12343534
+                          </td>
+                          <td
+                            valign="middle"
+                            class="text-black px-3 fs-14 text-nowrap"
+                          >
+                            Waden Warren
+                          </td>
+                          <td
+                            class="text-black px-3 fs-14 text-center text-nowrap"
+                            valign="middle"
+                          >
+                            April 2025
+                          </td>
+                          <td
+                            class="text-black px-3 fs-14 text-nowrap"
+                            valign="middle"
+                          >
+                            <button
+                              class="bg-primary-blue rounded-3 px-3 text-white border-0 text-nowrap viewPayslpBtn d-flex gap-2 align-items-center justify-content-center"
+                              style="height: 28px"
+                            >
+                              <span>View Payslip</span>
+                              <img
+                                src="images/png/icons/document-text.svg"
+                                alt="document_file_icon"
+                                class="flex-shrink-0"
+                              />
+                            </button>
+                          </td>
+                        </tr>
+                      ))
+                    }
+                  </tbody>
+                </table>
+              </div>
+              <!-- Table section -->
+            </div>
+          </div>
+          {/* Page Content Box */}
+        </div>
+      </div>
+    </section>
+
+    <PayslipGenerateUKPreview page="create-bulk" />
+  </main>
+  <!-- Main content ends here -->
+
+  <script is:inline type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+      document
+        .getElementById("generate_payslip_form")
+        ?.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          $("#payslip_generate_table").addClass("d-none");
+          const submitBtn = e.target.querySelector("button");
+
+          submitBtn.innerHTML = `
+                        <span>
+                            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span role="status">Loading...</span>
+                        </span>
+                    `;
+          submitBtn.disabled = true;
+
+          setTimeout(() => {
+            submitBtn.innerHTML = `
+                            <span>Generate</span>
+                        `;
+            submitBtn.disabled = false;
+            $("#generate_payslip_form").addClass("d-none");
+            $("#payslip_generate_table").removeClass("d-none");
+          }, 2000);
+        });
+
+      $(".viewPayslpBtn").click((evt) => {
+        $("#generate_payslip_form").addClass("d-none");
+        $("#payslip_generate_table").addClass("d-none");
+        $("#view_employee_payslip").removeClass("d-none");
+      });
+
+      $("#back_to_list_of_payslips").click((evt) => {
+        $("#generate_payslip_form").addClass("d-none");
+        $("#payslip_generate_table").removeClass("d-none");
+        $("#view_employee_payslip").addClass("d-none");
+      });
+
+      $("#fileInputBtn").click((evt) => {
+        $("#fileInput").click();
+      });
+
+      document
+        .getElementById("fileInput")
+        .addEventListener("change", function () {
+          if (fileInput.files.length > 0) {
+            const fileName = fileInput.files[0].name;
+            $("#fileInputDetails span:first-child").text(fileName);
+            $("#fileInputDetails").removeClass("d-none");
+            $("#fileInputBtn").addClass("d-none");
+            console.log("Selected file name:", fileName);
+          }
+        });
+      $("#fileInputDetails span:nth-child(2)").click(() => {
+        $("#fileInput").val("");
+        $("#fileInputDetails span:first-child").text("");
+        $("#fileInputDetails").addClass("d-none");
+        $("#fileInputBtn").removeClass("d-none");
+      });
+    });
+  </script>
+</Layout>

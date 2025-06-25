@@ -1440,3 +1440,14 @@ dl, ol, ul {
     width: 100%;
 }
 }
+
+/* payslip UK  */
+.payslip_table_width {
+  width: 70%;
+}
+
+@media (max-width: 769px) {
+  .payslip_table_width {
+  width: 100%;
+}
+}

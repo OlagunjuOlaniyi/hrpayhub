@@ -1,6 +1,6 @@
 import { PayslipGenerateNotice } from "../ui/Toast";
 
-export default function PayslipGeneratePreview () {
+export default function PayslipGeneratePreview ({page}) {
   return (
     <>
       <section className='px-4 d-none' id='view_employee_payslip'>
@@ -11,7 +11,7 @@ export default function PayslipGeneratePreview () {
               style={{ flexBasis: 'auto' }}
             >
               {/* Page Title */}
-              <div className='vstack gap-3'>
+              {page === "create-bulk" ? "" : (<div className='vstack gap-3'>
                 <div className='d-flex gap-3 align-items-center'>
                   <img
                     src='images/png/icons/colored/receipt-minus-colored.svg'
@@ -23,12 +23,13 @@ export default function PayslipGeneratePreview () {
                     View Payslip
                   </span>
                 </div>
-              </div>
+              </div>)}
+              
               {/* Page Title */}
 
               {/* Page Content Box */}
               <div className='vstack gap-4'>
-                <form
+                  {page === "create payslip" ? "" : (page === "create-bulk" ? "" : (<form
                   className='d-flex gap-lg-4 gap-2'
                   style={{ width: '500px', maxWidth: '100%' }}
                   id='generate_view_payslip_form'
@@ -51,7 +52,8 @@ export default function PayslipGeneratePreview () {
                       <span>Generate</span>
                     </button>
                   </div>
-                </form>
+                </form>))}
+                
 
                 <div className='d-flex align-items-center justify-content-end gap-4'>
                   <button
@@ -79,6 +81,18 @@ export default function PayslipGeneratePreview () {
                       style={{ width: 'auto' }}
                     >
                       <ul className='list-group border-0 fw-600 fs-14 text-nowrap'>
+                        <li className='list-group-item'>
+                          <div
+                            role='button'
+                            className='d-flex align-items-center gap-2'
+                          >
+                            <img
+                              src='images/png/icons/edit-2.svg'
+                              alt='printer'
+                            />
+                            <span>Edit Payslip</span>
+                          </div>
+                        </li>
                         <li className='list-group-item'>
                           <div
                             role='button'
@@ -176,22 +190,22 @@ export default function PayslipGeneratePreview () {
                       </tr>
                       <tr>
                         <td className='text-black px-4 px-12px fs-14 text-nowrap' style = {{width: '50%'}}>
-                          First Name: JOSEPH Olawale Bamidele
+                          First Name: Wade Warren
                         </td>
                         <td className='text-black px-4 px-12px fs-14 text-nowrap' style = {{width: '50%'}}>
-                          Company Address: House 15, Idi Orogbo
+                          Company Address: House 15, Hampshire
                         </td>
                       </tr>
                       <tr>
-                        <td className='text-black px-4 px-12px fs-14 text-nowrap' style = {{width: '50%'}}>Address: House 15, Idi Orogbo</td>
+                        <td className='text-black px-4 px-12px fs-14 text-nowrap' style = {{width: '50%'}}>Address: House 15, Hampshire</td>
                         <td className='text-black px-4 px-12px fs-14 text-nowrap' style = {{width: '50%'}}>
-                          Company Phone number: +2347039173237
+                          Company Phone number: +03270173237
                         </td>
                       </tr>
                       <tr>
                         <td className='text-black px-4 px-12px fs-14 text-nowrap'>City:</td>
                         <td className='text-black px-4 px-12px fs-14 text-nowrap'>
-                          Company Email: jolawale28@gmail.com
+                          Company Email: wadewarren8@gmail.com
                         </td>
                       </tr>
                       <tr>
@@ -227,7 +241,7 @@ export default function PayslipGeneratePreview () {
                           style={{ border: 'none' }}
                           className='bg-primary-blue text-white px-4 px-12px fw-bold fs-14'
                         >
-                          Description
+                          Earnings
                         </td>
                         <td
                           style={{ border: 'none' }}
@@ -239,83 +253,30 @@ export default function PayslipGeneratePreview () {
 
                       {[
                         {
-                          left: 'Monthly Fixed Salary',
-                          right: 'Tax'
+                          left: 'Salary',
+                          right: 'Income Tax'
                         },
                         {
-                          left: 'Monthly Fixed Salary',
-                          right: 'Health Insurance'
+                          left: 'Overtime',
+                          right: 'National Insurance (NI)'
                         },
                         {
-                          left: 'Monthly Fixed Salary',
-                          right: 'Life Insurance'
+                          left: 'Bonuses/Commissions',
+                          right: 'Student Loan Repayment'
                         },
                         {
-                          left: 'Monthly Fixed Salary',
-                          right: 'Temporary Disability Insurance'
+                          left: 'Other Earnings',
+                          right: 'Pension Contribution'
                         },
                         {
-                          left: 'Monthly Fixed Salary',
-                          right: 'Permanent Disability Insurance'
-                        },
-                        {
-                          left: '',
-                          right: 'Pension Staff Contribution'
+                          left: 'Total Gross Earnings',
+                          right: 'Other Deductions'
                         },
                         {
                           left: '',
-                          right: 'Pension Employer Contribution'
+                          right: 'Total Deductions'
                         },
-                        { left: '', right: 'NSITF' },
-                        { left: '', right: 'NHF' },
-                        {
-                          left: '',
-                          right: 'Loan or Other Deductions:'
-                        },
-                        {
-                          left: '',
-                          right: 'Total Deductions:'
-                        },
-                        {
-                          left: '',
-                          right: 'Deductions To Date:'
-                        },
-                        {
-                          left: '',
-                          right: 'Tax Year to Date:'
-                        },
-                        {
-                          left: '',
-                          right: 'Health Insurance To Date:'
-                        },
-                        {
-                          left: '',
-                          right: 'Life Insurance To Date:'
-                        },
-                        {
-                          left: '',
-                          right: 'Temporary Disability Insurance To Date:'
-                        },
-                        {
-                          left: '',
-                          right: 'Permanent Disability Insurance To Date:'
-                        },
-                        {
-                          left: '',
-                          right: 'Pension Staff Contribution To Date:'
-                        },
-                        {
-                          left: '',
-                          right: 'Pension Employer Contribution To Date'
-                        },
-                        {
-                          left: '',
-                          right: 'NSITF To Date:'
-                        },
-                        {
-                          left: '',
-                          right: 'NHF To Date:'
-                        }
+                        
                       ].map((ele, idx) => (
                         <tr key={`lplpkjnm_${idx}`}>
                           <td className='text-black px-4 px-12px fs-14 text-nowrap'>
@@ -332,30 +293,36 @@ export default function PayslipGeneratePreview () {
                       {/* <!-- Table Header --> */}
                       <tr>
                         <td
-                          colSpan='2'
-                          className='bg-primary-blue text-white px-4 fw-bold fs-14 px-12px'
+                          style={{ border: 'none' }}
+                          className='bg-primary-blue text-white px-4 px-12px fw-bold fs-14'
                         >
-                          Variable Expenses
+                          Summary
+                        </td>
+                        <td
+                          style={{ border: 'none' }}
+                          className='bg-primary-blue text-white px-4 px-12px fw-bold fs-14'
+                        >
+                          Year to Date
                         </td>
                       </tr>
                       {/* <!-- Table Header --> */}
 
                       {[
                         {
-                          left: 'Variable Admin Expense',
-                          right: ''
+                          left: 'Gross Pay:',
+                          right: 'Gross Pay To Date:'
                         },
                         {
-                          left: 'Variable Operational Expense',
-                          right: ''
+                          left: 'Total Deductions:',
+                          right: 'Tax To Date:'
                         },
                         {
-                          left: 'Bonus or Commission',
-                          right: ''
+                          left: 'Net Pay:',
+                          right: 'NI To Date:'
                         },
                         {
-                          left: 'Monthly Variable Expense',
-                          right: ''
+                          left: 'Salary Pay Date:',
+                          right: 'Student Loan to Date:'
                         },
                         {
                           left: 'Expense Pay Date',
@@ -365,11 +332,11 @@ export default function PayslipGeneratePreview () {
                         <tr key={`uyjkhio_${idx}`}>
                           <td className='text-black px-4 px-12px fs-14 text-nowrap'>
                             {ele.left}
-                            {ele.left != '' && ': '}
+                            {ele.left != '' && ' '}
                           </td>
                           <td className='text-black px-4 px-12px fs-14 text-nowrap'>
                             {ele.right}
-                            {ele.right != '' && ': '}
+                            {ele.right != '' && ' '}
                           </td>
                         </tr>
                       ))}
