@@ -1,6 +1,6 @@
 ---
 // components/ui/ModalAddNew.astro
-const { modalId = "deleteModal", title = "Designation" } = Astro.props;
+const { modalId = "deleteModal", title = "Reject Task" } = Astro.props;
 import { CloseCircleIcon } from "../Icons";
 ---
 
@@ -20,8 +20,13 @@ import { CloseCircleIcon } from "../Icons";
       <!-- Modal body -->
       <div class="modal-body text-center py-2 border-0">
         <img src="images/png/icons/warning.svg" alt="warning" />
-        <p class="fs-22 fw-bold mt-3">Delete {title}</p>
-        <p>Are you sure you want to delete this {title}?</p>
+        <p class="fs-22 fw-bold mt-3">{title}</p>
+        <p>Are you sure you want to reject task?</p>
+
+        <div class="form-floating">
+          <textarea class="form-input" rows="2" id="comment"></textarea>
+          <label for="comment">Comment</label>
+        </div>
       </div>
 
       <!-- Modal footer -->
@@ -32,8 +37,8 @@ import { CloseCircleIcon } from "../Icons";
           style="background-color: red;"
           data-bs-dismiss="modal"
         >
-          Yes, delete <span class="text-lowercase">{title}</span>
-        </button>
+          Yes, Reject</button
+        >
       </div>
     </div>
   </div>
