@@ -18,23 +18,53 @@ import { CloseCircleIcon } from "../Icons";
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body text-center py-2 border-0">
-        <img src="images/png/icons/approve-green.svg" alt="approval" />
-        <p class="fs-22 fw-bold mt-3">{title}</p>
-        <p>Are you sure you want to approve this task completion?</p>
-      </div>
+      {
+        title === "Approve Task" ? (
+          <div class="modal-body text-center py-2 border-0">
+            <img src="images/png/icons/approve-green.svg" alt="approval" />
+            <p class="fs-22 fw-bold my-3">{title}</p>
+            <p>Are you sure you want to approve this task completion?</p>
+          </div>
+        ) : (
+          <div class="modal-body text-center py-2 border-0">
+            <img src="images/png/icons/approve-green.svg" alt="approval" />
+            <p class="fs-22 fw-bold my-3">{title}</p>
+            <p>Are you sure you want to mark task complete?</p>
+
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="comment" />
+              <label for="comment">Add a Comment</label>
+            </div>
+          </div>
+        )
+      }
 
       <!-- Modal footer -->
-      <div class="modal-footer d-flex justify-content-center border-0">
-        <button
-          type="button"
-          class="btn text-white"
-          style="background-color: green;"
-          data-bs-dismiss="modal"
-        >
-          Yes, approve
-        </button>
-      </div>
+      {
+        title === "Approve Task" ? (
+          <div class="modal-footer d-flex justify-content-center border-0">
+            <button
+              type="button"
+              class="btn text-white"
+              style="background-color: #2BC700;"
+              data-bs-dismiss="modal"
+            >
+              Yes, approve
+            </button>
+          </div>
+        ) : (
+          <div class="modal-footer d-flex justify-content-center border-0">
+            <button
+              type="button"
+              class="btn text-white"
+              style="background-color: #2BC700;"
+              data-bs-dismiss="modal"
+            >
+              Yes, Complete
+            </button>
+          </div>
+        )
+      }
     </div>
   </div>
 </div>

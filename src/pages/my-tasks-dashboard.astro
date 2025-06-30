@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import RejectTaskModal from "../components/ui/RejectTaskModal.astro";
+
 import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
 ---
 
-<Layout title="HRPayHub :: Task Review & Approval">
+<Layout title="HRPayHub :: My Tasks Dashboard">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -41,7 +41,7 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >Task Review & Approval</span
+              >My Tasks Dashboard</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -59,7 +59,7 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
               <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >Task Review & Approval</span
+                >My Tasks Dashboard</span
               >
             </div>
           </div>
@@ -357,18 +357,13 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                   <th class="bg-primary-blue text-white px-4 fw-600 fs-14"
                     >S/N</th
                   >
-
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Employee Name</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Employee ID</th
-                  >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Task Title</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Assigned By</th
                   >
 
                   <th
@@ -379,13 +374,10 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
                     >Due Date</th
                   >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Completion Date</th
-                  >
+
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Approval Status</th
+                    >Task Status</th
                   >
 
                   <th
@@ -484,22 +476,30 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                       acceptance_stat: "Pending",
                       emp_comment: "images/png/icons/vision.svg",
                     },
+                    {
+                      emp_name: "Wade Warren",
+                      emp_id: "N12343534",
+                      task_name: "Lorem Ipsum",
+                      priority: "High",
+
+                      assignment_date: "5, Apr 2025",
+                      return_date: "5, Apr 2025",
+                      acceptance_stat: "Pending",
+                      emp_comment: "images/png/icons/vision.svg",
+                    },
                   ].map((ele, index) => {
                     const showDisabled = ele.acceptance_stat !== "Pending";
 
                     return (
                       <tr class="fs-88">
                         <td class="text-center fs-14">{index + 1}</td>
-
-                        <td class="fs-14 px-3 text-left column">
-                          {ele.emp_name}
-                        </td>
-                        <td class="fs-14 px-3 text-center column">
-                          {ele.emp_id}
-                        </td>
                         <td class="fs-14 px-3 text-left column">
                           {ele.task_name}
                         </td>
+                        <td class="fs-14 px-3 text-left column">
+                          {ele.emp_name}
+                        </td>
+
                         <td
                           class="fs-14 px-3 text-left column"
                           style={`color: ${
@@ -529,9 +529,7 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                         <td class="fs-14 px-3 text-center column">
                           {ele.assignment_date}
                         </td>
-                        <td class="fs-14 px-3 text-center column">
-                          {ele.return_date}
-                        </td>
+
                         <td
                           class="fs-14 px-3 text-left text-nowrap column"
                           style={`color: ${
@@ -555,7 +553,7 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                                 class="btn bg-primary-blue d-flex gap-2 align-items-center text-white text-nowrap px-3 py-1 fs-14 fw-600"
                                 disabled
                               >
-                                Review
+                                Update Status
                                 <img
                                   src="images/png/icons/arrow-down.svg"
                                   alt="arrow-down"
@@ -570,7 +568,7 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                                   aria-expanded="false"
                                   data-bs-offset="-20,10"
                                 >
-                                  <span>Review</span>
+                                  <span>Update Status</span>
                                   <img
                                     src="images/png/icons/arrow-down.svg"
                                     alt="arrow-down"
@@ -585,17 +583,8 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                                       data-bs-target="#approveModal"
                                     >
                                       <div style="color:  #2BC700;">
-                                        Approve
+                                        Mark Complete
                                       </div>
-                                    </li>
-
-                                    <li
-                                      class="list-group-item"
-                                      role="button"
-                                      data-bs-toggle="modal"
-                                      data-bs-target="#deleteModal"
-                                    >
-                                      <div style="color:  red;">Reject</div>
                                     </li>
                                   </ul>
                                 </div>
@@ -683,8 +672,8 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
       </div>
 
       <!---- Modals --->
-      <RejectTaskModal title="Reject Task" />
-      <ApproveTaskModal title="Approve Task" />
+
+      <ApproveTaskModal title="Update Status" />
     </section>
   </main>
   <!-- Main content ends here -->

@@ -1,7 +1,7 @@
 ---
 import BreadCrumbs from "../components/ui/BreadCrumbs";
 import Layout from "../layouts/Layout.astro";
-import PayslipGenerateUKPreview from "../components/payslips/PayslipGenerateUKPreview";
+import PayslipGenerateUKPreview from "../components/payslips/PayslipGenerateUKPreviewTest.astro";
 ---
 
 <style>
@@ -81,7 +81,7 @@ import PayslipGenerateUKPreview from "../components/payslips/PayslipGenerateUKPr
           class="rounded-4 shadow-lg shadow-none p-lg-4 p-2 vstack gap-5 px-lg-5 px-2"
         >
           {/* Page Title */}
-          <div class="vstack gap-3">
+          <div class="vstack gap-3" id="page_title">
             <div class="d-flex gap-3 align-items-center">
               <img
                 src="images/png/icons/colored/receipt-minus-colored.svg"
@@ -331,13 +331,25 @@ import PayslipGenerateUKPreview from "../components/payslips/PayslipGenerateUKPr
       $(".viewPayslpBtn").click((evt) => {
         $("#generate_payslip_form").addClass("d-none");
         $("#payslip_generate_table").addClass("d-none");
+        $("#page_title").addClass("d-none");
         $("#view_employee_payslip").removeClass("d-none");
       });
 
       $("#back_to_list_of_payslips").click((evt) => {
         $("#generate_payslip_form").addClass("d-none");
         $("#payslip_generate_table").removeClass("d-none");
+        $("#page_title").removeClass("d-none");
         $("#view_employee_payslip").addClass("d-none");
+      });
+
+      $("#editPayslip").click((evt) => {
+        $("#view_employee_payslip").addClass("d-none");
+        $("#create_payslip").removeClass("d-none");
+      });
+
+      $("#backTo_view_employee_payslip").click((evt) => {
+        $("#create_payslip").addClass("d-none");
+        $("#view_employee_payslip").removeClass("d-none");
       });
 
       $("#fileInputBtn").click((evt) => {

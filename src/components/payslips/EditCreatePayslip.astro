@@ -4,13 +4,31 @@ import { FormFieldComponent } from "../ui/FormFieldControl";
 ---
 
 <!-- Main Page content -->
-<section class="px-4" id="create_payslip">
+<section class="px-4 d-none" id="create_payslip">
   <div class="screenFrame">
     <div class="rounded-4 shadow p-4 vstack gap-5 px-5 py-5">
       {/* Page Content Box */}
+      <div class="d-flex justify-content-start gap-4 mt-5">
+        <button
+          type="button"
+          id="backTo_view_employee_payslip"
+          class="white_button border-0 text-white fw-bold fs-14"
+        >
+          <span>Back</span>
+        </button>
+
+        <button
+          type="button"
+          id="save_progress"
+          class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
+        >
+          <span>Save and Regenerate</span>
+        </button>
+      </div>
       <form method="POST" id="creat_payslip_form" class="create_payslip_form">
         <div class="pe-lg-5 pe-0">
           <!-- Tab Panel -->
+
           <ul
             class="nav gap-4 flex-column sticky-lg-top bg-white"
             style="top: 110px"
