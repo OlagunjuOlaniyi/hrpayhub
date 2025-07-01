@@ -130,8 +130,6 @@ li.nav-item .active {
   font-size: 18px !important;
 }
 
-
-
 .fs-10 {
   font-size: 10px !important;
 }
@@ -161,8 +159,8 @@ li.nav-item .active {
 
 @media (max-width: 769px) {
   .fs-sm-18 {
-  font-size: 18px !important;
-}
+    font-size: 18px !important;
+  }
 }
 
 .sr-only {
@@ -909,7 +907,7 @@ body {
 /* calculate taxes input field */
 
 .calculate_tax_input {
-  width: 646px;
+  width: 630px;
 }
 .calculate_tax_indicator {
   width: 120px;
@@ -920,7 +918,7 @@ body {
 }
 
 .calculate_tax_calculate {
-  width: 256px;
+  width: 240px;
 }
 
 .calculate_ans {
@@ -937,10 +935,52 @@ body {
   font-weight: normal !important;
 }
 
+.calculate_free_tax_input {
+  width: 610px;
+}
+
+.free_calculate_tax_input {
+  width: 531px;
+}
+
+.free_tax_title {
+  width: 70%;
+}
+
+.second_column {
+  max-height: 600px;
+}
+
+.form_width {
+  width: 50%;
+}
+.form_width_form {
+  width: 560px;
+}
+.form_width img {
+  width: 732px;
+}
+
 @media (max-width: 769px) {
   .calculate_tax_input,
   .calculate_tax_indicator,
-  .calculate_tax_calculate {
+  .calculate_tax_calculate,
+  .calculate_free_tax_input,
+  .free_tax_title,
+  .form_width,
+  .form_width_form {
+    width: 100%;
+  }
+
+  .second_column {
+    max-height: 100%;
+  }
+
+  .free_calculate_tax_input {
+    width: 80%;
+  }
+
+  .form_width img {
     width: 100%;
   }
 }
@@ -1205,7 +1245,6 @@ ul.upload_offer_bg li.nav-item .active {
 .download_sample {
   border-radius: 15px;
   border: 2px solid #c1c1c1;
-  
 }
 
 .text_underline {
@@ -1350,7 +1389,7 @@ ul.upload_offer_bg li.nav-item .active {
 .clock_in_out_modal {
   background-color: #eaecf0;
   width: auto;
-  border-radius: 16px;  
+  border-radius: 16px;
 }
 
 /* leave management */
@@ -1360,13 +1399,12 @@ ul.upload_offer_bg li.nav-item .active {
 
 @media (max-width: 769px) {
   .leave_policy {
-  width: 100%;
-}
+    width: 100%;
+  }
 }
 
 /* subscription */
 .subscription_tab {
-  
   border-bottom: 1px solid lightgray;
 }
 
@@ -1375,15 +1413,15 @@ ul.upload_offer_bg li.nav-item .active {
 }
 .subscription_tab .active {
   color: #2271b6 !important;
-  
-   border-bottom: 1px solid lightgray;
+
+  border-bottom: 1px solid lightgray;
 }
 
 ul.subscription_tab li.nav-item .active {
   color: #2271b6 !important;
   background-color: transparent !important;
   border-radius: 0;
-   border-bottom: 0.5px solid #2271b6 !important;
+  border-bottom: 0.5px solid #2271b6 !important;
   font-weight: normal !important;
   padding-left: 25px;
   padding-right: 25px;
@@ -1393,7 +1431,7 @@ ul.subscription_tab li.nav-item .active {
   width: 213px;
   height: auto;
   border-radius: 10px;
-  
+
   border: 1px dashed #2271b6;
 }
 
@@ -1403,8 +1441,8 @@ ul.subscription_tab li.nav-item .active {
 
 @media (max-width: 769px) {
   .subscription_tab_width {
-  width: 100%;
-}
+    width: 100%;
+  }
 }
 
 .email_nav button.active {
@@ -1424,21 +1462,23 @@ ul.subscription_tab li.nav-item .active {
   width: 437px;
 }
 
-dl, ol, ul {
-    margin-top: 0;
-    margin-bottom: 0rem;
+dl,
+ol,
+ul {
+  margin-top: 0;
+  margin-bottom: 0rem;
 }
 
 .self_appraisal_info {
   background-color: #eaecf0;
   width: 344px;
-  border-radius: 16px;  
+  border-radius: 16px;
 }
 
 @media (max-width: 769px) {
   .aggregation_width {
     width: 100%;
-}
+  }
 }
 
 /* payslip UK  */
@@ -1448,6 +1488,6 @@ dl, ol, ul {
 
 @media (max-width: 769px) {
   .payslip_table_width {
-  width: 100%;
-}
+    width: 100%;
+  }
 }

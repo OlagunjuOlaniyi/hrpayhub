@@ -2,7 +2,7 @@ export default function FormContextIndicator(props) {
   const { index } = props;
   return (
     <div
-      className="d-flex justify-content-between align-items-center gap-3 col-md-3 col-12 calculate_tax_indicator"
+      className="d-flex justify-content-between align-items-center gap-2 col-md-3 col-12 calculate_tax_indicator"
       style={{ width: "55px" }}
     >
       <div style={{ cursor: "pointer" }}>
