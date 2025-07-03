@@ -940,7 +940,7 @@ body {
 }
 
 .free_calculate_tax_input {
-  width: 531px;
+  width: 525px;
 }
 
 .free_tax_title {
@@ -959,6 +959,21 @@ body {
 }
 .form_width img {
   width: 732px;
+}
+
+.first_column {
+  height: 1100px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.tax_fixed_footer {
+  position: sticky;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 999;
+
+  padding: 20px 0;
 }
 
 @media (max-width: 769px) {

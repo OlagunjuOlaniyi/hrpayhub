@@ -194,23 +194,6 @@ import { FormFieldComponent } from "../components/ui/FreeTaxFormFieldControl";
                 <label for="apdi">Annual Permanent Disability Insurance </label>
               </div>
 
-              <div>
-                <div class="form-floating calculate_free_tax_input">
-                  <input
-                    type="number"
-                    id="arpe"
-                    name="arpe"
-                    class="form-input fs-12"
-                    placeholder=""
-                    value="0"
-                  />
-                  <label for="arpe">Annual Rent Paid by Employee </label>
-                </div>
-                <span class="fs-12 fw-400 mt-2">
-                  Input only if there is proof, default to 0
-                </span>
-              </div>
-
               <!---- Calculation 1 --->
               <div class="vstack" style="gap: 1rem">
                 {
@@ -359,7 +342,8 @@ import { FormFieldComponent } from "../components/ui/FreeTaxFormFieldControl";
                     <p class="fs-16 fw-700 calculate_ans">
                       Annual Taxable Income (ATI) <br />
                       <span class="fs-14 fw-350"
-                        >ANS – RRA <br /> If no proof of rent, RRA = ₦0)</span
+                        >ANS – Higher of NGN 200,000 or <br /> 1% of ANS – 20% of
+                        ANS</span
                       >
                     </p>
                   </div>
@@ -409,15 +393,21 @@ import { FormFieldComponent } from "../components/ui/FreeTaxFormFieldControl";
                         <!-- Table body and Row -->
 
                         <tr class="fs-88">
-                          <td class="text-left px-3 fs-14"> Up to 800,000</td>
-                          <td class="fs-14 px-3 text-nowrap text-left"> 0% </td>
+                          <td class="text-left px-3 fs-14">First ₦300,000</td>
+                          <td class="fs-14 px-3 text-nowrap text-left"> 7% </td>
                           <td class="fs-14 px-3 text-left column"> __ </td>
                           <td class="fs-14 px-3 text-left column"> __ </td>
                         </tr>
                         <tr class="fs-88">
-                          <td class="text-left px-3 fs-14"
-                            >800,001 – 3,000,000</td
-                          >
+                          <td class="text-left px-3 fs-14">Next ₦300,000</td>
+                          <td class="fs-14 px-3 text-nowrap text-left">
+                            11%
+                          </td>
+                          <td class="fs-14 px-3 text-left column"> __ </td>
+                          <td class="fs-14 px-3 text-left column"> __ </td>
+                        </tr>
+                        <tr class="fs-88">
+                          <td class="text-left px-3 fs-14">Next ₦500,000</td>
                           <td class="fs-14 px-3 text-nowrap text-left">
                             15%
                           </td>
@@ -425,19 +415,15 @@ import { FormFieldComponent } from "../components/ui/FreeTaxFormFieldControl";
                           <td class="fs-14 px-3 text-left column"> __ </td>
                         </tr>
                         <tr class="fs-88">
-                          <td class="text-left px-3 fs-14"
-                            >3,000,001 – 12,000,000</td
-                          >
+                          <td class="text-left px-3 fs-14">Next ₦500,000</td>
                           <td class="fs-14 px-3 text-nowrap text-left">
-                            18%
+                            19%
                           </td>
                           <td class="fs-14 px-3 text-left column"> __ </td>
                           <td class="fs-14 px-3 text-left column"> __ </td>
                         </tr>
                         <tr class="fs-88">
-                          <td class="text-left px-3 fs-14"
-                            >12,000,001 – 25,000,000</td
-                          >
+                          <td class="text-left px-3 fs-14">Next ₦1,600,000</td>
                           <td class="fs-14 px-3 text-nowrap text-left">
                             21%
                           </td>
@@ -446,18 +432,10 @@ import { FormFieldComponent } from "../components/ui/FreeTaxFormFieldControl";
                         </tr>
                         <tr class="fs-88">
                           <td class="text-left px-3 fs-14"
-                            >25,000,001 – 50,000,000</td
+                            >Amount Above ₦3,200,000</td
                           >
                           <td class="fs-14 px-3 text-nowrap text-left">
-                            23%
-                          </td>
-                          <td class="fs-14 px-3 text-left column"> __ </td>
-                          <td class="fs-14 px-3 text-left column"> __ </td>
-                        </tr>
-                        <tr class="fs-88">
-                          <td class="text-left px-3 fs-14">Above 50,000,000</td>
-                          <td class="fs-14 px-3 text-nowrap text-left">
-                            25%
+                            24%
                           </td>
                           <td class="fs-14 px-3 text-left column"> __ </td>
                           <td class="fs-14 px-3 text-left column"> __ </td>
@@ -490,7 +468,7 @@ import { FormFieldComponent } from "../components/ui/FreeTaxFormFieldControl";
                 <div class="d-flex gap-2 justify-content-between">
                   <div class="d-flex align-items-center">
                     <p class="fs-16 fw-700 calculate_tax">
-                      Annual Tax (AT) <br />
+                      Annual Tax <br />
                       <span class="fs-14 fw-350"
                         >Sum of applicable tax bracket outputs</span
                       >
@@ -509,7 +487,7 @@ import { FormFieldComponent } from "../components/ui/FreeTaxFormFieldControl";
                 <div class="d-flex gap-2 justify-content-between">
                   <div class="d-flex align-items-center">
                     <p class="fs-16 fw-700 calculate_tax">
-                      Annual Net Salary After Tax (ANST) <br />
+                      Annual Net Salary After Tax <br />
                       <span class="fs-14 fw-350"
                         >Annual Net Salary – Annual Tax</span
                       >
@@ -528,7 +506,7 @@ import { FormFieldComponent } from "../components/ui/FreeTaxFormFieldControl";
                 <div class="d-flex gap-2 justify-content-between">
                   <div class="d-flex align-items-center">
                     <p class="fs-16 fw-700 calculate_tax">
-                      Monthly Net Salary After Tax (MNST) <br />
+                      Monthly Net Salary After Tax <br />
                       <span class="fs-14 fw-350"
                         >Annual Net Salary After Tax / 12</span
                       >
@@ -547,7 +525,7 @@ import { FormFieldComponent } from "../components/ui/FreeTaxFormFieldControl";
                 <div class="d-flex gap-2 justify-content-between">
                   <div class="d-flex align-items-center">
                     <p class="fs-16 fw-700 calculate_tax">
-                      Monthly Net Salary (MNS) <br />
+                      Monthly Net Salary <br />
                       <span class="fs-14 fw-350">ANS / 12</span>
                     </p>
                   </div>
@@ -564,7 +542,7 @@ import { FormFieldComponent } from "../components/ui/FreeTaxFormFieldControl";
                 <div class="d-flex gap-2 justify-content-between">
                   <div class="d-flex align-items-center">
                     <p class="fs-16 fw-700 calculate_tax">
-                      Monthly Tax (MT) <br />
+                      Monthly Tax <br />
                       <span class="fs-14 fw-350">Annual Tax / 12</span>
                     </p>
                   </div>
