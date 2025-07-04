@@ -944,7 +944,11 @@ body {
 }
 
 .free_tax_title {
-  width: 70%;
+  width: 50%;
+}
+
+.free_tax_title h1 {
+  line-height: 1.6;
 }
 
 .second_column {
@@ -997,6 +1001,10 @@ body {
 
   .form_width img {
     width: 100%;
+  }
+
+  .free_tax_title h1 {
+    font-size: 22px !important;
   }
 }
 
