@@ -323,6 +323,17 @@ input.no_focus:focus {
   background-color: white;
 }
 
+.form-select_custom_email {
+  width: 100%;
+  padding: 14px;
+  font-size: 12px !important;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: transparent;
+  appearance: none;
+  background-color: white;
+}
+
 .form-input:focus {
   outline: 2px solid #2271b6;
   outline: 2px solid #2271b6;
@@ -385,6 +396,7 @@ input.no_focus:focus {
   font-size: 14px !important;
   margin-left: 20px;
 }
+
 .add_employee_width #multiple-select-field {
   font-size: 14px !important;
   margin-left: 20px;
@@ -393,6 +405,16 @@ input.no_focus:focus {
 #multiple-select-field {
   font-size: 10px;
   height: 150px;
+}
+
+#multiple-select-field-email {
+  font-size: 12px !important;
+  margin-left: 20px;
+}
+
+#multiple-select-field-email {
+  font-size: 10px !important;
+  height: 50px;
 }
 
 .form-select_custom:focus + label span,
