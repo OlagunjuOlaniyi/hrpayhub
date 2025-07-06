@@ -135,17 +135,19 @@ import Sent from "../components/emails/Sent.astro";
     <!-- Custom New Message Dialog Box -->
     <div
       id="newMessageBox"
-      class="position-fixed shadow-lg rounded-4 border border-light bg-white"
+      class="position-fixed border border-light bg-white"
       style="
     bottom: 20px;
     right: 20px;
-    width: 500px;
+    width: 81vw;
+    height: 450px;
     display: none;
     z-index: 1050;
+    overflow-y: scroll;
   "
     >
       <div
-        class="border-bottom p-3 d-flex justify-content-between align-items-center bg-primary-blue text-white rounded-top-4"
+        class="border-bottom p-3 py-2 d-flex justify-content-between align-items-center bg-primary-blue text-white"
       >
         <h6 class="mb-0">New Message</h6>
 
@@ -156,35 +158,232 @@ import Sent from "../components/emails/Sent.astro";
       </div>
 
       <div class="p-3">
-        <div class="mb-3">
-          <select class="form-select border-0 border-bottom">
-            <option>Recipients</option>
-            <option>HR Department</option>
-            <option>Payroll</option>
-            <option>IT Support</option>
-          </select>
+        <div
+          class="d-flex justify-content-between gap-3 mb-2 pb-2 border-0 border-bottom"
+        >
+          <div class="d-flex gap-3 fs-14">
+            <label for="multiple-select-field-email" id="custom_select_new"
+              >Recipients</label
+            >
+            <div class="dropdown">
+              <button
+                class="delon-primary-btn bg-white p-1 border dropdown-toggle dropdown-arrow d-flex align-items-center gap-2 fs-14"
+                type="button"
+                data-bs-toggle="dropdown"
+              >
+                <span>Select</span>
+              </button>
+
+              <ul class="dropdown-menu border-0 fs-14">
+                <li class="mb-2">
+                  <label class="form-check-label">
+                    <input
+                      type="checkbox"
+                      class="form-check-input me-2"
+                      name="name 1"
+                    />
+                    Wade Warren
+                  </label>
+                </li>
+                <li class="mb-2">
+                  <label class="form-check-label">
+                    <input
+                      type="checkbox"
+                      class="form-check-input me-2"
+                      name="name 2"
+                    />
+                    Wade Warren
+                  </label>
+                </li>
+                <li class="mb-2">
+                  <label class="form-check-label">
+                    <input
+                      type="checkbox"
+                      class="form-check-input me-2"
+                      name="name 2"
+                    />
+                    Wade Warren
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="fs-12 d-flex gap-4">
+            <span role="button" id="Cc">Cc</span>
+            <span role="button" id="Bcc">Bcc</span>
+          </div>
         </div>
+
+        <div
+          class="d-flex justify-content-between gap-3 mb-2 pb-2 border-0 border-bottom d-none"
+          id="Cc_field"
+        >
+          <div class="d-flex gap-3 fs-14">
+          <label for="multiple-select-field-email" id="custom_select_new"
+            >Cc</label
+          >
+          
+            <div class="dropdown">
+              <button
+                class="delon-primary-btn bg-white p-1 border dropdown-toggle dropdown-arrow d-flex align-items-center gap-2 fs-14"
+                type="button"
+                data-bs-toggle="dropdown"
+              >
+                <span>Select</span>
+              </button>
+
+              <ul class="dropdown-menu border-0 fs-14">
+                <li class="mb-2">
+                  <label class="form-check-label">
+                    <input
+                      type="checkbox"
+                      class="form-check-input me-2"
+                      name="name 1"
+                    />
+                    Wade Warren
+                  </label>
+                </li>
+                <li class="mb-2">
+                  <label class="form-check-label">
+                    <input
+                      type="checkbox"
+                      class="form-check-input me-2"
+                      name="name 2"
+                    />
+                    Wade Warren
+                  </label>
+                </li>
+                <li class="mb-2">
+                  <label class="form-check-label">
+                    <input
+                      type="checkbox"
+                      class="form-check-input me-2"
+                      name="name 2"
+                    />
+                    Wade Warren
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+            <div >
+              <span role="button" class="fw-700 pe-3" id="closeCc">x</span>
+            </div>
+          </div>
+        
+        <div
+          class="d-flex justify-content-between gap-3 mb-2 pb-2 border-0 border-bottom d-none"
+          id="Bcc_field"
+        >
+        <div class="d-flex gap-3 fs-14">
+          <label for="multiple-select-field-email" id="custom_select_new"
+            >Bcc</label
+          >
+          <div class="dropdown">
+            <button
+              class="delon-primary-btn bg-white p-1 border dropdown-toggle dropdown-arrow d-flex align-items-center gap-2 fs-14"
+              type="button"
+              data-bs-toggle="dropdown"
+            >
+              <span>Select</span>
+            </button>
+
+            <ul class="dropdown-menu border-0 fs-14">
+              <li class="mb-2">
+                <label class="form-check-label">
+                  <input
+                    type="checkbox"
+                    class="form-check-input me-2"
+                    name="name 1"
+                  />
+                  Wade Warren
+                </label>
+              </li>
+              <li class="mb-2">
+                <label class="form-check-label">
+                  <input
+                    type="checkbox"
+                    class="form-check-input me-2"
+                    name="name 2"
+                  />
+                  Wade Warren
+                </label>
+              </li>
+              <li class="mb-2">
+                <label class="form-check-label">
+                  <input
+                    type="checkbox"
+                    class="form-check-input me-2"
+                    name="name 2"
+                  />
+                  Wade Warren
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+          <div >
+              <span role="button" class="fw-700 pe-3" id="closeBcc">x</span>
+            </div>
+        </div>
+
         <div class="mb-3">
           <input
             type="text"
             class="form-control border-0 border-bottom"
             placeholder="Subject"
+            id="emailSubject"
           />
+        </div>
+        <div class="mb-3 d-flex gap-3 align-items-center fs-14">
+          <label for="add_text" class="fw-700 text-nowrap">Add text</label>
+          <select
+            class="form-select border-0 border-bottom fs-14 text-nowrap"
+            id="add_text"
+            style="width: 220px;"
+          >
+            <option>Select Template</option>
+            <option value="confirmation">Sample Confirmation Letter</option>
+            <option value="query">Sample Query Letter</option>
+            <option value="termination">Sample Termination Letter</option>
+            <option value="announcement">Sample Announcement Letter</option>
+          </select>
         </div>
         <div class="mb-3">
           <textarea
-            class="form-control border-0"
-            rows="5"
-            placeholder="Add text"></textarea>
+            class="form-control border-0 fs-14"
+            rows="7"
+            placeholder="Add text"
+            id="emailBody"></textarea>
         </div>
 
-        <div class="d-flex justify-content-between align-items-end">
-          <div class="d-flex gap-3">
+        
+        <div class="d-flex justify-content-between w-50 py-2 my-3">
+                    <div id="filePreviewList" class="d-flex flex-column gap-2">
+  <!-- Files will be added here -->
+</div>
+
+                  </div>
+
+        <div class="d-flex gap-3 align-items-center">
+          <div class="d-flex align-items-center gap-3">
             <button class="btn bg-primary-blue text-white">Send</button>
-            <img
-              src="images/png/icons/attached-icon.svg"
-              alt="angle-right-back"
-            />
+            <div class="d-flex align-items-center">
+
+              <img
+                role="button"
+                src="images/png/icons/attached-icon.svg"
+                alt="attached icon"
+                
+                />
+              <input
+                type="file"
+                id="fileInput"
+                multiple
+                style="display: none;"
+              />
+
+            </div>
           </div>
           <img role="button" src="images/png/icons/colored/delete.svg" alt="" />
         </div>
@@ -234,6 +433,153 @@ import Sent from "../components/emails/Sent.astro";
           }
         });
       }
+
+      // sample population
+      const templateSelect = document.getElementById("add_text");
+    const subjectInput = document.getElementById("emailSubject");
+    const bodyTextarea = document.getElementById("emailBody");
+
+    const templates = {
+      confirmation: {
+        subject: "Confirmation of Employment – [Employee Name]",
+        body: `Dear [Employee Name],
+
+We are pleased to confirm your employment with [Company Name] as [Job Title], effective [Confirmation Date]. Your new contract details are attached.
+
+Regards,
+[HR/Admin Name]`
+      },
+      query: {
+        subject: "Query on [Issue]",
+        body: `Dear [Employee Name],
+
+We would like to bring to your attention the following issue: [Brief Description of the Issue]. Please provide an explanation by [Date].
+
+Regards,
+[HR/Admin Name]`
+      },
+      termination: {
+        subject: "Termination of Employment – [Employee Name]",
+        body: `Dear [Employee Name],
+
+This letter serves as formal notice that your employment with [Company Name] will be terminated effective [Termination Date]. Please find more details attached.
+
+Regards,
+[HR/Admin Name]`
+      },
+      announcement: {
+        subject: "Important Announcement: [Topic]",
+        body: `Dear [Employee Name]/Team,
+
+We are excited to announce [a new development/an important update] at [Company Name].
+
+Effective [Date], [Briefly describe the announcement, such as a new hire, a promotion, policy changes, or an upcoming event]. This change will [highlight the benefits or importance of the announcement].
+
+[If applicable, include any relevant details like the name of a new hire, their role, or the impact of the change.]
+
+We believe this [announcement/update] will [describe how it will positively impact the company, team, or individual employees].
+
+Should you have any questions or need further information, please feel free to reach out to [Contact Person] at [Contact Information].
+
+Thank you for your attention, and we look forward to [implementing this change/working with the new team member/etc.].
+
+Best regards,  
+[Your Name]  
+[Your Job Title]  
+[Company Name]`
+      }
+    };
+
+    templateSelect.addEventListener("change", () => {
+      const selected = templateSelect.value;
+      if (templates[selected]) {
+        subjectInput.value = templates[selected].subject;
+        bodyTextarea.value = templates[selected].body;
+      }
+    });
+
+      
+      // file input functionality
+
+      const attachedFileIcon = document.getElementById("attachedFile");
+    const fileInput = document.getElementById("fileInput");
+    const filePreviewList = document.getElementById("filePreviewList");
+
+    let attachedFiles = [];
+
+    attachedFileIcon.addEventListener("click", () => {
+      fileInput.click();
+    });
+
+    fileInput.addEventListener("change", () => {
+      const files = Array.from(fileInput.files);
+
+      // Add only unique files by name (you can use a stronger check)
+      files.forEach((file) => {
+        if (!attachedFiles.find((f) => f.name === file.name)) {
+          attachedFiles.push(file);
+        }
+      });
+
+      renderFilePreview();
+      // Clear the file input so the same file can be selected again
+      fileInput.value = "";
+    });
+
+    function renderFilePreview() {
+      filePreviewList.innerHTML = "";
+
+      attachedFiles.forEach((file, index) => {
+        const fileItem = document.createElement("div");
+        fileItem.className = "d-flex justify-content-between align-items-center border p-2 rounded bg-light";
+
+        fileItem.innerHTML = `
+          <div class="d-flex align-items-center gap-2">
+            <img src="images/png/icons/document-2.svg" alt="file" />
+            <span class="fs-12">${file.name}</span>
+          </div>
+          <button class="btn btn-sm border-0 bg-transparent removeFile" data-index="${index}">
+            <img src="images/png/icons/colored/delete.svg" alt="remove" />
+          </button>
+        `;
+
+        filePreviewList.appendChild(fileItem);
+      });
+
+      // Attach remove event
+      document.querySelectorAll(".removeFile").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const index = e.currentTarget.dataset.index;
+          attachedFiles.splice(index, 1);
+          renderFilePreview();
+        });
+      });
+    }
+    });
+  </script>
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      
+
+      $("#Cc_field").addClass("d-none");
+      $("#Bcc_field").addClass("d-none");
+
+      $("#Cc").click((evt) => {
+        $("#Cc_field").removeClass("d-none");
+      });
+
+      $("#closeCc").click((evt) => {
+        $("#Cc_field").addClass("d-none");
+      });
+
+      $("#closeBcc").click((evt) => {
+        $("#Bcc_field").addClass("d-none");
+      });
+
+      $("#Bcc").click((evt) => {
+        $("#Cc_field").removeClass("d-none");
+        $("#Bcc_field").removeClass("d-none");
+      });
     });
   </script>
 </Layout>

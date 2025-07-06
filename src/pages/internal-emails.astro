@@ -567,16 +567,7 @@ Best regards,
   </script>
   <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
-      $("#multiple-select-field-email").select2({
-        theme: "bootstrap-5",
-        width: $(this).data("width")
-          ? $(this).data("width")
-          : $(this).hasClass("w-100")
-            ? "100%"
-            : "style",
-        placeholder: $(this).data("placeholder"),
-        closeOnSelect: false,
-      });
+      
 
       $("#Cc_field").addClass("d-none");
       $("#Bcc_field").addClass("d-none");
