@@ -7,7 +7,59 @@ import { CloseCircleIcon } from "../Icons";
 <div class="modal fade" id={modalId} tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content p-5">
-      <!-- Modal Header -->
+
+      {
+        title==="Forgot" ? (<!-- Modal Header -->
+      <div
+        class="modal-header fs-24 fw-700 border-0 d-flex justify-content-center"
+      >
+        Successful
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-center py-2 border-0">
+        <img src="images/png/icons/success-check.svg" alt="success check" />
+
+        <p class="fs-16">
+         A password reset link has been sent to your email. 
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <button
+          type="button"
+          class="btn text-white bg-primary-blue fs-14 px-4"
+          data-bs-dismiss="modal"
+        >
+          Done
+        </button>
+      </div>) : title === "New Password" ? (<!-- Modal Header -->
+      <div
+        class="modal-header fs-24 fw-700 border-0 d-flex justify-content-center"
+      >
+        Successful
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-center py-2 border-0">
+        <img src="images/png/icons/success-check.svg" alt="success check" />
+
+        <p class="fs-16">
+          Your password has been reset successfully. You can now log in with your new password.
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <a
+          href="/sign-in"
+          class="btn text-white bg-primary-blue fs-14 px-4"
+          
+        >
+          Login
+        </a>
+      </div>) : (<!-- Modal Header -->
       <div
         class="modal-header fs-24 fw-700 border-0 d-flex justify-content-center"
       >
@@ -33,7 +85,9 @@ import { CloseCircleIcon } from "../Icons";
         >
           Get Started
         </button>
-      </div>
+      </div>)
+      }
+      
     </div>
   </div>
 </div>

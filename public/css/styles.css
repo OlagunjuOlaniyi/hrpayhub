@@ -1036,6 +1036,10 @@ body {
   text-align: left;
 }
 
+.tooltip-width .tooltip-inner {
+  min-width: 400px !important;
+}
+
 /* calculate taxes input field */
 
 .expense_input {

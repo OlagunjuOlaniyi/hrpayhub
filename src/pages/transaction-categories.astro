@@ -1,0 +1,1122 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import DeleteModal from "../components/ui/DeleteModal.astro";
+---
+
+<Layout title="HRPayHub :: Transaction Categories">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/financial-setup-ng"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/fnancial-reports-and-analytics"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/fnancial-reports-and-analytics-ng"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics - NG</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/financial-setup-ng"
+              class="fs-14 text-decoration-none text-primary-dark">Setup</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Transaction Categories</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Setup --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">Deposits</div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+              <div class="d-flex gap-3 align-items-center">
+                <div class="fs-14 fw-600">Revenue</div>
+                <div
+                  class=""
+                  data-bs-html="true"
+                  data-bs-placement="right"
+                  data-bs-toggle="tooltip"
+                  data-bs-custom-class="tooltip-left-align tooltip-width"
+                  title="<div class='fs-12'>🛈 Automatic Link Between Revenue and COGS Categories<br />
+                        🛈 You may add, edit, or delete custom sub-sub-categories here.<br />
+                        Any sub-sub-category added, edited, or deleted under Revenue is automatically mirrored under COGS as a corresponding sub-sub-category.<br />
+                        Likewise, changes made under COGS will reflect in the Revenue section. This ensures alignment between income and related cost categories for accurate financial reporting.
+                        </div>"
+                  style={{ cursor: "pointer" }}
+                >
+                  <img src="images/png/icons/info.svg" alt="info" />
+                </div>
+              </div>
+              <div class="d-flex gap-4 align-items-center">
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="recruitment"
+                    name="recruitment"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="recruitment">Recruitment </label>
+                </div>
+                <div
+                  class="d-flex gap-2 px-2 border rounded"
+                  style="padding-top: 10px; padding-bottom: 10px;"
+                >
+                  <button
+                    class="border-0 edit-button"
+                    style="background-color: inherit;"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Edit Recruitment"
+                    data-emp-type="Recruitment"
+                  >
+                    <img src="images/png/icons/edit-2.svg" alt="" />
+                  </button>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/colored/delete.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex gap-4 align-items-center">
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="outsourcing"
+                    name="outsourcing"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="outsourcing">Staff Outsourcing </label>
+                </div>
+                <div
+                  class="d-flex gap-2 px-2 border rounded"
+                  style="padding-top: 10px; padding-bottom: 10px;"
+                >
+                  <button
+                    class="border-0 edit-button"
+                    style="background-color: inherit;"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Edit Staff Outsourcing"
+                    data-emp-type="Staff Outsourcing"
+                  >
+                    <img src="images/png/icons/edit-2.svg" alt="" />
+                  </button>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/colored/delete.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex gap-4 align-items-center">
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="outsourcing"
+                    name="outsourcing"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="outsourcing">Business Process Outsourcing </label>
+                </div>
+                <div
+                  class="d-flex gap-2 px-2 border rounded"
+                  style="padding-top: 10px; padding-bottom: 10px;"
+                >
+                  <button
+                    class="border-0 edit-button"
+                    style="background-color: inherit;"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Edit Business Process Outsourcing"
+                    data-emp-type="Business Process Outsourcing"
+                  >
+                    <img src="images/png/icons/edit-2.svg" alt="" />
+                  </button>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/colored/delete.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex gap-4 align-items-center">
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="outsourcing"
+                    name="outsourcing"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="outsourcing">Virtual Assistant </label>
+                </div>
+                <div
+                  class="d-flex gap-2 px-2 border rounded"
+                  style="padding-top: 10px; padding-bottom: 10px;"
+                >
+                  <button
+                    class="border-0 edit-button"
+                    style="background-color: inherit;"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Edit Virtual Assistant"
+                    data-emp-type="Virtual Assistant"
+                  >
+                    <img src="images/png/icons/edit-2.svg" alt="" />
+                  </button>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/colored/delete.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex gap-4 align-items-center">
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="outsourcing"
+                    name="outsourcing"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="outsourcing">HRPayHub </label>
+                </div>
+                <div
+                  class="d-flex gap-2 px-2 border rounded"
+                  style="padding-top: 10px; padding-bottom: 10px;"
+                >
+                  <button
+                    class="border-0 edit-button"
+                    style="background-color: inherit;"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Edit HRPayHub"
+                    data-emp-type="HRPayHub"
+                  >
+                    <img src="images/png/icons/edit-2.svg" alt="" />
+                  </button>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/colored/delete.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex gap-4 align-items-center">
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="outsourcing"
+                    name="outsourcing"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="outsourcing">IT Training </label>
+                </div>
+                <div
+                  class="d-flex gap-2 px-2 border rounded"
+                  style="padding-top: 10px; padding-bottom: 10px;"
+                >
+                  <button
+                    class="border-0 edit-button"
+                    style="background-color: inherit;"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Edit IT Training"
+                    data-emp-type="IT Training"
+                  >
+                    <img src="images/png/icons/edit-2.svg" alt="" />
+                  </button>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/colored/delete.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex gap-4 align-items-center">
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="outsourcing"
+                    name="outsourcing"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="outsourcing">Job Site </label>
+                </div>
+                <div
+                  class="d-flex gap-2 px-2 border rounded"
+                  style="padding-top: 10px; padding-bottom: 10px;"
+                >
+                  <button
+                    class="border-0 edit-button"
+                    style="background-color: inherit;"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Edit Job Site"
+                    data-emp-type="Job Site"
+                  >
+                    <img src="images/png/icons/edit-2.svg" alt="" />
+                  </button>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/colored/delete.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex gap-4 align-items-center">
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="outsourcing"
+                    name="outsourcing"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="outsourcing">Consulting </label>
+                </div>
+                <div
+                  class="d-flex gap-2 px-2 border rounded"
+                  style="padding-top: 10px; padding-bottom: 10px;"
+                >
+                  <button
+                    class="border-0 edit-button"
+                    style="background-color: inherit;"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Edit Consulting"
+                    data-emp-type="Consulting"
+                  >
+                    <img src="images/png/icons/edit-2.svg" alt="" />
+                  </button>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/colored/delete.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex gap-4 align-items-center">
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="outsourcing"
+                    name="outsourcing"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="outsourcing">ATM Accessories </label>
+                </div>
+                <div
+                  class="d-flex gap-2 px-2 border rounded"
+                  style="padding-top: 10px; padding-bottom: 10px;"
+                >
+                  <button
+                    class="border-0 edit-button"
+                    style="background-color: inherit;"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Edit ATM Accessories"
+                    data-emp-type="ATM Accessories"
+                  >
+                    <img src="images/png/icons/edit-2.svg" alt="" />
+                  </button>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/colored/delete.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex gap-4 align-items-center">
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="outsourcing"
+                    name="outsourcing"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="outsourcing">Interest Revenue </label>
+                </div>
+                <div
+                  class="d-flex gap-2 px-2 border rounded"
+                  style="padding-top: 10px; padding-bottom: 10px;"
+                >
+                  <button
+                    class="border-0 edit-button"
+                    style="background-color: inherit;"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Edit Interest Revenue"
+                    data-emp-type="Interest Revenue"
+                  >
+                    <img src="images/png/icons/edit-2.svg" alt="" />
+                  </button>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/colored/delete.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex gap-4 align-items-center">
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="outsourcing"
+                    name="outsourcing"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="outsourcing">Other Revenue </label>
+                </div>
+                <div
+                  class="d-flex gap-2 px-2 border rounded"
+                  style="padding-top: 10px; padding-bottom: 10px;"
+                >
+                  <button
+                    class="border-0 edit-button"
+                    style="background-color: inherit;"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Edit Other Revenue"
+                    data-emp-type="Other Revenue"
+                  >
+                    <img src="images/png/icons/edit-2.svg" alt="" />
+                  </button>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/colored/delete.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <button
+                  class="white_button fs-14 p-0 d-flex gap-2 align-items-center"
+                  style="border: 0px !important;"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#myModal"
+                  data-title="Add New"
+                  data-emp-type="---------"
+                >
+                  <span class="text-dark">Add New </span>
+                  <img src="images/png/icons/add-square.svg" alt="add new" />
+                </button>
+              </div>
+
+              <div>
+                <div class="d-flex gap-3 align-items-center mb-3">
+                  <div class="fs-14 fw-600">Non-Revenue Deposits</div>
+                  <div
+                    class=""
+                    data-bs-html="true"
+                    data-bs-placement="right"
+                    data-bs-toggle="tooltip"
+                    data-bs-custom-class="tooltip-left-align tooltip-width"
+                    title="<div class='fs-12'>
+                        🛈  Why Asset Categories Are Locked<br />
+                        To ensure compliance and consistency in financial reporting, sub-sub-categories under Asset are system-defined and cannot be added, edited, or deleted.
+                        </div>"
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img src="images/png/icons/info.svg" alt="info" />
+                  </div>
+                </div>
+
+                <div class="d-flex flex-column gap-4">
+                  {
+                    [
+                      {
+                        label: "Loan Received",
+                        name: "lr",
+                      },
+                      {
+                        label: "Loan Recovered",
+                        name: "lrc",
+                      },
+                      {
+                        label: "Company to Company Transfer",
+                        name: "ctct",
+                      },
+                      {
+                        label: "COGS Refund",
+                        name: "cogs",
+                      },
+                      {
+                        label: "Operating Expenses Refund",
+                        name: "oer",
+                      },
+                    ].map((ele, index) => (
+                      <div class="d-flex gap-4 align-items-center">
+                        <div class="form-floating add_employee_width">
+                          <input
+                            type="text"
+                            id={ele.name}
+                            name={ele.name}
+                            class="form-input"
+                            placeholder=""
+                            disabled
+                          />
+                          <label for={ele.name}>{ele.label} </label>
+                        </div>
+                        <div
+                          class="d-flex gap-2 px-2 border rounded"
+                          style="padding-top: 10px; padding-bottom: 10px;"
+                        >
+                          <button
+                            class="border-0 edit-button"
+                            style="background-color: inherit;"
+                            type="button"
+                          >
+                            <img src="images/png/icons/padlock.svg" alt="" />
+                          </button>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">Withdrawals</div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <div>
+                <div class="d-flex gap-3 align-items-center mb-3">
+                  <div class="fs-14 fw-600">Cost of Goods Sold (COGS)</div>
+                  <div
+                    class=""
+                    data-bs-html="true"
+                    data-bs-placement="right"
+                    data-bs-toggle="tooltip"
+                    data-bs-custom-class="tooltip-left-align tooltip-width"
+                    title="<div class='fs-12'>
+                        🛈 You may add, edit, or delete custom sub-sub-categories here
+                        </div>"
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img src="images/png/icons/info.svg" alt="info" />
+                  </div>
+                </div>
+
+                <div class="d-flex flex-column gap-4">
+                  {
+                    [
+                      {
+                        label: "Recruitment",
+                        name: "Recruitment",
+                      },
+                      {
+                        label: "Staff Outsourcing",
+                        name: "so",
+                      },
+                      {
+                        label: "Business Process Outsourcing",
+                        name: "bpo",
+                      },
+                      {
+                        label: "Virtual Assistant",
+                        name: "va",
+                      },
+                      {
+                        label: "HRPayHub",
+                        name: "HRPayHub",
+                      },
+                      {
+                        label: "IT Training",
+                        name: "itt",
+                      },
+                      {
+                        label: "Job Site",
+                        name: "js",
+                      },
+                      {
+                        label: "Consulting",
+                        name: "consulting",
+                      },
+                      {
+                        label: "ATM Accessories",
+                        name: "ata",
+                      },
+                      {
+                        label: "Other COGS",
+                        name: "ocogs",
+                      },
+                    ].map((ele, index) => (
+                      <div class="d-flex gap-4 align-items-center">
+                        <div class="form-floating add_employee_width">
+                          <input
+                            type="text"
+                            id={ele.name}
+                            name={ele.name}
+                            class="form-input"
+                            placeholder=""
+                          />
+                          <label for={ele.name}>{ele.label} </label>
+                        </div>
+                        <div
+                          class="d-flex gap-2 px-2 border rounded"
+                          style="padding-top: 10px; padding-bottom: 10px;"
+                        >
+                          <button
+                            class="border-0 edit-button"
+                            style="background-color: inherit;"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#myModal"
+                            data-title={"Edit" + " " + ele.label}
+                            data-emp-type={ele.label}
+                          >
+                            <img src="images/png/icons/edit-2.svg" alt="" />
+                          </button>
+                          <button
+                            class="border-0"
+                            style="background-color: inherit;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#deleteModal"
+                          >
+                            <img
+                              src="images/png/icons/colored/delete.svg"
+                              alt=""
+                            />
+                          </button>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <div>
+                <button
+                  class="white_button fs-14 p-0 d-flex gap-2 align-items-center"
+                  style="border: 0px !important;"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#myModal"
+                  data-title="Add New"
+                  data-emp-type="---------"
+                >
+                  <span class="text-dark">Add New </span>
+                  <img src="images/png/icons/add-square.svg" alt="add new" />
+                </button>
+              </div>
+
+              <div>
+                <div class="d-flex gap-3 align-items-center mb-3">
+                  <div class="fs-14 fw-600">Non-Expense Withdrawal</div>
+                  <div
+                    class=""
+                    data-bs-html="true"
+                    data-bs-placement="right"
+                    data-bs-toggle="tooltip"
+                    data-bs-custom-class="tooltip-left-align tooltip-width"
+                    title="<div class='fs-12'>
+                        	🛈 Why Non-Expense Withdrawals Categories Are Locked<br />
+                            To ensure compliance and consistency in financial reporting, sub-sub-categories  under Non-Expense withdrawals are system-defined and cannot be added, edited, or deleted.
+                        </div>"
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img src="images/png/icons/info.svg" alt="info" />
+                  </div>
+                </div>
+
+                <div class="d-flex flex-column gap-4">
+                  {
+                    [
+                      {
+                        label: "Interest Cost",
+                        name: "ic",
+                      },
+                      {
+                        label: "Loan Given Out",
+                        name: "lgo",
+                      },
+                      {
+                        label: "Loan Repaid",
+                        name: "lr",
+                      },
+                      {
+                        label: "Revenue Refund",
+                        name: "rr",
+                      },
+                    ].map((ele, index) => (
+                      <div class="d-flex gap-4 align-items-center">
+                        <div class="form-floating add_employee_width">
+                          <input
+                            type="text"
+                            id={ele.name}
+                            name={ele.name}
+                            class="form-input"
+                            placeholder=""
+                            disabled
+                          />
+                          <label for={ele.name}>{ele.label} </label>
+                        </div>
+                        <div
+                          class="d-flex gap-2 px-2 border rounded"
+                          style="padding-top: 10px; padding-bottom: 10px;"
+                        >
+                          <button
+                            class="border-0 edit-button"
+                            style="background-color: inherit;"
+                            type="button"
+                          >
+                            <img src="images/png/icons/padlock.svg" alt="" />
+                          </button>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <div>
+                <button
+                  class="white_button fs-14 p-0 d-flex gap-2 align-items-center"
+                  style="border: 0px !important;"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#myModal"
+                  data-title="Add New"
+                  data-emp-type="---------"
+                >
+                  <span class="text-dark">Add New </span>
+                  <img src="images/png/icons/add-square.svg" alt="add new" />
+                </button>
+              </div>
+
+              <div>
+                <div class="d-flex gap-3 align-items-center mb-3">
+                  <div class="fs-14 fw-600">Operating Expenses</div>
+                  <div
+                    class=""
+                    data-bs-html="true"
+                    data-bs-placement="right"
+                    data-bs-toggle="tooltip"
+                    data-bs-custom-class="tooltip-left-align tooltip-width"
+                    title="<div class='fs-12'>
+                        🛈 You may add, edit, or delete custom sub-sub-categories here
+                        </div>"
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img src="images/png/icons/info.svg" alt="info" />
+                  </div>
+                </div>
+
+                <div class="d-flex flex-column gap-4">
+                  {
+                    [
+                      {
+                        label: "Fuel – Petrol (Nissan)",
+                        name: "fuel-nissan",
+                      },
+                      {
+                        label: "Fuel – Petrol (Toyota)",
+                        name: "fuel-toyo",
+                      },
+                      {
+                        label: "Fuel – Petrol (Generator-Oloke, Ibara, Ipaja)",
+                        name: "fuel-gen",
+                      },
+                      {
+                        label: "Health Insurance",
+                        name: "hi",
+                      },
+                      {
+                        label: "Vehicle Insurance",
+                        name: "Vehicle",
+                      },
+                      {
+                        label: "Government Charges and Dues",
+                        name: "gcd",
+                      },
+                      {
+                        label: "Transport and Logistics",
+                        name: "tal",
+                      },
+                      {
+                        label: "Professional Fees",
+                        name: "pf",
+                      },
+                      {
+                        label: "PAYE to LIRS",
+                        name: "ptl",
+                      },
+                      {
+                        label: "PAYE to OGIRS",
+                        name: "pto",
+                      },
+                      {
+                        label: "Salaries",
+                        name: "salaries",
+                      },
+                      {
+                        label:
+                          "Communication (Phone, Internet, EO Phone+Internet)",
+                        name: "Communication",
+                      },
+                      {
+                        label: "Rent",
+                        name: "rent",
+                      },
+                      {
+                        label: "Repair and Maintenance (Hardware, Software)",
+                        name: "repair",
+                      },
+                      {
+                        label: "Office Supplies",
+                        name: "office_supplies",
+                      },
+                      {
+                        label: "Adverts and Promotion",
+                        name: "ad_pro",
+                      },
+                      {
+                        label: "Education and Training",
+                        name: "edu_train",
+                      },
+                      {
+                        label: "Lodgings",
+                        name: "lodging",
+                      },
+                      {
+                        label: "Bank Charges",
+                        name: "bank_charges",
+                      },
+                      {
+                        label: "Software Hosting and Support",
+                        name: "software",
+                      },
+                      {
+                        label: "Software Service",
+                        name: "software_ser",
+                      },
+                    ].map((ele, index) => (
+                      <div class="d-flex gap-4 align-items-center">
+                        <div class="form-floating add_employee_width">
+                          <input
+                            type="text"
+                            id={ele.name}
+                            name={ele.name}
+                            class="form-input"
+                            placeholder=""
+                          />
+                          <label for={ele.name}>{ele.label} </label>
+                        </div>
+                        <div
+                          class="d-flex gap-2 px-2 border rounded"
+                          style="padding-top: 10px; padding-bottom: 10px;"
+                        >
+                          <button
+                            class="border-0 edit-button"
+                            style="background-color: inherit;"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#myModal"
+                            data-title={"Edit" + " " + ele.label}
+                            data-emp-type="{ele.emp_type}"
+                          >
+                            <img src="images/png/icons/edit-2.svg" alt="" />
+                          </button>
+                          <button
+                            class="border-0"
+                            style="background-color: inherit;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#deleteModal"
+                          >
+                            <img
+                              src="images/png/icons/colored/delete.svg"
+                              alt=""
+                            />
+                          </button>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <div>
+                <button
+                  class="white_button fs-14 p-0 d-flex gap-2 align-items-center"
+                  style="border: 0px !important;"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#myModal"
+                  data-title="Add New"
+                  data-emp-type="---------"
+                >
+                  <span class="text-dark">Add New </span>
+                  <img src="images/png/icons/add-square.svg" alt="add new" />
+                </button>
+              </div>
+
+              <div>
+                <div class="d-flex gap-3 align-items-center mb-3">
+                  <div class="fs-14 fw-600">Asset</div>
+                  <div
+                    class=""
+                    data-bs-html="true"
+                    data-bs-placement="right"
+                    data-bs-toggle="tooltip"
+                    data-bs-custom-class="tooltip-left-align tooltip-width"
+                    title="<div class='fs-12'>
+                        	🛈 Why Asset Categories Are Locked<br />
+                            To ensure compliance and consistency in financial reporting, sub-sub-categories under Asset are system-defined and cannot be added, edited, or deleted.
+                        </div>"
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img src="images/png/icons/info.svg" alt="info" />
+                  </div>
+                </div>
+
+                <div class="d-flex flex-column gap-4">
+                  {
+                    [
+                      {
+                        label: "Furniture",
+                        name: "furniture",
+                      },
+                      {
+                        label: "Vehicle",
+                        name: "Vehicle",
+                      },
+                      {
+                        label: "Computers New",
+                        name: "coputers",
+                      },
+                      {
+                        label: "Computer Old",
+                        name: "Computer_Old",
+                      },
+                      {
+                        label: "Computer Accessories",
+                        name: "Computer_Accessories",
+                      },
+                      {
+                        label: "Building",
+                        name: "building",
+                      },
+                      {
+                        label: "Office Equipment",
+                        name: "office_equp",
+                      },
+                      {
+                        label: "Plant and Machinery",
+                        name: "plant_a",
+                      },
+                      {
+                        label: "Leasehold Improvements",
+                        name: "leasehold",
+                      },
+                      {
+                        label: "Fixtures and Fittings",
+                        name: "fixtures",
+                      },
+                      {
+                        label: "Software Outright Purchase",
+                        name: "software",
+                      },
+                      {
+                        label: "Other",
+                        name: "other",
+                      },
+                    ].map((ele, index) => (
+                      <div class="d-flex gap-4 align-items-center">
+                        <div class="form-floating add_employee_width">
+                          <input
+                            type="text"
+                            id={ele.name}
+                            name={ele.name}
+                            class="form-input"
+                            placeholder=""
+                            disabled
+                          />
+                          <label for={ele.name}>{ele.label} </label>
+                        </div>
+                        <div
+                          class="d-flex gap-2 px-2 border rounded"
+                          style="padding-top: 10px; padding-bottom: 10px;"
+                        >
+                          <button
+                            class="border-0 edit-button"
+                            style="background-color: inherit;"
+                            type="button"
+                          >
+                            <img src="images/png/icons/padlock.svg" alt="" />
+                          </button>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <!---- submit ---->
+              <div class="d-flex justify-content-start add_employee_width">
+                <button
+                  type="submit"
+                  id="upload"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                >
+                  <span>Save</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+
+      <ModalAddNew
+        modalId="myModal"
+        title={"Add Employee Type"}
+        inputPlace="Transaction"
+      />
+      <DeleteModal modalId="deleteModal" title="Financial" />
+
+      <!---- end of Modal --->
+    </section>
+  </main>
+
+  <script is:inline type="text/javascript">
+    // Handle opening the modal
+    document
+      .querySelectorAll('[data-bs-target="#myModal"]')
+      .forEach((button) => {
+        button.addEventListener("click", function () {
+          const modalTitle =
+            this.getAttribute("data-title") || "Add Employee Type";
+          const empType = this.getAttribute("data-emp-type") || "Input";
+
+          // Update modal title
+          const modalTitleElement = document.getElementById("modalTitle");
+          if (modalTitleElement) {
+            modalTitleElement.textContent = modalTitle;
+          }
+
+          // Update input field
+          const employeeStatusInput = document.getElementById("financial");
+          if (employeeStatusInput) {
+            employeeStatusInput.textContent = empType;
+          }
+        });
+      });
+  </script>
+</Layout>
+<!-- Main content ends here -->

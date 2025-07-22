@@ -171,7 +171,7 @@ import Sent from "../components/emails/Sent.astro";
         >
           <div class="flex-grow-1">
             <input
-              type="text"
+              type="email"
               class="form-control border-0"
               placeholder="Recipients"
             />
@@ -187,31 +187,31 @@ import Sent from "../components/emails/Sent.astro";
           id="Cc_field"
         >
           <div class="flex-grow-1">
-          <input
-            type="text"
-            class="form-control border-0"
-            placeholder="Cc"
-          />
-        </div>
-            <div >
-              <span role="button" class="fw-700 pe-3" id="closeCc">x</span>
-            </div>
+            <input
+              type="email"
+              class="form-control border-0"
+              placeholder="Cc"
+            />
           </div>
-        
+          <div>
+            <span role="button" class="fw-700 pe-3" id="closeCc">x</span>
+          </div>
+        </div>
+
         <div
           class="d-flex justify-content-between gap-3 mb-2 pb-2 border-0 border-bottom d-none"
           id="Bcc_field"
         >
-        <div class="flex-grow-1">
-          <input
-            type="text"
-            class="form-control border-0"
-            placeholder="Bcc"
-          />
-        </div>
-          <div >
-              <span role="button" class="fw-700 pe-3" id="closeBcc">x</span>
-            </div>
+          <div class="flex-grow-1">
+            <input
+              type="email"
+              class="form-control border-0"
+              placeholder="Bcc"
+            />
+          </div>
+          <div>
+            <span role="button" class="fw-700 pe-3" id="closeBcc">x</span>
+          </div>
         </div>
 
         <div class="mb-3">
@@ -222,7 +222,7 @@ import Sent from "../components/emails/Sent.astro";
             id="emailSubject"
           />
         </div>
-        
+
         <div class="mb-3">
           <textarea
             class="form-control border-0 fs-14"
@@ -231,32 +231,28 @@ import Sent from "../components/emails/Sent.astro";
             id="emailBody"></textarea>
         </div>
 
-        
         <div class="d-flex justify-content-between w-50 py-2 my-3">
-                    <div id="filePreviewList" class="d-flex flex-column gap-2">
-  <!-- Files will be added here -->
-</div>
-
-                  </div>
+          <div id="filePreviewList" class="d-flex flex-column gap-2">
+            <!-- Files will be added here -->
+          </div>
+        </div>
 
         <div class="d-flex gap-3 align-items-center">
           <div class="d-flex align-items-center gap-3">
             <button class="btn bg-primary-blue text-white">Send</button>
             <div class="d-flex align-items-center">
-
               <img
                 role="button"
                 src="images/png/icons/attached-icon.svg"
                 alt="attached icon"
-                
-                />
+                id="attachedFile"
+              />
               <input
                 type="file"
                 id="fileInput"
                 multiple
                 style="display: none;"
               />
-
             </div>
           </div>
           <img role="button" src="images/png/icons/colored/delete.svg" alt="" />
@@ -311,38 +307,39 @@ import Sent from "../components/emails/Sent.astro";
       // file input functionality
 
       const attachedFileIcon = document.getElementById("attachedFile");
-    const fileInput = document.getElementById("fileInput");
-    const filePreviewList = document.getElementById("filePreviewList");
+      const fileInput = document.getElementById("fileInput");
+      const filePreviewList = document.getElementById("filePreviewList");
 
-    let attachedFiles = [];
+      let attachedFiles = [];
 
-    attachedFileIcon.addEventListener("click", () => {
-      fileInput.click();
-    });
-
-    fileInput.addEventListener("change", () => {
-      const files = Array.from(fileInput.files);
-
-      // Add only unique files by name (you can use a stronger check)
-      files.forEach((file) => {
-        if (!attachedFiles.find((f) => f.name === file.name)) {
-          attachedFiles.push(file);
-        }
+      attachedFileIcon.addEventListener("click", () => {
+        fileInput.click();
       });
 
-      renderFilePreview();
-      // Clear the file input so the same file can be selected again
-      fileInput.value = "";
-    });
+      fileInput.addEventListener("change", () => {
+        const files = Array.from(fileInput.files);
 
-    function renderFilePreview() {
-      filePreviewList.innerHTML = "";
+        // Add only unique files by name (you can use a stronger check)
+        files.forEach((file) => {
+          if (!attachedFiles.find((f) => f.name === file.name)) {
+            attachedFiles.push(file);
+          }
+        });
 
-      attachedFiles.forEach((file, index) => {
-        const fileItem = document.createElement("div");
-        fileItem.className = "d-flex justify-content-between align-items-center border p-2 rounded bg-light";
+        renderFilePreview();
+        // Clear the file input so the same file can be selected again
+        fileInput.value = "";
+      });
 
-        fileItem.innerHTML = `
+      function renderFilePreview() {
+        filePreviewList.innerHTML = "";
+
+        attachedFiles.forEach((file, index) => {
+          const fileItem = document.createElement("div");
+          fileItem.className =
+            "d-flex justify-content-between align-items-center border p-2 rounded bg-light";
+
+          fileItem.innerHTML = `
           <div class="d-flex align-items-center gap-2">
             <img src="images/png/icons/document-2.svg" alt="file" />
             <span class="fs-12">${file.name}</span>
@@ -352,24 +349,22 @@ import Sent from "../components/emails/Sent.astro";
           </button>
         `;
 
-        filePreviewList.appendChild(fileItem);
-      });
-
-      // Attach remove event
-      document.querySelectorAll(".removeFile").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          const index = e.currentTarget.dataset.index;
-          attachedFiles.splice(index, 1);
-          renderFilePreview();
+          filePreviewList.appendChild(fileItem);
         });
-      });
-    }
+
+        // Attach remove event
+        document.querySelectorAll(".removeFile").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            const index = e.currentTarget.dataset.index;
+            attachedFiles.splice(index, 1);
+            renderFilePreview();
+          });
+        });
+      }
     });
   </script>
   <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
-      
-
       $("#Cc_field").addClass("d-none");
       $("#Bcc_field").addClass("d-none");
 
