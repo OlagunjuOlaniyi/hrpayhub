@@ -1,0 +1,176 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: WHT Remittance Report">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/reports-ng"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/financial-reports-and-analytics"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/financial-reports-and-analytics-ng"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics - NG</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/reports-ng"
+              class="fs-14 text-decoration-none text-primary-dark">Reports</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold font-nunito-bold text-primary-blue"
+              >WHT Remittance Report</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4" id="manage_report">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Setup --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  WHT Remittance Report
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+              <form
+                class="vstack"
+                style="gap: 2.3rem"
+                id="generate_report_form"
+              >
+                <div
+                  class="d-flex justify-content-between gap-3 add_employee_width"
+                >
+                  <div class="form-floating add_employee_width">
+                    <input
+                      type="date"
+                      id="start_date"
+                      name="start_date"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="start_date"
+                      >Start Date &nbsp;<span>*</span></label
+                    >
+                  </div>
+                  <div class="form-floating add_employee_width">
+                    <input
+                      type="date"
+                      id="end_date"
+                      name="end_date"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="end_date">End Date &nbsp;<span>*</span></label>
+                  </div>
+                </div>
+
+                <!---- submit ---->
+                <div class="d-flex justify-content-start add_employee_width">
+                  <button
+                    type="submit"
+                    id="upload"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                  >
+                    <span>Generate </span>
+                  </button>
+                </div>
+
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="irs_office"
+                    name="irs_office"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="irs_office">IRS Office Listing </label>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="wht_due"
+                    name="wht_due"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="wht_due">WHT Due for Remittance </label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+  </main>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      $("#fileInputBtn").click((evt) => {
+        $("#fileInput").click();
+      });
+
+      $("#toggleSwitch").on("change", function () {
+        if ($(this).is(":checked")) {
+          $("#period").removeClass("d-none");
+        } else {
+          $("#period").addClass("d-none");
+        }
+      });
+    });
+  </script>
+</Layout>
+<!-- Main content ends here -->

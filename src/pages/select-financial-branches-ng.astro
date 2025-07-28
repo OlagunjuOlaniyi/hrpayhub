@@ -1,0 +1,128 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: Select Financial Branches">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/branch-financial-reports-and-analytics-ng"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/financial-reports-and-analytics"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/branch-financial-reports-and-analytics-ng"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Branch Financial Reports & Analytics - NG</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Select Financial Branches</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Setup --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Select Financial Branches
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+
+              <div class="form-floating add_employee_width">
+                <select
+                  id="fin_branches"
+                  name="fin_branches"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected>Select</option>
+                  <option value="1">Ikeja</option>
+                  <option value="2">Yaba</option>
+                  <option value="3">Ikoyi</option>
+                  <option value="4">Branch 4</option>
+                  <option value="5">Branch 5</option>
+                  <option value="16">Other </option>
+                </select>
+                <label for="fin_branches"
+                  >Select Financial Branches &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <!---- submit ---->
+              <div class="d-flex justify-content-start add_employee_width">
+                <button
+                  type="submit"
+                  id="upload"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                >
+                  <span>Save</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+  </main>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      $("#fileInputBtn").click((evt) => {
+        $("#fileInput").click();
+      });
+    });
+  </script>
+</Layout>
+<!-- Main content ends here -->

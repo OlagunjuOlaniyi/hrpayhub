@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: Email Management">
+<Layout title="HRPayHub :: Reports">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="document-management"
+            href="/financial-reports-and-analytics-ng"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -30,15 +30,25 @@ import Layout from "../layouts/Layout.astro";
               alt="angle-right-back"
             />
             <a
-              href="/document-management"
+              href="/financial-reports-and-analytics"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Document Management</a
+              >Financial Reports & Analytics</a
             >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue">Email Management</span
+            <a
+              href="/financial-reports-and-analytics-ng"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics - NG</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold font-nunito-bold text-primary-blue"
+              >Reports</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -56,19 +66,17 @@ import Layout from "../layouts/Layout.astro";
           <div class="vstack gap-2">
             <div class="d-flex gap-3 align-items-center">
               <img
-                src="images/png/icons/colored/folder-2-colored.svg"
+                src="images/png/icons/financial.svg"
                 alt="receipt-minus-icon"
                 width="30px"
                 height="30px"
               />
               <span
                 class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Email Management</span
+                >Reports</span
               >
             </div>
-            <div class="fw-bold">
-              Send, receive, and schedule emails internally or externally
-            </div>
+            <div class="fw-bold">Lorem Ipsum</div>
           </div>
           {/* Page Title */}
 
@@ -77,31 +85,64 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Internal Emails",
-                  desc: "View, send, and reply to emails from HR and colleagues",
-                  url: "/internal-emails",
+                  title: "P&L Reports",
+                  desc: "View profit & loss with period comparison option",
+                  url: "/pl-reports-ng",
+                  src: "images/png/icons/financial.svg",
                 },
                 {
-                  title: "Configure and Manage External Emails",
-                  desc: "Configure and send external emails to candidates and external contacts.",
-                  url: "/configure-and-manage-external-emails",
+                  title: "P & L Report with Depreciation Add-Back",
+                  desc: "View P&L with depreciation excluded for tax",
+                  url: "/pl-reports-depreciation-addback-ng",
+                  src: "images/png/icons/financial.svg",
+                },
+                {
+                  title: "Asset Depreciation Report",
+                  desc: "Track asset depreciation over any period",
+                  url: "/asset-depreciation-report-ng",
+                  src: "images/png/icons/financial.svg",
+                },
+                {
+                  title: "VAT Remittance Report",
+                  desc: "Summarize VAT input/output and tax liability",
+                  url: "/vat-remittance-report-ng",
+                  src: "images/png/icons/financial.svg",
+                },
+                {
+                  title: "WHT Remittance Report",
+                  desc: "List WHT owed to FIRS and State IRS offices",
+                  url: "/wht-remittance-report-ng",
+                  src: "images/png/icons/financial.svg",
+                },
+                {
+                  title: "WHT Receivables Report",
+                  desc: "List WHT withheld by clients and receivable",
+                  url: "/wht-receivables-report-ng",
+                  src: "images/png/icons/financial.svg",
+                },
+                {
+                  title: "Balance Sheet Report",
+                  desc: "Display assets, liabilities, and equity status",
+                  url: "/balance-sheet-report-ng",
+                  src: "images/png/icons/financial.svg",
                 },
               ].map((ele) => (
                 <div
                   class="col-4 p-2 payslip-card-panel"
-                  style="width: 370px"
+                  style="width: 350px"
                   role="button"
                   title={ele.title}
                   data-url={ele.url}
                 >
-                  <div class="shadow p-3 px-2 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
+                  <div class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
                     <div class="vstack gap-2 d-flex flex-column align-items-center">
                       <img
-                        src="images/png/icons/colored/folder-2-colored.svg"
+                        src={ele.src}
                         alt="receipt-minus-icon"
                         width="30px"
                         height="30px"
                       />
+
                       <div class="fw-bold fs-18 font-ubuntu-bold text-primary-blue">
                         {ele.title}
                       </div>
@@ -109,7 +150,7 @@ import Layout from "../layouts/Layout.astro";
 
                     <div
                       class="fw-600 fs-16"
-                      style="width: 90%; margin: 0 auto"
+                      style="width: 80%; margin: 0 auto"
                     >
                       {ele.desc}
                     </div>

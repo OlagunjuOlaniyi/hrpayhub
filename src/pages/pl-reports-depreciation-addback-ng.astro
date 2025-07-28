@@ -1,0 +1,562 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: P & L Report with Depreciation Add-Back">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/reports-ng"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/financial-reports-and-analytics"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/financial-reports-and-analytics-ng"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics - NG</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/reports-ng"
+              class="fs-14 text-decoration-none text-primary-dark">Reports</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >P & L Report with Depreciation Add-Back</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4" id="manage_report">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Setup --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  P & L Report with Depreciation Add-Back
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+              <form
+                class="vstack"
+                style="gap: 2.3rem"
+                id="generate_report_form"
+              >
+                <div
+                  class="d-flex justify-content-between gap-3 add_employee_width"
+                >
+                  <div class="form-floating add_employee_width">
+                    <input
+                      type="text"
+                      id="start_date"
+                      name="start_date"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="start_date"
+                      >Start Date &nbsp;<span>*</span></label
+                    >
+                  </div>
+                  <div class="form-floating add_employee_width">
+                    <input
+                      type="text"
+                      id="end_date"
+                      name="end_date"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="end_date">End Date &nbsp;<span>*</span></label>
+                  </div>
+                </div>
+
+                <div class="d-flex gap-3 align-items-center">
+                  <div
+                    class="d-flex gap-4 align-items-center add_employee_width"
+                  >
+                    <span class="fs-14">Enable Period Comparison</span>
+                    <div
+                      role="button"
+                      class="form-check form-switch switchForDeductionsFields"
+                      style="margin-top: 5px; cursor: pointer"
+                    >
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="toggleSwitch"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class=""
+                    data-bs-html="true"
+                    data-bs-placement="right"
+                    data-bs-toggle="tooltip"
+                    data-bs-custom-class="tooltip-left-align tooltip-width"
+                    title="<div class='fs-12'>🛈 '
+                  Turn this on to compare financial results across two or more time periods side by side.'
+                  </div>
+                  "
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img src="images/png/icons/info.svg" alt="info" />
+                  </div>
+                </div>
+
+                <div
+                  id="period"
+                  class="d-flex justify-content-between gap-3 add_employee_width d-none"
+                >
+                  <div class="form-floating add_employee_width">
+                    <input
+                      type="text"
+                      id="start_date"
+                      name="start_date"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="start_date"
+                      >Start Date &nbsp;<span>*</span></label
+                    >
+                  </div>
+                  <div class="form-floating add_employee_width">
+                    <input
+                      type="text"
+                      id="end_date"
+                      name="end_date"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="end_date">End Date &nbsp;<span>*</span></label>
+                  </div>
+                </div>
+
+                <!---- submit ---->
+                <div class="d-flex justify-content-start add_employee_width">
+                  <button
+                    type="submit"
+                    id="upload"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                  >
+                    <span>Generate Report</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+
+    <section class="px-4 d-none" id="view_report">
+      <div class="screenFrame">
+        <div class="d-flex flex-column justify-content-between">
+          <div
+            class="rounded-4 shadow p-4 d-flex flex-column gap-5 px-md-5 px-3"
+            style={{ flexBasis: "auto" }}
+          >
+            {/* Page Content Box */}
+            <div class="vstack gap-4">
+              <div class="d-flex align-items-center justify-content-end gap-4">
+                <button
+                  id="back_to_manage_report"
+                  class="delon-primary-btn bg-white text-primary-blue border-primary-blue text-decoration-none text-white fw-bold fs-14"
+                >
+                  Back
+                </button>
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-53,10"
+                  >
+                    <span>Actions</span>
+                    <img
+                      src="images/png/icons/arrow-down.svg"
+                      alt="arrow-down"
+                    />
+                  </button>
+                  <div
+                    class="dropdown-menu p-0 border-0"
+                    style={{ width: "auto" }}
+                  >
+                    <ul class="list-group border-0 fw-600 fs-14 text-nowrap">
+                      <li class="list-group-item">
+                        <div
+                          role="button"
+                          class="d-flex align-items-center gap-2"
+                        >
+                          <img
+                            src="images/png/icons/printer.svg"
+                            alt="printer"
+                          />
+                          <span>Print Report</span>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div
+                          role="button"
+                          class="d-flex align-items-center gap-2"
+                        >
+                          <img
+                            src="images/png/icons/hard-drive-download.svg"
+                            alt="hard-drive-download"
+                          />
+                          <span>Download Report</span>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div
+                          role="button"
+                          class="d-flex align-items-center gap-2"
+                        >
+                          <img
+                            src="images/png/icons/at-sign.svg"
+                            alt="at-sign"
+                          />
+                          <span>Email Report</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* <!-- Table section --> */}
+              <div class="table-responsive w-full">
+                <table
+                  class="table table-bordered payslip_table"
+                  style={{ tableLayout: "auto", minWidth: "100%" }}
+                >
+                  <tbody>
+                    {/* <!-- Table Header --> */}
+                    <tr>
+                      <td
+                        colspan="2"
+                        class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
+                      >
+                        P & L Report with Depreciation Add-Back (25-05-2025 to
+                        30-05-2025)
+                      </td>
+                    </tr>
+
+                    <tr>
+                      {/* <!-- White Space Row --> */}
+                      <td
+                        style={{ border: "0" }}
+                        colspan="2"
+                        class="bg-white px-4 px-12px fw-bold fs-14"
+                      >
+                        &nbsp;
+                      </td>
+                    </tr>
+
+                    {/* <!-- White Space Row --> */}
+                    {/* <!-- Table Header --> */}
+
+                    {/* <!-- Table Section Header --> */}
+                    <tr>
+                      <td
+                        style={{ border: "0" }}
+                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                      >
+                        Description
+                      </td>
+                      <td
+                        style={{ border: "0" }}
+                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                      >
+                        Amount
+                      </td>
+                    </tr>
+                    {/* <!-- Table Section Header --> */}
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Revenue
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Sum of all revenue sub-totals
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Less: Cost of Goods Sold (COGS)
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Sum of all COGS sub-totals minus sum of COGS refunds
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Gross Profit
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Revenue – COGS
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        &nbsp;
+                      </td>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        Less: Operating Expenses
+                      </td>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        - Operating Expenses
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Total of all Operating Expenses sub-sub-categories
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        - Depreciation
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Total depreciation on assets
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        &nbsp;
+                      </td>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        &nbsp;
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Operating Expenses
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Operating Expenses + Depreciation
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Operating Income (EBIT)
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Gross Profit – Operating Expenses
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Less: Interest
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Total interest amount
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Earnings Before Taxes (EBT)
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        EBIT – Interest
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Taxes
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Gross Pay To Date:
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Net Income
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        EBT - Taxes
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              {/* <!-- Table section --> */}
+            </div>
+            {/* Page Content Box */}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      document
+        .getElementById("generate_report_form")
+        ?.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          $("#view_report").addClass("d-none");
+          const submitBtn = e.target.querySelector("button");
+
+          submitBtn.innerHTML = `
+                        <span>
+                            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span role="status">Loading...</span>
+                        </span>
+                    `;
+          submitBtn.disabled = true;
+
+          setTimeout(() => {
+            submitBtn.innerHTML = `
+                            <span>Generate</span>
+                        `;
+            submitBtn.disabled = false;
+            $("#manage_report").addClass("d-none");
+            $("#view_report").removeClass("d-none");
+          }, 1000);
+        });
+
+      $("#back_to_manage_report").click((evt) => {
+        $("#view_report").addClass("d-none");
+        $("#manage_report").removeClass("d-none");
+      });
+
+      $("#fileInputBtn").click((evt) => {
+        $("#fileInput").click();
+      });
+
+      $("#toggleSwitch").on("change", function () {
+        if ($(this).is(":checked")) {
+          $("#period").removeClass("d-none");
+        } else {
+          $("#period").addClass("d-none");
+        }
+      });
+    });
+  </script>
+</Layout>
+<!-- Main content ends here -->

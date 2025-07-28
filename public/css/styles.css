@@ -287,6 +287,8 @@ input.no_focus:focus {
 .delon-primary-btn {
   padding: 10px 20px;
   border-radius: 10px;
+  font-family: "Nunito-Bold";
+  font-size: 12px !important;
 }
 
 .delon-primary-btn:disabled {
@@ -347,6 +349,7 @@ input.no_focus:focus {
   transform: translateY(-50%);
   color: #989898;
   font-size: 14px;
+  font-family: "Nunito";
   font-weight: 600;
   pointer-events: none;
   transition: 0.2s ease all;
@@ -618,6 +621,27 @@ input.no_focus:focus {
 
 /* Fonts */
 
+/* ------- Acme ------- */
+@font-face {
+  font-family: "Acme";
+  src: url("../fonts/Acme/Acme-Regular.ttf") format("truetype");
+  /* font-weight: 700; */
+  font-style: normal;
+}
+
+/* ------- Nunito ------- */
+@font-face {
+  font-family: "Nunito-Bold";
+  src: url("../fonts/Nunito/Nunito-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/Nunito/Nunito-Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
 /* ------- Avenir ------- */
 @font-face {
   font-family: "Avenir";
@@ -664,7 +688,8 @@ input.no_focus:focus {
 
 body {
   --primary-dark-text: #202020;
-  font-family: "Avenir", sans-serif !important;
+  font-family: "Nunito", sans-serif !important;
+
   color: var(--primary-dark-text);
 }
 
@@ -692,8 +717,27 @@ body {
   font-weight: normal;
 }
 
+.font-acme-bold {
+  font-family: "Acme";
+  font-weight: 700;
+}
+.font-acme {
+  font-family: "Acme";
+  font-weight: 400;
+}
+
+.font-nunito-bold {
+  font-family: "Nunito-Bold";
+  font-weight: 700;
+}
+.font-nunito {
+  font-family: "Nunito";
+  font-weight: 700;
+}
+
 .initialize {
   width: 30px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 /* Fonts */

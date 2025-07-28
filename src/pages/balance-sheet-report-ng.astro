@@ -1,0 +1,967 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import DeleteModal from "../components/ui/DeleteModal.astro";
+---
+
+<Layout title="HRPayHub :: Balance Sheet Report">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/financial-setup-ng"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/fnancial-reports-and-analytics"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/fnancial-reports-and-analytics-ng"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics - NG</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/reports-ng"
+              class="fs-14 text-decoration-none text-primary-dark">Reports</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold font-nunito-bold text-primary-blue"
+              >Balance Sheet Report</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4" id="manage_report">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <form
+                class="vstack"
+                style="gap: 2.3rem"
+                id="generate_report_form"
+              >
+                <!---- Setup --->
+                <div class="d-flex align-items-center gap-4 add_employee_width">
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    General Setup
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+
+                <!---- body ---->
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="date"
+                    id="start_date"
+                    name="start_date"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="start_date">Date &nbsp;<span>*</span></label>
+                </div>
+
+                <div class="d-flex align-items-center gap-4 add_employee_width">
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    Cash and Bank Balances
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+
+                <div
+                  class="d-flex flex-column gap-2 p-3 bg-light rounded add_employee_width"
+                >
+                  <div class="fs-14">Bank Balances</div>
+                  <div class="d-flex flex-column gap-4">
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="bank_name"
+                        name="bank_name"
+                        class="form-input bg-white"
+                        placeholder=""
+                      />
+                      <label for="bank_name">Enter Bank Name </label>
+                    </div>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="bank_bal"
+                        name="bank_bal"
+                        class="form-input bg-white"
+                        placeholder=""
+                      />
+                      <label for="bank_bal">Bank Balance </label>
+                    </div>
+                  </div>
+                  <div class="mt-3">
+                    <button
+                      class="white_button fs-14 p-0 d-flex gap-2 align-items-center"
+                      style="border: 0px !important;"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                      data-title="Add New"
+                      data-emp-type="---------"
+                    >
+                      <span class="text-dark">Add New </span>
+                      <img
+                        src="images/png/icons/add-square.svg"
+                        alt="add new"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="cash_on_hand"
+                    name="cash_on_hand"
+                    class="form-input bg-white"
+                    placeholder=""
+                  />
+                  <label for="cash_on_hand">Cash on Hand </label>
+                </div>
+                <div class="add_employee_width" style="position: relative;">
+                  <div class="form-floating add_employee_width">
+                    <input
+                      type="text"
+                      id="total_cash"
+                      name="total_cash"
+                      class="form-input bg-white"
+                      placeholder=""
+                    />
+                    <label for="total_cash">Total Cash </label>
+                  </div>
+                  <button
+                    type="button"
+                    class="bg-primary-blue rounded border-0 text-white fw-bold fs-14"
+                    style="position: absolute; right: 10px; top: 15px"
+                  >
+                    <span>Calculate </span>
+                  </button>
+                </div>
+
+                <!-- Account receivable -->
+                <div class="d-flex align-items-center gap-4 add_employee_width">
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    Accounts Receivable
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+
+                <div
+                  class="d-flex flex-column gap-2 p-3 bg-light rounded add_employee_width"
+                >
+                  <div class="fs-14">Receivable Entries</div>
+                  <div class="d-flex flex-column gap-4">
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="client_name"
+                        name="client_name"
+                        class="form-input bg-white"
+                        placeholder=""
+                      />
+                      <label for="client_name">Enter Client name </label>
+                    </div>
+                    <div class="form-floating">
+                      <textarea class="form-input" rows="2" id="description"
+                      ></textarea>
+                      <label for="description">Description of Service</label>
+                    </div>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="rec_amount"
+                        name="rec_amount"
+                        class="form-input bg-white"
+                        placeholder=""
+                      />
+                      <label for="rec_amount">Receivable Amount </label>
+                    </div>
+                  </div>
+                  <div class="mt-3">
+                    <button
+                      class="white_button fs-14 p-0 d-flex gap-2 align-items-center"
+                      style="border: 0px !important;"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                      data-title="Add New"
+                      data-emp-type="---------"
+                    >
+                      <span class="text-dark">Add New </span>
+                      <img
+                        src="images/png/icons/add-square.svg"
+                        alt="add new"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="total_receivable"
+                    name="total_receivable"
+                    class="form-input bg-white"
+                    placeholder=""
+                  />
+                  <label for="total_receivable"
+                    >Total Account Receivable
+                  </label>
+                </div>
+
+                <!-- Accounts Payable -->
+                <div class="d-flex align-items-center gap-4 add_employee_width">
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    Accounts Payable
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+
+                <div
+                  class="d-flex flex-column gap-2 p-3 bg-light rounded add_employee_width"
+                >
+                  <div class="fs-14">Payable Entries</div>
+                  <div class="d-flex flex-column gap-4">
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="client_name"
+                        name="client_name"
+                        class="form-input bg-white"
+                        placeholder=""
+                      />
+                      <label for="client_name">Enter vendor name </label>
+                    </div>
+                    <div class="form-floating">
+                      <textarea class="form-input" rows="2" id="description"
+                      ></textarea>
+                      <label for="description">Description of Service</label>
+                    </div>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="rec_amount"
+                        name="rec_amount"
+                        class="form-input bg-white"
+                        placeholder=""
+                      />
+                      <label for="rec_amount">Payable Amount </label>
+                    </div>
+                  </div>
+                  <div class="mt-3">
+                    <button
+                      class="white_button fs-14 p-0 d-flex gap-2 align-items-center"
+                      style="border: 0px !important;"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                      data-title="Add New"
+                      data-emp-type="---------"
+                    >
+                      <span class="text-dark">Add New </span>
+                      <img
+                        src="images/png/icons/add-square.svg"
+                        alt="add new"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="total_receivable"
+                    name="total_receivable"
+                    class="form-input bg-white"
+                    placeholder=""
+                  />
+                  <label for="total_receivable">Total Account Payable </label>
+                </div>
+
+                <!---- submit ---->
+                <div class="d-flex justify-content-start add_employee_width">
+                  <button
+                    type="submit"
+                    id="upload"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                  >
+                    <span>Generate Report</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+
+      <ModalAddNew
+        modalId="myModal"
+        title={"Add Employee Type"}
+        inputPlace="Transaction"
+      />
+      <DeleteModal modalId="deleteModal" title="Financial" />
+
+      <!---- end of Modal --->
+    </section>
+
+    <section class="px-4 d-none" id="view_report">
+      <div class="screenFrame">
+        <div class="d-flex flex-column justify-content-between">
+          <div
+            class="rounded-4 shadow p-4 d-flex flex-column gap-5 px-md-5 px-3"
+            style={{ flexBasis: "auto" }}
+          >
+            {/* Page Content Box */}
+            <div class="vstack gap-4">
+              <div class="d-flex align-items-center justify-content-end gap-4">
+                <button
+                  id="back_to_manage_report"
+                  class="delon-primary-btn bg-white text-primary-blue border-primary-blue text-decoration-none text-white fw-bold fs-14"
+                >
+                  Back
+                </button>
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-53,10"
+                  >
+                    <span>Actions</span>
+                    <img
+                      src="images/png/icons/arrow-down.svg"
+                      alt="arrow-down"
+                    />
+                  </button>
+                  <div
+                    class="dropdown-menu p-0 border-0"
+                    style={{ width: "auto" }}
+                  >
+                    <ul class="list-group border-0 fw-600 fs-14 text-nowrap">
+                      <li class="list-group-item">
+                        <div
+                          role="button"
+                          class="d-flex align-items-center gap-2"
+                        >
+                          <img
+                            src="images/png/icons/printer.svg"
+                            alt="printer"
+                          />
+                          <span>Print Report</span>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div
+                          role="button"
+                          class="d-flex align-items-center gap-2"
+                        >
+                          <img
+                            src="images/png/icons/hard-drive-download.svg"
+                            alt="hard-drive-download"
+                          />
+                          <span>Download Report</span>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div
+                          role="button"
+                          class="d-flex align-items-center gap-2"
+                        >
+                          <img
+                            src="images/png/icons/at-sign.svg"
+                            alt="at-sign"
+                          />
+                          <span>Email Report</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* <!-- Table section --> */}
+              <div class="table-responsive w-full">
+                <table
+                  class="table table-bordered payslip_table"
+                  style={{ tableLayout: "auto", minWidth: "100%" }}
+                >
+                  <tbody>
+                    {/* <!-- Table Header --> */}
+                    <tr>
+                      <td
+                        colspan="3"
+                        class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
+                      >
+                        Balance Sheet Report
+                      </td>
+                    </tr>
+
+                    <tr>
+                      {/* <!-- White Space Row --> */}
+                      <td
+                        style={{ border: "0" }}
+                        colspan="6"
+                        class="bg-white px-4 px-12px fw-bold fs-14"
+                      >
+                        &nbsp;
+                      </td>
+                    </tr>
+
+                    {/* <!-- White Space Row --> */}
+
+                    {/* <!-- Table Section Header --> */}
+                    <tr>
+                      <td
+                        colspan="3"
+                        class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
+                      >
+                        Assets
+                      </td>
+                    </tr>
+
+                    {/* <!-- Table Section Header --> */}
+                    <tr>
+                      <td
+                        style={{ border: "0" }}
+                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                      >
+                        Category
+                      </td>
+                      <td
+                        style={{ border: "0" }}
+                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                      >
+                        Details
+                      </td>
+                      <td
+                        style={{ border: "0" }}
+                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                      >
+                        Amount
+                      </td>
+                    </tr>
+                    {/* <!-- Table Section Header --> */}
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        colspan="3"
+                      >
+                        Current Assets
+                      </td>
+                    </tr>
+                    {
+                      [
+                        {
+                          date: "29 Jun 2025",
+                          client_name: "Cash",
+                          service: "Auto-fills from Total Cash",
+                          sub: "Lorem",
+                          vat_received: "Lorem",
+                          vat_withheld: "Lorem",
+                        },
+                        {
+                          date: "29 Jun 2025",
+                          client_name: "Accounts Receivable",
+                          service: "Auto-fills from Total Receivables",
+                          sub: "Lorem",
+                          vat_received: "Lorem",
+                          vat_withheld: "Lorem",
+                        },
+                        {
+                          date: "29 Jun 2025",
+                          client_name: "Total Current Assets",
+                          service: "Cash + Accounts Receivable",
+                          sub: "Lorem",
+                          vat_received: "Lorem",
+                          vat_withheld: "Lorem",
+                        },
+                      ].map((ele, index) => (
+                        <tr>
+                          <td
+                            class="text-black px-4 px-12px fs-14 text-nowrap"
+                            style={{ border: "0" }}
+                          >
+                            &nbsp;
+                          </td>
+                          <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                            {ele.client_name}
+                          </td>
+                          <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                            {ele.service}
+                          </td>
+                        </tr>
+                      ))
+                    }
+                    <tr>
+                      {/* <!-- White Space Row --> */}
+                      <td
+                        style={{ border: "0" }}
+                        colspan="3"
+                        class="bg-white px-4 px-12px fw-bold fs-14"
+                      >
+                        &nbsp;
+                      </td>
+                    </tr>
+
+                    {/* <!-- Table Section Header --> */}
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        colspan="3"
+                      >
+                        Non-Current Assets
+                      </td>
+                    </tr>
+                    {
+                      [
+                        {
+                          date: "29 Jun 2025",
+                          client_name: "Equipment",
+                          service: "Sum of all asset costs",
+                          sub: "Lorem",
+                          vat_received: "Lorem",
+                          vat_withheld: "Lorem",
+                        },
+                        {
+                          date: "29 Jun 2025",
+                          client_name: "Accumulated Depreciation",
+                          service: "Sum of all depreciation to date",
+                          sub: "Lorem",
+                          vat_received: "Lorem",
+                          vat_withheld: "Lorem",
+                        },
+                        {
+                          date: "29 Jun 2025",
+                          client_name: "Residual Value",
+                          service: "Sum of all residual values",
+                          sub: "Lorem",
+                          vat_received: "Lorem",
+                          vat_withheld: "Lorem",
+                        },
+                        {
+                          date: "29 Jun 2025",
+                          client_name: "Total Non-Current Assets",
+                          service:
+                            "Equipment - Accumulated Depreciation + Residual Value",
+                          sub: "Lorem",
+                          vat_received: "Lorem",
+                          vat_withheld: "Lorem",
+                        },
+                      ].map((ele, index) => (
+                        <tr>
+                          <td
+                            class="text-black px-4 px-12px fs-14 text-nowrap"
+                            style={{ border: "0" }}
+                          >
+                            &nbsp;
+                          </td>
+                          <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                            {ele.client_name}
+                          </td>
+                          <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                            {ele.service}
+                          </td>
+                        </tr>
+                      ))
+                    }
+                    <tr>
+                      {/* <!-- White Space Row --> */}
+                      <td
+                        style={{ border: "0" }}
+                        colspan="3"
+                        class="bg-white px-4 px-12px fw-bold fs-14"
+                      >
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        colspan="2"
+                      >
+                        Total Assets
+                      </td>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        Total Current Assets + Total Non-Current Assets
+                      </td>
+                    </tr>
+                    <tr>
+                      {/* <!-- White Space Row --> */}
+                      <td
+                        style={{ border: "0" }}
+                        colspan="3"
+                        class="bg-white px-4 px-12px fw-bold fs-14"
+                      >
+                        &nbsp;
+                      </td>
+                    </tr>
+
+                    {/* <!-- Table Section Header --> */}
+                    <tr>
+                      <td
+                        colspan="3"
+                        class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
+                      >
+                        Liability
+                      </td>
+                    </tr>
+
+                    {/* <!-- Table Section Header --> */}
+                    <tr>
+                      <td
+                        style={{ border: "0" }}
+                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                      >
+                        Category
+                      </td>
+                      <td
+                        style={{ border: "0" }}
+                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                      >
+                        Details
+                      </td>
+                      <td
+                        style={{ border: "0" }}
+                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                      >
+                        Amount
+                      </td>
+                    </tr>
+                    {/* <!-- Table Section Header --> */}
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        colspan="3"
+                      >
+                        Current Liabilities
+                      </td>
+                    </tr>
+                    {
+                      [
+                        {
+                          date: "29 Jun 2025",
+                          client_name: "Accounts Payable",
+                          service: "Auto-fills from Total Payables",
+                          sub: "Lorem",
+                          vat_received: "Lorem",
+                          vat_withheld: "Lorem",
+                        },
+                      ].map((ele, index) => (
+                        <tr>
+                          <td
+                            class="text-black px-4 px-12px fs-14 text-nowrap"
+                            style={{ border: "0" }}
+                          >
+                            &nbsp;
+                          </td>
+                          <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                            {ele.client_name}
+                          </td>
+                          <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                            {ele.service}
+                          </td>
+                        </tr>
+                      ))
+                    }
+                    <tr>
+                      {/* <!-- White Space Row --> */}
+                      <td
+                        style={{ border: "0" }}
+                        colspan="3"
+                        class="bg-white px-4 px-12px fw-bold fs-14"
+                      >
+                        &nbsp;
+                      </td>
+                    </tr>
+
+                    {/* <!-- Table Section Header --> */}
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        colspan="3"
+                      >
+                        Non-Current Liabilities
+                      </td>
+                    </tr>
+                    {
+                      [
+                        {
+                          date: "29 Jun 2025",
+                          client_name: "Loan",
+                          service:
+                            "Calculated as Loan Received - Loan Repaid - (Loan Given - Loan Recovered)",
+                          sub: "Lorem",
+                          vat_received: "Lorem",
+                          vat_withheld: "Lorem",
+                        },
+                      ].map((ele, index) => (
+                        <tr>
+                          <td
+                            class="text-black px-4 px-12px fs-14 text-nowrap"
+                            style={{ border: "0" }}
+                          >
+                            &nbsp;
+                          </td>
+                          <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                            {ele.client_name}
+                          </td>
+                          <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                            {ele.service}
+                          </td>
+                        </tr>
+                      ))
+                    }
+                    <tr>
+                      {/* <!-- White Space Row --> */}
+                      <td
+                        style={{ border: "0" }}
+                        colspan="3"
+                        class="bg-white px-4 px-12px fw-bold fs-14"
+                      >
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        colspan="2"
+                      >
+                        Total Liabllities
+                      </td>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        Accounts Payable + Loan
+                      </td>
+                    </tr>
+                    <tr>
+                      {/* <!-- White Space Row --> */}
+                      <td
+                        style={{ border: "0" }}
+                        colspan="3"
+                        class="bg-white px-4 px-12px fw-bold fs-14"
+                      >
+                        &nbsp;
+                      </td>
+                    </tr>
+
+                    {/* <!-- Table Section Header --> */}
+                    <tr>
+                      <td
+                        colspan="3"
+                        class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
+                      >
+                        Equity
+                      </td>
+                    </tr>
+
+                    {/* <!-- Table Section Header --> */}
+                    <tr>
+                      <td
+                        style={{ border: "0" }}
+                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                      >
+                        Category
+                      </td>
+                      <td
+                        style={{ border: "0" }}
+                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                      >
+                        Details
+                      </td>
+                      <td
+                        style={{ border: "0" }}
+                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                      >
+                        Amount
+                      </td>
+                    </tr>
+                    {/* <!-- Table Section Header --> */}
+
+                    {
+                      [
+                        {
+                          date: "29 Jun 2025",
+                          client_name: "Share Capital",
+                          service:
+                            "Calculated as Total Assets - Total Liabilities - Retained Earnings",
+                          sub: "Lorem",
+                          vat_received: "Lorem",
+                          vat_withheld: "Lorem",
+                        },
+                        {
+                          date: "29 Jun 2025",
+                          client_name: "Retained Earnings",
+                          service:
+                            "Retained Earnings	Auto-calculated as the cumulative profit/loss to date; manual override allowed, positive or negative up to 2 decimal places",
+                          sub: "Lorem",
+                          vat_received: "Lorem",
+                          vat_withheld: "Lorem",
+                        },
+                      ].map((ele, index) => (
+                        <tr>
+                          <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                            {ele.client_name}
+                          </td>
+                          <td
+                            class="text-black px-4 px-12px fs-14 text-nowrap"
+                            style={{ border: "0" }}
+                          >
+                            &nbsp;
+                          </td>
+                          <td
+                            class="text-black px-4 px-12px fs-14"
+                            style={{ width: "30%" }}
+                          >
+                            {ele.service}
+                          </td>
+                        </tr>
+                      ))
+                    }
+                    <tr>
+                      {/* <!-- White Space Row --> */}
+                      <td
+                        style={{ border: "0" }}
+                        colspan="3"
+                        class="bg-white px-4 px-12px fw-bold fs-14"
+                      >
+                        &nbsp;
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        Total Equity
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ border: "0" }}
+                      >
+                        &nbsp;
+                      </td>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        Share Capital + Retained Earnings
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              {/* <!-- Table section --> */}
+            </div>
+            {/* Page Content Box */}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script is:inline type="text/javascript">
+    // Handle opening the modal
+    document
+      .querySelectorAll('[data-bs-target="#myModal"]')
+      .forEach((button) => {
+        button.addEventListener("click", function () {
+          const modalTitle =
+            this.getAttribute("data-title") || "Add Employee Type";
+          const empType = this.getAttribute("data-emp-type") || "Input";
+
+          // Update modal title
+          const modalTitleElement = document.getElementById("modalTitle");
+          if (modalTitleElement) {
+            modalTitleElement.textContent = modalTitle;
+          }
+
+          // Update input field
+          const employeeStatusInput = document.getElementById("financial");
+          if (employeeStatusInput) {
+            employeeStatusInput.textContent = empType;
+          }
+        });
+      });
+  </script>
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      document
+        .getElementById("generate_report_form")
+        ?.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          $("#view_report").addClass("d-none");
+          const submitBtn = e.target.querySelector("button");
+
+          submitBtn.innerHTML = `
+                        <span>
+                            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span role="status">Loading...</span>
+                        </span>
+                    `;
+          submitBtn.disabled = true;
+
+          setTimeout(() => {
+            submitBtn.innerHTML = `
+                            <span>Generate</span>
+                        `;
+            submitBtn.disabled = false;
+            $("#manage_report").addClass("d-none");
+            $("#view_report").removeClass("d-none");
+          }, 1000);
+        });
+
+      $("#back_to_manage_report").click((evt) => {
+        $("#view_report").addClass("d-none");
+        $("#manage_report").removeClass("d-none");
+      });
+    });
+  </script>
+</Layout>
+<!-- Main content ends here -->
