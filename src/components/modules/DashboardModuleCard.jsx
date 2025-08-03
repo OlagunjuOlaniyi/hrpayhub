@@ -19,7 +19,7 @@ export default function DashboardModuleCard({
             <img src={icon} alt={title} />
           </div>
           <div className="font-acme fs-22 text-primary-blue">{title}</div>
-          <div className="fw-semibold fs-6 text-black">{subtitle}</div>
+          <div className="fw-400 fs-6 text-black">{subtitle}</div>
         </div>
       </a>
     </>

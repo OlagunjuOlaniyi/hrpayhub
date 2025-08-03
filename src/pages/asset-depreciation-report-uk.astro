@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: VAT Remittance Report">
+<Layout title="HRPayHub :: Asset Depreciation Report">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/reports-ng"
+            href="/reports-uk"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -40,16 +40,16 @@ import Layout from "../layouts/Layout.astro";
               alt="angle-right-back"
             />
             <a
-              href="/financial-reports-and-analytics-ng"
+              href="/financial-reports-and-analytics-uk"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Financial Reports & Analytics - NG</a
+              >Financial Reports & Analytics - UK</a
             >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
             <a
-              href="/reports-ng"
+              href="/reports-uk"
               class="fs-14 text-decoration-none text-primary-dark">Reports</a
             >
             <img
@@ -57,7 +57,7 @@ import Layout from "../layouts/Layout.astro";
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold font-nunito-bold text-primary-blue"
-              >VAT Remittance Report</span
+              >Asset Depreciation Report</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -77,7 +77,7 @@ import Layout from "../layouts/Layout.astro";
               <!---- Setup --->
               <div class="d-flex align-items-center gap-4 add_employee_width">
                 <div class="fs-14 fw-600 text-primary-blue">
-                  VAT Remittance Report
+                  Asset Depreciation Report
                 </div>
                 <div class="flex-grow-1">
                   <div class="demarcator_line">&nbsp;</div>
@@ -286,7 +286,7 @@ import Layout from "../layouts/Layout.astro";
                         colspan="2"
                         class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
                       >
-                        VAT Remittance Report (25-05-2025 to 30-05-2025)
+                        Asset Depreciation Report (25-05-2025 to 30-05-2025)
                       </td>
                     </tr>
 
@@ -294,7 +294,7 @@ import Layout from "../layouts/Layout.astro";
                       {/* <!-- White Space Row --> */}
                       <td
                         style={{ border: "0" }}
-                        colspan="6"
+                        colspan="2"
                         class="bg-white px-4 px-12px fw-bold fs-14"
                       >
                         &nbsp;
@@ -302,16 +302,7 @@ import Layout from "../layouts/Layout.astro";
                     </tr>
 
                     {/* <!-- White Space Row --> */}
-
-                    {/* <!-- Table Section Header --> */}
-                    <tr>
-                      <td
-                        colspan="6"
-                        class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
-                      >
-                        VAT Output Section
-                      </td>
-                    </tr>
+                    {/* <!-- Table Header --> */}
 
                     {/* <!-- Table Section Header --> */}
                     <tr>
@@ -319,138 +310,22 @@ import Layout from "../layouts/Layout.astro";
                         style={{ border: "0" }}
                         class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
                       >
-                        Date
+                        Asset Name
                       </td>
                       <td
                         style={{ border: "0" }}
                         class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
                       >
-                        Client Name
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        Service Description
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        Sub-Total
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        VAT Output Recieved
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        VAT Output Withheld
+                        Depreciation details
                       </td>
                     </tr>
                     {/* <!-- Table Section Header --> */}
-                    {
-                      [
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                      ].map((ele, index) => (
-                        <tr>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.date}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.client_name}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.service}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.sub}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.vat_received}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.vat_withheld}
-                          </td>
-                        </tr>
-                      ))
-                    }
-
                     <tr>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"
                         style={{ width: "50%" }}
                       >
-                        Total
-                      </td>
-                      <td
-                        class="text-black px-4 px-12px fs-14 text-nowrap"
-                        style={{ width: "50%" }}
-                      >
-                        Lorem
-                      </td>
-                      <td
-                        class="text-black px-4 px-12px fs-14 text-nowrap"
-                        style={{ width: "50%" }}
-                      >
-                        Lorem
-                      </td>
-                      <td
-                        class="text-black px-4 px-12px fs-14 text-nowrap"
-                        style={{ width: "50%" }}
-                      >
-                        Lorem
-                      </td>
-                      <td
-                        class="text-black px-4 px-12px fs-14 text-nowrap"
-                        style={{ width: "50%" }}
-                      >
-                        Lorem
+                        Furniture
                       </td>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"
@@ -460,158 +335,25 @@ import Layout from "../layouts/Layout.astro";
                       </td>
                     </tr>
                     <tr>
-                      {/* <!-- White Space Row --> */}
                       <td
-                        style={{ border: "0" }}
-                        colspan="6"
-                        class="bg-white px-4 px-12px fw-bold fs-14"
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
                       >
-                        &nbsp;
+                        Vehicle
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Lorem
                       </td>
                     </tr>
-
-                    {/* <!-- White Space Row --> */}
-
-                    {/* <!-- Table Section Header --> */}
-                    <tr>
-                      <td
-                        colspan="6"
-                        class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
-                      >
-                        VAT Input Section
-                      </td>
-                    </tr>
-
-                    {/* <!-- Table Section Header --> */}
-                    <tr>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        Date
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        Client Name
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        Service Description
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        Sub-Total
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        VAT Output Recieved
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        VAT Output Withheld
-                      </td>
-                    </tr>
-                    {/* <!-- Table Section Header --> */}
-                    {
-                      [
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                      ].map((ele, index) => (
-                        <tr>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.date}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.client_name}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.service}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.sub}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.vat_received}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.vat_withheld}
-                          </td>
-                        </tr>
-                      ))
-                    }
-
                     <tr>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"
                         style={{ width: "50%" }}
                       >
-                        Total
+                        Computers New
                       </td>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"
@@ -619,11 +361,13 @@ import Layout from "../layouts/Layout.astro";
                       >
                         Lorem
                       </td>
+                    </tr>
+                    <tr>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"
                         style={{ width: "50%" }}
                       >
-                        Lorem
+                        Computer Old
                       </td>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"
@@ -631,11 +375,111 @@ import Layout from "../layouts/Layout.astro";
                       >
                         Lorem
                       </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Computer Accessories
+                      </td>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"
                         style={{ width: "50%" }}
                       >
                         Lorem
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Building
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Lorem
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Office Equipment
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Lorem
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Plant and Machinery
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Lorem
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Leasehold Improvements
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Lorem
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Fixtures and Fittings
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Lorem
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Software Outright Purchase
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Lorem
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Other
                       </td>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"

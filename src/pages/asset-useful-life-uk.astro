@@ -1,0 +1,256 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import DeleteModal from "../components/ui/DeleteModal.astro";
+---
+
+<Layout title="HRPayHub :: Asset Useful Life">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/financial-setup-uk"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/fnancial-reports-and-analytics"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/fnancial-reports-and-analytics-uk"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics - UK</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/financial-setup-uk"
+              class="fs-14 text-decoration-none text-primary-dark">Setup</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Asset Useful Life</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Setup --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue d-flex gap-2">
+                  Asset Useful Life
+
+                  <div
+                    class=""
+                    data-bs-html="true"
+                    data-bs-placement="right"
+                    data-bs-toggle="tooltip"
+                    data-bs-custom-class="tooltip-left-align tooltip-width"
+                    title="<div class='fs-12'>
+                        How Asset Useful Life Works<br />
+                        This is the expected number of months each asset will remain usable before being fully depreciated. The default values follow standard accounting guidelines but can be adjusted based on your company's policies.
+                        </div>"
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img src="images/png/icons/info.svg" alt="info" />
+                  </div>
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+
+              <div class="add_employee_width">
+                <div
+                  class="d-flex gap-3 justify-content-between align-items-center mb-3"
+                >
+                  <div class="fs-14 fw-600">Asset Sub-Category</div>
+                  <div class="fs-14 fw-600">Useful Life (Months)</div>
+                </div>
+
+                <div class="d-flex flex-column gap-4">
+                  {
+                    [
+                      {
+                        label: "Furniture Tables",
+                        name: "ft",
+                        months: "60",
+                      },
+                      {
+                        label: "Furniture Chairs",
+                        name: "fc",
+                        months: "45",
+                      },
+                      {
+                        label: "Vehicle",
+                        name: "vehicle",
+                        months: "24",
+                      },
+                      {
+                        label: "Computers (New)",
+                        name: "computer_new",
+                        months: "60",
+                      },
+                      {
+                        label: "Computers (Used)",
+                        name: "computer_used",
+                        months: "60",
+                      },
+                      {
+                        label: "Computer Accessories",
+                        name: "ca",
+                        months: "60",
+                      },
+                      {
+                        label: "Building",
+                        name: "building",
+                        months: "60",
+                      },
+                      {
+                        label: "Office Equipment",
+                        name: "oe",
+                        months: "60",
+                      },
+                      {
+                        label: "Plant and Machinery",
+                        name: "pam",
+                        months: "60",
+                      },
+                      {
+                        label: "Fixtures and Fittings",
+                        name: "faf",
+                        months: "60",
+                      },
+                      {
+                        label: "Software (Outright Purchase)",
+                        name: "software",
+                        months: "60",
+                      },
+                      {
+                        label: "Other",
+                        name: "other",
+                        months: "60",
+                      },
+                    ].map((ele, index) => (
+                      <div class="d-flex gap-4 align-items-center">
+                        <div class="form-floating add_employee_width">
+                          <input
+                            type="text"
+                            id={ele.name}
+                            name={ele.name}
+                            class="form-input bg-light"
+                            placeholder=""
+                            disabled
+                          />
+                          <label class="bg-light" for={ele.name}>
+                            {ele.label}{" "}
+                          </label>
+                        </div>
+                        <div
+                          class="d-flex gap-1 align-items-center px-2 border rounded"
+                          style="padding-top: 10px; padding-bottom: 10px;"
+                        >
+                          <span class="fs-14 fw-600">{ele.months}</span>
+                          <button
+                            class="border-0 edit-button"
+                            style="background-color: inherit;"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#myModal"
+                            data-title={"Edit" + " " + ele.label}
+                            data-emp-type={ele.label}
+                          >
+                            <img src="images/png/icons/edit-2.svg" alt="" />
+                          </button>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+
+      <ModalAddNew
+        modalId="myModal"
+        title={"Add Employee Type"}
+        inputPlace="Transaction"
+      />
+      <DeleteModal modalId="deleteModal" title="Financial" />
+
+      <!---- end of Modal --->
+    </section>
+  </main>
+
+  <script is:inline type="text/javascript">
+    // Handle opening the modal
+    document
+      .querySelectorAll('[data-bs-target="#myModal"]')
+      .forEach((button) => {
+        button.addEventListener("click", function () {
+          const modalTitle =
+            this.getAttribute("data-title") || "Add Employee Type";
+          const empType = this.getAttribute("data-emp-type") || "Input";
+
+          // Update modal title
+          const modalTitleElement = document.getElementById("modalTitle");
+          if (modalTitleElement) {
+            modalTitleElement.textContent = modalTitle;
+          }
+
+          // Update input field
+          const employeeStatusInput = document.getElementById("financial");
+          if (employeeStatusInput) {
+            employeeStatusInput.textContent = empType;
+          }
+        });
+      });
+  </script>
+</Layout>
+<!-- Main content ends here -->

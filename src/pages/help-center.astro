@@ -1,0 +1,1905 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: Help">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/index.html"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Help</span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Search  -->
+              <div class="d-flex gap-3">
+                <input
+                  type="text"
+                  class="form-control search-input search-width fs-14"
+                  placeholder="Search..."
+                />
+                <img
+                  src="images/png/icons/initialize.svg"
+                  class="initialize"
+                  alt="arrow-down"
+                />
+              </div>
+              <!----  Getting Started --->
+              <div class="d-flex align-items-center gap-4 help_width">
+                <div class="fs-16 fw-700 text-primary-blue">
+                  Getting Started
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+              <div>
+                <p class="fs-14">Getting Started with HRPayHub</p>
+                <p class="fs-14">
+                  Welcome to HRPayHub! This guide will walk you through the
+                  initial setup process and key features to help you navigate
+                  the platform with ease.
+                </p>
+              </div>
+
+              <!---- Accordion ---->
+
+              <div
+                class="accordion accordion-flush d-flex flex-column gap-3"
+                id="helpAccordion"
+              >
+                <div class="accordion-item border-0" id="accordion-item-One">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-headingOne"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseOne"
+                      aria-expanded="true"
+                      aria-controls="flush-collapseOne"
+                    >
+                      Sign up or Sign in
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="flush-headingOne"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body d-flex flex-column gap-4">
+                      <div class="fs-14">
+                        <p>
+                          If you're a new user, sign up to create an account
+                        </p>
+                        <p>
+                          Existing users can sign in using their credentials.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-Two">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-headingTwo"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseTwo"
+                      aria-expanded="true"
+                      aria-controls="flush-collapseTwo"
+                    >
+                      Company Setup
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseTwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingTwo"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p>
+                          Under the Company Setup menu, you can configure
+                          essential company details:
+                        </p>
+                        <p class="fw-bold mt-3">
+                          Set Work Locations :
+
+                          <ul>
+                            <li>Define office locations for your company.</li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          Set Up Departments :
+
+                          <ul>
+                            <li>
+                              Structure your company by adding departments.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          Set Up National Holidays :
+
+                          <ul>
+                            <li>
+                              Specify public holidays applicable to your
+                              company.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-3">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading3"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse3"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse3"
+                    >
+                      Employee Management
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse3"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading3"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p>
+                          Under the Employee menu, you can manage
+                          employee-related settings:
+                        </p>
+                        <p class="fw-bold mt-3">
+                          Define Pay Grades :
+
+                          <ul>
+                            <li>
+                              Input and structure salary grades in your company.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          Manage Employment Status : <br />
+                          <span class="fw-500"
+                            >Use or modify default employment statuses, which
+                            include:</span
+                          >
+
+                          <ul class="fw-400">
+                            <li>
+                              Offer Sent, Offer Accepted, Offer Declined, Offer
+                              Revoked
+                            </li>
+                            <li>
+                              Pre-Employment Check, Resumed (On Probation),
+                              Confirmed
+                            </li>
+                            <li>
+                              Transferred, Seconded, On Leave, Extended Leave
+                            </li>
+                            <li>
+                              Resigned (With Adequate Notice / Inadequate Notice
+                              / Abruptly)
+                            </li>
+                            <li>
+                              Absconded (Without Resignation), Contract Ended,
+                              Suspended
+                            </li>
+                            <li>Terminated, Laid Off, Retired, Deceased</li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold
+                            mt-3">
+                          Set Employment Types :
+
+                          <ul class="fw-400">
+                            <li>
+                              Configure default employment types, including
+                              Full-Time, Contract, and Intern.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold
+                            mt-3">
+                          Add Employee Details :
+
+                          <ul class="fw-400">
+                            <li>
+                              Use the “Add Employee” feature to input
+                              comprehensive employee data.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold
+                            mt-3">
+                          Manage Employees :
+
+                          <ul class="fw-400">
+                            <li>
+                              View the Employee List to edit or remove employee
+                              records.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-4">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading4"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse4"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse4"
+                    >
+                      User Management
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse4"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading4"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p>
+                          Under the More menu, you can access additional
+                          HRPayHub modules.
+                        </p>
+                        <p>
+                          Click on Module Cards on the dashboard to open
+                          specific modules.
+                        </p>
+                        <p class="fw-bold mt-3">
+                          The two box cards at the top-right display:
+
+                          <ul>
+                            <li>Your subscription package</li>
+                            <li>Key summary insights</li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-5">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading5"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse5"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse5"
+                    >
+                      Profile & Settings
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse5"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading5"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold mt-3">
+                          Located in the top-right corner, this section allows
+                          you to:
+
+                          <ul>
+                            <li>Edit Your Profile</li>
+                            <li>Access System Settings</li>
+                            <li>Manage Billing Information</li>
+                            <li>View Help & Support Resources</li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold">Next Steps</p>
+                        <p>
+                          Now that your setup is complete, you can start
+                          managing your company’s HR, payroll, and
+                          administrative processes seamlessly with HRPayHub!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-6">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading6"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse6"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse6"
+                    >
+                      Admin/User Setup
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse6"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading6"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Configure your company’s HRPayHub account, including
+                          user roles, permissions, and access levels.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              User Creation: Add new employees, HR staff, and
+                              managers.
+                            </li>
+                            <li>
+                              Role Assignment: Assign roles (Admin, Manager,
+                              Employee) with different permission sets.
+                            </li>
+                            <li>
+                              Security Settings: Enforce password policies, 2FA,
+                              or IP restrictions.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>Go to “Settings” → “Admin/User Setup.”</li>
+                            <li>
+                              Click “Add User” and fill out personal details.
+                            </li>
+                            <li>
+                              Assign the appropriate role (e.g., Manager,
+                              Employee).
+                            </li>
+                            <li>Save changes to activate the new user.</li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!----  Main categories: --->
+              <div class="d-flex align-items-center gap-4 help_width">
+                <div class="fs-16 fw-700 text-primary-blue">
+                  Main categories:
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- Accordion ---->
+
+              <div
+                class="accordion accordion-flush d-flex flex-column gap-3"
+                id="helpAccordion"
+              >
+                <div class="accordion-item border-0" id="accordion-item-1One">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading1One"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse1One"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse1One"
+                    >
+                      Annual Return – Nigeria
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse1One"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading1One"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Generate and file annual returns required by Nigerian
+                          tax authorities, summarizing employee tax and payroll
+                          data for the year.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Automatic Data Collection: Pulls data from payroll
+                              records.
+                            </li>
+                            <li>
+                              Compliance Checks: Ensures format meets government
+                              regulations
+                            </li>
+                            <li>
+                              Submission Tracking: Record submission dates and
+                              reference numbers.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>
+                              Go to “Payroll” → “Annual Return – Nigeria.”
+                            </li>
+                            <li>
+                              Review the auto-generated summary of yearly
+                              payroll data.
+                            </li>
+                            <li>
+                              Click “Export” to generate the official form.
+                            </li>
+                            <li>
+                              File the return with the relevant authority or
+                              upload it if e-filing is available.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-1Two">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading1Two"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse1Two"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse1Two"
+                    >
+                      Appraisal
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse1Two"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading1Two"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          A performance evaluation method where feedback is
+                          gathered from multiple sources (managers, peers,
+                          subordinates, and sometimes customers).
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Feedback Collection: Customize questionnaires and
+                              rating scales.
+                            </li>
+                            <li>
+                              Confidentiality Settings: Keep reviewer identities
+                              anonymous if needed.
+                            </li>
+                            <li>
+                              Reporting: Generate detailed appraisal reports for
+                              each employee.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>
+                              Set Up Appraisal Cycle under “Performance” →
+                              “360-Degree Appraisal.”
+                            </li>
+                            <li>Add Reviewers and send out invitations.</li>
+                            <li>
+                              Monitor Feedback progress and send reminders
+                            </li>
+                            <li>
+                              Generate Final Report and share with employees.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-13">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading13"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse13"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse13"
+                    >
+                      Calculate Tax – UK
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse13"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading13"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Computes Income Tax, National Insurance, and other
+                          UK-specific deductions automatically.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              PAYE: Calculates tax using the HMRC tax codes.
+                            </li>
+                            <li>
+                              National Insurance: Applies correct NI category
+                              and rates.
+                            </li>
+                            <li>
+                              Student Loan & Pension: Deducts according to user
+                              setup.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>Go to “Payroll” → “Calculate Tax – UK.”</li>
+                            <li>Select the pay period and employees.</li>
+                            <li>Check calculations against HMRC guidelines.</li>
+                            <li>Save to finalize payroll.</li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-14">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading14"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse14"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse14"
+                    >
+                      Document Management
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse14"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading14"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Centralize and organize employee-related documents
+                          (contracts, IDs, performance reviews).
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Secure Storage: Role-based access to sensitive
+                              files.
+                            </li>
+                            <li>
+                              Version Control: Keep track of document updates.
+                            </li>
+                            <li>
+                              Search & Filter: Quickly find files by employee
+                              name or document type.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>
+                              Navigate to “Documents” → “Document Management.”
+                            </li>
+                            <li>
+                              Upload new files or create folders for better
+                              organization.
+                            </li>
+                            <li>
+                              Assign permissions to specific roles or users.
+                            </li>
+                            <li>
+                              Use the search bar to locate documents instantly.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-15">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading15"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse15"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse15"
+                    >
+                      Employee Management
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse15"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading15"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Add, edit, and track all employee records, including
+                          personal details, employment history, and performance
+                          data.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Profile Creation: Store contact info, job title,
+                              department.
+                            </li>
+                            <li>
+                              Status Tracking: Active, on leave, or terminated.
+                            </li>
+                            <li>
+                              Reporting: Quick summaries of employee data
+                              (headcount, turnover, etc.).
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>Go to “Employees” → “Employee Management.”</li>
+                            <li>
+                              Click “Add Employee” or select an existing profile
+                              to edit.
+                            </li>
+                            <li>Update relevant details and save changes.</li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-16">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading16"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse16"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse16"
+                    >
+                      Expense Approval
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse16"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading16"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Manage and approve employee expense claims, such as
+                          travel or office supplies.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Submission Workflow: Employees submit claims with
+                              receipts.
+                            </li>
+                            <li>
+                              Approval Hierarchy: Multi-level approvals (manager
+                              → finance → admin).
+                            </li>
+                            <li>
+                              Budget Tracking: Monitor total expenses vs.
+                              budget.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>Go to “Finance” → “Expense Approval.”</li>
+                            <li>
+                              Review pending claims, check receipts and
+                              justification.
+                            </li>
+                            <li>Approve, reject, or request more info.</li>
+                            <li>
+                              Once approved, expenses sync with payroll or
+                              accounting records.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-17">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading17"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse17"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse17"
+                    >
+                      FAQs
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse17"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading17"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          A repository of frequently asked questions regarding
+                          HRPayHub functionality, billing, technical issues, and
+                          best practices.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>Go to “Help” → “FAQs.”</li>
+                            <li>
+                              Browse by category (Payroll, Technical, etc.).
+                            </li>
+                            <li>
+                              Type a keyword in the search bar for quick
+                              filtering.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-18">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading18"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse18"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse18"
+                    >
+                      Financial Reports & Analytics – Nigeria
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse18"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading18"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Generate financial statements (P&L, balance sheet) and
+                          analytics specifically tailored for Nigerian
+                          regulations and business needs.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Customizable Reporting: Filter by date range,
+                              department, or cost center.
+                            </li>
+                            <li>
+                              Visual Dashboards: Graphical views of revenue,
+                              expenses, and net profit.
+                            </li>
+                            <li>
+                              Regulatory Compliance: Ensure alignment with local
+                              GAAP and tax requirements.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>
+                              Go to “Reports” → “Financial Reports & Analytics –
+                              Nigeria.”
+                            </li>
+                            <li>
+                              Choose your filters (date range, department,
+                              etc.).
+                            </li>
+                            <li>
+                              Click “Generate Report” for a downloadable PDF or
+                              Excel file.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-19">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading19"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse19"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse19"
+                    >
+                      Full Payment Submission File – UK
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse19"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading19"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Generate the Full Payment Submission (FPS) file
+                          required by HMRC for real-time reporting of employee
+                          pay and deductions.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Automatic Data Pull: Pulls pay details, NI, and
+                              tax info directly from payroll.
+                            </li>
+                            <li>
+                              XML Format: Compatible with HMRC’s submission
+                              standards.
+                            </li>
+                            <li>Download the SML file.</li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>
+                              Go to “Payroll” → “Full Payment Submission File –
+                              UK.”
+                            </li>
+                            <li>Select the pay period.</li>
+                            <li>Generate the FPS XML file.</li>
+                            <li>Download the FPS XML file.</li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-110">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading110"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse110"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse110"
+                    >
+                      Leave Management
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse110"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading110"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Request, approve, and track various leave types
+                          (annual, personal, parental, etc.).
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Leave Calendar: See who’s off on any given day.
+                            </li>
+                            <li>
+                              Accrual vs. Regular Policies: Choose how employees
+                              accumulate leave.
+                            </li>
+                            <li>
+                              Blackout Dates: Restrict leave during critical
+                              business periods.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="mt-3">Leave Policies</p>
+                        <p class="fw-bold mt-3">
+                          Unused Leave Days
+
+                          <ul>
+                            <li>
+                              Any unused leave days do not carry over to the
+                              next calendar year.
+                            </li>
+                            <li>
+                              All remaining balances reset to zero at the start
+                              of each new calendar year.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          Regular Leave Policy
+
+                          <ul class="fw-400">
+                            <li>
+                              Employees have full access to their annual leave
+                              at any point during the year.
+                            </li>
+                            <li>
+                              If an employee has used more leave than they’ve
+                              accrued by their last day of work, HR/Admin will
+                              deduct the overused days from the final payment.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          Accrual Leave Policy
+
+                          <ul class="fw-400">
+                            <li>
+                              Employees accrue leave daily from their approved
+                              annual total, starting Day 1 through the end of
+                              the year.
+                            </li>
+                            <li>
+                              Two Accrual Options:<br />
+                              <ol>
+                                <li>
+                                  Accrue over 300 days to prevent a surge of
+                                  leave requests at year-end.
+                                </li>
+                                <li>
+                                  Accrue over the full 365 days (ideal for
+                                  companies that shut down operations near
+                                  year-end)
+                                </li>
+                              </ol>
+                            </li>
+                            <li>
+                              Companies can restrict certain periods when
+                              employees are not allowed to take leave.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          Switching Leave Policy
+
+                          <ul class="fw-400">
+                            <li>
+                              A company can switch from a Regular policy to an
+                              Accrual policy (or vice versa) at any time.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">Prorated First-Year Leave</p>
+                        <p>
+                          For the first year, annual and personal leave may be
+                          prorated based on:
+                        </p>
+                        <ul class="fw-400">
+                          <li>The company’s chosen calendar year.</li>
+                          <li>
+                            The employee’s start date or confirmation date.
+                          </li>
+                          <li>The total annual leave allotted.</li>
+                        </ul>
+                        <p class="fw-bold mt-3">
+                          Personal Leave
+
+                          <ul class="fw-400">
+                            <li>
+                              “Personal leave” combines all other non-annual
+                              leave types (e.g., casual, emergency, medical).
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          Parental Leave
+
+                          <ul class="fw-400">
+                            <li>
+                              Optional; may include maternity or paternity
+                              leave.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          Tenure-Based Leave (UK Pharmacies)
+                        </p>
+
+                        <ul class="fw-400">
+                          <li>
+                            After certain service milestones (counting full
+                            calendar years from date of hire), employees gain
+                            additional days.
+                          </li>
+
+                          <li>
+                            Each additional day is adjusted by comparing the
+                            employee’s weekly hours to a 40-hour standard.
+                          </li>
+                          <li>
+                            Milestones (additional days shown in parentheses):<br
+                            />
+                            <ol>
+                              <li>5 years: +3 days (6 total)</li>
+                              <li>10 years: +1 day (7 total)</li>
+                              <li>15 years: +1 day (8 total)</li>
+                              <li>20 years: +1 day (9 total)</li>
+                              <li>30 years: +1 day (10 total)</li>
+                            </ol>
+                          </li>
+                        </ul>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul class="fw-400">
+                            <li>Go to “HR” → “Leave Management.”</li>
+                            <li>
+                              Employees apply for leave; managers approve or
+                              reject.
+                            </li>
+                            <li>
+                              View leave balances and accruals in real-time.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-111">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading111"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse111"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse111"
+                    >
+                      Monthly PAYE Return – Nigeria
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse111"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading111"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Handles the monthly Pay-As-You-Earn (PAYE) returns
+                          required by Nigerian tax authorities.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Automatic Calculations: Based on monthly payroll
+                              data
+                            </li>
+                            <li>
+                              Compliance Checks: Ensures data is complete and in
+                              the right format.
+                            </li>
+                            <li>
+                              Submission Records: Track date and reference for
+                              auditing.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>
+                              Go to “Payroll” → “Monthly PAYE Return – Nigeria.”
+                            </li>
+                            <li>Select the month to generate the return.</li>
+                            <li>
+                              Verify amounts, then export or submit as required.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-112">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading112"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse112"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse112"
+                    >
+                      Offer Letter & Acceptance – Nigeria
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse112"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading112"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Generate and manage digital offer letters for
+                          employees in Nigeria, including acceptance tracking.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Template Customization: Insert company logo, T&Cs,
+                              and compensation details.
+                            </li>
+                            <li>
+                              E-Signatures: Allow candidates to sign
+                              electronically.
+                            </li>
+                            <li>
+                              Tracking: View acceptance status and send
+                              reminders.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>
+                              Go to “Recruitment” → “Offer Letter – Nigeria.”
+                            </li>
+                            <li>
+                              Fill out the candidate details and role specifics.
+                            </li>
+                            <li>
+                              Send for e-signature and monitor acceptance in the
+                              system.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-113">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading113"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse113"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse113"
+                    >
+                      Offer Letter & Acceptance – UK
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse113"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading113"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Similar to the Nigerian offer letter feature but
+                          tailored to UK employment law and regulations.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              UK-Specific Clauses: Include references to UK
+                              statutory requirements.
+                            </li>
+                            <li>
+                              E-Signatures: Digital signing for quick
+                              onboarding.
+                            </li>
+                            <li>
+                              Status Dashboard: Track which candidates have
+                              signed.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>Go to “Recruitment” → “Offer Letter – UK.”</li>
+                            <li>
+                              Complete the offer template with role details and
+                              UK compliance text.
+                            </li>
+                            <li>
+                              Send for digital acceptance and follow up as
+                              needed.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-114">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading114"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse114"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse114"
+                    >
+                      On/Offboarding
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse114"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading114"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Manage the entire employee lifecycle, from new hire
+                          onboarding to exit procedures.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Task Checklists: Ensure consistent onboarding
+                              steps (paperwork, equipment, training).
+                            </li>
+                            <li>
+                              Offboarding: Handle resignations or terminations
+                              (final pay, return of assets).
+                            </li>
+                            <li>
+                              Automated Notifications: Alert relevant
+                              departments (IT, Finance, HR).
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>Go to “HR” → “On/Offboarding.”</li>
+                            <li>Create a new checklist for each employee.</li>
+                            <li>
+                              Assign tasks to different teams (IT, Finance).
+                            </li>
+                            <li>
+                              Mark tasks complete and finalize documentation.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-115">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading115"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse115"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse115"
+                    >
+                      Payroll Bank Upload – Nigeria
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse115"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading115"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Generate a bank-ready file to facilitate salary
+                          payments for Nigerian employees.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Multiple Bank Formats: GTBank, Access, Zenith,
+                              etc.
+                            </li>
+                            <li>
+                              Automatic Deduction: Net pay amounts automatically
+                              calculated.
+                            </li>
+                            <li>
+                              Security: Encrypted file to protect sensitive
+                              info.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>
+                              Go to “Payroll” → “Payroll Bank Upload – Nigeria.”
+                            </li>
+                            <li>Create a new checklist for each employee.</li>
+                            <li>Select bank format and pay period.</li>
+                            <li>
+                              Generate file and upload to your bank’s platform.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-116">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading116"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse116"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse116"
+                    >
+                      Payroll List
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse116"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading116"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          A central overview of all payroll records, pay
+                          periods, and employee payment statuses.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Filtering & Sorting: By pay period, department, or
+                              employee.
+                            </li>
+                            <li>
+                              Batch Actions: Approve, finalize, or revert
+                              multiple payrolls at once.
+                            </li>
+                            <li>
+                              Payroll Status: Track if payments have been made
+                              or are pending.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>Go to “Payroll” → “Payroll List.”</li>
+                            <li>Choose the pay period to view details.</li>
+                            <li>
+                              Perform bulk approvals or individual edits as
+                              needed.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-117">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading117"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse117"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse117"
+                    >
+                      Payroll List
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse117"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading117"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Generate payslips for Nigerian employees, reflecting
+                          local taxes, deductions, and net pay.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Auto-Calculation: Integrates with “Calculate Tax –
+                              Nigeria.”
+                            </li>
+                            <li>
+                              PDF/Email: Download or email payslips directly to
+                              employees.
+                            </li>
+                            <li>
+                              Year-to-Date Info: Shows cumulative earnings and
+                              deductions.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>Go to “Payroll” → “Payslip Nigeria.”</li>
+                            <li>Select employees and pay period.</li>
+                            <li>
+                              Preview and generate payslips for distribution.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-118">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading118"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse118"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse118"
+                    >
+                      Payslip UK
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse118"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading118"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Generate payslips for UK employees, including Income
+                          Tax, National Insurance, pension contributions, and
+                          net pay.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>Integration with “Calculate Tax – UK.”</li>
+                            <li>
+                              Pay Stub Customization: Add or remove details
+                              (e.g., student loan, pension).
+                            </li>
+                            <li>PDF/Email: Deliver payslips securely.</li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>Go to “Payroll” → “Payslip UK.”</li>
+                            <li>Select employees and pay period.</li>
+                            <li>Preview and generate payslips.</li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border-0" id="accordion-item-119">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading119"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse119"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse119"
+                    >
+                      Task Management
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse119"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading119"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Create, assign, and track tasks within your
+                          organization to boost collaboration and
+                          accountability.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>
+                              Task Creation: Assign tasks to individuals or
+                              teams with deadlines.
+                            </li>
+                            <li>
+                              Progress Tracking: Mark tasks as “In Progress,”
+                              “Completed,” etc.
+                            </li>
+                            <li>
+                              Notifications: Email or in-app alerts for updates
+                              and deadlines.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>Go to “Task Management.”</li>
+                            <li>
+                              Click “New Task” and fill out details (title,
+                              description, due date).
+                            </li>
+                            <li>Assign to one or more employees.</li>
+                            <li>
+                              Monitor task status and send reminders if needed.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item border-0" id="accordion-item-120">
+                  <h2
+                    class="accordion-header help_accordion_width"
+                    id="flush-heading120"
+                  >
+                    <button
+                      class="accordion-button collapsed text-primary-blue fs-16 fw-700 rounded"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapse120"
+                      aria-expanded="true"
+                      aria-controls="flush-collapse120"
+                    >
+                      Time Management
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapse120"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading120"
+                    data-bs-parent="#holidayAccordion"
+                  >
+                    <div class="accordion-body">
+                      <div class="fs-14">
+                        <p class="fw-bold">Overview:</p>
+                        <p>
+                          Record employee work hours, manage timesheets, and
+                          track overtime or shift differentials.
+                        </p>
+
+                        <p class="fw-bold mt-3">
+                          Key Features:
+
+                          <ul>
+                            <li>Clock In/Out: Employees log daily hours.</li>
+                            <li>
+                              Timesheet Approvals: Managers verify submitted
+                              hours.
+                            </li>
+                            <li>
+                              Overtime Calculation: Automatically calculate
+                              overtime pay.
+                            </li>
+                          </ul>
+                        </p>
+                        <p class="fw-bold mt-3">
+                          How to Use:
+
+                          <ul>
+                            <li>Go to “HR” → “Time Management.”</li>
+                            <li>
+                              Set up work schedules or shifts for employees.
+                            </li>
+                            <li>Employees clock in/out daily or weekly.</li>
+                            <li>
+                              Managers review and approve timesheets before
+                              payroll.
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+  </main>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      $("#fileInputBtn").click((evt) => {
+        $("#fileInput").click();
+      });
+    });
+  </script>
+</Layout>
+<!-- Main content ends here -->

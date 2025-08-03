@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: Dynamic Tabs – NG">
+<Layout title="HRPayHub :: Journal Entries ">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/branch-financial-reports-and-analytics-ng"
+            href="/financial-reports-and-analytics-uk"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -39,18 +39,17 @@ import Layout from "../layouts/Layout.astro";
               alt="angle-right-back"
             />
             <a
-              href="/branch-financial-reports-and-analytics-ng"
+              href="/financial-reports-and-analytics-uk"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Branch Financial Reports & Analytics - NG</a
+              >Financial Reports & Analytics - UK</a
             >
-
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >Dynamic Tabs – NG</span
-            >
+              >Journal Entries
+            </span>
           </div>
           <!-- Actual Breadcrumb here -->
         </div>
@@ -74,10 +73,10 @@ import Layout from "../layouts/Layout.astro";
               />
               <span
                 class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Dynamic Tabs</span
-              >
+                >Journal Entries
+              </span>
             </div>
-            <div class="fw-bold">A unique tab for each selected branch</div>
+            <div class="fw-bold">Lorem Ipsum</div>
           </div>
           {/* Page Title */}
 
@@ -86,35 +85,38 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Yaba",
-                  desc: "Multi-select dropdown (populated from existing company branches)",
-                  url: "#",
-                  src: "images/png/icons/financial.svg",
-                },
-                {
-                  title: "Ikoyi",
-                  desc: "Displays all branches selected for financial reporting",
-                  url: "#",
-                  src: "images/png/icons/financial.svg",
-                },
-                {
-                  title: "Ikeja ",
-                  desc: "A unique tab for each selected branch",
-                  url: "#",
+                  title: "Daily Journal Entry Form",
+                  desc: "Record revenue, expenses, loans, and assets daily",
+                  url: "/daily-journal-entry-form-uk",
                   src: "images/png/icons/financial.svg",
                 },
               ].map((ele) => (
                 <div
                   class="col-4 p-2 payslip-card-panel"
-                  style="width: 214px"
+                  style="width: 350px"
                   role="button"
                   title={ele.title}
+                  data-url={ele.url}
                 >
-                  <div class="shadow p-4 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
+                  <div class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
                     <div class="vstack gap-2 d-flex flex-column align-items-center">
-                      <div class="fw-bold py-2 fs-18 font-ubuntu-bold text-primary-blue">
+                      <img
+                        src={ele.src}
+                        alt="receipt-minus-icon"
+                        width="30px"
+                        height="30px"
+                      />
+
+                      <div class="fw-bold fs-18 font-ubuntu-bold text-primary-blue">
                         {ele.title}
                       </div>
+                    </div>
+
+                    <div
+                      class="fw-600 fs-16"
+                      style="width: 80%; margin: 0 auto"
+                    >
+                      {ele.desc}
                     </div>
                   </div>
                 </div>

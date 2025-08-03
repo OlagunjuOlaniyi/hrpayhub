@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: VAT Remittance Report">
+<Layout title="HRPayHub :: Profit & Loss Account Reports">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/reports-ng"
+            href="/reports-uk"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -40,16 +40,16 @@ import Layout from "../layouts/Layout.astro";
               alt="angle-right-back"
             />
             <a
-              href="/financial-reports-and-analytics-ng"
+              href="/financial-reports-and-analytics-uk"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Financial Reports & Analytics - NG</a
+              >Financial Reports & Analytics - UK</a
             >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
             <a
-              href="/reports-ng"
+              href="/reports-uk"
               class="fs-14 text-decoration-none text-primary-dark">Reports</a
             >
             <img
@@ -57,7 +57,7 @@ import Layout from "../layouts/Layout.astro";
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold font-nunito-bold text-primary-blue"
-              >VAT Remittance Report</span
+              >Profit & Loss Account Reports</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -77,7 +77,7 @@ import Layout from "../layouts/Layout.astro";
               <!---- Setup --->
               <div class="d-flex align-items-center gap-4 add_employee_width">
                 <div class="fs-14 fw-600 text-primary-blue">
-                  VAT Remittance Report
+                  Profit & Loss Account Reports
                 </div>
                 <div class="flex-grow-1">
                   <div class="demarcator_line">&nbsp;</div>
@@ -95,7 +95,7 @@ import Layout from "../layouts/Layout.astro";
                 >
                   <div class="form-floating add_employee_width">
                     <input
-                      type="date"
+                      type="text"
                       id="start_date"
                       name="start_date"
                       class="form-input"
@@ -107,7 +107,7 @@ import Layout from "../layouts/Layout.astro";
                   </div>
                   <div class="form-floating add_employee_width">
                     <input
-                      type="date"
+                      type="text"
                       id="end_date"
                       name="end_date"
                       class="form-input"
@@ -157,7 +157,7 @@ import Layout from "../layouts/Layout.astro";
                 >
                   <div class="form-floating add_employee_width">
                     <input
-                      type="date"
+                      type="text"
                       id="start_date"
                       name="start_date"
                       class="form-input"
@@ -169,7 +169,7 @@ import Layout from "../layouts/Layout.astro";
                   </div>
                   <div class="form-floating add_employee_width">
                     <input
-                      type="date"
+                      type="text"
                       id="end_date"
                       name="end_date"
                       class="form-input"
@@ -286,7 +286,7 @@ import Layout from "../layouts/Layout.astro";
                         colspan="2"
                         class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
                       >
-                        VAT Remittance Report (25-05-2025 to 30-05-2025)
+                        Profit & Loss Account Reports (25-05-2025 to 30-05-2025)
                       </td>
                     </tr>
 
@@ -294,7 +294,7 @@ import Layout from "../layouts/Layout.astro";
                       {/* <!-- White Space Row --> */}
                       <td
                         style={{ border: "0" }}
-                        colspan="6"
+                        colspan="2"
                         class="bg-white px-4 px-12px fw-bold fs-14"
                       >
                         &nbsp;
@@ -302,16 +302,7 @@ import Layout from "../layouts/Layout.astro";
                     </tr>
 
                     {/* <!-- White Space Row --> */}
-
-                    {/* <!-- Table Section Header --> */}
-                    <tr>
-                      <td
-                        colspan="6"
-                        class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
-                      >
-                        VAT Output Section
-                      </td>
-                    </tr>
+                    {/* <!-- Table Header --> */}
 
                     {/* <!-- Table Section Header --> */}
                     <tr>
@@ -319,329 +310,193 @@ import Layout from "../layouts/Layout.astro";
                         style={{ border: "0" }}
                         class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
                       >
-                        Date
+                        Description
                       </td>
                       <td
                         style={{ border: "0" }}
                         class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
                       >
-                        Client Name
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        Service Description
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        Sub-Total
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        VAT Output Recieved
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        VAT Output Withheld
+                        Amount
                       </td>
                     </tr>
                     {/* <!-- Table Section Header --> */}
-                    {
-                      [
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                      ].map((ele, index) => (
-                        <tr>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.date}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.client_name}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.service}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.sub}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.vat_received}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.vat_withheld}
-                          </td>
-                        </tr>
-                      ))
-                    }
-
                     <tr>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"
                         style={{ width: "50%" }}
                       >
-                        Total
+                        Revenue
                       </td>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"
                         style={{ width: "50%" }}
                       >
-                        Lorem
-                      </td>
-                      <td
-                        class="text-black px-4 px-12px fs-14 text-nowrap"
-                        style={{ width: "50%" }}
-                      >
-                        Lorem
-                      </td>
-                      <td
-                        class="text-black px-4 px-12px fs-14 text-nowrap"
-                        style={{ width: "50%" }}
-                      >
-                        Lorem
-                      </td>
-                      <td
-                        class="text-black px-4 px-12px fs-14 text-nowrap"
-                        style={{ width: "50%" }}
-                      >
-                        Lorem
-                      </td>
-                      <td
-                        class="text-black px-4 px-12px fs-14 text-nowrap"
-                        style={{ width: "50%" }}
-                      >
-                        Lorem
+                        Sum of all revenue sub-totals
                       </td>
                     </tr>
                     <tr>
-                      {/* <!-- White Space Row --> */}
                       <td
-                        style={{ border: "0" }}
-                        colspan="6"
-                        class="bg-white px-4 px-12px fw-bold fs-14"
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
                       >
+                        Less: Cost of Goods Sold (COGS)
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Sum of all COGS sub-totals minus sum of COGS refunds
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Gross Profit
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Revenue – COGS
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        &nbsp;
+                      </td>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        Less: Operating Expenses
+                      </td>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        &nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        - Operating Expenses
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Total of all Operating Expenses sub-sub-categories
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        - Depreciation
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Total depreciation on assets
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                        &nbsp;
+                      </td>
+                      <td class="text-black px-4 px-12px fs-14 text-nowrap">
                         &nbsp;
                       </td>
                     </tr>
 
-                    {/* <!-- White Space Row --> */}
-
-                    {/* <!-- Table Section Header --> */}
                     <tr>
                       <td
-                        colspan="6"
-                        class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
                       >
-                        VAT Input Section
+                        Operating Expenses
+                      </td>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Operating Expenses + Depreciation
                       </td>
                     </tr>
-
-                    {/* <!-- Table Section Header --> */}
                     <tr>
                       <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
                       >
-                        Date
+                        Operating Income (EBIT)
                       </td>
                       <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
                       >
-                        Client Name
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        Service Description
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        Sub-Total
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        VAT Output Recieved
-                      </td>
-                      <td
-                        style={{ border: "0" }}
-                        class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
-                      >
-                        VAT Output Withheld
+                        Gross Profit – Operating Expenses
                       </td>
                     </tr>
-                    {/* <!-- Table Section Header --> */}
-                    {
-                      [
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                        {
-                          date: "29 Jun 2025",
-                          client_name: "Lorem",
-                          service: "Lorem",
-                          sub: "Lorem",
-                          vat_received: "Lorem",
-                          vat_withheld: "Lorem",
-                        },
-                      ].map((ele, index) => (
-                        <tr>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.date}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.client_name}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.service}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.sub}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.vat_received}
-                          </td>
-                          <td
-                            class="text-black px-4 px-12px fs-14 text-nowrap"
-                            style={{ width: "50%" }}
-                          >
-                            {ele.vat_withheld}
-                          </td>
-                        </tr>
-                      ))
-                    }
-
                     <tr>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"
                         style={{ width: "50%" }}
                       >
-                        Total
+                        Less: Interest
                       </td>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"
                         style={{ width: "50%" }}
                       >
-                        Lorem
+                        Total interest amount
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Earnings Before Taxes (EBT)
                       </td>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"
                         style={{ width: "50%" }}
                       >
-                        Lorem
+                        EBIT – Interest
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Taxes
                       </td>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"
                         style={{ width: "50%" }}
                       >
-                        Lorem
+                        Gross Pay To Date:
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="text-black px-4 px-12px fs-14 text-nowrap"
+                        style={{ width: "50%" }}
+                      >
+                        Net Income
                       </td>
                       <td
                         class="text-black px-4 px-12px fs-14 text-nowrap"
                         style={{ width: "50%" }}
                       >
-                        Lorem
-                      </td>
-                      <td
-                        class="text-black px-4 px-12px fs-14 text-nowrap"
-                        style={{ width: "50%" }}
-                      >
-                        Lorem
+                        EBT - Taxes
                       </td>
                     </tr>
                   </tbody>

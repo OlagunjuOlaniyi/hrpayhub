@@ -1,0 +1,338 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ListOfNigStates from "../components/ui/ListOfNigStates";
+---
+
+<Layout title="HRPayHub :: Daily Journal Entry Form Asset Sub-Category  ">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/journal-entries-ng"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/financial-reports-and-analytics"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/financial-reports-and-analytics-UK"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics - UK</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/journal-entries-uk"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Journal Entries</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Daily Journal Entry Form</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Setup --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Daily Journal Entry Form
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+              <div class="form-floating add_employee_width">
+                <input
+                  type="date"
+                  id="entry_date"
+                  name="entry_date"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="entry_date">Date &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="category"
+                  name="category"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected> Select </option>
+                  <option value="1">Deposit</option>
+                  <option value="2">Withdrawal</option>
+                </select>
+                <label for="category">
+                  Category &nbsp;<span>*</span>
+                </label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="sub_category"
+                  name="sub_category"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected> Select </option>
+                  <option value="1">Revenue</option>
+                  <option value="2">Non-Revenue Deposit</option>
+                </select>
+                <label for="sub_category">
+                  Sub-Category &nbsp;<span>*</span>
+                </label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="3rd_level_cat"
+                  name="3rd_level_cat"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected> Select </option>
+                  <option value="1">Revenue</option>
+                  <option value="2">Non-Revenue Deposit</option>
+                </select>
+                <label for="3rd_level_cat">
+                  Third level Category &nbsp;<span>*</span>
+                </label>
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="ris"
+                  name="ris"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ris">
+                  Vendor Invoice Subtotal &nbsp;<span>*</span></label
+                >
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="riv"
+                  name="riv"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="riv">Vendor Invoice VAT &nbsp;<span>*</span></label>
+              </div>
+
+              <div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="rit"
+                    name="rit"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="rit"
+                    >Vendor Invoice Total &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="fs-12 mt-2">Subtotal + VAT Output</div>
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="are"
+                  name="are"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="are">Amount Paid </label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="vor"
+                  name="vor"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="vor">VAT Input </label>
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="ulife"
+                  name="ulife"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="ulife">Useful Life (months) </label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="date">Purchase Date </label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="asset_cost"
+                  name="asset_cost"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="asset_cost">Asset Cost </label>
+              </div>
+              <div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="residual"
+                    name="residual"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="residual">Residual Value </label>
+                </div>
+                <div class="fs-12 mt-2">20% * Asset Cost</div>
+              </div>
+              <div class="add_employee_width">
+                <div class="form-floating">
+                  <input
+                    type="text"
+                    id="dep"
+                    name="dep"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="dep">Monthly Depreciation </label>
+                </div>
+                <div class="fs-12 mt-2">
+                  Monthly Depreciation= (Asset Cost – Residual Value)/ Useful
+                  Life (Months)
+                </div>
+              </div>
+              <div class="add_employee_width">
+                <div class="form-floating">
+                  <input
+                    type="text"
+                    id="dep_end"
+                    name="dep_end"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="dep_end">Depreciation End Date </label>
+                </div>
+                <div class="fs-12 mt-2">
+                  End Date=Purchase Date + Useful Life (Months)
+                </div>
+              </div>
+              <div class="form-floating add_employee_width">
+                <select
+                  id="entity"
+                  name="entity"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected> Select </option>
+                  <option value="1">Revenue</option>
+                  <option value="2">Non-Revenue Deposit</option>
+                </select>
+                <label for="entity">
+                  Entity &nbsp;<span>*</span>
+                </label>
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="enter_name"
+                  name="enter_name"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="enter_name">Enter Name</label>
+              </div>
+              <div class="form-floating add_employee_width">
+                <textarea class="form-input" rows="2" id="description"
+                ></textarea>
+                <label for="description">Description </label>
+              </div>
+
+              <!---- submit ---->
+              <div class="d-flex justify-content-start add_employee_width">
+                <button
+                  type="submit"
+                  id="upload"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                >
+                  <span>Save</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+  </main>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      $("#fileInputBtn").click((evt) => {
+        $("#fileInput").click();
+      });
+    });
+  </script>
+</Layout>
+<!-- Main content ends here -->
