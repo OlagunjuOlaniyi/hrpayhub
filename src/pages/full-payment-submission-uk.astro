@@ -1,0 +1,556 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: Full Payment Submission - UK">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="index.html"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Full Payment Submission - UK</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4" id="manage_submission">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Setup --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">FPS Input Form</div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+              <form class="vstack" style="gap: 2.3rem" id="generate_submission">
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="epr"
+                    name="epr"
+                    class="form-input"
+                    placeholder=""
+                    required
+                  />
+                  <label for="epr"
+                    >Employer PAYE Reference &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="aor"
+                    name="aor"
+                    class="form-input"
+                    placeholder=""
+                    required
+                  />
+                  <label for="aor"
+                    >Accounts Office Reference &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating add_employee_width">
+                  <select
+                    id="tax-year"
+                    name="tax-year"
+                    class="form-select_custom fs-14"
+                    required
+                  >
+                    <option value="" selected> Select </option>
+                    <option value="1">Retail</option>
+                    <option value="2">Primary</option>
+                    <option value="3">Tertiary</option>
+                  </select>
+                  <label for="tax-year">
+                    Tax Year &nbsp;<span>*</span>
+                  </label>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <select
+                    id="tax-code"
+                    name="tax-code"
+                    class="form-select_custom fs-14"
+                    required
+                  >
+                    <option value="" selected> Select </option>
+                    <option value="1">TX001</option>
+                    <option value="2">TX001</option>
+                    <option value="3">TX001</option>
+                  </select>
+                  <label for="tax-code">
+                    Tax Code &nbsp;<span>*</span>
+                  </label>
+                </div>
+                <div>
+                  <p class="fs-14 fw-600">Starter/Leaver Information</p>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="starter"
+                      name="starter"
+                      value="new-starter"
+                      checked
+                    />
+                    <label class="form-check-label fs-12">New Starter</label>
+                  </div>
+                  <div class="form-check mt-3">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="starter"
+                      name="starter"
+                      value="leaver"
+                    />
+                    <label class="form-check-label fs-12">Leaver</label>
+                  </div>
+                  <div class="form-check mt-3">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="starter"
+                      name="starter"
+                      value="both"
+                    />
+                    <label class="form-check-label fs-12">Both</label>
+                  </div>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <select
+                    id="pay-period"
+                    name="pay-period"
+                    class="form-select_custom fs-14"
+                    required
+                  >
+                    <option value="" selected> Select </option>
+                    <option value="1">Period 1</option>
+                    <option value="2">Period 2</option>
+                    <option value="3">Period 3</option>
+                  </select>
+                  <label for="pay-period">
+                    Pay Period Selection &nbsp;<span>*</span>
+                  </label>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <select
+                    id="file"
+                    name="file"
+                    class="form-select_custom fs-14"
+                    required
+                  >
+                    <option value="" selected> Select </option>
+                    <option value="1">Excel</option>
+                    <option value="2">Word</option>
+                    <option value="3">PDF</option>
+                  </select>
+                  <label for="file">
+                    File Format &nbsp;<span>*</span>
+                  </label>
+                </div>
+
+                <div class="d-flex justify-content-end add_employee_width">
+                  <button
+                    class="white_button fs-14 p-0"
+                    style="border: 0px !important;"
+                    type="button"
+                  >
+                    <u class="text-primary-blue fw-600">Populate Data </u>
+                  </button>
+                </div>
+
+                <!---- Setup --->
+                <div class="d-flex align-items-center gap-4 add_employee_width">
+                  <div class="fs-14 fw-600 text-primary-blue">
+                    Auto-populated Data
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="demarcator_line">&nbsp;</div>
+                  </div>
+                </div>
+
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="emp_name"
+                    name="emp_name"
+                    class="form-input fs-12"
+                    placeholder=""
+                    value="Auto Filled"
+                    disabled
+                  />
+                  <label for="emp_name">Employee Name</label>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="nin"
+                    name="nin"
+                    class="form-input fs-12"
+                    placeholder=""
+                    value="Auto Filled"
+                    disabled
+                  />
+                  <label for="nin">National Insurance Number</label>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="dob"
+                    name="dob"
+                    class="form-input fs-12"
+                    placeholder=""
+                    value="Auto Filled"
+                    disabled
+                  />
+                  <label for="dob">Date of Birth</label>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="gp"
+                    name="gp"
+                    class="form-input fs-12"
+                    placeholder=""
+                    value="Auto Filled"
+                    disabled
+                  />
+                  <label for="gp">Gross Pay</label>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="td"
+                    name="td"
+                    class="form-input fs-12"
+                    placeholder=""
+                    value="Auto Filled"
+                    disabled
+                  />
+                  <label for="td">Tax Deductions</label>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="nic"
+                    name="nic"
+                    class="form-input fs-12"
+                    placeholder=""
+                    value="Auto Filled"
+                    disabled
+                  />
+                  <label for="nic">National Insurance contributions</label>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="sld"
+                    name="sld"
+                    class="form-input fs-12"
+                    placeholder=""
+                    value="Auto Filled"
+                    disabled
+                  />
+                  <label for="sld">Student Loan deductions</label>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="pay-day"
+                    name="pay-day"
+                    class="form-input fs-12"
+                    placeholder=""
+                    value="Auto Filled"
+                    disabled
+                  />
+                  <label for="pay-day">Pay Date</label>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="pn"
+                    name="pn"
+                    class="form-input fs-12"
+                    placeholder=""
+                    value="Auto Filled"
+                    disabled
+                  />
+                  <label for="pn">Period Number</label>
+                </div>
+                <div
+                  class="d-flex justify-content-between gap-3 add_employee_width"
+                >
+                  <div class="form-floating add_employee_width">
+                    <input
+                      type="date"
+                      id="start_date"
+                      name="start_date"
+                      class="form-input fs-12"
+                      placeholder=""
+                      disabled
+                    />
+                    <label for="start_date">Start Date </label>
+                  </div>
+                  <div class="form-floating add_employee_width">
+                    <input
+                      type="date"
+                      id="end_date"
+                      name="end_date"
+                      class="form-input fs-12"
+                      placeholder=""
+                      disabled
+                    />
+                    <label for="end_date">End Date </label>
+                  </div>
+                </div>
+                <div class="form-floating add_employee_width">
+                  <textarea class="form-input" rows="2" id="reasons"></textarea>
+                  <label for="reasons">Reason for Leaving </label>
+                </div>
+
+                <!---- submit ---->
+                <div class="d-flex justify-content-end add_employee_width">
+                  <button
+                    type="submit"
+                    id="upload"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold expense_button"
+                  >
+                    <span>Generate Preview</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+
+    <section class="px-4 d-none" id="view_submission">
+      <div class="screenFrame">
+        <div class="d-flex flex-column justify-content-between">
+          <div
+            class="rounded-4 shadow p-4 d-flex flex-column gap-5 px-md-5 px-3"
+            style={{ flexBasis: "auto" }}
+          >
+            {/* Page Content Box */}
+            <div class="vstack gap-4">
+              <div
+                class="d-flex align-items-center justify-content-between gap-4 view_offer_breakdown"
+              >
+                <span
+                  class="text-primary-blue font-ubuntu-bold fs-18 inline-block"
+                >
+                  Full Payment Submission
+                </span>
+                <div
+                  class="d-flex align-items-center justify-content-end gap-4"
+                >
+                  <button
+                    id="back_to_submission"
+                    class="delon-primary-btn bg-white text-primary-blue border-primary-blue text-decoration-none text-white fw-bold fs-14"
+                  >
+                    Back
+                  </button>
+                  <div class="dropdown">
+                    <button
+                      class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      data-bs-offset="-20,10"
+                    >
+                      <span>Download</span>
+                      <img
+                        src="images/png/icons/arrow-down.svg"
+                        alt="arrow-down"
+                      />
+                    </button>
+                    <div class="dropdown-menu p-0 border-0">
+                      <ul class="list-group border-0 fw-600 fs-14">
+                        <li class="list-group-item">
+                          <div>CSV Format</div>
+                        </li>
+                        <li class="list-group-item">
+                          <div>Excel Format</div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* <!-- View section --> */}
+              <div
+                class="d-flex flex-column gap-5 border view_offer_breakdown"
+                id="view_employee_details"
+              >
+                <div>
+                  {
+                    [
+                      {
+                        title: "Field",
+                        value: "Value",
+                      },
+                      {
+                        title: "Employer PAYE Ref",
+                        value: "123/A246",
+                      },
+                      {
+                        title: "Accounts Office Ref",
+                        value: "123PA00123456",
+                      },
+                      {
+                        title: "Tax Year",
+                        value: "2023/24",
+                      },
+                      {
+                        title: "Employee NI Number",
+                        value: "AB123456C",
+                      },
+                      {
+                        title: "Employee Name",
+                        value: "John Smith",
+                      },
+                      {
+                        title: "Date of Birth",
+                        value: "01/01/1985",
+                      },
+                      {
+                        title: "Payment Date",
+                        value: "30/09/2023",
+                      },
+                      {
+                        title: "Gross Pay (Period)",
+                        value: "£2,500",
+                      },
+                      {
+                        title: "Taxable Pay (YTD)",
+                        value: "£15,000",
+                      },
+                      {
+                        title: "Tax Deducted (YTD)",
+                        value: "£1,200",
+                      },
+                      {
+                        title: "NICs (Period)",
+                        value: "£200",
+                      },
+                      {
+                        title: "NICs (YTD)",
+                        value: "£1,000",
+                      },
+                      {
+                        title: "Student Loan",
+                        value: "£50",
+                      },
+
+                      {
+                        title: "Pension Contributions",
+                        value: "£150",
+                      },
+                      {
+                        title: "Starter/Leaver Info",
+                        value: "Starter",
+                      },
+                      {
+                        title: "Tax Code",
+                        value: "1257L",
+                      },
+                    ].map((ele) => (
+                      <div class="d-flex">
+                        <div class="bg-primary-blue border border-top-0 text-white fw-700 fs-14 py-2 px-3 offer_breakdown_width">
+                          {ele.title}
+                        </div>
+                        <div class="text-dark border border-top-0 py-2 px-3 fs-14 offer_breakdown_width">
+                          {ele.value}
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+              {/* <!-- View section --> */}
+            </div>
+            {/* Page Content Box */}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      document
+        .getElementById("generate_submission")
+        ?.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          $("#view_submission").addClass("d-none");
+          const submitBtn = e.target.querySelector("button");
+
+          submitBtn.innerHTML = `
+                        <span>
+                            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span role="status">Loading...</span>
+                        </span>
+                    `;
+          submitBtn.disabled = true;
+
+          setTimeout(() => {
+            submitBtn.innerHTML = `
+                            <span>Generate</span>
+                        `;
+            submitBtn.disabled = false;
+            $("#manage_submission").addClass("d-none");
+            $("#view_submission").removeClass("d-none");
+          }, 500);
+        });
+
+      $("#back_to_submission").click((evt) => {
+        $("#view_submission").addClass("d-none");
+        $("#manage_submission").removeClass("d-none");
+      });
+
+      $("#fileInputBtn").click((evt) => {
+        $("#fileInput").click();
+      });
+    });
+  </script>
+
+  <!-- Main content ends here -->
+</Layout>

@@ -287,7 +287,7 @@ input.no_focus:focus {
 .delon-primary-btn {
   padding: 10px 20px;
   border-radius: 10px;
-  font-family: "Nunito-Bold";
+  font-family: "Nunito";
   font-size: 12px !important;
 }
 
@@ -350,7 +350,7 @@ input.no_focus:focus {
   color: #989898;
   font-size: 14px;
   font-family: "Nunito";
-  font-weight: 600;
+
   pointer-events: none;
   transition: 0.2s ease all;
   background: white;
@@ -634,6 +634,12 @@ input.no_focus:focus {
   font-family: "Nunito";
   src: url("../fonts/Nunito/Nunito-Regular.ttf") format("truetype");
   font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito";
+  src: url("../fonts/Nunito/Nunito-Medium.ttf") format("truetype");
+  font-weight: 600;
   font-style: normal;
 }
 @font-face {
