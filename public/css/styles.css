@@ -26,6 +26,9 @@
 .bg-gold {
   background-color: #c7a930 !important;
 }
+.bg-grey {
+  background-color: #EAECF0 !important;
+}
 
 .text-primary-blue {
   color: #2271b6 !important;
@@ -1609,3 +1612,5 @@ ul {
     width: 100%;
   }
 }
+
+/* payroll bank*/

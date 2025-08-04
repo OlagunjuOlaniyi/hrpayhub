@@ -1,0 +1,719 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: Payroll Bank Upload - NG">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/index.html"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Payroll Bank Upload</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4" id="manage_report">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Setup --->
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Payroll Bank Upload
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <!---- body ---->
+              <form
+                class="vstack"
+                style="gap: 2.3rem"
+                id="generate_report_form"
+              >
+                <div
+                  class="d-flex justify-content-between gap-3 add_employee_width"
+                >
+                  <div class="form-floating add_employee_width">
+                    <input
+                      type="month"
+                      id="select_month"
+                      name="select_month"
+                      class="form-input fs-14"
+                      placeholder=""
+                      required
+                    />
+                    <label for="select_month"
+                      >Select Month &nbsp;<span>*</span></label
+                    >
+                  </div>
+                  <div class="form-floating add_employee_width">
+                    <select
+                      id="select_year"
+                      name="select_year"
+                      class="form-select_custom fs-14"
+                      required
+                    >
+                      <option value="" selected> Select </option>
+                      <option value="1">2024</option>
+                      <option value="2">2025</option>
+                      <option value="3">2026</option>
+                    </select>
+                    <label for="select_year">
+                      Select Year &nbsp;<span>*</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="fs-14 fw-600">Select from these 2 options:</p>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="netSalary"
+                      name="starter"
+                      value="net_salary"
+                      checked
+                    />
+                    <label class="form-check-label fs-12"
+                      >Monthly Net Salary After Taxes
+                    </label>
+                  </div>
+                  <div class="form-check mt-3">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="netVariable"
+                      name="starter"
+                      value="net_variable"
+                    />
+                    <label class="form-check-label fs-12"
+                      >Monthly Net Variable OPEX</label
+                    >
+                  </div>
+                </div>
+
+                <div class="add_employee_width">
+                  <p
+                    class="p-3 fs-12 bg-grey text-center rounded"
+                    id="netSalaryText"
+                  >
+                    Monthly Net Salary After Taxes = Auto populate
+                  </p>
+                  <p
+                    class="p-3 fs-12 bg-grey text-center rounded d-none"
+                    id="netVariableText"
+                  >
+                    Monthly Net Variable OPEX = Auto populate V1 + V2
+                  </p>
+                </div>
+
+                <!---- submit ---->
+                <div class="d-flex justify-content-start add_employee_width">
+                  <button
+                    type="submit"
+                    id="upload"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                  >
+                    <span>Generate Payroll Bank Upload File</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Page Content Box */}
+    </section>
+  </main>
+
+  <section class="px-4 d-none" id="view_report">
+    <div class="screenFrame">
+      <div
+        class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+        id="employee_request_form"
+      >
+        {/* Page Title */}
+        <div class="vstack gap-3">
+          <div class="d-flex gap-3 align-items-center">
+            <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+              >Payroll Bank Upload File</span
+            >
+          </div>
+        </div>
+        {/* Page Title */}
+        <div class="">
+          <div
+            class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
+          >
+            <!---- Search  -->
+            <div class="d-flex gap-3">
+              <input
+                type="text"
+                class="form-control search-input search-width fs-14"
+                placeholder="Search..."
+              />
+              <img
+                src="images/png/icons/initialize.svg"
+                class="initialize"
+                alt="arrow-down"
+              />
+            </div>
+
+            <!-- Others -->
+            <div class="responsive gap-3">
+              <!-- Filter Dropdown -->
+
+              <style>
+                .dropdown-submenu {
+                  position: relative;
+                }
+
+                /* Accordion style: drop below, not to the right */
+                .dropdown-submenu > .dropdown-menu {
+                  position: static;
+                  float: none;
+                  margin-top: 0.5rem;
+                  padding-left: 1rem;
+                  display: none;
+                }
+
+                .dropdown-submenu > .dropdown-menu.show {
+                  display: block;
+                }
+
+                /* a small caret indicator */
+                .dropdown-submenu > a::after {
+                  content: " ";
+                  float: right;
+                }
+              </style>
+
+              <div class="dropdown">
+                <button
+                  class="delon-primary-btn bg-white border dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2 fs-14"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  data-bs-offset="-20,10"
+                >
+                  <img src="images/png/icons/filter.svg" alt="arrow-down" />
+                  <span>Filter</span>
+                </button>
+                <ul class="dropdown-menu" style="min-width:250px">
+                  <li
+                    class="d-flex flex-row justify-content-between px-3 py-2 border-bottom fs-14"
+                  >
+                    <span class="fw-bold">Filter</span>
+                    <span class="fw-bold text-primary-blue">Reset Filter</span>
+                  </li>
+                  <!-- Designation Submenu -->
+                  <li class="dropdown-submenu border-bottom">
+                    <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                      >Designation</a
+                    >
+                    <ul class="dropdown-menu border-0 fs-14">
+                      <li>
+                        <label class="form-check-label">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            name="category 1"
+                          /> Category 1
+                        </label>
+                      </li>
+                      <li>
+                        <label class="form-check-label">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            name="category 2"
+                          /> Category 2
+                        </label>
+                      </li>
+                      <li>
+                        <label class="form-check-label">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            name="category 2"
+                          /> Category 2
+                        </label>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <!-- Employment Status Submenu -->
+                  <li class="dropdown-submenu border-bottom">
+                    <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                      >Employment Status</a
+                    >
+                    <ul class="dropdown-menu border-0 fs-14">
+                      <li>
+                        <label class="form-check-label">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            name="employed"
+                          /> Employed
+                        </label>
+                      </li>
+                      <li>
+                        <label class="form-check-label">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            name="unemployed"
+                          /> Unemployed
+                        </label>
+                      </li>
+
+                      <li>
+                        <label class="form-check-label">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            name="contract"
+                          /> Contract
+                        </label>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <!-- Country of Work Submenu -->
+                  <li class="dropdown-submenu border-bottom">
+                    <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                      >Country of Work</a
+                    >
+                    <ul class="dropdown-menu border-0 fs-14">
+                      <li>
+                        <label class="form-check-label">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            name="usa"
+                          /> USA
+                        </label>
+                      </li>
+                      <li>
+                        <label class="form-check-label">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            name="uk"
+                          /> UK
+                        </label>
+                      </li>
+                      <li>
+                        <label class="form-check-label">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            name="Nigeria"
+                          /> Nigeria
+                        </label>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <!-- apply filter button -->
+                  <li
+                    class="d-flex flex-row justify-content-end px-3 py-2 mt-2"
+                  >
+                    <button
+                      type="submit"
+                      class="delon-primary-btn bg-primary-blue border-0 text-white fs-14"
+                    >
+                      <span>Apply Filter</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Sort Dropdown -->
+
+              <div class="dropdown">
+                <button
+                  class="delon-primary-btn bg-white border fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  data-bs-offset="-20,10"
+                >
+                  <img src="images/png/icons/sort.svg" alt="arrow-down" />
+                  <span>Sort</span>
+                </button>
+                <div class="dropdown-menu p-0 border-0" style="min-width:200px">
+                  <ul class="list-group border-0 fw-600 fs-14">
+                    <li class="list-group-item">
+                      <span class="fw-bold">Sort</span>
+                    </li>
+                    <li class="list-group-item">
+                      <label class="form-check-label">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          name="optradio"
+                        /> Alphabetically
+                      </label>
+                    </li>
+                    <li class="list-group-item">
+                      <label class="form-check-label">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          name="optradio"
+                        /> Date of Resumption
+                      </label>
+                    </li>
+                    <li class="list-group-item">
+                      <label class="form-check-label">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          name="optradio"
+                        /> Date of Confirmation
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Download Dropdown -->
+              <div class="dropdown">
+                <button
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  data-bs-offset="-20,10"
+                >
+                  <img src="images/png/icons/download.svg" alt="arrow-down" />
+                  <span>Download</span>
+                  <img src="images/png/icons/arrow-down.svg" alt="arrow-down" />
+                </button>
+                <div class="dropdown-menu p-0 border-0">
+                  <ul class="list-group border-0 fw-600 fs-14">
+                    <li class="list-group-item">
+                      <div>CSV</div>
+                    </li>
+                    <li class="list-group-item">
+                      <div>Excel</div>
+                    </li>
+                    <li class="list-group-item">
+                      <div>PDF</div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!---- End of Others ---->
+          </div>
+        </div>
+        <!-- Scrollable Table -->
+        <div
+          class="table-responsive"
+          style="max-height: 600px; overflow: auto;"
+        >
+          <table class="table table-bordered table-hover">
+            <!---- Table head --->
+            <thead
+              class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+            >
+              <tr>
+                <th class="bg-primary-blue text-white px-4 fw-600 fs-14">S/N</th
+                >
+
+                <th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                  >Beneficiary Name</th
+                >
+                <th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                  >Bank Code</th
+                >
+
+                <th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                  >Account No</th
+                >
+                <th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                  >Amount</th
+                >
+                <th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                  >Narration</th
+                >
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Table body and Row -->
+              <style>
+                .column {
+                  min-width: 180px;
+                }
+              </style>
+              {
+                [
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "354673",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    narration:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                    total_feedback: "12",
+                    pending: "-",
+                    status: "Completed",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "354673",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    narration:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                    total_feedback: "12",
+                    pending: "3",
+                    status: "Pending",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "354673",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    narration:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                    total_feedback: "12",
+                    pending: "-",
+                    status: "Not Started",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "354673",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    narration:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                    total_feedback: "12",
+                    pending: "-",
+                    status: "Completed",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "354673",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    narration:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                    total_feedback: "12",
+                    pending: "-",
+                    status: "Completed",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "354673",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    narration:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                    total_feedback: "12",
+                    pending: "-",
+                    status: "Completed",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "354673",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    narration:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                    total_feedback: "12",
+                    pending: "-",
+                    status: "Completed",
+                  },
+                ].map((item, index) => (
+                  <tr class="fs-88">
+                    <td class="text-center fs-14">{index + 1}</td>
+                    <td class="fs-14 text-nowrap text-left px-3 column">
+                      {item.emp_name}
+                    </td>
+                    <td class="fs-14 px-3 text-center column">
+                      {item.bank_code}
+                    </td>
+                    <td class="fs-14 px-3 text-center column">{item.acc_no}</td>
+
+                    <td class="fs-14 px-3 text-center column">{item.aount}</td>
+                    <td class="fs-14 px-3 text-nowrap text-left column">
+                      {item.narration}
+                    </td>
+                  </tr>
+                ))
+              }
+
+              <!-- Repeat for more employees -->
+            </tbody>
+          </table>
+        </div>
+
+        <!---- End of table --->
+
+        <!-- Pagination Row -->
+        <div
+          class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+        >
+          <!-- Left: Pagination Text -->
+          <div class="fs-14 text-muted">
+            Showing <strong>1–20</strong> of <strong>1000</strong>
+          </div>
+
+          <!-- Right: Go to Page + Pagination -->
+          <div class="d-flex align-items-center gap-3 flex-wrap">
+            <!-- Go to Page -->
+            <form class="d-flex align-items-center gap-2">
+              <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+              <input
+                type="number"
+                min="1"
+                max="100"
+                id="gotoPage"
+                class="form-control form-control-sm"
+                style="width: 60px;"
+                placeholder="—"
+              />
+            </form>
+
+            <!-- Page Navigation -->
+
+            <nav>
+              <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                <li class="page-item">
+                  <a
+                    class="page-link text-primary-blue px-2"
+                    href="#"
+                    aria-label="Previous"
+                  >
+                    &lsaquo;
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">1</a>
+                </li>
+                <li class="page-item active" aria-current="page">
+                  <span class="page-link">2</span>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">3</a>
+                </li>
+                <li class="page-item disabled">
+                  <span class="page-link text-primary-blue">...</span>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">100</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link hello" href="#" aria-label="Next">
+                    &rsaquo;
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!---- Pagination ---->
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    document
+      .getElementById("generate_report_form")
+      ?.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        $("#view_report").addClass("d-none");
+        const submitBtn = e.target.querySelector("button");
+
+        submitBtn.innerHTML = `
+                        <span>
+                            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span role="status">Loading...</span>
+                        </span>
+                    `;
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+          submitBtn.innerHTML = `
+                            <span>Generate Payroll Bank Upload File</span>
+                        `;
+          submitBtn.disabled = false;
+          $("#manage_report").addClass("d-none");
+          $("#view_report").removeClass("d-none");
+        }, 1000);
+      });
+
+    $("#back_to_manage_report").click((evt) => {
+      $("#view_report").addClass("d-none");
+      $("#manage_report").removeClass("d-none");
+    });
+
+    $("#fileInputBtn").click((evt) => {
+      $("#fileInput").click();
+    });
+
+    function toggleSalaryView() {
+      if ($("#netSalary").is(":checked")) {
+        $("#netSalaryText").removeClass("d-none");
+        $("#netVariableText").addClass("d-none");
+      } else {
+        $("#netSalaryText").addClass("d-none");
+        $("#netVariableText").removeClass("d-none");
+      }
+    }
+
+    // Initial call on load
+    toggleSalaryView();
+
+    // Bind change event to radio buttons
+    $("input[name='starter']").change(toggleSalaryView);
+  });
+</script>
+
+<!-- Main content ends here -->
