@@ -59,7 +59,32 @@ import { CloseCircleIcon } from "../Icons";
         >
           Login
         </a>
-      </div>) : (<!-- Modal Header -->
+      </div>) : title === "Remit Payment" ? (<!-- Modal Header -->
+      <div
+        class="modal-header fs-24 fw-700 border-0 d-flex justify-content-center"
+      >
+       Notice
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-center py-2 border-0">
+        <img src="images/png/icons/success-check.svg" alt="success check" />
+
+        <p class="fs-16">
+          By clicking on next, you’ll be charged N50 per staff payment/transaction
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <a
+          href="/sign-in"
+          class="btn text-white bg-primary-blue fs-14 px-4"
+          
+        >
+          Next
+        </a>
+      </div>):(<!-- Modal Header -->
       <div
         class="modal-header fs-24 fw-700 border-0 d-flex justify-content-center"
       >

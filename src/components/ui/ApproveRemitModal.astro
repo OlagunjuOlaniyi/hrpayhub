@@ -1,0 +1,116 @@
+---
+// components/ui/ModalAddNew.astro
+const {
+  modalId = "approveModal",
+  title = "Remit Payment",
+  amount = "N50,000",
+} = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-end">
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      {title==="Generate VAT Document"?(
+        <>
+        <!-- Modal body -->
+      <div class="modal-body text-center py-2 border-0">
+        <img src="images/png/icons/notice.svg" alt="approval" />
+        <p class="fs-16 mt-3">
+          Clients must pay the VAT amount and a <span class="text-primary-blue"
+            >{amount}</span
+          > filing fee to HRPayHub and upload supporting documents.
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <button
+          type="button"
+          class="btn text-white bg-primary-blue"
+          
+          data-bs-dismiss="modal"
+        >
+          Next
+        </button>
+      </div></>):title==="Generate WHT Document"?(
+        <>
+        <!-- Modal body -->
+      <div class="modal-body text-center py-2 border-0">
+        <img src="images/png/icons/notice.svg" alt="approval" />
+        <p class="fs-16 mt-3">
+         Clients must pay the total WHT amount due along with a <span class="text-primary-blue"
+            >{amount}</span
+          >  service charge to HRPayHub
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <button
+          type="button"
+          class="btn text-white bg-primary-blue"
+          
+          data-bs-dismiss="modal"
+        >
+          Next
+        </button>
+      </div></>):title==="Generate P&L and Balance Sheet"?(
+        <>
+        <!-- Modal body -->
+      <div class="modal-body text-center py-2 border-0">
+        <img src="images/png/icons/notice.svg" alt="approval" />
+        <p class="fs-16 mt-3">
+         By clicking on next, you’ll be charged <span class="text-primary-blue"
+            >{amount}</span
+          >  filing fee
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <button
+          type="button"
+          class="btn text-white bg-primary-blue"
+          
+          data-bs-dismiss="modal"
+        >
+          Next
+        </button>
+      </div></>):(
+        <>
+        <!-- Modal body -->
+      <div class="modal-body text-center py-2 border-0">
+        <img src="images/png/icons/notice.svg" alt="approval" />
+        <p class="fs-16 mt-3">
+          By clicking on next, you’ll be charged <span class="text-primary-blue"
+            >{amount}</span
+          > per staff payment/transaction
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <button
+          type="button"
+          class="btn text-white bg-primary-blue"
+          id="view_payment_status"
+          data-bs-dismiss="modal"
+        >
+          Next
+        </button>
+      </div></>)}
+      
+    </div>
+  </div>
+</div>

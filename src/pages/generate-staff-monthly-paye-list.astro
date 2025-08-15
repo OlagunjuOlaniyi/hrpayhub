@@ -1,0 +1,709 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import ApproveRemitModal from "../components/ui/ApproveRemitModal.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+---
+
+<Layout title="HRPayHub :: Generate staff monthly PAYE list">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/monthly-paye-filing"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/pay-as-you-go"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Pay as you go</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/monthly-paye-filing"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Monthly PAYE Filing</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Generate staff monthly PAYE list</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4" id="manage_report">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Setup --->
+              <div class="d-flex align-items-center gap-4">
+                <div class="fs-18 fw-700 text-primary-blue">
+                  Generate staff monthly PAYE list
+                </div>
+              </div>
+
+              <!---- body ---->
+              <form
+                class="vstack"
+                style="gap: 2.3rem"
+                id="generate_report_form"
+              >
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="date"
+                    id="select_date"
+                    name="select_date"
+                    class="form-input fs-14"
+                    placeholder=""
+                    value="Lorem Ipsum"
+                    required
+                  />
+                  <label for="select_date">
+                    Select Date &nbsp;<span>*</span>
+                  </label>
+                </div>
+
+                <!---- submit ---->
+                <div class="d-flex justify-content-start add_employee_width">
+                  <button
+                    type="submit"
+                    id="upload"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                  >
+                    <span>Proceed</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Page Content Box */}
+    </section>
+  </main>
+
+  <section class="px-4 d-none" id="view_report">
+    <div class="screenFrame">
+      <div
+        class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+        id="employee_request_form"
+      >
+        {/* Page Title */}
+        <div class="vstack gap-3">
+          <div class="d-flex gap-3 align-items-center">
+            <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+              >Staff monthly PAYE list
+            </span>
+          </div>
+        </div>
+        {/* Page Title */}
+        <div class="">
+          <div
+            class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
+          >
+            <!---- Search  -->
+            <div class="d-flex gap-3">
+              <input
+                type="text"
+                class="form-control search-input search-width fs-14"
+                placeholder="Search..."
+              />
+              <img
+                src="images/png/icons/initialize.svg"
+                class="initialize"
+                alt="arrow-down"
+              />
+            </div>
+
+            <!-- Others -->
+            <div class="responsive gap-3">
+              <!-- Calendar Selector -->
+              <input
+                type="month"
+                class="form-control fs-14"
+                style="max-width: 200px;"
+                value="2025-08"
+              />
+
+              <!-- Download Dropdown -->
+              <div class="d-flex justify-content-end">
+                <button
+                  class="btn bg-primary-blue d-flex text-white fs-14"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#approveModal"
+                  data-title="Make Payment"
+                >
+                  <img src="images/png/icons/remit-payment.svg" alt="" /><span
+                    class="ms-2 text-nowrap">Make Payment</span
+                  >
+                </button>
+              </div>
+            </div>
+
+            <!---- End of Others ---->
+          </div>
+        </div>
+        <!-- Scrollable Table -->
+        <div
+          class="table-responsive"
+          style="max-height: 600px; overflow: auto;"
+        >
+          <table class="table table-bordered table-hover">
+            <!---- Table head --->
+            <thead
+              class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+            >
+              <tr>
+                <th class="bg-primary-blue text-white px-4 fw-600 fs-14"> </th>
+                <th class="bg-primary-blue text-white px-4 fw-600 fs-14">S/N</th
+                >
+
+                <th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                  >Employee Name</th
+                >
+                <th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                  >Tax_Payer_Number</th
+                >
+
+                <th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                  >Nationality</th
+                >
+                <th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                  >Tax_Payable</th
+                >
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Table body and Row -->
+              <style>
+                .column {
+                  min-width: 180px;
+                }
+              </style>
+              {
+                [
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "Wema Bank",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    sort_code: "1676",
+                    total_feedback: "12",
+                    pending: "-",
+                    status: "Completed",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "Wema Bank",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    sort_code: "1676",
+                    total_feedback: "12",
+                    pending: "3",
+                    status: "Pending",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "Wema Bank",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    sort_code: "1676",
+                    total_feedback: "12",
+                    pending: "-",
+                    status: "Not Started",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "Wema Bank",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    sort_code: "1676",
+                    total_feedback: "12",
+                    pending: "-",
+                    status: "Completed",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "Wema Bank",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    sort_code: "1676",
+                    total_feedback: "12",
+                    pending: "-",
+                    status: "Completed",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "Wema Bank",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    sort_code: "1676",
+                    total_feedback: "12",
+                    pending: "-",
+                    status: "Completed",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "Wema Bank",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    sort_code: "1676",
+                    total_feedback: "12",
+                    pending: "-",
+                    status: "Completed",
+                  },
+                ].map((item, index) => (
+                  <tr class="fs-88">
+                    <td class="text-center fs-14 d-flex justify-content-center ">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="tick"
+                          name="tick"
+                          value="tick"
+                        />
+                      </div>
+                    </td>
+                    <td class="text-center fs-14">{index + 1}</td>
+                    <td class="fs-14 text-nowrap text-left px-3 column">
+                      {item.emp_name}
+                    </td>
+                    <td class="fs-14 px-3 text-left column">
+                      {item.bank_code}
+                    </td>
+                    <td class="fs-14 px-3 text-center column">{item.acc_no}</td>
+
+                    <td class="fs-14 px-3 text-center column">{item.aount}</td>
+                  </tr>
+                ))
+              }
+
+              <!-- Repeat for more employees -->
+            </tbody>
+          </table>
+        </div>
+
+        <!---- End of table --->
+
+        <!-- Pagination Row -->
+        <div
+          class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+        >
+          <!-- Left: Pagination Text -->
+          <div class="fs-14 text-muted">
+            Showing <strong>1–20</strong> of <strong>1000</strong>
+          </div>
+
+          <!-- Right: Go to Page + Pagination -->
+          <div class="d-flex align-items-center gap-3 flex-wrap">
+            <!-- Go to Page -->
+            <form class="d-flex align-items-center gap-2">
+              <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+              <input
+                type="number"
+                min="1"
+                max="100"
+                id="gotoPage"
+                class="form-control form-control-sm"
+                style="width: 60px;"
+                placeholder="—"
+              />
+            </form>
+
+            <!-- Page Navigation -->
+
+            <nav>
+              <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                <li class="page-item">
+                  <a
+                    class="page-link text-primary-blue px-2"
+                    href="#"
+                    aria-label="Previous"
+                  >
+                    &lsaquo;
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">1</a>
+                </li>
+                <li class="page-item active" aria-current="page">
+                  <span class="page-link">2</span>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">3</a>
+                </li>
+                <li class="page-item disabled">
+                  <span class="page-link text-primary-blue">...</span>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">100</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link hello" href="#" aria-label="Next">
+                    &rsaquo;
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!---- Pagination ---->
+      </div>
+    </div>
+    <ModalAddNew
+      modalId="myModal"
+      title={"Edit Details"}
+      inputPlace="Remit Payment"
+    />
+    <ApproveRemitModal
+      modalId="approveModal"
+      title="Remit Payment"
+      amount="₦25,000"
+    />
+  </section>
+
+  <section class="d-none" id="paymentStatus">
+    <div class="screenFrame">
+      <div
+        class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+        id="manage_list_of_payslip"
+      >
+        {/* Page Content Box */}
+        <div
+          class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
+        >
+          <div class="d-flex gap-3 align-items-center">
+            <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+              >Staff Payment Status
+            </span>
+          </div>
+
+          <!-- Others -->
+          <div class="responsive gap-3">
+            <!-- Calendar Selector -->
+            <input
+              type="month"
+              class="form-control fs-14"
+              style="max-width: 200px;"
+              value="2025-08"
+            />
+
+            <!-- Download Dropdown -->
+
+            <div class="dropdown">
+              <button
+                class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                data-bs-offset="-20,10"
+              >
+                <img src="images/png/icons/download.svg" alt="arrow-down" />
+                <span>Download</span>
+                <img src="images/png/icons/arrow-down.svg" alt="arrow-down" />
+              </button>
+              <div class="dropdown-menu p-0 border-0">
+                <ul class="list-group border-0 fw-600 fs-14">
+                  <li class="list-group-item">
+                    <div>CSV Format</div>
+                  </li>
+                  <li class="list-group-item">
+                    <div>Excel Format</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!---- End of Others ---->
+        </div>
+
+        <!-- Scrollable Table -->
+        <div
+          class="table-responsive"
+          style="max-height: 600px; overflow: auto;"
+        >
+          <table class="table table-bordered table-hover">
+            <!---- Table head --->
+            <thead
+              class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+            >
+              <tr>
+                <th class="bg-primary-blue text-white px-4 fw-600 fs-14">S/N</th
+                >
+
+                <th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                  >Employee Name</th
+                >
+                <th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                  >Tax_Payer_Number</th
+                >
+
+                <th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                  >Nationality</th
+                >
+                <th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                  >Tax_Payable</th
+                >
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Table body and Row -->
+              <style>
+                .column {
+                  min-width: 180px;
+                }
+              </style>
+              {
+                [
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "Wema Bank",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    sort_code: "1676",
+                    total_feedback: "12",
+                    status: "Completed",
+                    last_login: "9, Nov 2025",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "Wema Bank",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    sort_code: "1676",
+                    total_feedback: "12",
+                    status: "Failed",
+                    last_login: "9, Nov 2025",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "Wema Bank",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    sort_code: "1676",
+                    total_feedback: "12",
+                    status: "Completed",
+                    last_login: "9, Nov 2025",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "Wema Bank",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    sort_code: "1676",
+                    total_feedback: "12",
+                    status: "Failed",
+                    last_login: "9, Nov 2025",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "Wema Bank",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    sort_code: "1676",
+                    total_feedback: "12",
+                    status: "Failed",
+                    last_login: "9, Nov 2025",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "Wema Bank",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    sort_code: "1676",
+                    total_feedback: "12",
+                    status: "Failed",
+                    last_login: "9, Nov 2025",
+                  },
+                  {
+                    emp_name: "Lorem Ipsum",
+                    bank_code: "Wema Bank",
+                    acc_no: "0153364738",
+                    aount: "N453,364",
+                    sort_code: "1676",
+                    total_feedback: "12",
+                    status: "Failed",
+                    last_login: "9, Nov 2025",
+                  },
+                ].map((item, index) => (
+                  <tr class="fs-88">
+                    <td class="text-center fs-14">{index + 1}</td>
+                    <td class="fs-14 text-nowrap text-left px-3 column">
+                      {item.emp_name}
+                    </td>
+                    <td class="fs-14 px-3 text-left column">
+                      {item.bank_code}
+                    </td>
+                    <td class="fs-14 px-3 text-center column">{item.acc_no}</td>
+
+                    <td class="fs-14 px-3 text-center column">{item.aount}</td>
+                  </tr>
+                ))
+              }
+
+              <!-- Repeat for more employees -->
+            </tbody>
+          </table>
+        </div>
+
+        <!---- End of table --->
+
+        <!-- Pagination Row -->
+        <div
+          class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+        >
+          <!-- Left: Pagination Text -->
+          <div class="fs-14 text-muted">
+            Showing <strong>1–20</strong> of <strong>1000</strong>
+          </div>
+
+          <!-- Right: Go to Page + Pagination -->
+          <div class="d-flex align-items-center gap-3 flex-wrap">
+            <!-- Go to Page -->
+            <form class="d-flex align-items-center gap-2">
+              <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+              <input
+                type="number"
+                min="1"
+                max="100"
+                id="gotoPage"
+                class="form-control form-control-sm"
+                style="width: 60px;"
+                placeholder="—"
+              />
+            </form>
+
+            <!-- Page Navigation -->
+
+            <nav>
+              <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                <li class="page-item">
+                  <a
+                    class="page-link text-primary-blue px-2"
+                    href="#"
+                    aria-label="Previous"
+                  >
+                    &lsaquo;
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">1</a>
+                </li>
+                <li class="page-item active" aria-current="page">
+                  <span class="page-link">2</span>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">3</a>
+                </li>
+                <li class="page-item disabled">
+                  <span class="page-link text-primary-blue">...</span>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">100</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link hello" href="#" aria-label="Next">
+                    &rsaquo;
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!---- Pagination ---->
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    document
+      .getElementById("generate_report_form")
+      ?.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        $("#view_report").addClass("d-none");
+        const submitBtn = e.target.querySelector("button");
+
+        submitBtn.innerHTML = `
+                        <span>
+                            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span role="status">Loading...</span>
+                        </span>
+                    `;
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+          submitBtn.innerHTML = `
+                            <span>Proceed</span>
+                        `;
+          submitBtn.disabled = false;
+          $("#manage_report").addClass("d-none");
+          $("#view_report").removeClass("d-none");
+        }, 1000);
+      });
+
+    $("#back_to_manage_report").click((evt) => {
+      $("#view_report").addClass("d-none");
+      $("#manage_report").removeClass("d-none");
+    });
+
+    $("#view_payment_status").click((evt) => {
+      $("#paymentStatus").removeClass("d-none");
+      $("#view_report").addClass("d-none");
+    });
+
+    $("#fileInputBtn").click((evt) => {
+      $("#fileInput").click();
+    });
+  });
+</script>
+
+<!-- Main content ends here -->

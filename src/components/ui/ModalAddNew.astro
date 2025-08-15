@@ -16,7 +16,7 @@ import { CloseCircleIcon } from "../Icons";
         <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
 
         <img
-          type="button"
+          role="button"
           data-bs-dismiss="modal"
           src="images/png/icons/close-circle-1.svg"
           alt="close"
@@ -140,7 +140,7 @@ import { CloseCircleIcon } from "../Icons";
               <select
                 class="form-select_custom fs-14 py-3"
                 id="multiple-select-field"
-                placeholder="Restricted Work Days"
+                
                 multiple
               >
                 <option value="1">Robert Fox</option>
@@ -506,6 +506,77 @@ import { CloseCircleIcon } from "../Icons";
                 placeholder=""
               />
               <label for="minimum_staff">Minimum Staffing</label>
+            </div>
+          </div>
+        ) : inputPlace === "Remit Payment" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="emp_name"
+                name="emp_name"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="emp_name">
+                Employee Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="bank"
+                name="bank"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Wema Bank</option>
+                <option value="2">GT Bank</option>
+                <option value="3">First Bank</option>
+              </select>
+              <label for="bank">
+                Bank Name &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="text"
+                id="acc_no"
+                name="acc_no"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="acc_no">
+                Account Number &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="net_salary"
+                name="net_salary"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="net_salary">
+                Net Salary &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="text"
+                id="sort_code"
+                name="sort_code"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="sort_code">
+                Sort Code &nbsp;<span>*</span>
+              </label>
             </div>
           </div>
         ) : (

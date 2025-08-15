@@ -1,0 +1,742 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import ApproveRemitModal from "../components/ui/ApproveRemitModal.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+---
+
+<Layout title="HRPayHub :: Generate P&L and Balance Sheet">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/annual-firs-filing"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/pay-as-you-go"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Pay as you go</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/annual-firs-filing"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Annual FIRS Filing</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Generate P&L and Balance Sheet</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4" id="manage_report">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <!---- Setup --->
+              <div class="d-flex align-items-center gap-4">
+                <div class="fs-18 fw-700 text-primary-blue">
+                  Generate P&L and Balance Sheet
+                </div>
+              </div>
+
+              <!---- body ---->
+              <form
+                class="vstack"
+                style="gap: 2.3rem"
+                id="generate_report_form"
+              >
+                <div class="form-floating add_employee_width">
+                  <input
+                    type="date"
+                    id="select_date"
+                    name="select_date"
+                    class="form-input fs-14"
+                    placeholder=""
+                    value="Lorem Ipsum"
+                    required
+                  />
+                  <label for="select_date">
+                    Select Date &nbsp;<span>*</span>
+                  </label>
+                </div>
+
+                <!---- submit ---->
+                <div class="d-flex justify-content-start add_employee_width">
+                  <button
+                    type="submit"
+                    id="upload"
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                  >
+                    <span>Proceed</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Page Content Box */}
+    </section>
+  </main>
+
+  <section class="px-4 d-none" id="view_report">
+    <div class="screenFrame">
+      <div class="d-flex flex-column justify-content-between">
+        <div
+          class="rounded-4 shadow p-4 d-flex flex-column gap-5 px-md-5 px-3"
+          style={{ flexBasis: "auto" }}
+        >
+          {/* Page Content Box */}
+          <div class="vstack gap-4">
+            <div class="d-flex align-items-center justify-content-end gap-4">
+              <button
+                id="back_to_manage_report"
+                class="delon-primary-btn bg-white text-primary-blue border-primary-blue text-decoration-none text-white fw-bold fs-14"
+              >
+                Back
+              </button>
+              <div class="d-flex justify-content-end">
+                <button
+                  class="btn bg-primary-blue d-flex text-white fs-14"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#approveModal"
+                  data-title="Make Payment"
+                >
+                  <img src="images/png/icons/remit-payment.svg" alt="" /><span
+                    class="ms-2 text-nowrap">Make Payment</span
+                  >
+                </button>
+              </div>
+            </div>
+
+            {/* <!-- Table section --> */}
+            <div class="table-responsive w-full">
+              <table
+                class="table table-bordered payslip_table"
+                style={{ tableLayout: "auto", minWidth: "100%" }}
+              >
+                <tbody>
+                  {/* <!-- Table Header --> */}
+                  <tr>
+                    <td
+                      colspan="3"
+                      class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
+                    >
+                      Balance Sheet Report
+                    </td>
+                  </tr>
+
+                  <tr>
+                    {/* <!-- White Space Row --> */}
+                    <td
+                      style={{ border: "0" }}
+                      colspan="6"
+                      class="bg-white px-4 px-12px fw-bold fs-14"
+                    >
+                      &nbsp;
+                    </td>
+                  </tr>
+
+                  {/* <!-- White Space Row --> */}
+
+                  {/* <!-- Table Section Header --> */}
+                  <tr>
+                    <td
+                      colspan="3"
+                      class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
+                    >
+                      Assets
+                    </td>
+                  </tr>
+
+                  {/* <!-- Table Section Header --> */}
+                  <tr>
+                    <td
+                      style={{ border: "0" }}
+                      class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                    >
+                      Category
+                    </td>
+                    <td
+                      style={{ border: "0" }}
+                      class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                    >
+                      Details
+                    </td>
+                    <td
+                      style={{ border: "0" }}
+                      class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                    >
+                      Amount
+                    </td>
+                  </tr>
+                  {/* <!-- Table Section Header --> */}
+                  <tr>
+                    <td
+                      class="text-black px-4 px-12px fs-14 text-nowrap"
+                      colspan="3"
+                    >
+                      Current Assets
+                    </td>
+                  </tr>
+                  {
+                    [
+                      {
+                        date: "29 Jun 2025",
+                        client_name: "Cash",
+                        service: "Auto-fills from Total Cash",
+                        sub: "Lorem",
+                        vat_received: "Lorem",
+                        vat_withheld: "Lorem",
+                      },
+                      {
+                        date: "29 Jun 2025",
+                        client_name: "Accounts Receivable",
+                        service: "Auto-fills from Total Receivables",
+                        sub: "Lorem",
+                        vat_received: "Lorem",
+                        vat_withheld: "Lorem",
+                      },
+                      {
+                        date: "29 Jun 2025",
+                        client_name: "Total Current Assets",
+                        service: "Cash + Accounts Receivable",
+                        sub: "Lorem",
+                        vat_received: "Lorem",
+                        vat_withheld: "Lorem",
+                      },
+                    ].map((ele, index) => (
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                          style={{ border: "0" }}
+                        >
+                          &nbsp;
+                        </td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          {ele.client_name}
+                        </td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          {ele.service}
+                        </td>
+                      </tr>
+                    ))
+                  }
+                  <tr>
+                    {/* <!-- White Space Row --> */}
+                    <td
+                      style={{ border: "0" }}
+                      colspan="3"
+                      class="bg-white px-4 px-12px fw-bold fs-14"
+                    >
+                      &nbsp;
+                    </td>
+                  </tr>
+
+                  {/* <!-- Table Section Header --> */}
+                  <tr>
+                    <td
+                      class="text-black px-4 px-12px fs-14 text-nowrap"
+                      colspan="3"
+                    >
+                      Non-Current Assets
+                    </td>
+                  </tr>
+                  {
+                    [
+                      {
+                        date: "29 Jun 2025",
+                        client_name: "Equipment",
+                        service: "Sum of all asset costs",
+                        sub: "Lorem",
+                        vat_received: "Lorem",
+                        vat_withheld: "Lorem",
+                      },
+                      {
+                        date: "29 Jun 2025",
+                        client_name: "Accumulated Depreciation",
+                        service: "Sum of all depreciation to date",
+                        sub: "Lorem",
+                        vat_received: "Lorem",
+                        vat_withheld: "Lorem",
+                      },
+                      {
+                        date: "29 Jun 2025",
+                        client_name: "Residual Value",
+                        service: "Sum of all residual values",
+                        sub: "Lorem",
+                        vat_received: "Lorem",
+                        vat_withheld: "Lorem",
+                      },
+                      {
+                        date: "29 Jun 2025",
+                        client_name: "Total Non-Current Assets",
+                        service:
+                          "Equipment - Accumulated Depreciation + Residual Value",
+                        sub: "Lorem",
+                        vat_received: "Lorem",
+                        vat_withheld: "Lorem",
+                      },
+                    ].map((ele, index) => (
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                          style={{ border: "0" }}
+                        >
+                          &nbsp;
+                        </td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          {ele.client_name}
+                        </td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          {ele.service}
+                        </td>
+                      </tr>
+                    ))
+                  }
+                  <tr>
+                    {/* <!-- White Space Row --> */}
+                    <td
+                      style={{ border: "0" }}
+                      colspan="3"
+                      class="bg-white px-4 px-12px fw-bold fs-14"
+                    >
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="text-black px-4 px-12px fs-14 text-nowrap"
+                      colspan="2"
+                    >
+                      Total Assets
+                    </td>
+                    <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                      Total Current Assets + Total Non-Current Assets
+                    </td>
+                  </tr>
+                  <tr>
+                    {/* <!-- White Space Row --> */}
+                    <td
+                      style={{ border: "0" }}
+                      colspan="3"
+                      class="bg-white px-4 px-12px fw-bold fs-14"
+                    >
+                      &nbsp;
+                    </td>
+                  </tr>
+
+                  {/* <!-- Table Section Header --> */}
+                  <tr>
+                    <td
+                      colspan="3"
+                      class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
+                    >
+                      Liability
+                    </td>
+                  </tr>
+
+                  {/* <!-- Table Section Header --> */}
+                  <tr>
+                    <td
+                      style={{ border: "0" }}
+                      class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                    >
+                      Category
+                    </td>
+                    <td
+                      style={{ border: "0" }}
+                      class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                    >
+                      Details
+                    </td>
+                    <td
+                      style={{ border: "0" }}
+                      class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                    >
+                      Amount
+                    </td>
+                  </tr>
+                  {/* <!-- Table Section Header --> */}
+                  <tr>
+                    <td
+                      class="text-black px-4 px-12px fs-14 text-nowrap"
+                      colspan="3"
+                    >
+                      Current Liabilities
+                    </td>
+                  </tr>
+                  {
+                    [
+                      {
+                        date: "29 Jun 2025",
+                        client_name: "Accounts Payable",
+                        service: "Auto-fills from Total Payables",
+                        sub: "Lorem",
+                        vat_received: "Lorem",
+                        vat_withheld: "Lorem",
+                      },
+                    ].map((ele, index) => (
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                          style={{ border: "0" }}
+                        >
+                          &nbsp;
+                        </td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          {ele.client_name}
+                        </td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          {ele.service}
+                        </td>
+                      </tr>
+                    ))
+                  }
+                  <tr>
+                    {/* <!-- White Space Row --> */}
+                    <td
+                      style={{ border: "0" }}
+                      colspan="3"
+                      class="bg-white px-4 px-12px fw-bold fs-14"
+                    >
+                      &nbsp;
+                    </td>
+                  </tr>
+
+                  {/* <!-- Table Section Header --> */}
+                  <tr>
+                    <td
+                      class="text-black px-4 px-12px fs-14 text-nowrap"
+                      colspan="3"
+                    >
+                      Non-Current Liabilities
+                    </td>
+                  </tr>
+                  {
+                    [
+                      {
+                        date: "29 Jun 2025",
+                        client_name: "Loan",
+                        service:
+                          "Calculated as Loan Received - Loan Repaid - (Loan Given - Loan Recovered)",
+                        sub: "Lorem",
+                        vat_received: "Lorem",
+                        vat_withheld: "Lorem",
+                      },
+                    ].map((ele, index) => (
+                      <tr>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                          style={{ border: "0" }}
+                        >
+                          &nbsp;
+                        </td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          {ele.client_name}
+                        </td>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          {ele.service}
+                        </td>
+                      </tr>
+                    ))
+                  }
+                  <tr>
+                    {/* <!-- White Space Row --> */}
+                    <td
+                      style={{ border: "0" }}
+                      colspan="3"
+                      class="bg-white px-4 px-12px fw-bold fs-14"
+                    >
+                      &nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="text-black px-4 px-12px fs-14 text-nowrap"
+                      colspan="2"
+                    >
+                      Total Liabllities
+                    </td>
+                    <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                      Accounts Payable + Loan
+                    </td>
+                  </tr>
+                  <tr>
+                    {/* <!-- White Space Row --> */}
+                    <td
+                      style={{ border: "0" }}
+                      colspan="3"
+                      class="bg-white px-4 px-12px fw-bold fs-14"
+                    >
+                      &nbsp;
+                    </td>
+                  </tr>
+
+                  {/* <!-- Table Section Header --> */}
+                  <tr>
+                    <td
+                      colspan="3"
+                      class="bg-primary-blue text-white px-4 fw-bold fs-14 px-12px"
+                    >
+                      Equity
+                    </td>
+                  </tr>
+
+                  {/* <!-- Table Section Header --> */}
+                  <tr>
+                    <td
+                      style={{ border: "0" }}
+                      class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                    >
+                      Category
+                    </td>
+                    <td
+                      style={{ border: "0" }}
+                      class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                    >
+                      Details
+                    </td>
+                    <td
+                      style={{ border: "0" }}
+                      class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                    >
+                      Amount
+                    </td>
+                  </tr>
+                  {/* <!-- Table Section Header --> */}
+
+                  {
+                    [
+                      {
+                        date: "29 Jun 2025",
+                        client_name: "Share Capital",
+                        service:
+                          "Calculated as Total Assets - Total Liabilities - Retained Earnings",
+                        sub: "Lorem",
+                        vat_received: "Lorem",
+                        vat_withheld: "Lorem",
+                      },
+                      {
+                        date: "29 Jun 2025",
+                        client_name: "Retained Earnings",
+                        service:
+                          "Retained Earnings	Auto-calculated as the cumulative profit/loss to date; manual override allowed, positive or negative up to 2 decimal places",
+                        sub: "Lorem",
+                        vat_received: "Lorem",
+                        vat_withheld: "Lorem",
+                      },
+                    ].map((ele, index) => (
+                      <tr>
+                        <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                          {ele.client_name}
+                        </td>
+                        <td
+                          class="text-black px-4 px-12px fs-14 text-nowrap"
+                          style={{ border: "0" }}
+                        >
+                          &nbsp;
+                        </td>
+                        <td
+                          class="text-black px-4 px-12px fs-14"
+                          style={{ width: "30%" }}
+                        >
+                          {ele.service}
+                        </td>
+                      </tr>
+                    ))
+                  }
+                  <tr>
+                    {/* <!-- White Space Row --> */}
+                    <td
+                      style={{ border: "0" }}
+                      colspan="3"
+                      class="bg-white px-4 px-12px fw-bold fs-14"
+                    >
+                      &nbsp;
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                      Total Equity
+                    </td>
+                    <td
+                      class="text-black px-4 px-12px fs-14 text-nowrap"
+                      style={{ border: "0" }}
+                    >
+                      &nbsp;
+                    </td>
+                    <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                      Share Capital + Retained Earnings
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            {/* <!-- Table section --> */}
+
+            <!-- Pagination Row -->
+            <div
+              class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+            >
+              <!-- Left: Pagination Text -->
+              <div class="fs-14 text-muted">
+                Showing <strong>1–20</strong> of <strong>1000</strong>
+              </div>
+
+              <!-- Right: Go to Page + Pagination -->
+              <div class="d-flex align-items-center gap-3 flex-wrap">
+                <!-- Go to Page -->
+                <form class="d-flex align-items-center gap-2">
+                  <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="100"
+                    id="gotoPage"
+                    class="form-control form-control-sm"
+                    style="width: 60px;"
+                    placeholder="—"
+                  />
+                </form>
+
+                <!-- Page Navigation -->
+
+                <nav>
+                  <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                    <li class="page-item">
+                      <a
+                        class="page-link text-primary-blue px-2"
+                        href="#"
+                        aria-label="Previous"
+                      >
+                        &lsaquo;
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link text-primary-blue" href="#">1</a>
+                    </li>
+                    <li class="page-item active" aria-current="page">
+                      <span class="page-link">2</span>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link text-primary-blue" href="#">3</a>
+                    </li>
+                    <li class="page-item disabled">
+                      <span class="page-link text-primary-blue">...</span>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link text-primary-blue" href="#">100</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link hello" href="#" aria-label="Next">
+                        &rsaquo;
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+            <!---- Pagination ---->
+          </div>
+          {/* Page Content Box */}
+        </div>
+      </div>
+    </div>
+    <ModalAddNew
+      modalId="myModal"
+      title={"Edit Details"}
+      inputPlace="Remit Payment"
+    />
+    <ApproveRemitModal
+      modalId="approveModal"
+      title="Generate P&L and Balance Sheet"
+      amount="₦100,000"
+    />
+  </section>
+</Layout>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    document
+      .getElementById("generate_report_form")
+      ?.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        $("#view_report").addClass("d-none");
+        const submitBtn = e.target.querySelector("button");
+
+        submitBtn.innerHTML = `
+                        <span>
+                            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span role="status">Loading...</span>
+                        </span>
+                    `;
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+          submitBtn.innerHTML = `
+                            <span>Proceed</span>
+                        `;
+          submitBtn.disabled = false;
+          $("#manage_report").addClass("d-none");
+          $("#view_report").removeClass("d-none");
+        }, 1000);
+      });
+
+    $("#back_to_manage_report").click((evt) => {
+      $("#view_report").addClass("d-none");
+      $("#manage_report").removeClass("d-none");
+    });
+
+    $("#view_payment_status").click((evt) => {
+      $("#paymentStatus").removeClass("d-none");
+      $("#view_report").addClass("d-none");
+    });
+
+    $("#fileInputBtn").click((evt) => {
+      $("#fileInput").click();
+    });
+  });
+</script>
+
+<!-- Main content ends here -->

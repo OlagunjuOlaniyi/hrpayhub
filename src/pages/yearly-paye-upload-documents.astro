@@ -1,0 +1,198 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: Upload Documents">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/yearly-paye-filing"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/pay-as-you-go"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Pay as you go</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/yearly-paye-filing"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Yearly PAYE Filing</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Upload Documents</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <div class="d-flex gap-3 align-items-center mb-4">
+                <span
+                  class="text-primary-blue font-ubuntu-bold fs-18 inline-block"
+                  >Upload Payment Receipts and PAYE Document
+                </span>
+              </div>
+
+              <div class="form-floating bulk_input">
+                <input
+                  type="date"
+                  id="select_date"
+                  name="select_date"
+                  class="form-input fs-14"
+                  placeholder=""
+                  required
+                />
+                <label for="select_date">
+                  PAYE Year &nbsp;<span>*</span>
+                </label>
+              </div>
+
+              <!---- upload ---->
+              <form class="vstack gap-2" id="generate_payslip_form">
+                <div
+                  class="upload_bulk p-3 d-flex flex-column align-items-center justify-content-center"
+                >
+                  <img
+                    src="images/png/icons/cloud_upload.svg"
+                    width="35px"
+                    height="35px"
+                    alt="cloud upload icon"
+                  />
+                  <div class="fs-14 fw-700" style="color: #6B7280">
+                    Click to upload <span class="fw-400">or drag and drop</span>
+                  </div>
+                  <div class="fs-12 fw-700" style="color: #6B7280">
+                    PDF or DOCX (Max File Size: 2MB)
+                  </div>
+                  <button
+                    type="button"
+                    id="fileInputBtn"
+                    class="delon-primary-btn d-flex gap-2 mt-2 bg-primary-blue border-0 text-white fs-14"
+                  >
+                    <img src="images/png/icons/search.svg" alt="arrow-down" />
+                    <span>Browse Files</span>
+                  </button>
+                  <div
+                    id="fileInputDetails"
+                    class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 mt-2 rounded-3 fs-14 d-flex gap-1 align-items-center"
+                    role="button"
+                  >
+                    <span class="flex-fill text-truncate"
+                      >gvfyguytctrcjrct.webp</span
+                    >
+                    <span class="flex-fill">
+                      <img
+                        src="images/png/icons/close-circle-6.svg"
+                        width="15"
+                        height="15"
+                        alt="close_icon"
+                      />
+                    </span>
+                  </div>
+                  <input type="file" class="d-none" id="fileInput" />
+                </div>
+              </form>
+
+              <!---- submit ---->
+              <div class="d-flex justify-content-start bulk_input">
+                <button
+                  type="button"
+                  id="upload"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                >
+                  <span>Submit Documents</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+  </main>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      $("#fileInputBtn").click((evt) => {
+        $("#fileInput").click();
+      });
+
+      document
+        .getElementById("fileInput")
+        .addEventListener("change", function () {
+          if (fileInput.files.length > 0) {
+            const fileName = fileInput.files[0].name;
+            $("#fileInputDetails span:first-child").text(fileName);
+            $("#fileInputDetails").removeClass("d-none");
+            $("#fileInputBtn").addClass("d-none");
+            console.log("Selected file name:", fileName);
+          }
+        });
+      $("#fileInputDetails span:nth-child(2)").click(() => {
+        $("#fileInput").val("");
+        $("#fileInputDetails span:first-child").text("");
+        $("#fileInputDetails").addClass("d-none");
+        $("#fileInputBtn").removeClass("d-none");
+      });
+
+      // 🔁 Redirect based on dropdown value
+      $("#upload").click(() => {
+        const selected = $("#select_plan").val();
+        if (!selected) {
+          alert("Please select an upload type before continuing.");
+          return;
+        }
+
+        const routes = {
+          plan_1: "/pay-grade-bulk-upload",
+          plan_2: "/designation-bulk-upload",
+          plan_3: "/add-employee",
+        };
+
+        const route = routes[selected];
+        if (route) {
+          window.location.href = route;
+        }
+      });
+    });
+  </script>
+</Layout>
+<!-- Main content ends here -->
