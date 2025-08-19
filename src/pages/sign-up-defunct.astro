@@ -548,59 +548,14 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
               <!-- Step 3 -->
               <div class="form-step step-3 d-none">
                 <!----- step 3 design ------>
+
                 <div
-                  class="d-flex flex-column gap-2 d-none"
-                  id="payment_summary_ng"
-                >
-                  <div
-                    class="d-flex justify-content-between border-bottom py-3"
-                  >
-                    <span class="text-secondary fs-14">Plan Amount</span>
-                    <span class="fw-700 fs-14">N200,000</span>
-                  </div>
-                  <div
-                    class="d-flex justify-content-between border-bottom py-3"
-                  >
-                    <span class="text-secondary fs-14">VAT (7.5%)</span>
-                    <span class="fw-700 fs-14">N20,000</span>
-                  </div>
-                  <div
-                    class="d-flex justify-content-between border-bottom py-3"
-                  >
-                    <span class="fw-700 fs-14">TOTAL</span>
-                    <span class="fw-700 fs-14">N220,000</span>
-                  </div>
-                </div>
-                <div
-                  class="d-flex flex-column gap-2 d-none payment_summary_uk"
-                  id="payment_summary_uk"
-                >
-                  <div
-                    class="d-flex justify-content-between border-bottom py-3"
-                  >
-                    <span class="text-secondary fs-14">Plan Amount</span>
-                    <span class="fw-700 fs-14">£200,000</span>
-                  </div>
-                  <div
-                    class="d-flex justify-content-between border-bottom py-3"
-                  >
-                    <span class="text-secondary fs-14">VAT (20%)</span>
-                    <span class="fw-700 fs-14">£20,000</span>
-                  </div>
-                  <div
-                    class="d-flex justify-content-between border-bottom py-3"
-                  >
-                    <span class="fw-700 fs-14">TOTAL</span>
-                    <span class="fw-700 fs-14">£82,500</span>
-                  </div>
-                </div>
-                <div
-                  class="btn-group d-flex justify-content-between flex-column align-items-center sign_in_input gap-3 mt-5 mb-5"
+                  class="btn-group d-flex justify-content-between align-items-center sign_in_input gap-3 mt-2 mb-5"
                   role="group"
                   aria-label="Payment Options"
                 >
                   <div
-                    class="w-100 d-flex flex-column gap-2"
+                    class="w-50 d-flex flex-column gap-2"
                     style="height: 56px"
                   >
                     <span class="fs-14 fw-650">Payment Mode</span>
@@ -615,14 +570,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                       class="btn btn-outline-secondary text-left d-flex align-items-center justify-content-between p-3"
                       for="card-details"
                     >
-                      <div>
-                        <img
-                          class=""
-                          src="images/png/icons/stripe.svg"
-                          alt="stripe"
-                        />
-                        <small class="ms-2">Pay with Stripe</small>
-                      </div>
+                      <span class="fs-12">Debit/Credit Card</span>
                       <img
                         class="d-none checked"
                         src="images/png/icons/checked-dot.svg"
@@ -637,7 +585,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                   </div>
 
                   <div
-                    class="w-100 d-flex flex-column gap-2 mb-5"
+                    class="w-50 d-flex flex-column gap-2"
                     style="height: 56px"
                   >
                     <span class="fs-14 invisible fw-650">1</span>
@@ -652,14 +600,7 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                       class="btn btn-outline-secondary d-flex align-items-center justify-content-between p-3"
                       for="bank-details"
                     >
-                      <div>
-                        <img
-                          class=""
-                          src="images/png/icons/flutterwave.svg"
-                          alt="flutterwave"
-                        />
-                        <small class="ms-2">Pay with Flutterwave</small>
-                      </div>
+                      <small>Bank Transfer</small>
                       <img
                         class="d-none checked"
                         src="images/png/icons/checked-dot.svg"
@@ -674,55 +615,204 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
                   </div>
                 </div>
 
-                <!-- agreement -->
-                <div class="form-check mb-4">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="agreement"
-                    name="agreement"
-                    value="agreement"
-                  />
-                  <label class="form-check-label fs-14 font-avenir fw-600"
-                    >I agree to the Terms & Conditions Agreement</label
+                <div class="d-none payment_information">
+                  <div
+                    class="d-flex d-none flex-column sign_in_input gap-4"
+                    id="card_details"
                   >
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="subscribe"
-                    name="subscribe"
-                    value="subscribe"
-                    checked
-                  />
-                  <label class="form-check-label fs-14 font-avenir fw-600"
-                    >Check this box to automatically renew your subscription<br
-                    /> at the end of each billing cycle</label
+                    <div class="form-floating mt-4">
+                      <input
+                        type="text"
+                        id="card_no"
+                        name="card_no"
+                        class="form-control form-input fs-12"
+                        placeholder=""
+                        required
+                      />
+                      <label for="card_no fs-14"
+                        >Debit/Credit Card Number &nbsp;<span>*</span></label
+                      >
+                    </div>
+                    <div class="d-flex justify-content-between gap-4">
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          id="exp_date"
+                          name="exp_date"
+                          class="form-control form-input fs-12"
+                          placeholder=""
+                          required
+                        />
+                        <label for="exp_date fs-14"
+                          >Expiry Date &nbsp;<span>*</span></label
+                        >
+                      </div>
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          id="cvv_code"
+                          name="cvv_code"
+                          class="form-control form-input fs-12"
+                          placeholder=""
+                          required
+                        />
+                        <label for="cvv_code fs-14"
+                          >CVV Code &nbsp;<span>*</span></label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex d-none flex-column sign_in_input gap-4"
+                    id="bank_details"
                   >
-                </div>
+                    <div class="form-floating mt-4">
+                      <input
+                        type="text"
+                        id="bank_name"
+                        name="bank_name"
+                        class="form-control form-input fs-12"
+                        placeholder=""
+                        required
+                      />
+                      <label for="bank_name fs-14"
+                        >Bank Name &nbsp;<span>*</span></label
+                      >
+                    </div>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="acc_no"
+                        name="acc_no"
+                        class="form-control form-input fs-12"
+                        placeholder=""
+                        required
+                      />
+                      <label for="acc_no fs-14"
+                        >Account Number &nbsp;<span>*</span></label
+                      >
+                    </div>
+                  </div>
 
-                <div
-                  class="fixed-footer d-flex justify-content-end gap-4 mb-3 mt-5"
-                >
-                  <button
-                    type="button"
-                    class="white_button_signup back-btn d-flex gap-2 align-items-center font-ubuntu fw-700 fs-14"
-                  >
-                    <img
-                      src="images/png/icons/angle-left-white.svg"
-                      alt="angle-left-back"
+                  <div class="mt-5 fs-14 d-flex gap-4">
+                    Billing Address Same as Company Address ?
+                    <div
+                      role="button"
+                      class="d-flex ms-4 form-check form-switch switchForDeductionsFields justify-content-start"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        data-target="#"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-floating mb-4 mt-5">
+                    <select
+                      id="country2"
+                      name="country"
+                      class="form-select_custom fs-12"
+                      required
+                    >
+                      <option value="" selected> Select </option>
+                      <option value="1">Nigeria</option>
+                      <option value="2">United Kingdom</option>
+                    </select>
+                    <label for="country2">
+                      Country &nbsp;<span>*</span>
+                    </label>
+                  </div>
+                  <div class="form-floating mb-4" id="state_select2">
+                    <select
+                      id="state2"
+                      name="state"
+                      class="form-select_custom fs-12"
+                    >
+                      <option value="" selected> Select </option>
+                      <ListOfNigStates />
+                    </select>
+                    <label for="state2">
+                      State &nbsp;<span>*</span>
+                    </label>
+                  </div>
+
+                  <div class="form-floating sign_in_input mb-4">
+                    <input
+                      type="text"
+                      id="city"
+                      name="city"
+                      class="form-control form-input fs-12"
+                      placeholder=""
+                      required
                     />
-                    <span>Back</span>
-                  </button>
-                  <button
-                    type="button"
-                    class="btn bg-primary-blue text-white fs-14 fw-700"
-                    id="payment_summary_btn"
-                    disabled>Make Payment</button
+                    <label for="city fs-14">City &nbsp;<span>*</span></label>
+                  </div>
+                  <div
+                    class="form-floating sign_in_input mb-4"
+                    id="postcode_select2"
                   >
-                </div>
+                    <input
+                      type="text"
+                      id="postcode2"
+                      name="postcode"
+                      class="form-control form-input fs-12"
+                      placeholder=""
+                    />
+                    <label for="postcode2 fs-14"
+                      >Postcode &nbsp;<span>*</span></label
+                    >
+                  </div>
+                  <div class="form-check mb-4">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="agreement"
+                      name="agreement"
+                      value="agreement"
+                    />
+                    <label class="form-check-label fs-14 font-avenir fw-600"
+                      >I agree to the Terms & Conditions Agreement</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="subscribe"
+                      name="subscribe"
+                      value="subscribe"
+                      checked
+                    />
+                    <label class="form-check-label fs-14 font-avenir fw-600"
+                      >Check this box to automatically renew your subscription<br
+                      /> at the end of each billing cycle</label
+                    >
+                  </div>
 
+                  <div
+                    class="fixed-footer d-flex justify-content-end gap-4 mb-3 mt-5"
+                  >
+                    <button
+                      type="button"
+                      class="white_button_signup back-btn d-flex gap-2 align-items-center font-ubuntu fw-700 fs-14"
+                    >
+                      <img
+                        src="images/png/icons/angle-left-white.svg"
+                        alt="angle-left-back"
+                      />
+                      <span>Back</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn bg-primary-blue text-white fs-14 fw-700"
+                      data-bs-toggle="modal"
+                      data-bs-target="#successModal">Place Order</button
+                    >
+                  </div>
+                </div>
                 <!------ step 3 design end ----->
               </div>
             </form>
@@ -843,7 +933,6 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
         const postcodeField = document.getElementById("postcode_select");
         const stateSelect2 = document.getElementById("state_select2");
         const postcodeField2 = document.getElementById("postcode_select2");
-        const paymentSummaryNg = document.getElementById("payment_summary_ng");
 
         // On country change
         countrySelect.addEventListener("change", () => {
@@ -851,23 +940,20 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
 
           if (country === "1") {
             // Nigeria
-
             stateSelect.style.display = "block";
             postcodeField.style.display = "none";
-
+            stateSelect2.style.display = "block";
+            postcodeField2.style.display = "none";
             $(".packages_ng").removeClass("d-none"); // show ng
-            $("#payment_summary_ng").removeClass("d-none"); // show ng
             $(".packages_uk").addClass("d-none").prop("required", false); // hide uk
-            $("#payment_summary_uk").addClass("d-none"); // show uk
           } else if (country === "2") {
             // UK
             stateSelect.style.display = "none";
             postcodeField.style.display = "block";
-
+            stateSelect2.style.display = "none";
+            postcodeField2.style.display = "block";
             $(".packages_uk").removeClass("d-none"); // show ng
             $(".packages_ng").addClass("d-none").prop("required", false); // hide uk
-            $("#payment_summary_uk").removeClass("d-none"); // show ng
-            $("#payment_summary_ng").addClass("d-none"); // show uk
           } else {
             stateSelect.style.display = "none";
             postcodeField.style.display = "none";
@@ -923,7 +1009,6 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
           // Reset all to unchecked
           $('label[for="free-trial"] img').addClass("d-none");
           $('label[for="buy-now"] img').addClass("d-none");
-          $("#payment_summary_btn").prop("disabled", true);
 
           // Disable card  and bank details by default
           $(".payment_information").addClass("d-none");
@@ -937,7 +1022,6 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
             $(".payment_information").removeClass("d-none");
             $("#card_details").removeClass("d-none");
             $("#bank_details").addClass("d-none");
-            $("#payment_summary_btn").prop("disabled", false);
           }
 
           if ($("#bank-details").is(":checked")) {
@@ -946,7 +1030,6 @@ import ListOfNigStates from "../components/ui/ListOfNigStates";
             $(".payment_information").removeClass("d-none");
             $("#bank_details").removeClass("d-none");
             $("#card_details").addClass("d-none");
-            $("#payment_summary_btn").prop("disabled", false);
           }
         });
       });
