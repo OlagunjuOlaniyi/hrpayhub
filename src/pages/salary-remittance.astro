@@ -63,7 +63,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
               <!---- Setup --->
               <div class="d-flex align-items-center gap-4">
                 <div class="fs-18 fw-700 text-primary-blue">
-                  Generate staff payment list from monthly payroll
+                  Import staff Payment List from Payroll Bank Upload
                 </div>
               </div>
               <div class="d-flex align-items-center gap-4 add_employee_width">
@@ -573,7 +573,11 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
         title={"Edit Details"}
         inputPlace="Transaction"
       />
-      <ApproveRemitModal modalId="approveModal" amount="N50" title="Salary Remittance"/>
+      <ApproveRemitModal
+        modalId="approveModal"
+        amount="N29"
+        title="Salary Remittance"
+      />
     </div>
   </section>
   <section class="d-none" id="paymentStatus">

@@ -27,7 +27,7 @@
   background-color: #c7a930 !important;
 }
 .bg-grey {
-  background-color: #EAECF0 !important;
+  background-color: #eaecf0 !important;
 }
 
 .text-primary-blue {
@@ -627,6 +627,13 @@ input.no_focus:focus {
 
 /* Fonts */
 
+/* ------- Signika ------- */
+@font-face {
+  font-family: "Signika";
+  src: url("../fonts/Signika-Bold.ttf") format("truetype");
+  /* font-weight: 700; */
+  font-style: normal;
+}
 /* ------- Acme ------- */
 @font-face {
   font-family: "Acme";
@@ -713,6 +720,14 @@ body {
 .font-ubuntu {
   font-family: "Ubuntu";
   font-weight: 400;
+}
+
+.font-signika-bold {
+  font-family: "Signika";
+  /* font-weight: 400; */
+  line-height: 1.5;
+  letter-spacing: 2px;
+  word-spacing: 4px;
 }
 
 .font-ubuntu-bold {
