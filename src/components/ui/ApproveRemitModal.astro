@@ -9,7 +9,7 @@ import { CloseCircleIcon } from "../Icons";
 ---
 
 <div class="modal fade" id={modalId} tabindex="-1">
-  <div class="modal-dialog">
+  <div class="modal-dialog confirmCancel">
     <div class="modal-content p-5">
       <!-- Modal Header -->
       <div class="modal-header border-0 d-flex justify-content-end">
@@ -87,7 +87,30 @@ import { CloseCircleIcon } from "../Icons";
         >
           Next
         </button>
-      </div></>):(
+      </div></>):title==="Salary Remittance"?(
+        <>
+        <!-- Modal body -->
+      <div class="modal-body text-center py-2 border-0">
+        <img src="images/png/icons/notice.svg" alt="approval" />
+        <p class="fs-16 mt-3">
+          By clicking on next, you’ll be charged <span class="text-primary-blue"
+            >{amount}</span
+          > per staff payment/transaction
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <button
+          type="button"
+          class="btn text-white bg-primary-blue"
+          id="confirm"   
+          
+        >
+          Next
+        </button>
+      </div>
+      </>):(
         <>
         <!-- Modal body -->
       <div class="modal-body text-center py-2 border-0">
@@ -109,8 +132,86 @@ import { CloseCircleIcon } from "../Icons";
         >
           Next
         </button>
-      </div></>)}
-      
+      </div>
+      </>)}
+    </div>
+  </div>
+
+  <!----- confirm -->
+  <div class="modal-dialog d-none successfulCancel">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">Breakdown</h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-left py-2 border-0">
+        <div
+                  class="d-flex flex-column gap-2"
+                  
+                >
+                  <div
+                    class="d-flex justify-content-between border-bottom py-3 fs-14"
+                  >
+                    <span class="text-secondary fs-14">Total Salary Amount</span>
+                    <span class="fw-700 fs-14">N50,000,000</span>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between border-bottom py-3 fs-14"
+                  >
+                    <span class="text-secondary fs-14 text-left">Service Charge<br/>(N29 x 100)</span>
+                    <span class="fw-700 fs-14">N2,900</span>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between border-bottom py-3 fs-14"
+                  >
+                    <span class="text-secondary fs-14">VAT on Service Charge<br/>(7.5%)</span>
+                    <span class="fw-700 fs-14">N217.50</span>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between border-bottom py-3"
+                  >
+                    <span class="fw-700 fs-18">TOTAL</span>
+                    <span class="fw-700 fs-18 text-primary-blue">N50,003,117.50</span>
+                  </div>
+                </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-start border-0">
+        <button
+          type="button"
+          class="btn text-white bg-primary-blue fs-14 px-4"
+          id="view_payment_status"
+          data-bs-dismiss="modal"
+        >
+          Proceed to Payment
+        </button>
+      </div>
     </div>
   </div>
 </div>
+
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    
+
+    $(".successfulCancel").addClass("d-none");
+
+    $("#confirm").click((evt) => {
+      
+      $(".confirmCancel").addClass("d-none");
+      $(".successfulCancel").removeClass("d-none");
+    });
+    
+  });
+</script>

@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 
 import ApproveRemitModal from "../components/ui/ApproveRemitModal.astro";
 import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
 ---
 
 <Layout title="HRPayHub :: Salary Remittance">
@@ -65,6 +66,14 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                   Generate staff payment list from monthly payroll
                 </div>
               </div>
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Payroll Bank Upload
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
 
               <!---- body ---->
               <form
@@ -72,19 +81,97 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                 style="gap: 2.3rem"
                 id="generate_report_form"
               >
-                <div class="form-floating add_employee_width">
-                  <input
-                    type="date"
-                    id="select_date"
-                    name="select_date"
-                    class="form-input fs-14"
-                    placeholder=""
-                    value="Lorem Ipsum"
-                    required
-                  />
-                  <label for="select_date">
-                    Select Date &nbsp;<span>*</span>
-                  </label>
+                <div
+                  class="d-flex justify-content-between gap-3 add_employee_width"
+                >
+                  <div class="form-floating add_employee_width">
+                    <select
+                      id="select_month"
+                      name="select_month"
+                      class="form-select_custom fs-14"
+                      required
+                    >
+                      <option value="" selected> Select </option>
+                      <option value="1">January</option>
+                      <option value="2">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select>
+                    <label for="select_month">
+                      Select Month &nbsp;<span>*</span>
+                    </label>
+                  </div>
+                  <div class="form-floating add_employee_width">
+                    <select
+                      id="select_year"
+                      name="select_year"
+                      class="form-select_custom fs-14"
+                      required
+                    >
+                      <option value="" selected> Select </option>
+                      <option value="0">2023</option>
+                      <option value="1">2024</option>
+                      <option value="2">2025</option>
+                      <option value="3">2026</option>
+                      <option value="4">2027</option>
+                      <option value="5">2028</option>
+                    </select>
+                    <label for="select_year">
+                      Select Year &nbsp;<span>*</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="fs-14 fw-600">Select from these 2 options:</p>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="netSalary"
+                      name="starter"
+                      value="net_salary"
+                      checked
+                    />
+                    <label class="form-check-label fs-12"
+                      >Monthly Net Salary After Taxes
+                    </label>
+                  </div>
+                  <div class="form-check mt-3">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="netVariable"
+                      name="starter"
+                      value="net_variable"
+                    />
+                    <label class="form-check-label fs-12"
+                      >Monthly Net Variable OPEX</label
+                    >
+                  </div>
+                </div>
+
+                <div class="add_employee_width">
+                  <p
+                    class="p-3 fs-12 bg-grey text-center rounded"
+                    id="netSalaryText"
+                  >
+                    Monthly Net Salary After Taxes = Auto populate
+                  </p>
+                  <p
+                    class="p-3 fs-12 bg-grey text-center rounded d-none"
+                    id="netVariableText"
+                  >
+                    Monthly Net Variable OPEX = Auto populate V1 + V2
+                  </p>
                 </div>
 
                 <!---- submit ---->
@@ -179,243 +266,316 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
               class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
             >
               <tr>
-                <th class="bg-primary-blue text-white px-4 fw-600 fs-14"> </th>
                 <th class="bg-primary-blue text-white px-4 fw-600 fs-14">S/N</th
                 >
 
                 <th
                   class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                  >Employee Name</th
                 >
-                <th
-                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                  >Bank Name</th
-                >
-
-                <th
-                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                  >Account Number</th
-                >
-                <th
-                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                  >Net Salary</th
-                >
-                <th
-                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                  >Sort Code</th
-                >
-                <th
-                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
-                  >Action</th
-                >
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Table body and Row -->
-              <style>
-                .column {
-                  min-width: 180px;
-                }
-              </style>
-              {
-                [
-                  {
-                    emp_name: "Lorem Ipsum",
-                    bank_code: "Wema Bank",
-                    acc_no: "0153364738",
-                    aount: "N453,364",
-                    sort_code: "1676",
-                    total_feedback: "12",
-                    pending: "-",
-                    status: "Completed",
-                  },
-                  {
-                    emp_name: "Lorem Ipsum",
-                    bank_code: "Wema Bank",
-                    acc_no: "0153364738",
-                    aount: "N453,364",
-                    sort_code: "1676",
-                    total_feedback: "12",
-                    pending: "3",
-                    status: "Pending",
-                  },
-                  {
-                    emp_name: "Lorem Ipsum",
-                    bank_code: "Wema Bank",
-                    acc_no: "0153364738",
-                    aount: "N453,364",
-                    sort_code: "1676",
-                    total_feedback: "12",
-                    pending: "-",
-                    status: "Not Started",
-                  },
-                  {
-                    emp_name: "Lorem Ipsum",
-                    bank_code: "Wema Bank",
-                    acc_no: "0153364738",
-                    aount: "N453,364",
-                    sort_code: "1676",
-                    total_feedback: "12",
-                    pending: "-",
-                    status: "Completed",
-                  },
-                  {
-                    emp_name: "Lorem Ipsum",
-                    bank_code: "Wema Bank",
-                    acc_no: "0153364738",
-                    aount: "N453,364",
-                    sort_code: "1676",
-                    total_feedback: "12",
-                    pending: "-",
-                    status: "Completed",
-                  },
-                  {
-                    emp_name: "Lorem Ipsum",
-                    bank_code: "Wema Bank",
-                    acc_no: "0153364738",
-                    aount: "N453,364",
-                    sort_code: "1676",
-                    total_feedback: "12",
-                    pending: "-",
-                    status: "Completed",
-                  },
-                  {
-                    emp_name: "Lorem Ipsum",
-                    bank_code: "Wema Bank",
-                    acc_no: "0153364738",
-                    aount: "N453,364",
-                    sort_code: "1676",
-                    total_feedback: "12",
-                    pending: "-",
-                    status: "Completed",
-                  },
-                ].map((item, index) => (
-                  <tr class="fs-88">
-                    <td class="text-center fs-14 d-flex justify-content-center ">
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="tick"
-                          name="tick"
-                          value="tick"
-                        />
-                      </div>
-                    </td>
-                    <td class="text-center fs-14">{index + 1}</td>
-                    <td class="fs-14 text-nowrap text-left px-3 column">
-                      {item.emp_name}
-                    </td>
-                    <td class="fs-14 px-3 text-left column">
-                      {item.bank_code}
-                    </td>
-                    <td class="fs-14 px-3 text-center column">{item.acc_no}</td>
-
-                    <td class="fs-14 px-3 text-center column">{item.aount}</td>
-                    <td class="fs-14 px-3 text-nowrap text-center column">
-                      {item.sort_code}
-                    </td>
-                    <td class="fs-14 px-3 text-center d-flex justify-content-center column">
-                      <div class="d-flex gap-2">
-                        <button
-                          class="border-0 edit-button"
-                          style="background-color: inherit;"
-                          type="button"
-                          data-bs-toggle="modal"
-                          data-bs-target="#myModal"
-                          data-title="Edit Designation"
-                          data-emp-type="{ele.emp_type}"
-                        >
-                          <img src="images/png/icons/edit-2.svg" alt="" />
-                        </button>
-                        <span>Edit</span>
-                      </div>
-                    </td>
-                  </tr>
-                ))
-              }
-
-              <!-- Repeat for more employees -->
-            </tbody>
-          </table>
-        </div>
-
-        <!---- End of table --->
-
-        <!-- Pagination Row -->
-        <div
-          class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
-        >
-          <!-- Left: Pagination Text -->
-          <div class="fs-14 text-muted">
-            Showing <strong>1–20</strong> of <strong>1000</strong>
-          </div>
-
-          <!-- Right: Go to Page + Pagination -->
-          <div class="d-flex align-items-center gap-3 flex-wrap">
-            <!-- Go to Page -->
-            <form class="d-flex align-items-center gap-2">
-              <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
-              <input
-                type="number"
-                min="1"
-                max="100"
-                id="gotoPage"
-                class="form-control form-control-sm"
-                style="width: 60px;"
-                placeholder="—"
-              />
-            </form>
-
-            <!-- Page Navigation -->
-
-            <nav>
-              <ul class="pagination pagination-sm mb-0 text-primary-blue">
-                <li class="page-item">
-                  <a
-                    class="page-link text-primary-blue px-2"
-                    href="#"
-                    aria-label="Previous"
+                  <div class="d-flex gap-1">
+                    <span>Beneficiary Name</span>
+                    <button
+                      class="border-0 edit-button"
+                      style="background-color: inherit;"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal2"
+                      data-title="Edit Beneficiary Name"
+                      data-emp-type="Beneficiary Name"
+                    >
+                      <img src="images/png/icons/edit-white.svg" alt="" />
+                    </button>
+                  </div>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
                   >
-                    &lsaquo;
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link text-primary-blue" href="#">1</a>
-                </li>
-                <li class="page-item active" aria-current="page">
-                  <span class="page-link">2</span>
-                </li>
-                <li class="page-item">
-                  <a class="page-link text-primary-blue" href="#">3</a>
-                </li>
-                <li class="page-item disabled">
-                  <span class="page-link text-primary-blue">...</span>
-                </li>
-                <li class="page-item">
-                  <a class="page-link text-primary-blue" href="#">100</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link hello" href="#" aria-label="Next">
-                    &rsaquo;
-                  </a>
-                </li>
-              </ul>
-            </nav>
+                    <div class="d-flex gap-1">
+                      <span>Bank Code</span>
+                      <button
+                        class="border-0 edit-button"
+                        style="background-color: inherit;"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal2"
+                        data-title="Edit Bank Code"
+                        data-emp-type="Bank Code"
+                      >
+                        <img src="images/png/icons/edit-white.svg" alt="" />
+                      </button>
+                    </div>
+                  </th>
+
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                  >
+                    <div class="d-flex gap-1">
+                      <span>Account No</span>
+                      <button
+                        class="border-0 edit-button"
+                        style="background-color: inherit;"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal2"
+                        data-title="Edit Account No"
+                        data-emp-type="Account No"
+                      >
+                        <img src="images/png/icons/edit-white.svg" alt="" />
+                      </button>
+                    </div>
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                  >
+                    <div class="d-flex gap-1">
+                      <span>Amount</span>
+                      <button
+                        class="border-0 edit-button"
+                        style="background-color: inherit;"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal2"
+                        data-title="Edit Account No"
+                        data-emp-type="Amount"
+                      >
+                        <img src="images/png/icons/edit-white.svg" alt="" />
+                      </button>
+                    </div>
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                  >
+                    <div class="d-flex gap-1">
+                      <span>Narration</span>
+                      <button
+                        class="border-0 edit-button"
+                        style="background-color: inherit;"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal2"
+                        data-title="Edit Narration"
+                        data-emp-type="Narration"
+                      >
+                        <img src="images/png/icons/edit-white.svg" alt="" />
+                      </button>
+                    </div>
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Action</th
+                  >
+                </th>
+              </tr>
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 180px;
+                  }
+                </style>
+                {
+                  [
+                    {
+                      emp_name: "Lorem Ipsum",
+                      bank_code: "354673",
+                      acc_no: "0153364738",
+                      aount: "N453,364",
+                      narration:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                      total_feedback: "12",
+                      pending: "-",
+                      status: "Completed",
+                    },
+                    {
+                      emp_name: "Lorem Ipsum",
+                      bank_code: "354673",
+                      acc_no: "0153364738",
+                      aount: "N453,364",
+                      narration:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                      total_feedback: "12",
+                      pending: "-",
+                      status: "Pending",
+                    },
+                    {
+                      emp_name: "Lorem Ipsum",
+                      bank_code: "354673",
+                      acc_no: "0153364738",
+                      aount: "N453,364",
+                      narration:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                      total_feedback: "12",
+                      pending: "-",
+                      status: "Not Started",
+                    },
+                    {
+                      emp_name: "Lorem Ipsum",
+                      bank_code: "354673",
+                      acc_no: "0153364738",
+                      aount: "N453,364",
+                      narration:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                      total_feedback: "12",
+                      pending: "-",
+                      status: "Completed",
+                    },
+                    {
+                      emp_name: "Lorem Ipsum",
+                      bank_code: "354673",
+                      acc_no: "0153364738",
+                      aount: "N453,364",
+                      narration:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                      total_feedback: "12",
+                      pending: "-",
+                      status: "Completed",
+                    },
+                    {
+                      emp_name: "Lorem Ipsum",
+                      bank_code: "354673",
+                      acc_no: "0153364738",
+                      aount: "N453,364",
+                      narration:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                      total_feedback: "12",
+                      pending: "-",
+                      status: "Completed",
+                    },
+                    {
+                      emp_name: "Lorem Ipsum",
+                      bank_code: "354673",
+                      acc_no: "0153364738",
+                      aount: "N453,364",
+                      narration:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+                      total_feedback: "12",
+                      pending: "-",
+                      status: "Completed",
+                    },
+                  ].map((item, index) => (
+                    <tr class="fs-88">
+                      <td class="text-center fs-14">{index + 1}</td>
+                      <td class="fs-14 text-nowrap text-left px-3 column">
+                        {item.emp_name}
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        {item.bank_code}
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        {item.acc_no}
+                      </td>
+
+                      <td class="fs-14 px-3 text-center column">
+                        {item.aount}
+                      </td>
+                      <td class="fs-14 px-3 text-nowrap text-left column">
+                        {item.narration}
+                      </td>
+                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                        <div class="d-flex gap-2">
+                          <button
+                            class="border-0 edit-button"
+                            style="background-color: inherit;"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#myModal"
+                            data-title="Edit Designation"
+                            data-emp-type="{ele.emp_type}"
+                          >
+                            <img src="images/png/icons/edit-2.svg" alt="" />
+                          </button>
+                          <span>Edit</span>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </thead>
+          </table>
+
+          <!---- End of table --->
+
+          <!-- Pagination Row -->
+          <div
+            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+          >
+            <!-- Left: Pagination Text -->
+            <div class="fs-14 text-muted">
+              Showing <strong>1–20</strong> of <strong>1000</strong>
+            </div>
+
+            <!-- Right: Go to Page + Pagination -->
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <!-- Go to Page -->
+              <form class="d-flex align-items-center gap-2">
+                <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+                <input
+                  type="number"
+                  min="1"
+                  max="100"
+                  id="gotoPage"
+                  class="form-control form-control-sm"
+                  style="width: 60px;"
+                  placeholder="—"
+                />
+              </form>
+
+              <!-- Page Navigation -->
+
+              <nav>
+                <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                  <li class="page-item">
+                    <a
+                      class="page-link text-primary-blue px-2"
+                      href="#"
+                      aria-label="Previous"
+                    >
+                      &lsaquo;
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">1</a>
+                  </li>
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">2</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">3</a>
+                  </li>
+                  <li class="page-item disabled">
+                    <span class="page-link text-primary-blue">...</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">100</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link hello" href="#" aria-label="Next">
+                      &rsaquo;
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
+
+          <!---- Pagination ---->
         </div>
-
-        <!---- Pagination ---->
       </div>
+      <ModalAddNew
+        modalId="myModal"
+        title={"Edit Details"}
+        inputPlace="Remit Payment"
+      />
+      <ModalAddNew2
+        modalId="myModal2"
+        title={"Edit Details"}
+        inputPlace="Transaction"
+      />
+      <ApproveRemitModal modalId="approveModal" amount="N50" title="Salary Remittance"/>
     </div>
-    <ModalAddNew
-      modalId="myModal"
-      title={"Edit Details"}
-      inputPlace="Remit Payment"
-    />
-    <ApproveRemitModal modalId="approveModal" title="N50" />
   </section>
-
   <section class="d-none" id="paymentStatus">
     <div class="screenFrame">
       <div
@@ -450,24 +610,24 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
 
                 <th
                   class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                  >Employee Name</th
+                  >Beneficiary Name</th
                 >
                 <th
-                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                  >Bank Name</th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                  >Bank Code</th
                 >
 
                 <th
                   class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                  >Account Number</th
+                  >Account No</th
                 >
                 <th
                   class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                  >Net Salary</th
+                  >Amount</th
                 >
                 <th
-                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                  >Sort Code</th
+                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                  >Narration</th
                 >
                 <th
                   class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
@@ -486,71 +646,85 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                 [
                   {
                     emp_name: "Lorem Ipsum",
-                    bank_code: "Wema Bank",
+                    bank_code: "354673",
                     acc_no: "0153364738",
                     aount: "N453,364",
-                    sort_code: "1676",
+                    narration:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
                     total_feedback: "12",
+                    pending: "-",
                     status: "Completed",
                     last_login: "9, Nov 2025",
                   },
                   {
                     emp_name: "Lorem Ipsum",
-                    bank_code: "Wema Bank",
+                    bank_code: "354673",
                     acc_no: "0153364738",
                     aount: "N453,364",
-                    sort_code: "1676",
+                    narration:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
                     total_feedback: "12",
+                    pending: "3",
                     status: "Failed",
                     last_login: "9, Nov 2025",
                   },
                   {
                     emp_name: "Lorem Ipsum",
-                    bank_code: "Wema Bank",
+                    bank_code: "354673",
                     acc_no: "0153364738",
                     aount: "N453,364",
-                    sort_code: "1676",
+                    narration:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
                     total_feedback: "12",
+                    pending: "3",
                     status: "Completed",
                     last_login: "9, Nov 2025",
                   },
                   {
                     emp_name: "Lorem Ipsum",
-                    bank_code: "Wema Bank",
+                    bank_code: "354673",
                     acc_no: "0153364738",
                     aount: "N453,364",
-                    sort_code: "1676",
+                    narration:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
                     total_feedback: "12",
+                    pending: "3",
                     status: "Failed",
                     last_login: "9, Nov 2025",
                   },
                   {
                     emp_name: "Lorem Ipsum",
-                    bank_code: "Wema Bank",
+                    bank_code: "354673",
                     acc_no: "0153364738",
                     aount: "N453,364",
-                    sort_code: "1676",
+                    narration:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
                     total_feedback: "12",
+                    pending: "3",
                     status: "Failed",
                     last_login: "9, Nov 2025",
                   },
                   {
                     emp_name: "Lorem Ipsum",
-                    bank_code: "Wema Bank",
+                    bank_code: "354673",
                     acc_no: "0153364738",
                     aount: "N453,364",
-                    sort_code: "1676",
+                    narration:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
                     total_feedback: "12",
+                    pending: "3",
                     status: "Failed",
                     last_login: "9, Nov 2025",
                   },
                   {
                     emp_name: "Lorem Ipsum",
-                    bank_code: "Wema Bank",
+                    bank_code: "354673",
                     acc_no: "0153364738",
                     aount: "N453,364",
-                    sort_code: "1676",
+                    narration:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
                     total_feedback: "12",
+                    pending: "3",
                     status: "Failed",
                     last_login: "9, Nov 2025",
                   },
@@ -560,14 +734,14 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                     <td class="fs-14 text-nowrap text-left px-3 column">
                       {item.emp_name}
                     </td>
-                    <td class="fs-14 px-3 text-left column">
+                    <td class="fs-14 px-3 text-center column">
                       {item.bank_code}
                     </td>
                     <td class="fs-14 px-3 text-center column">{item.acc_no}</td>
 
                     <td class="fs-14 px-3 text-center column">{item.aount}</td>
-                    <td class="fs-14 px-3 text-nowrap text-center column">
-                      {item.sort_code}
+                    <td class="fs-14 px-3 text-nowrap text-left column">
+                      {item.narration}
                     </td>
                     <td
                       class="fs-14 px-3 text-left column fw-600"
@@ -659,50 +833,90 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
       </div>
     </div>
   </section>
-</Layout>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    document
-      .getElementById("generate_report_form")
-      ?.addEventListener("submit", (e) => {
-        e.preventDefault();
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      document
+        .getElementById("generate_report_form")
+        ?.addEventListener("submit", (e) => {
+          e.preventDefault();
 
-        $("#view_report").addClass("d-none");
-        const submitBtn = e.target.querySelector("button");
+          $("#view_report").addClass("d-none");
+          const submitBtn = e.target.querySelector("button");
 
-        submitBtn.innerHTML = `
+          submitBtn.innerHTML = `
                         <span>
                             <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
                             <span role="status">Loading...</span>
                         </span>
                     `;
-        submitBtn.disabled = true;
+          submitBtn.disabled = true;
 
-        setTimeout(() => {
-          submitBtn.innerHTML = `
+          setTimeout(() => {
+            submitBtn.innerHTML = `
                             <span>Generate Payroll Bank Upload File</span>
                         `;
-          submitBtn.disabled = false;
-          $("#manage_report").addClass("d-none");
-          $("#view_report").removeClass("d-none");
-        }, 1000);
+            submitBtn.disabled = false;
+            $("#manage_report").addClass("d-none");
+            $("#view_report").removeClass("d-none");
+          }, 1000);
+        });
+
+      $("#back_to_manage_report").click((evt) => {
+        $("#view_report").addClass("d-none");
+        $("#manage_report").removeClass("d-none");
       });
 
-    $("#back_to_manage_report").click((evt) => {
-      $("#view_report").addClass("d-none");
-      $("#manage_report").removeClass("d-none");
-    });
+      $("#view_payment_status").click((evt) => {
+        $("#view_report").addClass("d-none");
+        $("#paymentStatus").removeClass("d-none");
+      });
 
-    $("#view_payment_status").click((evt) => {
-      $("#paymentStatus").removeClass("d-none");
-      $("#view_report").addClass("d-none");
-    });
+      $("#fileInputBtn").click((evt) => {
+        $("#fileInput").click();
+      });
 
-    $("#fileInputBtn").click((evt) => {
-      $("#fileInput").click();
-    });
-  });
-</script>
+      function toggleSalaryView() {
+        if ($("#netSalary").is(":checked")) {
+          $("#netSalaryText").removeClass("d-none");
+          $("#netVariableText").addClass("d-none");
+        } else {
+          $("#netSalaryText").addClass("d-none");
+          $("#netVariableText").removeClass("d-none");
+        }
+      }
 
-<!-- Main content ends here -->
+      // Initial call on load
+      toggleSalaryView();
+
+      // Bind change event to radio buttons
+      $("input[name='starter']").change(toggleSalaryView);
+    });
+  </script>
+  <script is:inline type="text/javascript">
+    // Handle opening the modal
+    document
+      .querySelectorAll('[data-bs-target="#myModal2"]')
+      .forEach((button) => {
+        button.addEventListener("click", function () {
+          const modalTitle =
+            this.getAttribute("data-title") || "Add Employee Type";
+          const empType = this.getAttribute("data-emp-type") || "Input";
+
+          // Update modal title
+          const modalTitleElement = document.getElementById("modalTitle");
+          if (modalTitleElement) {
+            modalTitleElement.textContent = modalTitle;
+          }
+
+          // Update input field
+          const employeeStatusInput = document.getElementById("financial");
+          if (employeeStatusInput) {
+            employeeStatusInput.textContent = empType;
+          }
+        });
+      });
+  </script>
+
+  <!-- Main content ends here -->
+</Layout>

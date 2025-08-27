@@ -1,0 +1,710 @@
+---
+// components/ui/ModalAddNew.astro
+const {
+  modalId = "myModal2",
+  title = "Add Employee Type",
+  inputPlace = "Designation",
+} = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      {
+        inputPlace === "Pay Grade" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating ">
+              <select
+                id="employment_id"
+                name="employment_id"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Full-time</option>
+                <option value="2">Contractor</option>
+                <option value="3">Intern</option>
+              </select>
+              <label for="employment_id">
+                Employment Type &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="country"
+                name="country"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">UK</option>
+                <option value="2">Nigeria</option>
+              </select>
+              <label for="country">
+                Country &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="grade_band"
+                name="grade_band"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="grade_band">
+                Grade Band &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="pay_grade"
+                name="pay_grade"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="pay_grade">
+                Pay Grade &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="salary_type"
+                name="salary_type"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Annual Fixed Salary</option>
+                <option value="2">Hourly Rate</option>
+              </select>
+              <label for="salary_type">
+                Salary Type &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating" id="hourlyRateField">
+              <input
+                type="text"
+                id="hourly_rate"
+                name="hourly_rate"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="hourly_rate">
+                Hourly Rate &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating" id="afsField">
+              <input
+                type="text"
+                id="afs"
+                name="afs"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="afs">
+                Annual Fixed Salary &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "Generate Onboarding Link" ? (
+          <div class="modal-body py-4 border-0">
+            <div class="">
+              <label for="multiple-select-field" id="custom_select_new">
+                Select Employee
+              </label>
+
+              <select
+                class="form-select_custom fs-14 py-3"
+                id="multiple-select-field"
+                
+                multiple
+              >
+                <option value="1">Robert Fox</option>
+                <option value="2">Wade Warren</option>
+                <option value="3">Jerome Bell</option>
+                <option value="4">Guy Hawkins</option>
+                <option value="5">Jenny Wilson</option>
+                <option value="6">Kathryn Murphy</option>
+                <option value="7">Floyd Miles</option>
+              </select>
+            </div>
+          </div>
+        ) : inputPlace === "Assign Asset" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <select
+                id="emp_id_name"
+                name="emp_id_name"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Robert Fox - N12343534</option>
+                <option value="2">Robert Fox - N12343534</option>
+                <option value="3">Robert Fox - N12343534</option>
+              </select>
+              <label for="emp_id_name">
+                Employee ID/Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div
+              class="d-flex flex-column flex-lg-row flex-wrap gap-2 p-3 px-2 mb-3 clock_in_out_modal d-none "
+              id="employeeDetails"
+            >
+              <div class="d-flex flex-column w-50 px-lg-3">
+                <span class="fs-12 text-secondary text-nowrap">
+                  Employee Name
+                </span>
+                <span class="fs-14 fw-700 text-nowrap">Toluwalase Obasun</span>
+              </div>
+
+              <span class="clock_border_left" />
+              <div class="d-flex flex-column px-lg-3">
+                <span class="fs-12 text-secondary">Branch</span>
+                <span class="fs-14 fw-700">Lorem Ipsum</span>
+              </div>
+
+              <div class="d-flex flex-column w-50 px-lg-3">
+                <span class="fs-12 text-secondary text-nowrap">
+                  Designation
+                </span>
+                <span class="fs-14 fw-700 text-nowrap">Lorem Ipsum</span>
+              </div>
+
+              <span class="clock_border_left " />
+              <div class="d-flex flex-column px-lg-3">
+                <span class="fs-12 text-secondary text-nowrap">
+                  Primary Department
+                </span>
+                <span class="fs-14 fw-700 text-nowrap">Lorem Ipsum</span>
+              </div>
+
+              <div class="d-flex flex-column px-lg-3">
+                <span class="fs-12 text-secondary">Primary Function</span>
+                <span class="fs-14 fw-700">Lorem Ipsum</span>
+              </div>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="asset_name"
+                name="asset_name"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="asset_name">
+                Asset Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="serial_No"
+                name="serial_No"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="serial_No">
+                Serial Number &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="model"
+                name="model"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="model">
+                Model &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="quantity"
+                name="quantity"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="quantity">
+                Quantity &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="condition"
+                name="condition"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">New</option>
+                <option value="2">Used</option>
+                <option value="3">Refurbished</option>
+              </select>
+              <label for="condition">
+                Condition &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                id="assign_date"
+                name="assign_date"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="assign_date">
+                Assignment Date &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                id="return_date"
+                name="return_date"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="return_date">
+                Return Date &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="comment" />
+              <label for="comment">Comment </label>
+            </div>
+            <form class="vstack gap-2" id="generate_payslip_form">
+              <div class="fs-14 fw-600">
+                Supporting Document Upload <span style="color: red">*</span>
+                <div class="upload_bulk_status p-3 d-flex flex-column align-items-center justify-content-center">
+                  <img
+                    src="images/png/icons/cloud_upload.svg"
+                    width="35px"
+                    height="35px"
+                    alt="cloud upload icon"
+                  />
+                  <div class="fs-14 fw-700" style="color: #6B7280">
+                    Click to upload <span class="fw-400">or drag and drop</span>
+                  </div>
+                  <div class="fs-12 fw-700" style="color: #6B7280">
+                    PDF or DOCX (Max File Size: 2MB)
+                  </div>
+                  <button
+                    type="button"
+                    id="fileInputBtn"
+                    class="delon-primary-btn d-flex gap-2 mt-2 bg-primary-blue border-0 text-white fs-14"
+                  >
+                    <img src="images/png/icons/search.svg" alt="arrow-down" />
+                    <span>Browse Files</span>
+                  </button>
+                  <div
+                    id="fileInputDetails"
+                    class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 mt-2 rounded-3 fs-14 d-flex gap-1 align-items-center"
+                    role="button"
+                  >
+                    <span class="flex-fill text-truncate">
+                      gvfyguytctrcjrct.webp
+                    </span>
+                    <span class="flex-fill">
+                      <img
+                        src="images/png/icons/close-circle-6.svg"
+                        width="15"
+                        height="15"
+                        alt="close_icon"
+                      />
+                    </span>
+                  </div>
+                  <input type="file" class="d-none" id="fileInput" />
+                </div>
+              </div>
+            </form>
+          </div>
+        ) : inputPlace === "Create Task" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <select
+                id="emp_id_name"
+                name="emp_id_name"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Robert Fox - N12343534</option>
+                <option value="2">Robert Fox - N12343534</option>
+                <option value="3">Robert Fox - N12343534</option>
+              </select>
+              <label for="emp_id_name">
+                Employee ID/Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div
+              class="d-flex flex-column flex-lg-row flex-wrap gap-2 p-3 px-2 mb-3 clock_in_out_modal d-none "
+              id="employeeDetails"
+            >
+              <div class="d-flex flex-column w-50 px-lg-3">
+                <span class="fs-12 text-secondary text-nowrap">
+                  Employee Name
+                </span>
+                <span class="fs-14 fw-700 text-nowrap">Toluwalase Obasun</span>
+              </div>
+
+              <span class="clock_border_left" />
+              <div class="d-flex flex-column px-lg-3">
+                <span class="fs-12 text-secondary">Branch</span>
+                <span class="fs-14 fw-700">Lorem Ipsum</span>
+              </div>
+
+              <div class="d-flex flex-column w-50 px-lg-3">
+                <span class="fs-12 text-secondary text-nowrap">
+                  Designation
+                </span>
+                <span class="fs-14 fw-700 text-nowrap">Lorem Ipsum</span>
+              </div>
+
+              <span class="clock_border_left " />
+              <div class="d-flex flex-column px-lg-3">
+                <span class="fs-12 text-secondary text-nowrap">
+                  Primary Department
+                </span>
+                <span class="fs-14 fw-700 text-nowrap">Lorem Ipsum</span>
+              </div>
+
+              <div class="d-flex flex-column px-lg-3">
+                <span class="fs-12 text-secondary">Primary Function</span>
+                <span class="fs-14 fw-700">Lorem Ipsum</span>
+              </div>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="task_name"
+                name="task_name"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="task_name">
+                Task Name &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="date"
+                id="assign_date"
+                name="assign_date"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="assign_date">
+                Assiged Date &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                id="completion_date"
+                name="completion_date"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="completion_date">
+                Target Completion Date &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "Minimum Staffing" ? (
+          <div class="modal-body py-5 d-flex flex-column gap-4 border-0">
+            <div class="form-floating">
+              <select
+                id="location"
+                name="location"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="">Select</option>
+                <option value="1" selected>
+                  Lagos
+                </option>
+                <option value="2">Abuja</option>
+                <option value="3">Ibadan</option>
+              </select>
+              <label for="location">
+                Location &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="designation"
+                name="designation"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Pharmacist</option>
+                <option value="2">Senior Pharmacist</option>
+                <option value="3">Intern Pharmacist</option>
+                <option value="4">Software Engineer</option>
+                <option value="5">HR & Admin Manager</option>
+                <option value="6">Pharmacy Technician</option>
+                <option value="7">Call Center Agent</option>
+              </select>
+              <label for="designation">
+                Designation &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="employee_count"
+                name="employee_count"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="employee_count">Employee Count</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="minimum_staff"
+                name="minimum_staff"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="minimum_staff">Minimum Staffing</label>
+            </div>
+          </div>
+        ) : inputPlace === "Remit Payment" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="emp_name"
+                name="emp_name"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="emp_name">
+                Employee Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="bank"
+                name="bank"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Wema Bank</option>
+                <option value="2">GT Bank</option>
+                <option value="3">First Bank</option>
+              </select>
+              <label for="bank">
+                Bank Name &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="text"
+                id="acc_no"
+                name="acc_no"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="acc_no">
+                Account Number &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="net_salary"
+                name="net_salary"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="net_salary">
+                Net Salary &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="text"
+                id="sort_code"
+                name="sort_code"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="sort_code">
+                Sort Code &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : (
+          <div class="modal-body py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="employee_type"
+                name="employee_type"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="employee_type" id="financial">
+                {inputPlace} &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        )
+      }
+
+      <!-- Modal footer -->
+      <div class="modal-footer border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white"
+          data-bs-dismiss="modal"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline type="text/javascript">
+  // Handle opening the modal
+  document.addEventListener("DOMContentLoaded", () => {
+    const employeeIdSelect = document.getElementById("emp_id_name");
+    $("#employeeDetails").addClass("d-none"); // hide by defaults
+
+    employeeIdSelect.addEventListener("change", () => {
+      const employeeID = employeeIdSelect.value;
+
+      if (employeeID === "1") {
+        $("#employeeDetails").removeClass("d-none"); // show details
+      } else {
+        $("#employeeDetails").addClass("d-none"); // hide details
+      }
+    });
+
+    $("#fileInputBtn").click((evt) => {
+      $("#fileInput").click();
+    });
+
+    document
+      .getElementById("fileInput")
+      .addEventListener("change", function () {
+        if (fileInput.files.length > 0) {
+          const fileName = fileInput.files[0].name;
+          $("#fileInputDetails span:first-child").text(fileName);
+          $("#fileInputDetails").removeClass("d-none");
+          $("#fileInputBtn").addClass("d-none");
+          console.log("Selected file name:", fileName);
+        }
+      });
+    $("#fileInputDetails span:nth-child(2)").click(() => {
+      $("#fileInput").val("");
+      $("#fileInputDetails span:first-child").text("");
+      $("#fileInputDetails").addClass("d-none");
+      $("#fileInputBtn").removeClass("d-none");
+    });
+
+    $("#multiple-select-field").select2({
+      theme: "bootstrap-5",
+      width: $(this).data("width")
+        ? $(this).data("width")
+        : $(this).hasClass("w-100")
+          ? "100%"
+          : "style",
+      placeholder: $(this).data("placeholder"),
+      closeOnSelect: false,
+    });
+
+    const countrySelect = document.getElementById("country");
+    const salaryTypeSelect = document.getElementById("salary_type");
+    const hourlyRateField = document.getElementById("hourlyRateField");
+    const afsField = document.getElementById("afsField");
+
+    // Utility function to show/hide based on salary type
+    function updateSalaryFields(salaryTypeValue) {
+      if (salaryTypeValue === "2") {
+        // Hourly Rate
+        hourlyRateField.style.display = "block";
+        afsField.style.display = "none";
+      } else if (salaryTypeValue === "1") {
+        // Annual Fixed Salary
+        hourlyRateField.style.display = "none";
+        afsField.style.display = "block";
+      } else {
+        // Neither selected
+        hourlyRateField.style.display = "none";
+        afsField.style.display = "none";
+      }
+    }
+
+    // On country change
+    countrySelect.addEventListener("change", () => {
+      const country = countrySelect.value;
+
+      if (country === "1") {
+        // UK
+        salaryTypeSelect.value = "2"; // Hourly Rate
+      } else if (country === "2") {
+        // Nigeria
+        salaryTypeSelect.value = "1"; // Annual Fixed Salary
+      } else {
+        salaryTypeSelect.value = "";
+      }
+
+      updateSalaryFields(salaryTypeSelect.value);
+    });
+
+    // On salary type change (user manual switch)
+    salaryTypeSelect.addEventListener("change", () => {
+      updateSalaryFields(salaryTypeSelect.value);
+    });
+
+    // Initialize on page load if default values are present
+    updateSalaryFields(salaryTypeSelect.value);
+  });
+</script>
