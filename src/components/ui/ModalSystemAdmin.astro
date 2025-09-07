@@ -1,0 +1,133 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "comment", title = "Records Details" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-2">
+      <!-- Modal Header -->
+
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">
+          {title}
+        </h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-left py-2 border-0">
+        <div class="fs-14 fw-700 text-nowrap">Business Details</div>
+        <div
+          class="d-flex flex-column flex-wrap gap-4 p-3 px-2 mb-3 clock_in_out_modal"
+        >
+          <div class="d-flex flex-column w-50 px-lg-3">
+            <span class="fs-12 text-secondary text-nowrap">
+              Business Name
+            </span>
+            <span class="fs-14 fw-700 text-nowrap">Total PLC</span>
+          </div>
+
+          <div class="d-flex flex-column w-50 px-lg-3">
+            <span class="fs-12 text-secondary text-nowrap"> Contact Name </span>
+            <span class="fs-14 fw-700 text-nowrap">Issac Williams</span>
+          </div>
+
+          <div class="d-flex flex-column px-lg-3">
+            <span class="fs-12 text-secondary">Email</span>
+            <span class="fs-14 fw-700">Loreipsum@gmail.com</span>
+          </div>
+          <div class="d-flex flex-column px-lg-3">
+            <span class="fs-12 text-secondary">Phone Number</span>
+            <span class="fs-14 fw-700">09036252267</span>
+          </div>
+        </div>
+
+        <div class="fs-14 fw-700 text-nowrap mt-4">Subscription</div>
+        <div
+          class="d-flex flex-column flex-wrap gap-4 p-3 px-2 mb-3 clock_in_out_modal"
+        >
+          <div class="d-flex flex-column w-50 px-lg-3">
+            <span class="fs-12 text-secondary text-nowrap">
+              Subscription Plan
+            </span>
+            <span class="fs-14 fw-700 text-nowrap">Bronze</span>
+          </div>
+
+          <div class="d-flex flex-column w-50 px-lg-3">
+            <span class="fs-12 text-secondary text-nowrap">
+              Subscription Type
+            </span>
+            <span class="fs-14 fw-700 text-nowrap">Paid</span>
+          </div>
+
+          <div class="d-flex flex-column px-lg-3">
+            <span class="fs-12 text-secondary">Billing Cycle</span>
+            <span class="fs-14 fw-700">Annual</span>
+          </div>
+          <div class="d-flex flex-column px-lg-3">
+            <span class="fs-12 text-secondary">Subscription Status</span>
+            <span class="fs-14 fw-700">Active</span>
+          </div>
+        </div>
+        <div class="fs-14 fw-700 text-nowrap mt-4">Payment</div>
+        <div
+          class="d-flex flex-column flex-wrap gap-4 p-3 px-2 mb-3 clock_in_out_modal"
+        >
+          <div class="d-flex flex-column w-50 px-lg-3">
+            <span class="fs-12 text-secondary text-nowrap">
+              Payment Status
+            </span>
+            <span class="fs-14 fw-700 text-nowrap">Paid</span>
+          </div>
+
+          <div class="d-flex flex-column w-50 px-lg-3">
+            <span class="fs-12 text-secondary text-nowrap">
+              Payment Gateway
+            </span>
+            <span class="fs-14 fw-700 text-nowrap"
+              ><img
+                class="me-2"
+                src="images/png/icons/alat1.png"
+                alt="alat"
+              />ALAT</span
+            >
+          </div>
+
+          <div class="d-flex flex-column px-lg-3">
+            <span class="fs-12 text-secondary">Transaction Reference ID</span>
+            <span class="fs-14 fw-700">Lorem Ipsum</span>
+          </div>
+        </div>
+        <div class="fs-14 fw-700 text-nowrap mt-4">Dates</div>
+        <div
+          class="d-flex flex-column flex-wrap gap-4 p-3 px-2 mb-3 clock_in_out_modal"
+        >
+          <div class="d-flex flex-column w-50 px-lg-3">
+            <span class="fs-12 text-secondary text-nowrap"> Signup Date </span>
+            <span class="fs-14 fw-700 text-nowrap">5, Apr 2025</span>
+          </div>
+
+          <div class="d-flex flex-column w-50 px-lg-3">
+            <span class="fs-12 text-secondary text-nowrap"> Late Payment </span>
+            <span class="fs-14 fw-700 text-nowrap">5, Apr 2025</span>
+          </div>
+
+          <div class="d-flex flex-column px-lg-3">
+            <span class="fs-12 text-secondary">Expiry</span>
+            <span class="fs-14 fw-700">5, Apr 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+    </div>
+  </div>
+</div>
