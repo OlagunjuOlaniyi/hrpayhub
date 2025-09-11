@@ -85,6 +85,19 @@ import Layout from "../layouts/Layout.astro";
                   >
                 </div>
                 <div class="form-floating add_employee_width">
+                  <input
+                    type="text"
+                    id="emp_name"
+                    name="emp_name"
+                    class="form-input"
+                    placeholder=""
+                    required
+                  />
+                  <label for="emp_name"
+                    >Employer Name &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating add_employee_width">
                   <select
                     id="tax-year"
                     name="tax-year"
@@ -101,6 +114,29 @@ import Layout from "../layouts/Layout.astro";
                   </label>
                 </div>
                 <div class="form-floating add_employee_width">
+                  <input
+                    type="date"
+                    id="gpd"
+                    name="gpd"
+                    class="form-input"
+                    placeholder=""
+                    required
+                  />
+                  <label for="gpd"
+                    >Global Payment Date &nbsp;<span>*</span></label
+                  >
+                </div>
+                <div class="form-floating add_employee_width">
+                  <select id="dpf" name="dpf" class="form-select_custom fs-14">
+                    <option value="" selected> Select </option>
+                    <option value="1">Monthly</option>
+                    <option value="2">Weekly</option>
+                    <option value="3">Forthnightly</option>
+                    <option value="4">4-weekly</option>
+                  </select>
+                  <label for="dpf"> Default Pay Frequency </label>
+                </div>
+                <div class="form-floating add_employee_width">
                   <select
                     id="tax-code"
                     name="tax-code"
@@ -108,238 +144,16 @@ import Layout from "../layouts/Layout.astro";
                     required
                   >
                     <option value="" selected> Select </option>
-                    <option value="1">TX001</option>
-                    <option value="2">TX001</option>
-                    <option value="3">TX001</option>
+                    <option value="1">1257L (default)</option>
+                    <option value="2">BR</option>
+                    <option value="3">0T</option>
+                    <option value="4">D0</option>
+                    <option value="5">D1</option>
+                    <option value="6">NT</option>
                   </select>
                   <label for="tax-code">
-                    Tax Code &nbsp;<span>*</span>
+                    Default Tax Code &nbsp;<span>*</span>
                   </label>
-                </div>
-                <div>
-                  <p class="fs-14 fw-600">Starter/Leaver Information</p>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      id="starter"
-                      name="starter"
-                      value="new-starter"
-                      checked
-                    />
-                    <label class="form-check-label fs-12">New Starter</label>
-                  </div>
-                  <div class="form-check mt-3">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      id="starter"
-                      name="starter"
-                      value="leaver"
-                    />
-                    <label class="form-check-label fs-12">Leaver</label>
-                  </div>
-                  <div class="form-check mt-3">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      id="starter"
-                      name="starter"
-                      value="both"
-                    />
-                    <label class="form-check-label fs-12">Both</label>
-                  </div>
-                </div>
-                <div class="form-floating add_employee_width">
-                  <select
-                    id="pay-period"
-                    name="pay-period"
-                    class="form-select_custom fs-14"
-                    required
-                  >
-                    <option value="" selected> Select </option>
-                    <option value="1">Period 1</option>
-                    <option value="2">Period 2</option>
-                    <option value="3">Period 3</option>
-                  </select>
-                  <label for="pay-period">
-                    Pay Period Selection &nbsp;<span>*</span>
-                  </label>
-                </div>
-                <div class="form-floating add_employee_width">
-                  <select
-                    id="file"
-                    name="file"
-                    class="form-select_custom fs-14"
-                    required
-                  >
-                    <option value="" selected> Select </option>
-                    <option value="1">Excel</option>
-                    <option value="2">Word</option>
-                    <option value="3">PDF</option>
-                  </select>
-                  <label for="file">
-                    File Format &nbsp;<span>*</span>
-                  </label>
-                </div>
-
-                <div class="d-flex justify-content-end add_employee_width">
-                  <button
-                    class="white_button fs-14 p-0"
-                    style="border: 0px !important;"
-                    type="button"
-                  >
-                    <u class="text-primary-blue fw-600">Populate Data </u>
-                  </button>
-                </div>
-
-                <!---- Setup --->
-                <div class="d-flex align-items-center gap-4 add_employee_width">
-                  <div class="fs-14 fw-600 text-primary-blue">
-                    Auto-populated Data
-                  </div>
-                  <div class="flex-grow-1">
-                    <div class="demarcator_line">&nbsp;</div>
-                  </div>
-                </div>
-
-                <div class="form-floating add_employee_width">
-                  <input
-                    type="text"
-                    id="emp_name"
-                    name="emp_name"
-                    class="form-input fs-12"
-                    placeholder=""
-                    value="Auto Filled"
-                    disabled
-                  />
-                  <label for="emp_name">Employee Name</label>
-                </div>
-                <div class="form-floating add_employee_width">
-                  <input
-                    type="text"
-                    id="nin"
-                    name="nin"
-                    class="form-input fs-12"
-                    placeholder=""
-                    value="Auto Filled"
-                    disabled
-                  />
-                  <label for="nin">National Insurance Number</label>
-                </div>
-                <div class="form-floating add_employee_width">
-                  <input
-                    type="text"
-                    id="dob"
-                    name="dob"
-                    class="form-input fs-12"
-                    placeholder=""
-                    value="Auto Filled"
-                    disabled
-                  />
-                  <label for="dob">Date of Birth</label>
-                </div>
-                <div class="form-floating add_employee_width">
-                  <input
-                    type="text"
-                    id="gp"
-                    name="gp"
-                    class="form-input fs-12"
-                    placeholder=""
-                    value="Auto Filled"
-                    disabled
-                  />
-                  <label for="gp">Gross Pay</label>
-                </div>
-                <div class="form-floating add_employee_width">
-                  <input
-                    type="text"
-                    id="td"
-                    name="td"
-                    class="form-input fs-12"
-                    placeholder=""
-                    value="Auto Filled"
-                    disabled
-                  />
-                  <label for="td">Tax Deductions</label>
-                </div>
-                <div class="form-floating add_employee_width">
-                  <input
-                    type="text"
-                    id="nic"
-                    name="nic"
-                    class="form-input fs-12"
-                    placeholder=""
-                    value="Auto Filled"
-                    disabled
-                  />
-                  <label for="nic">National Insurance contributions</label>
-                </div>
-                <div class="form-floating add_employee_width">
-                  <input
-                    type="text"
-                    id="sld"
-                    name="sld"
-                    class="form-input fs-12"
-                    placeholder=""
-                    value="Auto Filled"
-                    disabled
-                  />
-                  <label for="sld">Student Loan deductions</label>
-                </div>
-                <div class="form-floating add_employee_width">
-                  <input
-                    type="text"
-                    id="pay-day"
-                    name="pay-day"
-                    class="form-input fs-12"
-                    placeholder=""
-                    value="Auto Filled"
-                    disabled
-                  />
-                  <label for="pay-day">Pay Date</label>
-                </div>
-                <div class="form-floating add_employee_width">
-                  <input
-                    type="text"
-                    id="pn"
-                    name="pn"
-                    class="form-input fs-12"
-                    placeholder=""
-                    value="Auto Filled"
-                    disabled
-                  />
-                  <label for="pn">Period Number</label>
-                </div>
-                <div
-                  class="d-flex justify-content-between gap-3 add_employee_width"
-                >
-                  <div class="form-floating add_employee_width">
-                    <input
-                      type="date"
-                      id="start_date"
-                      name="start_date"
-                      class="form-input fs-12"
-                      placeholder=""
-                      disabled
-                    />
-                    <label for="start_date">Start Date </label>
-                  </div>
-                  <div class="form-floating add_employee_width">
-                    <input
-                      type="date"
-                      id="end_date"
-                      name="end_date"
-                      class="form-input fs-12"
-                      placeholder=""
-                      disabled
-                    />
-                    <label for="end_date">End Date </label>
-                  </div>
-                </div>
-                <div class="form-floating add_employee_width">
-                  <textarea class="form-input" rows="2" id="reasons"></textarea>
-                  <label for="reasons">Reason for Leaving </label>
                 </div>
 
                 <!---- submit ---->
@@ -349,7 +163,7 @@ import Layout from "../layouts/Layout.astro";
                     id="upload"
                     class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold expense_button"
                   >
-                    <span>Generate Preview</span>
+                    <span>Generate</span>
                   </button>
                 </div>
               </form>
@@ -362,153 +176,868 @@ import Layout from "../layouts/Layout.astro";
 
     <section class="px-4 d-none" id="view_submission">
       <div class="screenFrame">
-        <div class="d-flex flex-column justify-content-between">
-          <div
-            class="rounded-4 shadow p-4 d-flex flex-column gap-5 px-md-5 px-3"
-            style={{ flexBasis: "auto" }}
-          >
-            {/* Page Content Box */}
-            <div class="vstack gap-4">
-              <div
-                class="d-flex align-items-center justify-content-between gap-4 view_offer_breakdown"
+        <div class="rounded-4 shadow p-4 vstack gap-3 px-lg-5">
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div class="d-flex gap-3 align-items-center">
+              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                >Full Payment Submission</span
               >
-                <span
-                  class="text-primary-blue font-ubuntu-bold fs-18 inline-block"
-                >
-                  Full Payment Submission
-                </span>
-                <div
-                  class="d-flex align-items-center justify-content-end gap-4"
-                >
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+
+          <div class="">
+            <div class="d-flex flex-row justify-content-between gap-5">
+              <!---- Search  -->
+              <div class="d-flex gap-3">
+                <input
+                  type="text"
+                  class="form-control search-input search-width fs-14"
+                  placeholder="Search..."
+                />
+              </div>
+
+              <!-- Others -->
+              <div class="responsive gap-2">
+                <!-- Calendar Selector -->
+                <input
+                  type="month"
+                  class="form-control fs-14"
+                  style="width: 150px;"
+                  value="2025-08"
+                />
+
+                <!-- Filter Dropdown -->
+
+                <style>
+                  .dropdown-submenu {
+                    position: relative;
+                  }
+
+                  /* Accordion style: drop below, not to the right */
+                  .dropdown-submenu > .dropdown-menu {
+                    position: static;
+                    float: none;
+                    margin-top: 0.5rem;
+                    padding-left: 1rem;
+                    display: none;
+                  }
+
+                  .dropdown-submenu > .dropdown-menu.show {
+                    display: block;
+                  }
+
+                  /* a small caret indicator */
+                  .dropdown-submenu > a::after {
+                    content: " ";
+                    float: right;
+                  }
+                </style>
+
+                <div class="dropdown">
                   <button
-                    id="back_to_submission"
-                    class="delon-primary-btn bg-white text-primary-blue border-primary-blue text-decoration-none text-white fw-bold fs-14"
+                    class="delon-primary-btn bg-white border dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2 fs-14"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    data-bs-offset="-20,10"
                   >
-                    Back
+                    <img src="images/png/icons/filter.svg" alt="arrow-down" />
+                    <span>Filter</span>
                   </button>
-                  <div class="dropdown">
-                    <button
-                      class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                      data-bs-offset="-20,10"
+                  <ul class="dropdown-menu" style="min-width:250px">
+                    <li
+                      class="d-flex flex-row justify-content-between px-3 py-2 border-bottom fs-14"
                     >
-                      <span>Download</span>
-                      <img
-                        src="images/png/icons/arrow-down.svg"
-                        alt="arrow-down"
-                      />
-                    </button>
-                    <div class="dropdown-menu p-0 border-0">
-                      <ul class="list-group border-0 fw-600 fs-14">
-                        <li class="list-group-item">
-                          <div>CSV Format</div>
+                      <span class="fw-bold">Filter</span>
+                      <span class="fw-bold text-primary-blue">Reset Filter</span
+                      >
+                    </li>
+                    <!-- Designation Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Designation</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 1"
+                            /> Category 1
+                          </label>
                         </li>
-                        <li class="list-group-item">
-                          <div>Excel Format</div>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 2"
+                            /> Category 2
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 2"
+                            /> Category 2
+                          </label>
                         </li>
                       </ul>
-                    </div>
+                    </li>
+
+                    <!-- Employment Status Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Employment Status</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="employed"
+                            /> Employed
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="unemployed"
+                            /> Unemployed
+                          </label>
+                        </li>
+
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="contract"
+                            /> Contract
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- Country of Work Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Country of Work</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="usa"
+                            /> USA
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="uk"
+                            /> UK
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="Nigeria"
+                            /> Nigeria
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- apply filter button -->
+                    <li
+                      class="d-flex flex-row justify-content-end px-3 py-2 mt-2"
+                    >
+                      <button
+                        type="submit"
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fs-14"
+                      >
+                        <span>Apply Filter</span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Sort Dropdown -->
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-white border fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/sort.svg" alt="arrow-down" />
+                    <span>Sort</span>
+                  </button>
+                  <div
+                    class="dropdown-menu p-0 border-0"
+                    style="min-width:200px"
+                  >
+                    <ul class="list-group border-0 fw-600 fs-14">
+                      <li class="list-group-item">
+                        <span class="fw-bold">Sort</span>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Alphabetically
+                        </label>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Date of Resumption
+                        </label>
+                      </li>
+                      <li class="list-group-item">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="optradio"
+                          /> Date of Confirmation
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Download Dropdown -->
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/download.svg" alt="arrow-down" />
+                    <span>Download</span>
+                    <img
+                      src="images/png/icons/arrow-down.svg"
+                      alt="arrow-down"
+                    />
+                  </button>
+                  <div class="dropdown-menu p-0 border-0">
+                    <ul class="list-group border-0 fw-600 fs-14">
+                      <li class="list-group-item">
+                        <div>CSV</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>Excel</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>PDF</div>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
 
-              {/* <!-- View section --> */}
-              <div
-                class="d-flex flex-column gap-5 border view_offer_breakdown"
-                id="view_employee_details"
-              >
-                <div>
-                  {
-                    [
-                      {
-                        title: "Field",
-                        value: "Value",
-                      },
-                      {
-                        title: "Employer PAYE Ref",
-                        value: "123/A246",
-                      },
-                      {
-                        title: "Accounts Office Ref",
-                        value: "123PA00123456",
-                      },
-                      {
-                        title: "Tax Year",
-                        value: "2023/24",
-                      },
-                      {
-                        title: "Employee NI Number",
-                        value: "AB123456C",
-                      },
-                      {
-                        title: "Employee Name",
-                        value: "John Smith",
-                      },
-                      {
-                        title: "Date of Birth",
-                        value: "01/01/1985",
-                      },
-                      {
-                        title: "Payment Date",
-                        value: "30/09/2023",
-                      },
-                      {
-                        title: "Gross Pay (Period)",
-                        value: "£2,500",
-                      },
-                      {
-                        title: "Taxable Pay (YTD)",
-                        value: "£15,000",
-                      },
-                      {
-                        title: "Tax Deducted (YTD)",
-                        value: "£1,200",
-                      },
-                      {
-                        title: "NICs (Period)",
-                        value: "£200",
-                      },
-                      {
-                        title: "NICs (YTD)",
-                        value: "£1,000",
-                      },
-                      {
-                        title: "Student Loan",
-                        value: "£50",
-                      },
-
-                      {
-                        title: "Pension Contributions",
-                        value: "£150",
-                      },
-                      {
-                        title: "Starter/Leaver Info",
-                        value: "Starter",
-                      },
-                      {
-                        title: "Tax Code",
-                        value: "1257L",
-                      },
-                    ].map((ele) => (
-                      <div class="d-flex">
-                        <div class="bg-primary-blue border border-top-0 text-white fw-700 fs-14 py-2 px-3 offer_breakdown_width">
-                          {ele.title}
-                        </div>
-                        <div class="text-dark border border-top-0 py-2 px-3 fs-14 offer_breakdown_width">
-                          {ele.value}
-                        </div>
-                      </div>
-                    ))
-                  }
-                </div>
-              </div>
-              {/* <!-- View section --> */}
+              <!---- End of Others ---->
             </div>
-            {/* Page Content Box */}
+          </div>
+
+          {/* Page Content Box */}
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead
+                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+              >
+                <tr>
+                  <th
+                    class="bg-primary-blue text-white px-3 w-600 fs-14 text-left"
+                    style="min-width: 200px;"
+                    >Payroll ID
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    style="min-width: 200px;">Employee Name</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Employee NI Number
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Date of Birth
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                  >
+                    NI Category Letter
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Tax Code
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                  >
+                    Pay Frequency
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                  >
+                    Payment Date
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Starter/Leaver Status
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                  >
+                    Student Loan Plan
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Postgraduate Loan
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Gross Pay (Period)
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Gross Pay (YTD)
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Tax Deducted (Period)
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Tax Deducted (YTD)
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >NI Contribution (Period)
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >NI Contribution (YTD)
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Employee Pension (Period)
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Employee Pension (YTD)
+                  </th>
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Net Pay Period
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 180px;
+                  }
+                  .column2 {
+                    min-width: 250px;
+                  }
+                </style>
+                {
+                  [
+                    {
+                      emp_id: "N12343534",
+                      emp_name: "Wade Warren",
+                      contracted_monthly_hours: "N12343534",
+                      monthly_hours_worked: "5, June 1960",
+                      overtime_hours: "A",
+                      overtime_approval: "£2,500",
+                      overtime_rate_multiplier: "1",
+                      holiday_hours: "9, Apr 2025",
+                      holiday_hours_approval: "£2,500",
+                      holiday_rate_multiplier: "1",
+                      salary_hours: "180 Hrs",
+                    },
+                    {
+                      emp_id: "N12343534",
+                      emp_name: "Wade Warren",
+                      contracted_monthly_hours: "N12343534",
+                      monthly_hours_worked: "5, June 1960",
+                      overtime_hours: "A",
+                      overtime_approval: "£2,500",
+                      overtime_rate_multiplier: "1",
+                      holiday_hours: "9, Apr 2025",
+                      holiday_hours_approval: "£2,500",
+                      holiday_rate_multiplier: "1",
+                      salary_hours: "N12343534",
+                    },
+                    {
+                      emp_id: "N12343534",
+                      emp_name: "Wade Warren",
+                      contracted_monthly_hours: "N12343534",
+                      monthly_hours_worked: "5, June 1960",
+                      overtime_hours: "A",
+                      overtime_approval: "£2,500",
+                      overtime_rate_multiplier: "1",
+                      holiday_hours: "9, Apr 2025",
+                      holiday_hours_approval: "£2,500",
+                      holiday_rate_multiplier: "1",
+                      salary_hours: "N12343534",
+                    },
+                    {
+                      emp_id: "N12343534",
+                      emp_name: "Wade Warren",
+                      contracted_monthly_hours: "N12343534",
+                      monthly_hours_worked: "5, June 1960",
+                      overtime_hours: "A",
+                      overtime_approval: "£2,500",
+                      overtime_rate_multiplier: "1",
+                      holiday_hours: "9, Apr 2025",
+                      holiday_hours_approval: "£2,500",
+                      holiday_rate_multiplier: "1",
+                      salary_hours: "N12343534",
+                    },
+                    {
+                      emp_id: "N12343534",
+                      emp_name: "Wade Warren",
+                      contracted_monthly_hours: "N12343534",
+                      monthly_hours_worked: "5, June 1960",
+                      overtime_hours: "A",
+                      overtime_approval: "£2,500",
+                      overtime_rate_multiplier: "1",
+                      holiday_hours: "9, Apr 2025",
+                      holiday_hours_approval: "£2,500",
+                      holiday_rate_multiplier: "1",
+                      salary_hours: "N12343534",
+                    },
+                    {
+                      emp_id: "N12343534",
+                      emp_name: "Wade Warren",
+                      contracted_monthly_hours: "N12343534",
+                      monthly_hours_worked: "5, June 1960",
+                      overtime_hours: "A",
+                      overtime_approval: "£2,500",
+                      overtime_rate_multiplier: "1",
+                      holiday_hours: "9, Apr 2025",
+                      holiday_hours_approval: "£2,500",
+                      holiday_rate_multiplier: "1",
+                      salary_hours: "N12343534",
+                    },
+                    {
+                      emp_id: "N12343534",
+                      emp_name: "Wade Warren",
+                      contracted_monthly_hours: "N12343534",
+                      monthly_hours_worked: "5, June 1960",
+                      overtime_hours: "A",
+                      overtime_approval: "£2,500",
+                      overtime_rate_multiplier: "1",
+                      holiday_hours: "9, Apr 2025",
+                      holiday_hours_approval: "£2,500",
+                      holiday_rate_multiplier: "1",
+                      salary_hours: "N12343534",
+                    },
+                  ].map((ele, index) => (
+                    <tr class="fs-88">
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        {ele.emp_id}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.emp_name}
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <div>{ele.contracted_monthly_hours}</div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Edit</em></div></div>"
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <div>{ele.monthly_hours_worked}</div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Edit</em></div></div>"
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <div>{ele.overtime_hours}</div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Edit</em></div></div>"
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <select
+                            class="form-select border-0 fs-14 text-nowrap"
+                            id="add_text"
+                            style="width: 100px;"
+                          >
+                            <option value="1">1257L</option>
+
+                            <option value="2">BR</option>
+                            <option value="3">0T</option>
+                            <option value="4">D0</option>
+                            <option value="5">D1</option>
+                            <option value="6">NT</option>
+                          </select>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <select
+                            class="form-select border-0 fs-14 text-nowrap"
+                            id="add_text"
+                            style="width: 100px;"
+                          >
+                            <option value="1">Monthly</option>
+                            <option value="2">Weekly</option>
+                            <option value="3">Forthnightly</option>
+                            <option value="4">4-weekly</option>
+                          </select>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <div>{ele.holiday_hours}</div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Edit</em></div></div>"
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <select
+                            class="form-select border-0 fs-14 text-nowrap"
+                            id="add_text"
+                            style="width: 100px;"
+                          >
+                            <option value="1">None</option>
+                            <option value="2">Starter</option>
+                            <option value="3">Leaver</option>
+                          </select>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center d-flex justify-content-center gap-2 bg-light column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <select
+                            class="form-select border-0 fs-14 text-nowrap"
+                            id="add_text"
+                            style="width: 100px;"
+                          >
+                            <option value="none">None</option>
+                            <option value="1" selected>
+                              Plan 1
+                            </option>
+                            <option value="2">Plan 2</option>
+                            <option value="3">Plan 3</option>
+                            <option value="4">Plan 4</option>
+                          </select>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <select
+                            class="form-select border-0 fs-14 text-nowrap"
+                            id="add_text"
+                            style="width: 100px;"
+                          >
+                            <option value="1" selected>
+                              Yes
+                            </option>
+                            <option value="2">No</option>
+                          </select>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <div>{ele.overtime_approval}</div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Edit</em></div></div>"
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <div>{ele.overtime_approval}</div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Edit</em></div></div>"
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <div>{ele.overtime_approval}</div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Edit</em></div></div>"
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <div>{ele.overtime_approval}</div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Edit</em></div></div>"
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <div>{ele.overtime_approval}</div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Edit</em></div></div>"
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <div>{ele.overtime_approval}</div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Edit</em></div></div>"
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <div>{ele.overtime_approval}</div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Edit</em></div></div>"
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <div>{ele.overtime_approval}</div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Edit</em></div></div>"
+                            />
+                          </div>
+                        </div>
+                      </td>
+                      <td class="fs-14 px-3 text-center column">
+                        <div class="d-flex justify-content-center gap-3">
+                          <div>{ele.overtime_approval}</div>
+                          <div style={{ cursor: "pointer" }}>
+                            <img
+                              src="images/png/icons/colored/edit-2.svg"
+                              alt="edit_icon"
+                              data-bs-html="true"
+                              data-bs-placement="top"
+                              data-bs-toggle="tooltip"
+                              data-bs-custom-class="tooltip-left-align"
+                              title="<div><div><em style = 'font-size: 7px;'>Edit</em></div></div>"
+                            />
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
           </div>
         </div>
+
+        <!---- End of table --->
+
+        <!-- Pagination Row -->
+        <div
+          class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+        >
+          <!-- Left: Pagination Text -->
+          <div class="fs-14 text-muted">
+            Showing <strong>1–20</strong> of <strong>1000</strong>
+          </div>
+
+          <!-- Right: Go to Page + Pagination -->
+          <div class="d-flex align-items-center gap-3 flex-wrap">
+            <!-- Go to Page -->
+            <form class="d-flex align-items-center gap-2">
+              <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+              <input
+                type="number"
+                min="1"
+                max="100"
+                id="gotoPage"
+                class="form-control form-control-sm"
+                style="width: 60px;"
+                placeholder="—"
+              />
+            </form>
+
+            <!-- Page Navigation -->
+
+            <nav>
+              <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                <li class="page-item">
+                  <a
+                    class="page-link text-primary-blue px-2"
+                    href="#"
+                    aria-label="Previous"
+                  >
+                    &lsaquo;
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">1</a>
+                </li>
+                <li class="page-item active" aria-current="page">
+                  <span class="page-link">2</span>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">3</a>
+                </li>
+                <li class="page-item disabled">
+                  <span class="page-link text-primary-blue">...</span>
+                </li>
+                <li class="page-item">
+                  <a class="page-link text-primary-blue" href="#">100</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link hello" href="#" aria-label="Next">
+                    &rsaquo;
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!---- Pagination ---->
       </div>
     </section>
   </main>

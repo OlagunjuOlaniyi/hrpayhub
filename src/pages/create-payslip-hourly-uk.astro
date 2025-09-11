@@ -442,19 +442,18 @@ import PayslipGenerateUKPreview from "../components/payslips/PayslipGenerateUKPr
 
                 <div class="vstack" style="gap: 2.3rem">
                   {
-                    [{ label: "Income Tax" }, { label: "Taxable Income" }].map(
-                      (ele, idx) => (
-                        <div class="d-flex flex-row justify-content-between m-0 p-0">
-                          <FormFieldComponent index={idx} {...ele} />
-                          <FormContextIndicatorUK index={idx} {...ele} />
-                        </div>
-                      )
-                    )
+                    [{ label: "Income Tax" }].map((ele, idx) => (
+                      <div class="d-flex flex-row justify-content-between m-0 p-0">
+                        <FormFieldComponent index={idx} {...ele} />
+                        <FormContextIndicatorUK index={idx} {...ele} />
+                      </div>
+                    ))
                   }
                 </div>
+
                 <div class="d-flex align-items-center gap-4 my-5">
                   <div class="fs-14 fw-600 text-primary-blue">
-                    National Insurance (NI) Contribution
+                    Outputs (Monthly)
                   </div>
                   <div class="flex-grow-1">
                     <div class="demarcator_line">&nbsp;</div>
@@ -463,78 +462,67 @@ import PayslipGenerateUKPreview from "../components/payslips/PayslipGenerateUKPr
 
                 <div class="vstack" style="gap: 2.3rem">
                   <div class="form-floating col-md-8 col-12 p-0">
-                    <select
-                      id="select_class"
-                      name="select_class"
-                      class="form-select_custom fs-14"
-                      required
-                    >
-                      <option
-                        value=""
-                        selected
-                        style="color: rgb(200, 200, 200)">Select</option
-                      >
-                      <option value="class">Class 1</option>
-                      <option value="class">Class 2</option>
-                      <option value="class">Class 3</option>
-                    </select>
-                    <label for="select_class">Select Class </label>
+                    <input
+                      type="text"
+                      id="gross_onthly"
+                      name="gross_onthly"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="gross_onthly">Gross Monthly </label>
                   </div>
 
-                  <div class="d-flex flex-row justify-content-between m-0 p-0">
-                    <div class="form-floating col-md-8 col-12 p-0">
-                      <input
-                        type="text"
-                        id="unpaid_deduction"
-                        name="unpaid_deduction"
-                        class="form-input"
-                        placeholder=" "
-                      />
-                      <label for="unpaid_deduction">National Insurance </label>
-                    </div>
-                    <FormContextIndicatorUK index={1} />
-                  </div>
-                </div>
-
-                <div class="d-flex align-items-center gap-4 my-5">
-                  <div class="fs-14 fw-600 text-primary-blue">Student Loan</div>
-                  <div class="flex-grow-1">
-                    <div class="demarcator_line">&nbsp;</div>
-                  </div>
-                </div>
-
-                <div class="vstack" style="gap: 2.3rem">
                   <div class="form-floating col-md-8 col-12 p-0">
-                    <select
-                      id="select_plan"
-                      name="select_plan"
-                      class="form-select_custom fs-14"
-                      required
-                    >
-                      <option
-                        value=""
-                        selected
-                        style="color: rgb(200, 200, 200)">Select</option
-                      >
-                      <option value="plan1">Plan 1</option>
-                      <option value="plan2">Plan 2</option>
-                      <option value="plan3">Plan 3</option>
-                    </select>
-                    <label for="select_plan">Select Plan </label>
+                    <input
+                      type="text"
+                      id="monthly_it"
+                      name="monthly_it"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="monthly_it">Monthly Income Tax </label>
                   </div>
-
-                  <div class="d-flex flex-row justify-content-between m-0 p-0">
-                    <div class="form-floating col-md-8 col-12 p-0">
-                      <input
-                        type="text"
-                        id="student_loan"
-                        name="student_loan"
-                        class="form-input"
-                        placeholder=" "
-                      />
-                      <label for="student_loan">Student Loan </label>
-                    </div>
-                    <FormContextIndicatorUK index={1} />
+                  <div class="form-floating col-md-8 col-12 p-0">
+                    <input
+                      type="text"
+                      id="mnic"
+                      name="mnic"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="mnic">Monthly NI Contribution </label>
+                  </div>
+                  <div class="form-floating col-md-8 col-12 p-0">
+                    <input
+                      type="text"
+                      id="mslr"
+                      name="mslr"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="mslr">Monthly Student Loan Repayment</label>
+                  </div>
+                  <div class="form-floating col-md-8 col-12 p-0">
+                    <input
+                      type="text"
+                      id="epepa"
+                      name="epepa"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="epepa"
+                      >Employee Pension % / Employee Pension Amount</label
+                    >
+                  </div>
+                  <div class="form-floating col-md-8 col-12 p-0">
+                    <input
+                      type="text"
+                      id="net_monthly"
+                      name="net_monthly"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="net_monthly">Net Monthly</label>
                   </div>
                 </div>
 
@@ -555,7 +543,48 @@ import PayslipGenerateUKPreview from "../components/payslips/PayslipGenerateUKPr
                         class="form-input"
                         placeholder=" "
                       />
-                      <label for="pension">Pension </label>
+                      <label for="pension">Employee Pension </label>
+                    </div>
+                    <FormContextIndicatorUK index={1} />
+                  </div>
+                  <div class="d-flex flex-row justify-content-between m-0 p-0">
+                    <div class="form-floating col-md-8 col-12 p-0">
+                      <input
+                        type="text"
+                        id="pension_at"
+                        name="pension_at"
+                        class="form-input"
+                        placeholder=" "
+                      />
+                      <label for="pension_at">Employee Pension Amount </label>
+                    </div>
+                    <FormContextIndicatorUK index={1} />
+                  </div>
+                  <div class="d-flex flex-row justify-content-between m-0 p-0">
+                    <div class="form-floating col-md-8 col-12 p-0">
+                      <input
+                        type="text"
+                        id="ep_pension"
+                        name="ep_pension"
+                        class="form-input"
+                        placeholder=" "
+                      />
+                      <label for="ep_pension">Employer Pension </label>
+                    </div>
+                    <FormContextIndicatorUK index={1} />
+                  </div>
+                  <div class="d-flex flex-row justify-content-between m-0 p-0">
+                    <div class="form-floating col-md-8 col-12 p-0">
+                      <input
+                        type="text"
+                        id="ep_pension_at"
+                        name="ep_pension_at"
+                        class="form-input"
+                        placeholder=" "
+                      />
+                      <label for="ep_pension_at"
+                        >Employer Pension Amount
+                      </label>
                     </div>
                     <FormContextIndicatorUK index={1} />
                   </div>

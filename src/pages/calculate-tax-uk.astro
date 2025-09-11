@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import FormContextIndicator from "../components/ui/TaxFormContextIndicator";
+import FormContextIndicatorUK from "../components/ui/FormContextIndicatorUK";
 import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
 ---
 
@@ -89,6 +89,49 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                   >Working Hours Per Week &nbsp;<span>*</span></label
                 >
               </div>
+              <div class="d-flex flex-direction-row gap-3">
+                <div class="form-floating calculate_tax_input">
+                  <select
+                    id="select_plan"
+                    name="select_plan"
+                    class="form-select_custom fs-14"
+                    required
+                  >
+                    <option value="" selected style="color: rgb(200, 200, 200)"
+                      >Select</option
+                    >
+                    <option value="none">None</option>
+                    <option value="plan_1"
+                      >Plan 1 → Older England/Wales (pre-2012), still NI</option
+                    >
+                    <option value="plan_2"
+                      >Plan 2 → England/Wales 2012–2023.</option
+                    >
+                    <option value="plan_3">Plan 4 → Scotland from 2021.</option>
+                    <option value="plan_4"
+                      >Plan 5 → England from Aug 2023.</option
+                    >
+                    <option value="plan_5"
+                      >Postgraduate Loan (PGL) → Master’s/Doctoral.</option
+                    >
+                  </select>
+                  <label for="select_plan"
+                    >Select Student Loan Plan &nbsp;<span>*</span></label
+                  >
+                </div>
+                <img
+                  data-bs-html="true"
+                  data-bs-placement="right"
+                  data-bs-toggle="tooltip"
+                  data-bs-custom-class="tooltip-left-align"
+                  title="<div><span style = 'font-size: 7px;'>•	Plan 1: Threshold of £22,015; 9% of earnings above this. <br />
+•	Plan 2: Threshold of £27,295; 9% of earnings above this.<br />
+•	Plan 4: Threshold of £27,660; 9% of earnings above this.
+•	Postgraduate Loan: Threshold of £21,000; 6% of earnings above this.</span></div>"
+                  src="images/png/icons/info.svg"
+                  alt="info"
+                />
+              </div>
               <div class="form-floating calculate_tax_input">
                 <input
                   type="text"
@@ -100,6 +143,25 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                 <label for="gross_salary"
                   >Gross Salary &nbsp;<span>*</span></label
                 >
+              </div>
+
+              <!---- calculate ---->
+              <div class="d-flex justify-content-end gap-3 calculate_tax_input">
+                <button
+                  type="button"
+                  id="salary_pay_back"
+                  class="white_button border-0 text-white fw-bold fs-14"
+                >
+                  <span>Reset</span>
+                </button>
+
+                <button
+                  type="button"
+                  id="calculate"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 calculate_tax_button"
+                >
+                  <span>Calculate</span>
+                </button>
               </div>
 
               <!---- Income Tax Calculation --->
@@ -179,30 +241,7 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                     placeholder=""
                   />
                   <label for="ni_thresholds"
-                    >NI Thresholds &nbsp;<span>*</span></label
-                  >
-                </div>
-                <img
-                  data-bs-html="true"
-                  data-bs-placement="right"
-                  data-bs-toggle="tooltip"
-                  data-bs-custom-class="tooltip-left-align"
-                  title="<div><span style = 'font-size: 7px;'>For earnings between £12,570 and £50,270, apply 12% <br /> For earnings above £50,270, apply 2%</span></div>"
-                  src="images/png/icons/info.svg"
-                  alt="info"
-                />
-              </div>
-              <div class="d-flex flex-direction-row gap-3">
-                <div class="form-floating calculate_tax_input">
-                  <input
-                    type="text"
-                    id="ni_calculation"
-                    name="ni_calculation"
-                    class="form-input"
-                    placeholder=""
-                  />
-                  <label for="ni_calculation"
-                    >NI Calculation &nbsp;<span>*</span></label
+                    >NI Contribution &nbsp;<span>*</span></label
                   >
                 </div>
                 <img
@@ -237,26 +276,25 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                     <option value="" selected style="color: rgb(200, 200, 200)"
                       >Select</option
                     >
-                    <option value="plan_1">Plan 1</option>
-                    <option value="plan_2">Plan 2</option>
-                    <option value="plan_3">Plan 3</option>
+                    <option value="none">None</option>
+                    <option value="plan_1"
+                      >Plan 1 → Older England/Wales (pre-2012), still NI</option
+                    >
+                    <option value="plan_2"
+                      >Plan 2 → England/Wales 2012–2023.</option
+                    >
+                    <option value="plan_3">Plan 4 → Scotland from 2021.</option>
+                    <option value="plan_4"
+                      >Plan 5 → England from Aug 2023.</option
+                    >
+                    <option value="plan_5"
+                      >Postgraduate Loan (PGL) → Master’s/Doctoral.</option
+                    >
                   </select>
                   <label for="select_plan"
-                    >Select Plan &nbsp;<span>*</span></label
+                    >Select Student Loan Plan &nbsp;<span>*</span></label
                   >
                 </div>
-                <img
-                  data-bs-html="true"
-                  data-bs-placement="right"
-                  data-bs-toggle="tooltip"
-                  data-bs-custom-class="tooltip-left-align"
-                  title="<div><span style = 'font-size: 7px;'>•	Plan 1: Threshold of £22,015; 9% of earnings above this. <br />
-•	Plan 2: Threshold of £27,295; 9% of earnings above this.<br />
-•	Plan 4: Threshold of £27,660; 9% of earnings above this.
-•	Postgraduate Loan: Threshold of £21,000; 6% of earnings above this.</span></div>"
-                  src="images/png/icons/info.svg"
-                  alt="info"
-                />
               </div>
 
               <div class="form-floating calculate_tax_input">
@@ -267,19 +305,232 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                   class="form-input"
                   placeholder=""
                 />
-                <label for="calculation">Calculation &nbsp;<span>*</span></label
+                <label for="calculation"
+                  >Student Loan Repayment &nbsp;<span>*</span></label
                 >
               </div>
 
-              <!---- calculate ---->
-              <div class="d-flex justify-content-end calculate_tax_input">
-                <button
-                  type="button"
-                  id="calculate"
-                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 calculate_tax_button"
-                >
-                  <span>Calculate</span>
-                </button>
+              <div
+                class="d-flex align-items-center gap-4 mT-5 calculate_tax_input"
+              >
+                <div class="fs-14 fw-600 text-primary-blue">Pension</div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <div class="vstack calculate_tax_input" style="gap: 2.3rem">
+                <div class="d-flex flex-row justify-content-between m-0 p-0">
+                  <div class="form-floating col-md-8 col-12 p-0">
+                    <input
+                      type="text"
+                      id="pension"
+                      name="pension"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="pension">Annual Employee Pension % </label>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center gap-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center px-2 py-2 gap-1 col-md-3 col-6"
+                      style={{
+                        width: "91px",
+                      }}
+                    >
+                      <div
+                        data-bs-html="true"
+                        data-bs-placement="top"
+                        data-bs-toggle="tooltip"
+                        title="<div><div><strong>Restore</strong></div><em style = 'font-size: 7px'>Reset to default value</em></div>"
+                        style={{ cursor: "pointer" }}
+                      >
+                        <img
+                          src="images/png/icons/refresh.svg"
+                          alt="refresh_icon"
+                        />
+                      </div>
+                      <div
+                        data-bs-html="true"
+                        data-bs-placement="top"
+                        data-bs-toggle="tooltip"
+                        title="<div><div><strong>Turn On/Off</strong></div><em style = 'font-size: 7px'>Enable if applicable; Disable if not</em></div>"
+                        role="button"
+                        class="form-check form-switch switchForDeductionsFields"
+                        style={{ marginTop: "5px", cursor: "pointer" }}
+                      >
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          role="switch"
+                          id={`lekjeli_1`}
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="col"
+                      data-bs-html="true"
+                      data-bs-placement="right"
+                      data-bs-toggle="tooltip"
+                      data-bs-custom-class="tooltip-left-align"
+                      title="<div>Typical UK auto-enrolment employee minimum is 5% of pay</div>
+                      "
+                      style={{ cursor: "pointer" }}
+                    >
+                      <img src="images/png/icons/info.svg" alt="info" />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="d-flex flex-row justify-content-between m-0 p-0">
+                    <div class="form-floating col-md-8 col-12 p-0">
+                      <input
+                        type="text"
+                        id="pension_at"
+                        name="pension_at"
+                        class="form-input"
+                        placeholder=" "
+                      />
+                      <label for="pension_at"
+                        >Annual Employee Pension Amount (read-only)
+                      </label>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center gap-3">
+                      <div
+                        class="d-flex justify-content-between align-items-center px-2 py-2 gap-1 col-md-3 col-6"
+                        style={{
+                          width: "91px",
+                        }}
+                      >
+                        <div
+                          data-bs-html="true"
+                          data-bs-placement="top"
+                          data-bs-toggle="tooltip"
+                          title="<div><div><strong>Restore</strong></div><em style = 'font-size: 7px'>Reset to default value</em></div>"
+                          style={{ cursor: "pointer" }}
+                        >
+                          <img
+                            src="images/png/icons/refresh.svg"
+                            alt="refresh_icon"
+                          />
+                        </div>
+                        <div
+                          data-bs-html="true"
+                          data-bs-placement="top"
+                          data-bs-toggle="tooltip"
+                          title="<div><div><strong>Turn On/Off</strong></div><em style = 'font-size: 7px'>Enable if applicable; Disable if not</em></div>"
+                          role="button"
+                          class="form-check form-switch switchForDeductionsFields"
+                          style={{ marginTop: "5px", cursor: "pointer" }}
+                        >
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            role="switch"
+                            id={`lekjeli_1`}
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="col"
+                        data-bs-html="true"
+                        data-bs-placement="right"
+                        data-bs-toggle="tooltip"
+                        data-bs-custom-class="tooltip-left-align"
+                        title=""
+                        style={{ cursor: "pointer", visibility: "hidden" }}
+                      >
+                        <img src="images/png/icons/info.svg" alt="info" />
+                      </div>
+                    </div>
+                  </div>
+                  <span class="fs-12 fw-400 mt-2">
+                    Employee Pension Amount = Employee Pension % × Gross
+                  </span>
+                </div>
+                <div class="d-flex flex-row justify-content-between m-0 p-0">
+                  <div class="form-floating col-md-8 col-12 p-0">
+                    <input
+                      type="text"
+                      id="ep_pension"
+                      name="ep_pension"
+                      class="form-input"
+                      placeholder=" "
+                    />
+                    <label for="ep_pension">Annual Employer Pension % </label>
+                  </div>
+                  <div class="d-flex flex-row align-items-center gap-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center px-2 py-2 gap-1 col-md-3 col-6"
+                      style={{
+                        width: "91px",
+                      }}
+                    >
+                      <div
+                        data-bs-html="true"
+                        data-bs-placement="top"
+                        data-bs-toggle="tooltip"
+                        title="<div><div><strong>Restore</strong></div><em style = 'font-size: 7px'>Reset to default value</em></div>"
+                        style={{ cursor: "pointer" }}
+                      >
+                        <img
+                          src="images/png/icons/refresh.svg"
+                          alt="refresh_icon"
+                        />
+                      </div>
+                      <div
+                        data-bs-html="true"
+                        data-bs-placement="top"
+                        data-bs-toggle="tooltip"
+                        title="<div><div><strong>Turn On/Off</strong></div><em style = 'font-size: 7px'>Enable if applicable; Disable if not</em></div>"
+                        role="button"
+                        class="form-check form-switch switchForDeductionsFields"
+                        style={{ marginTop: "5px", cursor: "pointer" }}
+                      >
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          role="switch"
+                          id={`lekjeli_1`}
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="col"
+                      data-bs-html="true"
+                      data-bs-placement="right"
+                      data-bs-toggle="tooltip"
+                      data-bs-custom-class="tooltip-left-align"
+                      title="<div><div>For information only (does not affect net pay)</div>
+                      <div>Typical UK auto-enrolment employer minimum: 3%</div>
+                      </div>"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <img src="images/png/icons/info.svg" alt="info" />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="d-flex flex-row justify-content-between m-0 p-0">
+                    <div class="form-floating col-md-8 col-12 p-0">
+                      <input
+                        type="text"
+                        id="ep_pension_at"
+                        name="ep_pension_at"
+                        class="form-input"
+                        placeholder=" "
+                      />
+                      <label for="ep_pension_at"
+                        >Employer Pension Amount (read-only)
+                      </label>
+                    </div>
+                  </div>
+                  <span class="fs-12 fw-400 mt-2">
+                    Employer Pension Amount = Employer Pension % × Gross
+                  </span>
+                </div>
               </div>
 
               <!---- Final Calculation Output --->
@@ -338,6 +589,25 @@ import { FormFieldComponent } from "../components/ui/TaxFormFieldControl";
                       Student Loan Repayment <br />
                       <span class="fs-14 fw-350"
                         >Based on income over the threshold</span
+                      >
+                    </p>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      id="calculate"
+                      name="calculate"
+                      class="form-input bg-white calculate_tax_calculate"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="d-flex gap-2 justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <p class="fs-16 fw-700 calculate_tax">
+                      Employee Pension Amount <br />
+                      <span class="fs-14 fw-350"
+                        >Employer Pension Amount (info)</span
                       >
                     </p>
                   </div>
