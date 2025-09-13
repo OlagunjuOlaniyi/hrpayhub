@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: Offer Breakdown">
+<Layout title="HRPayHub :: Offer Breakdown - UK">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="index.html"
+            href="/offer-breakdown"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -29,7 +29,19 @@ import Layout from "../layouts/Layout.astro";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue">Offer Breakdown</span>
+            <a
+              href="/offer-breakdown"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Offer Breakdown</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Offer Breakdown - UK</span
+            >
           </div>
           <!-- Actual Breadcrumb here -->
         </div>
@@ -53,12 +65,11 @@ import Layout from "../layouts/Layout.astro";
               />
               <span
                 class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Offer Breakdown</span
+                >Offer Breakdown - UK</span
               >
             </div>
             <div class="fw-bold">
-              Configure salary, benefits, tax, and deductions before sending an
-              offer
+              Set up salary and benefits for UK-based hires
             </div>
           </div>
           {/* Page Title */}
@@ -68,14 +79,14 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Offer Breakdown - UK",
-                  desc: "Set up salary and benefits for UK-based hires",
-                  url: "/offer-breakdown-uk",
+                  title: "Create Offer Breakdown",
+                  desc: "Lorem Ipsum",
+                  url: "/create-offer-breakdown-uk",
                 },
                 {
-                  title: "Offer Breakdown - NG",
-                  desc: "Set up salary and benefits for Nigeria-based hires",
-                  url: "/offer-breakdown-ng",
+                  title: "Manage Offer Breakdown",
+                  desc: "Lorem Ipsum",
+                  url: "/manage-offer-breakdown-uk",
                 },
               ].map((ele) => (
                 <div
@@ -119,7 +130,7 @@ import Layout from "../layouts/Layout.astro";
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const payslipCardPanels = document.querySelectorAll(
-        ".payslip-card-panel",
+        ".payslip-card-panel"
       );
 
       payslipCardPanels.forEach((ele, index) => {
