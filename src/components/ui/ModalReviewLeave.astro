@@ -26,7 +26,45 @@ import { CloseCircleIcon } from "../Icons";
       <!-- Modal body -->
 
       <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
-        <div
+       { inputPlace === "Staff Member" ? (
+       <div
+              class="d-flex flex-column flex-lg-row flex-wrap gap-2 p-3 px-2 mb-3 clock_in_out_modal d-none "
+              id="employeeDetails"
+            >
+              <div class="d-flex flex-column w-50 px-lg-3">
+                <span class="fs-12 text-secondary text-nowrap">
+                  Employee Name
+                </span>
+                <span class="fs-14 fw-700 text-nowrap">Toluwalase Obasun</span>
+              </div>
+
+              <span class="clock_border_left" />
+              <div class="d-flex flex-column px-lg-3">
+                <span class="fs-12 text-secondary">Branch</span>
+                <span class="fs-14 fw-700">Lorem Ipsum</span>
+              </div>
+
+              <div class="d-flex flex-column w-50 px-lg-3">
+                <span class="fs-12 text-secondary text-nowrap">
+                  Designation
+                </span>
+                <span class="fs-14 fw-700 text-nowrap">Lorem Ipsum</span>
+              </div>
+
+              <span class="clock_border_left " />
+              <div class="d-flex flex-column px-lg-3">
+                <span class="fs-12 text-secondary text-nowrap">
+                  Primary Department
+                </span>
+                <span class="fs-14 fw-700 text-nowrap">Lorem Ipsum</span>
+              </div>
+
+              <div class="d-flex flex-column px-lg-3">
+                <span class="fs-12 text-secondary">Primary Function</span>
+                <span class="fs-14 fw-700">Lorem Ipsum</span>
+              </div>
+            </div>):
+        (<div
           class="d-flex flex-column flex-lg-row gap-2 p-3 px-4 mb-5 clock_in_out_modal"
         >
           <div class="d-flex flex-column px-lg-3">
@@ -39,7 +77,7 @@ import { CloseCircleIcon } from "../Icons";
             <span class="fs-12 text-secondary">Designation</span>
             <span class="fs-14 fw-700">Lorem Ipsum</span>
           </div>
-        </div>
+        </div>)}
         
 
         {
@@ -213,7 +251,7 @@ import { CloseCircleIcon } from "../Icons";
                 <label for="comments">Comments</label>
               </div>
             </section>
-          ) : (
+          )  : inputPlace === "Staff Member" ? "" : (
             <section class="d-flex flex-column gap-4">
 
             <div class="form-floating">

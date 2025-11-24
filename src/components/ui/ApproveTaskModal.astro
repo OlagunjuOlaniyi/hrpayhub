@@ -25,6 +25,12 @@ import { CloseCircleIcon } from "../Icons";
             <p class="fs-22 fw-bold my-3">{title}</p>
             <p>Are you sure you want to approve this task completion?</p>
           </div>
+        ) : title === "Approve Request" ? (
+          <div class="modal-body text-center py-2 border-0">
+            <img src="images/png/icons/approve-green.svg" alt="approval" />
+            <p class="fs-22 fw-bold my-3">{title}</p>
+            <p>Are you sure you want to approve this Request?</p>
+          </div>
         ) : (
           <div class="modal-body text-center py-2 border-0">
             <img src="images/png/icons/approve-green.svg" alt="approval" />
@@ -42,6 +48,17 @@ import { CloseCircleIcon } from "../Icons";
       <!-- Modal footer -->
       {
         title === "Approve Task" ? (
+          <div class="modal-footer d-flex justify-content-center border-0">
+            <button
+              type="button"
+              class="btn text-white"
+              style="background-color: #2BC700;"
+              data-bs-dismiss="modal"
+            >
+              Yes, approve
+            </button>
+          </div>
+        ) : title === "Approve Request" ? (
           <div class="modal-footer d-flex justify-content-center border-0">
             <button
               type="button"

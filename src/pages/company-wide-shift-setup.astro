@@ -1,0 +1,1668 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Inbox from "../components/emails/Inbox.astro";
+import Sent from "../components/emails/Sent.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import ModalReviewLeave from "../components/ui/ModalReviewLeave.astro";
+import DeleteModal from "../components/ui/DeleteModal.astro";
+import RejectModal from "../components/ui/RejectModal.astro";
+import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
+---
+
+<Layout title="HRPayHub :: Company-wide Shift Setup">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/rota-management"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            
+            <a
+              href="/rota-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Rota Planner</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Company-wide Shift Setup</span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow pb-4 vstack gap-5 pe-3">
+          {/* Page Title */}
+
+          <div class="d-flex align-items-start">
+            <div
+              class="nav flex-column align-items-start nav-pills me-3 p-2 py-3 gap-2 bg-primary-blue rota_nav"
+              style="height: 100vh;"
+              id="v-pills-tab"
+              role="tablist"
+              aria-orientation="vertical"
+            >
+            
+              <span
+                class="text-white text-left fs-16 fw-700 mb-1 px-4 text-wrap"
+                >Rota Planner</span
+              >
+              <span
+                class="text-white fs-14 mb-4 px-4 pe-5 text-wrap"
+                >Central London <br /> Pharmacy</span
+              >
+              <button
+                class="nav-link active text-white text-nowrap"
+                id="v-pills-inbox-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#v-pills-inbox"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-inbox"
+                aria-selected="true"
+              >
+                <img
+                  src="images/png/icons/gen-settings.svg"
+                  class="me-2 icon-toggle"
+                  data-default="images/png/icons/gen-settings.svg"
+                  data-blue="images/png/icons/gen-settings.svg"
+                  alt="inbox"
+                />
+                General Settings
+              </button>
+
+              <button
+                class="nav-link text-white"
+                id="v-pills-sent-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#v-pills-sent"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-sent"
+                aria-selected="false"
+              >
+                <img
+                  src="images/png/icons/shift.svg"
+                  class="me-2 icon-toggle"
+                  data-default="images/png/icons/shift.svg"
+                  data-blue="images/png/icons/shift.svg"
+                  alt="sent"
+                />
+                Shift Template
+              </button>
+              <button
+                class="nav-link text-white"
+                id="v-pills-requests-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#v-pills-requests"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-requests"
+                aria-selected="false"
+              >
+                <img
+                  src="images/png/icons/requests.svg"
+                  class="me-2 icon-toggle"
+                  data-default="images/png/icons/requests.svg"
+                  data-blue="images/png/icons/requests.svg"
+                  alt="requests"
+                />
+                Requests
+              </button>
+              <button
+                class="nav-link text-white"
+                id="v-pills-history-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#v-pills-history"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-history"
+                aria-selected="false"
+              >
+                <img
+                  src="images/png/icons/history.svg"
+                  class="me-2 icon-toggle"
+                  data-default="images/png/icons/history.svg"
+                  data-blue="images/png/icons/history.svg"
+                  alt="history"
+                />
+                History
+              </button>
+            </div>
+            <div class="tab-content flex-grow-1" id="v-pills-tabContent">
+              <div
+                class="tab-pane fade show active"
+                id="v-pills-inbox"
+                role="tabpanel"
+                aria-labelledby="v-pills-inbox-tab"
+              >
+              <!-- Nav pills -->
+                <ul
+                  class="nav nav-pills d-flex justify-content-between p-1 upload_offer_bg"
+                  role="tablist"
+                >
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active fs-14 fw-600"
+                      data-bs-toggle="pill"
+                      href="#monthlyPlan">Branch & Period Setup</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link fs-14 fw-600"
+                      data-bs-toggle="pill"
+                      href="#annualPlan">Opening Hours & Day Blocks</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link fs-14 fw-600"
+                      data-bs-toggle="pill"
+                      href="#coverReq">Coverage Requirement</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link fs-14 fw-600"
+                      data-bs-toggle="pill"
+                      href="#overlapBuff">Overlap Buffer Settings </a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link fs-14 fw-600"
+                      data-bs-toggle="pill"
+                      href="#rotaPanel">Rota </a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link fs-14 fw-600"
+                      data-bs-toggle="pill"
+                      href="#planner">Planner </a
+                    >
+                  </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div id="monthlyPlan" class="container tab-pane active">
+                    <br />
+                    <div class="d-flex flex-column gap-4 mt-4">
+                      <div class="form-floating add_employee_width">
+                    <select
+                      id="work_days"
+                      name="work_days"
+                      class="form-select_custom fs-14"
+                      required
+                    >
+                      <option
+                        value=""
+                        selected
+                        style="color: rgb(200, 200, 200)">Select</option
+                      >
+                      <option value="1">Monday</option>
+                      <option value="2">Tuesday</option>
+                      <option value="3">Wednesday</option>
+                      <option value="4">Thursday</option>
+                      <option value="5">Friday</option>
+                      <option value="6">Saturday</option>
+                      <option value="7">Sunday</option>
+                    </select>
+                    <label for="work_days">Work Days  &nbsp;<span>*</span></label>
+                  </div>
+                  <div class="form-floating add_employee_width">
+              <select
+                id="designation"
+                name="designation"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">1 Week</option>
+                <option value="2">2 Weeks</option>
+                <option value="3">3 Weeks</option>
+                <option value="4">4 Weeks</option>
+                <option value="5">1 Month</option>
+                <option value="6">2 Months</option>
+                <option value="7">3 Months</option>
+              </select>
+              <label for="designation">
+                Planning Period &nbsp;<span>*</span>
+              </label>
+            </div>
+                  <div class="form-floating add_employee_width">
+              <select
+                id="designation"
+                name="designation"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">1 Week</option>
+                <option value="2">2 Weeks</option>
+                <option value="3">3 Weeks</option>
+                <option value="4">4 Weeks</option>
+                <option value="5">1 Month</option>
+                <option value="6">2 Months</option>
+                <option value="7">3 Months</option>
+              </select>
+              <label for="designation">
+                Timezone &nbsp;<span>*</span>
+              </label>
+            </div>
+                      <div
+                        class="d-flex justify-content-end gap-3 add_employee_width"
+                      >
+                        <button
+                          type="button"
+                          id="upload"
+                          class="white_button border-0  fw-bold fs-14"
+                        >
+                          <span>Copy from previous period</span>
+                        </button>
+                        <button
+                          type="button"
+                          id="upload"
+                          class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
+                        >
+                          <span>Save</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="annualPlan" class="container tab-pane">
+                    <br />
+                    
+                  </div>
+                  <div id="coverReq" class="container tab-pane">
+                    <br />
+                    <div class="d-flex flex-column gap-4 mt-4 add_employee_width">
+
+                        <div class="form-floating">
+              <select
+                id="emp_id_name"
+                name="emp_id_name"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Lorem Ipsum</option>
+                <option value="2">Lorem Ipsum</option>
+                <option value="3">Lorem Ipsum</option>
+              </select>
+              <label for="emp_id_name">
+                Select Designation &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div
+              class="d-flex gap-2 p-3 px-2 mb-3 d-none"
+              id="employeeDetails"
+            >
+              <div>
+                <button class="py-1 px-2 border border-dark rounded-3 bg-light">Lorem <img class="ms-2" src="images/png/icons/cancel.svg" alt="" /></button>
+              </div>
+              <div>
+                <button class="py-1 px-2 border border-dark rounded-3 bg-light">Lorem <img class="ms-2" src="images/png/icons/cancel.svg" alt="" /></button>
+              </div>
+              <div>
+                <button class="py-1 px-2 border border-dark rounded-3 bg-light">Lorem <img class="ms-2" src="images/png/icons/cancel.svg" alt="" /></button>
+              </div>
+            </div>
+
+            <div
+                        class="d-flex justify-content-end gap-3 add_employee_width"
+                      >
+                        <button
+                          type="button"
+                          id="upload"
+                          class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
+                        >
+                          <span>Proceed</span>
+                        </button>
+                      </div>
+
+
+                    </div>
+                    
+                  </div>
+                  <div id="overlapBuff" class="container tab-pane">
+                    <br />
+
+                    <div class="d-flex flex-column gap-5 mt-4">
+                        <div>
+                            
+                        
+                        <div class="fs-16">Allow Shift Overlap</div>
+                        <div
+                            class="d-flex gap-4 mt-3 justify-content-between align-items-center add_employee_width"
+                        >
+                            <span class="fs-14">Enable brief overlaps for shift handovers</span>
+                            <div
+                            role="button"
+                            class="form-check form-switch switchForDeductionsFields"
+                            style="margin-top: 5px; cursor: pointer"
+                            >
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                role="switch"
+                                id="toggleSwitch"
+                            />
+                            </div>
+                        </div>
+                        </div>
+
+                    <div>
+                            
+                    <div class="form-floating add_employee_width">
+                        <input
+                            type="time"
+                            id="over_buff"
+                            name="over_buff"
+                            class="form-input fs-14"
+                            placeholder=""
+                        />
+                        <label for="over_buff">Overlap Buffer (minutes)</label>
+                    </div>
+                    <div class="mt-3 fs-12">Overlaps within this buffer are permitted for handover</div>
+                    </div>
+
+                    <div
+                        class="d-flex justify-content-end gap-3 add_employee_width"
+                      >
+                        <button
+                          type="button"
+                          id="upload"
+                          class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
+                        >
+                          <span>Save</span>
+                        </button>
+                      </div>
+
+                    
+                </div>
+                    
+                  </div>
+                  <div id="rotaPanel" class="container tab-pane">
+                    <br />
+                     <div class="screenFrame">
+        <div
+          class="rounded-4 shadow p-4 vstack gap-3 px-lg-4"
+          id="manage_list_of_payslip"
+        >
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div class="d-flex gap-3 align-items-center">
+              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                >Staff Roster</span
+              >
+            </div>
+          </div>
+          {/* Page Title */}
+
+          <div class="">
+            <div
+              class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
+            >
+              <!---- Search  -->
+              <div class="d-flex gap-3">
+                <input
+                  type="text"
+                  class="form-control search-input search-width fs-14"
+                  placeholder="Search..."
+                />
+                <img
+                  src="images/png/icons/initialize.svg"
+                  class="initialize"
+                  alt="arrow-down"
+                />
+              </div>
+
+              <!-- Others -->
+              <div class="d-flex justify-content-end">
+                <button
+                  class="btn bg-primary-blue text-white px-3 fs-14 fw-600"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#myModal"
+                  data-title="Add Employment Status"
+                >
+                  <span class="me-2">Add Staff Member</span> +
+                </button>
+              </div>
+
+              <!---- End of Others ---->
+            </div>
+          </div>
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead
+                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+              >
+                <tr>
+                  
+                  <th
+                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
+                    style="min-width: 200px;">Employee Name</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
+                    style="min-width: 200px;">Primary Department</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
+                    style="min-width: 200px;">Secondary Department</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
+                    style="min-width: 200px;">Contracted Weekly Hours</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
+                    style="min-width: 200px;">Maximum Weekly Hours</th
+                  >
+                  
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                    >Actions</th
+                  >
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: ;
+                  }
+                </style>
+                {
+                  [
+                    {
+                      emp_status: "Lorem 1",
+                      hour: "40 Hours",
+                      hours2: "48 Hours"
+                    },
+                    {
+                      emp_status: "Lorem 1",
+                      hour: "40 Hours",
+                      hours2: "48 Hours"
+                    },
+                    {
+                      emp_status: "Lorem 1",
+                      hour: "40 Hours",
+                      hours2: "48 Hours"
+                    },
+                    {
+                      emp_status: "Lorem 1",
+                      hour: "40 Hours",
+                      hours2: "48 Hours"
+                    },
+                    {
+                      emp_status: "Lorem 1",
+                      hour: "40 Hours",
+                      hours2: "48 Hours"
+                    },
+                    {
+                      emp_status: "Lorem 1",
+                      hour: "40 Hours",
+                      hours2: "48 Hours"
+                    },
+                    {
+                      emp_status: "Lorem 1",
+                      hour: "40 Hours",
+                      hours2: "48 Hours"
+                    },
+                  ].map((ele, index) => (
+                    <tr class="fs-88">
+                      
+                      <td class="fs-14 text-nowrap px-3 text-center column">
+                        {ele.emp_status}
+                      </td>
+                      <td class="fs-14 text-nowrap px-3 text-center column">
+                        {ele.emp_status}
+                      </td>
+                      <td class="fs-14 text-nowrap px-3 text-center column">
+                        {ele.emp_status}
+                      </td>
+                      <td class="fs-14 text-nowrap px-3 text-center column">
+                        {ele.hour}
+                      </td>
+                      <td class="fs-14 text-nowrap px-3 text-center column">
+                        {ele.hours2}
+                      </td>
+
+                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                        <div class="d-flex gap-2">
+                          <button
+                            class="border-0 edit-button"
+                            style="background-color: inherit;"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#myStaffModal"
+                            data-title="Edit Employment Status"
+                            data-emp-type="{ele.emp_type}"
+                          >
+                            <img src="images/png/icons/edit-2.svg" alt="" />
+                          </button>
+                          <button
+                            class="border-0"
+                            style="background-color: inherit;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#deleteModal"
+                          >
+                            <img
+                              src="images/png/icons/colored/delete.svg"
+                              alt=""
+                            />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
+          </div>
+
+          <!---- End of table --->
+
+          <!-- Pagination Row -->
+          <div
+            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+          >
+            <!-- Left: Pagination Text -->
+            <div class="fs-14 text-muted">
+              Showing <strong>1–20</strong> of <strong>1000</strong>
+            </div>
+
+            <!-- Right: Go to Page + Pagination -->
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <!-- Go to Page -->
+              <form class="d-flex align-items-center gap-2">
+                <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+                <input
+                  type="number"
+                  min="1"
+                  max="100"
+                  id="gotoPage"
+                  class="form-control form-control-sm"
+                  style="width: 60px;"
+                  placeholder="—"
+                />
+              </form>
+
+              <!-- Page Navigation -->
+
+              <nav>
+                <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                  <li class="page-item">
+                    <a
+                      class="page-link text-primary-blue px-2"
+                      href="#"
+                      aria-label="Previous"
+                    >
+                      &lsaquo;
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">1</a>
+                  </li>
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">2</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">3</a>
+                  </li>
+                  <li class="page-item disabled">
+                    <span class="page-link text-primary-blue">...</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">100</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link hello" href="#" aria-label="Next">
+                      &rsaquo;
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <!---- Pagination ---->
+        </div>
+        <ModalAddNew
+          modalId="myModal"
+          title={"Add Staff Member"}
+          inputPlace="Add Staff Member"
+        />
+        <ModalAddNew
+            title="Edit Staff Member"
+            modalId="myStaffModal"
+            inputPlace="Staff Member"
+        />
+        <DeleteModal modalId="deleteModal" title="Staff Member" />
+
+        <!---- end of Modal --->
+      </div>
+                  </div>
+                </div>
+                
+              </div>
+              <div
+                class="tab-pane fade"
+                id="v-pills-sent"
+                role="tabpanel"
+                aria-labelledby="v-pills-sent-tab"
+              >
+                <div class=" d-flex flex-column gap-5 px-3 py-4">
+                    <div class="d-flex justify-content-between" style="width: 100%;">
+                        <div>
+                            <h3 class="fs-18 fw-700">Shift Templates</h3>
+                            <p class="fs-14 text-grey">Browse created shift templates</p>
+                        </div>
+                        <div class="d-flex flex-grow-1 justify-content-end">
+                            <button
+                            class="btn bg-primary-blue text-white px-3 fs-14 fw-600"
+                            style="height: 34px;"
+                            type="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#myTemplateModal"
+                            data-title="Add Employment Status"
+                            >
+                            <span class="me-2">Create Shift Template</span> +
+                            </button>
+                        </div>
+                        
+                    </div>
+                    <div class="d-flex gap-3">
+                        <div class="d-flex flex-column gap-3 py-3 px-3 border border-2 rounded-5" style="width: 359px;">
+                            <div class="py-2 px-3 border rounded-pill fw-700 fs-14 text-center" style="width: 130px;">Morning Shift</div>
+                            <div class="rounded-4 p-3 d-flex justify-content-between bg-grey">
+                                <div>
+                                    <div class="fs-12">Start Time</div>
+                                    <div class="fw-700">09:00</div>
+                                </div>
+                                <div>
+                                    <div class="fs-12">End Time</div>
+                                    <div class="fw-700">17:00</div>
+                                </div>
+                            </div>
+                            <button
+                                type="button"
+                                class="white_button fs-14 d-flex gap-1 align-items-center"
+                                id="deleteHoliday"
+                                style="border: 0px !important;"
+                            >
+                                <span class="fs-14 fw-600" style="color: red;">Delete Template </span>
+                                <img src="images/png/icons/colored/delete.svg" alt="delete" />
+                            </button>
+                        </div>
+                        <div class="d-flex flex-column gap-3 py-3 px-3 border border-2 rounded-5" style="width: 359px;">
+                            <div class="py-2 px-3 border rounded-pill fw-700 fs-14 text-center" style="width: 140px;">Afternoon Shift</div>
+                            <div class="rounded-4 p-3 d-flex justify-content-between bg-grey">
+                                <div>
+                                    <div class="fs-12">Start Time</div>
+                                    <div class="fw-700">12:00</div>
+                                </div>
+                                <div>
+                                    <div class="fs-12">End Time</div>
+                                    <div class="fw-700">19:00</div>
+                                </div>
+                            </div>
+                            <button
+                                type="button"
+                                class="white_button fs-14 d-flex gap-1 align-items-center"
+                                id="deleteHoliday"
+                                style="border: 0px !important;"
+                            >
+                                <span class="fs-14 fw-600" style="color: red;">Delete Template </span>
+                                <img src="images/png/icons/colored/delete.svg" alt="delete" />
+                            </button>
+                        </div>
+                        <div class="d-flex flex-column gap-3 py-3 px-3 border border-2 rounded-5" style="width: 359px;">
+                            <div class="py-2 px-3 border rounded-pill fw-700 fs-14 text-center" style="width: 130px;">Night Shift</div>
+                            <div class="rounded-4 p-3 d-flex justify-content-between bg-grey">
+                                <div>
+                                    <div class="fs-12">Start Time</div>
+                                    <div class="fw-700">19:00</div>
+                                </div>
+                                <div>
+                                    <div class="fs-12">End Time</div>
+                                    <div class="fw-700">07:00</div>
+                                </div>
+                            </div>
+                            <button
+                                type="button"
+                                class="white_button fs-14 d-flex gap-1 align-items-center"
+                                id="deleteHoliday"
+                                style="border: 0px !important;"
+                            >
+                                <span class="fs-14 fw-600" style="color: red;">Delete Template </span>
+                                <img src="images/png/icons/colored/delete.svg" alt="delete" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <ModalAddNew
+                    title="Create Template"
+                    modalId="myTemplateModal"
+                    inputPlace="Create Template"
+                />
+              </div>
+              <div
+                class="tab-pane fade"
+                id="v-pills-requests"
+                role="tabpanel"
+                aria-labelledby="v-pills-requests-tab"
+              >
+                <div class=" d-flex flex-column gap-5 px-3 py-4">
+                    <!-- Nav pills -->
+                <ul
+                  class="nav nav-pills d-flex justify-content-between p-1 upload_offer_bg"
+                  style="width: 372px;"
+                  role="tablist"
+                >
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active fs-14 fw-600"
+                      data-bs-toggle="pill"
+                      href="#openShift">Open Shift Request
+                      <span class="rounded-circle px-2 py-1 ms-2 fs-12 text-white" style="background-color: #C7A930">4</span>
+                      </a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link fs-14 fw-600"
+                      data-bs-toggle="pill"
+                      href="#shiftSwap">Shift Swap
+                      <span class="rounded-circle px-2 py-1 ms-2 fs-12 text-white" style="background-color: #C7A930">3</span>
+                      </a
+                    >
+                  </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div id="openShift" class="container tab-pane active">
+                    
+                     <div class="d-flex flex-column gap-3">
+                        <div class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5" >
+                            <div class="d-flex justify-content-between" >
+                        <div>
+                            <h3 class="fs-18 fw-700">James Anderson</h3>
+                            <p class="fs-14 text-grey">Open Shift ID: open-1</p>
+                        </div>
+                        <div class="d-flex flex-grow-1 justify-content-end">
+                            
+
+                        <div class="d-flex gap-3" style="height: 37px;">
+                            <button
+                            class="btn text-white fs-14"
+                            type="button"
+                            style="background-color: #2BC700; width: 118px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#approveModal"
+                            >
+                            Approve
+                            </button>
+                            <button
+                            class="btn border_color_red text-white fs-14 px-3"
+                            type="button"
+                            style="background-color: red; width: 118px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#rejectModal"
+                            >
+                            Reject
+                            </button>
+                        </div>
+                        </div>
+                        
+                    </div>
+                            <div class="rounded-4 p-3 d-flex justify-content-between bg-grey w-50 w-md-100">
+                                "I am available and would like to take this shift"
+                            </div>
+                            <div class="fs-14 text-secondary">
+                                Requested on: 08/11/2025, 17:29:30
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5" >
+                            <div class="d-flex justify-content-between" >
+                        <div>
+                            <h3 class="fs-18 fw-700">James Anderson</h3>
+                            <p class="fs-14 text-grey">Open Shift ID: open-1</p>
+                        </div>
+                        <div class="d-flex flex-grow-1 justify-content-end">
+                            
+
+                        <div class="d-flex gap-3" style="height: 37px;">
+                            <button
+                            class="btn text-white fs-14"
+                            type="button"
+                            style="background-color: #2BC700; width: 118px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#approveModal"
+                            >
+                            Approve
+                            </button>
+                            <button
+                            class="btn border_color_red text-white fs-14 px-3"
+                            type="button"
+                            style="background-color: red; width: 118px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#rejectModal"
+                            >
+                            Reject
+                            </button>
+                        </div>
+                        </div>
+                        
+                    </div>
+                            <div class="rounded-4 p-3 d-flex justify-content-between bg-grey w-50 w-md-100">
+                                "I am available and would like to take this shift"
+                            </div>
+                            <div class="fs-14 text-secondary">
+                                Requested on: 08/11/2025, 17:29:30
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5" >
+                            <div class="d-flex justify-content-between" >
+                        <div>
+                            <h3 class="fs-18 fw-700">James Anderson</h3>
+                            <p class="fs-14 text-grey">Open Shift ID: open-1</p>
+                        </div>
+                        <div class="d-flex flex-grow-1 justify-content-end">
+                            
+
+                        <div class="d-flex gap-3" style="height: 37px;">
+                            <button
+                            class="btn text-white fs-14"
+                            type="button"
+                            style="background-color: #2BC700; width: 118px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#approveModal"
+                            >
+                            Approve
+                            </button>
+                            <button
+                            class="btn border_color_red text-white fs-14 px-3"
+                            type="button"
+                            style="background-color: red; width: 118px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#rejectModal"
+                            >
+                            Reject
+                            </button>
+                        </div>
+                        </div>
+                        
+                    </div>
+                            <div class="rounded-4 p-3 d-flex justify-content-between bg-grey w-50 w-md-100">
+                                "I am available and would like to take this shift"
+                            </div>
+                            <div class="fs-14 text-secondary">
+                                Requested on: 08/11/2025, 17:29:30
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5" >
+                            <div class="d-flex justify-content-between" >
+                        <div>
+                            <h3 class="fs-18 fw-700">James Anderson</h3>
+                            <p class="fs-14 text-grey">Open Shift ID: open-1</p>
+                        </div>
+                        <div class="d-flex flex-grow-1 justify-content-end">
+                            
+
+                        <div class="d-flex gap-3" style="height: 37px;">
+                            <button
+                            class="btn text-white fs-14"
+                            type="button"
+                            style="background-color: #2BC700; width: 118px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#approveModal"
+                            >
+                            Approve
+                            </button>
+                            <button
+                            class="btn border_color_red text-white fs-14 px-3"
+                            type="button"
+                            style="background-color: red; width: 118px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#rejectModal"
+                            >
+                            Reject
+                            </button>
+                        </div>
+                        </div>
+                        
+                    </div>
+                            <div class="rounded-4 p-3 d-flex justify-content-between bg-grey w-50 w-md-100">
+                                "I am available and would like to take this shift"
+                            </div>
+                            <div class="fs-14 text-secondary">
+                                Requested on: 08/11/2025, 17:29:30
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                  </div>
+                  <div id="shiftSwap" class="container tab-pane">
+                    
+                    <div class="d-flex flex-column gap-3">
+                        <div class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5" >
+                            <div class="d-flex justify-content-between" >
+                        <div>
+                            <h3 class="fs-18 fw-700">James Anderson <img src="images/png/icons/arrow-right-black.svg" alt=""> Sophie Williams</h3>
+                            
+                        </div>
+                        <div class="d-flex flex-grow-1 justify-content-end">
+                            
+
+                        <div class="d-flex gap-3" style="height: 37px;">
+                            <button
+                            class="btn text-white fs-14"
+                            type="button"
+                            style="background-color: #2BC700; width: 118px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#approveModal"
+                            >
+                            Approve
+                            </button>
+                            <button
+                            class="btn border_color_red text-white fs-14 px-3"
+                            type="button"
+                            style="background-color: red; width: 118px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#rejectModal"
+                            >
+                            Reject
+                            </button>
+                        </div>
+                        </div>
+                        
+                    </div>
+                            <div class="rounded-4 p-3 d-flex flex-column gap-3 bg-grey w-50 w-md-100">
+                                <div class="d-flex justify-content-between">
+
+                                
+                                    <div>
+                                        <div class="fs-12">Date</div>
+                                        <div class="fw-700">03/11/2025</div>
+                                    </div>
+                                    <div class="me-3">
+                                        <div class="fs-12">Time</div>
+                                        <div class="fw-700">09:00 - 13:00</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+
+                                
+                                    <div>
+                                        <div class="fs-12">Role</div>
+                                        <div class="fw-700">Pharmacy Tech</div>
+                                    </div>
+                                    <div>
+                                        <div class="fs-12">Branch</div>
+                                        <div class="fw-700">Central London</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fs-14 text-secondary">
+                                Requested on: 08/11/2025, 17:29:30
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5" >
+                            <div class="d-flex justify-content-between" >
+                        <div>
+                            <h3 class="fs-18 fw-700">James Anderson <img src="images/png/icons/arrow-right-black.svg" alt=""> Sophie Williams</h3>
+                            
+                        </div>
+                        <div class="d-flex flex-grow-1 justify-content-end">
+                            
+
+                        <div class="d-flex gap-3" style="height: 37px;">
+                            <button
+                            class="btn text-white fs-14"
+                            type="button"
+                            style="background-color: #2BC700; width: 118px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#approveModal"
+                            >
+                            Approve
+                            </button>
+                            <button
+                            class="btn border_color_red text-white fs-14 px-3"
+                            type="button"
+                            style="background-color: red; width: 118px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#rejectModal"
+                            >
+                            Reject
+                            </button>
+                        </div>
+                        </div>
+                        
+                    </div>
+                            <div class="rounded-4 p-3 d-flex flex-column gap-3 bg-grey w-50 w-md-100">
+                                <div class="d-flex justify-content-between">
+
+                                
+                                    <div>
+                                        <div class="fs-12">Date</div>
+                                        <div class="fw-700">03/11/2025</div>
+                                    </div>
+                                    <div class="me-3">
+                                        <div class="fs-12">Time</div>
+                                        <div class="fw-700">09:00 - 13:00</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+
+                                
+                                    <div>
+                                        <div class="fs-12">Role</div>
+                                        <div class="fw-700">Pharmacy Tech</div>
+                                    </div>
+                                    <div>
+                                        <div class="fs-12">Branch</div>
+                                        <div class="fw-700">Central London</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fs-14 text-secondary">
+                                Requested on: 08/11/2025, 17:29:30
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5" >
+                            <div class="d-flex justify-content-between" >
+                        <div>
+                            <h3 class="fs-18 fw-700">James Anderson <img src="images/png/icons/arrow-right-black.svg" alt=""> Sophie Williams</h3>
+                            
+                        </div>
+                        <div class="d-flex flex-grow-1 justify-content-end">
+                            
+
+                        <div class="d-flex gap-3" style="height: 37px;">
+                            <button
+                            class="btn text-white fs-14"
+                            type="button"
+                            style="background-color: #2BC700; width: 118px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#approveModal"
+                            >
+                            Approve
+                            </button>
+                            <button
+                            class="btn border_color_red text-white fs-14 px-3"
+                            type="button"
+                            style="background-color: red; width: 118px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#rejectModal"
+                            >
+                            Reject
+                            </button>
+                        </div>
+                        </div>
+                        
+                    </div>
+                            <div class="rounded-4 p-3 d-flex flex-column gap-3 bg-grey w-50 w-md-100">
+                                <div class="d-flex justify-content-between">
+
+                                
+                                    <div>
+                                        <div class="fs-12">Date</div>
+                                        <div class="fw-700">03/11/2025</div>
+                                    </div>
+                                    <div class="me-3">
+                                        <div class="fs-12">Time</div>
+                                        <div class="fw-700">09:00 - 13:00</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+
+                                
+                                    <div>
+                                        <div class="fs-12">Role</div>
+                                        <div class="fw-700">Pharmacy Tech</div>
+                                    </div>
+                                    <div>
+                                        <div class="fs-12">Branch</div>
+                                        <div class="fw-700">Central London</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fs-14 text-secondary">
+                                Requested on: 08/11/2025, 17:29:30
+                            </div>
+                        </div>
+                        
+                        
+                        
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <RejectModal modalId="rejectModal" title="Request" />
+                <ApproveTaskModal modalId="approveModal" title="Approve Request" />
+              </div>
+              <div
+                class="tab-pane fade"
+                id="v-pills-history"
+                role="tabpanel"
+                aria-labelledby="v-pills-history-tab"
+              >
+                <div
+          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+          id="manage_list_of_payslip"
+        >
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div class="d-flex gap-3 align-items-center">
+              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                >Version History</span
+              >
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+
+          <div>
+            <div class="d-flex flex-row justify-content-between gap-5">
+              <!---- Search  -->
+              <div class="d-flex gap-3">
+                <input
+                  type="text"
+                  class="form-control search-input search-width fs-14"
+                  placeholder="Search..."
+                />
+                <img
+                  src="images/png/icons/initialize.svg"
+                  class="initialize"
+                  alt="arrow-down"
+                />
+              </div>
+
+              <!-- Others -->
+              <div class="responsive gap-1">
+                
+
+                <!-- Calendar Selector -->
+                <input
+                  type="month"
+                  class="form-control fs-14"
+                  style=""
+                  value="2025-11"
+                />
+
+                
+              </div>
+
+              <!---- End of Others ---->
+            </div>
+          </div>
+
+          {/* Page Content Box */}
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead
+                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+              >
+                <tr>
+                  
+                  <th
+                    class="bg-primary-blue text-white fw-600 px-3 fs-14 text-left"
+                    style="min-width: 200px;">Publisher</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Date</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Time</th
+                  >
+                  
+
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                    >Actions</th
+                  >
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 120px;
+                  }
+                </style>
+                {
+                  [
+                    {
+                      employee_name: "Lorem Ipsum",
+                      time: "Lorem 1",
+                      global_role: "Lorem 1",
+                      status: "Active",
+                      last_login: "9, Nov 2025",
+                    },
+                    {
+                      employee_name: "Lorem Ipsum",
+                      time: "Lorem 1",
+                      global_role: "Lorem 1",
+                      status: "Inactive",
+                      last_login: "9, Nov 2025",
+                    },
+                    {
+                      employee_name: "Lorem Ipsum",
+                      time: "Lorem 1",
+                      global_role: "Lorem 1",
+                      status: "Active",
+                      last_login: "9, Nov 2025",
+                    },
+                    {
+                      employee_name: "Lorem Ipsum",
+                      time: "Lorem 1",
+                      global_role: "Lorem 1",
+                      status: "Inactive",
+                      last_login: "9, Nov 2025",
+                    },
+                    {
+                      employee_name: "Lorem Ipsum",
+                      time: "Lorem 1",
+                      global_role: "Lorem 1",
+                      status: "Inactive",
+                      last_login: "9, Nov 2025",
+                    },
+                    {
+                      employee_name: "Lorem Ipsum",
+                      time: "Lorem 1",
+                      global_role: "Lorem 1",
+                      status: "Inactive",
+                      last_login: "9, Nov 2025",
+                    },
+                    {
+                      employee_name: "Lorem Ipsum",
+                      time: "Lorem 1",
+                      global_role: "Lorem 1",
+                      status: "Inactive",
+                      last_login: "9, Nov 2025",
+                    },
+                  ].map((ele, index) => (
+                    <tr class="fs-88">
+                      
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        {ele.employee_name}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.last_login}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.time}
+                      </td>
+                      
+
+                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                        <div class="dropdown">
+                          <button
+                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                            data-bs-offset="-20,10"
+                          >
+                            <span>View</span>
+                            <img
+                              src="images/png/icons/arrow-down.svg"
+                              alt="arrow-down"
+                            />
+                          </button>
+                          <div class="dropdown-menu p-0 border-0">
+                            <ul class="list-group border-0 fw-600 fs-14">
+                              <li class="list-group-item pointer">
+                                <div>Update Account</div>
+                              </li>
+
+                              <li class="list-group-item text-nowrap">
+                                <div>Deactivate Account</div>
+                              </li>
+                              <li class="list-group-item">
+                                <div>Reset Account</div>
+                              </li>
+                              <li class="list-group-item">
+                                <div>Reactivate Account</div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
+          </div>
+
+          <!---- End of table --->
+
+          <!-- Pagination Row -->
+          <div
+            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+          >
+            <!-- Left: Pagination Text -->
+            <div class="fs-14 text-muted">
+              Showing <strong>1–20</strong> of <strong>1000</strong>
+            </div>
+
+            <!-- Right: Go to Page + Pagination -->
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <!-- Go to Page -->
+              <form class="d-flex align-items-center gap-2">
+                <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+                <input
+                  type="number"
+                  min="1"
+                  max="100"
+                  id="gotoPage"
+                  class="form-control form-control-sm"
+                  style="width: 60px;"
+                  placeholder="—"
+                />
+              </form>
+
+              <!-- Page Navigation -->
+
+              <nav>
+                <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                  <li class="page-item">
+                    <a
+                      class="page-link text-primary-blue px-2"
+                      href="#"
+                      aria-label="Previous"
+                    >
+                      &lsaquo;
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">1</a>
+                  </li>
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">2</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">3</a>
+                  </li>
+                  <li class="page-item disabled">
+                    <span class="page-link text-primary-blue">...</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">100</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link hello" href="#" aria-label="Next">
+                      &rsaquo;
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <!---- Pagination ---->
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Page Content Box */}
+        </div>
+      </div>
+    </section>
+
+    
+  </main>
+  <!-- Main content ends here -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Icon toggle for nav tabs
+      const tabButtons = document.querySelectorAll(".rota_nav .nav-link");
+      tabButtons.forEach((button) => {
+        button.addEventListener("shown.bs.tab", () => {
+          tabButtons.forEach((btn) => {
+            const icon = btn.querySelector(".icon-toggle");
+            if (icon) {
+              const isActive = btn.classList.contains("active");
+              icon.src = isActive ? icon.dataset.blue : icon.dataset.default;
+            }
+          });
+        });
+      });
+
+      // Open/Close New Message Dialog (custom box)
+      const newMessageBox = document.getElementById("newMessageBox");
+      const openBtn = document.querySelector(".send_mail");
+      const closeBtn = document.getElementById("closeMessageBox");
+
+      if (openBtn && newMessageBox && closeBtn) {
+        openBtn.addEventListener("click", () => {
+          newMessageBox.style.display = "block";
+        });
+
+        closeBtn.addEventListener("click", () => {
+          newMessageBox.style.display = "none";
+        });
+
+        // Prevent closing on outside click
+        document.addEventListener("click", function (e) {
+          if (
+            newMessageBox.style.display === "block" &&
+            !newMessageBox.contains(e.target) &&
+            e.target !== openBtn
+          ) {
+            // Do nothing
+          }
+        });
+      }
+
+      // sample population
+      const templateSelect = document.getElementById("add_text");
+      const subjectInput = document.getElementById("emailSubject");
+      const bodyTextarea = document.getElementById("emailBody");
+
+      const templates = {
+        confirmation: {
+          subject: "Confirmation of Employment – [Employee Name]",
+          body: `Dear [Employee Name],
+
+We are pleased to confirm your employment with [Company Name] as [Job Title], effective [Confirmation Date]. Your new contract details are attached.
+
+Regards,
+[HR/Admin Name]`,
+        },
+        query: {
+          subject: "Query on [Issue]",
+          body: `Dear [Employee Name],
+
+We would like to bring to your attention the following issue: [Brief Description of the Issue]. Please provide an explanation by [Date].
+
+Regards,
+[HR/Admin Name]`,
+        },
+        termination: {
+          subject: "Termination of Employment – [Employee Name]",
+          body: `Dear [Employee Name],
+
+This letter serves as formal notice that your employment with [Company Name] will be terminated effective [Termination Date]. Please find more details attached.
+
+Regards,
+[HR/Admin Name]`,
+        },
+        announcement: {
+          subject: "Important Announcement: [Topic]",
+          body: `Dear [Employee Name]/Team,
+
+We are excited to announce [a new development/an important update] at [Company Name].
+
+Effective [Date], [Briefly describe the announcement, such as a new hire, a promotion, policy changes, or an upcoming event]. This change will [highlight the benefits or importance of the announcement].
+
+[If applicable, include any relevant details like the name of a new hire, their role, or the impact of the change.]
+
+We believe this [announcement/update] will [describe how it will positively impact the company, team, or individual employees].
+
+Should you have any questions or need further information, please feel free to reach out to [Contact Person] at [Contact Information].
+
+Thank you for your attention, and we look forward to [implementing this change/working with the new team member/etc.].
+
+Best regards,  
+[Your Name]  
+[Your Job Title]  
+[Company Name]`,
+        },
+      };
+
+      templateSelect.addEventListener("change", () => {
+        const selected = templateSelect.value;
+        if (templates[selected]) {
+          subjectInput.value = templates[selected].subject;
+          bodyTextarea.value = templates[selected].body;
+        }
+      });
+
+      // file input functionality
+
+      const attachedFileIcon = document.getElementById("attachedFile");
+      const fileInput = document.getElementById("fileInput");
+      const filePreviewList = document.getElementById("filePreviewList");
+
+      let attachedFiles = [];
+
+      attachedFileIcon.addEventListener("click", () => {
+        fileInput.click();
+      });
+
+      fileInput.addEventListener("change", () => {
+        const files = Array.from(fileInput.files);
+
+        // Add only unique files by name (you can use a stronger check)
+        files.forEach((file) => {
+          if (!attachedFiles.find((f) => f.name === file.name)) {
+            attachedFiles.push(file);
+          }
+        });
+
+        renderFilePreview();
+        // Clear the file input so the same file can be selected again
+        fileInput.value = "";
+      });
+
+      function renderFilePreview() {
+        filePreviewList.innerHTML = "";
+
+        attachedFiles.forEach((file, index) => {
+          const fileItem = document.createElement("div");
+          fileItem.className =
+            "d-flex justify-content-between align-items-center border p-2 rounded bg-light";
+
+          fileItem.innerHTML = `
+          <div class="d-flex align-items-center gap-2">
+            <img src="images/png/icons/document-2.svg" alt="file" />
+            <span class="fs-12">${file.name}</span>
+          </div>
+          <button class="btn btn-sm border-0 bg-transparent removeFile" data-index="${index}">
+            <img src="images/png/icons/colored/delete.svg" alt="remove" />
+          </button>
+        `;
+
+          filePreviewList.appendChild(fileItem);
+        });
+
+        // Attach remove event
+        document.querySelectorAll(".removeFile").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            const index = e.currentTarget.dataset.index;
+            attachedFiles.splice(index, 1);
+            renderFilePreview();
+          });
+        });
+      }
+    });
+  </script>
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      $("#Cc_field").addClass("d-none");
+      $("#Bcc_field").addClass("d-none");
+
+      $("#Cc").click((evt) => {
+        $("#Cc_field").removeClass("d-none");
+      });
+
+      $("#closeCc").click((evt) => {
+        $("#Cc_field").addClass("d-none");
+      });
+
+      $("#closeBcc").click((evt) => {
+        $("#Bcc_field").addClass("d-none");
+      });
+
+      $("#Bcc").click((evt) => {
+        $("#Cc_field").removeClass("d-none");
+        $("#Bcc_field").removeClass("d-none");
+      });
+    });
+  </script>
+</Layout>

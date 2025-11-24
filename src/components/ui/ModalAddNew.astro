@@ -130,7 +130,142 @@ import { CloseCircleIcon } from "../Icons";
               </label>
             </div>
           </div>
-        ) : inputPlace === "Generate Onboarding Link" ? (
+        ) : inputPlace === "Add Staff Member" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="emp_name"
+                name="emp_name"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="emp_name">
+                Employee Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="email">
+                Email &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="employment_id"
+                name="employment_id"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Full-time</option>
+                <option value="2">Contractor</option>
+                <option value="3">Intern</option>
+              </select>
+              <label for="employment_id">
+                Employment Type &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="pry_role"
+                name="pry_role"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Full-time</option>
+                <option value="2">Contractor</option>
+                <option value="3">Intern</option>
+              </select>
+              <label for="pry_role">
+                Primary Role &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="sec_role"
+                name="sec_role"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Full-time</option>
+                <option value="2">Contractor</option>
+                <option value="3">Intern</option>
+              </select>
+              <label for="sec_role">
+                Secondary Role &nbsp;<span>*</span>
+              </label>
+            </div>
+            
+            <div class="form-floating">
+              <input
+                type="number"
+                id="cont_hrs"
+                name="cont_hrs"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="cont_hrs">
+                Contract Hours &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                id="cont_hrs"
+                name="cont_hrs"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="cont_hrs">
+                Max Weekly Hours &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                id="cont_hrs"
+                name="cont_hrs"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="cont_hrs">
+                Min Shift Length (hours) &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                id="cont_hrs"
+                name="cont_hrs"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="cont_hrs">
+                Max Shift Length (hours) &nbsp;<span>*</span>
+              </label>
+            </div>
+          <div class="form-floating">
+              <textarea class="form-input" rows="2" id="comment" />
+              <label for="comment">Notes </label>
+            </div>
+            
+          </div>
+        ) :  inputPlace === "Generate Onboarding Link" ? (
           <div class="modal-body py-4 border-0">
             <div class="">
               <label for="multiple-select-field" id="custom_select_new">
@@ -152,6 +287,48 @@ import { CloseCircleIcon } from "../Icons";
                 <option value="7">Floyd Miles</option>
               </select>
             </div>
+          </div>
+        ) : inputPlace === "Create Template" ? (
+          <div class="modal-body py-4 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="temp_name"
+                name="temp_name"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="temp_name">
+                Template Name &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="d-flex justify-content-between gap-3 mt-5">
+          <div class="form-floating">
+            <input
+              type="time"
+              id="start_time"
+              name="start_time"
+              class="form-input"
+              placeholder=""
+              value="2025-06-01"
+              disabled
+            />
+            <label for="start_time">Start Time </label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="time"
+              id="end_time"
+              name="end_time"
+              class="form-input"
+              placeholder=""
+              value="2025-06-01"
+              disabled
+            />
+            <label for="end_time">End Time </label>
+          </div>
+        </div>
           </div>
         ) : inputPlace === "Assign Asset" ? (
           <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
@@ -350,7 +527,90 @@ import { CloseCircleIcon } from "../Icons";
               </div>
             </form>
           </div>
-        ) : inputPlace === "Create Task" ? (
+        ) : inputPlace === "Staff Member" ? (<div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <select
+                id="emp_id_name"
+                name="emp_id_name"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Robert Fox - N12343534</option>
+                <option value="2">Robert Fox - N12343534</option>
+                <option value="3">Robert Fox - N12343534</option>
+              </select>
+              <label for="emp_id_name">
+                Employee ID/Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div
+              class="d-flex flex-column flex-lg-row flex-wrap gap-2 p-3 px-2 mb-3 clock_in_out_modal d-none "
+              id="employeeDetails"
+            >
+              <div class="d-flex flex-column w-50 px-lg-3">
+                <span class="fs-12 text-secondary text-nowrap">
+                  Primary Department
+                </span>
+                <span class="fs-14 fw-700 text-nowrap">Lorem Ipsum</span>
+              </div>
+
+              <span class="clock_border_left" />
+              <div class="d-flex flex-column px-lg-3">
+                <span class="fs-12 text-secondary">Secondary Department</span>
+                <span class="fs-14 fw-700">Lorem Ipsum</span>
+              </div>
+
+              <div class="d-flex flex-column w-50 px-lg-3">
+                <span class="fs-12 text-secondary text-nowrap">
+                  Primary Role
+                </span>
+                <span class="fs-14 fw-700 text-nowrap">Lorem Ipsum</span>
+              </div>
+
+              <span class="clock_border_left " />
+              <div class="d-flex flex-column px-lg-3">
+                <span class="fs-12 text-secondary text-nowrap">
+                  Secondary Role
+                </span>
+                <span class="fs-14 fw-700 text-nowrap">Lorem Ipsum</span>
+              </div>
+
+              
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                id="cont_hrs"
+                name="cont_hrs"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="cont_hrs">
+                Contract Hours &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                id="max_hrs"
+                name="max_hrs"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="max_hrs">
+                Max Weekly Hours &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="comment" />
+              <label for="comment">Notes </label>
+            </div>
+            
+          </div>
+        ) :  inputPlace === "Create Task" ? (
           <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
             <div class="form-floating">
               <select
@@ -604,7 +864,8 @@ import { CloseCircleIcon } from "../Icons";
           class="btn bg-primary-blue text-white"
           data-bs-dismiss="modal"
         >
-          Save
+        {inputPlace === "Create Template" ? "Create Template" : "Save"}
+          
         </button>
       </div>
     </div>
