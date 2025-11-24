@@ -1571,6 +1571,9 @@ ul.subscription_tab li.nav-item .active {
 
 .rota_nav button.active {
   background-color: #b2d4f1 !important;
+  border-left: 3px solid #fff !important;
+  width: 100% !important;
+  text-align: left;
 }
 
 /* appraisal */
