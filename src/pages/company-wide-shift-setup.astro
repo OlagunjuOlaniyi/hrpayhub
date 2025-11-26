@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Inbox from "../components/emails/Inbox.astro";
 import Sent from "../components/emails/Sent.astro";
 import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import ModalRota from "../components/ui/ModalRota.astro";
 import ModalReviewLeave from "../components/ui/ModalReviewLeave.astro";
 import DeleteModal from "../components/ui/DeleteModal.astro";
 import RejectModal from "../components/ui/RejectModal.astro";
@@ -36,7 +37,7 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            
+
             <a
               href="/rota-management"
               class="fs-14 text-decoration-none text-primary-dark"
@@ -46,7 +47,9 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold text-primary-blue">Company-wide Shift Setup</span>
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Company-wide Shift Setup</span
+            >
           </div>
           <!-- Actual Breadcrumb here -->
         </div>
@@ -69,13 +72,11 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
               role="tablist"
               aria-orientation="vertical"
             >
-            
               <span
                 class="text-white text-left fs-16 fw-700 mb-1 px-4 text-wrap"
                 >Rota Planner</span
               >
-              <span
-                class="text-white fs-14 mb-4 px-4 pe-5 text-wrap"
+              <span class="text-white fs-14 mb-4 px-4 pe-5 text-wrap"
                 >Central London <br /> Pharmacy</span
               >
               <button
@@ -163,7 +164,7 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                 role="tabpanel"
                 aria-labelledby="v-pills-inbox-tab"
               >
-              <!-- Nav pills -->
+                <!-- Nav pills -->
                 <ul
                   class="nav nav-pills d-flex justify-content-between p-1 upload_offer_bg"
                   role="tablist"
@@ -193,22 +194,25 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                     <a
                       class="nav-link fs-14 fw-600"
                       data-bs-toggle="pill"
-                      href="#overlapBuff">Overlap Buffer Settings </a
-                    >
+                      href="#overlapBuff"
+                      >Overlap Buffer Settings
+                    </a>
                   </li>
                   <li class="nav-item">
                     <a
                       class="nav-link fs-14 fw-600"
                       data-bs-toggle="pill"
-                      href="#rotaPanel">Rota </a
-                    >
+                      href="#rotaPanel"
+                      >Rota
+                    </a>
                   </li>
                   <li class="nav-item">
                     <a
                       class="nav-link fs-14 fw-600"
                       data-bs-toggle="pill"
-                      href="#planner">Planner </a
-                    >
+                      href="#plannerPanel"
+                      >Planner
+                    </a>
                   </li>
                 </ul>
 
@@ -218,78 +222,76 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                     <br />
                     <div class="d-flex flex-column gap-4 mt-4">
                       <div class="form-floating add_employee_width">
-                    <select
-                      id="work_days"
-                      name="work_days"
-                      class="form-select_custom fs-14"
-                      required
-                    >
-                      <option
-                        value=""
-                        selected
-                        style="color: rgb(200, 200, 200)">Select</option
-                      >
-                      <option value="1">Monday</option>
-                      <option value="2">Tuesday</option>
-                      <option value="3">Wednesday</option>
-                      <option value="4">Thursday</option>
-                      <option value="5">Friday</option>
-                      <option value="6">Saturday</option>
-                      <option value="7">Sunday</option>
-                    </select>
-                    <label for="work_days">Work Days  &nbsp;<span>*</span></label>
-                  </div>
-                  <div class="form-floating add_employee_width">
-              <select
-                id="designation"
-                name="designation"
-                class="form-select_custom fs-14"
-                required
-              >
-                <option value="" selected>
-                  Select
-                </option>
-                <option value="1">1 Week</option>
-                <option value="2">2 Weeks</option>
-                <option value="3">3 Weeks</option>
-                <option value="4">4 Weeks</option>
-                <option value="5">1 Month</option>
-                <option value="6">2 Months</option>
-                <option value="7">3 Months</option>
-              </select>
-              <label for="designation">
-                Planning Period &nbsp;<span>*</span>
-              </label>
-            </div>
-                  <div class="form-floating add_employee_width">
-              <select
-                id="designation"
-                name="designation"
-                class="form-select_custom fs-14"
-                required
-              >
-                <option value="" selected>
-                  Select
-                </option>
-                <option value="1">1 Week</option>
-                <option value="2">2 Weeks</option>
-                <option value="3">3 Weeks</option>
-                <option value="4">4 Weeks</option>
-                <option value="5">1 Month</option>
-                <option value="6">2 Months</option>
-                <option value="7">3 Months</option>
-              </select>
-              <label for="designation">
-                Timezone &nbsp;<span>*</span>
-              </label>
-            </div>
+                        <select
+                          id="work_days"
+                          name="work_days"
+                          class="form-select_custom fs-14"
+                          required
+                        >
+                          <option
+                            value=""
+                            selected
+                            style="color: rgb(200, 200, 200)">Select</option
+                          >
+                          <option value="1">Monday</option>
+                          <option value="2">Tuesday</option>
+                          <option value="3">Wednesday</option>
+                          <option value="4">Thursday</option>
+                          <option value="5">Friday</option>
+                          <option value="6">Saturday</option>
+                          <option value="7">Sunday</option>
+                        </select>
+                        <label for="work_days"
+                          >Work Days &nbsp;<span>*</span></label
+                        >
+                      </div>
+                      <div class="form-floating add_employee_width">
+                        <select
+                          id="designation"
+                          name="designation"
+                          class="form-select_custom fs-14"
+                          required
+                        >
+                          <option value="" selected> Select </option>
+                          <option value="1">1 Week</option>
+                          <option value="2">2 Weeks</option>
+                          <option value="3">3 Weeks</option>
+                          <option value="4">4 Weeks</option>
+                          <option value="5">1 Month</option>
+                          <option value="6">2 Months</option>
+                          <option value="7">3 Months</option>
+                        </select>
+                        <label for="designation">
+                          Planning Period &nbsp;<span>*</span>
+                        </label>
+                      </div>
+                      <div class="form-floating add_employee_width">
+                        <select
+                          id="designation"
+                          name="designation"
+                          class="form-select_custom fs-14"
+                          required
+                        >
+                          <option value="" selected> Select </option>
+                          <option value="1">1 Week</option>
+                          <option value="2">2 Weeks</option>
+                          <option value="3">3 Weeks</option>
+                          <option value="4">4 Weeks</option>
+                          <option value="5">1 Month</option>
+                          <option value="6">2 Months</option>
+                          <option value="7">3 Months</option>
+                        </select>
+                        <label for="designation">
+                          Timezone &nbsp;<span>*</span>
+                        </label>
+                      </div>
                       <div
                         class="d-flex justify-content-end gap-3 add_employee_width"
                       >
                         <button
                           type="button"
                           id="upload"
-                          class="white_button border-0  fw-bold fs-14"
+                          class="white_button border-0 fw-bold fs-14"
                         >
                           <span>Copy from previous period</span>
                         </button>
@@ -305,328 +307,344 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                   </div>
                   <div id="annualPlan" class="container tab-pane">
                     <br />
-                    <div class="d-flex flex-column gap-4">
-                        <div class="d-flex flex-column gap-3 py-4 px-4 border border-1 rounded-5 day-container" data-day="Monday">
-                            <div class="d-flex justify-content-between" >
-                        <div>
+                    <div class="d-flex flex-column gap-4 mt-3">
+                      <div
+                        class="d-flex flex-column gap-3 py-4 px-4 border border-1 rounded-5 day-container"
+                        data-day="Monday"
+                      >
+                        <div class="d-flex justify-content-between">
+                          <div>
                             <h3 class="fs-18 fw-700">Monday</h3>
-                            
-                        </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            
-
-                        <div class="d-flex gap-3" style="height: 37px;">
-                            
-                            <button
-                            class="btn text-white rounded-pill fs-14 px-3 day-status"
-                            type="button"
-                            style="background-color: red; "
-                            
-                            >
-                            Closed
-                            </button>
-                        </div>
-                        </div>
-                        
-                    </div>
-                    <!-- Block container (never hidden) -->
-                    <div class="blocks-container d-flex flex-column gap-3 mt-3"></div>
-                    
-                            <div class="fs-14 text-secondary">
-                                <button
+                          </div>
+                          <div class="d-flex flex-grow-1 justify-content-end">
+                            <div class="d-flex gap-3" style="height: 37px;">
+                              <button
+                                class="btn text-white rounded-pill fs-14 px-3 day-status"
                                 type="button"
-                                class="border-0 bg-white text-primary-blue fs-14 d-flex text-left gap-1 align-items-center add-block-btn"
-                                id="addNewHoliday"
-                                style="border: 0px !important;"
-                                >
-                                <span>Add Block </span>
-                                <span class="fw-700 fs-16 ms-2">+</span>
-                                </button>
+                                style="background-color: red; "
+                              >
+                                Closed
+                              </button>
                             </div>
+                          </div>
                         </div>
-                        
-                        <div class="d-flex flex-column gap-3 py-4 px-4 border border-1 rounded-5 day-container" data-day="tuesday">
-                            <div class="d-flex justify-content-between" >
-                        <div>
+                        <!-- Block container (never hidden) -->
+                        <div
+                          class="blocks-container d-flex flex-column gap-3 mt-3"
+                        >
+                        </div>
+
+                        <div class="fs-14 text-secondary">
+                          <button
+                            type="button"
+                            class="border-0 bg-white text-primary-blue fs-14 d-flex text-left gap-1 align-items-center add-block-btn"
+                            id="addNewHoliday"
+                            style="border: 0px !important;"
+                          >
+                            <span>Add Block </span>
+                            <span class="fw-700 fs-16 ms-2">+</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div
+                        class="d-flex flex-column gap-3 py-4 px-4 border border-1 rounded-5 day-container"
+                        data-day="tuesday"
+                      >
+                        <div class="d-flex justify-content-between">
+                          <div>
                             <h3 class="fs-18 fw-700">Tuesday</h3>
-                            
-                        </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            
-
-                        <div class="d-flex gap-3" style="height: 37px;">
-                            
-                            <button
-                            class="btn text-white rounded-pill fs-14 px-3 day-status"
-                            type="button"
-                            style="background-color: red; "
-                            
-                            >
-                            Closed
-                            </button>
-                        </div>
-                        </div>
-                        
-                    </div>
-                    <!-- Block container (never hidden) -->
-                    <div class="blocks-container d-flex flex-column gap-3 mt-3">
-                        
-                    </div>
-                    
-                            <div class="fs-14 text-secondary">
-                                <button
+                          </div>
+                          <div class="d-flex flex-grow-1 justify-content-end">
+                            <div class="d-flex gap-3" style="height: 37px;">
+                              <button
+                                class="btn text-white rounded-pill fs-14 px-3 day-status"
                                 type="button"
-                                class="border-0 bg-white text-primary-blue fs-14 d-flex text-left gap-1 align-items-center add-block-btn"
-                                id="addNewHoliday"
-                                style="border: 0px !important;"
-                                >
-                                <span>Add Block </span>
-                                <span class="fw-700 fs-16 ms-2">+</span>
-                                </button>
+                                style="background-color: red; "
+                              >
+                                Closed
+                              </button>
                             </div>
+                          </div>
                         </div>
-                        <div class="d-flex flex-column gap-3 py-4 px-4 border border-1 rounded-5 day-container" data-day="wednesday">
-                            <div class="d-flex justify-content-between" >
-                        <div>
+                        <!-- Block container (never hidden) -->
+                        <div
+                          class="blocks-container d-flex flex-column gap-3 mt-3"
+                        >
+                        </div>
+
+                        <div class="fs-14 text-secondary">
+                          <button
+                            type="button"
+                            class="border-0 bg-white text-primary-blue fs-14 d-flex text-left gap-1 align-items-center add-block-btn"
+                            id="addNewHoliday"
+                            style="border: 0px !important;"
+                          >
+                            <span>Add Block </span>
+                            <span class="fw-700 fs-16 ms-2">+</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column gap-3 py-4 px-4 border border-1 rounded-5 day-container"
+                        data-day="wednesday"
+                      >
+                        <div class="d-flex justify-content-between">
+                          <div>
                             <h3 class="fs-18 fw-700">Wednesday</h3>
-                            
-                        </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            
-
-                        <div class="d-flex gap-3" style="height: 37px;">
-                            
-                            <button
-                            class="btn text-white rounded-pill fs-14 px-3 day-status"
-                            type="button"
-                            style="background-color: red; "
-                            
-                            >
-                            Closed
-                            </button>
-                        </div>
-                        </div>
-                        
-                    </div>
-                    <!-- Block container (never hidden) -->
-                    <div class="blocks-container d-flex flex-column gap-3 mt-3">
-                        
-                    </div>
-                    
-                            <div class="fs-14 text-secondary">
-                                <button
+                          </div>
+                          <div class="d-flex flex-grow-1 justify-content-end">
+                            <div class="d-flex gap-3" style="height: 37px;">
+                              <button
+                                class="btn text-white rounded-pill fs-14 px-3 day-status"
                                 type="button"
-                                class="border-0 bg-white text-primary-blue fs-14 d-flex text-left gap-1 align-items-center add-block-btn"
-                                id="addNewHoliday"
-                                style="border: 0px !important;"
-                                >
-                                <span>Add Block </span>
-                                <span class="fw-700 fs-16 ms-2">+</span>
-                                </button>
+                                style="background-color: red; "
+                              >
+                                Closed
+                              </button>
                             </div>
+                          </div>
                         </div>
-                        <div class="d-flex flex-column gap-3 py-4 px-4 border border-1 rounded-5 day-container" data-day="thursday">
-                            <div class="d-flex justify-content-between" >
-                        <div>
+                        <!-- Block container (never hidden) -->
+                        <div
+                          class="blocks-container d-flex flex-column gap-3 mt-3"
+                        >
+                        </div>
+
+                        <div class="fs-14 text-secondary">
+                          <button
+                            type="button"
+                            class="border-0 bg-white text-primary-blue fs-14 d-flex text-left gap-1 align-items-center add-block-btn"
+                            id="addNewHoliday"
+                            style="border: 0px !important;"
+                          >
+                            <span>Add Block </span>
+                            <span class="fw-700 fs-16 ms-2">+</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column gap-3 py-4 px-4 border border-1 rounded-5 day-container"
+                        data-day="thursday"
+                      >
+                        <div class="d-flex justify-content-between">
+                          <div>
                             <h3 class="fs-18 fw-700">Thursday</h3>
-                            
-                        </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            
-
-                        <div class="d-flex gap-3" style="height: 37px;">
-                            
-                            <button
-                            class="btn text-white rounded-pill fs-14 px-3 day-status"
-                            type="button"
-                            style="background-color: red; "
-                            
-                            >
-                            Closed
-                            </button>
-                        </div>
-                        </div>
-                        
-                    </div>
-                    <!-- Block container (never hidden) -->
-                    <div class="blocks-container d-flex flex-column gap-3 mt-3">
-                        
-                    </div>
-                    
-                            <div class="fs-14 text-secondary">
-                                <button
+                          </div>
+                          <div class="d-flex flex-grow-1 justify-content-end">
+                            <div class="d-flex gap-3" style="height: 37px;">
+                              <button
+                                class="btn text-white rounded-pill fs-14 px-3 day-status"
                                 type="button"
-                                class="border-0 bg-white text-primary-blue fs-14 d-flex text-left gap-1 align-items-center add-block-btn"
-                                id="addNewHoliday"
-                                style="border: 0px !important;"
-                                >
-                                <span>Add Block </span>
-                                <span class="fw-700 fs-16 ms-2">+</span>
-                                </button>
+                                style="background-color: red; "
+                              >
+                                Closed
+                              </button>
                             </div>
+                          </div>
                         </div>
-                        <div class="d-flex flex-column gap-3 py-4 px-4 border border-1 rounded-5 day-container" data-day="friday">
-                            <div class="d-flex justify-content-between" >
-                        <div>
+                        <!-- Block container (never hidden) -->
+                        <div
+                          class="blocks-container d-flex flex-column gap-3 mt-3"
+                        >
+                        </div>
+
+                        <div class="fs-14 text-secondary">
+                          <button
+                            type="button"
+                            class="border-0 bg-white text-primary-blue fs-14 d-flex text-left gap-1 align-items-center add-block-btn"
+                            id="addNewHoliday"
+                            style="border: 0px !important;"
+                          >
+                            <span>Add Block </span>
+                            <span class="fw-700 fs-16 ms-2">+</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column gap-3 py-4 px-4 border border-1 rounded-5 day-container"
+                        data-day="friday"
+                      >
+                        <div class="d-flex justify-content-between">
+                          <div>
                             <h3 class="fs-18 fw-700">Friday</h3>
-                            
-                        </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            
-
-                        <div class="d-flex gap-3" style="height: 37px;">
-                            
-                            <button
-                            class="btn text-white rounded-pill fs-14 px-3 day-status"
-                            type="button"
-                            style="background-color: red; "
-                            
-                            >
-                            Closed
-                            </button>
-                        </div>
-                        </div>
-                        
-                    </div>
-                    <!-- Block container (never hidden) -->
-                    <div class="blocks-container d-flex flex-column gap-3 mt-3">
-                        
-                    </div>
-                    
-                            <div class="fs-14 text-secondary">
-                                <button
+                          </div>
+                          <div class="d-flex flex-grow-1 justify-content-end">
+                            <div class="d-flex gap-3" style="height: 37px;">
+                              <button
+                                class="btn text-white rounded-pill fs-14 px-3 day-status"
                                 type="button"
-                                class="border-0 bg-white text-primary-blue fs-14 d-flex text-left gap-1 align-items-center add-block-btn"
-                                id="addNewHoliday"
-                                style="border: 0px !important;"
-                                >
-                                <span>Add Block </span>
-                                <span class="fw-700 fs-16 ms-2">+</span>
-                                </button>
+                                style="background-color: red; "
+                              >
+                                Closed
+                              </button>
                             </div>
+                          </div>
                         </div>
-                        <div class="d-flex flex-column gap-3 py-4 px-4 border border-1 rounded-5 day-container" data-day="saturday">
-                            <div class="d-flex justify-content-between" >
-                        <div>
+                        <!-- Block container (never hidden) -->
+                        <div
+                          class="blocks-container d-flex flex-column gap-3 mt-3"
+                        >
+                        </div>
+
+                        <div class="fs-14 text-secondary">
+                          <button
+                            type="button"
+                            class="border-0 bg-white text-primary-blue fs-14 d-flex text-left gap-1 align-items-center add-block-btn"
+                            id="addNewHoliday"
+                            style="border: 0px !important;"
+                          >
+                            <span>Add Block </span>
+                            <span class="fw-700 fs-16 ms-2">+</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column gap-3 py-4 px-4 border border-1 rounded-5 day-container"
+                        data-day="saturday"
+                      >
+                        <div class="d-flex justify-content-between">
+                          <div>
                             <h3 class="fs-18 fw-700">Saturday</h3>
-                            
-                        </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            
-
-                        <div class="d-flex gap-3" style="height: 37px;">
-                            
-                            <button
-                            class="btn text-white rounded-pill fs-14 px-3 day-status"
-                            type="button"
-                            style="background-color: red; "
-                            
-                            >
-                            Closed
-                            </button>
-                        </div>
-                        </div>
-                        
-                    </div>
-                    <!-- Block container (never hidden) -->
-                    <div class="blocks-container d-flex flex-column gap-3 mt-3">
-                        
-                    </div>
-                    
-                            <div class="fs-14 text-secondary">
-                                <button
+                          </div>
+                          <div class="d-flex flex-grow-1 justify-content-end">
+                            <div class="d-flex gap-3" style="height: 37px;">
+                              <button
+                                class="btn text-white rounded-pill fs-14 px-3 day-status"
                                 type="button"
-                                class="border-0 bg-white text-primary-blue fs-14 d-flex text-left gap-1 align-items-center add-block-btn"
-                                id="addNewHoliday"
-                                style="border: 0px !important;"
-                                >
-                                <span>Add Block </span>
-                                <span class="fw-700 fs-16 ms-2">+</span>
-                                </button>
+                                style="background-color: red; "
+                              >
+                                Closed
+                              </button>
                             </div>
+                          </div>
                         </div>
-                        <div class="d-flex flex-column gap-3 py-4 px-4 border border-1 rounded-5 day-container" data-day="sunday">
-                            <div class="d-flex justify-content-between" >
-                        <div>
+                        <!-- Block container (never hidden) -->
+                        <div
+                          class="blocks-container d-flex flex-column gap-3 mt-3"
+                        >
+                        </div>
+
+                        <div class="fs-14 text-secondary">
+                          <button
+                            type="button"
+                            class="border-0 bg-white text-primary-blue fs-14 d-flex text-left gap-1 align-items-center add-block-btn"
+                            id="addNewHoliday"
+                            style="border: 0px !important;"
+                          >
+                            <span>Add Block </span>
+                            <span class="fw-700 fs-16 ms-2">+</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column gap-3 py-4 px-4 border border-1 rounded-5 day-container"
+                        data-day="sunday"
+                      >
+                        <div class="d-flex justify-content-between">
+                          <div>
                             <h3 class="fs-18 fw-700">Sunday</h3>
-                            
-                        </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            
-
-                        <div class="d-flex gap-3" style="height: 37px;">
-                            
-                            <button
-                            class="btn text-white rounded-pill fs-14 px-3 day-status"
-                            type="button"
-                            style="background-color: red; "
-                            
-                            >
-                            Closed
-                            </button>
-                        </div>
-                        </div>
-                        
-                    </div>
-                    <!-- Block container (never hidden) -->
-                    <div class="blocks-container d-flex flex-column gap-3 mt-3">
-                        
-                    </div>
-                    
-                            <div class="fs-14 text-secondary">
-                                <button
+                          </div>
+                          <div class="d-flex flex-grow-1 justify-content-end">
+                            <div class="d-flex gap-3" style="height: 37px;">
+                              <button
+                                class="btn text-white rounded-pill fs-14 px-3 day-status"
                                 type="button"
-                                class="border-0 bg-white text-primary-blue fs-14 d-flex text-left gap-1 align-items-center add-block-btn"
-                                id="addNewHoliday"
-                                style="border: 0px !important;"
-                                >
-                                <span>Add Block </span>
-                                <span class="fw-700 fs-16 ms-2">+</span>
-                                </button>
+                                style="background-color: red; "
+                              >
+                                Closed
+                              </button>
                             </div>
+                          </div>
                         </div>
-                        
+                        <!-- Block container (never hidden) -->
+                        <div
+                          class="blocks-container d-flex flex-column gap-3 mt-3"
+                        >
+                        </div>
+
+                        <div class="fs-14 text-secondary">
+                          <button
+                            type="button"
+                            class="border-0 bg-white text-primary-blue fs-14 d-flex text-left gap-1 align-items-center add-block-btn"
+                            id="addNewHoliday"
+                            style="border: 0px !important;"
+                          >
+                            <span>Add Block </span>
+                            <span class="fw-700 fs-16 ms-2">+</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="d-flex justify-content-end gap-3">
+                        <button
+                          type="button"
+                          id="upload"
+                          class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14"
+                        >
+                          <span>Save</span>
+                        </button>
+                      </div>
                     </div>
-                    
                   </div>
                   <div id="coverReq" class="container tab-pane">
                     <br />
-                    <div class="d-flex flex-column gap-4 mt-4 add_employee_width">
+                    <div
+                      class="d-flex flex-column gap-4 mt-4 add_employee_width"
+                    >
+                      <div class="form-floating">
+                        <select
+                          id="emp_id_name"
+                          name="emp_id_name"
+                          class="form-select_custom fs-14"
+                          required
+                        >
+                          <option value="" selected> Select </option>
+                          <option value="1">Lorem Ipsum</option>
+                          <option value="2">Lorem Ipsum</option>
+                          <option value="3">Lorem Ipsum</option>
+                        </select>
+                        <label for="emp_id_name">
+                          Select Designation &nbsp;<span>*</span>
+                        </label>
+                      </div>
+                      <div
+                        class="d-flex gap-2 p-3 px-2 mb-3 d-none"
+                        id="employeeDetails"
+                      >
+                        <div>
+                          <button
+                            class="py-1 px-2 border border-dark rounded-3 bg-light"
+                            >Lorem <img
+                              class="ms-2"
+                              src="images/png/icons/cancel.svg"
+                              alt=""
+                            /></button
+                          >
+                        </div>
+                        <div>
+                          <button
+                            class="py-1 px-2 border border-dark rounded-3 bg-light"
+                            >Lorem <img
+                              class="ms-2"
+                              src="images/png/icons/cancel.svg"
+                              alt=""
+                            /></button
+                          >
+                        </div>
+                        <div>
+                          <button
+                            class="py-1 px-2 border border-dark rounded-3 bg-light"
+                            >Lorem <img
+                              class="ms-2"
+                              src="images/png/icons/cancel.svg"
+                              alt=""
+                            /></button
+                          >
+                        </div>
+                      </div>
 
-                        <div class="form-floating">
-              <select
-                id="emp_id_name"
-                name="emp_id_name"
-                class="form-select_custom fs-14"
-                required
-              >
-                <option value="" selected>
-                  Select
-                </option>
-                <option value="1">Lorem Ipsum</option>
-                <option value="2">Lorem Ipsum</option>
-                <option value="3">Lorem Ipsum</option>
-              </select>
-              <label for="emp_id_name">
-                Select Designation &nbsp;<span>*</span>
-              </label>
-            </div>
-            <div
-              class="d-flex gap-2 p-3 px-2 mb-3 d-none"
-              id="employeeDetails"
-            >
-              <div>
-                <button class="py-1 px-2 border border-dark rounded-3 bg-light">Lorem <img class="ms-2" src="images/png/icons/cancel.svg" alt="" /></button>
-              </div>
-              <div>
-                <button class="py-1 px-2 border border-dark rounded-3 bg-light">Lorem <img class="ms-2" src="images/png/icons/cancel.svg" alt="" /></button>
-              </div>
-              <div>
-                <button class="py-1 px-2 border border-dark rounded-3 bg-light">Lorem <img class="ms-2" src="images/png/icons/cancel.svg" alt="" /></button>
-              </div>
-            </div>
-
-            <div
+                      <div
                         class="d-flex justify-content-end gap-3 add_employee_width"
                       >
                         <button
@@ -637,54 +655,53 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                           <span>Proceed</span>
                         </button>
                       </div>
-
-
                     </div>
-                    
                   </div>
                   <div id="overlapBuff" class="container tab-pane">
                     <br />
 
                     <div class="d-flex flex-column gap-5 mt-4">
-                        <div>
-                            
-                        
+                      <div>
                         <div class="fs-16">Allow Shift Overlap</div>
                         <div
-                            class="d-flex gap-4 mt-3 justify-content-between align-items-center add_employee_width"
+                          class="d-flex gap-4 mt-3 justify-content-between align-items-center add_employee_width"
                         >
-                            <span class="fs-14">Enable brief overlaps for shift handovers</span>
-                            <div
+                          <span class="fs-14"
+                            >Enable brief overlaps for shift handovers</span
+                          >
+                          <div
                             role="button"
                             class="form-check form-switch switchForDeductionsFields"
                             style="margin-top: 5px; cursor: pointer"
-                            >
+                          >
                             <input
-                                class="form-check-input"
-                                type="checkbox"
-                                role="switch"
-                                id="toggleSwitch"
+                              class="form-check-input"
+                              type="checkbox"
+                              role="switch"
+                              id="toggleSwitch"
                             />
-                            </div>
+                          </div>
                         </div>
-                        </div>
+                      </div>
 
-                    <div>
-                            
-                    <div class="form-floating add_employee_width">
-                        <input
+                      <div>
+                        <div class="form-floating add_employee_width">
+                          <input
                             type="time"
                             id="over_buff"
                             name="over_buff"
                             class="form-input fs-14"
                             placeholder=""
-                        />
-                        <label for="over_buff">Overlap Buffer (minutes)</label>
-                    </div>
-                    <div class="mt-3 fs-12">Overlaps within this buffer are permitted for handover</div>
-                    </div>
+                          />
+                          <label for="over_buff">Overlap Buffer (minutes)</label
+                          >
+                        </div>
+                        <div class="mt-3 fs-12">
+                          Overlaps within this buffer are permitted for handover
+                        </div>
+                      </div>
 
-                    <div
+                      <div
                         class="d-flex justify-content-end gap-3 add_employee_width"
                       >
                         <button
@@ -695,284 +712,433 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                           <span>Save</span>
                         </button>
                       </div>
-
-                    
-                </div>
-                    
+                    </div>
                   </div>
                   <div id="rotaPanel" class="container tab-pane">
                     <br />
-                     <div class="screenFrame">
-        <div
-          class="rounded-4 shadow p-4 vstack gap-3 px-lg-4"
-          id="manage_list_of_payslip"
-        >
-          {/* Page Title */}
-          <div class="vstack gap-3">
-            <div class="d-flex gap-3 align-items-center">
-              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >Staff Roster</span
-              >
-            </div>
-          </div>
-          {/* Page Title */}
-
-          <div class="">
-            <div
-              class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
-            >
-              <!---- Search  -->
-              <div class="d-flex gap-3">
-                <input
-                  type="text"
-                  class="form-control search-input search-width fs-14"
-                  placeholder="Search..."
-                />
-                <img
-                  src="images/png/icons/initialize.svg"
-                  class="initialize"
-                  alt="arrow-down"
-                />
-              </div>
-
-              <!-- Others -->
-              <div class="d-flex justify-content-end">
-                <button
-                  class="btn bg-primary-blue text-white px-3 fs-14 fw-600"
-                  type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#myModal"
-                  data-title="Add Employment Status"
-                >
-                  <span class="me-2">Add Staff Member</span> +
-                </button>
-              </div>
-
-              <!---- End of Others ---->
-            </div>
-          </div>
-
-          <!-- Scrollable Table -->
-          <div
-            class="table-responsive"
-            style="max-height: 600px; overflow: auto;"
-          >
-            <table class="table table-bordered table-hover">
-              <!---- Table head --->
-              <thead
-                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
-              >
-                <tr>
-                  
-                  <th
-                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
-                    style="min-width: 200px;">Employee Name</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
-                    style="min-width: 200px;">Primary Department</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
-                    style="min-width: 200px;">Secondary Department</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
-                    style="min-width: 200px;">Contracted Weekly Hours</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
-                    style="min-width: 200px;">Maximum Weekly Hours</th
-                  >
-                  
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
-                    >Actions</th
-                  >
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Table body and Row -->
-                <style>
-                  .column {
-                    min-width: 100px;
-                  }
-                </style>
-                {
-                  [
-                    {
-                      emp_status: "Lorem 1",
-                      hour: "40 Hours",
-                      hours2: "48 Hours"
-                    },
-                    {
-                      emp_status: "Lorem 1",
-                      hour: "40 Hours",
-                      hours2: "48 Hours"
-                    },
-                    {
-                      emp_status: "Lorem 1",
-                      hour: "40 Hours",
-                      hours2: "48 Hours"
-                    },
-                    {
-                      emp_status: "Lorem 1",
-                      hour: "40 Hours",
-                      hours2: "48 Hours"
-                    },
-                    {
-                      emp_status: "Lorem 1",
-                      hour: "40 Hours",
-                      hours2: "48 Hours"
-                    },
-                    {
-                      emp_status: "Lorem 1",
-                      hour: "40 Hours",
-                      hours2: "48 Hours"
-                    },
-                    {
-                      emp_status: "Lorem 1",
-                      hour: "40 Hours",
-                      hours2: "48 Hours"
-                    },
-                  ].map((ele, index) => (
-                    <tr class="fs-88">
-                      
-                      <td class="fs-14 text-nowrap px-3 text-center column">
-                        {ele.emp_status}
-                      </td>
-                      <td class="fs-14 text-nowrap px-3 text-center column">
-                        {ele.emp_status}
-                      </td>
-                      <td class="fs-14 text-nowrap px-3 text-center column">
-                        {ele.emp_status}
-                      </td>
-                      <td class="fs-14 text-nowrap px-3 text-center column">
-                        {ele.hour}
-                      </td>
-                      <td class="fs-14 text-nowrap px-3 text-center column">
-                        {ele.hours2}
-                      </td>
-
-                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
-                        <div class="d-flex gap-2">
-                          <button
-                            class="border-0 edit-button"
-                            style="background-color: inherit;"
-                            type="button"
-                            data-bs-toggle="modal"
-                            data-bs-target="#myStaffModal"
-                            data-title="Edit Employment Status"
-                            data-emp-type="{ele.emp_type}"
-                          >
-                            <img src="images/png/icons/edit-2.svg" alt="" />
-                          </button>
-                          <button
-                            class="border-0"
-                            style="background-color: inherit;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#deleteModal"
-                          >
-                            <img
-                              src="images/png/icons/colored/delete.svg"
-                              alt=""
-                            />
-                          </button>
+                    <div class="screenFrame">
+                      <div
+                        class="rounded-4 shadow p-4 vstack gap-3 px-lg-4"
+                        id="manage_list_of_payslip"
+                      >
+                        {/* Page Title */}
+                        <div class="vstack gap-3">
+                          <div class="d-flex gap-3 align-items-center">
+                            <span
+                              class="text-dark font-ubuntu-bold fs-18 inline-block"
+                              >Staff Roster</span
+                            >
+                          </div>
                         </div>
-                      </td>
-                    </tr>
-                  ))
-                }
+                        {/* Page Title */}
 
-                <!-- Repeat for more employees -->
-              </tbody>
-            </table>
-          </div>
+                        <div class="">
+                          <div
+                            class="d-flex vstack flex-sm-column flex-md-column flex-lg-row justify-content-between gap-3"
+                          >
+                            <!---- Search  -->
+                            <div class="d-flex gap-3">
+                              <input
+                                type="text"
+                                class="form-control search-input search-width fs-14"
+                                placeholder="Search..."
+                              />
+                              <img
+                                src="images/png/icons/initialize.svg"
+                                class="initialize"
+                                alt="arrow-down"
+                              />
+                            </div>
 
-          <!---- End of table --->
+                            <!-- Others -->
+                            <div class="d-flex justify-content-end">
+                              <button
+                                class="btn bg-primary-blue text-white px-3 fs-14 fw-600"
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#myModal"
+                                data-title="Add Employment Status"
+                              >
+                                <span class="me-2">Add Staff Member</span> +
+                              </button>
+                            </div>
 
-          <!-- Pagination Row -->
-          <div
-            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
-          >
-            <!-- Left: Pagination Text -->
-            <div class="fs-14 text-muted">
-              Showing <strong>1–20</strong> of <strong>1000</strong>
-            </div>
+                            <!---- End of Others ---->
+                          </div>
+                        </div>
 
-            <!-- Right: Go to Page + Pagination -->
-            <div class="d-flex align-items-center gap-3 flex-wrap">
-              <!-- Go to Page -->
-              <form class="d-flex align-items-center gap-2">
-                <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
-                <input
-                  type="number"
-                  min="1"
-                  max="100"
-                  id="gotoPage"
-                  class="form-control form-control-sm"
-                  style="width: 60px;"
-                  placeholder="—"
-                />
-              </form>
+                        <!-- Scrollable Table -->
+                        <div
+                          class="table-responsive"
+                          style="max-height: 600px; overflow: auto;"
+                        >
+                          <table class="table table-bordered table-hover">
+                            <!---- Table head --->
+                            <thead
+                              class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+                            >
+                              <tr>
+                                <th
+                                  class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
+                                  style="min-width: 200px;">Employee Name</th
+                                >
+                                <th
+                                  class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
+                                  style="min-width: 200px;"
+                                  >Primary Department</th
+                                >
+                                <th
+                                  class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
+                                  style="min-width: 200px;"
+                                  >Secondary Department</th
+                                >
+                                <th
+                                  class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
+                                  style="min-width: 200px;"
+                                  >Contracted Weekly Hours</th
+                                >
+                                <th
+                                  class="bg-primary-blue text-white fw-600 fs-14 px-3 text-center"
+                                  style="min-width: 200px;"
+                                  >Maximum Weekly Hours</th
+                                >
 
-              <!-- Page Navigation -->
+                                <th
+                                  class="bg-primary-blue text-white px-3 fw-600 fs-14 text-nowrap text-center"
+                                  >Actions</th
+                                >
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- Table body and Row -->
+                              <style>
+                                .column {
+                                  min-width: 100px;
+                                }
+                              </style>
+                              {
+                                [
+                                  {
+                                    emp_status: "Lorem 1",
+                                    hour: "40 Hours",
+                                    hours2: "48 Hours",
+                                  },
+                                  {
+                                    emp_status: "Lorem 1",
+                                    hour: "40 Hours",
+                                    hours2: "48 Hours",
+                                  },
+                                  {
+                                    emp_status: "Lorem 1",
+                                    hour: "40 Hours",
+                                    hours2: "48 Hours",
+                                  },
+                                  {
+                                    emp_status: "Lorem 1",
+                                    hour: "40 Hours",
+                                    hours2: "48 Hours",
+                                  },
+                                  {
+                                    emp_status: "Lorem 1",
+                                    hour: "40 Hours",
+                                    hours2: "48 Hours",
+                                  },
+                                  {
+                                    emp_status: "Lorem 1",
+                                    hour: "40 Hours",
+                                    hours2: "48 Hours",
+                                  },
+                                  {
+                                    emp_status: "Lorem 1",
+                                    hour: "40 Hours",
+                                    hours2: "48 Hours",
+                                  },
+                                ].map((ele, index) => (
+                                  <tr class="fs-88">
+                                    <td class="fs-14 text-nowrap px-3 text-center column">
+                                      {ele.emp_status}
+                                    </td>
+                                    <td class="fs-14 text-nowrap px-3 text-center column">
+                                      {ele.emp_status}
+                                    </td>
+                                    <td class="fs-14 text-nowrap px-3 text-center column">
+                                      {ele.emp_status}
+                                    </td>
+                                    <td class="fs-14 text-nowrap px-3 text-center column">
+                                      {ele.hour}
+                                    </td>
+                                    <td class="fs-14 text-nowrap px-3 text-center column">
+                                      {ele.hours2}
+                                    </td>
 
-              <nav>
-                <ul class="pagination pagination-sm mb-0 text-primary-blue">
-                  <li class="page-item">
-                    <a
-                      class="page-link text-primary-blue px-2"
-                      href="#"
-                      aria-label="Previous"
-                    >
-                      &lsaquo;
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link text-primary-blue" href="#">1</a>
-                  </li>
-                  <li class="page-item active" aria-current="page">
-                    <span class="page-link">2</span>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link text-primary-blue" href="#">3</a>
-                  </li>
-                  <li class="page-item disabled">
-                    <span class="page-link text-primary-blue">...</span>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link text-primary-blue" href="#">100</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link hello" href="#" aria-label="Next">
-                      &rsaquo;
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
+                                    <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                                      <div class="d-flex gap-2">
+                                        <button
+                                          class="border-0 edit-button"
+                                          style="background-color: inherit;"
+                                          type="button"
+                                          data-bs-toggle="modal"
+                                          data-bs-target="#myStaffModal"
+                                          data-title="Edit Employment Status"
+                                          data-emp-type="{ele.emp_type}"
+                                        >
+                                          <img
+                                            src="images/png/icons/edit-2.svg"
+                                            alt=""
+                                          />
+                                        </button>
+                                        <button
+                                          class="border-0"
+                                          style="background-color: inherit;"
+                                          data-bs-toggle="modal"
+                                          data-bs-target="#deleteModal"
+                                        >
+                                          <img
+                                            src="images/png/icons/colored/delete.svg"
+                                            alt=""
+                                          />
+                                        </button>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                ))
+                              }
 
-          <!---- Pagination ---->
-        </div>
-        <ModalAddNew
-          modalId="myModal"
-          title={"Add Staff Member"}
-          inputPlace="Add Staff Member"
-        />
-        <ModalAddNew
-            title="Edit Staff Member"
-            modalId="myStaffModal"
-            inputPlace="Staff Member"
-        />
-        <DeleteModal modalId="deleteModal" title="Staff Member" />
+                              <!-- Repeat for more employees -->
+                            </tbody>
+                          </table>
+                        </div>
 
-        <!---- end of Modal --->
-      </div>
+                        <!---- End of table --->
+
+                        <!-- Pagination Row -->
+                        <div
+                          class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+                        >
+                          <!-- Left: Pagination Text -->
+                          <div class="fs-14 text-muted">
+                            Showing <strong>1–20</strong> of <strong
+                              >1000</strong
+                            >
+                          </div>
+
+                          <!-- Right: Go to Page + Pagination -->
+                          <div
+                            class="d-flex align-items-center gap-3 flex-wrap"
+                          >
+                            <!-- Go to Page -->
+                            <form class="d-flex align-items-center gap-2">
+                              <label for="gotoPage" class="fs-14 mb-0"
+                                >Go to page?</label
+                              >
+                              <input
+                                type="number"
+                                min="1"
+                                max="100"
+                                id="gotoPage"
+                                class="form-control form-control-sm"
+                                style="width: 60px;"
+                                placeholder="—"
+                              />
+                            </form>
+
+                            <!-- Page Navigation -->
+
+                            <nav>
+                              <ul
+                                class="pagination pagination-sm mb-0 text-primary-blue"
+                              >
+                                <li class="page-item">
+                                  <a
+                                    class="page-link text-primary-blue px-2"
+                                    href="#"
+                                    aria-label="Previous"
+                                  >
+                                    &lsaquo;
+                                  </a>
+                                </li>
+                                <li class="page-item">
+                                  <a
+                                    class="page-link text-primary-blue"
+                                    href="#">1</a
+                                  >
+                                </li>
+                                <li
+                                  class="page-item active"
+                                  aria-current="page"
+                                >
+                                  <span class="page-link">2</span>
+                                </li>
+                                <li class="page-item">
+                                  <a
+                                    class="page-link text-primary-blue"
+                                    href="#">3</a
+                                  >
+                                </li>
+                                <li class="page-item disabled">
+                                  <span class="page-link text-primary-blue"
+                                    >...</span
+                                  >
+                                </li>
+                                <li class="page-item">
+                                  <a
+                                    class="page-link text-primary-blue"
+                                    href="#">100</a
+                                  >
+                                </li>
+                                <li class="page-item">
+                                  <a
+                                    class="page-link hello"
+                                    href="#"
+                                    aria-label="Next"
+                                  >
+                                    &rsaquo;
+                                  </a>
+                                </li>
+                              </ul>
+                            </nav>
+                          </div>
+                        </div>
+
+                        <!---- Pagination ---->
+                      </div>
+                      <ModalAddNew
+                        modalId="myModal"
+                        title={"Add Staff Member"}
+                        inputPlace="Add Staff Member"
+                      />
+                      <ModalAddNew
+                        title="Edit Staff Member"
+                        modalId="myStaffModal"
+                        inputPlace="Staff Member"
+                      />
+                      <DeleteModal modalId="deleteModal" title="Staff Member" />
+
+                      <!---- end of Modal --->
+                    </div>
+                  </div>
+
+                  <div id="plannerPanel" class="container tab-pane">
+                    <br />
+                    <div class="d-flex flex-column gap-4 mt-4">
+                      <div
+                        class="d-flex flex-column py-3 px-4 border border-1 rounded-5"
+                      >
+                        <div class="d-flex justify-content-between">
+                          <div class="d-flex justify-content-between gap-5">
+                            <div>
+                              <h3 class="fs-18 fw-700">Week of 03/11/2025</h3>
+                              <p class="fs-14 text-secondary">
+                                Central London Pharmarcy
+                              </p>
+                            </div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                              <button
+                                class="btn bg-primary-blue text-white px-3 fs-12 fw-600"
+                                style="height: 37px;"
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#myPublishRotaModal"
+                                data-title="Publish Rota"
+                              >
+                                <span class="me-2">Publish Rota</span>
+                                <img src="images/png/icons/send.svg" alt="" />
+                              </button>
+                            </div>
+                          </div>
+                          <div class="d-flex flex-grow-1 justify-content-end">
+                            <div class="d-flex gap-3" style="height: 37px;">
+                              <div class="dropdown">
+                                <button
+                                  class="btn white_button text-primary-blue border-0 py-2 text-white fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                                  type="button"
+                                  data-bs-toggle="dropdown"
+                                  aria-expanded="false"
+                                  data-bs-offset="-20,10"
+                                >
+                                  <span>Create Shift</span>
+                                  <img
+                                    src="images/png/icons/arrow-down-blue.svg"
+                                    alt="arrow-down"
+                                  />
+                                </button>
+                                <div class="dropdown-menu p-0 border-0">
+                                  <ul class="list-group border-0 fw-600 fs-14">
+                                    <li
+                                      role="button"
+                                      class="list-group-item pointer"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#updateStatus"
+                                      data-title="Update Status"
+                                      data-emp-type="{ele.emp_type}"
+                                    >
+                                      <div>Create Shift</div>
+                                    </li>
+
+                                    <li
+                                      role="button"
+                                      class="list-group-item pointer"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#updateStatus"
+                                      data-title="Update Status"
+                                      data-emp-type="{ele.emp_type}"
+                                    >
+                                      <div>Create Open Shift</div>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                              <!-- Download Dropdown -->
+
+                              <div class="dropdown">
+                                <button
+                                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                                  type="button"
+                                  data-bs-toggle="dropdown"
+                                  aria-expanded="false"
+                                  data-bs-offset="-20,10"
+                                >
+                                  <img
+                                    src="images/png/icons/download.svg"
+                                    alt="arrow-down"
+                                  />
+                                  <span>Download </span>
+                                  <img
+                                    src="images/png/icons/arrow-down.svg"
+                                    alt="arrow-down"
+                                  />
+                                </button>
+                                <div class="dropdown-menu p-0 border-0">
+                                  <ul class="list-group border-0 fw-600 fs-14">
+                                    <li class="list-group-item">
+                                      <div>CSV</div>
+                                    </li>
+                                    <li class="list-group-item">
+                                      <div>Excel</div>
+                                    </li>
+                                    <li class="list-group-item">
+                                      <div>PDF</div>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- table -->
+                      <div class="table-responsive-lg">
+                        <table class="table">...</table>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                
+                <ModalRota
+                  title="Publish Rota"
+                  modalId="myPublishRotaModal"
+                  inputPlace="Publish Rota"
+                />
               </div>
               <div
                 class="tab-pane fade"
@@ -980,100 +1146,149 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                 role="tabpanel"
                 aria-labelledby="v-pills-sent-tab"
               >
-                <div class=" d-flex flex-column gap-5 px-3 py-4">
-                    <div class="d-flex justify-content-between" style="width: 100%;">
+                <div class="d-flex flex-column gap-5 px-3 py-4">
+                  <div
+                    class="d-flex justify-content-between"
+                    style="width: 100%;"
+                  >
+                    <div>
+                      <h3 class="fs-18 fw-700">Shift Templates</h3>
+                      <p class="fs-14 text-grey">
+                        Browse created shift templates
+                      </p>
+                    </div>
+                    <div class="d-flex flex-grow-1 justify-content-end">
+                      <button
+                        class="btn bg-primary-blue text-white px-3 fs-14 fw-600"
+                        style="height: 34px;"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myTemplateModal"
+                        data-title="Add Employment Status"
+                      >
+                        <span class="me-2">Create Shift Template</span> +
+                      </button>
+                    </div>
+                  </div>
+                  <div class="d-flex gap-3">
+                    <div
+                      class="d-flex flex-column gap-3 py-3 px-3 border border-2 rounded-5"
+                      style="width: 359px;"
+                    >
+                      <div
+                        class="py-2 px-3 border rounded-pill fw-700 fs-14 text-center"
+                        style="width: 130px;"
+                      >
+                        Morning Shift
+                      </div>
+                      <div
+                        class="rounded-4 p-3 d-flex justify-content-between bg-grey"
+                      >
                         <div>
-                            <h3 class="fs-18 fw-700">Shift Templates</h3>
-                            <p class="fs-14 text-grey">Browse created shift templates</p>
+                          <div class="fs-12">Start Time</div>
+                          <div class="fw-700">09:00</div>
                         </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            <button
-                            class="btn bg-primary-blue text-white px-3 fs-14 fw-600"
-                            style="height: 34px;"
-                            type="button"
-                            data-bs-toggle="modal"
-                            data-bs-target="#myTemplateModal"
-                            data-title="Add Employment Status"
-                            >
-                            <span class="me-2">Create Shift Template</span> +
-                            </button>
+                        <div>
+                          <div class="fs-12">End Time</div>
+                          <div class="fw-700">17:00</div>
                         </div>
-                        
+                      </div>
+                      <button
+                        type="button"
+                        class="white_button fs-14 d-flex gap-1 align-items-center"
+                        id="deleteHoliday"
+                        style="border: 0px !important;"
+                      >
+                        <span class="fs-14 fw-600" style="color: red;"
+                          >Delete Template
+                        </span>
+                        <img
+                          src="images/png/icons/colored/delete.svg"
+                          alt="delete"
+                        />
+                      </button>
                     </div>
-                    <div class="d-flex gap-3">
-                        <div class="d-flex flex-column gap-3 py-3 px-3 border border-2 rounded-5" style="width: 359px;">
-                            <div class="py-2 px-3 border rounded-pill fw-700 fs-14 text-center" style="width: 130px;">Morning Shift</div>
-                            <div class="rounded-4 p-3 d-flex justify-content-between bg-grey">
-                                <div>
-                                    <div class="fs-12">Start Time</div>
-                                    <div class="fw-700">09:00</div>
-                                </div>
-                                <div>
-                                    <div class="fs-12">End Time</div>
-                                    <div class="fw-700">17:00</div>
-                                </div>
-                            </div>
-                            <button
-                                type="button"
-                                class="white_button fs-14 d-flex gap-1 align-items-center"
-                                id="deleteHoliday"
-                                style="border: 0px !important;"
-                            >
-                                <span class="fs-14 fw-600" style="color: red;">Delete Template </span>
-                                <img src="images/png/icons/colored/delete.svg" alt="delete" />
-                            </button>
+                    <div
+                      class="d-flex flex-column gap-3 py-3 px-3 border border-2 rounded-5"
+                      style="width: 359px;"
+                    >
+                      <div
+                        class="py-2 px-3 border rounded-pill fw-700 fs-14 text-center"
+                        style="width: 140px;"
+                      >
+                        Afternoon Shift
+                      </div>
+                      <div
+                        class="rounded-4 p-3 d-flex justify-content-between bg-grey"
+                      >
+                        <div>
+                          <div class="fs-12">Start Time</div>
+                          <div class="fw-700">12:00</div>
                         </div>
-                        <div class="d-flex flex-column gap-3 py-3 px-3 border border-2 rounded-5" style="width: 359px;">
-                            <div class="py-2 px-3 border rounded-pill fw-700 fs-14 text-center" style="width: 140px;">Afternoon Shift</div>
-                            <div class="rounded-4 p-3 d-flex justify-content-between bg-grey">
-                                <div>
-                                    <div class="fs-12">Start Time</div>
-                                    <div class="fw-700">12:00</div>
-                                </div>
-                                <div>
-                                    <div class="fs-12">End Time</div>
-                                    <div class="fw-700">19:00</div>
-                                </div>
-                            </div>
-                            <button
-                                type="button"
-                                class="white_button fs-14 d-flex gap-1 align-items-center"
-                                id="deleteHoliday"
-                                style="border: 0px !important;"
-                            >
-                                <span class="fs-14 fw-600" style="color: red;">Delete Template </span>
-                                <img src="images/png/icons/colored/delete.svg" alt="delete" />
-                            </button>
+                        <div>
+                          <div class="fs-12">End Time</div>
+                          <div class="fw-700">19:00</div>
                         </div>
-                        <div class="d-flex flex-column gap-3 py-3 px-3 border border-2 rounded-5" style="width: 359px;">
-                            <div class="py-2 px-3 border rounded-pill fw-700 fs-14 text-center" style="width: 130px;">Night Shift</div>
-                            <div class="rounded-4 p-3 d-flex justify-content-between bg-grey">
-                                <div>
-                                    <div class="fs-12">Start Time</div>
-                                    <div class="fw-700">19:00</div>
-                                </div>
-                                <div>
-                                    <div class="fs-12">End Time</div>
-                                    <div class="fw-700">07:00</div>
-                                </div>
-                            </div>
-                            <button
-                                type="button"
-                                class="white_button fs-14 d-flex gap-1 align-items-center"
-                                id="deleteHoliday"
-                                style="border: 0px !important;"
-                            >
-                                <span class="fs-14 fw-600" style="color: red;">Delete Template </span>
-                                <img src="images/png/icons/colored/delete.svg" alt="delete" />
-                            </button>
-                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        class="white_button fs-14 d-flex gap-1 align-items-center"
+                        id="deleteHoliday"
+                        style="border: 0px !important;"
+                      >
+                        <span class="fs-14 fw-600" style="color: red;"
+                          >Delete Template
+                        </span>
+                        <img
+                          src="images/png/icons/colored/delete.svg"
+                          alt="delete"
+                        />
+                      </button>
                     </div>
+                    <div
+                      class="d-flex flex-column gap-3 py-3 px-3 border border-2 rounded-5"
+                      style="width: 359px;"
+                    >
+                      <div
+                        class="py-2 px-3 border rounded-pill fw-700 fs-14 text-center"
+                        style="width: 130px;"
+                      >
+                        Night Shift
+                      </div>
+                      <div
+                        class="rounded-4 p-3 d-flex justify-content-between bg-grey"
+                      >
+                        <div>
+                          <div class="fs-12">Start Time</div>
+                          <div class="fw-700">19:00</div>
+                        </div>
+                        <div>
+                          <div class="fs-12">End Time</div>
+                          <div class="fw-700">07:00</div>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        class="white_button fs-14 d-flex gap-1 align-items-center"
+                        id="deleteHoliday"
+                        style="border: 0px !important;"
+                      >
+                        <span class="fs-14 fw-600" style="color: red;"
+                          >Delete Template
+                        </span>
+                        <img
+                          src="images/png/icons/colored/delete.svg"
+                          alt="delete"
+                        />
+                      </button>
+                    </div>
+                  </div>
                 </div>
 
                 <ModalAddNew
-                    title="Create Template"
-                    modalId="myTemplateModal"
-                    inputPlace="Create Template"
+                  title="Create Template"
+                  modalId="myTemplateModal"
+                  inputPlace="Create Template"
                 />
               </div>
               <div
@@ -1082,397 +1297,414 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                 role="tabpanel"
                 aria-labelledby="v-pills-requests-tab"
               >
-                <div class=" d-flex flex-column gap-5 px-3 py-4">
-                    <!-- Nav pills -->
-                <ul
-                  class="nav nav-pills d-flex justify-content-between p-1 upload_offer_bg"
-                  style="width: 372px;"
-                  role="tablist"
-                >
-                  <li class="nav-item">
-                    <a
-                      class="nav-link active fs-14 fw-600"
-                      data-bs-toggle="pill"
-                      href="#openShift">Open Shift Request
-                      <span class="rounded-circle px-2 py-1 ms-2 fs-12 text-white" style="background-color: #C7A930">4</span>
-                      </a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link fs-14 fw-600"
-                      data-bs-toggle="pill"
-                      href="#shiftSwap">Shift Swap
-                      <span class="rounded-circle px-2 py-1 ms-2 fs-12 text-white" style="background-color: #C7A930">3</span>
-                      </a
-                    >
-                  </li>
-                </ul>
+                <div class="d-flex flex-column gap-5 px-3 py-4">
+                  <!-- Nav pills -->
+                  <ul
+                    class="nav nav-pills d-flex justify-content-between p-1 upload_offer_bg"
+                    style="width: 372px;"
+                    role="tablist"
+                  >
+                    <li class="nav-item">
+                      <a
+                        class="nav-link active fs-14 fw-600"
+                        data-bs-toggle="pill"
+                        href="#openShift"
+                        >Open Shift Request
+                        <span
+                          class="rounded-circle px-2 py-1 ms-2 fs-12 text-white"
+                          style="background-color: #C7A930">4</span
+                        >
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link fs-14 fw-600"
+                        data-bs-toggle="pill"
+                        href="#shiftSwap"
+                        >Shift Swap
+                        <span
+                          class="rounded-circle px-2 py-1 ms-2 fs-12 text-white"
+                          style="background-color: #C7A930">3</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
 
-                <!-- Tab panes -->
-                <div class="tab-content">
-                  <div id="openShift" class="container tab-pane active">
-                    
-                     <div class="d-flex flex-column gap-3">
-                        <div class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5" >
-                            <div class="d-flex justify-content-between" >
-                        <div>
-                            <h3 class="fs-18 fw-700">James Anderson</h3>
-                            <p class="fs-14 text-grey">Open Shift ID: open-1</p>
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div id="openShift" class="container tab-pane active">
+                      <div class="d-flex flex-column gap-3">
+                        <div
+                          class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5"
+                        >
+                          <div class="d-flex justify-content-between">
+                            <div>
+                              <h3 class="fs-18 fw-700">James Anderson</h3>
+                              <p class="fs-14 text-grey">
+                                Open Shift ID: open-1
+                              </p>
+                            </div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                              <div class="d-flex gap-3" style="height: 37px;">
+                                <button
+                                  class="btn text-white fs-14"
+                                  type="button"
+                                  style="background-color: #2BC700; width: 118px;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#approveModal"
+                                >
+                                  Approve
+                                </button>
+                                <button
+                                  class="btn border_color_red text-white fs-14 px-3"
+                                  type="button"
+                                  style="background-color: red; width: 118px;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#rejectModal"
+                                >
+                                  Reject
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="rounded-4 p-3 d-flex justify-content-between bg-grey w-50 w-md-100"
+                          >
+                            "I am available and would like to take this shift"
+                          </div>
+                          <div class="fs-14 text-secondary">
+                            Requested on: 08/11/2025, 17:29:30
+                          </div>
                         </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            
-
-                        <div class="d-flex gap-3" style="height: 37px;">
-                            <button
-                            class="btn text-white fs-14"
-                            type="button"
-                            style="background-color: #2BC700; width: 118px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#approveModal"
-                            >
-                            Approve
-                            </button>
-                            <button
-                            class="btn border_color_red text-white fs-14 px-3"
-                            type="button"
-                            style="background-color: red; width: 118px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#rejectModal"
-                            >
-                            Reject
-                            </button>
+                        <div
+                          class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5"
+                        >
+                          <div class="d-flex justify-content-between">
+                            <div>
+                              <h3 class="fs-18 fw-700">James Anderson</h3>
+                              <p class="fs-14 text-grey">
+                                Open Shift ID: open-1
+                              </p>
+                            </div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                              <div class="d-flex gap-3" style="height: 37px;">
+                                <button
+                                  class="btn text-white fs-14"
+                                  type="button"
+                                  style="background-color: #2BC700; width: 118px;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#approveModal"
+                                >
+                                  Approve
+                                </button>
+                                <button
+                                  class="btn border_color_red text-white fs-14 px-3"
+                                  type="button"
+                                  style="background-color: red; width: 118px;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#rejectModal"
+                                >
+                                  Reject
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="rounded-4 p-3 d-flex justify-content-between bg-grey w-50 w-md-100"
+                          >
+                            "I am available and would like to take this shift"
+                          </div>
+                          <div class="fs-14 text-secondary">
+                            Requested on: 08/11/2025, 17:29:30
+                          </div>
                         </div>
+                        <div
+                          class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5"
+                        >
+                          <div class="d-flex justify-content-between">
+                            <div>
+                              <h3 class="fs-18 fw-700">James Anderson</h3>
+                              <p class="fs-14 text-grey">
+                                Open Shift ID: open-1
+                              </p>
+                            </div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                              <div class="d-flex gap-3" style="height: 37px;">
+                                <button
+                                  class="btn text-white fs-14"
+                                  type="button"
+                                  style="background-color: #2BC700; width: 118px;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#approveModal"
+                                >
+                                  Approve
+                                </button>
+                                <button
+                                  class="btn border_color_red text-white fs-14 px-3"
+                                  type="button"
+                                  style="background-color: red; width: 118px;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#rejectModal"
+                                >
+                                  Reject
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="rounded-4 p-3 d-flex justify-content-between bg-grey w-50 w-md-100"
+                          >
+                            "I am available and would like to take this shift"
+                          </div>
+                          <div class="fs-14 text-secondary">
+                            Requested on: 08/11/2025, 17:29:30
+                          </div>
                         </div>
-                        
+                        <div
+                          class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5"
+                        >
+                          <div class="d-flex justify-content-between">
+                            <div>
+                              <h3 class="fs-18 fw-700">James Anderson</h3>
+                              <p class="fs-14 text-grey">
+                                Open Shift ID: open-1
+                              </p>
+                            </div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                              <div class="d-flex gap-3" style="height: 37px;">
+                                <button
+                                  class="btn text-white fs-14"
+                                  type="button"
+                                  style="background-color: #2BC700; width: 118px;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#approveModal"
+                                >
+                                  Approve
+                                </button>
+                                <button
+                                  class="btn border_color_red text-white fs-14 px-3"
+                                  type="button"
+                                  style="background-color: red; width: 118px;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#rejectModal"
+                                >
+                                  Reject
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="rounded-4 p-3 d-flex justify-content-between bg-grey w-50 w-md-100"
+                          >
+                            "I am available and would like to take this shift"
+                          </div>
+                          <div class="fs-14 text-secondary">
+                            Requested on: 08/11/2025, 17:29:30
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                            <div class="rounded-4 p-3 d-flex justify-content-between bg-grey w-50 w-md-100">
-                                "I am available and would like to take this shift"
+                    <div id="shiftSwap" class="container tab-pane">
+                      <div class="d-flex flex-column gap-3">
+                        <div
+                          class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5"
+                        >
+                          <div class="d-flex justify-content-between">
+                            <div>
+                              <h3 class="fs-18 fw-700">
+                                James Anderson <img
+                                  src="images/png/icons/arrow-right-black.svg"
+                                  alt=""
+                                /> Sophie Williams
+                              </h3>
                             </div>
-                            <div class="fs-14 text-secondary">
-                                Requested on: 08/11/2025, 17:29:30
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                              <div class="d-flex gap-3" style="height: 37px;">
+                                <button
+                                  class="btn text-white fs-14"
+                                  type="button"
+                                  style="background-color: #2BC700; width: 118px;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#approveModal"
+                                >
+                                  Approve
+                                </button>
+                                <button
+                                  class="btn border_color_red text-white fs-14 px-3"
+                                  type="button"
+                                  style="background-color: red; width: 118px;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#rejectModal"
+                                >
+                                  Reject
+                                </button>
+                              </div>
                             </div>
-                        </div>
-                        <div class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5" >
-                            <div class="d-flex justify-content-between" >
-                        <div>
-                            <h3 class="fs-18 fw-700">James Anderson</h3>
-                            <p class="fs-14 text-grey">Open Shift ID: open-1</p>
-                        </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            
-
-                        <div class="d-flex gap-3" style="height: 37px;">
-                            <button
-                            class="btn text-white fs-14"
-                            type="button"
-                            style="background-color: #2BC700; width: 118px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#approveModal"
-                            >
-                            Approve
-                            </button>
-                            <button
-                            class="btn border_color_red text-white fs-14 px-3"
-                            type="button"
-                            style="background-color: red; width: 118px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#rejectModal"
-                            >
-                            Reject
-                            </button>
-                        </div>
-                        </div>
-                        
-                    </div>
-                            <div class="rounded-4 p-3 d-flex justify-content-between bg-grey w-50 w-md-100">
-                                "I am available and would like to take this shift"
+                          </div>
+                          <div
+                            class="rounded-4 p-3 d-flex flex-column gap-3 bg-grey w-50 w-md-100"
+                          >
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <div class="fs-12">Date</div>
+                                <div class="fw-700">03/11/2025</div>
+                              </div>
+                              <div class="me-3">
+                                <div class="fs-12">Time</div>
+                                <div class="fw-700">09:00 - 13:00</div>
+                              </div>
                             </div>
-                            <div class="fs-14 text-secondary">
-                                Requested on: 08/11/2025, 17:29:30
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <div class="fs-12">Role</div>
+                                <div class="fw-700">Pharmacy Tech</div>
+                              </div>
+                              <div>
+                                <div class="fs-12">Branch</div>
+                                <div class="fw-700">Central London</div>
+                              </div>
                             </div>
+                          </div>
+                          <div class="fs-14 text-secondary">
+                            Requested on: 08/11/2025, 17:29:30
+                          </div>
                         </div>
-                        <div class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5" >
-                            <div class="d-flex justify-content-between" >
-                        <div>
-                            <h3 class="fs-18 fw-700">James Anderson</h3>
-                            <p class="fs-14 text-grey">Open Shift ID: open-1</p>
-                        </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            
-
-                        <div class="d-flex gap-3" style="height: 37px;">
-                            <button
-                            class="btn text-white fs-14"
-                            type="button"
-                            style="background-color: #2BC700; width: 118px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#approveModal"
-                            >
-                            Approve
-                            </button>
-                            <button
-                            class="btn border_color_red text-white fs-14 px-3"
-                            type="button"
-                            style="background-color: red; width: 118px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#rejectModal"
-                            >
-                            Reject
-                            </button>
-                        </div>
-                        </div>
-                        
-                    </div>
-                            <div class="rounded-4 p-3 d-flex justify-content-between bg-grey w-50 w-md-100">
-                                "I am available and would like to take this shift"
+                        <div
+                          class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5"
+                        >
+                          <div class="d-flex justify-content-between">
+                            <div>
+                              <h3 class="fs-18 fw-700">
+                                James Anderson <img
+                                  src="images/png/icons/arrow-right-black.svg"
+                                  alt=""
+                                /> Sophie Williams
+                              </h3>
                             </div>
-                            <div class="fs-14 text-secondary">
-                                Requested on: 08/11/2025, 17:29:30
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                              <div class="d-flex gap-3" style="height: 37px;">
+                                <button
+                                  class="btn text-white fs-14"
+                                  type="button"
+                                  style="background-color: #2BC700; width: 118px;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#approveModal"
+                                >
+                                  Approve
+                                </button>
+                                <button
+                                  class="btn border_color_red text-white fs-14 px-3"
+                                  type="button"
+                                  style="background-color: red; width: 118px;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#rejectModal"
+                                >
+                                  Reject
+                                </button>
+                              </div>
                             </div>
-                        </div>
-                        <div class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5" >
-                            <div class="d-flex justify-content-between" >
-                        <div>
-                            <h3 class="fs-18 fw-700">James Anderson</h3>
-                            <p class="fs-14 text-grey">Open Shift ID: open-1</p>
-                        </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            
-
-                        <div class="d-flex gap-3" style="height: 37px;">
-                            <button
-                            class="btn text-white fs-14"
-                            type="button"
-                            style="background-color: #2BC700; width: 118px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#approveModal"
-                            >
-                            Approve
-                            </button>
-                            <button
-                            class="btn border_color_red text-white fs-14 px-3"
-                            type="button"
-                            style="background-color: red; width: 118px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#rejectModal"
-                            >
-                            Reject
-                            </button>
-                        </div>
-                        </div>
-                        
-                    </div>
-                            <div class="rounded-4 p-3 d-flex justify-content-between bg-grey w-50 w-md-100">
-                                "I am available and would like to take this shift"
+                          </div>
+                          <div
+                            class="rounded-4 p-3 d-flex flex-column gap-3 bg-grey w-50 w-md-100"
+                          >
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <div class="fs-12">Date</div>
+                                <div class="fw-700">03/11/2025</div>
+                              </div>
+                              <div class="me-3">
+                                <div class="fs-12">Time</div>
+                                <div class="fw-700">09:00 - 13:00</div>
+                              </div>
                             </div>
-                            <div class="fs-14 text-secondary">
-                                Requested on: 08/11/2025, 17:29:30
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <div class="fs-12">Role</div>
+                                <div class="fw-700">Pharmacy Tech</div>
+                              </div>
+                              <div>
+                                <div class="fs-12">Branch</div>
+                                <div class="fw-700">Central London</div>
+                              </div>
                             </div>
+                          </div>
+                          <div class="fs-14 text-secondary">
+                            Requested on: 08/11/2025, 17:29:30
+                          </div>
                         </div>
-                        
-                        
+                        <div
+                          class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5"
+                        >
+                          <div class="d-flex justify-content-between">
+                            <div>
+                              <h3 class="fs-18 fw-700">
+                                James Anderson <img
+                                  src="images/png/icons/arrow-right-black.svg"
+                                  alt=""
+                                /> Sophie Williams
+                              </h3>
+                            </div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                              <div class="d-flex gap-3" style="height: 37px;">
+                                <button
+                                  class="btn text-white fs-14"
+                                  type="button"
+                                  style="background-color: #2BC700; width: 118px;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#approveModal"
+                                >
+                                  Approve
+                                </button>
+                                <button
+                                  class="btn border_color_red text-white fs-14 px-3"
+                                  type="button"
+                                  style="background-color: red; width: 118px;"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#rejectModal"
+                                >
+                                  Reject
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="rounded-4 p-3 d-flex flex-column gap-3 bg-grey w-50 w-md-100"
+                          >
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <div class="fs-12">Date</div>
+                                <div class="fw-700">03/11/2025</div>
+                              </div>
+                              <div class="me-3">
+                                <div class="fs-12">Time</div>
+                                <div class="fw-700">09:00 - 13:00</div>
+                              </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <div class="fs-12">Role</div>
+                                <div class="fw-700">Pharmacy Tech</div>
+                              </div>
+                              <div>
+                                <div class="fs-12">Branch</div>
+                                <div class="fw-700">Central London</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fs-14 text-secondary">
+                            Requested on: 08/11/2025, 17:29:30
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div id="shiftSwap" class="container tab-pane">
-                    
-                    <div class="d-flex flex-column gap-3">
-                        <div class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5" >
-                            <div class="d-flex justify-content-between" >
-                        <div>
-                            <h3 class="fs-18 fw-700">James Anderson <img src="images/png/icons/arrow-right-black.svg" alt=""> Sophie Williams</h3>
-                            
-                        </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            
-
-                        <div class="d-flex gap-3" style="height: 37px;">
-                            <button
-                            class="btn text-white fs-14"
-                            type="button"
-                            style="background-color: #2BC700; width: 118px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#approveModal"
-                            >
-                            Approve
-                            </button>
-                            <button
-                            class="btn border_color_red text-white fs-14 px-3"
-                            type="button"
-                            style="background-color: red; width: 118px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#rejectModal"
-                            >
-                            Reject
-                            </button>
-                        </div>
-                        </div>
-                        
-                    </div>
-                            <div class="rounded-4 p-3 d-flex flex-column gap-3 bg-grey w-50 w-md-100">
-                                <div class="d-flex justify-content-between">
-
-                                
-                                    <div>
-                                        <div class="fs-12">Date</div>
-                                        <div class="fw-700">03/11/2025</div>
-                                    </div>
-                                    <div class="me-3">
-                                        <div class="fs-12">Time</div>
-                                        <div class="fw-700">09:00 - 13:00</div>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between">
-
-                                
-                                    <div>
-                                        <div class="fs-12">Role</div>
-                                        <div class="fw-700">Pharmacy Tech</div>
-                                    </div>
-                                    <div>
-                                        <div class="fs-12">Branch</div>
-                                        <div class="fw-700">Central London</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="fs-14 text-secondary">
-                                Requested on: 08/11/2025, 17:29:30
-                            </div>
-                        </div>
-                        <div class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5" >
-                            <div class="d-flex justify-content-between" >
-                        <div>
-                            <h3 class="fs-18 fw-700">James Anderson <img src="images/png/icons/arrow-right-black.svg" alt=""> Sophie Williams</h3>
-                            
-                        </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            
-
-                        <div class="d-flex gap-3" style="height: 37px;">
-                            <button
-                            class="btn text-white fs-14"
-                            type="button"
-                            style="background-color: #2BC700; width: 118px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#approveModal"
-                            >
-                            Approve
-                            </button>
-                            <button
-                            class="btn border_color_red text-white fs-14 px-3"
-                            type="button"
-                            style="background-color: red; width: 118px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#rejectModal"
-                            >
-                            Reject
-                            </button>
-                        </div>
-                        </div>
-                        
-                    </div>
-                            <div class="rounded-4 p-3 d-flex flex-column gap-3 bg-grey w-50 w-md-100">
-                                <div class="d-flex justify-content-between">
-
-                                
-                                    <div>
-                                        <div class="fs-12">Date</div>
-                                        <div class="fw-700">03/11/2025</div>
-                                    </div>
-                                    <div class="me-3">
-                                        <div class="fs-12">Time</div>
-                                        <div class="fw-700">09:00 - 13:00</div>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between">
-
-                                
-                                    <div>
-                                        <div class="fs-12">Role</div>
-                                        <div class="fw-700">Pharmacy Tech</div>
-                                    </div>
-                                    <div>
-                                        <div class="fs-12">Branch</div>
-                                        <div class="fw-700">Central London</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="fs-14 text-secondary">
-                                Requested on: 08/11/2025, 17:29:30
-                            </div>
-                        </div>
-                        <div class="d-flex flex-column gap-3 py-3 px-4 border border-2 rounded-5" >
-                            <div class="d-flex justify-content-between" >
-                        <div>
-                            <h3 class="fs-18 fw-700">James Anderson <img src="images/png/icons/arrow-right-black.svg" alt=""> Sophie Williams</h3>
-                            
-                        </div>
-                        <div class="d-flex flex-grow-1 justify-content-end">
-                            
-
-                        <div class="d-flex gap-3" style="height: 37px;">
-                            <button
-                            class="btn text-white fs-14"
-                            type="button"
-                            style="background-color: #2BC700; width: 118px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#approveModal"
-                            >
-                            Approve
-                            </button>
-                            <button
-                            class="btn border_color_red text-white fs-14 px-3"
-                            type="button"
-                            style="background-color: red; width: 118px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#rejectModal"
-                            >
-                            Reject
-                            </button>
-                        </div>
-                        </div>
-                        
-                    </div>
-                            <div class="rounded-4 p-3 d-flex flex-column gap-3 bg-grey w-50 w-md-100">
-                                <div class="d-flex justify-content-between">
-
-                                
-                                    <div>
-                                        <div class="fs-12">Date</div>
-                                        <div class="fw-700">03/11/2025</div>
-                                    </div>
-                                    <div class="me-3">
-                                        <div class="fs-12">Time</div>
-                                        <div class="fw-700">09:00 - 13:00</div>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between">
-
-                                
-                                    <div>
-                                        <div class="fs-12">Role</div>
-                                        <div class="fw-700">Pharmacy Tech</div>
-                                    </div>
-                                    <div>
-                                        <div class="fs-12">Branch</div>
-                                        <div class="fw-700">Central London</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="fs-14 text-secondary">
-                                Requested on: 08/11/2025, 17:29:30
-                            </div>
-                        </div>
-                        
-                        
-                        
-                    </div>
-                  </div>
-                </div>
                 </div>
 
                 <RejectModal modalId="rejectModal" title="Request" />
-                <ApproveTaskModal modalId="approveModal" title="Approve Request" />
+                <ApproveTaskModal
+                  modalId="approveModal"
+                  title="Approve Request"
+                />
               </div>
               <div
                 class="tab-pane fade"
@@ -1481,271 +1713,276 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                 aria-labelledby="v-pills-history-tab"
               >
                 <div
-          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
-          id="manage_list_of_payslip"
-        >
-          {/* Page Title */}
-          <div class="vstack gap-3">
-            <div class="d-flex gap-3 align-items-center">
-              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
-                >Version History</span
-              >
-            </div>
-          </div>
-          {/* Page Title */}
+                  class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+                  id="manage_list_of_payslip"
+                >
+                  {/* Page Title */}
+                  <div class="vstack gap-3">
+                    <div class="d-flex gap-3 align-items-center">
+                      <span
+                        class="text-dark font-ubuntu-bold fs-18 inline-block"
+                        >Version History</span
+                      >
+                    </div>
+                  </div>
+                  {/* Page Title */}
 
-          {/* Page Content Box */}
+                  {/* Page Content Box */}
 
-          <div>
-            <div class="d-flex flex-row justify-content-between gap-5">
-              <!---- Search  -->
-              <div class="d-flex gap-3">
-                <input
-                  type="text"
-                  class="form-control search-input search-width fs-14"
-                  placeholder="Search..."
-                />
-                <img
-                  src="images/png/icons/initialize.svg"
-                  class="initialize"
-                  alt="arrow-down"
-                />
-              </div>
+                  <div>
+                    <div class="d-flex flex-row justify-content-between gap-5">
+                      <!---- Search  -->
+                      <div class="d-flex gap-3">
+                        <input
+                          type="text"
+                          class="form-control search-input search-width fs-14"
+                          placeholder="Search..."
+                        />
+                        <img
+                          src="images/png/icons/initialize.svg"
+                          class="initialize"
+                          alt="arrow-down"
+                        />
+                      </div>
 
-              <!-- Others -->
-              <div class="responsive gap-1">
-                
+                      <!-- Others -->
+                      <div class="responsive gap-1">
+                        <!-- Calendar Selector -->
+                        <input
+                          type="month"
+                          class="form-control fs-14"
+                          style=""
+                          value="2025-11"
+                        />
+                      </div>
 
-                <!-- Calendar Selector -->
-                <input
-                  type="month"
-                  class="form-control fs-14"
-                  style=""
-                  value="2025-11"
-                />
+                      <!---- End of Others ---->
+                    </div>
+                  </div>
 
-                
-              </div>
+                  {/* Page Content Box */}
 
-              <!---- End of Others ---->
-            </div>
-          </div>
-
-          {/* Page Content Box */}
-
-          <!-- Scrollable Table -->
-          <div
-            class="table-responsive"
-            style="max-height: 600px; overflow: auto;"
-          >
-            <table class="table table-bordered table-hover">
-              <!---- Table head --->
-              <thead
-                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
-              >
-                <tr>
-                  
-                  <th
-                    class="bg-primary-blue text-white fw-600 px-3 fs-14 text-left"
-                    style="min-width: 200px;">Publisher</th
+                  <!-- Scrollable Table -->
+                  <div
+                    class="table-responsive"
+                    style="max-height: 600px; overflow: auto;"
                   >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Date</th
-                  >
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
-                    >Time</th
-                  >
-                  
-
-                  <th
-                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
-                    >Actions</th
-                  >
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Table body and Row -->
-                <style>
-                  .column {
-                    min-width: 120px;
-                  }
-                </style>
-                {
-                  [
-                    {
-                      employee_name: "Lorem Ipsum",
-                      time: "Lorem 1",
-                      global_role: "Lorem 1",
-                      status: "Active",
-                      last_login: "9, Nov 2025",
-                    },
-                    {
-                      employee_name: "Lorem Ipsum",
-                      time: "Lorem 1",
-                      global_role: "Lorem 1",
-                      status: "Inactive",
-                      last_login: "9, Nov 2025",
-                    },
-                    {
-                      employee_name: "Lorem Ipsum",
-                      time: "Lorem 1",
-                      global_role: "Lorem 1",
-                      status: "Active",
-                      last_login: "9, Nov 2025",
-                    },
-                    {
-                      employee_name: "Lorem Ipsum",
-                      time: "Lorem 1",
-                      global_role: "Lorem 1",
-                      status: "Inactive",
-                      last_login: "9, Nov 2025",
-                    },
-                    {
-                      employee_name: "Lorem Ipsum",
-                      time: "Lorem 1",
-                      global_role: "Lorem 1",
-                      status: "Inactive",
-                      last_login: "9, Nov 2025",
-                    },
-                    {
-                      employee_name: "Lorem Ipsum",
-                      time: "Lorem 1",
-                      global_role: "Lorem 1",
-                      status: "Inactive",
-                      last_login: "9, Nov 2025",
-                    },
-                    {
-                      employee_name: "Lorem Ipsum",
-                      time: "Lorem 1",
-                      global_role: "Lorem 1",
-                      status: "Inactive",
-                      last_login: "9, Nov 2025",
-                    },
-                  ].map((ele, index) => (
-                    <tr class="fs-88">
-                      
-                      <td class="fs-14 text-nowrap px-3 text-left column">
-                        {ele.employee_name}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.last_login}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.time}
-                      </td>
-                      
-
-                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
-                        <div class="dropdown">
-                          <button
-                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
-                            type="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                            data-bs-offset="-20,10"
+                    <table class="table table-bordered table-hover">
+                      <!---- Table head --->
+                      <thead
+                        class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+                      >
+                        <tr>
+                          <th
+                            class="bg-primary-blue text-white fw-600 px-3 fs-14 text-left"
+                            style="min-width: 200px;">Publisher</th
                           >
-                            <span>View</span>
-                            <img
-                              src="images/png/icons/arrow-down.svg"
-                              alt="arrow-down"
-                            />
-                          </button>
-                          <div class="dropdown-menu p-0 border-0">
-                            <ul class="list-group border-0 fw-600 fs-14">
-                              <li class="list-group-item pointer">
-                                <div>Update Account</div>
-                              </li>
+                          <th
+                            class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                            >Date</th
+                          >
+                          <th
+                            class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                            >Time</th
+                          >
 
-                              <li class="list-group-item text-nowrap">
-                                <div>Deactivate Account</div>
-                              </li>
-                              <li class="list-group-item">
-                                <div>Reset Account</div>
-                              </li>
-                              <li class="list-group-item">
-                                <div>Reactivate Account</div>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                  ))
-                }
+                          <th
+                            class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                            >Actions</th
+                          >
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Table body and Row -->
+                        <style>
+                          .column {
+                            min-width: 120px;
+                          }
+                        </style>
+                        {
+                          [
+                            {
+                              employee_name: "Lorem Ipsum",
+                              time: "Lorem 1",
+                              global_role: "Lorem 1",
+                              status: "Active",
+                              last_login: "9, Nov 2025",
+                            },
+                            {
+                              employee_name: "Lorem Ipsum",
+                              time: "Lorem 1",
+                              global_role: "Lorem 1",
+                              status: "Inactive",
+                              last_login: "9, Nov 2025",
+                            },
+                            {
+                              employee_name: "Lorem Ipsum",
+                              time: "Lorem 1",
+                              global_role: "Lorem 1",
+                              status: "Active",
+                              last_login: "9, Nov 2025",
+                            },
+                            {
+                              employee_name: "Lorem Ipsum",
+                              time: "Lorem 1",
+                              global_role: "Lorem 1",
+                              status: "Inactive",
+                              last_login: "9, Nov 2025",
+                            },
+                            {
+                              employee_name: "Lorem Ipsum",
+                              time: "Lorem 1",
+                              global_role: "Lorem 1",
+                              status: "Inactive",
+                              last_login: "9, Nov 2025",
+                            },
+                            {
+                              employee_name: "Lorem Ipsum",
+                              time: "Lorem 1",
+                              global_role: "Lorem 1",
+                              status: "Inactive",
+                              last_login: "9, Nov 2025",
+                            },
+                            {
+                              employee_name: "Lorem Ipsum",
+                              time: "Lorem 1",
+                              global_role: "Lorem 1",
+                              status: "Inactive",
+                              last_login: "9, Nov 2025",
+                            },
+                          ].map((ele, index) => (
+                            <tr class="fs-88">
+                              <td class="fs-14 text-nowrap px-3 text-left column">
+                                {ele.employee_name}
+                              </td>
+                              <td class="fs-14 px-3 text-left column">
+                                {ele.last_login}
+                              </td>
+                              <td class="fs-14 px-3 text-left column">
+                                {ele.time}
+                              </td>
 
-                <!-- Repeat for more employees -->
-              </tbody>
-            </table>
-          </div>
+                              <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                                <div class="dropdown">
+                                  <button
+                                    class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                                    type="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                    data-bs-offset="-20,10"
+                                  >
+                                    <span>View</span>
+                                    <img
+                                      src="images/png/icons/arrow-down.svg"
+                                      alt="arrow-down"
+                                    />
+                                  </button>
+                                  <div class="dropdown-menu p-0 border-0">
+                                    <ul class="list-group border-0 fw-600 fs-14">
+                                      <li class="list-group-item pointer">
+                                        <div>Update Account</div>
+                                      </li>
 
-          <!---- End of table --->
+                                      <li class="list-group-item text-nowrap">
+                                        <div>Deactivate Account</div>
+                                      </li>
+                                      <li class="list-group-item">
+                                        <div>Reset Account</div>
+                                      </li>
+                                      <li class="list-group-item">
+                                        <div>Reactivate Account</div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          ))
+                        }
 
-          <!-- Pagination Row -->
-          <div
-            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
-          >
-            <!-- Left: Pagination Text -->
-            <div class="fs-14 text-muted">
-              Showing <strong>1–20</strong> of <strong>1000</strong>
-            </div>
+                        <!-- Repeat for more employees -->
+                      </tbody>
+                    </table>
+                  </div>
 
-            <!-- Right: Go to Page + Pagination -->
-            <div class="d-flex align-items-center gap-3 flex-wrap">
-              <!-- Go to Page -->
-              <form class="d-flex align-items-center gap-2">
-                <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
-                <input
-                  type="number"
-                  min="1"
-                  max="100"
-                  id="gotoPage"
-                  class="form-control form-control-sm"
-                  style="width: 60px;"
-                  placeholder="—"
-                />
-              </form>
+                  <!---- End of table --->
 
-              <!-- Page Navigation -->
+                  <!-- Pagination Row -->
+                  <div
+                    class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+                  >
+                    <!-- Left: Pagination Text -->
+                    <div class="fs-14 text-muted">
+                      Showing <strong>1–20</strong> of <strong>1000</strong>
+                    </div>
 
-              <nav>
-                <ul class="pagination pagination-sm mb-0 text-primary-blue">
-                  <li class="page-item">
-                    <a
-                      class="page-link text-primary-blue px-2"
-                      href="#"
-                      aria-label="Previous"
-                    >
-                      &lsaquo;
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link text-primary-blue" href="#">1</a>
-                  </li>
-                  <li class="page-item active" aria-current="page">
-                    <span class="page-link">2</span>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link text-primary-blue" href="#">3</a>
-                  </li>
-                  <li class="page-item disabled">
-                    <span class="page-link text-primary-blue">...</span>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link text-primary-blue" href="#">100</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link hello" href="#" aria-label="Next">
-                      &rsaquo;
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
+                    <!-- Right: Go to Page + Pagination -->
+                    <div class="d-flex align-items-center gap-3 flex-wrap">
+                      <!-- Go to Page -->
+                      <form class="d-flex align-items-center gap-2">
+                        <label for="gotoPage" class="fs-14 mb-0"
+                          >Go to page?</label
+                        >
+                        <input
+                          type="number"
+                          min="1"
+                          max="100"
+                          id="gotoPage"
+                          class="form-control form-control-sm"
+                          style="width: 60px;"
+                          placeholder="—"
+                        />
+                      </form>
 
-          <!---- Pagination ---->
+                      <!-- Page Navigation -->
+
+                      <nav>
+                        <ul
+                          class="pagination pagination-sm mb-0 text-primary-blue"
+                        >
+                          <li class="page-item">
+                            <a
+                              class="page-link text-primary-blue px-2"
+                              href="#"
+                              aria-label="Previous"
+                            >
+                              &lsaquo;
+                            </a>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link text-primary-blue" href="#">1</a
+                            >
+                          </li>
+                          <li class="page-item active" aria-current="page">
+                            <span class="page-link">2</span>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link text-primary-blue" href="#">3</a
+                            >
+                          </li>
+                          <li class="page-item disabled">
+                            <span class="page-link text-primary-blue">...</span>
+                          </li>
+                          <li class="page-item">
+                            <a class="page-link text-primary-blue" href="#"
+                              >100</a
+                            >
+                          </li>
+                          <li class="page-item">
+                            <a
+                              class="page-link hello"
+                              href="#"
+                              aria-label="Next"
+                            >
+                              &rsaquo;
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+
+                  <!---- Pagination ---->
                 </div>
               </div>
             </div>
@@ -1754,19 +1991,16 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
         </div>
       </div>
     </section>
-
-    
   </main>
   <!-- Main content ends here -->
 
-  
   <script is:inline>
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Block Script Loaded");
+    document.addEventListener("DOMContentLoaded", function () {
+      console.log("Block Script Loaded");
 
-  // Template function for a block row
-  function createBlockRow(num) {
-    return `
+      // Template function for a block row
+      function createBlockRow(num) {
+        return `
       <div class="d-flex gap-4 align-items-center fs-14 block-row" data-block="${num}">
         <div class="block-label">Block ${num}:</div>
 
@@ -1781,63 +2015,60 @@ document.addEventListener("DOMContentLoaded", function () {
         </button>
       </div>
     `;
-  }
+      }
 
-  // Initialize all days
-  $(".day-container").each(function () {
-    const day = $(this).data("day");
-    const $container = $(this).find(".blocks-container");
-    const $status = $(this).find(".day-status");
+      // Initialize all days
+      $(".day-container").each(function () {
+        const day = $(this).data("day");
+        const $container = $(this).find(".blocks-container");
+        const $status = $(this).find(".day-status");
 
-    if (day !== "Monday") {
-      // Add 2 default blocks for Tue–Sun
-      $container.append(createBlockRow(1));
-    //   $container.append(createBlockRow(2));
+        if (day !== "Monday") {
+          // Add 2 default blocks for Tue–Sun
+          $container.append(createBlockRow(1));
+          //   $container.append(createBlockRow(2));
 
-      $status.text("Open").css("background", "green");
-    }
-  });
+          $status.text("Open").css("background", "green");
+        }
+      });
 
-  // Add block logic
-  $(document).on("click", ".add-block-btn", function () {
-    const $parent = $(this).closest(".day-container");
-    const $container = $parent.find(".blocks-container");
-    const $status = $parent.find(".day-status");
+      // Add block logic
+      $(document).on("click", ".add-block-btn", function () {
+        const $parent = $(this).closest(".day-container");
+        const $container = $parent.find(".blocks-container");
+        const $status = $parent.find(".day-status");
 
-    const count = $container.children(".block-row").length;
+        const count = $container.children(".block-row").length;
 
-    if (count >= 2) return; // Max 2 blocks
+        if (count >= 2) return; // Max 2 blocks
 
-    const newNum = count + 1;
-    $container.append(createBlockRow(newNum));
+        const newNum = count + 1;
+        $container.append(createBlockRow(newNum));
 
-    // Set status OPEN
-    $status.text("Open").css("background", "green");
-  });
+        // Set status OPEN
+        $status.text("Open").css("background", "green");
+      });
 
-  // Delete block logic
-  $(document).on("click", ".delete-block", function () {
-    const $parent = $(this).closest(".day-container");
-    const $container = $parent.find(".blocks-container");
-    const $status = $parent.find(".day-status");
+      // Delete block logic
+      $(document).on("click", ".delete-block", function () {
+        const $parent = $(this).closest(".day-container");
+        const $container = $parent.find(".blocks-container");
+        const $status = $parent.find(".day-status");
 
-    $(this).closest(".block-row").remove();
+        $(this).closest(".block-row").remove();
 
-    // Renumber blocks
-    $container.children(".block-row").each(function (i) {
-      const num = i + 1;
-      $(this).attr("data-block", num);
-      $(this).find(".block-label").text(`Block ${num}:`);
+        // Renumber blocks
+        $container.children(".block-row").each(function (i) {
+          const num = i + 1;
+          $(this).attr("data-block", num);
+          $(this).find(".block-label").text(`Block ${num}:`);
+        });
+
+        if ($container.children(".block-row").length === 0) {
+          // No blocks → closed but container stays visible
+          $status.text("Closed").css("background", "red");
+        }
+      });
     });
-
-    if ($container.children(".block-row").length === 0) {
-      // No blocks → closed but container stays visible
-      $status.text("Closed").css("background", "red");
-    }
-  });
-});
-</script>
-
-
-
+  </script>
 </Layout>

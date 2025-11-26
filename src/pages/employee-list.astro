@@ -92,16 +92,19 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
 
                 <div class="dropdown">
                   <button
-                    class="delon-primary-btn bg-primary-blue border-0 text-white fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    class="white_button border-0 text-primary-blue fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                     data-bs-offset="-20,10"
                   >
-                    <img src="images/png/icons/download.svg" alt="arrow-down" />
+                    <img
+                      src="images/png/icons/download-blue.svg"
+                      alt="arrow-down"
+                    />
                     <span>Download</span>
                     <img
-                      src="images/png/icons/arrow-down.svg"
+                      src="images/png/icons/arrow-down-blue.svg"
                       alt="arrow-down"
                     />
                   </button>
@@ -118,7 +121,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                 </div>
                 <a
                   class="btn bg-primary-blue d-flex align-items-center text-white px-3 fs-14 fw-600"
-                  href="/new-user-account"
+                  href="/add-employee-individual"
                 >
                   <span class="me-2">Add Employee</span> +
                 </a>
@@ -153,6 +156,10 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
                     >Last Name</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Status</th
                   >
                   <th
                     class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
@@ -218,6 +225,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       emp_id: "E12525",
                       first_name: "Lorem Ipsum",
                       last_name: "Lorem Ipsum",
+                      status: "Active",
                       country: "Nigeria",
                       city: "Lagos",
                       global_role: "Super Admin",
@@ -234,6 +242,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       emp_id: "E12525",
                       first_name: "Lorem Ipsum",
                       last_name: "Lorem Ipsum",
+                      status: "Draft",
                       country: "Nigeria",
                       city: "Lagos",
                       global_role: "Super Admin",
@@ -250,6 +259,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       emp_id: "E12525",
                       first_name: "Lorem Ipsum",
                       last_name: "Lorem Ipsum",
+                      status: "Inactive",
                       country: "Nigeria",
                       city: "Lagos",
                       global_role: "Super Admin",
@@ -266,6 +276,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       emp_id: "E12525",
                       first_name: "Lorem Ipsum",
                       last_name: "Lorem Ipsum",
+                      status: "Active",
                       country: "Nigeria",
                       city: "Lagos",
                       global_role: "Super Admin",
@@ -282,6 +293,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       emp_id: "E12525",
                       first_name: "Lorem Ipsum",
                       last_name: "Lorem Ipsum",
+                      status: "Active",
                       country: "Nigeria",
                       city: "Lagos",
                       global_role: "Super Admin",
@@ -298,6 +310,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       emp_id: "E12525",
                       first_name: "Lorem Ipsum",
                       last_name: "Lorem Ipsum",
+                      status: "Active",
                       country: "Nigeria",
                       city: "Lagos",
                       global_role: "Super Admin",
@@ -314,6 +327,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       emp_id: "E12525",
                       first_name: "Lorem Ipsum",
                       last_name: "Lorem Ipsum",
+                      status: "Active",
                       country: "Nigeria",
                       city: "Lagos",
                       global_role: "Super Admin",
@@ -338,6 +352,22 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                       </td>
                       <td class="fs-14 px-3 text-left column">
                         {ele.last_name}
+                      </td>
+                      <td
+                        class="fs-14 px-3 text-left text-nowrap column"
+                        style={`color: ${
+                          ele.status === "Active"
+                            ? "#2BC700"
+                            : ele.status === "Draft"
+                              ? "#B6B000"
+                              : "#FD0000"
+                        };`}
+                      >
+                        <img
+                          src={`images/png/icons/${ele.status === "Active" ? "active.svg" : ele.status === "Draft" ? "draft.svg" : "inactive.svg"}`}
+                          alt=""
+                        />
+                        {ele.status}
                       </td>
                       <td class="fs-14 px-3 text-left column">{ele.country}</td>
                       <td class="fs-14 px-3 text-left column">{ele.city}</td>
@@ -373,7 +403,7 @@ import DeleteModal from "../components/ui/DeleteModal.astro";
                             class="border-0 edit-button"
                             style="background-color: inherit;"
                             type="button"
-                            href="/new-user-account"
+                            href="/add-employee-individual"
                           >
                             <img src="images/png/icons/edit-2.svg" alt="" />
                           </a>

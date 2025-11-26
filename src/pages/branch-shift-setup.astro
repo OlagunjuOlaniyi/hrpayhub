@@ -32,7 +32,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            
+
             <a
               href="/rota-management"
               class="fs-14 text-decoration-none text-primary-dark"
@@ -60,8 +60,6 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
           {/* Page Content Box */}
           <div class="p-lg-5">
             <div class="vstack" style="gap: 2.3rem">
-              
-
               <!---- body ---->
               <form
                 class="vstack"
@@ -69,25 +67,24 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                 id="generate_report_form"
               >
                 <div class="form-floating add_employee_width">
-                <select
-                  id="fin_branches"
-                  name="fin_branches"
-                  class="form-select_custom fs-14"
-                  required
-                >
-                  <option value="" selected>Select</option>
-                  <option value="1">Ikeja</option>
-                  <option value="2">Yaba</option>
-                  <option value="3">Ikoyi</option>
-                  <option value="4">Branch 4</option>
-                  <option value="5">Branch 5</option>
-                  <option value="16">Other </option>
-                </select>
-                <label for="fin_branches"
-                  >Select Branch &nbsp;<span>*</span></label
-                >
-              </div>
-
+                  <select
+                    id="fin_branches"
+                    name="fin_branches"
+                    class="form-select_custom fs-14"
+                    required
+                  >
+                    <option value="" selected>Select</option>
+                    <option value="1">Ikeja</option>
+                    <option value="2">Yaba</option>
+                    <option value="3">Ikoyi</option>
+                    <option value="4">Branch 4</option>
+                    <option value="5">Branch 5</option>
+                    <option value="16">Other </option>
+                  </select>
+                  <label for="fin_branches"
+                    >Select Branch &nbsp;<span>*</span></label
+                  >
+                </div>
 
                 <!---- submit ---->
                 <div class="d-flex justify-content-start add_employee_width">

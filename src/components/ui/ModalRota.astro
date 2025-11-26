@@ -1,0 +1,61 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "comment", title = "Employee's Comment" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-2">
+      <!-- Modal Header -->
+
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">
+          {title}
+        </h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-left py-2 border-0">
+        <div class="form-floating">
+          <select
+            id="select_plan"
+            name="select_plan"
+            class="form-select_custom fs-14"
+            required
+          >
+            <option value="" style="color: rgb(200, 200, 200)" selected
+              >Select</option
+            >
+            <option value="1">Channel 1</option>
+            <option value="2">Channel 2</option>
+            <option value="3">Channel 3</option>
+          </select>
+          <label for="select_plan">Select Channels &nbsp;<span>*</span></label>
+        </div>
+        <div class="form-floating mt-4">
+          <textarea class="form-input" rows="5" id="address"></textarea>
+          <label for="ex_title">Add a message (optional)</label>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex fs-12 justify-content-end border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white fs-12"
+          data-bs-dismiss="modal"
+        >
+          Publish Rota
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
