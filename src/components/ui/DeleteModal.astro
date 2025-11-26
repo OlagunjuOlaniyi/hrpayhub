@@ -18,7 +18,8 @@ import { CloseCircleIcon } from "../Icons";
       </div>
 
       {
-        title==="Financial"?(<>
+        title==="Financial"?(
+        <>
         <!-- Modal body -->
       <div class="modal-body text-center py-2 border-0">
         <img src="images/png/icons/warning.svg" alt="warning" />
@@ -36,7 +37,31 @@ import { CloseCircleIcon } from "../Icons";
         >
           Yes, delete 
         </button>
-      </div></>):(<>
+      </div>
+      </>
+    ) : title === "Employee List" ? (
+      <>
+        <!-- Modal body -->
+      <div class="modal-body text-center py-2 border-0">
+        <img src="images/png/icons/warning.svg" alt="warning" />
+        <p class="fs-22 fw-bold mt-3">Delete Record</p>
+        <p>Are you sure you want to permanently delete this draft employee record?</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <button
+          type="button"
+          class="btn text-white"
+          style="background-color: red;"
+          data-bs-dismiss="modal"
+        >
+          Yes, delete 
+        </button>
+      </div>
+      </>
+    ) : (
+    <>
       <!-- Modal body -->
       <div class="modal-body text-center py-2 border-0">
         <img src="images/png/icons/warning.svg" alt="warning" />

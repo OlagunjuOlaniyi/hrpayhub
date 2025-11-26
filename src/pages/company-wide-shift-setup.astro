@@ -1127,10 +1127,300 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                         </div>
                       </div>
 
-                      <!-- table -->
-                      <div class="table-responsive-lg">
-                        <table class="table">...</table>
+                      <!-- Scrollable Table -->
+                      <div
+                        class="table-responsive"
+                        style="width: 1081px; overflow: auto;"
+                      >
+                        <table class="table table-bordered table-hover">
+                          <!---- Table head --->
+                          <thead
+                            class="text-dark px-4 fw-600 fs-14 text-nowrap"
+                          >
+                            <tr>
+                              <th
+                                class="border-0 text-dark fw-600 fs-14 px-3 text-left"
+                              ></th>
+                              <th class="text-dark fw-700 fs-14 px-3 text-left"
+                                >Monday</th
+                              >
+                              <th class="text-dark px-3 fw-700 fs-14 text-left"
+                                >Tuesday</th
+                              >
+                              <th class="text-dark px-3 fw-700 fs-14 text-left"
+                                >Wednesday</th
+                              >
+                              <th class="text-dark px-3 fw-700 fs-14 text-left"
+                                >Thursday</th
+                              >
+                              <th class="text-dark px-3 fw-700 fs-14 text-left"
+                                >Friday</th
+                              >
+                              <th class="text-dark px-3 fw-700 fs-14 text-left"
+                                >Saturday</th
+                              >
+                              <th class="text-dark px-3 fw-700 fs-14 text-left"
+                                >Sunday</th
+                              >
+                              <th class="text-dark px-3 fw-700 fs-14 text-left"
+                                >Primary Department</th
+                              >
+                              <th class="text-dark px-3 fw-700 fs-14 text-left"
+                                >Primary Role</th
+                              >
+                              <th class="text-dark px-3 fw-700 fs-14 text-left"
+                                >Designation</th
+                              >
+                              <th class="text-dark px-3 fw-700 fs-14 text-left"
+                                >Employment Type</th
+                              >
+                              <th class="text-dark px-3 fw-700 fs-14 text-left"
+                                >Employment Status</th
+                              >
+                              <th class="text-dark px-3 fw-700 fs-14 text-left"
+                                >Branch</th
+                              >
+                              <th class="text-dark px-3 fw-700 fs-14 text-left"
+                                >Pay Grade</th
+                              >
+                              <th class="text-dark px-3 fw-700 fs-14 text-left"
+                                >Resumption Date</th
+                              >
+
+                              <th
+                                class="text-dark px-3 fw-700 fs-14 text-nowrap text-center"
+                                >Actions</th
+                              >
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- Table body and Row -->
+                            <style>
+                              .column {
+                              }
+                            </style>
+                            {
+                              [
+                                {
+                                  emp_id: "E12525",
+                                  first_name: "Lorem Ipsum",
+                                  last_name: "Lorem Ipsum",
+                                  status: "Active",
+                                  country: "Nigeria",
+                                  city: "Lagos",
+                                  global_role: "Super Admin",
+                                  pry_dpt: "Admin",
+                                  pry_role: "Admin",
+                                  designation: "Admin",
+                                  emp_type: "Full-time",
+                                  emp_status: "Full-time",
+                                  work_location: "Lagos",
+                                  pay_grade: "15",
+                                  resumption_date: "7th April 2025",
+                                },
+                                {
+                                  emp_id: "E12525",
+                                  first_name: "Lorem Ipsum",
+                                  last_name: "Lorem Ipsum",
+                                  status: "Draft",
+                                  country: "Nigeria",
+                                  city: "Lagos",
+                                  global_role: "Super Admin",
+                                  pry_dpt: "Admin",
+                                  pry_role: "Admin",
+                                  designation: "Admin",
+                                  emp_type: "Full-time",
+                                  emp_status: "Full-time",
+                                  work_location: "Lagos",
+                                  pay_grade: "15",
+                                  resumption_date: "7th April 2025",
+                                },
+                                {
+                                  emp_id: "E12525",
+                                  first_name: "Lorem Ipsum",
+                                  last_name: "Lorem Ipsum",
+                                  status: "Inactive",
+                                  country: "Nigeria",
+                                  city: "Lagos",
+                                  global_role: "Super Admin",
+                                  pry_dpt: "Admin",
+                                  pry_role: "Admin",
+                                  designation: "Admin",
+                                  emp_type: "Full-time",
+                                  emp_status: "Full-time",
+                                  work_location: "Lagos",
+                                  pay_grade: "15",
+                                  resumption_date: "7th April 2025",
+                                },
+                                {
+                                  emp_id: "E12525",
+                                  first_name: "Lorem Ipsum",
+                                  last_name: "Lorem Ipsum",
+                                  status: "Active",
+                                  country: "Nigeria",
+                                  city: "Lagos",
+                                  global_role: "Super Admin",
+                                  pry_dpt: "Admin",
+                                  pry_role: "Admin",
+                                  designation: "Admin",
+                                  emp_type: "Full-time",
+                                  emp_status: "Full-time",
+                                  work_location: "Lagos",
+                                  pay_grade: "15",
+                                  resumption_date: "7th April 2025",
+                                },
+                                {
+                                  emp_id: "E12525",
+                                  first_name: "Lorem Ipsum",
+                                  last_name: "Lorem Ipsum",
+                                  status: "Active",
+                                  country: "Nigeria",
+                                  city: "Lagos",
+                                  global_role: "Super Admin",
+                                  pry_dpt: "Admin",
+                                  pry_role: "Admin",
+                                  designation: "Admin",
+                                  emp_type: "Full-time",
+                                  emp_status: "Full-time",
+                                  work_location: "Lagos",
+                                  pay_grade: "15",
+                                  resumption_date: "7th April 2025",
+                                },
+                                {
+                                  emp_id: "E12525",
+                                  first_name: "Lorem Ipsum",
+                                  last_name: "Lorem Ipsum",
+                                  status: "Active",
+                                  country: "Nigeria",
+                                  city: "Lagos",
+                                  global_role: "Super Admin",
+                                  pry_dpt: "Admin",
+                                  pry_role: "Admin",
+                                  designation: "Admin",
+                                  emp_type: "Full-time",
+                                  emp_status: "Full-time",
+                                  work_location: "Lagos",
+                                  pay_grade: "15",
+                                  resumption_date: "7th April 2025",
+                                },
+                                {
+                                  emp_id: "E12525",
+                                  first_name: "Lorem Ipsum",
+                                  last_name: "Lorem Ipsum",
+                                  status: "Active",
+                                  country: "Nigeria",
+                                  city: "Lagos",
+                                  global_role: "Super Admin",
+                                  pry_dpt: "Admin",
+                                  pry_role: "Admin",
+                                  pry_role: "Admin",
+                                  designation: "Admin",
+                                  emp_type: "Full-time",
+                                  emp_status: "Full-time",
+                                  work_location: "Lagos",
+                                  pay_grade: "15",
+                                  resumption_date: "7th April 2025",
+                                },
+                              ].map((ele, index) => (
+                                <tr class="fs-88">
+                                  <td class="text-center border-x-0 fs-14 fw-700">
+                                    {index + 1}
+                                  </td>
+                                  <td class="fs-14 text-nowrap px-3 text-left column">
+                                    {ele.emp_id}
+                                  </td>
+                                  <td class="fs-14 px-3 text-left column">
+                                    {ele.first_name}
+                                  </td>
+                                  <td class="fs-14 px-3 text-left column">
+                                    {ele.last_name}
+                                  </td>
+                                  <td
+                                    class="fs-14 px-3 text-left text-nowrap column"
+                                    style={`color: ${
+                                      ele.status === "Active"
+                                        ? "#2BC700"
+                                        : ele.status === "Draft"
+                                          ? "#B6B000"
+                                          : "#FD0000"
+                                    };`}
+                                  >
+                                    <img
+                                      src={`images/png/icons/${ele.status === "Active" ? "active.svg" : ele.status === "Draft" ? "draft.svg" : "inactive.svg"}`}
+                                      alt=""
+                                    />
+                                    {ele.status}
+                                  </td>
+                                  <td class="fs-14 px-3 text-left column">
+                                    {ele.country}
+                                  </td>
+                                  <td class="fs-14 px-3 text-left column">
+                                    {ele.city}
+                                  </td>
+                                  <td class="fs-14 px-3 text-left column">
+                                    {ele.global_role}
+                                  </td>
+                                  <td class="fs-14 px-3 text-left column">
+                                    {ele.pry_dpt}
+                                  </td>
+                                  <td class="fs-14 px-3 text-left column">
+                                    {ele.pry_role}
+                                  </td>
+                                  <td class="fs-14 px-3 text-left column">
+                                    {ele.designation}
+                                  </td>
+                                  <td class="fs-14 px-3 text-left column">
+                                    {ele.emp_type}
+                                  </td>
+                                  <td class="fs-14 px-3 text-left column">
+                                    {ele.emp_status}
+                                  </td>
+                                  <td class="fs-14 px-3 text-left column">
+                                    {ele.work_location}
+                                  </td>
+                                  <td class="fs-14 px-3 text-left column">
+                                    {ele.pay_grade}
+                                  </td>
+                                  <td class="fs-14 px-3 text-left column">
+                                    {ele.resumption_date}
+                                  </td>
+
+                                  <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                                    <div class="d-flex gap-2">
+                                      <a
+                                        class="border-0 edit-button"
+                                        style="background-color: inherit;"
+                                        type="button"
+                                        href="/add-employee-individual"
+                                      >
+                                        <img
+                                          src="images/png/icons/edit-2.svg"
+                                          alt=""
+                                        />
+                                      </a>
+                                      <button
+                                        class="border-0"
+                                        style="background-color: inherit;"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#deleteModal"
+                                      >
+                                        <img
+                                          src="images/png/icons/colored/delete.svg"
+                                          alt=""
+                                        />
+                                      </button>
+                                    </div>
+                                  </td>
+                                </tr>
+                              ))
+                            }
+
+                            <!-- Repeat for more employees -->
+                          </tbody>
+                        </table>
                       </div>
+
+                      <!---- End of table --->
                     </div>
                   </div>
                 </div>
