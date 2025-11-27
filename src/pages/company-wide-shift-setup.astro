@@ -10,6 +10,7 @@ import ModalReviewLeave from "../components/ui/ModalReviewLeave.astro";
 import DeleteModal from "../components/ui/DeleteModal.astro";
 import RejectModal from "../components/ui/RejectModal.astro";
 import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
+import TimeZones from "../components/ui/TimeZones";
 ---
 
 <Layout title="HRPayHub :: Company-wide Shift Setup">
@@ -68,7 +69,7 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
 
           <div class="d-flex align-items-start">
             <div
-              class="nav flex-column align-items-start nav-pills me-3 p-3 py-3 gap-2 bg-primary-blue rota_nav"
+              class="nav flex-column align-items-start nav-pills me-3 p-3 py-3 gap-2 bg-primary-blue rounded-start-3 rota_nav"
               style="height: 100vh;"
               id="v-pills-tab"
               role="tablist"
@@ -275,13 +276,7 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                           required
                         >
                           <option value="" selected> Select </option>
-                          <option value="1">1 Week</option>
-                          <option value="2">2 Weeks</option>
-                          <option value="3">3 Weeks</option>
-                          <option value="4">4 Weeks</option>
-                          <option value="5">1 Month</option>
-                          <option value="6">2 Months</option>
-                          <option value="7">3 Months</option>
+                          <TimeZones />
                         </select>
                         <label for="designation">
                           Timezone &nbsp;<span>*</span>
@@ -1136,7 +1131,7 @@ import ApproveTaskModal from "../components/ui/ApproveTaskModal.astro";
                           border-spacing: 10px 10px !important;
                         }
                       </style>
-                      <div class="table-responsive">
+                      <div class="table-responsive border rounded-5">
                         <table
                           class="table table-borderless align-middle schedule-table"
                         >
