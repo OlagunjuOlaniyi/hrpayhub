@@ -210,7 +210,7 @@ import { CloseCircleIcon } from "../Icons";
                 Secondary Role &nbsp;<span>*</span>
               </label>
             </div>
-            
+
             <div class="form-floating">
               <input
                 type="number"
@@ -259,13 +259,12 @@ import { CloseCircleIcon } from "../Icons";
                 Max Shift Length (hours) &nbsp;<span>*</span>
               </label>
             </div>
-          <div class="form-floating">
+            <div class="form-floating">
               <textarea class="form-input" rows="2" id="comment" />
               <label for="comment">Notes </label>
             </div>
-            
           </div>
-        ) :  inputPlace === "Generate Onboarding Link" ? (
+        ) : inputPlace === "Generate Onboarding Link" ? (
           <div class="modal-body py-4 border-0">
             <div class="">
               <label for="multiple-select-field" id="custom_select_new">
@@ -275,7 +274,6 @@ import { CloseCircleIcon } from "../Icons";
               <select
                 class="form-select_custom fs-14 py-3"
                 id="multiple-select-field"
-                
                 multiple
               >
                 <option value="1">Robert Fox</option>
@@ -304,31 +302,27 @@ import { CloseCircleIcon } from "../Icons";
             </div>
 
             <div class="d-flex justify-content-between gap-3 mt-5">
-          <div class="form-floating">
-            <input
-              type="time"
-              id="start_time"
-              name="start_time"
-              class="form-input"
-              placeholder=""
-              value="2025-06-01"
-              disabled
-            />
-            <label for="start_time">Start Time </label>
-          </div>
-          <div class="form-floating">
-            <input
-              type="time"
-              id="end_time"
-              name="end_time"
-              class="form-input"
-              placeholder=""
-              value="2025-06-01"
-              disabled
-            />
-            <label for="end_time">End Time </label>
-          </div>
-        </div>
+              <div class="form-floating">
+                <input
+                  type="time"
+                  id="start_time"
+                  name="start_time"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="start_time">Start Time </label>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="time"
+                  id="end_time"
+                  name="end_time"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="end_time">End Time </label>
+              </div>
+            </div>
           </div>
         ) : inputPlace === "Assign Asset" ? (
           <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
@@ -527,7 +521,8 @@ import { CloseCircleIcon } from "../Icons";
               </div>
             </form>
           </div>
-        ) : inputPlace === "Staff Member" ? (<div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+        ) : inputPlace === "Staff Member" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
             <div class="form-floating">
               <select
                 id="emp_id_name"
@@ -577,8 +572,6 @@ import { CloseCircleIcon } from "../Icons";
                 </span>
                 <span class="fs-14 fw-700 text-nowrap">Lorem Ipsum</span>
               </div>
-
-              
             </div>
             <div class="form-floating">
               <input
@@ -608,9 +601,8 @@ import { CloseCircleIcon } from "../Icons";
               <textarea class="form-input" rows="2" id="comment" />
               <label for="comment">Notes </label>
             </div>
-            
           </div>
-        ) :  inputPlace === "Create Task" ? (
+        ) : inputPlace === "Create Task" ? (
           <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
             <div class="form-floating">
               <select
@@ -864,8 +856,7 @@ import { CloseCircleIcon } from "../Icons";
           class="btn bg-primary-blue text-white"
           data-bs-dismiss="modal"
         >
-        {inputPlace === "Create Template" ? "Create Template" : "Save"}
-          
+          {inputPlace === "Create Template" ? "Create Template" : "Save"}
         </button>
       </div>
     </div>

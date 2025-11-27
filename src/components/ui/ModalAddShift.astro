@@ -1,0 +1,205 @@
+---
+// components/ui/ModalAddNew.astro
+const {
+  modalId = "myModal",
+  title = "Add Shift",
+  inputPlace = "Work Location",
+} = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+
+      <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+        <div class="form-floating">
+          <input
+            type="text"
+            id="emp_name"
+            name="emp_name"
+            class="form-input"
+            placeholder=""
+          />
+          <label for="emp_name">
+            Employee Name &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <select
+            id="designation"
+            name="designation"
+            class="form-select_custom fs-14"
+            required
+          >
+            <option value="" selected> Select </option>
+            <option value="1">Pharmacist</option>
+            <option value="2">Senior Pharmacist</option>
+            <option value="3">Intern Pharmacist</option>
+            <option value="4">Software Engineer</option>
+            <option value="5">HR & Admin Manager</option>
+            <option value="6">Pharmacy Technician</option>
+            <option value="7">Call Center Agent</option>
+          </select>
+          <label for="designation">
+            Designation &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="date"
+            id="assign_date"
+            name="assign_date"
+            class="form-input"
+            placeholder=""
+          />
+          <label for="assign_date">
+            Date &nbsp;<span>*</span>
+          </label>
+        </div>
+
+        <div class="d-flex justify-content-between gap-3">
+          <div class="form-floating w-full">
+            <input
+              type="time"
+              id="start_time"
+              name="start_time"
+              class="form-input"
+              placeholder=""
+            />
+            <label for="start_time">Start Time </label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="time"
+              id="end_time"
+              name="end_time"
+              class="form-input"
+              placeholder=""
+            />
+            <label for="end_time">End Time </label>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="white_button fs-14 d-flex gap-1 align-items-center"
+          id="addNewShift"
+          style="border: 0px !important;"
+        >
+          <span>Add New </span>
+          <img src="images/png/icons/add-square.svg" alt="add new" />
+        </button>
+
+        <!------ Accordion ---->
+
+        <div class="" id="addShiftTime"></div>
+
+        <!------ Add New Button ------>
+
+        <div class="d-flex align-items-center">
+          <button
+            type="button"
+            class="white_button fs-14 d-flex gap-1 align-items-center"
+            id="deleteShift"
+            style="border: 0px !important;"
+          >
+            <span>Delete </span>
+            <img src="images/png/icons/colored/delete.svg" alt="delete" />
+          </button>
+        </div>
+        <div class="form-floating">
+          <textarea class="form-input" rows="2" id="comment"></textarea>
+          <label for="comment">Notes </label>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white"
+          data-bs-dismiss="modal"
+        >
+          Save Shift
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  let shiftIndex = 1; // Start from 1 because 0 is the static hardcoded shift
+
+  // Template for dynamic shift time rows
+  function getShiftTimeRow(index) {
+    return `
+      <div class="shift-row d-flex justify-content-between gap-3 mb-4">
+        <div class="form-floating w-full">
+          <input
+            type="time"
+            id="dyn_start_time_${index}"
+            name="dyn_start_time"
+            class="form-input"
+          />
+          <label for="dyn_start_time_${index}">Start Time</label>
+        </div>
+
+        <div class="form-floating w-full">
+          <input
+            type="time"
+            id="dyn_end_time_${index}"
+            name="dyn_end_time"
+            class="form-input"
+          />
+          <label for="dyn_end_time_${index}">End Time</label>
+        </div>
+      </div>
+    `;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("addShiftTime");
+    const addBtn = document.getElementById("addNewShift");
+    const deleteBtn = document.getElementById("deleteShift");
+
+    // Hide delete at start because there are no dynamic rows yet
+    deleteBtn.style.display = "none";
+
+    function updateDeleteVisibility() {
+      const rows = container.querySelectorAll(".shift-row");
+      deleteBtn.style.display = rows.length > 0 ? "inline-flex" : "none";
+    }
+
+    // Add new shift row
+    addBtn.addEventListener("click", function () {
+      container.insertAdjacentHTML("beforeend", getShiftTimeRow(shiftIndex));
+      shiftIndex++;
+      updateDeleteVisibility();
+    });
+
+    // Delete last added shift row
+    deleteBtn.addEventListener("click", function () {
+      const rows = container.querySelectorAll(".shift-row");
+
+      if (rows.length > 0) {
+        rows[rows.length - 1].remove();
+        shiftIndex--;
+        updateDeleteVisibility();
+      }
+    });
+  });
+</script>
