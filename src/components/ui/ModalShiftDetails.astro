@@ -1,0 +1,162 @@
+---
+const { modalId = "myModal", title = "Add Employee Type" } = Astro.props;
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- STEP 1: Confirm Cancel -->
+      <div class="step step-1">
+        <div class="modal-header border-0 d-flex justify-content-between">
+          <h4 class="modal-title fs-22 fw-700">{title}</h4>
+
+          <img
+            role="button"
+            class="close-btn"
+            src="images/png/icons/close-circle-1.svg"
+            alt="close"
+          />
+        </div>
+
+        <div class="modal-body d-flex flex-column gap-4 py-5">
+          <div class="fs-14 fw-700">Shift Details</div>
+
+          <div class="rounded-4 p-3 d-flex flex-column gap-3 bg-grey">
+            <div class="d-flex justify-content-between">
+              <div>
+                <div class="fs-12">Date</div>
+                <div class="fw-700">03/11/2025</div>
+              </div>
+
+              <div>
+                <div class="fs-12">Time</div>
+                <div class="fw-700">09:00 - 13:00</div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <div>
+                <div class="fs-12">Role</div>
+                <div class="fw-700">Pharmacy Tech</div>
+              </div>
+
+              <div>
+                <div class="fs-12">Branch</div>
+                <div class="fw-700">Central London</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fs-14 fw-700">Break</div>
+          <div class="rounded-4 p-3 d-flex flex-column gap-3 bg-grey">
+            <div class="d-flex justify-content-between">
+              <div>
+                <div class="fs-12">Break Start</div>
+                <div class="fw-700">12:00</div>
+              </div>
+
+              <div>
+                <div class="fs-12">Break End</div>
+                <div class="fw-700">12:30</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-floating">
+            <textarea class="form-input" rows="4" id="comment"></textarea>
+            <label for="comment">Manager Notes</label>
+          </div>
+        </div>
+
+        <div class="modal-footer border-0">
+          <button
+            type="button"
+            class="btn bg-primary-blue text-white fs-14 next-btn"
+          >
+            Request Swap
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Request Swap -->
+      <div class="step step-2 d-none">
+        <div class="modal-header border-0 d-flex justify-content-between">
+          <h4 class="modal-title fs-22 fw-700">Request Swap</h4>
+
+          <img
+            role="button"
+            class="back-btn"
+            src="images/png/icons/close-circle-1.svg"
+            alt="close"
+          />
+        </div>
+
+        <div class="modal-body d-flex flex-column gap-4 py-5">
+          <div class="form-floating">
+            <select class="form-select_custom fs-14" id="emp">
+              <option value="">Select Staff</option>
+              <option value="1">Robert Fox</option>
+              <option value="2">Robert Fox</option>
+            </select>
+            <label for="emp">Select Staff</label>
+          </div>
+        </div>
+
+        <div class="modal-footer border-0">
+          <button
+            type="button"
+            class="btn bg-primary-blue text-white fs-14 next-btn-2"
+          >
+            Send Request
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Successful -->
+      <div class="step step-3 d-none text-center">
+        <div class="modal-header border-0 justify-content-center">
+          <h4 class="fs-22 fw-700">Request Sent</h4>
+        </div>
+
+        <div class="modal-body">
+          <img src="images/png/icons/success-green-check.svg" alt="" />
+          <p class="fs-16 mt-3">Your request has been sent successfully</p>
+        </div>
+
+        <div class="modal-footer border-0 justify-content-center">
+          <button
+            class="btn text-white fs-14 px-4"
+            style="background:#2BC700;"
+            data-bs-dismiss="modal"
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    function showStep(n) {
+      $(".step").addClass("d-none");
+      $(`.step-${n}`).removeClass("d-none");
+    }
+
+    // Step 1 → Step 2
+    $(".next-btn").click(() => showStep(2));
+
+    // Step 2 → Step 3
+    $(".next-btn-2").click(() => showStep(3));
+
+    // Close button (return to previous)
+    $(".back-btn").click(() => showStep(1));
+
+    // Reset when modal closes
+    $("#myModal").on("hidden.bs.modal", () => {
+      showStep(1);
+    });
+  });
+</script>

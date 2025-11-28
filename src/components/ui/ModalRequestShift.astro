@@ -1,0 +1,92 @@
+---
+const {
+  modalId = "myModal",
+  title = "Add Employee Type",
+  inputPlace = "Designation",
+} = Astro.props;
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog confirmCancel">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+        <div class="fs-14">
+          Add an optional note to your request to let the manager know why you'd
+          like this shift.
+        </div>
+        <div class="form-floating">
+          <textarea class="form-input" rows="4" id="comment"></textarea>
+          <label for="comment">Add a message (optional) </label>
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-end border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white fs-14"
+          id="confirm"
+        >
+          Submit Request
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!----- confirm -->
+  <div class="modal-dialog d-none successfulCancel">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div
+        class="modal-header fs-24 fw-700 border-0 d-flex justify-content-center"
+      >
+        Request Sent
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-center py-2 border-0">
+        <img
+          src="images/png/icons/success-green-check.svg"
+          alt="success check"
+        />
+
+        <p class="fs-16">Your request has been sent successfully</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <button
+          type="button"
+          class="btn text-white fs-14 px-4"
+          style="background-color: #2BC700;"
+          data-bs-dismiss="modal"
+        >
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    $(".successfulCancel").addClass("d-none");
+
+    $("#confirm").click((evt) => {
+      $(".confirmCancel").addClass("d-none");
+      $(".successfulCancel").removeClass("d-none");
+    });
+  });
+</script>
