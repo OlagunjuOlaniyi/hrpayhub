@@ -60,9 +60,7 @@ import Layout from "../layouts/Layout.astro";
           {/* Page Title */}
 
           {/* Page Content Box */}
-          <div
-            class="row align-items-stretch justify-content-between payslip-grid-gap"
-          >
+          <div class="d-flex justify-content-start flex-wrap payslip-grid-gap">
             {
               [
                 {
@@ -85,6 +83,12 @@ import Layout from "../layouts/Layout.astro";
                   desc: "Track actions taken on payslips.",
                   url: "payslip_activity_log.html",
                 },
+                {
+                  title: "AI Payslip Insights & Variance Notes",
+                  desc: "Short text highlights of key payslip changes.",
+                  img: true,
+                  url: "ai_payslip_insights.html",
+                },
               ].map((ele) => (
                 <a
                   class="col-4 px-2 text-decoration-none"
@@ -99,7 +103,7 @@ import Layout from "../layouts/Layout.astro";
                   >
                     <div class="vstack gap-2 d-flex flex-column align-items-center">
                       <img
-                        src="images/png/icons/colored/receipt-minus-colored.svg"
+                        src={`${ele.img ? "images/png/icons/ai-payslip.svg" : "images/png/icons/colored/receipt-minus-colored.svg"}`}
                         alt="receipt-minus-icon"
                         width="40px"
                         height="40px"

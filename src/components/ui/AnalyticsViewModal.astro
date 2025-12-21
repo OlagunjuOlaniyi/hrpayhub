@@ -1,0 +1,50 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "comment", title = "Save Views" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-2">
+      <!-- Modal Header -->
+
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">
+          {title}
+        </h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-left py-4 border-0" style="height: 400px;">
+        <div class="d-flex justify-content-between border rounded-3 px-3 py-2">
+          <div class="d-flex justify-content-center align-items-center gap-2">
+            <img src="images/png/icons/plus.svg" alt="plus sign" />
+            <span class="fs-14 fw-700">Save Current View</span>
+          </div>
+        </div>
+        <div
+          class="d-flex justify-content-between border rounded-3 px-3 py-2 mt-5"
+        >
+          <div class="d-flex justify-content-center align-items-center gap-2">
+            <span class="fs-14 fw-700">Operating Expenses Refund</span>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="border-0" style="background-color: inherit;">
+              <img src="images/png/icons/colored/delete.svg" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+    </div>
+  </div>
+</div>

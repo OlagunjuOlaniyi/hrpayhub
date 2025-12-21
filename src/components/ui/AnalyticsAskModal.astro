@@ -1,0 +1,40 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "comment", title = "Ask Analytics" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-2">
+      <!-- Modal Header -->
+
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">
+          {title}
+        </h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-left py-2 border-0" style="height: 400px;">
+        <!-- Search input box -->
+        <div class="d-flex gap-3">
+          <input
+            type="text"
+            class="form-control search-input fs-14 py-2"
+            placeholder="Ask a question about your financial data..."
+          />
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+    </div>
+  </div>
+</div>

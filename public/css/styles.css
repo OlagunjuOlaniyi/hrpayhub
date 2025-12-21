@@ -1362,6 +1362,13 @@ ul.upload_offer_bg li.nav-item .active {
   padding-right: 25px;
 }
 
+.fin_nav li.nav-item a.active {
+  color: #fff !important;
+  font-weight: normal !important;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
 .download_sample {
   border-radius: 15px;
   border: 2px solid #c1c1c1;

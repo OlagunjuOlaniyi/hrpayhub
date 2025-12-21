@@ -38,7 +38,7 @@ import Layout from "../layouts/Layout.astro";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
-            <span class="fs-16 fw-bold  text-primary-blue"
+            <span class="fs-16 fw-bold text-primary-blue"
               >Financial Reports & Analytics - NG</span
             >
           </div>
@@ -98,7 +98,7 @@ import Layout from "../layouts/Layout.astro";
                 {
                   title: "Analytics",
                   desc: "Compare financial data with charts and filters",
-                  url: "#",
+                  url: "financial-analytics",
                   src: "images/png/icons/financial.svg",
                 },
               ].map((ele) => (
@@ -144,7 +144,7 @@ import Layout from "../layouts/Layout.astro";
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const payslipCardPanels = document.querySelectorAll(
-        ".payslip-card-panel"
+        ".payslip-card-panel",
       );
 
       payslipCardPanels.forEach((ele, index) => {

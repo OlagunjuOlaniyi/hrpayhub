@@ -39,8 +39,6 @@ const { title = "" } = Astro.props as Props;
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
-
-    
   </head>
   <body>
     <!-- Header / Navigation -->
@@ -52,9 +50,11 @@ const { title = "" } = Astro.props as Props;
     <Footer />
     <!-- Footer content ends here -->
 
+    <script
+      src="https://cdn.tiny.cloud/1/ikc9d258uct1kw63pa3a0q27g4uvx6nku5lypcv50imjpdow/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"></script>
+    <script src="libs/jquery/jquery-3.7.1.min.js"></script>
 
-<script src="https://cdn.tiny.cloud/1/ikc9d258uct1kw63pa3a0q27g4uvx6nku5lypcv50imjpdow/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script defer src="libs/jquery/jquery-3.7.1.min.js"></script>
     <script is:inline src="libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"
     ></script>
     <!-- Select2 JS -->
@@ -66,7 +66,15 @@ const { title = "" } = Astro.props as Props;
     <script
       src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/rangePlugin.js"
     ></script>
-    
+    <!-- <script
+      type="text/javascript"
+      src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"
+    ></script>
 
     <!-- Tooltip Trigger for whole page -->
     <script is:inline>

@@ -1,0 +1,618 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AnalyticsAskModal from "../components/ui/AnalyticsAskModal.astro";
+import AnalyticsViewModal from "../components/ui/AnalyticsViewModal.astro";
+import AnalyticsComparisonModal from "../components/ui/AnalyticsComparisonModal.astro";
+---
+
+<Layout title="HRPayHub :: Analytics">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/financial-reports-and-analytics"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/financial-reports-and-analytics"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/financial-reports-and-analytics-ng"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics - NG</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Analytics</span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-4 px-5">
+          {/* Page Content Box */}
+
+          <div class="d-flex justify-content-between" style="width: 100%;">
+            <div>
+              <h3 class="fs-22 fw-700 text-primary-blue">Analytics</h3>
+              <p class="fs-16 fw-700">
+                Compare financial data with charts and filters
+              </p>
+            </div>
+            <div class="d-flex flex-grow-1 justify-content-end gap-2">
+              <button
+                type="button"
+                class="white_button fs-14 d-flex gap-2 align-items-center"
+                data-bs-toggle="modal"
+                data-bs-target="#askAnalyticsModal"
+                data-title="Ask Analytics"
+                data-emp-type="{ele.emp_type}"
+                style="border: 1px solid !important; height: 38px"
+              >
+                <img src="images/png/icons/ask-analytics.svg" alt="add new" />
+                <span class="fw-600">Ask Analytics</span>
+              </button>
+              <button
+                type="button"
+                class="white_button fs-14 d-flex gap-2 align-items-center"
+                data-bs-toggle="modal"
+                data-bs-target="#viewAnalyticsModal"
+                data-title="View Analytics"
+                data-emp-type="{ele.emp_type}"
+                style="border: 1px solid lightgrey !important; height: 38px; color: #202020 !important;"
+              >
+                <img src="images/png/icons/view-analytics.svg" alt="add new" />
+                <span class="fw-600">Views</span>
+              </button>
+              <button
+                type="button"
+                class="white_button fs-14 d-flex gap-2 align-items-center"
+                data-bs-toggle="modal"
+                data-bs-target="#addCard"
+                data-title="Add New Card"
+                data-emp-type="{ele.emp_type}"
+                style="border: 1px solid lightgrey !important; height: 38px; color: #202020 !important;"
+              >
+                <img src="images/png/icons/alert-analytics.svg" alt="add new" />
+                <span class="fw-600">Alerts</span>
+                <span
+                  class="rounded-circle bg-danger text-white fs-10"
+                  style="height: 18px; width: 18px; padding-top: 0.8px;">2</span
+                >
+              </button>
+            </div>
+          </div>
+
+          <AnalyticsAskModal
+            title="Ask Analytics"
+            modalId="askAnalyticsModal"
+            inputPlace="Ask Analytics"
+          />
+          <AnalyticsViewModal
+            title="Save Views"
+            modalId="viewAnalyticsModal"
+            inputPlace="View Analytics"
+          />
+
+          <!-- Nav pills -->
+          <ul
+            class="nav nav-pills d-flex justify-content-between p-1 upload_offer_bg fin_nav"
+            style="width: 488px;"
+            role="tablist"
+          >
+            <li class="nav-item">
+              <a
+                class="nav-link active fs-14 fw-600"
+                data-bs-toggle="pill"
+                href="#visualization">Visualization</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link fs-14 fw-600"
+                data-bs-toggle="pill"
+                href="#varianAnalysis">Variance Analyis</a
+              >
+            </li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div id="visualization" class="container tab-pane active">
+              <div class="d-flex flex-column gap-5 border rounded-4 p-5">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h3 class="fs-22 fw-700">Line Chart</h3>
+                    <p class="fs-16 text-grey">Expenses Q1-Q3 2024 - 2025</p>
+                  </div>
+                  <div
+                    class="d-flex flex-grow-1 justify-content-end align-items-center gap-3"
+                  >
+                    <button
+                      type="button"
+                      class="white_button fs-14 d-flex gap-2 fw-700 align-items-center"
+                      id="addNewShift"
+                      style="border: 0px !important;"
+                    >
+                      <img
+                        src="images/png/icons/refresh-white.svg"
+                        alt="add new"
+                      />
+                      <span>Reset Filter </span>
+                    </button>
+                    <!-- views -->
+                    <button
+                      type="button"
+                      class="white_button fs-14 d-flex gap-2 align-items-center"
+                      data-bs-toggle="modal"
+                      data-bs-target="#comparisonAnalyticsModal"
+                      data-title="Comparison and Baseline"
+                      data-emp-type="{ele.emp_type}"
+                      style="border: 1px solid lightgrey !important; height: 43px; color: #202020 !important;"
+                    >
+                      <span class="fw-600">Comparison and Baseline</span>
+                      <img
+                        src="images/png/icons/arrow-down-black.svg"
+                        alt="arrow-down"
+                      />
+                    </button>
+                    <!-- export -->
+                    <div class="dropdown">
+                      <button
+                        class="delon-primary-btn bg-white border text-dark fw-600 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-offset="-20,10"
+                      >
+                        <img
+                          src="images/png/icons/download-black.svg"
+                          alt="download"
+                        />
+                        <span class="fs-14">Export</span>
+                        <img
+                          src="images/png/icons/arrow-down-black.svg"
+                          alt="arrow-down"
+                        />
+                      </button>
+                      <div class="dropdown-menu p-0 border-0">
+                        <ul class="list-group border-0 fw-600 fs-14">
+                          <li class="list-group-item">
+                            <div>CSV</div>
+                          </li>
+                          <li class="list-group-item">
+                            <div>Excel</div>
+                          </li>
+                          <li class="list-group-item">
+                            <div>PDF</div>
+                          </li>
+                          <li class="list-group-item">
+                            <div>Email Report</div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <button
+                      class="btn bg-primary-blue text-white px-3 fs-14 fw-600"
+                      style="height: 42px;"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myTemplateModal"
+                      data-title="Add Employment Status"
+                    >
+                      <span class="me-2">Filters</span>
+                      <img
+                        src="images/png/icons/arrow-down.svg"
+                        alt="arrow-down"
+                      />
+                    </button>
+                  </div>
+                </div>
+
+                <!-- chart area -->
+
+                <div style="height:600px">
+                  <canvas id="varianceLineChart"></canvas>
+                </div>
+              </div>
+
+              <AnalyticsComparisonModal
+                title="Comparison and Baseline"
+                modalId="comparisonAnalyticsModal"
+                inputPlace="Comparison and Baseline"
+              />
+            </div>
+            <div id="varianAnalysis" class="container tab-pane">
+              <div class="d-flex flex-column gap-5 border rounded-4 p-5">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h3 class="fs-22 fw-700">Variance Analyis</h3>
+                  </div>
+                  <div class="d-flex flex-grow-1 justify-content-end gap-2">
+                    <div class="dropdown">
+                      <button
+                        class="delon-primary-btn bg-white border text-dark fw-600 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-offset="-20,10"
+                      >
+                        <img
+                          src="images/png/icons/download-black.svg"
+                          alt="download"
+                        />
+                        <span class="fs-14">Export</span>
+                        <img
+                          src="images/png/icons/arrow-down-black.svg"
+                          alt="arrow-down"
+                        />
+                      </button>
+                      <div class="dropdown-menu p-0 border-0">
+                        <ul class="list-group border-0 fw-600 fs-14">
+                          <li class="list-group-item">
+                            <div>CSV</div>
+                          </li>
+                          <li class="list-group-item">
+                            <div>Excel</div>
+                          </li>
+                          <li class="list-group-item">
+                            <div>PDF</div>
+                          </li>
+                          <li class="list-group-item">
+                            <div>Email Report</div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- chart area -->
+
+                <div style="height:600px">
+                  <canvas id="financialChart"></canvas>
+                </div>
+
+                <!-- table -->
+                <table class="table table-borderless w-50 fs-14">
+                  <thead class="border-bottom">
+                    <tr>
+                      <th class="py-3">Category</th>
+                      <th class="py-3">Budget (N)</th>
+                      <th class="py-3">Actual (N)</th>
+                      <th class="py-3">Variance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="py-3">Revenue</td>
+                      <td class="py-3">65,000,000</td>
+                      <td class="py-3">65,000,000</td>
+                      <td class="py-3">+2.5%</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">COGS</td>
+                      <td class="py-3">65,000,000</td>
+                      <td class="py-3">mary@example.com</td>
+                      <td class="py-3">+2.5%</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">OPEX</td>
+                      <td class="py-3">65,000,000</td>
+                      <td class="py-3">65,000,000</td>
+                      <td class="py-3">+2.5%</td>
+                    </tr>
+                    <tr>
+                      <td class="py-3">Net Profit</td>
+                      <td class="py-3">65,000,000</td>
+                      <td class="py-3">65,000,000</td>
+                      <td class="py-3">+2.5%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Content Box */}
+      </div>
+    </section>
+  </main>
+
+  <!-- <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!window.$ || !$.fn.CanvasJSChart) return;
+
+      const options = {
+        animationEnabled: true,
+
+        axisX: {
+          labelFontSize: 16,
+        },
+        axisY: {
+          gridThickness: 0.3,
+          tickThickness: 1,
+          labelFontSize: 16,
+          minimum: 0,
+          maximum: 200000,
+          interval: 40000,
+          labelFormatter: (e) => `${e.value / 1000}k`,
+        },
+
+        legend: {
+          verticalAlign: "bottom",
+          horizontalAlign: "right",
+          marginTop: 55,
+          dockInsidePlotArea: false,
+          fontSize: 16,
+        },
+
+        data: [
+          {
+            type: "column",
+            name: "Budget",
+            showInLegend: true,
+            color: "#2271B6",
+            cornerRadius: 6,
+            dataPoints: [
+              { label: "Revenue", y: 130000 },
+              { label: "COGS", y: 200000 },
+              { label: "OPEX", y: 150000 },
+              { label: "Net Profit", y: 160000 },
+            ],
+          },
+          {
+            type: "column",
+            name: "Actual",
+            showInLegend: true,
+            color: "#FDBA8C",
+            cornerRadius: 6,
+            dataPoints: [
+              { label: "Revenue", y: 150000 },
+              { label: "COGS", y: 150000 },
+              { label: "OPEX", y: 120000 },
+              { label: "Net Profit", y: 200000 },
+            ],
+          },
+        ],
+      };
+
+      $("#chartContainer").CanvasJSChart(options);
+    });
+  </script> -->
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const ctx = document.getElementById("financialChart");
+      if (!ctx) return;
+
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Revenue", "COGS", "OPEX", "Net Profit"],
+          datasets: [
+            {
+              label: "Budget",
+              data: [130000, 200000, 150000, 160000],
+              backgroundColor: "#2271B6",
+              borderRadius: 8,
+              barThickness: 110,
+            },
+            {
+              label: "Actual",
+              data: [150000, 150000, 120000, 200000],
+              backgroundColor: "#FDBA8C",
+              borderRadius: 8,
+              barThickness: 110,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+
+          scales: {
+            x: {
+              ticks: {
+                font: { size: 14 },
+              },
+              grid: {
+                display: false,
+              },
+            },
+            y: {
+              min: 0,
+              max: 200000,
+              ticks: {
+                stepSize: 40000,
+                font: { size: 14 },
+                callback: (value) => `${value / 1000}k`,
+              },
+              grid: {
+                color: "#E5E7EB",
+              },
+            },
+          },
+
+          plugins: {
+            legend: {
+              position: "bottom",
+              align: "start",
+              labels: {
+                usePointStyle: true,
+                pointStyle: "circle",
+                boxWidth: 10,
+
+                font: {
+                  size: 14,
+                },
+              },
+            },
+            tooltip: {
+              callbacks: {
+                label: (ctx) =>
+                  `${ctx.dataset.label}: ${ctx.raw.toLocaleString()}`,
+              },
+            },
+          },
+        },
+      });
+
+      const ctx2 = document.getElementById("varianceLineChart");
+      if (!ctx2 || typeof Chart === "undefined") return;
+
+      const gradientBlue = ctx2
+        .getContext("2d")
+        .createLinearGradient(0, 0, 0, 300);
+      gradientBlue.addColorStop(0, "rgba(34,113,182,0.25)");
+      gradientBlue.addColorStop(1, "rgba(34,113,182,0)");
+
+      const gradientOrange = ctx2
+        .getContext("2d")
+        .createLinearGradient(0, 0, 0, 300);
+      gradientOrange.addColorStop(0, "rgba(253,186,140,0.35)");
+      gradientOrange.addColorStop(1, "rgba(253,186,140,0)");
+
+      new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: [
+            "Q1 2024",
+            "Q2 2024",
+            "Q3 2024",
+            "Q1 2025",
+            "Q2 2025",
+            "Q3 2025",
+          ],
+          datasets: [
+            {
+              label: "Education and Training",
+              data: [50000, 80000, 115000, 160000, 190000, 115000],
+              borderColor: "#2271B6",
+              backgroundColor: gradientBlue,
+              fill: true,
+              tension: 0.45,
+              pointRadius: 6,
+              pointHoverRadius: 7,
+              pointBackgroundColor: "#2271B6",
+              pointBorderColor: "#fff",
+              pointBorderWidth: 2,
+            },
+            {
+              label: "Operating Expenses Refund",
+              data: [5000, 30000, 70000, 120000, 150000, 70000],
+              borderColor: "#FDBA8C",
+              backgroundColor: gradientOrange,
+              fill: true,
+              tension: 0.45,
+              pointRadius: 6,
+              pointHoverRadius: 7,
+              pointBackgroundColor: "#FDBA8C",
+              pointBorderColor: "#fff",
+              pointBorderWidth: 2,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+
+          scales: {
+            x: {
+              grid: {
+                drawBorder: false,
+                color: "#E5E7EB",
+                borderDash: [5, 5],
+              },
+              ticks: {
+                font: { size: 14 },
+              },
+            },
+            y: {
+              min: 0,
+              max: 200000,
+              ticks: {
+                stepSize: 40000,
+                font: { size: 14 },
+                callback: (v) => `${v / 1000}k`,
+              },
+              grid: {
+                color: "#E5E7EB",
+                drawBorder: false,
+              },
+            },
+          },
+
+          plugins: {
+            legend: {
+              position: "bottom",
+              align: "start",
+              labels: {
+                usePointStyle: true,
+                pointStyle: "circle",
+                boxWidth: 10,
+
+                font: { size: 14 },
+              },
+            },
+            tooltip: {
+              backgroundColor: "#FFFFFF",
+              titleColor: "#111827",
+              bodyColor: "#374151",
+              borderColor: "#E5E7EB",
+              borderWidth: 1,
+              padding: 12,
+              callbacks: {
+                label: (ctx2) =>
+                  `${ctx2.dataset.label}: ₦${ctx2.raw.toLocaleString()}`,
+              },
+            },
+          },
+        },
+      });
+    });
+  </script>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      $("#fileInputBtn").click((evt) => {
+        $("#fileInput").click();
+      });
+    });
+  </script>
+</Layout>
+<!-- Main content ends here -->
