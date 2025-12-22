@@ -64,6 +64,7 @@ import { CloseCircleIcon } from "../Icons";
         <button
           type="button"
           class="btn bg-primary-blue text-white fs-12"
+          id="apply"
           data-bs-dismiss="modal"
         >
           Apply
@@ -72,3 +73,14 @@ import { CloseCircleIcon } from "../Icons";
     </div>
   </div>
 </div>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    $("#comparisonDisplay").addClass("d-none");
+
+    $("#apply").click((evt) => {
+      //   $(".confirmCancel").addClass("d-none");
+      $("#comparisonDisplay").removeClass("d-none");
+    });
+  });
+</script>

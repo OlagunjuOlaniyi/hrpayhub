@@ -1,0 +1,181 @@
+---
+const { modalId = "myModal", title = "Alert Rules" } = Astro.props;
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- STEP 1: Confirm Cancel -->
+      <div class="step step-1">
+        <div class="modal-header border-0 d-flex justify-content-between">
+          <h4 class="modal-title fs-22 fw-700">{title}</h4>
+
+          <img
+            role="button"
+            class="close-btn"
+            src="images/png/icons/close-circle-1.svg"
+            alt="close"
+          />
+        </div>
+
+        <div class="modal-body d-flex flex-column gap-4 py-5 pt-2">
+          <div
+            class="d-flex justify-content-between align-items-center border rounded-3 px-3 py-2"
+          >
+            <div class="d-flex flex-column align-items-start text-left">
+              <span class="fs-14 fw-700">High Fuel Expense</span>
+              <span class="fs-12">Monthly Operating Expenses > ₦5.00M</span>
+            </div>
+            <div class="d-flex gap-1">
+              <div
+                role="button"
+                class="form-check form-switch switchForDeductionsFields"
+                style="margin-top: 5px; cursor: pointer"
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="toggleSwitch"
+                />
+              </div>
+              <button class="border-0" style="background-color: inherit;">
+                <img src="images/png/icons/colored/delete.svg" alt="" />
+              </button>
+            </div>
+          </div>
+          <div
+            class="d-flex justify-content-between align-items-center border rounded-3 px-3 py-2"
+          >
+            <div class="d-flex flex-column align-items-start text-left">
+              <span class="fs-14 fw-700">Revenue Drop Alert</span>
+              <span class="fs-12">{"Monthly Revenue < ₦10.00M"}</span>
+            </div>
+            <div class="d-flex gap-1">
+              <div
+                role="button"
+                class="form-check form-switch switchForDeductionsFields"
+                style="margin-top: 5px; cursor: pointer"
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="toggleSwitch"
+                />
+              </div>
+              <button class="border-0" style="background-color: inherit;">
+                <img src="images/png/icons/colored/delete.svg" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer border-0">
+          <button
+            type="button"
+            class="btn bg-primary-blue text-white fs-14 next-btn"
+          >
+            Create New Alert
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Request Swap -->
+      <div class="step step-2 d-none">
+        <div class="modal-header border-0 d-flex justify-content-between">
+          <h4 class="modal-title fs-22 fw-700">Create New Alert</h4>
+
+          <img
+            role="button"
+            class="back-btn"
+            src="images/png/icons/close-circle-1.svg"
+            alt="close"
+          />
+        </div>
+
+        <div class="modal-body d-flex flex-column gap-5 py-5">
+          <div class="form-floating">
+            <input
+              type="text"
+              id="alert_name"
+              name="alert_name"
+              class="form-input"
+              placeholder=""
+            />
+            <label for="alert_name">
+              Alert Name &nbsp;<span>*</span>
+            </label>
+          </div>
+          <div class="form-floating">
+            <select class="form-select_custom fs-14" id="measure">
+              <option value="1">Operating Expenses</option>
+              <option value="2">Operating Expenses</option>
+            </select>
+            <label for="measure">Measure &nbsp;<span>*</span></label>
+          </div>
+          <div class="form-floating">
+            <select class="form-select_custom fs-14" id="time">
+              <option value="1">Monthly</option>
+              <option value="2">Monthly</option>
+            </select>
+            <label for="time">Time Grain &nbsp;<span>*</span></label>
+          </div>
+          <div class="form-floating">
+            <select class="form-select_custom fs-14" id="condition">
+              <option value="1">Greater Than</option>
+              <option value="2">Greater Than</option>
+            </select>
+            <label for="condition">Condition &nbsp;<span>*</span></label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="text"
+              id="threshold"
+              name="threshold"
+              class="form-input"
+              placeholder=""
+            />
+            <label for="threshold">
+              Threshold (₦) &nbsp;<span>*</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="modal-footer border-0">
+          <button
+            type="button"
+            class="btn bg-primary-blue text-white fs-14"
+            data-bs-dismiss="modal"
+          >
+            Create Alert
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    function showStep(n) {
+      $(".step").addClass("d-none");
+      $(`.step-${n}`).removeClass("d-none");
+    }
+
+    // Step 1 → Step 2
+    $(".next-btn").click(() => showStep(2));
+
+    // Step 2 → Step 3
+    $(".next-btn-2").click(() => showStep(3));
+
+    // Close button (return to previous)
+    $(".back-btn").click(() => showStep(1));
+
+    // Reset when modal closes
+    $("#myModal").on("hidden.bs.modal", () => {
+      showStep(1);
+    });
+  });
+</script>

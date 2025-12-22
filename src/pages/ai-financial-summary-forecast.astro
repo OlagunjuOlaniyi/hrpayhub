@@ -1,0 +1,315 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: Company Setup">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/financial-reports-and-analytics-ng"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/financial-reports-and-analytics"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/financial-reports-and-analytics-ng"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Financial Reports & Analytics - NG</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >AI Financial Plan Summary & Forecast</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Title */}
+          <div class="vstack gap-2">
+            <div class="d-flex gap-3 align-items-center">
+              <span
+                class="text-primary-blue font-ubuntu-bold fs-18 inline-block"
+                >AI Financial Plan Summary & Forecast</span
+              >
+            </div>
+            <div class="fw-bold fs-16">
+              Brief trends plus a small forward-looking forecast
+            </div>
+          </div>
+          {/* Page Title */}
+
+          <div class="p-5 border rounded-4">
+            <div class="d-flex flex-column gap-2">
+              <h2 class="fs-22 fw-700">AI Summary</h2>
+              <div
+                class="py-4 px-1 fs-14 rounded-4"
+                style={{ border: "1px solid #2271b6" }}
+              >
+                <ul class="d-flex flex-column gap-2">
+                  <li>OPEX has been stable over the last 3 months</li>
+                  <li>Revenue grew 18% this quarter versus last quarter</li>
+                  <li>VAT payable is trending down this year</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Page Content Box */}
+          <div class="d-flex flex-column gap-5 border rounded-4 p-5">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h3 class="fs-22 fw-700">Line Chart</h3>
+                <p class="fs-16 text-grey">Expenses Q1-Q3 2024 - 2025</p>
+              </div>
+              <div
+                class="d-flex flex-grow-1 justify-content-end align-items-center gap-3"
+              >
+                <button
+                  type="button"
+                  class="white_button fs-14 d-flex gap-2 fw-700 align-items-center"
+                  id="addNewShift"
+                  style="border: 0px !important;"
+                >
+                  <img src="images/png/icons/refresh-white.svg" alt="add new" />
+                  <span>Reset Filter </span>
+                </button>
+
+                <!-- export -->
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-white border text-dark fw-600 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    data-bs-offset="-20,10"
+                  >
+                    <img
+                      src="images/png/icons/download-black.svg"
+                      alt="download"
+                    />
+                    <span class="fs-14">Export</span>
+                    <img
+                      src="images/png/icons/arrow-down-black.svg"
+                      alt="arrow-down"
+                    />
+                  </button>
+                  <div class="dropdown-menu p-0 border-0">
+                    <ul class="list-group border-0 fw-600 fs-14">
+                      <li class="list-group-item">
+                        <div>CSV</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>Excel</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>PDF</div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>Email Report</div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <button
+                  class="btn bg-primary-blue text-white px-3 fs-14 fw-600"
+                  style="height: 42px;"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#filterAnalyticsModal"
+                  data-title="Add Employment Status"
+                >
+                  <span class="me-2">Filters</span>
+                  <img src="images/png/icons/arrow-down.svg" alt="arrow-down" />
+                </button>
+              </div>
+            </div>
+
+            <!-- chart area -->
+
+            <div style="height:600px">
+              <canvas id="varianceLineChart"></canvas>
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <h2 class="fs-16 fw-700">Forecast</h2>
+              <div
+                class="py-4 px-1 fs-14 rounded-4"
+                style={{ border: "1px solid #2271b6" }}
+              >
+                <ul class="d-flex flex-column gap-2">
+                  <li>
+                    If this trend continues, net profit is projected to be
+                    around ₦X–₦Y per month over the next 3 months.”
+                  </li>
+                </ul>
+              </div>
+              <div class="py-4 px-3 fs-14 border rounded-4">
+                <div class="d-flex gap-2">
+                  <img src="images/png/icons/caution.svg" alt="" />
+                  <div>Forecast is indicative and based on past data only</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Page Content Box */}
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Main content ends here -->
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const ctx2 = document.getElementById("varianceLineChart");
+      if (!ctx2 || typeof Chart === "undefined") return;
+
+      const gradientBlue = ctx2
+        .getContext("2d")
+        .createLinearGradient(0, 0, 0, 300);
+      gradientBlue.addColorStop(0, "rgba(34,113,182,0.25)");
+      gradientBlue.addColorStop(1, "rgba(34,113,182,0)");
+
+      const gradientOrange = ctx2
+        .getContext("2d")
+        .createLinearGradient(0, 0, 0, 300);
+      gradientOrange.addColorStop(0, "rgba(253,186,140,0.35)");
+      gradientOrange.addColorStop(1, "rgba(253,186,140,0)");
+
+      new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: [
+            "Q1 2024",
+            "Q2 2024",
+            "Q3 2024",
+            "Q1 2025",
+            "Q2 2025",
+            "Q3 2025",
+          ],
+          datasets: [
+            {
+              label: "Education and Training",
+              data: [50000, 80000, 115000, 160000, 190000, 115000],
+              borderColor: "#2271B6",
+              backgroundColor: gradientBlue,
+              fill: true,
+              tension: 0.45,
+              pointRadius: 6,
+              pointHoverRadius: 7,
+              pointBackgroundColor: "#2271B6",
+              pointBorderColor: "#fff",
+              pointBorderWidth: 2,
+            },
+            {
+              label: "Operating Expenses Refund",
+              data: [5000, 30000, 70000, 120000, 150000, 70000],
+              borderColor: "#FDBA8C",
+              backgroundColor: gradientOrange,
+              fill: true,
+              tension: 0.45,
+              pointRadius: 6,
+              pointHoverRadius: 7,
+              pointBackgroundColor: "#FDBA8C",
+              pointBorderColor: "#fff",
+              pointBorderWidth: 2,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+
+          scales: {
+            x: {
+              grid: {
+                drawBorder: false,
+                color: "#E5E7EB",
+                borderDash: [5, 5],
+              },
+              ticks: {
+                font: { size: 14 },
+              },
+            },
+            y: {
+              min: 0,
+              max: 200000,
+              ticks: {
+                stepSize: 40000,
+                font: { size: 14 },
+                callback: (v) => `${v / 1000}k`,
+              },
+              grid: {
+                color: "#E5E7EB",
+                drawBorder: false,
+              },
+            },
+          },
+
+          plugins: {
+            legend: {
+              position: "bottom",
+              align: "start",
+              labels: {
+                usePointStyle: true,
+                pointStyle: "circle",
+                boxWidth: 10,
+
+                font: { size: 14 },
+              },
+            },
+            tooltip: {
+              backgroundColor: "#FFFFFF",
+              titleColor: "#111827",
+              bodyColor: "#374151",
+              borderColor: "#E5E7EB",
+              borderWidth: 1,
+              padding: 12,
+              callbacks: {
+                label: (ctx2) =>
+                  `${ctx2.dataset.label}: ₦${ctx2.raw.toLocaleString()}`,
+              },
+            },
+          },
+        },
+      });
+    });
+  </script>
+</Layout>

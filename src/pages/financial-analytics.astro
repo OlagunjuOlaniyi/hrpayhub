@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import AnalyticsAskModal from "../components/ui/AnalyticsAskModal.astro";
 import AnalyticsViewModal from "../components/ui/AnalyticsViewModal.astro";
 import AnalyticsComparisonModal from "../components/ui/AnalyticsComparisonModal.astro";
+import AnalyticsAlertModal from "../components/ui/AnalyticsAlertModal.astro";
+import AnalyticsFilterModal from "../components/ui/AnalyticsFilterModal.astro";
 ---
 
 <Layout title="HRPayHub :: Analytics">
@@ -103,8 +105,8 @@ import AnalyticsComparisonModal from "../components/ui/AnalyticsComparisonModal.
                 type="button"
                 class="white_button fs-14 d-flex gap-2 align-items-center"
                 data-bs-toggle="modal"
-                data-bs-target="#addCard"
-                data-title="Add New Card"
+                data-bs-target="#alertAnalyticsModal"
+                data-title="Alert Rules"
                 data-emp-type="{ele.emp_type}"
                 style="border: 1px solid lightgrey !important; height: 38px; color: #202020 !important;"
               >
@@ -126,6 +128,11 @@ import AnalyticsComparisonModal from "../components/ui/AnalyticsComparisonModal.
           <AnalyticsViewModal
             title="Save Views"
             modalId="viewAnalyticsModal"
+            inputPlace="View Analytics"
+          />
+          <AnalyticsAlertModal
+            title="Alert Rules"
+            modalId="alertAnalyticsModal"
             inputPlace="View Analytics"
           />
 
@@ -232,7 +239,7 @@ import AnalyticsComparisonModal from "../components/ui/AnalyticsComparisonModal.
                       style="height: 42px;"
                       type="button"
                       data-bs-toggle="modal"
-                      data-bs-target="#myTemplateModal"
+                      data-bs-target="#filterAnalyticsModal"
                       data-title="Add Employment Status"
                     >
                       <span class="me-2">Filters</span>
@@ -249,12 +256,41 @@ import AnalyticsComparisonModal from "../components/ui/AnalyticsComparisonModal.
                 <div style="height:600px">
                   <canvas id="varianceLineChart"></canvas>
                 </div>
+
+                <!-- Comparison section -->
+                <div class="p-5 border rounded-4 d-none" id="comparisonDisplay">
+                  <div class="d-flex justify-content-between fs-22 fw-700">
+                    <span>Comparison</span>
+                    <span style="color: #FD0000;">-₦34,194,967.00</span>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between fs-16 fw-700 py-4 border-bottom border-4"
+                  >
+                    <span>Operating Expenses Refund</span>
+                    <span style="color: #FD0000;" class="d-flex gap-2"
+                      ><img src="images/png/icons/arrow-down-red.svg" alt="" /> ₦45.68M
+                      12%</span
+                    >
+                  </div>
+                  <div class="d-flex justify-content-between fs-16 fw-700 py-4">
+                    <span>Education and Training</span>
+                    <span style="color: #2BC700;" class="d-flex gap-2"
+                      ><img src="images/png/icons/arrow-up-green.svg" alt="" /> ₦25.68M
+                      12%</span
+                    >
+                  </div>
+                </div>
               </div>
 
               <AnalyticsComparisonModal
                 title="Comparison and Baseline"
                 modalId="comparisonAnalyticsModal"
                 inputPlace="Comparison and Baseline"
+              />
+              <AnalyticsFilterModal
+                title="Filters"
+                modalId="filterAnalyticsModal"
+                inputPlace="Filters"
               />
             </div>
             <div id="varianAnalysis" class="container tab-pane">

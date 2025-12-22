@@ -1,0 +1,632 @@
+---
+const { modalId = "analyticsFilterModal" } = Astro.props;
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content p-4 rounded-4">
+      <!-- HEADER -->
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="fw-700 text-primary-blue">Filters</h5>
+        <div class="d-flex gap-3">
+          <button
+            type="button"
+            class="white_button fs-14 d-flex gap-2 fw-700 align-items-center"
+            id="addNewShift"
+            style="border: 0px !important;"
+          >
+            <img src="images/png/icons/refresh-white.svg" alt="add new" />
+            <span>Reset Filter </span>
+          </button>
+          <button class="btn bg-primary-blue text-white px-4" id="applyFilter">
+            Apply Filter
+          </button>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- LEFT: SELECT PERIOD -->
+        <div class="col-md-4">
+          <div class="border rounded-4 p-4 h-100">
+            <h6 class="fw-700 mb-3">Select Period</h6>
+
+            <div class="form-check mb-2">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="periodType"
+                value="custom"
+                checked
+              />
+              <label class="form-check-label fs-14">Custom Range</label>
+            </div>
+
+            <div class="form-check mb-3">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="periodType"
+                value="periodized"
+              />
+              <label class="form-check-label fs-14">Periodized</label>
+            </div>
+
+            <!-- Custom Range -->
+            <div id="customRangeSection">
+              <div class="mt-4 fs-14">Select Date</div>
+              <div class="d-flex justify-content-between gap-1 mt-4">
+                <div class="form-floating">
+                  <input
+                    type="date"
+                    id="start_date"
+                    name="start_date"
+                    class="form-input fs-12"
+                    placeholder=""
+                  />
+                  <label for="start_date">Start Date </label>
+                </div>
+                <div class="form-floating">
+                  <input
+                    type="date"
+                    id="end_date"
+                    name="end_date"
+                    class="form-input fs-12"
+                    placeholder=""
+                  />
+                  <label for="end_date">End Date </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Periodized -->
+            <div id="periodizedSection" class="d-none mt-4">
+              <!-- Nav pills -->
+              <ul
+                class="nav nav-pills d-flex justify-content-between p-1 upload_offer_bg"
+                role="tablist"
+              >
+                <li class="nav-item">
+                  <a
+                    class="nav-link active fs-12 fw-600"
+                    data-bs-toggle="pill"
+                    href="#yearsTab">Year(s)</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link fs-12 fw-600"
+                    data-bs-toggle="pill"
+                    href="#quarterTab">Quarter(s)</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link fs-12 fw-600"
+                    data-bs-toggle="pill"
+                    href="#monthTab">Month(s)</a
+                  >
+                </li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div id="yearsTab" class="container tab-pane active">
+                  <br />
+                  <div class="dropdown" id="periodSelect">
+                    <button
+                      class="delon-primary-btn bg-white p-1 px-3 border dropdown-toggle dropdown-arrow d-flex align-items-center gap-2 fs-14"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                    >
+                      <span>Select Year(s)</span>
+                    </button>
+
+                    <ul class="dropdown-menu border-0 fs-14 px-2">
+                      <li class="mb-2">
+                        <label class="form-check-label">
+                          <input
+                            type="checkbox"
+                            class="form-check-input me-2"
+                            name="name 1"
+                          />
+                          2021
+                        </label>
+                      </li>
+                      <li class="mb-2">
+                        <label class="form-check-label">
+                          <input
+                            type="checkbox"
+                            class="form-check-input me-2"
+                            name="name 2"
+                          />
+                          2022
+                        </label>
+                      </li>
+                      <li class="mb-2">
+                        <label class="form-check-label">
+                          <input
+                            type="checkbox"
+                            class="form-check-input me-2"
+                            name="name 2"
+                          />
+                          2023
+                        </label>
+                      </li>
+                      <li class="mb-2">
+                        <label class="form-check-label">
+                          <input
+                            type="checkbox"
+                            class="form-check-input me-2"
+                            name="name 2"
+                          />
+                          2024
+                        </label>
+                      </li>
+                      <li class="mb-2">
+                        <label class="form-check-label">
+                          <input
+                            type="checkbox"
+                            class="form-check-input me-2"
+                            name="name 2"
+                          />
+                          2025
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div id="quarterTab" class="container tab-pane">
+                  <br />
+                  <div class="d-flex justify-content-between">
+                    <div class="dropdown" id="periodSelect">
+                      <button
+                        class="delon-primary-btn bg-white p-1 px-3 border dropdown-toggle dropdown-arrow d-flex align-items-center gap-2 fs-14"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                      >
+                        <span>Select Year(s)</span>
+                      </button>
+
+                      <ul class="dropdown-menu border-0 fs-14 px-2">
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 1"
+                            />
+                            2021
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            2022
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            2023
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            2024
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            2025
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="dropdown" id="periodSelect">
+                      <button
+                        class="delon-primary-btn bg-white p-1 px-3 border dropdown-toggle dropdown-arrow d-flex align-items-center gap-2 fs-14"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                      >
+                        <span>Select Quarter(s)</span>
+                      </button>
+
+                      <ul class="dropdown-menu border-0 fs-14 px-2">
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 1"
+                            />
+                            Q1
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            Q2
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            Q3
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            Q4
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div id="monthTab" class="container tab-pane">
+                  <br />
+                  <div class="d-flex justify-content-between">
+                    <div class="dropdown" id="periodSelect">
+                      <button
+                        class="delon-primary-btn bg-white p-1 px-3 border dropdown-toggle dropdown-arrow d-flex align-items-center gap-2 fs-14"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                      >
+                        <span>Select Year</span>
+                      </button>
+
+                      <ul class="dropdown-menu border-0 fs-14 px-2">
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 1"
+                            />
+                            2021
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            2022
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            2023
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            2024
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            2025
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="dropdown" id="periodSelect">
+                      <button
+                        class="delon-primary-btn bg-white p-1 px-3 border dropdown-toggle dropdown-arrow d-flex align-items-center gap-2 fs-14"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                      >
+                        <span>Select Month(s)</span>
+                      </button>
+
+                      <ul class="dropdown-menu border-0 fs-14 px-2">
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 1"
+                            />
+                            Jan
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            Feb
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            Mar
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            Apr
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input me-2"
+                              name="name 2"
+                            />
+                            May
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="periodTags" class="d-flex flex-column gap-2 fs-14"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MIDDLE: COMPONENT SELECTION -->
+        <div class="col-md-4">
+          <div class="border rounded-4 p-4 h-100">
+            <h6 class="fw-700 mb-3">Component Selection</h6>
+
+            <div class="d-flex gap-2 mb-3">
+              <select class="form-select" id="depositSelect">
+                <option value="">Deposits</option>
+                <option value="Recruitment">Recruitment</option>
+                <option value="Education and Training"
+                  >Education and Training</option
+                >
+              </select>
+              <select class="form-select" id="withdrawalSelect">
+                <option value="">Withdrawals</option>
+                <option value="Operating Expenses Refund"
+                  >Operating Expenses Refund</option
+                >
+                <option value="IT Training">IT Training</option>
+              </select>
+            </div>
+
+            <div id="componentTags" class="d-flex flex-column gap-2 fs-14">
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: VISUALIZATION TYPE -->
+
+        <style>
+          .viz-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            background: #fff;
+            transition: all 0.2s ease;
+          }
+
+          .viz-card:hover {
+            border-color: #2271b6;
+          }
+
+          .viz-card.active {
+            border-color: #2271b6;
+            background-color: #eaf3ff;
+          }
+
+          .viz-card img {
+            width: 22px;
+            height: 22px;
+          }
+        </style>
+        <div class="col-md-4">
+          <div class="border rounded-4 p-4 h-100">
+            <h6 class="fw-700 mb-3">Visualization Type</h6>
+
+            <div class="row g-3 visualization-group">
+              <label class="col-6 viz-tile">
+                <input type="radio" name="vizType" value="pie" hidden />
+                <div class="viz-card">
+                  <img src="images/png/icons/pie.svg" alt="Pie" />
+                  <span>Pie Chart</span>
+                </div>
+              </label>
+
+              <label class="col-6 viz-tile">
+                <input
+                  type="radio"
+                  name="vizType"
+                  value="line"
+                  hidden
+                  checked
+                />
+                <div class="viz-card active">
+                  <img src="images/png/icons/line.svg" alt="Line" />
+                  <span>Line Graph</span>
+                </div>
+              </label>
+
+              <label class="col-6 viz-tile">
+                <input type="radio" name="vizType" value="histogram" hidden />
+                <div class="viz-card">
+                  <img src="images/png/icons/histogram.svg" alt="Histogram" />
+                  <span>Histogram</span>
+                </div>
+              </label>
+
+              <label class="col-6 viz-tile">
+                <input type="radio" name="vizType" value="stacked" hidden />
+                <div class="viz-card">
+                  <img src="images/png/icons/stacked.svg" alt="Stacked" />
+                  <span>Stacked Bar Chart</span>
+                </div>
+              </label>
+
+              <label class="col-12 viz-tile">
+                <input type="radio" name="vizType" value="heatmap" hidden />
+                <div class="viz-card">
+                  <img src="images/png/icons/heatmap.svg" alt="Heatmap" />
+                  <span>Heatmap</span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const filters = {
+      periodType: "custom",
+      periods: [],
+      components: [],
+      visualization: "line",
+    };
+
+    /* PERIOD TYPE TOGGLE */
+    $('input[name="periodType"]').on("change", function () {
+      filters.periodType = this.value;
+      $("#customRangeSection").toggleClass("d-none", this.value !== "custom");
+      $("#periodizedSection").toggleClass(
+        "d-none",
+        this.value !== "periodized",
+      );
+    });
+
+    /* PERIOD TABS */
+    $(".period-tab").on("click", function () {
+      $(".period-tab").removeClass("active");
+      $(this).addClass("active");
+      filters.periods = [];
+      $("#periodTags").empty();
+    });
+
+    /* ADD PERIOD */
+    $("#periodSelect").on("change", function () {
+      const val = this.value;
+      if (val && !filters.periods.includes(val)) {
+        filters.periods.push(val);
+        $("#periodTags").append(`
+        <div class="d-flex justify-content-between">
+          <span>${val}</span>
+          <span class="text-danger remove-period" data-value="${val}">&times;</span>
+        </div>
+      `);
+      }
+    });
+
+    $(document).on("click", ".remove-period", function () {
+      const val = $(this).data("value");
+      filters.periods = filters.periods.filter((v) => v !== val);
+      $(this).parent().remove();
+    });
+
+    /* COMPONENT SELECTION */
+    $("#depositSelect, #withdrawalSelect").on("change", function () {
+      const val = this.value;
+      if (val && !filters.components.includes(val)) {
+        filters.components.push(val);
+        $("#componentTags").append(`
+        <div class="d-flex justify-content-between">
+          <span>${val}</span>
+          <span class="text-danger remove-component" data-value="${val}">&times;</span>
+        </div>
+      `);
+      }
+    });
+
+    $(document).on("click", ".remove-component", function () {
+      const val = $(this).data("value");
+      filters.components = filters.components.filter((v) => v !== val);
+      $(this).parent().remove();
+    });
+
+    /* VISUALIZATION TYPE */
+    $(".viz-option").on("click", function () {
+      $(".viz-option").removeClass("active");
+      $(this).addClass("active");
+      filters.visualization = $(this).data("type");
+    });
+
+    /* APPLY FILTER */
+    $("#applyFilter").on("click", function () {
+      console.log("Applied Filters:", filters);
+      $("#analyticsFilterModal").modal("hide");
+    });
+
+    /* RESET FILTER */
+    $("#resetFilter").on("click", function () {
+      location.reload();
+    });
+  });
+</script>
