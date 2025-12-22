@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import AnalyticsFilterModal from "../components/ui/AnalyticsFilterModal.astro";
 ---
 
 <Layout title="HRPayHub :: Company Setup">
@@ -161,6 +162,12 @@ import Layout from "../layouts/Layout.astro";
                 </button>
               </div>
             </div>
+
+            <AnalyticsFilterModal
+              title="Filters"
+              modalId="filterAnalyticsModal"
+              inputPlace="Filters"
+            />
 
             <!-- chart area -->
 

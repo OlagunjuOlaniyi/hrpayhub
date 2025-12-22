@@ -7,7 +7,7 @@ const { modalId = "analyticsFilterModal" } = Astro.props;
     <div class="modal-content p-4 rounded-4">
       <!-- HEADER -->
       <div class="d-flex justify-content-between align-items-center mb-3">
-        <h5 class="fw-700 text-primary-blue">Filters</h5>
+        <h5 class="fw-700 text-primary-blue fs-22">Filters</h5>
         <div class="d-flex gap-3">
           <button
             type="button"
@@ -18,7 +18,10 @@ const { modalId = "analyticsFilterModal" } = Astro.props;
             <img src="images/png/icons/refresh-white.svg" alt="add new" />
             <span>Reset Filter </span>
           </button>
-          <button class="btn bg-primary-blue text-white px-4" id="applyFilter">
+          <button
+            class="btn bg-primary-blue text-white px-4 fs-14"
+            id="applyFilter"
+          >
             Apply Filter
           </button>
         </div>
@@ -435,21 +438,529 @@ const { modalId = "analyticsFilterModal" } = Astro.props;
           <div class="border rounded-4 p-4 h-100">
             <h6 class="fw-700 mb-3">Component Selection</h6>
 
-            <div class="d-flex gap-2 mb-3">
-              <select class="form-select" id="depositSelect">
-                <option value="">Deposits</option>
-                <option value="Recruitment">Recruitment</option>
-                <option value="Education and Training"
-                  >Education and Training</option
+            <div class="d-flex gap-3 mb-3">
+              <div class="dropdown" id="depositSelect">
+                <button
+                  class="delon-primary-btn bg-white py-2 px-4 border dropdown-toggle dropdown-arrow d-flex align-items-center gap-2 fs-14"
+                  type="button"
+                  data-bs-toggle="dropdown"
                 >
-              </select>
-              <select class="form-select" id="withdrawalSelect">
-                <option value="">Withdrawals</option>
-                <option value="Operating Expenses Refund"
-                  >Operating Expenses Refund</option
+                  <span class="fs-14">Deposits</span>
+                </button>
+
+                <ul class="dropdown-menu border fs-14 px-2 text-nowrap">
+                  <li class="mb-2 bg-grey">
+                    <label class="form-check-label">
+                      <input
+                        type="checkbox"
+                        class="form-check-input me-2"
+                        name="name 1"
+                      />
+                      All Deposits
+                    </label>
+                  </li>
+                  <li class="mb-2 bg-grey w-100">
+                    <label class="form-check-label">
+                      <input
+                        type="checkbox"
+                        class="form-check-input me-2"
+                        name="name 1"
+                      />
+                      Revenue
+                    </label>
+                  </li>
+
+                  <ul class="border-0 list-unstyled fs-14 px-2">
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 1"
+                        />
+                        Recruitment
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Staff Outsourcing
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Business Process Outsourcing
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Virtual Assistant
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        HRPayHub
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        IT Training
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Job Site
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Consulting
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        ATM Accessories
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Interest Revenue
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Other Revenue
+                      </label>
+                    </li>
+                  </ul>
+                  <li class="mb-2 bg-grey w-100">
+                    <label class="form-check-label">
+                      <input
+                        type="checkbox"
+                        class="form-check-input me-2"
+                        name="name 1"
+                      />
+                      Non-Revenue Deposits
+                    </label>
+                  </li>
+
+                  <ul class="border-0 list-unstyled fs-14 px-2">
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 1"
+                        />
+                        Loan Received
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Loan Recovered
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Company to Company Transfer
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        COGS Refund
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        COGS Refund
+                      </label>
+                    </li>
+                  </ul>
+                </ul>
+              </div>
+              <div class="dropdown" id="withdrawalSelect">
+                <button
+                  class="delon-primary-btn bg-white py-2 px-4 border dropdown-toggle dropdown-arrow d-flex align-items-center gap-2 fs-14"
+                  type="button"
+                  data-bs-toggle="dropdown"
                 >
-                <option value="IT Training">IT Training</option>
-              </select>
+                  <span class="fs-14">Withdrawals</span>
+                </button>
+
+                <ul class="dropdown-menu border fs-14 px-2 text-nowrap">
+                  <li class="mb-2 bg-grey">
+                    <label class="form-check-label">
+                      <input
+                        type="checkbox"
+                        class="form-check-input me-2"
+                        name="name 1"
+                      />
+                      All Withdrawals
+                    </label>
+                  </li>
+                  <li class="mb-2 bg-grey w-100">
+                    <label class="form-check-label">
+                      <input
+                        type="checkbox"
+                        class="form-check-input me-2"
+                        name="name 1"
+                      />
+                      Cost of Goods Sold (COGS)
+                    </label>
+                  </li>
+
+                  <ul class="border-0 list-unstyled fs-14 px-2">
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 1"
+                        />
+                        Recruitment
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Staff Outsourcing
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Business Process Outsourcing
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Virtual Assistant
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        HRPayHub
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        IT Training
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Job Site
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Consulting
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        ATM Accessories
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Other COGS
+                      </label>
+                    </li>
+                  </ul>
+                  <li class="mb-2 bg-grey w-100">
+                    <label class="form-check-label">
+                      <input
+                        type="checkbox"
+                        class="form-check-input me-2"
+                        name="name 1"
+                      />
+                      Non-Expense Withdrawal
+                    </label>
+                  </li>
+
+                  <ul class="border-0 list-unstyled fs-14 px-2">
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 1"
+                        />
+                        Interest Cost
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Loan Given Out
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Loan Repaid
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Revenue Refund
+                      </label>
+                    </li>
+                  </ul>
+                  <li class="mb-2 bg-grey w-100">
+                    <label class="form-check-label">
+                      <input
+                        type="checkbox"
+                        class="form-check-input me-2"
+                        name="name 1"
+                      />
+                      Operating Expenses
+                    </label>
+                  </li>
+
+                  <ul class="border-0 list-unstyled fs-14 px-2">
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 1"
+                        />
+                        Fuel – Petrol (Nissan)
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Fuel – Petrol (Toyota)
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Fuel – Petrol (Generator-Oloke, Ibara, Ipaja)
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Education and Training
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Software Service
+                      </label>
+                    </li>
+                  </ul>
+                  <li class="mb-2 bg-grey w-100">
+                    <label class="form-check-label">
+                      <input
+                        type="checkbox"
+                        class="form-check-input me-2"
+                        name="name 1"
+                      />
+                      Asset
+                    </label>
+                  </li>
+
+                  <ul class="border-0 list-unstyled fs-14 px-2">
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 1"
+                        />
+                        Furniture
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Vehicle
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Computers New
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Computer Old
+                      </label>
+                    </li>
+                    <li class="mb-2">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input me-2"
+                          name="name 2"
+                        />
+                        Software Service
+                      </label>
+                    </li>
+                  </ul>
+                </ul>
+              </div>
             </div>
 
             <div id="componentTags" class="d-flex flex-column gap-2 fs-14">
@@ -465,6 +976,8 @@ const { modalId = "analyticsFilterModal" } = Astro.props;
             border-radius: 12px;
             padding: 14px;
             display: flex;
+            flex-direction: column;
+            font-size: 12px;
             align-items: center;
             gap: 10px;
             cursor: pointer;
@@ -508,7 +1021,7 @@ const { modalId = "analyticsFilterModal" } = Astro.props;
                   checked
                 />
                 <div class="viz-card active">
-                  <img src="images/png/icons/line.svg" alt="Line" />
+                  <img src="images/png/icons/line-graph.svg" alt="Line" />
                   <span>Line Graph</span>
                 </div>
               </label>
@@ -529,7 +1042,7 @@ const { modalId = "analyticsFilterModal" } = Astro.props;
                 </div>
               </label>
 
-              <label class="col-12 viz-tile">
+              <label class="col-6 viz-tile">
                 <input type="radio" name="vizType" value="heatmap" hidden />
                 <div class="viz-card">
                   <img src="images/png/icons/heatmap.svg" alt="Heatmap" />
@@ -612,10 +1125,20 @@ const { modalId = "analyticsFilterModal" } = Astro.props;
     });
 
     /* VISUALIZATION TYPE */
-    $(".viz-option").on("click", function () {
-      $(".viz-option").removeClass("active");
-      $(this).addClass("active");
-      filters.visualization = $(this).data("type");
+    // Visualization radio logic
+    $('input[name="vizType"]').on("change", function () {
+      const value = $(this).val();
+      filters.visualization = value;
+
+      // Update active UI
+      $(".viz-card").removeClass("active");
+      $(this).closest(".viz-tile").find(".viz-card").addClass("active");
+    });
+
+    // Apply filter (example)
+    $("#applyFilter").on("click", function () {
+      console.log("Visualization Selected:", filters.visualization);
+      $("#analyticsFilterModal").modal("hide");
     });
 
     /* APPLY FILTER */
