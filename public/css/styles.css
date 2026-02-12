@@ -1597,6 +1597,11 @@ ul.subscription_tab li.nav-item .active {
   width: 437px;
 }
 
+.invoice_width {
+  border-radius: 15px;
+  border: 2px solid #c1c1c1;
+}
+
 dl,
 ol,
 ul {

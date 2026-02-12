@@ -1,0 +1,615 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+---
+
+<Layout title="HRPayHub :: Invoice Management">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/invoicing"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/invoicing"
+              class="fs-14 text-decoration-none text-primary-dark">Invoicing</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Invoice Management</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-4">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
+          id="manage_list_of_payslip"
+        >
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div class="d-flex gap-3 align-items-center">
+              <span class="text-dark font-ubuntu-bold fs-18 inline-block"
+                >Invoice Management</span
+              >
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+
+          <div>
+            <div class="d-flex flex-row justify-content-between gap-5">
+              <!---- Search  -->
+              <div class="d-flex gap-3">
+                <input
+                  type="text"
+                  class="form-control search-input search-width fs-14"
+                  placeholder="Search..."
+                />
+                <img
+                  src="images/png/icons/initialize.svg"
+                  class="initialize"
+                  alt="arrow-down"
+                />
+              </div>
+
+              <!-- Others -->
+              <div class="responsive gap-1">
+                <!-- Calendar Selector -->
+                <input
+                  type="month"
+                  class="form-control fs-14"
+                  style="max-width: 200px;"
+                  value="2026-02"
+                />
+
+                <input
+                  type="text"
+                  class="form-control fs-14 ms-2"
+                  value=""
+                  placeholder="Amount Range"
+                />
+
+                <!-- Filter Dropdown -->
+
+                <style>
+                  .dropdown-submenu {
+                    position: relative;
+                  }
+
+                  /* Accordion style: drop below, not to the right */
+                  .dropdown-submenu > .dropdown-menu {
+                    position: static;
+                    float: none;
+                    margin-top: 0.5rem;
+                    padding-left: 1rem;
+                    display: none;
+                  }
+
+                  .dropdown-submenu > .dropdown-menu.show {
+                    display: block;
+                  }
+
+                  /* a small caret indicator */
+                  .dropdown-submenu > a::after {
+                    content: " ";
+                    float: right;
+                  }
+                </style>
+
+                <div class="dropdown">
+                  <button
+                    class="delon-primary-btn bg-white border-0 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2 fs-14"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    data-bs-offset="-20,10"
+                  >
+                    <img src="images/png/icons/filter.svg" alt="arrow-down" />
+                    <span>Filter</span>
+                  </button>
+                  <ul class="dropdown-menu" style="min-width:250px">
+                    <li
+                      class="d-flex flex-row justify-content-between px-3 py-2 border-bottom fs-14"
+                    >
+                      <span class="fw-bold">Filter</span>
+                      <span class="fw-bold text-primary-blue">Reset Filter</span
+                      >
+                    </li>
+                    <!-- Designation Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Designation</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 1"
+                            /> Category 1
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 2"
+                            /> Category 2
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="category 2"
+                            /> Category 2
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- Employment Status Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Employment Status</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="employed"
+                            /> Employed
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="unemployed"
+                            /> Unemployed
+                          </label>
+                        </li>
+
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="contract"
+                            /> Contract
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- Country of Work Submenu -->
+                    <li class="dropdown-submenu border-bottom">
+                      <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                        >Country of Work</a
+                      >
+                      <ul class="dropdown-menu border-0 fs-14">
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="usa"
+                            /> USA
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="uk"
+                            /> UK
+                          </label>
+                        </li>
+                        <li>
+                          <label class="form-check-label">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              name="Nigeria"
+                            /> Nigeria
+                          </label>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <!-- apply filter button -->
+                    <li
+                      class="d-flex flex-row justify-content-end px-3 py-2 mt-2"
+                    >
+                      <button
+                        type="submit"
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fs-14"
+                      >
+                        <span>Apply Filter</span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+
+                <!----- link --->
+                <div class="d-flex justify-content-end">
+                  <button
+                    class="btn bg-primary-blue d-flex align-items-center text-nowrap text-white px-3 fs-14 fw-600"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Create Client"
+                  >
+                    +
+                    <span class="ms-2">Create Invoice</span>
+                  </button>
+                </div>
+              </div>
+
+              <!---- End of Others ---->
+            </div>
+          </div>
+
+          {/* Page Content Box */}
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead
+                class="bg-primary-blue text-white px-4 fw-600 fs-14 text-nowrap"
+              >
+                <tr>
+                  <th
+                    class="bg-primary-blue text-left text-white px-3 fw-600 fs-14"
+                    >Invoice No</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white fw-600 fs-14 px-3 text-left"
+                    style="min-width: 200px;">Client</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Issue Date</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Due Date</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Amount</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Balance</th
+                  >
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-left"
+                    >Status</th
+                  >
+
+                  <th
+                    class="bg-primary-blue text-white px-3 fw-600 fs-14 text-center"
+                  ></th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 180px;
+                  }
+                </style>
+                {
+                  [
+                    {
+                      client_name: "HRP-INV-2024-0001",
+                      client_email: "Wade Warren",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "23rd Oct, 2025",
+                      pay_terms: "N124,676",
+                      status: "Sent",
+                      out_bal: "N124,676",
+                    },
+                    {
+                      client_name: "HRP-INV-2024-0001",
+                      client_email: "Wade Warren",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "23rd Oct, 2025",
+                      pay_terms: "N124,676",
+                      status: "Paid",
+                      out_bal: "N124,676",
+                    },
+                    {
+                      client_name: "HRP-INV-2024-0001",
+                      client_email: "Wade Warren",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "23rd Oct, 2025",
+                      pay_terms: "N124,676",
+                      status: "Draft",
+                      out_bal: "N124,676",
+                    },
+                    {
+                      client_name: "HRP-INV-2024-0001",
+                      client_email: "Wade Warren",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "23rd Oct, 2025",
+                      pay_terms: "N124,676",
+                      status: "Partially Paid",
+                      out_bal: "N124,676",
+                    },
+                    {
+                      client_name: "HRP-INV-2024-0001",
+                      client_email: "Wade Warren",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "23rd Oct, 2025",
+                      pay_terms: "N124,676",
+                      status: "Overdue",
+                      out_bal: "N124,676",
+                    },
+                    {
+                      client_name: "HRP-INV-2024-0001",
+                      client_email: "Wade Warren",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "23rd Oct, 2025",
+                      pay_terms: "N124,676",
+                      status: "Cancelled",
+                      out_bal: "N124,676",
+                    },
+                    {
+                      client_name: "HRP-INV-2024-0001",
+                      client_email: "Wade Warren",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "23rd Oct, 2025",
+                      pay_terms: "N124,676",
+                      status: "Sent",
+                      out_bal: "N124,676",
+                    },
+                  ].map((ele, index) => (
+                    <tr class="fs-88">
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        {ele.client_name}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.client_email}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.phone_no}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.currency}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.pay_terms}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">{ele.out_bal}</td>
+                      <td
+                        class="fs-14 px-3 text-left column fw-700"
+                        style={`color: ${
+                          ele.status === "Sent"
+                            ? "#2271B6"
+                            : ele.status === "Paid"
+                              ? "#2BC700"
+                              : ele.status === "Draft"
+                                ? "#B6B000"
+                                : ele.status === "Overdue"
+                                  ? "red"
+                                  : ele.status === "Partially Paid"
+                                    ? "#000"
+                                    : ele.status === "Cancelled"
+                                      ? "red"
+                                      : "inherit"
+                        };`}
+                      >
+                        <img
+                          src={`images/png/icons/${ele.status === "Paid" ? "active.svg" : ele.status === "Draft" ? "draft.svg" : ele.status === "Sent" ? "sent.svg" : ele.status === "Partially Paid" ? "partially.svg" : ele.status === "Overdue" ? "overdue.svg" : "cancelled.svg"}`}
+                          alt=""
+                        />
+                        {ele.status}
+                      </td>
+
+                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                        <div class="dropdown">
+                          <button
+                            class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                            data-bs-offset="-20,10"
+                          >
+                            <span>Actions</span>
+                            <img
+                              src="images/png/icons/arrow-down.svg"
+                              alt="arrow-down"
+                            />
+                          </button>
+                          <div class="dropdown-menu p-0 border-0">
+                            <ul class="list-group border-0 fw-600 fs-14">
+                              <li
+                                class="list-group-item pointer"
+                                role="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#myEditModal"
+                                data-title="Edit Client"
+                              >
+                                <div>View Invoice</div>
+                              </li>
+
+                              <li class="list-group-item text-nowrap">
+                                <div>Send</div>
+                              </li>
+                              <li class="list-group-item">
+                                <div>Download PDF</div>
+                              </li>
+                              <li class="list-group-item">
+                                <div>Record Payment</div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
+          </div>
+
+          <!---- End of table --->
+
+          <!-- Pagination Row -->
+          <div
+            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+          >
+            <!-- Left: Pagination Text -->
+            <div class="fs-14 text-muted">
+              Showing <strong>1–20</strong> of <strong>1000</strong>
+            </div>
+
+            <!-- Right: Go to Page + Pagination -->
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <!-- Go to Page -->
+              <form class="d-flex align-items-center gap-2">
+                <label for="gotoPage" class="fs-14 mb-0">Go to page?</label>
+                <input
+                  type="number"
+                  min="1"
+                  max="100"
+                  id="gotoPage"
+                  class="form-control form-control-sm"
+                  style="width: 60px;"
+                  placeholder="—"
+                />
+              </form>
+
+              <!-- Page Navigation -->
+
+              <nav>
+                <ul class="pagination pagination-sm mb-0 text-primary-blue">
+                  <li class="page-item">
+                    <a
+                      class="page-link text-primary-blue px-2"
+                      href="#"
+                      aria-label="Previous"
+                    >
+                      &lsaquo;
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">1</a>
+                  </li>
+                  <li class="page-item active" aria-current="page">
+                    <span class="page-link">2</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">3</a>
+                  </li>
+                  <li class="page-item disabled">
+                    <span class="page-link text-primary-blue">...</span>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link text-primary-blue" href="#">100</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link hello" href="#" aria-label="Next">
+                      &rsaquo;
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <!---- Pagination ---->
+        </div>
+      </div>
+    </section>
+    <ModalAddNew
+      modalId="myModal"
+      title={"Create Client"}
+      inputPlace="Create Client"
+    />
+    <ModalAddNew
+      modalId="myEditModal"
+      title={"Edit Client"}
+      inputPlace="Edit Client"
+    />
+  </main>
+</Layout>
+
+<!-- Main content ends here -->
+
+<script>
+  document
+    .querySelectorAll(".dropdown-submenu > a")
+    .forEach(function (element) {
+      element.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const submenu = this.nextElementSibling;
+
+        // Close all other submenus
+        document
+          .querySelectorAll(".dropdown-submenu .dropdown-menu")
+          .forEach(function (el) {
+            if (el !== submenu) el.classList.remove("show");
+          });
+
+        submenu.classList.toggle("show");
+      });
+    });
+
+  // Optional: close submenus when clicking outside
+  document.addEventListener("click", function () {
+    document
+      .querySelectorAll(".dropdown-submenu .dropdown-menu")
+      .forEach(function (el) {
+        el.classList.remove("show");
+      });
+  });
+</script>

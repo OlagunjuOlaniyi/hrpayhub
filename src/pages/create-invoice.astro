@@ -1,0 +1,368 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+---
+
+<Layout title="HRPayHub :: Create Invoice">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/invoicing"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/invoicing"
+              class="fs-14 text-decoration-none text-primary-dark">Invoicing</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/invoicing"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Invoice Management</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Create Invoice</span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div
+          class="rounded-4 shadow py-5 vstack gap-5"
+          style="padding-left: 100px; padding-right: 100px;"
+        >
+          {/* Page Content Box */}
+
+          <div class="d-flex justify-content-between gap-3">
+            <!---- Search  -->
+            <div class="fw-700 fs-16">New Invoice</div>
+
+            <!-- Others -->
+            <div class="responsive gap-4 align-items-center">
+              <span class="fw-600" role="button">Discard</span>
+              <button
+                class="delon-primary-btn bg-white text-primary-blue border-primary-blue text-decoration-none d-flex align-items-center text-white fw-bold fs-14"
+              >
+                <img src="images/png/icons/draft-blue.svg" alt="" />
+                <span class="ms-2 text-nowrap fs-14">Save Draft</span>
+              </button>
+              <div class="d-flex justify-content-end">
+                <button
+                  class="btn bg-primary-blue d-flex align-items-center text-white fs-14"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#approveModal"
+                  data-title="Make Payment"
+                >
+                  <img src="images/png/icons/sent-white.svg" alt="" /><span
+                    class="ms-2 text-nowrap">Send Invoice</span
+                  >
+                </button>
+              </div>
+
+              <!---- End of Others ---->
+            </div>
+          </div>
+
+          <!------textual -->
+          <div class="d-flex gap-4">
+            <div class="d-flex flex-column gap-4">
+              <div class="invoice_width px-4 py-4">
+                <div class="d-flex justify-content-between gap-4">
+                  <div class="form-floating w-50">
+                    <select
+                      id="client"
+                      name="client"
+                      class="form-select_custom fs-14"
+                      required
+                    >
+                      <option value="" selected> Select </option>
+                      <option value="1">Lorem Ipsum</option>
+                      <option value="2">Lorem Ipsum</option>
+                      <option value="3">Lorem Ipsum</option>
+                    </select>
+                    <label for="client">
+                      Client &nbsp;<span>*</span>
+                    </label>
+                  </div>
+                  <div class="form-floating w-50">
+                    <input
+                      type="date"
+                      id="invoice_date"
+                      name="invoice_date"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="invoice_date">
+                      Invoice Date &nbsp;<span>*</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between mt-4 gap-4">
+                  <div class="form-floating w-50">
+                    <select
+                      id="pay_terms"
+                      name="pay_terms"
+                      class="form-select_custom fs-14"
+                      required
+                    >
+                      <option value="" selected> Select </option>
+                      <option value="1">Lorem Ipsum</option>
+                      <option value="2">Lorem Ipsum</option>
+                      <option value="3">Lorem Ipsum</option>
+                    </select>
+                    <label for="pay_terms"> Payment Terms </label>
+                  </div>
+                  <div class="form-floating w-50">
+                    <input
+                      type="date"
+                      id="due_date"
+                      name="due_date"
+                      class="form-input"
+                      placeholder=""
+                    />
+                    <label for="due_date"> Due Date </label>
+                  </div>
+                </div>
+              </div>
+              <div class="invoice_width py-4 pt-0">
+                <div
+                  class="d-flex justify-content-between align-items-center py-3 px-4 rounded-top-4"
+                  style="background-color: #F4FAFF;"
+                >
+                  <div class="fw-700 fs-16">Line Items</div>
+                  <button
+                    type="button"
+                    class="white_button fs-14 d-flex gap-1 align-items-center"
+                    style="border: 0px !important; background-color: inherit;"
+                  >
+                    <img src="images/png/icons/plus-blue.svg" alt="add new" />
+                    <span class="fw-700">Add Items </span>
+                  </button>
+                </div>
+                <div class="d-flex justify-content-between mt-5 px-4 gap-3">
+                  <div class="form-floating">
+                    <textarea class="form-input" rows="4" id="comment"
+                    ></textarea>
+                    <label for="comment"
+                      >Item Description &nbsp;<span>*</span></label
+                    >
+                  </div>
+                  <div>
+                    <div class="d-flex justify-content-between gap-3">
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          id="unit_price"
+                          name="unit_price"
+                          class="form-input"
+                          placeholder=""
+                        />
+                        <label for="unit_price">
+                          Unit Price &nbsp;<span>*</span>
+                        </label>
+                      </div>
+                      <div class="form-floating">
+                        <input
+                          type="number"
+                          id="qty"
+                          name="qty"
+                          class="form-input"
+                          placeholder=""
+                        />
+                        <label for="qty">
+                          Quantity &nbsp;<span>*</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-4">
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          id="discount"
+                          name="discount"
+                          class="form-input"
+                          placeholder=""
+                        />
+                        <label for="discount"> Discount </label>
+                      </div>
+                      <div class="form-floating">
+                        <input
+                          type="number"
+                          id="vat_no"
+                          name="vat_no"
+                          class="form-input"
+                          placeholder=""
+                        />
+                        <label for="vat_no"> VAT </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="d-flex justify-content-end mt-3 border-bottom mx-3 pb-3"
+                >
+                  <button
+                    type="button"
+                    class="white_button fs-14 d-flex gap-1 align-items-center"
+                    style="border: 0px !important; color: #000 !important"
+                  >
+                    <span>Delete </span>
+                    <img
+                      src="images/png/icons/colored/delete.svg"
+                      alt="delete"
+                    />
+                  </button>
+                </div>
+                <div class="d-flex justify-content-between mt-5 px-4 gap-3">
+                  <div class="form-floating">
+                    <textarea class="form-input" rows="4" id="comment"
+                    ></textarea>
+                    <label for="comment"
+                      >Item Description &nbsp;<span>*</span></label
+                    >
+                  </div>
+                  <div>
+                    <div class="d-flex justify-content-between gap-3">
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          id="unit_price"
+                          name="unit_price"
+                          class="form-input"
+                          placeholder=""
+                        />
+                        <label for="unit_price">
+                          Unit Price &nbsp;<span>*</span>
+                        </label>
+                      </div>
+                      <div class="form-floating">
+                        <input
+                          type="number"
+                          id="qty"
+                          name="qty"
+                          class="form-input"
+                          placeholder=""
+                        />
+                        <label for="qty">
+                          Quantity &nbsp;<span>*</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-4">
+                      <div class="form-floating">
+                        <input
+                          type="text"
+                          id="discount"
+                          name="discount"
+                          class="form-input"
+                          placeholder=""
+                        />
+                        <label for="discount"> Discount </label>
+                      </div>
+                      <div class="form-floating">
+                        <input
+                          type="number"
+                          id="vat_no"
+                          name="vat_no"
+                          class="form-input"
+                          placeholder=""
+                        />
+                        <label for="vat_no"> VAT </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-3 mx-3">
+                  <button
+                    type="button"
+                    class="white_button fs-14 d-flex gap-1 align-items-center"
+                    style="border: 0px !important; color: #000 !important"
+                  >
+                    <span>Delete </span>
+                    <img
+                      src="images/png/icons/colored/delete.svg"
+                      alt="delete"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex flex-column gap-2" style="width: 30%;">
+              <div class="invoice_width px-4 py-3">
+                <div class="fw-700 fs-16 py-3 border-bottom">
+                  Invoice Summary
+                </div>
+                <div
+                  class="d-flex justify-content-between gap-3 pt-3 mt-2 border-bottom"
+                >
+                  <div class="fs-14" style="color: #989898;">
+                    <p>Subtotal</p>
+                    <p>VAT Total</p>
+                    <p>Discount Total</p>
+                  </div>
+                  <div class="fs-14 text-end">
+                    <p>N40,000,000</p>
+                    <p>N124,676</p>
+                    <p style="color: red;">-N80,000</p>
+                  </div>
+                </div>
+                <div
+                  class="p-2 d-flex justify-content-between align-items-center mt-4 rounded-3"
+                  style="background-color: #F4FAFF;"
+                >
+                  <div class="fw-700 fs-16">Invoice Summary</div>
+                  <div class="fw-700 fs-22">N40,044,676</div>
+                </div>
+                <div class="form-floating mt-5">
+                  <textarea class="form-input" rows="4" id="client_note"
+                  ></textarea>
+                  <label for="client_note">Client Note... </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Page Content Box */}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Main content ends here -->
+</Layout>

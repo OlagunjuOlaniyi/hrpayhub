@@ -130,6 +130,147 @@ import { CloseCircleIcon } from "../Icons";
               </label>
             </div>
           </div>
+        ) : inputPlace === "Create Client" || "Edit Client" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="client_name"
+                name="client_name"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="client_name">
+                Client Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="contact"
+                name="contact"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="contact">Contact Person</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="email"
+                id="email_id"
+                name="email_id"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="email_id">Email Address</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="phone_no"
+                name="phone_no"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="phone_no">Phone Number</label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="bil_id"
+                name="bil_id"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="bil_id">Billing Address</label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="country"
+                name="country"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Nigeria</option>
+                <option value="2">UK</option>
+                <option value="3">United States</option>
+              </select>
+              <label for="country">
+                Country &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="currency"
+                name="currency"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">NGN</option>
+                <option value="2">USD</option>
+                <option value="3">GDP</option>
+              </select>
+              <label for="currency">
+                Default Currency &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="pay_terms"
+                name="pay_terms"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Lorem Ipsum</option>
+                <option value="2">Lorem Ipsum</option>
+                <option value="3">Lorem Ipsum</option>
+              </select>
+              <label for="pay_terms">
+                Payment Terms &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="d-flex gap-4  align-items-center">
+              <span class="fs-12">This Client is VAT Registered</span>
+              <div
+                role="button"
+                class="form-check form-switch switchForDeductionsFields"
+                style="margin-top: 5px; cursor: pointer"
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="toggleSwitch"
+                />
+              </div>
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                id="vat_no"
+                name="vat_no"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="vat_no">
+                VAT Number &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="comment" />
+              <label for="comment">Notes </label>
+            </div>
+          </div>
         ) : inputPlace === "Add Staff Member" ? (
           <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
             <div class="form-floating">
@@ -856,7 +997,15 @@ import { CloseCircleIcon } from "../Icons";
           class="btn bg-primary-blue text-white"
           data-bs-dismiss="modal"
         >
-          {inputPlace === "Create Template" ? "Create Template" : "Save"}
+          {
+            inputPlace === "Create Template"
+              ? "Create Template"
+              : inputPlace === "Create Client"
+                ? "Add Client"
+                : title === "Edit Client"
+                  ? "Save Changes"
+                  : "Save"
+          }
         </button>
       </div>
     </div>
