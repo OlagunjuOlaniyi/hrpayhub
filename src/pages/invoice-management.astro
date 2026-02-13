@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import ViewInvoiceModal from "../components/ui/ViewInvoiceModal.astro";
 ---
 
 <Layout title="HRPayHub :: Invoice Management">
@@ -53,10 +54,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
     <!-- First section of Back button and Breadcrumb -->
     <section class="px-lg-4">
       <div class="screenFrame">
-        <div
-          class="rounded-4 shadow p-4 vstack gap-3 px-lg-5"
-          id="manage_list_of_payslip"
-        >
+        <div class="rounded-4 shadow p-4 vstack gap-3 px-lg-5">
           {/* Page Title */}
           <div class="vstack gap-3">
             <div class="d-flex gap-3 align-items-center">
@@ -272,15 +270,13 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
 
                 <!----- link --->
                 <div class="d-flex justify-content-end">
-                  <button
+                  <a
                     class="btn bg-primary-blue d-flex align-items-center text-nowrap text-white px-3 fs-14 fw-600"
-                    data-bs-toggle="modal"
-                    data-bs-target="#myModal"
-                    data-title="Create Client"
+                    href="/create-invoice"
                   >
                     +
                     <span class="ms-2">Create Invoice</span>
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -471,7 +467,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                                 class="list-group-item pointer"
                                 role="button"
                                 data-bs-toggle="modal"
-                                data-bs-target="#myEditModal"
+                                data-bs-target="#viewInvoiceModal"
                                 data-title="Edit Client"
                               >
                                 <div>View Invoice</div>
@@ -573,9 +569,9 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
       title={"Create Client"}
       inputPlace="Create Client"
     />
-    <ModalAddNew
-      modalId="myEditModal"
-      title={"Edit Client"}
+    <ViewInvoiceModal
+      modalId="viewInvoiceModal"
+      title={"View Invoice"}
       inputPlace="Edit Client"
     />
   </main>

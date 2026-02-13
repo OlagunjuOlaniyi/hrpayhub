@@ -1,0 +1,212 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "comment", title = "View Invoice" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <!-- Modal body -->
+      <div class="modal-body text-left py-2 border-0">
+        <div class="pb-3 text-center">
+          <img src="images/png/icons/niche.svg" class="my-4" alt="logo" />
+          <h2 class="fs-22 fw-700 mb-3">INVOICE</h2>
+          <div class="d-flex flex-column">
+            <span class="fw-700 fs-16">Niche Company</span>
+            <span class="fs-14">34 Williams Street, Ikeja Lagos Nigeria</span>
+            <span class="fs-14">+2348162736646 | www.niche.com</span>
+          </div>
+        </div>
+        <div class="py-4 border-top border-bottom">
+          <div class="d-flex justify-content-between">
+            <div class="fs-14" style="color: #989898;">
+              <span>Bill To:</span>
+            </div>
+            <div class="fs-14 text-end d-flex flex-column">
+              <span class="fs-16 fw-700">Immaculate Company</span>
+              <span>No 34 Iuboye Street, Yaba Lagos State</span>
+              <span>08142637747</span>
+              <span>imaculate@gmail.com</span>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between gap-3 mt-2">
+            <div class="fs-14" style="color: #989898;">
+              <p>Invoice Number:</p>
+              <p>Invoice Date:</p>
+              <p>Payment Date:</p>
+            </div>
+            <div class="fs-14 text-end">
+              <p>HRP-INV-2024-0001</p>
+              <p>Jan 29, 2026</p>
+              <p>Feb 23, 2026</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive w-full">
+          <table
+            class="table table-bordered payslip_table"
+            style={{ tableLayout: "auto", minWidth: "100%" }}
+          >
+            <tbody>
+              {/* <!-- Table Section Header --> */}
+              <tr>
+                <td
+                  style={{ border: "0" }}
+                  class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                >
+                  Items
+                </td>
+                <td
+                  style={{ border: "0" }}
+                  class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                >
+                  Quantity
+                </td>
+                <td
+                  style={{ border: "0" }}
+                  class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                >
+                  Unit Price
+                </td>
+                <td
+                  style={{ border: "0" }}
+                  class="bg-primary-blue text-white px-4 px-12px fw-bold fs-14 text-nowrap"
+                >
+                  Amount
+                </td>
+              </tr>
+
+              {
+                [
+                  {
+                    date: "29 Jun 2025",
+                    client_name: "Payment for Toyota Camry 2026 10% Discount",
+                    service: "1",
+                    sub: "45,500,000",
+                    vat_received: "45,500,000",
+                    vat_withheld: "Lorem",
+                  },
+                  {
+                    date: "29 Jun 2025",
+                    client_name:
+                      "Payment for Honda Crosstour 2026 20% Discount",
+                    service: "1",
+                    sub: "36,700,000",
+                    vat_received: "36,700,000",
+                    vat_withheld: "Lorem",
+                  },
+                ].map((ele, index) => (
+                  <tr>
+                    <td class="text-black px-4 px-12px fs-14 text-wrap">
+                      {ele.client_name}
+                    </td>
+                    <td class="text-black px-4 px-12px fs-14 text-nowrap">
+                      {ele.service}
+                    </td>
+                    <td class="text-black px-4 px-12px fs-14 text-nowrap text-end">
+                      N{ele.sub}
+                    </td>
+                    <td class="text-black px-4 px-12px fs-14 text-nowrap text-end">
+                      N{ele.vat_received}
+                    </td>
+                  </tr>
+                ))
+              }
+              {
+                [
+                  {
+                    date: "29 Jun 2025",
+                    client_name: "SubTotal:",
+                    service: "36,700,000",
+                    sub: "Lorem",
+                    vat_received: "Lorem",
+                    vat_withheld: "Lorem",
+                  },
+                  {
+                    date: "29 Jun 2025",
+                    client_name: "VAT 7.5%",
+                    service: "200,000",
+                    sub: "Lorem",
+                    vat_received: "Lorem",
+                    vat_withheld: "Lorem",
+                  },
+                ].map((ele, index) => (
+                  <tr class="border-0">
+                    <td
+                      class="text-black px-4 px-12px fs-14 text-nowrap text-end border-0"
+                      colspan="3"
+                    >
+                      {ele.client_name}
+                    </td>
+                    <td class="text-black px-4 px-12px fs-14 text-nowrap text-end fw-700 fs-16 border-0">
+                      N{ele.service}
+                    </td>
+                  </tr>
+                ))
+              }
+              {
+                [
+                  {
+                    date: "29 Jun 2025",
+                    client_name: "Total:",
+                    service: "36,700,000",
+                    sub: "Lorem",
+                    vat_received: "Lorem",
+                    vat_withheld: "Lorem",
+                  },
+                  {
+                    date: "29 Jun 2025",
+                    client_name:
+                      "Payment on January 21, 2025 using a bank apyment",
+                    service: "36,700,000",
+                    sub: "Lorem",
+                    vat_received: "Lorem",
+                    vat_withheld: "Lorem",
+                  },
+                ].map((ele, index) => (
+                  <tr class="border-0">
+                    <td
+                      class="text-black px-4 px-12px fs-14 text-nowrap text-end border-0"
+                      colspan="3"
+                    >
+                      {ele.client_name}
+                    </td>
+                    <td class="text-black px-4 px-12px fs-14 text-nowrap text-end fw-700 fs-16 border-0">
+                      N{ele.service}
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+        <div
+          class="p-2 d-flex justify-content-between align-items-center mt-4 rounded-3"
+          style="background-color: #F4FAFF;"
+        >
+          <div class="fw-700 fs-16">Amount Due (NGN):</div>
+          <div class="fw-700 fs-22">N0</div>
+        </div>
+        <div
+          class="d-flex flex-column p-2 gap-4 mt-5"
+          style="background-color: #F4FAFF;"
+        >
+          <div class="fw-700 fs-16">Notes/Terms</div>
+          <div class="fs-14">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+    </div>
+  </div>
+</div>
