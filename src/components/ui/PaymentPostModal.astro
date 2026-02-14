@@ -1,0 +1,172 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "comment", title = "Accounting Posting" } = Astro.props;
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content py-4 px-3">
+      <!-- STEP 1: Confirm Cancel -->
+      <div class="step step-1">
+        <div class="modal-header border-0 d-flex justify-content-between">
+          <h4 class="modal-title fs-22 fw-700">{title}</h4>
+
+          <img
+            role="button"
+            class="close-btn"
+            src="images/png/icons/close-circle-1.svg"
+            alt="close"
+          />
+        </div>
+
+        <div class="modal-body d-flex flex-column gap-4 py-5">
+          <div class="form-floating">
+            <select
+              id="select_invoice"
+              name="select_invoice"
+              class="form-select_custom fs-14"
+              required
+            >
+              <option value="" selected> Select </option>
+              <option value="1">Invoice 1</option>
+              <option value="2">Invoice 2</option>
+              <option value="3">Invoice 3</option>
+            </select>
+            <label for="select_invoice">
+              Select Invoice &nbsp;<span>*</span>
+            </label>
+          </div>
+          <div>
+            <button
+              type="button"
+              class="border-0 text-left text-primary-blue fs-14"
+              style="background-color: inherit; text-decoration: underline;"
+              >View Selected Invoice</button
+            >
+          </div>
+          <div class="form-floating">
+            <input
+              type="text"
+              id="amt_paid"
+              name="amt_paid"
+              class="form-input"
+              placeholder=""
+            />
+            <label for="amt_paid">
+              Amount Paid &nbsp;<span>*</span>
+            </label>
+          </div>
+          <div class="form-floating">
+            <select
+              id="method"
+              name="method"
+              class="form-select_custom fs-14"
+              required
+            >
+              <option value="" selected> Select </option>
+              <option value="1">Cash</option>
+              <option value="2">Bank Transfer</option>
+              <option value="3">Bank Transfer</option>
+            </select>
+            <label for="method">
+              Method &nbsp;<span>*</span>
+            </label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="text"
+              id="ref"
+              name="ref"
+              class="form-input"
+              placeholder=""
+            />
+            <label for="ref"> Reference/Transaction ID </label>
+          </div>
+          <!---- upload ---->
+          <form class="vstack gap-2 mt-3" id="generate_payslip_form">
+            <div class="fs-14 fw-600">Upload Proof</div>
+            <div
+              class="upload_bulk_status p-3 d-flex flex-column align-items-center justify-content-center"
+            >
+              <img
+                src="images/png/icons/cloud_upload.svg"
+                width="35px"
+                height="35px"
+                alt="cloud upload icon"
+              />
+              <div class="fs-14 fw-700" style="color: #6B7280">
+                Click to upload <span class="fw-400">or drag and drop</span>
+              </div>
+              <div class="fs-12 fw-700" style="color: #6B7280">
+                PDF or DOCX (Max File Size: 2MB)
+              </div>
+              <button
+                type="button"
+                id="fileInputBtn"
+                class="delon-primary-btn d-flex gap-2 mt-2 bg-primary-blue border-0 text-white fs-14"
+              >
+                <img src="images/png/icons/search.svg" alt="arrow-down" />
+                <span>Browse Files</span>
+              </button>
+              <div
+                id="fileInputDetails"
+                class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 mt-2 rounded-3 fs-14 d-flex gap-1 align-items-center"
+                role="button"
+              >
+                <span class="flex-fill text-truncate"
+                  >gvfyguytctrcjrct.webp</span
+                >
+                <span class="flex-fill">
+                  <img
+                    src="images/png/icons/close-circle-6.svg"
+                    width="15"
+                    height="15"
+                    alt="close_icon"
+                  />
+                </span>
+              </div>
+              <input type="file" class="d-none" id="fileInput" />
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer border-0">
+          <button
+            type="button"
+            class="btn bg-primary-blue text-white fs-14"
+            data-bs-dismiss="modal"
+          >
+            Post
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    $("#fileInputBtn").click((evt) => {
+      $("#fileInput").click();
+    });
+
+    document
+      .getElementById("fileInput")
+      .addEventListener("change", function () {
+        if (fileInput.files.length > 0) {
+          const fileName = fileInput.files[0].name;
+          $("#fileInputDetails span:first-child").text(fileName);
+          $("#fileInputDetails").removeClass("d-none");
+          $("#fileInputBtn").addClass("d-none");
+          console.log("Selected file name:", fileName);
+        }
+      });
+    $("#fileInputDetails span:nth-child(2)").click(() => {
+      $("#fileInput").val("");
+      $("#fileInputDetails span:first-child").text("");
+      $("#fileInputDetails").addClass("d-none");
+      $("#fileInputBtn").removeClass("d-none");
+    });
+  });
+</script>

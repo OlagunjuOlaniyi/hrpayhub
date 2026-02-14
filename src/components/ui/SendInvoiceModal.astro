@@ -1,0 +1,125 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "comment", title = "Send Invoice" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade p-0" id={modalId} tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <!-- Modal body -->
+      <div class="modal-body text-left pb-2 border-0">
+        <!-- Custom New Message Dialog Box -->
+        <div id="newMessageBox" class="border border-light bg-white">
+          <div
+            class="border-bottom p-3 py-2 d-flex justify-content-between align-items-center bg-primary-blue text-white"
+          >
+            <h6 class="mb-0">Send Invoice</h6>
+
+            <button
+              type="button"
+              class="btn-close btn-sm btn-close-white"
+              data-bs-dismiss="modal"
+              id="closeMessageBox"></button>
+          </div>
+
+          <div class="p-3">
+            <div
+              class="d-flex justify-content-between align-items-center gap-3 mb-2 border-0 border-bottom"
+            >
+              <span class="fs-14 text-grey"
+                >Client Email &nbsp;<span style="color: red;">*</span></span
+              >
+              <div class="flex-grow-1">
+                <input
+                  type="email"
+                  class="form-control border-0"
+                  placeholder=""
+                />
+              </div>
+            </div>
+            <div
+              class="d-flex justify-content-between align-items-center gap-3 mb-2 border-0 border-bottom"
+            >
+              <span class="fs-14 text-grey">Cc: </span>
+              <div class="flex-grow-1">
+                <input
+                  type="email"
+                  class="form-control border-0"
+                  placeholder=""
+                />
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control border-0 border-bottom"
+                placeholder="Subject"
+                id="emailSubject"
+              />
+            </div>
+
+            <div class="">
+              <textarea
+                class="form-control border-0 fs-14"
+                rows="7"
+                placeholder="Message body"
+                id="emailBody"></textarea>
+            </div>
+
+            <div class="d-flex justify-content-between w-50 py-2 my-3">
+              <div id="filePreviewList" class="d-flex flex-column gap-2">
+                <!-- Files will be added here -->
+              </div>
+            </div>
+            <div class="d-flex gap-4 align-items-center">
+              <span class="fs-12">Attach PDF</span>
+              <div
+                role="button"
+                class="form-check form-switch switchForDeductionsFields"
+                style="margin-top: 5px; cursor: pointer"
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="toggleSwitch"
+                />
+              </div>
+            </div>
+            <div class="d-flex gap-4 align-items-center mt-3">
+              <span class="fs-12">Include Link</span>
+              <div
+                role="button"
+                class="form-check form-switch switchForDeductionsFields"
+                style="margin-top: 5px; cursor: pointer"
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="toggleSwitch"
+                />
+              </div>
+            </div>
+            <div
+              class="d-flex gap-3 justify-content-between align-items-center mt-3"
+            >
+              <div class="d-flex align-items-center gap-3">
+                <button class="btn bg-primary-blue text-white">Send</button>
+              </div>
+              <img
+                role="button"
+                src="images/png/icons/colored/delete.svg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+    </div>
+  </div>
+</div>

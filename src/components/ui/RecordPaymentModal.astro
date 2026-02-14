@@ -1,0 +1,285 @@
+---
+const { modalId = "myModal", title = "Add Employee Type" } = Astro.props;
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content py-4 px-3">
+      <!-- STEP 1: Confirm Cancel -->
+      <div class="step step-1">
+        <div class="modal-header border-0 d-flex justify-content-between">
+          <div>
+            <h4 class="modal-title fs-22 fw-700">{title}</h4>
+            <span class="fs-14">Generate a receipt for an invoice payment.</span
+            >
+          </div>
+
+          <img
+            role="button"
+            class="close-btn"
+            src="images/png/icons/close-circle-1.svg"
+            alt="close"
+          />
+        </div>
+
+        <div class="modal-body d-flex flex-column gap-4 py-5">
+          <div class="form-floating">
+            <select
+              id="select_invoice"
+              name="select_invoice"
+              class="form-select_custom fs-14"
+              required
+            >
+              <option value="" selected> Select </option>
+              <option value="1">Invoice 1</option>
+              <option value="2">Invoice 2</option>
+              <option value="3">Invoice 3</option>
+            </select>
+            <label for="select_invoice">
+              Select Invoice &nbsp;<span>*</span>
+            </label>
+          </div>
+          <div>
+            <button
+              type="button"
+              class="border-0 text-left text-primary-blue fs-14"
+              style="background-color: inherit; text-decoration: underline;"
+              >View Selected Invoice</button
+            >
+          </div>
+          <div class="form-floating">
+            <input
+              type="text"
+              id="amt_paid"
+              name="amt_paid"
+              class="form-input"
+              placeholder=""
+            />
+            <label for="amt_paid">
+              Amount Paid &nbsp;<span>*</span>
+            </label>
+          </div>
+          <div class="form-floating">
+            <select
+              id="method"
+              name="method"
+              class="form-select_custom fs-14"
+              required
+            >
+              <option value="" selected> Select </option>
+              <option value="1">Cash</option>
+              <option value="2">Bank Transfer</option>
+              <option value="3">Bank Transfer</option>
+            </select>
+            <label for="method">
+              Method &nbsp;<span>*</span>
+            </label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="text"
+              id="ref"
+              name="ref"
+              class="form-input"
+              placeholder=""
+            />
+            <label for="ref"> Reference/Transaction ID </label>
+          </div>
+          <!---- upload ---->
+          <form class="vstack gap-2 mt-3" id="generate_payslip_form">
+            <div class="fs-14 fw-600">Upload Proof</div>
+            <div
+              class="upload_bulk_status p-3 d-flex flex-column align-items-center justify-content-center"
+            >
+              <img
+                src="images/png/icons/cloud_upload.svg"
+                width="35px"
+                height="35px"
+                alt="cloud upload icon"
+              />
+              <div class="fs-14 fw-700" style="color: #6B7280">
+                Click to upload <span class="fw-400">or drag and drop</span>
+              </div>
+              <div class="fs-12 fw-700" style="color: #6B7280">
+                PDF or DOCX (Max File Size: 2MB)
+              </div>
+              <button
+                type="button"
+                id="fileInputBtn"
+                class="delon-primary-btn d-flex gap-2 mt-2 bg-primary-blue border-0 text-white fs-14"
+              >
+                <img src="images/png/icons/search.svg" alt="arrow-down" />
+                <span>Browse Files</span>
+              </button>
+              <div
+                id="fileInputDetails"
+                class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 mt-2 rounded-3 fs-14 d-flex gap-1 align-items-center"
+                role="button"
+              >
+                <span class="flex-fill text-truncate"
+                  >gvfyguytctrcjrct.webp</span
+                >
+                <span class="flex-fill">
+                  <img
+                    src="images/png/icons/close-circle-6.svg"
+                    width="15"
+                    height="15"
+                    alt="close_icon"
+                  />
+                </span>
+              </div>
+              <input type="file" class="d-none" id="fileInput" />
+            </div>
+          </form>
+          <div class="form-floating">
+            <textarea class="form-input" rows="2" id="notes"></textarea>
+            <label for="notes">Notes</label>
+          </div>
+        </div>
+
+        <div class="modal-footer border-0">
+          <button
+            type="button"
+            class="btn bg-primary-blue text-white fs-14 next-btn"
+          >
+            Generate Receipt
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Request Swap -->
+      <div class="step step-2 d-none">
+        <div class="modal-body text-center gap-4 py-5 pt-4">
+          <h4 class="modal-title fs-22 fw-700 mb-3">Success</h4>
+          <img src="images/png/icons/success-check.svg" alt="success check" />
+
+          <p class="fs-16">Payment recorded successfully</p>
+          <p class="fs-16">
+            Supply the missing accounting inputs needed to post this payment
+          </p>
+        </div>
+
+        <div class="modal-footer d-flex justify-content-between border-0">
+          <button type="button" class="white_button fs-14 next-btn-2">
+            <span>Skip Now</span>
+          </button>
+          <button
+            type="button"
+            class="btn bg-primary-blue text-white fs-14"
+            data-bs-dismiss="modal"
+          >
+            Proceed to post Payment
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Successful -->
+      <div class="step step-3 d-none">
+        <div class="modal-body text-left py-2 border-0">
+          <div class="pb-3 text-center">
+            <img src="images/png/icons/niche.svg" class="my-4" alt="logo" />
+            <h2 class="fs-22 fw-700 mb-3">Payment Receipt</h2>
+            <div class="d-flex flex-column">
+              <span class="fw-700 fs-16">Niche Company</span>
+              <span class="fs-14">34 Williams Street, Ikeja Lagos Nigeria</span>
+              <span class="fs-14">+2348162736646 | www.niche.com</span>
+            </div>
+          </div>
+          <div class="py-4 border-top border-bottom">
+            <div class="d-flex justify-content-between gap-3 mt-2">
+              <div class="fs-14" style="color: #989898;">
+                <p>Invoice:</p>
+                <p>Receipt for:</p>
+                <p>Paid on:</p>
+              </div>
+              <div class="fs-14 text-end">
+                <p>HRP-INV-2024-0001</p>
+                <p>Immaculate Company</p>
+                <p>Feb 23, 2026</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="p-2 d-flex justify-content-between align-items-center mt-4 rounded-3"
+            style="background-color: #F4FAFF;"
+          >
+            <div class="fw-700 fs-16">Payment Amount:</div>
+            <div class="fw-700 fs-22">N40,044,676</div>
+          </div>
+          <div class="mt-2">
+            <div class="d-flex justify-content-center gap-2">
+              <span class="fs-14" style="color: #989898;"
+                >Payment Method:
+              </span>
+              <span class="fs-16 fw-700">Bank Transfer</span>
+            </div>
+            <div class="d-flex justify-content-center align-items-center gap-2">
+              <span class="fs-12 fw-600">Powered by </span>
+              <img
+                src="images/logo-1.png"
+                style="width: 60px; height: 14px;"
+                alt=""
+              />
+            </div>
+          </div>
+          <div
+            class="d-flex flex-column p-2 gap-4 mt-5"
+            style="background-color: #F4FAFF;"
+          >
+            <div class="fs-14 text-center">
+              Thanks for your business. If this receipt was sent in error,
+              please contact [company’s Email]
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    function showStep(n) {
+      $(".step").addClass("d-none");
+      $(`.step-${n}`).removeClass("d-none");
+    }
+
+    // Step 1 → Step 2
+    $(".next-btn").click(() => showStep(2));
+
+    // Step 2 → Step 3
+    $(".next-btn-2").click(() => showStep(3));
+
+    // Close button (return to previous)
+    $(".back-btn").click(() => showStep(1));
+
+    // Reset when modal closes
+    $("#myModal").on("hidden.bs.modal", () => {
+      showStep(1);
+    });
+
+    $("#fileInputBtn").click((evt) => {
+      $("#fileInput").click();
+    });
+
+    document
+      .getElementById("fileInput")
+      .addEventListener("change", function () {
+        if (fileInput.files.length > 0) {
+          const fileName = fileInput.files[0].name;
+          $("#fileInputDetails span:first-child").text(fileName);
+          $("#fileInputDetails").removeClass("d-none");
+          $("#fileInputBtn").addClass("d-none");
+          console.log("Selected file name:", fileName);
+        }
+      });
+    $("#fileInputDetails span:nth-child(2)").click(() => {
+      $("#fileInput").val("");
+      $("#fileInputDetails span:first-child").text("");
+      $("#fileInputDetails").addClass("d-none");
+      $("#fileInputBtn").removeClass("d-none");
+    });
+  });
+</script>

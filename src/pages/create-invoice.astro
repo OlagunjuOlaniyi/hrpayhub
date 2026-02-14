@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import SendInvoiceModal from "../components/ui/SendInvoiceModal.astro";
 ---
 
 <Layout title="HRPayHub :: Create Invoice">
@@ -73,19 +73,20 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
             <!-- Others -->
             <div class="responsive gap-4 align-items-center">
               <span class="fw-600" role="button">Discard</span>
-              <button
+              <a
                 class="delon-primary-btn bg-white text-primary-blue border-primary-blue text-decoration-none d-flex align-items-center text-white fw-bold fs-14"
+                href="/invoice-management"
               >
                 <img src="images/png/icons/draft-blue.svg" alt="" />
                 <span class="ms-2 text-nowrap fs-14">Save Draft</span>
-              </button>
+              </a>
               <div class="d-flex justify-content-end">
                 <button
-                  class="btn bg-primary-blue d-flex align-items-center text-white fs-14"
+                  class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
                   type="button"
                   data-bs-toggle="modal"
-                  data-bs-target="#approveModal"
-                  data-title="Make Payment"
+                  data-bs-target="#sendInvoiceModal"
+                  data-title="Send Invoice"
                 >
                   <img src="images/png/icons/sent-white.svg" alt="" /><span
                     class="ms-2 text-nowrap">Send Invoice</span
@@ -362,6 +363,11 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
         </div>
       </div>
     </section>
+    <SendInvoiceModal
+      modalId="sendInvoiceModal"
+      title={"Send Invoice"}
+      inputPlace="Send Invoice"
+    />
   </main>
 
   <!-- Main content ends here -->

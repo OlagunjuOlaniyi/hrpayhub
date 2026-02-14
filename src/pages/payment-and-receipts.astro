@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import PaymentPostModal from "../components/ui/PaymentPostModal.astro";
+import RecordPaymentModal from "../components/ui/RecordPaymentModal.astro";
 ---
 
 <Layout title="HRPayHub :: Payment & Receipts">
@@ -108,13 +109,15 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
               <div class="responsive gap-1">
                 <!----- link --->
                 <div class="d-flex justify-content-end">
-                  <a
+                  <button
                     class="btn bg-primary-blue d-flex align-items-center text-nowrap text-white px-3 fs-14 fw-600"
-                    href="/create-invoice"
+                    data-bs-toggle="modal"
+                    data-bs-target="#recordPaymentModal"
+                    data-title="Record Payment"
                   >
                     +
                     <span class="ms-2">Record New Payment</span>
-                  </a>
+                  </button>
                 </div>
               </div>
 
@@ -563,44 +566,14 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                           </td>
 
                           <td class="fs-14 px-3 text-center d-flex justify-content-center column">
-                            <div class="dropdown">
-                              <button
-                                class="delon-primary-btn bg-primary-blue border-0 py-1 text-white fs-12 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
-                                type="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                                data-bs-offset="-20,10"
-                              >
-                                <span>Actions</span>
-                                <img
-                                  src="images/png/icons/arrow-down.svg"
-                                  alt="arrow-down"
-                                />
-                              </button>
-                              <div class="dropdown-menu p-0 border-0">
-                                <ul class="list-group border-0 fw-600 fs-14">
-                                  <li
-                                    class="list-group-item pointer"
-                                    role="button"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#myEditModal"
-                                    data-title="Edit Client"
-                                  >
-                                    <div>View Receipt</div>
-                                  </li>
-
-                                  <li class="list-group-item text-nowrap">
-                                    <div>Download PDF</div>
-                                  </li>
-                                  <li class="list-group-item">
-                                    <div>Email Receipt Link</div>
-                                  </li>
-                                  <li class="list-group-item">
-                                    <div>Email PDF</div>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
+                            <button
+                              class="btn bg-primary-blue d-flex align-items-center text-nowrap text-white px-3 fs-14 fw-600"
+                              data-bs-toggle="modal"
+                              data-bs-target="#accountPostModal"
+                              data-title="Accounting Posting"
+                            >
+                              <span class="">Post Now</span>
+                            </button>
                           </td>
                         </tr>
                       ))
@@ -684,15 +657,15 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
         </div>
       </div>
     </section>
-    <ModalAddNew
-      modalId="myModal"
-      title={"Create Client"}
-      inputPlace="Create Client"
+    <PaymentPostModal
+      modalId="accountPostModal"
+      title={"Accounting Posting"}
+      inputPlace="Accounting Posting"
     />
-    <ModalAddNew
-      modalId="myEditModal"
-      title={"Edit Client"}
-      inputPlace="Edit Client"
+    <RecordPaymentModal
+      modalId="recordPaymentModal"
+      title={"Record Payment"}
+      inputPlace="Record Payment"
     />
   </main>
 </Layout>
