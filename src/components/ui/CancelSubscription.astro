@@ -29,7 +29,8 @@ const { modalId = "myModal", title = "Add Employee Type" } = Astro.props;
         <div class="modal-footer d-flex justify-content-between border-0">
           <button
             type="button"
-            class="white_button fs-14"
+            class="white_button fs-14 rounded"
+            style="padding-top: 4px; padding-bottom: 4px"
             data-bs-dismiss="modal"
           >
             <span>No, Go Back</span>
@@ -64,12 +65,16 @@ const { modalId = "myModal", title = "Add Employee Type" } = Astro.props;
         </div>
 
         <div class="modal-footer d-flex justify-content-center gap-4 border-0">
-          <button type="button" class="white_button fs-14 next-btn-2">
+          <button
+            type="button"
+            class="white_button fs-14 px-3 rounded next-btn-2"
+            style="padding-top: 4px; padding-bottom: 4px"
+          >
             <span>No</span>
           </button>
           <button
             type="button"
-            class="btn bg-primary-blue text-white fs-14 next-btn-3"
+            class="btn bg-primary-blue text-white px-3 fs-14 next-btn-3"
           >
             Yes
           </button>
@@ -117,7 +122,11 @@ const { modalId = "myModal", title = "Add Employee Type" } = Astro.props;
         </div>
 
         <div class="modal-footer d-flex justify-content-between gap-4 border-0">
-          <button type="button" class="white_button fs-14 back-btn">
+          <button
+            type="button"
+            class="white_button fs-14 rounded back-btn"
+            style="padding-top: 4px; padding-bottom: 4px"
+          >
             <span>No, Go Back</span>
           </button>
           <button
