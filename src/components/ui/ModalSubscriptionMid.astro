@@ -1,0 +1,54 @@
+---
+const {
+  modalId = "myModal",
+  title = "Mid Cycle",
+  inputPlace = "Add Card",
+} = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-end">
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+
+      <div class="modal-body text-center gap-4 py-5 pt-2">
+        <img src="images/png/icons/info-big.svg" alt="info" />
+        <h4 class="modal-title fs-18 fw-700 my-3">
+          You’ve reached your current limit
+        </h4>
+
+        <p class="fs-16 text-left">
+          You have used all the users available on your current plan for this
+          billing cycle. To add a new employee now, please use Add New User
+          Mid-Cycle. A prorated charge will apply based on the number of days
+          remaining in your current cycle
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-between border-0">
+        <button
+          type="button"
+          class="white_button fs-14"
+          data-bs-dismiss="modal"
+        >
+          <span>Close</span>
+        </button>
+        <button type="button" class="btn bg-primary-blue text-white fs-14">
+          Add New User Mid-Cycle
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

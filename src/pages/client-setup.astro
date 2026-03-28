@@ -333,7 +333,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                       phone_no: "+1234567890",
                       currency: "NGN",
                       pay_terms: "Lorem Ipsum",
-                      status: "Sent",
+                      status: "Active",
                       out_bal: "N124,676",
                     },
                     {
@@ -342,7 +342,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                       phone_no: "+1234567890",
                       currency: "USD",
                       pay_terms: "Lorem Ipsum",
-                      status: "Paid",
+                      status: "Inactive",
                       out_bal: "N124,676",
                     },
                     {
@@ -351,7 +351,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                       phone_no: "+1234567890",
                       currency: "NGN",
                       pay_terms: "Lorem Ipsum",
-                      status: "Draft",
+                      status: "Active",
                       out_bal: "N124,676",
                     },
                     {
@@ -360,7 +360,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                       phone_no: "+1234567890",
                       currency: "USD",
                       pay_terms: "Lorem Ipsum",
-                      status: "Partially Paid",
+                      status: "Inactive",
                       out_bal: "N124,676",
                     },
                     {
@@ -369,7 +369,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                       phone_no: "+1234567890",
                       currency: "USD",
                       pay_terms: "Lorem Ipsum",
-                      status: "Overdue",
+                      status: "Inactive",
                       out_bal: "N124,676",
                     },
                     {
@@ -378,7 +378,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                       phone_no: "+1234567890",
                       currency: "USD",
                       pay_terms: "Lorem Ipsum",
-                      status: "Cancelled",
+                      status: "Inactive",
                       out_bal: "N124,676",
                     },
                     {
@@ -387,7 +387,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                       phone_no: "+1234567890",
                       currency: "USD",
                       pay_terms: "Lorem Ipsum",
-                      status: "Sent",
+                      status: "Inactive",
                       out_bal: "N124,676",
                     },
                   ].map((ele, index) => (
@@ -411,9 +411,9 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                       <td
                         class="fs-14 px-3 text-left column fw-700"
                         style={`color: ${
-                          ele.status === "Paid"
+                          ele.status === "Inactive"
                             ? "red"
-                            : ele.status === "Overdue"
+                            : ele.status === "Active"
                               ? "#2BC700"
                               : "inherit"
                         };`}
@@ -459,7 +459,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                                 <div>Download PDF</div>
                               </li>
                               <li class="list-group-item">
-                                <div>Record Payment</div>
+                                <div>Download PDF</div>
                               </li>
                             </ul>
                           </div>

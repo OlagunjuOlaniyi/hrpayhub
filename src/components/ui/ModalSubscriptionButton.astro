@@ -1,0 +1,89 @@
+---
+const {
+  modalId = "myModal",
+  title = "Renew Subscription",
+  inputPlace = "Add Card",
+} = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+
+      <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+        <div class="d-flex flex-column sign_in_input gap-4">
+          <div
+            class="border-2 p-2 d-flex flex-column gap-2"
+            style="background-color: #F4FAFF"
+          >
+            <span class="fs-12">Current Plan</span>
+            <span class="fw-700">PLATINUM</span>
+          </div>
+
+          {
+            title !== "Renew Subscription" ? (
+              <div class="form-floating">
+                <select
+                  id="select_recp"
+                  name="select_recp"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)">
+                    Select
+                  </option>
+                  <option value="type_1">Bronze</option>
+                  <option value="type_2">Platinum</option>
+                  <option value="type_3">Silver</option>
+                  <option value="type_4">Gold</option>
+                </select>
+                <label for="select_recp">Select a subscription package </label>
+              </div>
+            ) : (
+              ""
+            )
+          }
+          <div class="form-floating">
+            <input
+              type="text"
+              id="acct_no"
+              name="acct_no"
+              class="form-input fs-12"
+              placeholder=""
+            />
+            <label for="acct_no fs-14">Input number of users</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-start border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white"
+          data-bs-dismiss="modal"
+        >
+          {
+            title === "Renew Subscription"
+              ? "Renew Subscription"
+              : "Confirm Change"
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

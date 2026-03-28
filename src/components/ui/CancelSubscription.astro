@@ -1,0 +1,186 @@
+---
+const { modalId = "myModal", title = "Add Employee Type" } = Astro.props;
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content py-4 px-3">
+      <!-- STEP 1: Confirm Cancel -->
+      <div class="step step-1">
+        <div class="modal-header border-0 d-flex justify-content-end">
+          <img
+            role="button"
+            class="close-btn"
+            src="images/png/icons/close-circle-1.svg"
+            alt="close"
+          />
+        </div>
+
+        <div class="modal-body text-center gap-4 py-5 pt-4">
+          <img src="images/png/icons/info-big.svg" alt="info" />
+          <h4 class="modal-title fs-22 fw-700 my-3">Cancel Subscription</h4>
+
+          <p class="fs-16">
+            You will continue to enjoy your current subscription until the end
+            of the current billing cycle.
+          </p>
+        </div>
+
+        <div class="modal-footer d-flex justify-content-between border-0">
+          <button
+            type="button"
+            class="white_button fs-14"
+            data-bs-dismiss="modal"
+          >
+            <span>No, Go Back</span>
+          </button>
+          <button
+            type="button"
+            class="btn bg-primary-blue text-white fs-14 next-btn"
+          >
+            Yes, Cancel Subscription
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Request Swap -->
+      <div class="step step-2 d-none">
+        <div class="modal-header border-0 d-flex justify-content-end">
+          <img
+            role="button"
+            class="close-btn"
+            src="images/png/icons/close-circle-1.svg"
+            alt="close"
+          />
+        </div>
+        <div class="modal-body text-center gap-4 py-5 pt-4">
+          <img src="images/png/icons/info-big.svg" alt="info" />
+          <h4 class="modal-title fs-22 fw-700 my-3">Cancel Subscription</h4>
+
+          <p class="fs-16">
+            Would you be interested in staying if we offer you a special
+            discount?
+          </p>
+        </div>
+
+        <div class="modal-footer d-flex justify-content-center gap-4 border-0">
+          <button type="button" class="white_button fs-14 next-btn-2">
+            <span>No</span>
+          </button>
+          <button
+            type="button"
+            class="btn bg-primary-blue text-white fs-14 next-btn-3"
+          >
+            Yes
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Reason -->
+      <div class="step step-3 d-none">
+        <div class="modal-header border-0 d-flex justify-content-end">
+          <img
+            role="button"
+            class="close-btn"
+            src="images/png/icons/close-circle-1.svg"
+            alt="close"
+          />
+        </div>
+        <h4 class="modal-title text-center fs-22 fw-700">
+          Cancel Subscription
+        </h4>
+        <div class="modal-body text-left gap-4 py-5 pt-4">
+          <p class="fs-16">We’re sorry to see you go.</p>
+          <p class="fs-16">
+            Before you cancel, please tell us why you want to cancel. Your
+            feedback helps us improve HRPayHub.
+          </p>
+          <div class="form-floating mt-3">
+            <select
+              id="reason"
+              name="reason"
+              class="form-select_custom fs-14"
+              required
+            >
+              <option value="" selected> Select </option>
+              <option value="1">Service No Longer Needed</option>
+              <option value="2">Cost Concerns</option>
+              <option value="3">Using Another Solution</option>
+              <option value="4">Dissatisfied with Features</option>
+              <option value="5">Technical Difficulties</option>
+              <option value="6">Poor Customer Support</option>
+              <option value="7">Business Needs Changed</option>
+              <option value="other">Other</option>
+            </select>
+            <label for="reason"> Reason for Cancellation </label>
+          </div>
+        </div>
+
+        <div class="modal-footer d-flex justify-content-between gap-4 border-0">
+          <button type="button" class="white_button fs-14 back-btn">
+            <span>No, Go Back</span>
+          </button>
+          <button
+            type="button"
+            class="btn bg-primary-blue text-white fs-14 next-btn-3"
+          >
+            Confirm Cancellation
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Successful -->
+      <div class="step step-4 d-none">
+        <div class="modal-body text-center gap-4 py-5 pt-4">
+          <img src="images/png/icons/success-check.svg" alt="success check" />
+          <h4 class="modal-title fs-22 fw-700 my-3">Thank you.</h4>
+
+          <p class="fs-16">
+            Our team will contact you shortly regarding a special offer.
+          </p>
+        </div>
+
+        <div class="modal-footer d-flex justify-content-center gap-4 border-0">
+          <button
+            type="button"
+            class="btn bg-primary-blue text-white fs-14"
+            data-bs-dismiss="modal"
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT -->
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    function showStep(n) {
+      $(".step").addClass("d-none");
+      $(`.step-${n}`).removeClass("d-none");
+    }
+
+    // Step 1 → Step 2
+    $(".next-btn").click(() => showStep(2));
+
+    // Step 2 → Step 3
+    $(".next-btn-2").click(() => showStep(3));
+
+    // Step 2 → Step 4
+    $(".next-btn-3").click(() => showStep(4));
+
+    // Close button (return to previous)
+    $(".back-btn").click(() => showStep(1));
+
+    // Reset when modal closes
+    $("#myModal").on("hidden.bs.modal", () => {
+      showStep(1);
+    });
+
+    $("#fileInputBtn").click((evt) => {
+      $("#fileInput").click();
+    });
+  });
+</script>

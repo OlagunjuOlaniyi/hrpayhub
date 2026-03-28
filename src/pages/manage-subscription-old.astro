@@ -1,0 +1,162 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalSubscription from "../components/ui/ModalSubscription.astro";
+
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: Subscription Manager">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="index.html"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Manage Subscription</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <div
+                class="p-3 px-4 d-flex justify-content-center gap-2 text-center flex-column add_employee_width"
+                style="background-color: #FFD8A8; border-radius: 15px"
+              >
+                <span class="fs-12">Current Package</span>
+                <span class="fw-700 fs-18 font-ubuntu-bold">Bronze</span>
+                <span class="fw-700 fs-18"><Pounds /> 0.99 / <Naira /> 999</span
+                >
+                <img src="images/png/icons/line.svg" alt="line" />
+                <p
+                  class="fs-14 fw-700 text_underline mt-2"
+                  style="color: #FD0000;"
+                  role="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#myModal"
+                  data-title="Cancel Subscription"
+                >
+                  Cancel Subscription
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-4 add_employee_width">
+                <div class="fs-14 fw-600 text-primary-blue">
+                  Upgrade/Downgrade Subscription
+                </div>
+                <div class="flex-grow-1">
+                  <div class="demarcator_line">&nbsp;</div>
+                </div>
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <select
+                  id="select_recp"
+                  name="select_recp"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="type_1">Bronze</option>
+                  <option value="type_2">Platinum</option>
+                  <option value="type_3">Silver</option>
+                  <option value="type_4">Gold</option>
+                </select>
+                <label for="select_recp">Select New Package </label>
+              </div>
+
+              <div class="form-floating add_employee_width">
+                <input
+                  type="text"
+                  id="at_due"
+                  name="at_due"
+                  class="form-input fs-14"
+                  placeholder=""
+                />
+                <label for="at_due">Prorated amount due </label>
+              </div>
+
+              <div
+                class="d-flex justify-content-start gap-3 add_employee_width"
+              >
+                <button
+                  type="button"
+                  id="upload"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                >
+                  <span>Change Subscription</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <ModalSubscription
+            modalId="myModal"
+            title={"Cancel Subscription"}
+            inputPlace="Cancel Subscription"
+          />
+        </div>
+      </div>
+      <!-- Main content ends here -->
+    </section>
+
+    <script is:inline type="text/javascript">
+      // Handle opening the modal
+      document
+        .querySelectorAll('[data-bs-target="#addCard"]')
+        .forEach((button) => {
+          button.addEventListener("click", function () {
+            const modalTitle =
+              this.getAttribute("data-title") || "Edit Bank Transfer Info";
+            const empType = this.getAttribute("data-emp-type") || "";
+
+            // Update modal title
+            const modalTitleElement = document.getElementById("modalTitle");
+            if (modalTitleElement) {
+              modalTitleElement.textContent = modalTitle;
+            }
+
+            // Update input field
+            const employeeStatusInput =
+              document.getElementById("employee_title");
+            if (employeeStatusInput) {
+              employeeStatusInput.value = empType;
+            }
+          });
+        });
+    </script>
+  </main>
+</Layout>

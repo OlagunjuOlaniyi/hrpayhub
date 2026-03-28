@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ModalSubscription from "../components/ui/ModalSubscription.astro";
+import ModalSubscriptionButton from "../components/ui/ModalSubscriptionButton.astro";
+import CancelSubscription from "../components/ui/CancelSubscription.astro";
+import ModalSubscriptionMid from "../components/ui/ModalSubscriptionMid.astro";
 
 import { Naira, Pounds } from "../components/Symbols";
 ---
@@ -51,80 +53,198 @@ import { Naira, Pounds } from "../components/Symbols";
           {/* Page Content Box */}
           <div class="p-lg-5">
             <div class="vstack" style="gap: 2.3rem">
-              <div
-                class="p-3 px-4 d-flex justify-content-center gap-2 text-center flex-column add_employee_width"
-                style="background-color: #FFD8A8; border-radius: 15px"
-              >
-                <span class="fs-12">Current Package</span>
-                <span class="fw-700 fs-18 font-ubuntu-bold">Bronze</span>
-                <span class="fw-700 fs-18"><Pounds /> 0.99 / <Naira /> 999</span
+              <div class="d-flex flex-column gap-4 mx-auto" style="width: 65%;">
+                <div
+                  class="d-flex flex-column gap-4 py-4 px-4 border rounded-5"
                 >
-                <img src="images/png/icons/line.svg" alt="line" />
-                <p
-                  class="fs-14 fw-700 text_underline mt-2"
-                  style="color: #FD0000;"
-                  role="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#myModal"
-                  data-title="Cancel Subscription"
-                >
-                  Cancel Subscription
-                </p>
-              </div>
-              <div class="d-flex align-items-center gap-4 add_employee_width">
-                <div class="fs-14 fw-600 text-primary-blue">
-                  Upgrade/Downgrade Subscription
-                </div>
-                <div class="flex-grow-1">
-                  <div class="demarcator_line">&nbsp;</div>
-                </div>
-              </div>
-
-              <div class="form-floating add_employee_width">
-                <select
-                  id="select_recp"
-                  name="select_recp"
-                  class="form-select_custom fs-14"
-                  required
-                >
-                  <option value="" selected style="color: rgb(200, 200, 200)"
-                    >Select</option
+                  <div
+                    class="py-2 px-2 rounded-pill fw-700 fs-16 text-center"
+                    style="background-color: #DDF0FF; width: 190px"
                   >
-                  <option value="type_1">Bronze</option>
-                  <option value="type_2">Platinum</option>
-                  <option value="type_3">Silver</option>
-                  <option value="type_4">Gold</option>
-                </select>
-                <label for="select_recp">Select New Package </label>
-              </div>
-
-              <div class="form-floating add_employee_width">
-                <input
-                  type="text"
-                  id="at_due"
-                  name="at_due"
-                  class="form-input fs-14"
-                  placeholder=""
-                />
-                <label for="at_due">Prorated amount due </label>
-              </div>
-
-              <div
-                class="d-flex justify-content-start gap-3 add_employee_width"
-              >
-                <button
-                  type="button"
-                  id="upload"
-                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
-                >
-                  <span>Change Subscription</span>
-                </button>
+                    Subscription Overview
+                  </div>
+                  <h1 class="fs-22 fw-700">
+                    N1,500,000 <span class="fs-16 fw-600">per month</span>
+                  </h1>
+                  <div class="fs-16">
+                    <span
+                      class="fw-700 border-2 rounded-3 p-2 me-2"
+                      style="background-color: #DDF0FF;">118 of 200</span
+                    >
+                    <span>employee slot used</span>
+                  </div>
+                  <div>
+                    <img src="images/png/icons/subscription-line.svg" alt="" />
+                  </div>
+                  <div class="d-flex">
+                    <div class="fs-16">
+                      <span>Current Plan Name:</span>
+                      <span
+                        class="fw-700 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF">Platinum</span
+                      >
+                    </div>
+                    <div
+                      class="fs-16 px-2 mx-2 border-2 border-start border-end"
+                    >
+                      <span>Next Billing date:</span>
+                      <span class="fw-700 border-2 ms-2">4th, Feb 2026</span>
+                    </div>
+                    <div class="fs-16">
+                      <span>Subscription Status:</span>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 ms-2"
+                        style="background-color: #E9FFE2; color: #186D00"
+                        role="button">Active</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between gap-3">
+                  <div
+                    class="d-flex flex-column gap-4 py-4 px-4 border rounded-5"
+                    style="width: 63%;"
+                  >
+                    <div
+                      class="py-2 px-2 rounded-pill fw-700 fs-16 text-center"
+                      style="background-color: #DDF0FF; width: 141px"
+                    >
+                      Billing Summary
+                    </div>
+                    <div class="d-flex flex-column gap-3">
+                      <div class="d-flex justify-content-between fs-14">
+                        <span>Subscription Start date:</span>
+                        <span class="fw-700">4th, Feb 2026</span>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between fs-14 py-3"
+                        style="border-bottom: 1px dashed #BFBCBC; border-top: 1px dashed #BFBCBC;"
+                      >
+                        <span>Subscription End date:</span>
+                        <span class="fw-700">4th, Mar 2026</span>
+                      </div>
+                      <div class="d-flex justify-content-between fs-14">
+                        <span>Amount Due:</span>
+                        <span class="fw-700">N1,500,000</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex flex-column gap-4 py-4 px-4 border rounded-5"
+                    style="width: 35%;"
+                  >
+                    <div
+                      class="py-2 px-2 rounded-pill fw-700 fs-16 text-center"
+                      style="background-color: #DDF0FF; width: 80px"
+                    >
+                      Actions
+                    </div>
+                    <div class="d-flex flex-column gap-3">
+                      <button
+                        type="button"
+                        class="delon-primary-btn bg-primary-blue border-0 text-white fw-700"
+                        style="font-size: 14px !important;"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myModal"
+                        data-title="Renew Subscription"
+                        data-bs-html="true"
+                        data-bs-placement="right"
+                        data-bs-toggle="tooltip"
+                        data-bs-custom-class="tooltip-left-align"
+                        title="<div class='fs-14'><span class='fw-700'>Renew Subscription</span><br /><br />
+                        <span>Renew your subscription with the same plan. You can update the number of users before completing renewal.</span>
+                        </div>"
+                      >
+                        <span>Renew Subscription</span>
+                      </button>
+                      <button
+                        type="button"
+                        class="white_button border-0 text-white fw-bold fs-14"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myUpgradeModal"
+                        data-title="Upgrade Plan"
+                        data-bs-html="true"
+                        data-bs-placement="right"
+                        data-bs-toggle="tooltip"
+                        data-bs-custom-class="tooltip-left-align"
+                        title="<div class='fs-14'><span class='fw-700'>Upgrade Plan</span><br /><br />
+                        <span>Move to a higher plan with more features. The change takes effect immediately, and you will pay a prorated amount for the rest of the current billing cycle.</span>
+                        </div>"
+                      >
+                        <span>Upgrade Plan</span>
+                      </button>
+                      <button
+                        type="button"
+                        class="white_button border-0 text-white fw-bold fs-14"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myDowngradeModal"
+                        data-title="Downgrade Plan"
+                        data-bs-html="true"
+                        data-bs-placement="right"
+                        data-bs-toggle="tooltip"
+                        data-bs-custom-class="tooltip-left-align"
+                        title="<div class='fs-14'><span class='fw-700'>Downgrade Plan</span><br /><br />
+                        <span>Move to a lower plan with fewer features. The change will take effect at the end of the current billing cycle.</span>
+                        </div>"
+                      >
+                        <span>Downgrade Plan</span>
+                      </button>
+                      <button
+                        type="button"
+                        class="white_button border-0 text-white fw-bold fs-14"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myMidModal"
+                        data-bs-html="true"
+                        data-bs-placement="right"
+                        data-bs-toggle="tooltip"
+                        data-bs-custom-class="tooltip-left-align"
+                        title="<div class='fs-14'><span class='fw-700'>Add Employee Mid Cycle</span><br /><br />
+                        <span>Add a new employee after your billing cycle has started. You will only pay a prorated amount based on the remaining days in the current cycle.</span>
+                        </div>"
+                      >
+                        <span>Add Employee Mid Cycle</span>
+                      </button>
+                      <button
+                        type="button"
+                        class="white_button fs-14"
+                        style="border: 1.5px solid red !important;"
+                        data-bs-toggle="modal"
+                        data-bs-target="#myCancelModal"
+                        data-title="Cancel Subscription"
+                      >
+                        <span class="fs-14 fw-600" style="color: red;"
+                          >Cancel Subscription
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <ModalSubscription
+          <ModalSubscriptionButton
             modalId="myModal"
+            title={"Renew Subscription"}
+            inputPlace="Renew Subscription"
+          />
+          <ModalSubscriptionButton
+            modalId="myUpgradeModal"
+            title={"Upgrade Plan"}
+            inputPlace="Upgrade Plan"
+          />
+          <ModalSubscriptionButton
+            modalId="myDowngradeModal"
+            title={"Downgrade Plan"}
+            inputPlace="Downgrade Plan"
+          />
+          <ModalSubscriptionMid
+            modalId="myMidModal"
+            title={"Employee Mid Cycle"}
+            inputPlace="Employee Mid Cycle"
+          />
+          <CancelSubscription
+            modalId="myCancelModal"
             title={"Cancel Subscription"}
             inputPlace="Cancel Subscription"
           />

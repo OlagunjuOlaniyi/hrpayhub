@@ -3,14 +3,101 @@ import Layout from "../layouts/Layout.astro";
 import DashboardModuleCard from "../components/modules/DashboardModuleCard";
 import { AlertComponent } from "../components/ui/Alerts";
 import { FeatureUpgradeModal } from "../components/ui/modals/Modals";
+import ModalSubscriptionButton from "../components/ui/ModalSubscriptionButton.astro";
 ---
 
 <Layout title="HRPayHub :: Dashboard">
   <!-- Main content starts here -->
   <main>
     <!-- Notice Board Area -->
-    <AlertComponent client:load />
+    <!-- <AlertComponent client:load /> -->
     <!-- Notice Board Area -->
+
+    <div
+      class="p-3 d-flex flex-column gap-3 m-4"
+      style="width: 38%; border: 2px solid #2271B6; border-radius: 10px; background-color: #F4FAFF;"
+    >
+      <div class="d-flex gap-3 align-items-start">
+        <img src="images/png/icons/info-medium.svg" alt="info" />
+        <div class="d-flex jusitfy-content-between align-items-start">
+          <div>
+            <p class="fw-700">Your subscription expired on 23rd, Apr 2026</p>
+            <p>
+              You have <span class="fw-700">90</span> days to renew before your data
+              access is restricted.
+            </p>
+          </div>
+          <img src="images/png/icons/close-dark.svg" alt="close" />
+        </div>
+      </div>
+      <div class="d-flex justify-content-between gap-3">
+        <button
+          type="button"
+          class="delon-primary-btn bg-primary-blue border-0 text-white fw-700"
+          style="font-size: 14px !important;"
+          data-bs-toggle="modal"
+          data-bs-target="#myModal"
+          data-title="Renew Subscription"
+          data-bs-html="true"
+          data-bs-placement="right"
+          data-bs-toggle="tooltip"
+          data-bs-custom-class="tooltip-left-align"
+          title="<div class='fs-14'><span class='fw-700'>Renew Subscription</span><br /><br />
+                        <span>Renew your subscription with the same plan. You can update the number of users before completing renewal.</span>
+                        </div>"
+        >
+          <span>Renew Subscription</span>
+        </button>
+        <button
+          type="button"
+          class="white_button border-0 text-white fw-bold fs-14"
+          data-bs-toggle="modal"
+          data-bs-target="#myUpgradeModal"
+          data-title="Upgrade Plan"
+          data-bs-html="true"
+          data-bs-placement="right"
+          data-bs-toggle="tooltip"
+          data-bs-custom-class="tooltip-left-align"
+          title="<div class='fs-14'><span class='fw-700'>Upgrade Plan</span><br /><br />
+                        <span>Move to a higher plan with more features. The change takes effect immediately, and you will pay a prorated amount for the rest of the current billing cycle.</span>
+                        </div>"
+        >
+          <span>Upgrade Plan</span>
+        </button>
+        <button
+          type="button"
+          class="white_button border-0 text-white fw-bold fs-14"
+          data-bs-toggle="modal"
+          data-bs-target="#myDowngradeModal"
+          data-title="Downgrade Plan"
+          data-bs-html="true"
+          data-bs-placement="right"
+          data-bs-toggle="tooltip"
+          data-bs-custom-class="tooltip-left-align"
+          title="<div class='fs-14'><span class='fw-700'>Downgrade Plan</span><br /><br />
+                        <span>Move to a lower plan with fewer features. The change will take effect at the end of the current billing cycle.</span>
+                        </div>"
+        >
+          <span>Downgrade Plan</span>
+        </button>
+      </div>
+    </div>
+
+    <ModalSubscriptionButton
+      modalId="myModal"
+      title={"Renew Subscription"}
+      inputPlace="Renew Subscription"
+    />
+    <ModalSubscriptionButton
+      modalId="myUpgradeModal"
+      title={"Upgrade Plan"}
+      inputPlace="Upgrade Plan"
+    />
+    <ModalSubscriptionButton
+      modalId="myDowngradeModal"
+      title={"Downgrade Plan"}
+      inputPlace="Downgrade Plan"
+    />
 
     <!-- Employee details * Count stats -->
     <section class="p-5 bg-gold">
