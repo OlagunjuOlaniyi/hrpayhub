@@ -1,0 +1,696 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalSubscriptionButton from "../components/ui/ModalSubscriptionButton.astro";
+import CancelSubscription from "../components/ui/CancelSubscription.astro";
+import ModalSubscriptionMid from "../components/ui/ModalSubscriptionMid.astro";
+
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: Subscription Manager">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="index.html"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a href="#" class="fs-14 text-decoration-none text-primary-dark"
+              >System Admin Dashboard
+            </a>
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/clients"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Client
+            </a>
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Client Profile</span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack" style="gap: 2.3rem">
+              <div class="d-flex flex-column gap-4 mx-auto" style="width: 65%;">
+                <div
+                  class="d-flex flex-column gap-4 py-4 px-4 border rounded-5"
+                >
+                  <h1 class="fs-22 fw-700">
+                    Exel Technologies Ltd <span
+                      class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                      style="background-color: #E9FFE2; color: #186D00"
+                      role="button">Active</span
+                    >
+                  </h1>
+
+                  <div class="d-flex gap-2">
+                    <div class="fs-16">
+                      <span>Current Plan Name:</span>
+                      <span
+                        class="fw-700 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF">Platinum</span
+                      >
+                    </div>
+                    <div
+                      class="fs-16 px-2 mx-2 border-2 border-start border-end"
+                    >
+                      <span>Active Employees</span>
+                      <span
+                        class="fw-700 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF">120</span
+                      >
+                    </div>
+                    <div class="fs-16">
+                      <span>Amount</span>
+                      <span
+                        class="fw-700 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF">N60,000</span
+                      >
+                      <span>/user/month</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <ul
+                    class="nav nav-pills d-flex justify-content-between p-1 upload_offer_bg"
+                    role="tablist"
+                  >
+                    <li class="nav-item">
+                      <a
+                        class="nav-link active fs-14 fw-600"
+                        data-bs-toggle="pill"
+                        href="#discount">Discount</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link fs-14 fw-600"
+                        data-bs-toggle="pill"
+                        href="#billingDates">Billing Dates</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link fs-14 fw-600"
+                        data-bs-toggle="pill"
+                        href="#catchUp">Catch-Up Preview</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link fs-14 fw-600"
+                        data-bs-toggle="pill"
+                        href="#suspension">Suspension</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link fs-14 fw-600"
+                        data-bs-toggle="pill"
+                        href="#auditTrail">Audit Trail</a
+                      >
+                    </li>
+                  </ul>
+
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div id="discount" class="container tab-pane active">
+                      <br />
+                      <!------textual -->
+                      <div
+                        class="d-flex flex-column gap-4 py-4 px-4 border rounded-5"
+                      >
+                        <div
+                          class="py-2 px-2 rounded-pill fw-700 fs-16 text-center"
+                          style="background-color: #DDF0FF; width: 190px"
+                        >
+                          Add New Dsicount
+                        </div>
+                        <div class="form-floating">
+                          <input
+                            type="number"
+                            id="discount"
+                            name="discount"
+                            class="form-input"
+                            placeholder=""
+                          />
+                          <label for="discount">
+                            Discount Percentage &nbsp;<span>*</span>
+                          </label>
+                        </div>
+                        <div class="form-floating">
+                          <input
+                            type="date"
+                            id="start_date"
+                            name="start_date"
+                            class="form-input"
+                            placeholder=""
+                          />
+                          <label for="start_date"
+                            >Start Date &nbsp;<span>*</span></label
+                          >
+                        </div>
+                        <div>
+                          <p class="fs-14 fw-600">End Mode</p>
+                          <div class="d-flex gap-5">
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                id="hasEnd"
+                                name="duration"
+                                value="has_end"
+                                checked
+                              />
+                              <label class="form-check-label fs-12"
+                                >Has End Date
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                id="forever"
+                                name="duration"
+                                value="forever"
+                              />
+                              <label class="form-check-label fs-12"
+                                >Forever (Perpetual)</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-floating">
+                          <input
+                            type="date"
+                            id="end_date"
+                            name="end_date"
+                            class="form-input"
+                            placeholder=""
+                          />
+                          <label for="end_date"
+                            >End Date &nbsp;<span>*</span></label
+                          >
+                        </div>
+
+                        <div class="form-floating">
+                          <select
+                            id="applyTo"
+                            name="applyTo"
+                            class="form-select_custom fs-14"
+                          >
+                            <option value="" selected> Select </option>
+                            <option value="1"
+                              >All subscription plans and add-ons</option
+                            >
+                            <option value="2"
+                              >All subscription plans and add-ons</option
+                            >
+                            <option value="3"
+                              >All subscription plans and add-ons</option
+                            >
+                          </select>
+                          <label for="applyTo">
+                            Applies To &nbsp;<span>*</span>
+                          </label>
+                        </div>
+
+                        <div class="form-floating">
+                          <textarea class="form-input" rows="2" id="comment"
+                          ></textarea>
+                          <label for="comment">Reason/Comment </label>
+                        </div>
+
+                        <div class="d-flex justify-content-start">
+                          <button
+                            type="submit"
+                            id="upload"
+                            class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                          >
+                            <span>Apply Discount</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column gap-4 py-4 px-4 border rounded-5 mt-4"
+                      >
+                        <div class="d-flex justify-content-between">
+                          <div
+                            class="py-2 px-2 rounded-pill fw-700 fs-16 text-center"
+                            style="background-color: #DDF0FF; width: 190px"
+                          >
+                            Active Discount
+                          </div>
+                          <div>
+                            <button
+                              class="white_button fw-700 fs-16 p-0 d-flex gap-2 align-items-center"
+                              style="border: 0px !important;"
+                              type="button"
+                            >
+                              <span class="text-primary-blue"
+                                >View History
+                              </span>
+                            </button>
+                          </div>
+                        </div>
+                        <div
+                          class="d-flex flex-column gap-3 p-3 border rounded-5"
+                        >
+                          <div
+                            class="d-flex justify-content-between fs-14 py-2"
+                            style="border-bottom: 1px dashed #BFBCBC;"
+                          >
+                            <span>Discount Status:</span>
+                            <span
+                              class="fw-700 border border-1 rounded-3 p-1 ms-2 fs-12"
+                              style="background-color: #E9FFE2; color: #186D00"
+                              role="button">Active</span
+                            >
+                          </div>
+                          <div
+                            class="d-flex justify-content-between fs-14 py-2"
+                            style="border-bottom: 1px dashed #BFBCBC;"
+                          >
+                            <span>Percentage:</span>
+                            <span class="fw-700">20%</span>
+                          </div>
+                          <div
+                            class="d-flex justify-content-between fs-14 py-2"
+                            style="border-bottom: 1px dashed #BFBCBC;"
+                          >
+                            <span>Start Date:</span>
+                            <span class="fw-700">4th, Mar 2026</span>
+                          </div>
+                          <div
+                            class="d-flex justify-content-between fs-14 py-2"
+                            style="border-bottom: 1px dashed #BFBCBC;"
+                          >
+                            <span>End Date:</span>
+                            <span class="fw-700">Forever</span>
+                          </div>
+                          <div
+                            class="d-flex justify-content-between fs-14 py-2"
+                            style="border-bottom: 1px dashed #BFBCBC;"
+                          >
+                            <span>Applies To:</span>
+                            <span class="fw-700"
+                              >All subscription plans and add-ons</span
+                            >
+                          </div>
+                          <div
+                            class="d-flex justify-content-between fs-14 py-2"
+                            style="border-bottom: 1px dashed #BFBCBC;"
+                          >
+                            <span>Applied by:</span>
+                            <span class="fw-700"
+                              >Sarah Akinwale · 4th, Mar 2026, 11:30:00 AM</span
+                            >
+                          </div>
+                          <div class="d-flex justify-content-between fs-14">
+                            <span>Reason:</span>
+                            <span class="fw-700"
+                              >Long-term partnership agreement</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="billingDates" class="container tab-pane">
+                      <br />
+                      <div
+                        class="d-flex flex-column gap-4 py-4 px-4 border rounded-5 mt-4"
+                      >
+                        <div
+                          class="py-2 px-2 rounded-pill fw-700 fs-16 text-center"
+                          style="background-color: #DDF0FF; width: fit-content"
+                        >
+                          Current Billing Configuration
+                        </div>
+                        <div
+                          class="d-flex flex-column gap-3 p-3 border rounded-5"
+                        >
+                          <div
+                            class="d-flex justify-content-between fs-14 py-2"
+                            style="border-bottom: 1px dashed #BFBCBC;"
+                          >
+                            <span>Billing Start Date:</span>
+                            <span class="fw-700">4th, Mar 2026</span>
+                          </div>
+                          <div
+                            class="d-flex justify-content-between fs-14 py-2"
+                          >
+                            <span>Payment Grace Deadline:</span>
+                            <span class="fw-700">4th, Mar 2026</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="d-flex flex-column gap-4 py-4 px-4 border rounded-5 mt-4"
+                      >
+                        <div
+                          class="py-2 px-2 rounded-pill fw-700 fs-16 text-center"
+                          style="background-color: #DDF0FF; width: 190px"
+                        >
+                          Update Billing Dates
+                        </div>
+
+                        <div class="form-floating">
+                          <input
+                            type="date"
+                            id="biling_start_date"
+                            name="biling_start_date"
+                            class="form-input"
+                            placeholder=""
+                          />
+                          <label for="biling_start_date"
+                            >Billing Start Date &nbsp;<span>*</span></label
+                          >
+                        </div>
+
+                        <div class="form-floating">
+                          <input
+                            type="date"
+                            id="payment_grace"
+                            name="payment_grace"
+                            class="form-input"
+                            placeholder=""
+                          />
+                          <label for="payment_grace"
+                            >Payment Grace Deadline &nbsp;<span>*</span></label
+                          >
+                        </div>
+
+                        <div class="form-floating">
+                          <textarea class="form-input" rows="2" id="comment"
+                          ></textarea>
+                          <label for="comment">Reason/Comment </label>
+                        </div>
+
+                        <div class="d-flex justify-content-start">
+                          <button
+                            type="submit"
+                            id="upload"
+                            class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                          >
+                            <span>Save Billing Dates</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="catchUp" class="container tab-pane">
+                      <br />
+                      <div
+                        class="d-flex flex-column gap-4 py-4 px-4 border rounded-5 mt-4"
+                      >
+                        <div
+                          class="py-2 px-2 rounded-pill fw-700 fs-16 text-center"
+                          style="background-color: #DDF0FF; width: fit-content"
+                        >
+                          Catch-Up Billing Preview
+                        </div>
+                        <div
+                          class="d-flex flex-column gap-3 p-3 border rounded-5"
+                        >
+                          <div
+                            class="d-flex justify-content-between fs-14 py-2"
+                            style="border-bottom: 1px dashed #BFBCBC;"
+                          >
+                            <span>Billing Start Date:</span>
+                            <span class="fw-700">4th, Mar 2026</span>
+                          </div>
+                          <div
+                            class="d-flex justify-content-between fs-14 py-2"
+                            style="border-bottom: 1px dashed #BFBCBC;"
+                          >
+                            <span>Employee Snapshot:</span>
+                            <span class="fw-700">120</span>
+                          </div>
+                          <div
+                            class="d-flex justify-content-between fs-14 py-2"
+                          >
+                            <span>Rate:</span>
+                            <span class="fw-700">N1,500,000 / user / month</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="suspension" class="container tab-pane">
+                      <br />
+                      <div
+                        class="d-flex flex-column gap-4 py-4 px-4 border rounded-5 mt-4"
+                      >
+                        <div
+                          class="d-flex flex-column gap-3 p-3 border rounded-5"
+                        >
+                          <div
+                            class="d-flex justify-content-between fs-14 py-2"
+                            style="border-bottom: 1px dashed #BFBCBC;"
+                          >
+                            <span>Subscription Status:</span>
+                            <span
+                              class="fw-700 border border-1 rounded-3 p-1 ms-2 fs-12"
+                              style="background-color: #E9FFE2; color: #186D00"
+                              role="button">Active</span
+                            >
+                          </div>
+                          <div
+                            class="d-flex justify-content-between fs-14 py-2"
+                            style="border-bottom: 1px dashed #BFBCBC;"
+                          >
+                            <span>Outstanding Balance:</span>
+                            <span class="fw-700">20%</span>
+                          </div>
+                          <div
+                            class="d-flex justify-content-between fs-14 py-2"
+                          >
+                            <span>Grace Deadline:</span>
+                            <span class="fw-700">N1,500,000</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="auditTrail" class="container tab-pane">
+                      <br />
+                      <div
+                        class="d-flex flex-column gap-4 py-4 px-4 border rounded-5 mt-4"
+                      >
+                        <div class="d-flex flex-column gap-3 p-3 border-bottom">
+                          <div>
+                            <p class="fs-14">
+                              <span
+                                class="px-2"
+                                style="border-right: 1px solid #000;"
+                                >7 April, 2025</span
+                              >
+                              <span class="px-2">8:00 PM</span>
+                            </p>
+                            <div
+                              class="p-2 rounded-2 fs-14 d-flex flex-column gap-2"
+                              style="background-color: #F9F9F9;"
+                            >
+                              <div class="fs-14">
+                                <span class="px-2 fs-16 fw-700 border rounded-2"
+                                  >Client ID</span
+                                >
+                                <span class="px-2">Action type</span>
+                              </div>
+                              <div class="fs-14">
+                                <span
+                                  class="pe-2"
+                                  style="border-right: 1px solid #000;"
+                                  >Before Values</span
+                                >
+                                <span class="px-2">After Values</span>
+                              </div>
+                              <div>
+                                Employee snapshot: 120 at 3/15/2026, 11:30:00 AM
+                              </div>
+                              <div>Reason for change: Lorem Ipsm</div>
+                              <div>Performed By: Lorem Ipsm</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-column gap-3 p-3 border-bottom">
+                          <div>
+                            <p class="fs-14">
+                              <span
+                                class="px-2"
+                                style="border-right: 1px solid #000;"
+                                >7 April, 2025</span
+                              >
+                              <span class="px-2">8:00 PM</span>
+                            </p>
+                            <div
+                              class="p-2 rounded-2 fs-14 d-flex flex-column gap-2"
+                              style="background-color: #F9F9F9;"
+                            >
+                              <div class="fs-14">
+                                <span class="px-2 fs-16 fw-700 border rounded-2"
+                                  >Client ID</span
+                                >
+                                <span class="px-2">Action type</span>
+                              </div>
+                              <div class="fs-14">
+                                <span
+                                  class="pe-2"
+                                  style="border-right: 1px solid #000;"
+                                  >Before Values</span
+                                >
+                                <span class="px-2">After Values</span>
+                              </div>
+                              <div>
+                                Employee snapshot: 120 at 3/15/2026, 11:30:00 AM
+                              </div>
+                              <div>Reason for change: Lorem Ipsm</div>
+                              <div>Performed By: Lorem Ipsm</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-column gap-3 p-3 border-bottom">
+                          <div>
+                            <p class="fs-14">
+                              <span
+                                class="px-2"
+                                style="border-right: 1px solid #000;"
+                                >7 April, 2025</span
+                              >
+                              <span class="px-2">8:00 PM</span>
+                            </p>
+                            <div
+                              class="p-2 rounded-2 fs-14 d-flex flex-column gap-2"
+                              style="background-color: #F9F9F9;"
+                            >
+                              <div class="fs-14">
+                                <span class="px-2 fs-16 fw-700 border rounded-2"
+                                  >Client ID</span
+                                >
+                                <span class="px-2">Action type</span>
+                              </div>
+                              <div class="fs-14">
+                                <span
+                                  class="pe-2"
+                                  style="border-right: 1px solid #000;"
+                                  >Before Values</span
+                                >
+                                <span class="px-2">After Values</span>
+                              </div>
+                              <div>
+                                Employee snapshot: 120 at 3/15/2026, 11:30:00 AM
+                              </div>
+                              <div>Reason for change: Lorem Ipsm</div>
+                              <div>Performed By: Lorem Ipsm</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-column gap-3 p-3">
+                          <div>
+                            <p class="fs-14">
+                              <span
+                                class="px-2"
+                                style="border-right: 1px solid #000;"
+                                >7 April, 2025</span
+                              >
+                              <span class="px-2">8:00 PM</span>
+                            </p>
+                            <div
+                              class="p-2 rounded-2 fs-14 d-flex flex-column gap-2"
+                              style="background-color: #F9F9F9;"
+                            >
+                              <div class="fs-14">
+                                <span class="px-2 fs-16 fw-700 border rounded-2"
+                                  >Client ID</span
+                                >
+                                <span class="px-2">Action type</span>
+                              </div>
+                              <div class="fs-14">
+                                <span
+                                  class="pe-2"
+                                  style="border-right: 1px solid #000;"
+                                  >Before Values</span
+                                >
+                                <span class="px-2">After Values</span>
+                              </div>
+                              <div>
+                                Employee snapshot: 120 at 3/15/2026, 11:30:00 AM
+                              </div>
+                              <div>Reason for change: Lorem Ipsm</div>
+                              <div>Performed By: Lorem Ipsm</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Main content ends here -->
+    </section>
+
+    <script is:inline type="text/javascript">
+      // Handle opening the modal
+      document
+        .querySelectorAll('[data-bs-target="#addCard"]')
+        .forEach((button) => {
+          button.addEventListener("click", function () {
+            const modalTitle =
+              this.getAttribute("data-title") || "Edit Bank Transfer Info";
+            const empType = this.getAttribute("data-emp-type") || "";
+
+            // Update modal title
+            const modalTitleElement = document.getElementById("modalTitle");
+            if (modalTitleElement) {
+              modalTitleElement.textContent = modalTitle;
+            }
+
+            // Update input field
+            const employeeStatusInput =
+              document.getElementById("employee_title");
+            if (employeeStatusInput) {
+              employeeStatusInput.value = empType;
+            }
+          });
+        });
+    </script>
+  </main>
+</Layout>
