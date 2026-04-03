@@ -1,10 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ModalSubscriptionButton from "../components/ui/ModalSubscriptionButton.astro";
-import CancelSubscription from "../components/ui/CancelSubscription.astro";
-import ModalSubscriptionMid from "../components/ui/ModalSubscriptionMid.astro";
-
 import { Naira, Pounds } from "../components/Symbols";
+import ClientCancelSubscription from "../components/ui/ClientCancelSubscription.astro";
 ---
 
 <Layout title="HRPayHub :: Subscription Manager">
@@ -380,6 +377,7 @@ import { Naira, Pounds } from "../components/Symbols";
                           </div>
                         </div>
                       </div>
+
                       <div
                         class="d-flex flex-column gap-4 py-4 px-4 border rounded-5 mt-4"
                       >
@@ -504,6 +502,18 @@ import { Naira, Pounds } from "../components/Symbols";
                             <span class="fw-700">N1,500,000</span>
                           </div>
                         </div>
+                        <button
+                          type="button"
+                          class="white_button fs-14"
+                          style="border: 1.5px solid red !important; width:fit-content"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myCancelModal"
+                          data-title="Cancel Subscription"
+                        >
+                          <span class="fs-14 fw-600" style="color: red;"
+                            >Cancel Subscription
+                          </span>
+                        </button>
                       </div>
                     </div>
                     <div id="auditTrail" class="container tab-pane">
@@ -664,6 +674,11 @@ import { Naira, Pounds } from "../components/Symbols";
           </div>
         </div>
       </div>
+      <ClientCancelSubscription
+        modalId="myCancelModal"
+        title={"Cancel Subscription"}
+        inputPlace="Cancel Subscription"
+      />
       <!-- Main content ends here -->
     </section>
 
