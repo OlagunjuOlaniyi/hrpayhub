@@ -616,6 +616,28 @@ input.no_focus:focus {
   height: 100%;
 }
 
+/* Target YOUR select specifically */
+.custom-select2 + .select2-container .select2-selection--single {
+  height: 38px !important;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+/* Fix text vertical alignment */
+.custom-select2 + .select2-container .select2-selection__rendered {
+  line-height: normal !important;
+}
+
+/* Fix arrow alignment */
+.custom-select2 + .select2-container .select2-selection__arrow {
+  height: 38px !important;
+}
+
+.custom-select2 + .select2-container .select2-selection__placeholder {
+  font-size: 14px; /* change to what you want */
+  color: #202020 !important; /* optional: softer placeholder color */
+}
 /* Borders */
 @media (min-width: 992px) {
   .border-lg-0 {

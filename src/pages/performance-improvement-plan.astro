@@ -1,0 +1,320 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalSubscriptionButton from "../components/ui/ModalSubscriptionButton.astro";
+import CancelSubscription from "../components/ui/CancelSubscription.astro";
+import ModalSubscriptionMid from "../components/ui/ModalSubscriptionMid.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: Performance Improvement Plan">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/performance-management"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/performance-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Performance Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Performance Improvement Plan</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack px-5" style="gap: 2.3rem">
+              <div>
+                <div class="fw-700 fs-22">Performance Improvement Plan</div>
+                <div class="fs-14">
+                  Create and monitor improvement plans for underperforming
+                  staff.
+                </div>
+              </div>
+              <div class="d-flex justify-content-between gap-3">
+                <!---- Search  -->
+                <div class="d-flex gap-3">
+                  <select
+                    class="js-example-placeholder-single js-states form-control custom-select2"
+                  >
+                    <option></option>
+                    <option>All Departments</option>
+                    <option>Engineering</option>
+                    <option>Marketing</option>
+                    <option>HR</option>
+                    <option>State</option>
+                  </select>
+                  <input
+                    type="text"
+                    class="form-control search-input search-width fs-14"
+                    placeholder="Search by employee name..."
+                  />
+                </div>
+
+                <!-- Others -->
+                <div class="responsive gap-4 align-items-center">
+                  <!-- Calendar Selector -->
+                  <input
+                    type="month"
+                    class="form-control fs-14 py-2"
+                    style="max-width: 130px;"
+                    value="2026-04"
+                  />
+                  <button
+                    class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Create PIP"
+                    ><span class="fw-700 fs-14">+</span><span
+                      class="ms-2 text-nowrap">Create PIP</span
+                    >
+                  </button>
+                  <!---- End of Others ---->
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h1 class="fs-16 fw-700">Sarah Johnson</h1>
+                  </div>
+                  <a
+                    class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                    style="background-color: #fff; color: #2271B6; height: fit-content; border:#2271B6; text-decoration: none;"
+                    href="/pip-details">View Details</a
+                  >
+                </div>
+
+                <div class="d-flex gap-2">
+                  <div class="fs-14">
+                    <span>Department:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">Engineering</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Period:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF"
+                      >2nd, Jan 2026 --- 23rd, Feb 2026</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start border-end">
+                    <span>Manager:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">Joy Awodele</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Outcome:</span>
+                    <span
+                      class="fw-600 border-2 p-2"
+                      style="background-color: #F4FAFF">In Progress</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h1 class="fs-16 fw-700">Sarah Johnson</h1>
+                  </div>
+                  <a
+                    class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                    style="background-color: #fff; color: #2271B6; height: fit-content; border:#2271B6; text-decoration: none;"
+                    href="/pip-details">View Details</a
+                  >
+                </div>
+
+                <div class="d-flex gap-2">
+                  <div class="fs-14">
+                    <span>Department:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">Engineering</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Period:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF"
+                      >2nd, Jan 2026 --- 23rd, Feb 2026</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start border-end">
+                    <span>Manager:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">Joy Awodele</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Outcome:</span>
+                    <span
+                      class="fw-600 border-2 p-2"
+                      style="background-color: #F4FAFF">In Progress</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h1 class="fs-16 fw-700">Sarah Johnson</h1>
+                  </div>
+                  <a
+                    class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                    style="background-color: #fff; color: #2271B6; height: fit-content; border:#2271B6; text-decoration: none;"
+                    href="/pip-details">View Details</a
+                  >
+                </div>
+
+                <div class="d-flex gap-2">
+                  <div class="fs-14">
+                    <span>Department:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">Engineering</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Period:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF"
+                      >2nd, Jan 2026 --- 23rd, Feb 2026</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start border-end">
+                    <span>Manager:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">Joy Awodele</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Outcome:</span>
+                    <span
+                      class="fw-600 border-2 p-2"
+                      style="background-color: #F4FAFF">In Progress</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h1 class="fs-16 fw-700">Sarah Johnson</h1>
+                  </div>
+                  <a
+                    class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                    style="background-color: #fff; color: #2271B6; height: fit-content; border:#2271B6; text-decoration: none;"
+                    href="/pip-details">View Details</a
+                  >
+                </div>
+
+                <div class="d-flex gap-2">
+                  <div class="fs-14">
+                    <span>Department:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">Engineering</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Period:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF"
+                      >2nd, Jan 2026 --- 23rd, Feb 2026</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start border-end">
+                    <span>Manager:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">Joy Awodele</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Outcome:</span>
+                    <span
+                      class="fw-600 border-2 p-2"
+                      style="background-color: #F4FAFF">In Progress</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ModalAddNew
+            modalId="myModal"
+            title={"Create PIP"}
+            inputPlace="Create PIP"
+          />
+        </div>
+      </div>
+      <!-- Main content ends here -->
+    </section>
+
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Wait a bit to ensure scripts are loaded (important in Astro)
+        setTimeout(() => {
+          if (window.$ && $.fn.select2) {
+            $(".js-example-placeholder-single").select2({
+              placeholder: "All Departments",
+              allowClear: true,
+              width: "fit-content", // important for Bootstrap layout
+            });
+          } else {
+            console.error("Select2 or jQuery not loaded");
+          }
+        }, 100);
+      });
+    </script>
+  </main>
+</Layout>

@@ -1,0 +1,90 @@
+---
+const {
+  modalId = "myModal",
+  title = "Update KPI",
+  inputPlace = "Add Card",
+} = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+
+      <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+        <div class="d-flex flex-column sign_in_input gap-4">
+          <div
+            class="border-2 p-2 d-flex flex-column gap-2"
+            style="background-color: #F4FAFF"
+          >
+            <span class="fs-14">Deliver Q1-Q2 Product Roadmap</span>
+            <span class="fs-14"
+              >Complete all planned features for the first two quarters
+              including API v3 and dashboard redesign.</span
+            >
+          </div>
+
+          <div>
+            <div class="fs-14 fw-700">4th, Jan 2026</div>
+            <div class="bg-light d-flex flex-column gap-3 rounded-4 p-3">
+              <div class="p-2 d-flex flex-column gap-2">
+                <span class="fs-12">Progress Status</span>
+                <span class="fs-14 fw-700">In Progress</span>
+              </div>
+              <div class="p-2 d-flex flex-column gap-2">
+                <span class="fs-12">Achievement</span>
+                <span class="fs-14 fw-700">65%</span>
+              </div>
+              <div class="p-2 d-flex flex-column gap-2">
+                <span class="fs-12">Manager’s comment</span>
+                <span class="fs-14 fw-700">Excellent progress.</span>
+              </div>
+              <div class="p-2 d-flex flex-column gap-2">
+                <span class="fs-12">Employee’s Comment</span>
+                <span class="fs-14 fw-700"
+                  >User and billing endpoints done.</span
+                >
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="fs-14 fw-700">4th, Jan 2026</div>
+            <div class="bg-light d-flex flex-column gap-3 rounded-4 p-3">
+              <div class="p-2 d-flex flex-column gap-2">
+                <span class="fs-12">Progress Status</span>
+                <span class="fs-14 fw-700">In Progress</span>
+              </div>
+              <div class="p-2 d-flex flex-column gap-2">
+                <span class="fs-12">Achievement</span>
+                <span class="fs-14 fw-700">65%</span>
+              </div>
+              <div class="p-2 d-flex flex-column gap-2">
+                <span class="fs-12">Manager’s comment</span>
+                <span class="fs-14 fw-700">Excellent progress.</span>
+              </div>
+              <div class="p-2 d-flex flex-column gap-2">
+                <span class="fs-12">Employee’s Comment</span>
+                <span class="fs-14 fw-700"
+                  >User and billing endpoints done.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

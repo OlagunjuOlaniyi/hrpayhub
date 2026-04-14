@@ -25,7 +25,440 @@ import { CloseCircleIcon } from "../Icons";
 
       <!-- Modal body -->
       {
-        inputPlace === "Pay Grade" ? (
+        inputPlace === "Create Company Goal" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="goal_title"
+                name="goal_title"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="goal_title">
+                Goal Title &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="comment" />
+              <label for="comment">Descriptions </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                id="review_year"
+                name="review_year"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="review_year">
+                Review Year &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="text"
+                id="weight"
+                name="weight"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="weight">Weight</label>
+            </div>
+            <div class="d-flex justify-content-between gap-3 mt-2">
+              <div class="form-floating">
+                <input
+                  type="date"
+                  id="start_date"
+                  name="start_date"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="start_date">Start Date </label>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="date"
+                  id="end_date"
+                  name="end_date"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="end_date">End Date </label>
+              </div>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="goal_owner"
+                name="goal_owner"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="goal_owner">Goal Owner</label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="status"
+                name="status"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Lorem Ipsum</option>
+                <option value="2">Lorem Ipsum</option>
+                <option value="3">Lorem Ipsum</option>
+              </select>
+              <label for="status">Status</label>
+            </div>
+          </div>
+        ) : inputPlace === "Create Department Goal" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="goal_title"
+                name="goal_title"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="goal_title">
+                Goal Title &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="dpt_goal"
+                name="dpt_goal"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Lorem Ipsum</option>
+                <option value="2">Lorem Ipsum</option>
+                <option value="3">Lorem Ipsum</option>
+              </select>
+              <label for="dpt_goal">Link to Company Goal</label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="comment" />
+              <label for="comment">Descriptions </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                id="review_year"
+                name="review_year"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="review_year">
+                Review Year &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="text"
+                id="weight"
+                name="weight"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="weight">Weight</label>
+            </div>
+            <div class="d-flex justify-content-between gap-3 mt-2">
+              <div class="form-floating">
+                <input
+                  type="date"
+                  id="start_date"
+                  name="start_date"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="start_date">Start Date </label>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="date"
+                  id="end_date"
+                  name="end_date"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="end_date">End Date </label>
+              </div>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="goal_owner"
+                name="goal_owner"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="goal_owner">Goal Owner</label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="status"
+                name="status"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Lorem Ipsum</option>
+                <option value="2">Lorem Ipsum</option>
+                <option value="3">Lorem Ipsum</option>
+              </select>
+              <label for="status">Status</label>
+            </div>
+          </div>
+        ) : inputPlace === "Assign KPI" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="employee"
+                name="employee"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="employee">
+                Employee &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="kpi_title"
+                name="kpi_title"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="kpi_title">
+                KPI Title &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="comment" />
+              <label for="comment">Descriptions </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="target"
+                name="target"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="target">
+                Target &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="measurement"
+                name="measurement"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Lorem Ipsum</option>
+                <option value="2">Lorem Ipsum</option>
+                <option value="3">Lorem Ipsum</option>
+              </select>
+              <label for="measurement">Measurement Type</label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="text"
+                id="weight"
+                name="weight"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="weight">Weight</label>
+            </div>
+
+            <div class="form-floating ">
+              <select
+                id="department_goal"
+                name="department_goal"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Lorem Ipsum</option>
+                <option value="2">Lorem Ipsum</option>
+                <option value="3">Lorem Ipsum</option>
+              </select>
+              <label for="department_goal">Link to Department Goal</label>
+            </div>
+            <div class="d-flex justify-content-between gap-3 mt-2">
+              <div class="form-floating">
+                <input
+                  type="date"
+                  id="start_date"
+                  name="start_date"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="start_date">Start Date </label>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="date"
+                  id="end_date"
+                  name="end_date"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="end_date">End Date </label>
+              </div>
+            </div>
+          </div>
+        ) : inputPlace === "Add Checkpoints" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="notes" />
+              <label for="notes">
+                Notes &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="status"
+                name="status"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Improved </option>
+                <option value="2">Partially Improved </option>
+                <option value="3">No Improvement </option>
+                <option value="4">Extended Review Needed </option>
+              </select>
+              <label for="status">
+                Status &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "Review Performance" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating ">
+              <select
+                id="status"
+                name="status"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Lorem Ipsum </option>
+                <option value="2">Lorem Ipsum </option>
+                <option value="3">Lorem Ipsum </option>
+                <option value="4">Lorem Ipsum </option>
+              </select>
+              <label for="status">
+                Employee &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                id="start_date"
+                name="start_date"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="start_date">Period </label>
+            </div>
+          </div>
+        ) : inputPlace === "Add Checkpoints" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating ">
+              <select
+                id="employee"
+                name="employee"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Lorem Ipsum</option>
+                <option value="2">Lorem Ipsum</option>
+                <option value="3">Lorem Ipsum</option>
+              </select>
+              <label for="employee">
+                Employee &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="d-flex justify-content-between gap-3 mt-2">
+              <div class="form-floating">
+                <input
+                  type="date"
+                  id="start_date"
+                  name="start_date"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="start_date">Start Date </label>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="date"
+                  id="end_date"
+                  name="end_date"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="end_date">End Date </label>
+              </div>
+            </div>
+
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="reasons" />
+              <label for="reasons">
+                Reason for PIP &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="improvement" />
+              <label for="improvement">
+                Improvement Areas &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="actions" />
+              <label for="actions">
+                Required Actions &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="support" />
+              <label for="support">
+                Support/Training Plan &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "Pay Grade" ? (
           <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
             <div class="form-floating ">
               <select
@@ -1002,9 +1435,21 @@ import { CloseCircleIcon } from "../Icons";
               ? "Create Template"
               : inputPlace === "Create Client"
                 ? "Add Client"
-                : title === "Edit Client"
-                  ? "Save Changes"
-                  : "Save"
+                : inputPlace === "Create Company Goal"
+                  ? "Create Goal"
+                  : inputPlace === "Create Department Goal"
+                    ? "Create Goal"
+                    : inputPlace === "Create PIP"
+                      ? "Create PIP"
+                      : inputPlace === "Create PIP"
+                        ? "Create PIP"
+                        : inputPlace === "Assign KPI"
+                          ? "Assign KPI"
+                          : inputPlace === "Review Performance"
+                            ? "Proceed"
+                            : title === "Edit Client"
+                              ? "Save Changes"
+                              : "Save"
           }
         </button>
       </div>

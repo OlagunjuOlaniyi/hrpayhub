@@ -1,0 +1,455 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalKpiDetails from "../components/ui/ModalKpiDetails.astro";
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: KPI Details">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/employee-kpi-management"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/performance-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Performance Management</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">KPI Details</span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack px-5" style="gap: 2.3rem">
+              <div class="d-flex justify-content-between gap-3">
+                <!---- Search  -->
+                <div>
+                  <div class="fw-700 fs-22">Sarah Johnson</div>
+                  <div class="d-flex gap-2 mt-2">
+                    <div class="fs-14">
+                      <span>Department:</span>
+                      <span
+                        class="fw-600 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF">Engineering</span
+                      >
+                    </div>
+                    <div class="fs-14">
+                      <span>Year:</span>
+                      <span
+                        class="fw-600 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF">2026</span
+                      >
+                    </div>
+                    <div
+                      class="fs-14 px-2 mx-2 border-2 border-start border-end"
+                    >
+                      <span>Manager:</span>
+                      <span
+                        class="fw-600 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF">Joy Awodele</span
+                      >
+                    </div>
+                    <div class="fs-14">
+                      <span>KPI Assigned:</span>
+                      <span
+                        class="fw-600 border-2 p-2"
+                        style="background-color: #F4FAFF">4</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Others -->
+                <div class="responsive gap-4 align-items-center">
+                  <!-- Calendar Selector -->
+                  <input
+                    type="month"
+                    class="form-control fs-14 py-2"
+                    style="max-width: 150px;"
+                    value="2026-04"
+                  />
+
+                  <!---- End of Others ---->
+                </div>
+              </div>
+
+              <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+                <div>
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex gap-3 align-items-center">
+                      <h1 class="fs-16 fw-700">
+                        Deliver Q1-Q2 Product Roadmap
+                      </h1>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                        style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                        role="button">Active</span
+                      >
+                    </div>
+                    <button
+                      class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myUpdateModal"
+                      data-title="Update History"
+                      >View Update History
+                    </button>
+                  </div>
+                  <div class="fs-14">
+                    Complete all planned features for the first two quarters
+                    including API v3 and dashboard redesign.
+                  </div>
+                  <div class="fs-14 mt-2">
+                    <span>Linked to:</span>
+                    <span
+                      class="fw-600 ms-2 p-2 py-1"
+                      style="background-color: #F4FAFF"
+                      >Launch 3 New Product Features</span
+                    >
+                  </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                  <div class="fs-14">
+                    <span>Target:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF"
+                      >100% endpoints migrated</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Date:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF"
+                      >1st, Jan 2026 - 31st, Dec 2026</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start border-end">
+                    <span>Weight:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">30%</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Actual:</span>
+                    <span
+                      class="fw-600 border-2 p-2"
+                      style="background-color: #F4FAFF">65%</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start">
+                    <span>Progress Status:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">In Progress</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+                <div>
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex gap-3 align-items-center">
+                      <h1 class="fs-16 fw-700">
+                        Deliver Q1-Q2 Product Roadmap
+                      </h1>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                        style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                        role="button">Active</span
+                      >
+                    </div>
+                    <button
+                      class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myUpdateModal"
+                      data-title="Update History"
+                      >View Update History
+                    </button>
+                  </div>
+                  <div class="fs-14">
+                    Complete all planned features for the first two quarters
+                    including API v3 and dashboard redesign.
+                  </div>
+                  <div class="fs-14 mt-2">
+                    <span>Linked to:</span>
+                    <span
+                      class="fw-600 ms-2 p-2 py-1"
+                      style="background-color: #F4FAFF"
+                      >Launch 3 New Product Features</span
+                    >
+                  </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                  <div class="fs-14">
+                    <span>Target:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF"
+                      >100% endpoints migrated</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Date:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF"
+                      >1st, Jan 2026 - 31st, Dec 2026</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start border-end">
+                    <span>Weight:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">30%</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Actual:</span>
+                    <span
+                      class="fw-600 border-2 p-2"
+                      style="background-color: #F4FAFF">65%</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start">
+                    <span>Progress Status:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">In Progress</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+                <div>
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex gap-3 align-items-center">
+                      <h1 class="fs-16 fw-700">
+                        Deliver Q1-Q2 Product Roadmap
+                      </h1>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                        style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                        role="button">Active</span
+                      >
+                    </div>
+                    <button
+                      class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myUpdateModal"
+                      data-title="Update History"
+                      >View Update History
+                    </button>
+                  </div>
+                  <div class="fs-14">
+                    Complete all planned features for the first two quarters
+                    including API v3 and dashboard redesign.
+                  </div>
+                  <div class="fs-14 mt-2">
+                    <span>Linked to:</span>
+                    <span
+                      class="fw-600 ms-2 p-2 py-1"
+                      style="background-color: #F4FAFF"
+                      >Launch 3 New Product Features</span
+                    >
+                  </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                  <div class="fs-14">
+                    <span>Target:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF"
+                      >100% endpoints migrated</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Date:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF"
+                      >1st, Jan 2026 - 31st, Dec 2026</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start border-end">
+                    <span>Weight:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">30%</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Actual:</span>
+                    <span
+                      class="fw-600 border-2 p-2"
+                      style="background-color: #F4FAFF">65%</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start">
+                    <span>Progress Status:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">In Progress</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+                <div>
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex gap-3 align-items-center">
+                      <h1 class="fs-16 fw-700">
+                        Deliver Q1-Q2 Product Roadmap
+                      </h1>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                        style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                        role="button">Active</span
+                      >
+                    </div>
+                    <button
+                      class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myUpdateModal"
+                      data-title="Update History"
+                      >View Update History
+                    </button>
+                  </div>
+                  <div class="fs-14">
+                    Complete all planned features for the first two quarters
+                    including API v3 and dashboard redesign.
+                  </div>
+                  <div class="fs-14 mt-2">
+                    <span>Linked to:</span>
+                    <span
+                      class="fw-600 ms-2 p-2 py-1"
+                      style="background-color: #F4FAFF"
+                      >Launch 3 New Product Features</span
+                    >
+                  </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                  <div class="fs-14">
+                    <span>Target:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF"
+                      >100% endpoints migrated</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Date:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF"
+                      >1st, Jan 2026 - 31st, Dec 2026</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start border-end">
+                    <span>Weight:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">30%</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Actual:</span>
+                    <span
+                      class="fw-600 border-2 p-2"
+                      style="background-color: #F4FAFF">65%</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start">
+                    <span>Progress Status:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">In Progress</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ModalKpiDetails
+            modalId="myUpdateModal"
+            title={"Update History"}
+            inputPlace="Update History"
+          />
+        </div>
+      </div>
+      <!-- Main content ends here -->
+    </section>
+
+    <script is:inline type="text/javascript">
+      // Handle opening the modal
+      document
+        .querySelectorAll('[data-bs-target="#addCard"]')
+        .forEach((button) => {
+          button.addEventListener("click", function () {
+            const modalTitle =
+              this.getAttribute("data-title") || "Edit Bank Transfer Info";
+            const empType = this.getAttribute("data-emp-type") || "";
+
+            // Update modal title
+            const modalTitleElement = document.getElementById("modalTitle");
+            if (modalTitleElement) {
+              modalTitleElement.textContent = modalTitle;
+            }
+
+            // Update input field
+            const employeeStatusInput =
+              document.getElementById("employee_title");
+            if (employeeStatusInput) {
+              employeeStatusInput.value = empType;
+            }
+          });
+        });
+    </script>
+  </main>
+</Layout>

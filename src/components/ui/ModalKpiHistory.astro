@@ -1,0 +1,92 @@
+---
+const {
+  modalId = "myModal",
+  title = "Update KPI",
+  inputPlace = "Add Card",
+} = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+
+      <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+        <div class="d-flex flex-column sign_in_input gap-4">
+          <div
+            class="border-2 p-2 d-flex flex-column gap-2"
+            style="background-color: #F4FAFF"
+          >
+            <span class="fs-14">Deliver Q1-Q2 Product Roadmap</span>
+            <span class="fs-14"
+              >Complete all planned features for the first two quarters
+              including API v3 and dashboard redesign.</span
+            >
+          </div>
+          <div class="form-floating">
+            <input
+              type="text"
+              id="acct_no"
+              name="acct_no"
+              class="form-input fs-12"
+              placeholder=""
+            />
+            <label for="acct_no fs-14"
+              >Actual Achievement &nbsp;<span>*</span></label
+            >
+          </div>
+          <div class="form-floating">
+            <select
+              id="select_recp"
+              name="select_recp"
+              class="form-select_custom fs-14"
+              required
+            >
+              <option value="" selected style="color: rgb(200, 200, 200)">
+                Select
+              </option>
+              <option value="type_1">Lorem Ipsum</option>
+              <option value="type_2">Lorem Ipsum</option>
+              <option value="type_3">Lorem Ipsum</option>
+              <option value="type_4">Lorem Ipsum</option>
+            </select>
+            <label for="select_recp">Progress Status &nbsp;<span>*</span></label
+            >
+          </div>
+          <div class="form-floating">
+            <textarea class="form-input" rows="2" id="comment"></textarea>
+            <label for="comment">Manager Comment </label>
+          </div>
+          <div class="form-floating">
+            <textarea class="form-input" rows="2" id="comment"></textarea>
+            <label for="comment">Employee Comment </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-start border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white"
+          data-bs-dismiss="modal"
+        >
+          Save Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

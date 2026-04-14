@@ -1,0 +1,264 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalSubscriptionButton from "../components/ui/ModalSubscriptionButton.astro";
+import CancelSubscription from "../components/ui/CancelSubscription.astro";
+import ModalSubscriptionMid from "../components/ui/ModalSubscriptionMid.astro";
+
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: Annual Performance Review">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/performance-management"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/performance-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Performance Management</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Annual Performance Review</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack px-5" style="gap: 2.3rem">
+              <div class="d-flex justify-content-between gap-3">
+                <!---- Search  -->
+                <div>
+                  <div class="fw-700 fs-22">Annual Performance Review</div>
+                  <div class="fs-14">
+                    Annual reviews based on KPI achievement and manager
+                    assessment
+                  </div>
+                </div>
+
+                <!-- Others -->
+                <div class="responsive gap-4 align-items-center">
+                  <!-- Calendar Selector -->
+                  <input
+                    type="month"
+                    class="form-control text-primary-blue fs-14 py-2"
+                    style="max-width: 150px;"
+                    value="2026-04"
+                  />
+
+                  <!---- End of Others ---->
+                </div>
+              </div>
+              <div
+                class="d-flex justify-content-between gap-3 rounded-3 p-3"
+                style="background-color: #F4FAFF;"
+              >
+                <!---- Search  -->
+                <div>
+                  <div class="fw-600 fs-14">Sarah Johnson</div>
+                  <div class="d-flex gap-2 mt-2">
+                    <div class="fs-14">
+                      <span>Department:</span>
+                      <span
+                        class="fw-600 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF">Engineering</span
+                      >
+                    </div>
+                    <div class="fs-14">
+                      <span>Year:</span>
+                      <span
+                        class="fw-600 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF">2026</span
+                      >
+                    </div>
+                    <div class="fs-14 px-2 mx-2 border-2 border-start">
+                      <span>Manager:</span>
+                      <span
+                        class="fw-600 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF">Joy Awodele</span
+                      >
+                    </div>
+                    <div class="fs-14 px-2 mx-2 border-2 border-start">
+                      <span>KPI Assigned:</span>
+                      <span
+                        class="fw-600 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF">4</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex gap-5">
+                <div
+                  class="d-flex flex-column gap-3 py-4 px-4 border rounded-5 w-50"
+                >
+                  <div class="fs-14">KPI Summary Score</div>
+                  <div class="d-flex gap-3 align-items-center">
+                    <h1 class="fs-16 fw-700">70%</h1>
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-3 py-4 px-4 border rounded-5 w-50"
+                >
+                  <div class="fs-14">Manager’s Rating</div>
+                  <div class="d-flex gap-3 align-items-center">
+                    <h1 class="fs-16 fw-700 d-flex gap-1 align-items-center">
+                      <span class="me-1">3/5</span>
+                      <img src="images/png/icons/star-golden.svg" alt="" />
+                      <img src="images/png/icons/star-golden.svg" alt="" />
+                      <img src="images/png/icons/star-golden.svg" alt="" />
+                      <img src="images/png/icons/star-not.svg" alt="" />
+                      <img src="images/png/icons/star-not.svg" alt="" />
+                    </h1>
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-3 py-4 px-4 border rounded-5 w-50"
+                >
+                  <div class="fs-14">Final Outcome</div>
+                  <div class="d-flex gap-3 align-items-center">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-12"
+                      style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                      role="button">Meets Expectation</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+                <div class="d-flex gap-3">
+                  <div>
+                    <div class="d-flex gap-3 align-items-center">
+                      <h1 class="fs-16 fw-700">Manager’s Comment</h1>
+                    </div>
+                    <div class="fs-14">
+                      Sarah has been a consistently strong performer. She
+                      delivered critical projects on time and mentored junior
+                      team members effectively.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+                <div class="d-flex gap-3">
+                  <div>
+                    <div class="d-flex gap-3 align-items-center">
+                      <h1 class="fs-16 fw-700">Strengths</h1>
+                    </div>
+                    <div class="fs-14">
+                      Technical expertise, leadership, reliability, strong
+                      communication with stakeholders.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+                <div class="d-flex gap-3">
+                  <div>
+                    <div class="d-flex gap-3 align-items-center">
+                      <h1 class="fs-16 fw-700">Areas for Improvement</h1>
+                    </div>
+                    <div class="fs-14">
+                      Could take on more cross-functional initiatives and
+                      improve documentation practices.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ModalSubscriptionButton
+            modalId="myModal"
+            title={"Renew Subscription"}
+            inputPlace="Renew Subscription"
+          />
+          <ModalSubscriptionButton
+            modalId="myUpgradeModal"
+            title={"Upgrade Plan"}
+            inputPlace="Upgrade Plan"
+          />
+          <ModalSubscriptionButton
+            modalId="myDowngradeModal"
+            title={"Downgrade Plan"}
+            inputPlace="Downgrade Plan"
+          />
+          <ModalSubscriptionMid
+            modalId="myMidModal"
+            title={"Employee Mid Cycle"}
+            inputPlace="Employee Mid Cycle"
+          />
+          <CancelSubscription
+            modalId="myCancelModal"
+            title={"Cancel Subscription"}
+            inputPlace="Cancel Subscription"
+          />
+        </div>
+      </div>
+      <!-- Main content ends here -->
+    </section>
+
+    <script is:inline type="text/javascript">
+      // Handle opening the modal
+      document
+        .querySelectorAll('[data-bs-target="#addCard"]')
+        .forEach((button) => {
+          button.addEventListener("click", function () {
+            const modalTitle =
+              this.getAttribute("data-title") || "Edit Bank Transfer Info";
+            const empType = this.getAttribute("data-emp-type") || "";
+
+            // Update modal title
+            const modalTitleElement = document.getElementById("modalTitle");
+            if (modalTitleElement) {
+              modalTitleElement.textContent = modalTitle;
+            }
+
+            // Update input field
+            const employeeStatusInput =
+              document.getElementById("employee_title");
+            if (employeeStatusInput) {
+              employeeStatusInput.value = empType;
+            }
+          });
+        });
+    </script>
+  </main>
+</Layout>
