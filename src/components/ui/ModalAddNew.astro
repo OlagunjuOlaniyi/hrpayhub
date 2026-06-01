@@ -25,7 +25,257 @@ import { CloseCircleIcon } from "../Icons";
 
       <!-- Modal body -->
       {
-        inputPlace === "Create Company Goal" ? (
+        inputPlace === "Edit Annual Deadline" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div
+              class="d-flex justify-content-between gap-3 rounded-3 p-3"
+              style="background-color: #F4FAFF;"
+            >
+              <div>
+                <div class="fw-600 fs-14">Annual Review 2026</div>
+                <div class="d-flex gap-1 mt-2">
+                  <div class="fs-14">
+                    <span>Jan 1 – Mar 31, 2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                id="kpi_deadline"
+                name="kpi_deadline"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="kpi_deadline">
+                Annual Review Deadline &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="text"
+                id="grace_period"
+                name="grace_period"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="grace_period">Grace Period</label>
+            </div>
+          </div>
+        ) : inputPlace === "Edit KPI Deadline" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div
+              class="d-flex justify-content-between gap-3 rounded-3 p-3"
+              style="background-color: #F4FAFF;"
+            >
+              <div>
+                <div class="fw-600 fs-14">Q2 2026 KPI Assignment</div>
+                <div class="d-flex gap-1 mt-2">
+                  <div class="fs-14">
+                    <span>Jan 1 – Mar 31, 2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                id="kpi_deadline"
+                name="kpi_deadline"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="kpi_deadline">
+                KPI Assignment Deadline &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                id="kpi_update_deadline"
+                name="kpi_update_deadline"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="kpi_update_deadline">
+                KPI Update Deadline &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="text"
+                id="grace_period"
+                name="grace_period"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="grace_period">Grace Period</label>
+            </div>
+          </div>
+        ) : inputPlace === "Create Cycle" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  id="netSalary"
+                  name="starter"
+                  value="net_salary"
+                  checked
+                />
+                <label class="form-check-label fs-14">
+                  KPI Assignment Cycle
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  id="netVariable"
+                  name="starter"
+                  value="net_variable"
+                />
+                <label class="form-check-label fs-14">
+                  Annual Review Cycle
+                </label>
+              </div>
+            </div>
+            <div class="d-flex flex-column gap-4" id="kpiCycle">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  id="cycle_name"
+                  name="cycle_name"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="cycle_name">
+                  Cycle Name &nbsp;<span>*</span>
+                </label>
+              </div>
+              <div class="d-flex justify-content-between gap-3 mt-2">
+                <div class="form-floating">
+                  <input
+                    type="date"
+                    id="start_date"
+                    name="start_date"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="start_date">Start Date </label>
+                </div>
+                <div class="form-floating">
+                  <input
+                    type="date"
+                    id="end_date"
+                    name="end_date"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="end_date">End Date </label>
+                </div>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="date"
+                  id="kpi_deadline"
+                  name="kpi_deadline"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="kpi_deadline">
+                  KPI Assignment Deadline &nbsp;<span>*</span>
+                </label>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="date"
+                  id="kpi_update_deadline"
+                  name="kpi_update_deadline"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="kpi_update_deadline">
+                  KPI Update Deadline &nbsp;<span>*</span>
+                </label>
+              </div>
+
+              <div class="form-floating">
+                <input
+                  type="text"
+                  id="grace_period"
+                  name="grace_period"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="grace_period">Grace Period</label>
+              </div>
+            </div>
+            <div class="d-flex flex-column gap-4 d-none" id="annualCycle">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  id="cycle_name"
+                  name="cycle_name"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="cycle_name">
+                  Cycle Name &nbsp;<span>*</span>
+                </label>
+              </div>
+              <div class="d-flex justify-content-between gap-3 mt-2">
+                <div class="form-floating">
+                  <input
+                    type="date"
+                    id="start_date"
+                    name="start_date"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="start_date">Start Date </label>
+                </div>
+                <div class="form-floating">
+                  <input
+                    type="date"
+                    id="end_date"
+                    name="end_date"
+                    class="form-input"
+                    placeholder=""
+                  />
+                  <label for="end_date">End Date </label>
+                </div>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="date"
+                  id="kpi_deadline"
+                  name="kpi_deadline"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="kpi_deadline">
+                  Annual Review Deadline &nbsp;<span>*</span>
+                </label>
+              </div>
+
+              <div class="form-floating">
+                <input
+                  type="text"
+                  id="grace_period"
+                  name="grace_period"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="grace_period">Grace Period</label>
+              </div>
+            </div>
+          </div>
+        ) : inputPlace === "Create Company Goal" ? (
           <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
             <div class="form-floating">
               <input
@@ -1552,5 +1802,24 @@ import { CloseCircleIcon } from "../Icons";
 
     // Initialize on page load if default values are present
     updateSalaryFields(salaryTypeSelect.value);
+  });
+</script>
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    function toggleSalaryView() {
+      if ($("#netSalary").is(":checked")) {
+        $("#kpiCycle").removeClass("d-none");
+        $("#annualCycle").addClass("d-none");
+      } else {
+        $("#kpiCycle").addClass("d-none");
+        $("#annualCycle").removeClass("d-none");
+      }
+    }
+
+    // Initial call on load
+    toggleSalaryView();
+
+    // Bind change event to radio buttons
+    $("input[name='starter']").change(toggleSalaryView);
   });
 </script>

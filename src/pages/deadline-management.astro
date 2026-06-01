@@ -1,0 +1,722 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalSubscriptionButton from "../components/ui/ModalSubscriptionButton.astro";
+import CancelSubscription from "../components/ui/CancelSubscription.astro";
+import ModalSubscriptionMid from "../components/ui/ModalSubscriptionMid.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: Deadline Management">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/performance-management"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/performance-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Performance Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Deadline Management</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack px-5" style="gap: 2.3rem">
+              <div class="d-flex justify-content-between gap-3">
+                <!---- Search  -->
+                <div>
+                  <div class="fw-700 fs-22">Deadline Management</div>
+                  <div class="fs-14">
+                    Set deadlines, enforce auto-closure, and track cycle
+                    completion.
+                  </div>
+                </div>
+
+                <!-- Others -->
+                <div class="responsive gap-4 align-items-center">
+                  <!-- Calendar Selector -->
+                  <input
+                    type="month"
+                    class="form-control fs-14 py-2"
+                    style="max-width: 150px;"
+                    value="2026-04"
+                  />
+                  <div class="d-flex justify-content-end">
+                    <button
+                      class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                      data-title="Create Cycles"
+                      ><span class="fw-700 fs-14">+</span><span
+                        class="ms-2 text-nowrap">Add New Cycle</span
+                      >
+                    </button>
+                  </div>
+
+                  <!---- End of Others ---->
+                </div>
+              </div>
+              <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <div class="d-flex gap-2 align-items-center">
+                      <h1 class="fs-16 fw-700">Q1 2026 KPI Assignment</h1>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 py-1 ms-2 fs-14"
+                        style="background-color: #FFF5F5; color: red; height: fit-content"
+                        role="button">Closed</span
+                      >
+                    </div>
+                    <div class="fs-14">Jan 1 – Mar 31, 2026</div>
+                  </div>
+                  <button
+                    class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                    style="height: fit-content;"
+                    type="button"
+                    ><img
+                      src="images/png/icons/padlock-white.svg"
+                      alt="padlock"
+                    /><span class="ms-2 text-nowrap">Re-Open</span>
+                  </button>
+                </div>
+
+                <div
+                  class="d-flex gap-4 py-4"
+                  style="border-top: 1px solid #D1D5DB; border-bottom: 1px solid #D1D5DB;"
+                >
+                  <div class="fs-14">
+                    <span>Assignment Deadline:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">15 Jan, 2026</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start border-end">
+                    <span>KPI Update Deadline</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">15 Feb, 2026</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Grace Period:</span>
+                    <span
+                      class="fw-600 border-2 p-2"
+                      style="background-color: #F4FAFF">2 Days</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start">
+                    <span>Completion:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color:#F2F2F2">80% : (6/7)</span
+                    >
+                  </div>
+                </div>
+                <!-- Scrollable Table -->
+                <div
+                  class="table-responsive"
+                  style="max-height: 600px; overflow: auto;"
+                >
+                  <table class="table">
+                    <!---- Table head --->
+                    <thead
+                      class="text-dark px-4 fw-700 fs-14 text-nowrap"
+                      style="background-color: #EAECF0;"
+                    >
+                      <tr>
+                        <th
+                          class="text-dark px-4 fw-700 fs-14"
+                          style="background-color: #EAECF0;">S/N</th
+                        >
+                        <th
+                          class="text-left text-dark px-3 fw-700 fs-14"
+                          style="background-color: #EAECF0;">Manager</th
+                        >
+                        <th
+                          class="text-dark fw-700 fs-14 px-3 text-left"
+                          style="background-color: #EAECF0;"
+                          style="min-width: 200px;">Department</th
+                        >
+                        <th
+                          class="text-dark px-3 fw-700 fs-14 text-left"
+                          style="background-color: #EAECF0;">Submitted</th
+                        >
+
+                        <th
+                          class="text-dark px-3 fw-700 fs-14 text-left"
+                          style="background-color: #EAECF0;">Status</th
+                        >
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Table body and Row -->
+                      <style>
+                        .column {
+                          min-width: 180px;
+                        }
+                      </style>
+                      {
+                        [
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Platinum",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Open",
+                            out_bal: "N124,676",
+                          },
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Free Trial",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Closed - Not Completed",
+                            out_bal: "N124,676",
+                          },
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Platinum",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Open",
+                            out_bal: "N124,676",
+                          },
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Platinum",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Closed - Not Completed",
+                            out_bal: "N124,676",
+                          },
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Platinum",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Closed - Not Completed",
+                            out_bal: "N124,676",
+                          },
+                        ].map((ele, index) => (
+                          <tr class="fs-88">
+                            <td class="text-center fs-14">{index + 1}</td>
+                            <td class="fs-14 text-nowrap px-3 text-left column">
+                              {ele.client_name}
+                            </td>
+                            <td class="fs-14 px-3 text-left column">
+                              {ele.client_email}
+                            </td>
+                            <td class="fs-14 px-3 text-left column">
+                              {ele.phone_no}
+                            </td>
+
+                            <td
+                              class="fs-14 px-3 text-left column fw-700"
+                              style={`color: ${
+                                ele.status === "Closed - Not Completed"
+                                  ? "red"
+                                  : ele.status === "Open"
+                                    ? "#2BC700"
+                                    : "inherit"
+                              };`}
+                            >
+                              <span
+                                class="fw-700 border border-1 rounded-3 p-2 py-1 ms-2 fs-12"
+                                style={`background-color: ${
+                                  ele.status === "Closed - Not Completed"
+                                    ? "#FFF5F5"
+                                    : ele.status === "Open"
+                                      ? "#E9FFE2"
+                                      : "inherit"
+                                }; height: fit-content`}
+                                role="button"
+                              >
+                                {ele.status}
+                              </span>
+                            </td>
+                          </tr>
+                        ))
+                      }
+
+                      <!-- Repeat for more employees -->
+                    </tbody>
+                  </table>
+                </div>
+
+                <!---- End of table --->
+              </div>
+              <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <div class="d-flex gap-2 align-items-center">
+                      <h1 class="fs-16 fw-700">Q1 2026 KPI Assignment</h1>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 py-1 ms-2 fs-14"
+                        style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                        role="button">Open</span
+                      >
+                    </div>
+                    <div class="fs-14">Jan 1 – Mar 31, 2026</div>
+                  </div>
+                  <div class="d-flex gap-3">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #fff; color: #2271B6; height: fit-content; border:#2271B6"
+                      role="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myKPIModal"
+                      data-title="Edit KPI Deadline"
+                      role="button">Edit Deadline</span
+                    >
+                    <button
+                      class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                      style="height: fit-content;"
+                      type="button"
+                      ><img
+                        src="images/png/icons/padlock-white.svg"
+                        alt="padlock"
+                      /><span class="ms-2 text-nowrap">Close Now</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div
+                  class="d-flex gap-4 py-4"
+                  style="border-top: 1px solid #D1D5DB; border-bottom: 1px solid #D1D5DB;"
+                >
+                  <div class="fs-14">
+                    <span>Assignment Deadline:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">15 Jan, 2026</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start border-end">
+                    <span>KPI Update Deadline</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">15 Feb, 2026</span
+                    >
+                  </div>
+                  <div class="fs-14">
+                    <span>Grace Period:</span>
+                    <span
+                      class="fw-600 border-2 p-2"
+                      style="background-color: #F4FAFF">2 Days</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start">
+                    <span>Completion:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color:#F2F2F2">80% : (6/7)</span
+                    >
+                  </div>
+                </div>
+                <!-- Scrollable Table -->
+                <div
+                  class="table-responsive"
+                  style="max-height: 600px; overflow: auto;"
+                >
+                  <table class="table">
+                    <!---- Table head --->
+                    <thead
+                      class="text-dark px-4 fw-700 fs-14 text-nowrap"
+                      style="background-color: #EAECF0;"
+                    >
+                      <tr>
+                        <th
+                          class="text-dark px-4 fw-700 fs-14"
+                          style="background-color: #EAECF0;">S/N</th
+                        >
+                        <th
+                          class="text-left text-dark px-3 fw-700 fs-14"
+                          style="background-color: #EAECF0;">Manager</th
+                        >
+                        <th
+                          class="text-dark fw-700 fs-14 px-3 text-left"
+                          style="background-color: #EAECF0;"
+                          style="min-width: 200px;">Department</th
+                        >
+                        <th
+                          class="text-dark px-3 fw-700 fs-14 text-left"
+                          style="background-color: #EAECF0;">Submitted</th
+                        >
+
+                        <th
+                          class="text-dark px-3 fw-700 fs-14 text-left"
+                          style="background-color: #EAECF0;">Status</th
+                        >
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Table body and Row -->
+                      <style>
+                        .column {
+                          min-width: 180px;
+                        }
+                      </style>
+                      {
+                        [
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Platinum",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Open",
+                            out_bal: "N124,676",
+                          },
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Free Trial",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Open",
+                            out_bal: "N124,676",
+                          },
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Platinum",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Open",
+                            out_bal: "N124,676",
+                          },
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Platinum",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Open",
+                            out_bal: "N124,676",
+                          },
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Platinum",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Open",
+                            out_bal: "N124,676",
+                          },
+                        ].map((ele, index) => (
+                          <tr class="fs-88">
+                            <td class="text-center fs-14">{index + 1}</td>
+                            <td class="fs-14 text-nowrap px-3 text-left column">
+                              {ele.client_name}
+                            </td>
+                            <td class="fs-14 px-3 text-left column">
+                              {ele.client_email}
+                            </td>
+                            <td class="fs-14 px-3 text-left column">
+                              {ele.phone_no}
+                            </td>
+
+                            <td class="fs-14 text-primary-blue px-3 text-left column fw-700">
+                              <span
+                                class="fw-700 border border-1 rounded-3 p-2 py-1 ms-2 fs-12"
+                                style={`background-color: #EFF7FF
+                                ; height: fit-content`}
+                                role="button"
+                              >
+                                {ele.status}
+                              </span>
+                            </td>
+                          </tr>
+                        ))
+                      }
+
+                      <!-- Repeat for more employees -->
+                    </tbody>
+                  </table>
+                </div>
+
+                <!---- End of table --->
+              </div>
+              <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <div class="d-flex gap-2 align-items-center">
+                      <h1 class="fs-16 fw-700">Annual Review 2026</h1>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 py-1 ms-2 fs-14"
+                        style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                        role="button">Open</span
+                      >
+                    </div>
+                    <div class="fs-14">Jan 1 – Mar 31, 2026</div>
+                  </div>
+                  <div class="d-flex gap-3">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #fff; color: #2271B6; height: fit-content; border:#2271B6"
+                      role="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myAnnualModal"
+                      data-title="Edit Annual Deadline"
+                      role="button">Edit Deadline</span
+                    >
+                    <button
+                      class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                      style="height: fit-content;"
+                      type="button"
+                      ><img
+                        src="images/png/icons/padlock-white.svg"
+                        alt="padlock"
+                      /><span class="ms-2 text-nowrap">Close Now</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div
+                  class="d-flex gap-4 py-4"
+                  style="border-top: 1px solid #D1D5DB; border-bottom: 1px solid #D1D5DB;"
+                >
+                  <div class="fs-14">
+                    <span>Review Deadline:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color: #F4FAFF">15 Jan, 2026</span
+                    >
+                  </div>
+
+                  <div class="fs-14">
+                    <span>Grace Period:</span>
+                    <span
+                      class="fw-600 border-2 p-2"
+                      style="background-color: #F4FAFF">2 Days</span
+                    >
+                  </div>
+                  <div class="fs-14 px-2 mx-2 border-2 border-start">
+                    <span>Completion:</span>
+                    <span
+                      class="fw-600 border-2 ms-2 p-2"
+                      style="background-color:#F2F2F2">0% : (0/7)</span
+                    >
+                  </div>
+                </div>
+                <!-- Scrollable Table -->
+                <div
+                  class="table-responsive"
+                  style="max-height: 600px; overflow: auto;"
+                >
+                  <table class="table">
+                    <!---- Table head --->
+                    <thead
+                      class="text-dark px-4 fw-700 fs-14 text-nowrap"
+                      style="background-color: #EAECF0;"
+                    >
+                      <tr>
+                        <th
+                          class="text-dark px-4 fw-700 fs-14"
+                          style="background-color: #EAECF0;">S/N</th
+                        >
+                        <th
+                          class="text-left text-dark px-3 fw-700 fs-14"
+                          style="background-color: #EAECF0;">Manager</th
+                        >
+                        <th
+                          class="text-dark fw-700 fs-14 px-3 text-left"
+                          style="background-color: #EAECF0;"
+                          style="min-width: 200px;">Department</th
+                        >
+                        <th
+                          class="text-dark px-3 fw-700 fs-14 text-left"
+                          style="background-color: #EAECF0;">Submitted</th
+                        >
+
+                        <th
+                          class="text-dark px-3 fw-700 fs-14 text-left"
+                          style="background-color: #EAECF0;">Status</th
+                        >
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Table body and Row -->
+                      <style>
+                        .column {
+                          min-width: 180px;
+                        }
+                      </style>
+                      {
+                        [
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Platinum",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Open",
+                            out_bal: "N124,676",
+                          },
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Free Trial",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Open",
+                            out_bal: "N124,676",
+                          },
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Platinum",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Open",
+                            out_bal: "N124,676",
+                          },
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Platinum",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Open",
+                            out_bal: "N124,676",
+                          },
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "4/4",
+                            currency: "Platinum",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Open",
+                            out_bal: "N124,676",
+                          },
+                        ].map((ele, index) => (
+                          <tr class="fs-88">
+                            <td class="text-center fs-14">{index + 1}</td>
+                            <td class="fs-14 text-nowrap px-3 text-left column">
+                              {ele.client_name}
+                            </td>
+                            <td class="fs-14 px-3 text-left column">
+                              {ele.client_email}
+                            </td>
+                            <td class="fs-14 px-3 text-left column">
+                              {ele.phone_no}
+                            </td>
+
+                            <td class="fs-14 text-primary-blue px-3 text-left column fw-700">
+                              <span
+                                class="fw-700 border border-1 rounded-3 p-2 py-1 ms-2 fs-12"
+                                style={`background-color: #EFF7FF
+                                ; height: fit-content`}
+                                role="button"
+                              >
+                                {ele.status}
+                              </span>
+                            </td>
+                          </tr>
+                        ))
+                      }
+
+                      <!-- Repeat for more employees -->
+                    </tbody>
+                  </table>
+                </div>
+
+                <!---- End of table --->
+              </div>
+            </div>
+          </div>
+
+          <ModalAddNew
+            modalId="myModal"
+            title={"Create Cycle"}
+            inputPlace="Create Cycle"
+          />
+          <ModalAddNew
+            modalId="myKPIModal"
+            title={"Edit KPI Deadline"}
+            inputPlace="Edit KPI Deadline"
+          />
+          <ModalAddNew
+            modalId="myAnnualModal"
+            title={"Edit Annual Deadline"}
+            inputPlace="Edit Annual Deadline"
+          />
+        </div>
+      </div>
+      <!-- Main content ends here -->
+    </section>
+
+    <script is:inline type="text/javascript">
+      // Handle opening the modal
+      document
+        .querySelectorAll('[data-bs-target="#addCard"]')
+        .forEach((button) => {
+          button.addEventListener("click", function () {
+            const modalTitle =
+              this.getAttribute("data-title") || "Edit Bank Transfer Info";
+            const empType = this.getAttribute("data-emp-type") || "";
+
+            // Update modal title
+            const modalTitleElement = document.getElementById("modalTitle");
+            if (modalTitleElement) {
+              modalTitleElement.textContent = modalTitle;
+            }
+
+            // Update input field
+            const employeeStatusInput =
+              document.getElementById("employee_title");
+            if (employeeStatusInput) {
+              employeeStatusInput.value = empType;
+            }
+          });
+        });
+    </script>
+  </main>
+</Layout>
