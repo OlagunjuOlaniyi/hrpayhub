@@ -1,0 +1,1059 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: Reports">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/performance-management"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/performance-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Performance Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Reports</span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack px-5" style="gap: 2.3rem">
+              <div>
+                <div class="fw-700 fs-22">Reports</div>
+                <div class="fs-14">
+                  Performance management reports and analytics
+                </div>
+              </div>
+
+              <select class="form-select" id="reportSelect" style="width: 40%;">
+                <option value="3">Employee KPI Completion Report</option>
+                <option value="4">Annual Review Summary by Department</option>
+                <option value="5">Performance Rating Distribution</option>
+                <option value="6">Employees on PIP</option>
+                <option value="7">PIP Outcome Report</option>
+              </select>
+
+              <div class="d-flex flex-column gap-4">
+                <div
+                  class="d-flex flex-column gap-5 border rounded-4 p-5"
+                  id="reportThree"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div class="">
+                      <h3 class="fs-22 fw-700">Employee KPI Completion</h3>
+                      <span class="fs-14" style="color: #6B7280;"
+                        >How well each employee has completed their KPIs
+                        (achieved, partially achieved, or not achieved)</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between gap-3">
+                    <!---- Search  -->
+                    <div class="d-flex gap-3">
+                      <select
+                        class="js-example-placeholder-single js-states form-control custom-select2"
+                      >
+                        <option></option>
+                        <option>All Departments</option>
+                        <option>Engineering</option>
+                        <option>Marketing</option>
+                        <option>HR</option>
+                        <option>State</option>
+                      </select>
+                      <input
+                        type="text"
+                        class="form-control search-input search-width fs-14"
+                        placeholder="Search by employee name..."
+                      />
+                    </div>
+
+                    <!-- Others -->
+                    <div class="responsive gap-4 align-items-center">
+                      <!-- Calendar Selector -->
+                      <input
+                        type="month"
+                        class="form-control fs-14 py-2"
+                        style="max-width: 130px;"
+                        value="2026-04"
+                      />
+
+                      <!---- End of Others ---->
+                    </div>
+                  </div>
+
+                  <!-- Scrollable Table -->
+                  <div
+                    class="table-responsive"
+                    style="max-height: 600px; overflow: auto;"
+                  >
+                    <table class="table">
+                      <!---- Table head --->
+                      <thead
+                        class="text-dark px-4 fw-700 fs-14 text-nowrap"
+                        style="background-color: #EAECF0;"
+                      >
+                        <tr>
+                          <th
+                            class="text-dark text-center px-3 fw-700 fs-14"
+                            style="background-color: #EAECF0;">S/N</th
+                          >
+                          <th
+                            class="text-left text-dark px-3 fw-700 fs-14"
+                            style="background-color: #EAECF0;">Employee</th
+                          >
+                          <th
+                            class="text-left text-dark px-3 fw-700 fs-14"
+                            style="background-color: #EAECF0;">Department</th
+                          >
+
+                          <th
+                            class="text-dark px-3 fw-700 fs-14 text-left"
+                            style="background-color: #EAECF0;">KPIs</th
+                          >
+
+                          <th
+                            class="text-dark px-3 fw-700 fs-14 text-left"
+                            style="background-color: #EAECF0;">Status</th
+                          >
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Table body and Row -->
+                        <style>
+                          .column {
+                            min-width: 180px;
+                          }
+                        </style>
+                        {
+                          [
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Launch 3 New Product Features",
+                              phone_no: "6/7",
+                              currency: "Platinum",
+                              pay_terms: "Lorem Ipsum",
+                              status: "Achieved",
+                              out_bal: "N124,676",
+                            },
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Launch 3 New Product Features",
+                              phone_no: "6/7",
+                              currency: "Free Trial",
+                              pay_terms: "Lorem Ipsum",
+                              status: "Achieved",
+                              out_bal: "N124,676",
+                            },
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Launch 3 New Product Features",
+                              phone_no: "6/7",
+                              currency: "Platinum",
+                              pay_terms: "Lorem Ipsum",
+                              status: "Achieved",
+                              out_bal: "N124,676",
+                            },
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Launch 3 New Product Features",
+                              phone_no: "6/7",
+                              currency: "Platinum",
+                              pay_terms: "Lorem Ipsum",
+                              status: "Partially Achieved",
+                              out_bal: "N124,676",
+                            },
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Launch 3 New Product Features",
+                              phone_no: "6/7",
+                              currency: "Platinum",
+                              pay_terms: "Lorem Ipsum",
+                              status: "Not Achieved",
+                              out_bal: "N124,676",
+                            },
+                          ].map((ele, index) => (
+                            <tr class="fs-88">
+                              <td class="text-center fs-14">{index + 1}</td>
+                              <td class="fs-14 text-nowrap px-3 text-left column">
+                                {ele.client_name}
+                              </td>
+                              <td class="fs-14 px-3 text-left column">
+                                {ele.client_email}
+                              </td>
+                              <td class="fs-14 px-3 text-left column">
+                                {ele.phone_no}
+                              </td>
+
+                              <td
+                                class="fs-14 px-3 text-left column fw-700"
+                                style={`color: ${
+                                  ele.status === "Partially Achieved"
+                                    ? "#2271B6"
+                                    : ele.status === "Achieved"
+                                      ? "#2BC700"
+                                      : ele.status === "Not Achieved"
+                                        ? "red"
+                                        : "inherit"
+                                };`}
+                              >
+                                <span
+                                  class="fw-600 border border-1 rounded-3 p-2 py-1 ms-2 fs-12"
+                                  style={`background-color: ${
+                                    ele.status === "Partially Achieved"
+                                      ? "#EFF7FF"
+                                      : ele.status === "Achieved"
+                                        ? "#E9FFE2"
+                                        : ele.status === "Not Achieved"
+                                          ? "#FFF5F5"
+                                          : "inherit"
+                                  }; height: fit-content`}
+                                  role="button"
+                                >
+                                  {ele.status}
+                                </span>
+                              </td>
+                            </tr>
+                          ))
+                        }
+
+                        <!-- Repeat for more employees -->
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!---- End of table --->
+                </div>
+                <div
+                  class="d-flex flex-column gap-5 border rounded-4 p-5"
+                  id="reportFour"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div class="">
+                      <h3 class="fs-22 fw-700">
+                        Annual Review Summary by Department
+                      </h3>
+                      <span class="fs-14" style="color: #6B7280;"
+                        >Department-specific goals and their statuses. Shows how
+                        each department is performing against its own <br /> goals
+                        and overall company alignment.</span
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Scrollable Table -->
+
+                  <div
+                    class="table-responsive"
+                    style="max-height: 600px; overflow: auto;"
+                  >
+                    <p class="fw-700">Engineering</p>
+                    <table class="table">
+                      <!---- Table head --->
+                      <thead
+                        class="text-dark px-4 fw-700 fs-14 text-nowrap"
+                        style="background-color: #EAECF0;"
+                      >
+                        <tr>
+                          <th
+                            class="text-dark text-center px-3 fw-700 fs-14"
+                            style="background-color: #EAECF0;">S/N</th
+                          >
+                          <th
+                            class="text-left text-dark px-3 fw-700 fs-14"
+                            style="background-color: #EAECF0;">Employee</th
+                          >
+                          <th
+                            class="text-left text-dark px-3 fw-700 fs-14"
+                            style="background-color: #EAECF0;">KPI Score</th
+                          >
+
+                          <th
+                            class="text-dark px-3 fw-700 fs-14 text-left"
+                            style="background-color: #EAECF0;">Rating</th
+                          >
+
+                          <th
+                            class="text-dark px-3 fw-700 fs-14 text-left"
+                            style="background-color: #EAECF0;">Status</th
+                          >
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Table body and Row -->
+                        <style>
+                          .column {
+                            min-width: 180px;
+                          }
+                        </style>
+                        {
+                          [
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "88%",
+                              phone_no: "3/5",
+                              currency: "Platinum",
+                              pay_terms: "Lorem Ipsum",
+                              status: "Exceeds Expectation",
+                              out_bal: "N124,676",
+                            },
+
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "88%",
+                              phone_no: "3/5",
+                              currency: "Platinum",
+                              pay_terms: "Lorem Ipsum",
+                              status: "Needs Improvement",
+                              out_bal: "N124,676",
+                            },
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "88%",
+                              phone_no: "3/5",
+                              currency: "Platinum",
+                              pay_terms: "Lorem Ipsum",
+                              status: "Meets Expectation",
+                              out_bal: "N124,676",
+                            },
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "88%",
+                              phone_no: "3/5",
+                              currency: "Platinum",
+                              pay_terms: "Lorem Ipsum",
+                              status: "Unsatisfactory",
+                              out_bal: "N124,676",
+                            },
+                          ].map((ele, index) => (
+                            <tr class="fs-88">
+                              <td class="text-center fs-14">{index + 1}</td>
+                              <td class="fs-14 text-nowrap px-3 text-left column">
+                                {ele.client_name}
+                              </td>
+                              <td class="fs-14 px-3 text-left column">
+                                {ele.client_email}
+                              </td>
+                              <td class="fs-14 px-3 text-left column">
+                                <div class="d-flex gap-1 align-items-center">
+                                  {ele.phone_no}
+                                  <img
+                                    src="images/png/icons/star-golden.svg"
+                                    alt=""
+                                  />
+                                  <img
+                                    src="images/png/icons/star-golden.svg"
+                                    alt=""
+                                  />
+                                  <img
+                                    src="images/png/icons/star-golden.svg"
+                                    alt=""
+                                  />
+                                  <img
+                                    src="images/png/icons/star-not.svg"
+                                    alt=""
+                                  />
+                                  <img
+                                    src="images/png/icons/star-not.svg"
+                                    alt=""
+                                  />
+                                </div>
+                              </td>
+
+                              <td
+                                class="fs-14 px-3 text-left column fw-700"
+                                style={`color: ${
+                                  ele.status === "Meets Expectation"
+                                    ? "#2271B6"
+                                    : ele.status === "Exceeds Expectation"
+                                      ? "#2BC700"
+                                      : ele.status === "Unsatisfactory"
+                                        ? "#FD0000"
+                                        : ele.status === "Needs Improvement"
+                                          ? "#969103"
+                                          : "inherit"
+                                };`}
+                              >
+                                <span
+                                  class="fw-600 border border-1 rounded-3 p-2 py-1 ms-2 fs-12"
+                                  style={`background-color: ${
+                                    ele.status === "Meets Expectation"
+                                      ? "#EFF7FF"
+                                      : ele.status === "Exceeds Expectation"
+                                        ? "#E9FFE2"
+                                        : ele.status === "Unsatisfactory"
+                                          ? "#FFF5F5"
+                                          : ele.status === "Needs Improvement"
+                                            ? "#FFFFF2"
+                                            : "inherit"
+                                  }; height: fit-content`}
+                                  role="button"
+                                >
+                                  {ele.status}
+                                </span>
+                              </td>
+                            </tr>
+                          ))
+                        }
+
+                        <!-- Repeat for more employees -->
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!---- End of table --->
+                </div>
+
+                <div class="d-flex flex-column gap-2" id="reportFive">
+                  <div class="d-flex flex-column gap-5 border rounded-4 p-5">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <h3 class="fs-22 fw-700">
+                          Performance Rating Distribution
+                        </h3>
+                        <span class="fs-14" style="color: #6B7280;"
+                          >Distribution of performance ratings (Exceeds, Meets,
+                          Needs Improvement, Unsatisfactory) across all reviewed
+                          employees.</span
+                        >
+                      </div>
+                    </div>
+
+                    <!-- chart area -->
+
+                    <div class="d-flex align-items-center">
+                      <!-- Custom Legend -->
+                      <style>
+                        .revenue-legend {
+                          display: flex;
+                          flex-direction: column;
+                          gap: 18px;
+                        }
+
+                        .legend-row {
+                          display: grid;
+                          grid-template-columns: 36px 1fr auto;
+                          align-items: center;
+                          column-gap: 12px;
+                        }
+
+                        .legend-row .dot {
+                          width: 22px;
+                          height: 22px;
+                          border-radius: 50%;
+                          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+                        }
+
+                        .legend-row .label {
+                          font-weight: 600;
+                        }
+
+                        .legend-row .value {
+                          font-weight: 700;
+                        }
+                      </style>
+                      <div class="revenue-legend">
+                        <div class="legend-row">
+                          <span class="dot" style="background:#FDBA8C"></span>
+                          <span class="label">Exceeds Expectation</span>
+                          <span class="value">25 Employees</span>
+                        </div>
+
+                        <div class="legend-row">
+                          <span class="dot" style="background:#2271B6"></span>
+                          <span class="label">Meets Expectation</span>
+                          <span class="value">30 Employees</span>
+                        </div>
+
+                        <div class="legend-row">
+                          <span class="dot" style="background:#18C1C8"></span>
+                          <span class="label">Needs Improvement</span>
+                          <span class="value">18 Employees</span>
+                        </div>
+                        <div class="legend-row">
+                          <span class="dot" style="background:#FD0000"></span>
+                          <span class="label">Unsatisfactory</span>
+                          <span class="value">10 Employees</span>
+                        </div>
+                      </div>
+                      <div style="height:260px;" class="mx-auto">
+                        <canvas id="pieChart"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="d-flex flex-column gap-5 border rounded-4 p-5"
+                  id="reportSix"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div class="">
+                      <h3 class="fs-22 fw-700">Employees on PIP</h3>
+                      <span class="fs-14" style="color: #6B7280;"
+                        >Employees currently on a Performance Improvement Plan,
+                        with reasons and progress against checkpoints.</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between gap-3">
+                    <!---- Search  -->
+                    <div class="d-flex gap-3">
+                      <select
+                        class="js-example-placeholder-single js-states form-control custom-select2"
+                      >
+                        <option></option>
+                        <option>All Departments</option>
+                        <option>Engineering</option>
+                        <option>Marketing</option>
+                        <option>HR</option>
+                        <option>State</option>
+                      </select>
+                      <input
+                        type="text"
+                        class="form-control search-input search-width fs-14"
+                        placeholder="Search by employee name..."
+                      />
+                    </div>
+
+                    <!-- Others -->
+                    <div class="responsive gap-4 align-items-center">
+                      <!-- Calendar Selector -->
+                      <input
+                        type="month"
+                        class="form-control fs-14 py-2"
+                        style="max-width: 130px;"
+                        value="2026-04"
+                      />
+
+                      <!---- End of Others ---->
+                    </div>
+                  </div>
+
+                  <!-- Scrollable Table -->
+                  <div
+                    class="table-responsive"
+                    style="max-height: 600px; overflow: auto;"
+                  >
+                    <table class="table">
+                      <!---- Table head --->
+                      <thead
+                        class="text-dark px-4 fw-700 fs-14 text-nowrap"
+                        style="background-color: #EAECF0;"
+                      >
+                        <tr>
+                          <th
+                            class="text-dark text-center px-3 fw-700 fs-14"
+                            style="background-color: #EAECF0;">S/N</th
+                          >
+                          <th
+                            class="text-left text-dark px-3 fw-700 fs-14"
+                            style="background-color: #EAECF0;">Employee</th
+                          >
+                          <th
+                            class="text-left text-dark px-3 fw-700 fs-14"
+                            style="background-color: #EAECF0;">Department</th
+                          >
+
+                          <th
+                            class="text-dark px-3 fw-700 fs-14 text-left"
+                            style="background-color: #EAECF0;">Manager</th
+                          >
+                          <th
+                            class="text-dark px-3 fw-700 fs-14 text-left"
+                            style="background-color: #EAECF0;">Period</th
+                          >
+
+                          <th
+                            class="text-dark px-3 fw-700 fs-14 text-left"
+                            style="background-color: #EAECF0;">Status</th
+                          >
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Table body and Row -->
+                        <style>
+                          .column {
+                            min-width: 180px;
+                          }
+                        </style>
+                        {
+                          [
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Engineering",
+                              phone_no: "Darlene Robertson",
+                              currency: "2nd, Jan 2026 -- 23rd, Feb 2026",
+                              pay_terms: "Lorem Ipsum",
+                              status: "In Progress",
+                              out_bal: "N124,676",
+                            },
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Engineering",
+                              phone_no: "Darlene Robertson",
+                              currency: "2nd, Jan 2026 -- 23rd, Feb 2026",
+                              pay_terms: "Lorem Ipsum",
+                              status: "In Progress",
+                              out_bal: "N124,676",
+                            },
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Engineering",
+                              phone_no: "Darlene Robertson",
+                              currency: "2nd, Jan 2026 -- 23rd, Feb 2026",
+                              pay_terms: "Lorem Ipsum",
+                              status: "In Progress",
+                              out_bal: "N124,676",
+                            },
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Engineering",
+                              phone_no: "Darlene Robertson",
+                              currency: "2nd, Jan 2026 -- 23rd, Feb 2026",
+                              pay_terms: "Lorem Ipsum",
+                              status: "In Progress",
+                              out_bal: "N124,676",
+                            },
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Engineering",
+                              phone_no: "Darlene Robertson",
+                              currency: "2nd, Jan 2026 -- 23rd, Feb 2026",
+                              pay_terms: "Lorem Ipsum",
+                              status: "In Progress",
+                              out_bal: "N124,676",
+                            },
+                          ].map((ele, index) => (
+                            <tr class="fs-88">
+                              <td class="text-center fs-14">{index + 1}</td>
+                              <td class="fs-14 text-nowrap px-3 text-left column">
+                                {ele.client_name}
+                              </td>
+                              <td class="fs-14 px-3 text-left column">
+                                {ele.client_email}
+                              </td>
+                              <td class="fs-14 px-3 text-left column">
+                                {ele.phone_no}
+                              </td>
+                              <td class="fs-14 px-3 text-left column">
+                                {ele.currency}
+                              </td>
+
+                              <td
+                                class="fs-14 px-3 text-left column fw-700"
+                                style={`color: ${
+                                  ele.status === "In Progress"
+                                    ? "#2271B6"
+                                    : ele.status === "Achieved"
+                                      ? "#2BC700"
+                                      : ele.status === "Not Achieved"
+                                        ? "red"
+                                        : "inherit"
+                                };`}
+                              >
+                                <span
+                                  class="fw-600 border border-1 rounded-3 p-2 py-1 ms-2 fs-12"
+                                  style={`background-color: ${
+                                    ele.status === "In Progress"
+                                      ? "#EFF7FF"
+                                      : ele.status === "Achieved"
+                                        ? "#E9FFE2"
+                                        : ele.status === "Not Achieved"
+                                          ? "#FFF5F5"
+                                          : "inherit"
+                                  }; height: fit-content`}
+                                  role="button"
+                                >
+                                  {ele.status}
+                                </span>
+                              </td>
+                            </tr>
+                          ))
+                        }
+
+                        <!-- Repeat for more employees -->
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!---- End of table --->
+                </div>
+                <div
+                  class="d-flex flex-column gap-5 border rounded-4 p-5"
+                  id="reportSeven"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div class="">
+                      <h3 class="fs-22 fw-700">PIP Outcome Report</h3>
+                      <span class="fs-14" style="color: #6B7280;"
+                        >Outcomes of completed PIPs — improved, partially
+                        improved, not improved, or extended review needed.</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between gap-3">
+                    <!---- Search  -->
+                    <div class="d-flex gap-3">
+                      <select
+                        class="js-example-placeholder-single js-states form-control custom-select2"
+                      >
+                        <option></option>
+                        <option>All Departments</option>
+                        <option>Engineering</option>
+                        <option>Marketing</option>
+                        <option>HR</option>
+                        <option>State</option>
+                      </select>
+                      <input
+                        type="text"
+                        class="form-control search-input search-width fs-14"
+                        placeholder="Search by employee name..."
+                      />
+                    </div>
+
+                    <!-- Others -->
+                    <div class="responsive gap-4 align-items-center">
+                      <!-- Calendar Selector -->
+                      <input
+                        type="month"
+                        class="form-control fs-14 py-2"
+                        style="max-width: 130px;"
+                        value="2026-04"
+                      />
+
+                      <!---- End of Others ---->
+                    </div>
+                  </div>
+
+                  <!-- Scrollable Table -->
+                  <div
+                    class="table-responsive"
+                    style="max-height: 600px; overflow: auto;"
+                  >
+                    <table class="table">
+                      <!---- Table head --->
+                      <thead
+                        class="text-dark px-4 fw-700 fs-14 text-nowrap"
+                        style="background-color: #EAECF0;"
+                      >
+                        <tr>
+                          <th
+                            class="text-dark text-center px-3 fw-700 fs-14"
+                            style="background-color: #EAECF0;">S/N</th
+                          >
+                          <th
+                            class="text-left text-dark px-3 fw-700 fs-14"
+                            style="background-color: #EAECF0;">Employee</th
+                          >
+                          <th
+                            class="text-left text-dark px-3 fw-700 fs-14"
+                            style="background-color: #EAECF0;">Department</th
+                          >
+
+                          <th
+                            class="text-dark px-3 fw-700 fs-14 text-left"
+                            style="background-color: #EAECF0;">Manager</th
+                          >
+                          <th
+                            class="text-dark px-3 fw-700 fs-14 text-left"
+                            style="background-color: #EAECF0;">Period</th
+                          >
+
+                          <th
+                            class="text-dark px-3 fw-700 fs-14 text-left"
+                            style="background-color: #EAECF0;">Status</th
+                          >
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Table body and Row -->
+                        <style>
+                          .column {
+                            min-width: 180px;
+                          }
+                        </style>
+                        {
+                          [
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Engineering",
+                              phone_no: "Darlene Robertson",
+                              currency: "2nd, Jan 2026 -- 23rd, Feb 2026",
+                              pay_terms: "Lorem Ipsum",
+                              status: "Improved",
+                              out_bal: "N124,676",
+                            },
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Engineering",
+                              phone_no: "Darlene Robertson",
+                              currency: "2nd, Jan 2026 -- 23rd, Feb 2026",
+                              pay_terms: "Lorem Ipsum",
+                              status: "Improved",
+                              out_bal: "N124,676",
+                            },
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Engineering",
+                              phone_no: "Darlene Robertson",
+                              currency: "2nd, Jan 2026 -- 23rd, Feb 2026",
+                              pay_terms: "Lorem Ipsum",
+                              status: "Extension Needed",
+                              out_bal: "N124,676",
+                            },
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Engineering",
+                              phone_no: "Darlene Robertson",
+                              currency: "2nd, Jan 2026 -- 23rd, Feb 2026",
+                              pay_terms: "Lorem Ipsum",
+                              status: "Partially Improved",
+                              out_bal: "N124,676",
+                            },
+                            {
+                              client_name: "Lorem Ipsum",
+                              client_email: "Engineering",
+                              phone_no: "Darlene Robertson",
+                              currency: "2nd, Jan 2026 -- 23rd, Feb 2026",
+                              pay_terms: "Lorem Ipsum",
+                              status: "Not Improved",
+                              out_bal: "N124,676",
+                            },
+                          ].map((ele, index) => (
+                            <tr class="fs-88">
+                              <td class="text-center fs-14">{index + 1}</td>
+                              <td class="fs-14 text-nowrap px-3 text-left column">
+                                {ele.client_name}
+                              </td>
+                              <td class="fs-14 px-3 text-left column">
+                                {ele.client_email}
+                              </td>
+                              <td class="fs-14 px-3 text-left column">
+                                {ele.phone_no}
+                              </td>
+                              <td class="fs-14 px-3 text-left column">
+                                {ele.currency}
+                              </td>
+
+                              <td
+                                class="fs-14 px-3 text-left column fw-700"
+                                style={`color: ${
+                                  ele.status === "Partially Improved"
+                                    ? "#2271B6"
+                                    : ele.status === "Improved"
+                                      ? "#2BC700"
+                                      : ele.status === "Not Improved"
+                                        ? "red"
+                                        : ele.status === "Extension Needed"
+                                          ? "#969103"
+                                          : "inherit"
+                                };`}
+                              >
+                                <span
+                                  class="fw-600 border border-1 rounded-3 p-2 py-1 ms-2 fs-12"
+                                  style={`background-color: ${
+                                    ele.status === "Partially Improved"
+                                      ? "#EFF7FF"
+                                      : ele.status === "Improved"
+                                        ? "#E9FFE2"
+                                        : ele.status === "Not Improved"
+                                          ? "#FFF5F5"
+                                          : ele.status === "Extension Needed"
+                                            ? "#FFFFF2"
+                                            : "inherit"
+                                  }; height: fit-content`}
+                                  role="button"
+                                >
+                                  {ele.status}
+                                </span>
+                              </td>
+                            </tr>
+                          ))
+                        }
+
+                        <!-- Repeat for more employees -->
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <!---- End of table --->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Main content ends here -->
+    </section>
+
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+          if (window.$ && $.fn.select2) {
+            $(".js-example-placeholder-single").select2({
+              placeholder: "All Departments",
+              allowClear: true,
+              width: "fit-content", // important for Bootstrap layout
+            });
+          } else {
+            console.error("Select2 or jQuery not loaded");
+          }
+        }, 100);
+
+        const ctx2 = document.getElementById("pieChart");
+        if (!ctx2 || typeof Chart === "undefined") return;
+
+        new Chart(ctx2, {
+          type: "pie",
+          data: {
+            labels: [
+              "Exceeds Expectation",
+              "Meets Expectation",
+              "Needs Improvement",
+              "Unsatisfactory",
+            ],
+            datasets: [
+              {
+                data: [120000, 60000, 50000, 30000],
+                backgroundColor: ["#FDBA8C", "#2271B6", "#18C1C8", "#FD0000"],
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: false,
+            plugins: {
+              legend: {
+                display: false, // we use custom legend
+              },
+              tooltip: {
+                callbacks: {
+                  label: (ctx2) =>
+                    `${ctx2.label}: ${ctx2.raw.toLocaleString()}`,
+                },
+              },
+            },
+          },
+        });
+
+        const reportSelect = document.getElementById("reportSelect");
+
+        $("#reportFour").addClass("d-none");
+        $("#reportFive").addClass("d-none");
+        $("#reportSix").addClass("d-none");
+        $("#reportSeven").addClass("d-none");
+        // On report change
+        reportSelect.addEventListener("change", () => {
+          const report = reportSelect.value;
+
+          if (report === "1") {
+            $("#reportOne").removeClass("d-none");
+            $("#reportTwo").addClass("d-none");
+            $("#reportThree").addClass("d-none");
+            $("#reportFour").addClass("d-none");
+            $("#reportFive").addClass("d-none");
+            $("#reportSix").addClass("d-none");
+            $("#reportSeven").addClass("d-none");
+          } else if (report === "2") {
+            $("#reportOne").addClass("d-none");
+            $("#reportTwo").removeClass("d-none");
+            $("#reportThree").addClass("d-none");
+            $("#reportFour").addClass("d-none");
+            $("#reportFive").addClass("d-none");
+            $("#reportSix").addClass("d-none");
+            $("#reportSeven").addClass("d-none");
+          } else if (report === "3") {
+            $("#reportOne").addClass("d-none");
+            $("#reportTwo").addClass("d-none");
+            $("#reportThree").removeClass("d-none");
+            $("#reportFour").addClass("d-none");
+            $("#reportFive").addClass("d-none");
+            $("#reportSix").addClass("d-none");
+            $("#reportSeven").addClass("d-none");
+          } else if (report === "4") {
+            $("#reportOne").addClass("d-none");
+            $("#reportTwo").addClass("d-none");
+            $("#reportThree").addClass("d-none");
+            $("#reportFour").removeClass("d-none");
+            $("#reportFive").addClass("d-none");
+            $("#reportSix").addClass("d-none");
+            $("#reportSeven").addClass("d-none");
+          } else if (report === "5") {
+            $("#reportOne").addClass("d-none");
+            $("#reportTwo").addClass("d-none");
+            $("#reportThree").addClass("d-none");
+            $("#reportFour").addClass("d-none");
+            $("#reportFive").removeClass("d-none");
+            $("#reportSix").addClass("d-none");
+            $("#reportSeven").addClass("d-none");
+          } else if (report === "6") {
+            $("#reportOne").addClass("d-none");
+            $("#reportTwo").addClass("d-none");
+            $("#reportThree").addClass("d-none");
+            $("#reportFour").addClass("d-none");
+            $("#reportFive").addClass("d-none");
+            $("#reportSix").removeClass("d-none");
+            $("#reportSeven").addClass("d-none");
+          } else if (report === "7") {
+            $("#reportOne").addClass("d-none");
+            $("#reportTwo").addClass("d-none");
+            $("#reportThree").addClass("d-none");
+            $("#reportFour").addClass("d-none");
+            $("#reportFive").addClass("d-none");
+            $("#reportSix").addClass("d-none");
+            $("#reportSeven").removeClass("d-none");
+          } else {
+            $("#reportOne").addClass("d-none");
+            $("#reportTwo").addClass("d-none");
+            $("#reportThree").addClass("d-none");
+            $("#reportFour").addClass("d-none");
+            $("#reportFive").addClass("d-none");
+            $("#reportSix").addClass("d-none");
+            $("#reportSeven").addClass("d-none");
+          }
+        });
+      });
+    </script>
+  </main>
+</Layout>
