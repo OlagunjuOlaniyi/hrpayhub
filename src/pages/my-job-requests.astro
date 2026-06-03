@@ -1,0 +1,342 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import DepartmentReviewModal from "../components/ui/DepartmentReviewModal.astro";
+
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: My Job Requests">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/applicant-tracking-system"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/applicant-tracking-system"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Applicant Tracking System (ATS)</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">My Job Requests</span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack px-5" style="gap: 2.3rem">
+              <div class="d-flex justify-content-between gap-3">
+                <div>
+                  <div class="fw-700 fs-22">My Job Requests</div>
+                  <div class="fs-14">
+                    Logged in as Tunde Adeyemi · Customer Service
+                  </div>
+                </div>
+
+                <!-- Others -->
+                <div class="responsive gap-4 align-items-center">
+                  <div class="d-flex justify-content-end">
+                    <button
+                      class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                      data-title="Create Job Request"
+                      ><span class="fw-700 fs-14">+</span><span
+                        class="ms-2 text-nowrap">New Request</span
+                      >
+                    </button>
+                  </div>
+
+                  <!---- End of Others ---->
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-5"
+                  style="width: 334px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-16 fw-700">Pending</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-600 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFFFF2; color: #969103; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-5"
+                  style="width: 334px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-16 fw-700">Approved</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-600 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                      role="button">2</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-5"
+                  style="width: 334px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-16 fw-700">Rejected</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-600 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="d-flex flex-column gap-5 border rounded-4 p-5"
+                id="reportSeven"
+              >
+                <div class="d-flex justify-content-between">
+                  <div class="">
+                    <h3 class="fs-22 fw-700">Request History</h3>
+                  </div>
+                </div>
+
+                <!-- Scrollable Table -->
+                <div
+                  class="table-responsive"
+                  style="max-height: 600px; overflow: auto;"
+                >
+                  <table class="table">
+                    <!---- Table head --->
+                    <thead
+                      class="text-dark px-4 fw-700 fs-14 text-nowrap"
+                      style="background-color: #EAECF0;"
+                    >
+                      <tr>
+                        <th
+                          class="text-dark text-center px-3 fw-700 fs-14"
+                          style="background-color: #EAECF0;">S/N</th
+                        >
+                        <th
+                          class="text-left text-dark px-3 fw-700 fs-14"
+                          style="background-color: #EAECF0;">Requested By</th
+                        >
+                        <th
+                          class="text-left text-dark px-3 fw-700 fs-14"
+                          style="background-color: #EAECF0;">Job Title</th
+                        >
+
+                        <th
+                          class="text-dark px-3 fw-700 fs-14 text-left"
+                          style="background-color: #EAECF0;">Date</th
+                        >
+                        <th
+                          class="text-dark px-3 fw-700 fs-14 text-left"
+                          style="background-color: #EAECF0;">Description</th
+                        >
+
+                        <th
+                          class="text-dark px-3 fw-700 fs-14 text-left"
+                          style="background-color: #EAECF0;">Status</th
+                        >
+                        <th
+                          class="text-dark px-3 fw-700 fs-14 text-left"
+                          style="background-color: #EAECF0;">Action</th
+                        >
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Table body and Row -->
+                      <style>
+                        .column {
+                          min-width: 140px;
+                        }
+                      </style>
+                      {
+                        [
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "Darlene Robertson",
+                            currency: "Lorem Ipsum...",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Approved",
+                            modalId: "approvedModal",
+                          },
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "Darlene Robertson",
+                            currency: "Lorem Ipsum...",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Approved",
+                            modalId: "approvedModal",
+                          },
+                          {
+                            client_name: "Lorem Ipsum",
+                            client_email: "Engineering",
+                            phone_no: "Darlene Robertson",
+                            currency: "Lorem Ipsum...",
+                            pay_terms: "Lorem Ipsum",
+                            status: "Pending",
+                            modalId: "pendingModal",
+                          },
+                        ].map((ele, index) => (
+                          <tr class="fs-88">
+                            <td class="text-center fs-14">{index + 1}</td>
+                            <td class="fs-14 text-nowrap px-3 text-left column">
+                              {ele.client_name}
+                            </td>
+                            <td class="fs-14 px-3 text-left column">
+                              {ele.client_email}
+                            </td>
+                            <td class="fs-14 px-3 text-left column">
+                              {ele.phone_no}
+                            </td>
+                            <td class="fs-14 px-3 text-left column">
+                              {ele.currency}
+                            </td>
+
+                            <td
+                              class="fs-14 px-3 text-left column fw-700"
+                              style={`color: ${
+                                ele.status === "Partially Improved"
+                                  ? "#2271B6"
+                                  : ele.status === "Approved"
+                                    ? "#2BC700"
+                                    : ele.status === "Rejected"
+                                      ? "red"
+                                      : ele.status === "Pending"
+                                        ? "#969103"
+                                        : "inherit"
+                              };`}
+                            >
+                              <span
+                                class="fw-600 border border-1 rounded-3 p-2 py-1 ms-2 fs-12"
+                                style={`background-color: ${
+                                  ele.status === "Partially Improved"
+                                    ? "#EFF7FF"
+                                    : ele.status === "Approved"
+                                      ? "#E9FFE2"
+                                      : ele.status === "Rejected"
+                                        ? "#FFF5F5"
+                                        : ele.status === "Pending"
+                                          ? "#FFFFF2"
+                                          : "inherit"
+                                }; height: fit-content`}
+                                role="button"
+                              >
+                                {ele.status}
+                              </span>
+                            </td>
+                            <td class="fs-14 px-3 text-left column">
+                              <span
+                                class="fw-700 rounded-3 p-2 fs-12"
+                                style="background-color: #fff; color: #2271B6; height: fit-content; border:#2271B6"
+                                role="button"
+                                data-bs-toggle="modal"
+                                data-bs-target={`#${ele.modalId}`}
+                                data-title="Job Requests"
+                                role="button"
+                              >
+                                View Details
+                              </span>
+                            </td>
+                          </tr>
+                        ))
+                      }
+
+                      <!-- Repeat for more employees -->
+                    </tbody>
+                  </table>
+                </div>
+
+                <!---- End of table --->
+              </div>
+            </div>
+          </div>
+
+          <ModalAddNew
+            modalId="myModal"
+            title={"Create Job Request"}
+            inputPlace="Create Job Request"
+          />
+          <DepartmentReviewModal
+            modalId="approvedModal"
+            title={"Job Requests"}
+            inputPlace="Approved"
+          />
+        </div>
+      </div>
+      <!-- Main content ends here -->
+    </section>
+
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Wait a bit to ensure scripts are loaded (important in Astro)
+        setTimeout(() => {
+          if (window.$ && $.fn.select2) {
+            $(".js-example-placeholder-single").select2({
+              placeholder: "All Departments",
+              allowClear: true,
+              width: "fit-content", // important for Bootstrap layout
+            });
+          } else {
+            console.error("Select2 or jQuery not loaded");
+          }
+        }, 100);
+      });
+    </script>
+  </main>
+</Layout>

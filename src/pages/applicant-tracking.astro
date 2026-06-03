@@ -1,0 +1,695 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PaymentPostModal from "../components/ui/PaymentPostModal.astro";
+import ApplicantTrackingModal from "../components/ui/ApplicantTrackingModal.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import DeleteModal from "../components/ui/DeleteModal.astro";
+---
+
+<Layout title="HRPayHub :: Applicant Tracking ">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/applicant-tracking-system"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/applicant-tracking-system"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Applicant Tracking System (ATS)</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Applicant Tracking
+            </span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-3 px-lg-5">
+          {/* Page Title */}
+          <div class="vstack gap-3">
+            <div>
+              <div class="fw-700 fs-22">Applicant Tracking</div>
+              <div class="fs-14">
+                Track individual internal and external applicants linked to job
+                postings.
+              </div>
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+
+          <!-- Nav pills -->
+          <div class="d-flex gap-4 mt-4">
+            <div class="d-flex gap-3">
+              <input
+                type="text"
+                class="form-control search-input search-width fs-14"
+                placeholder="Search..."
+              />
+              <img
+                src="images/png/icons/initialize.svg"
+                class="initialize"
+                alt="arrow-down"
+              />
+            </div>
+
+            <div class="flex-grow-1 d-flex justify-content-end gap-5">
+              <!---- Search  -->
+
+              <!-- Others -->
+              <div class="responsive gap-1">
+                <!----- link --->
+                <div class="d-flex gap-3 justify-content-end">
+                  <style>
+                    .dropdown-submenu {
+                      position: relative;
+                    }
+
+                    /* Accordion style: drop below, not to the right */
+                    .dropdown-submenu > .dropdown-menu {
+                      position: static;
+                      float: none;
+                      margin-top: 0.5rem;
+                      padding-left: 1rem;
+                      display: none;
+                    }
+
+                    .dropdown-submenu > .dropdown-menu.show {
+                      display: block;
+                    }
+
+                    /* a small caret indicator */
+                    .dropdown-submenu > a::after {
+                      content: " ";
+                      float: right;
+                    }
+                  </style>
+
+                  <div class="dropdown">
+                    <button
+                      class="delon-primary-btn bg-white border dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2 fs-14"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      data-bs-offset="-20,10"
+                    >
+                      <img src="images/png/icons/filter.svg" alt="arrow-down" />
+                      <span>Filter</span>
+                    </button>
+                    <ul class="dropdown-menu" style="min-width:250px">
+                      <li
+                        class="d-flex flex-row justify-content-between px-3 py-2 border-bottom fs-14"
+                      >
+                        <span class="fw-bold">Filter</span>
+                        <span class="fw-bold text-primary-blue"
+                          >Reset Filter</span
+                        >
+                      </li>
+                      <!-- Designation Submenu -->
+                      <li class="dropdown-submenu border-bottom">
+                        <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                          >Branch</a
+                        >
+                        <ul class="dropdown-menu border-0 fs-14">
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="category 1"
+                              /> Branch 1
+                            </label>
+                          </li>
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="category 2"
+                              /> Branch 2
+                            </label>
+                          </li>
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="category 2"
+                              /> Branch 2
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+                      <!-- Designation Submenu -->
+                      <li class="dropdown-submenu border-bottom">
+                        <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                          >Designation</a
+                        >
+                        <ul class="dropdown-menu border-0 fs-14">
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="category 1"
+                              /> Category 1
+                            </label>
+                          </li>
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="category 2"
+                              /> Category 2
+                            </label>
+                          </li>
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="category 2"
+                              /> Category 2
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Employment Status Submenu -->
+                      <li class="dropdown-submenu border-bottom">
+                        <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                          >Employment Status</a
+                        >
+                        <ul class="dropdown-menu border-0 fs-14">
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="employed"
+                              /> Employed
+                            </label>
+                          </li>
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="unemployed"
+                              /> Unemployed
+                            </label>
+                          </li>
+
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="contract"
+                              /> Contract
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="dropdown-submenu border-bottom">
+                        <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                          >Global Role</a
+                        >
+                        <ul class="dropdown-menu border-0 fs-14">
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="role1"
+                              /> Role 1
+                            </label>
+                          </li>
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="role2"
+                              /> Role 2
+                            </label>
+                          </li>
+
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="role3"
+                              /> Role 3
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Country of Work Submenu -->
+                      <li class="dropdown-submenu border-bottom">
+                        <a class="dropdown-item dropdown-toggle fs-14" href="#"
+                          >Country of Work</a
+                        >
+                        <ul class="dropdown-menu border-0 fs-14">
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="usa"
+                              /> USA
+                            </label>
+                          </li>
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="uk"
+                              /> UK
+                            </label>
+                          </li>
+                          <li>
+                            <label class="form-check-label">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                name="Nigeria"
+                              /> Nigeria
+                            </label>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- apply filter button -->
+                      <li
+                        class="d-flex flex-row justify-content-end px-3 py-2 mt-2"
+                      >
+                        <button
+                          type="submit"
+                          class="delon-primary-btn bg-primary-blue border-0 text-white fs-14"
+                        >
+                          <span>Apply Filter</span>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Sort Dropdown -->
+
+                  <div class="dropdown">
+                    <button
+                      class="delon-primary-btn bg-white border fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      data-bs-offset="-20,10"
+                    >
+                      <img src="images/png/icons/sort.svg" alt="arrow-down" />
+                      <span>Sort</span>
+                    </button>
+                    <div
+                      class="dropdown-menu p-0 border-0"
+                      style="min-width:200px"
+                    >
+                      <ul class="list-group border-0 fw-600 fs-14">
+                        <li class="list-group-item">
+                          <span class="fw-bold">Sort</span>
+                        </li>
+                        <li class="list-group-item">
+                          <label class="form-check-label">
+                            <input
+                              type="radio"
+                              class="form-check-input"
+                              name="optradio"
+                            /> Alphabetically
+                          </label>
+                        </li>
+                        <li class="list-group-item">
+                          <label class="form-check-label">
+                            <input
+                              type="radio"
+                              class="form-check-input"
+                              name="optradio"
+                            /> Date of Resumption
+                          </label>
+                        </li>
+                        <li class="list-group-item">
+                          <label class="form-check-label">
+                            <input
+                              type="radio"
+                              class="form-check-input"
+                              name="optradio"
+                            /> Date of Confirmation
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- Download Dropdown -->
+
+                  <div class="dropdown">
+                    <button
+                      class="white_button border-0 text-primary-blue fw-600 fs-14 dropdown-toggle dropdown-no-arrow d-flex align-items-center gap-2"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      data-bs-offset="-20,10"
+                    >
+                      <img
+                        src="images/png/icons/download-blue.svg"
+                        alt="arrow-down"
+                      />
+                      <span>Download</span>
+                      <img
+                        src="images/png/icons/arrow-down-blue.svg"
+                        alt="arrow-down"
+                      />
+                    </button>
+                    <div class="dropdown-menu p-0 border-0">
+                      <ul class="list-group border-0 fw-600 fs-14">
+                        <li class="list-group-item">
+                          <div>CSV Format</div>
+                        </li>
+                        <li class="list-group-item">
+                          <div>Excel Format</div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!---- End of Others ---->
+            </div>
+          </div>
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive mt-3"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead class="bg-grey text-dark px-4 fw-700 fs-14 text-nowrap">
+                <tr>
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >S/N</th
+                  >
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Candidate Name</th
+                  >
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Contact Info</th
+                  >
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Job Title</th
+                  >
+                  <th
+                    class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
+                    style="min-width: 200px;">Department</th
+                  >
+
+                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                    >Applicant Type</th
+                  >
+
+                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                    >Date</th
+                  >
+                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                    >Notes</th
+                  >
+
+                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left">
+                    Status</th
+                  >
+
+                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-center"
+                    >Action</th
+                  >
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 180px;
+                  }
+                </style>
+                {
+                  [
+                    {
+                      client_name: "John Olayemi",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Engineering",
+                      status: "Hired",
+                      out_bal: "Internal",
+                      notes: "Lorem Ipsum...",
+                      modalId: "hiredModal",
+                    },
+                    {
+                      client_name: "John Olayemi",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Cash",
+                      status: "Hired",
+                      out_bal: "Internal",
+                      notes: "Lorem Ipsum...",
+                      modalId: "hiredModal",
+                    },
+                    {
+                      client_name: "John Olayemi",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "POS",
+                      status: "New",
+                      out_bal: "Internal",
+                      notes: "Lorem Ipsum...",
+                      modalId: "newModal",
+                    },
+                    {
+                      client_name: "John Olayemi",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Engineering",
+                      status: "Offered",
+                      out_bal: "Internal",
+                      notes: "Lorem Ipsum...",
+                      modalId: "offeredModal",
+                    },
+                    {
+                      client_name: "John Olayemi",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Engineering",
+                      status: "Rejected",
+                      out_bal: "Internal",
+                      notes: "Lorem Ipsum...",
+                      modalId: "rejectedModal",
+                    },
+                    {
+                      client_name: "John Olayemi",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Engineering",
+                      status: "Interview",
+                      out_bal: "Internal",
+                      notes: "Lorem Ipsum...",
+                      modalId: "interviewModal",
+                    },
+                    {
+                      client_name: "John Olayemi",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Engineering",
+                      status: "Rejected",
+                      out_bal: "Internal",
+                      notes: "Lorem Ipsum...",
+                      modalId: "rejectedModal",
+                    },
+                  ].map((ele, index) => (
+                    <tr class="fs-88">
+                      <td class="fs-14 text-center">{index + 1}</td>
+
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.client_name}
+                      </td>
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        {ele.client_email}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.currency}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.pay_terms}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">{ele.out_bal}</td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.phone_no}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
+                      <td
+                        class="fs-14 px-3 text-left column fw-700"
+                        style={`color: ${
+                          ele.status === "Offered"
+                            ? "#2271B6"
+                            : ele.status === "Hired"
+                              ? "#2BC700"
+                              : ele.status === "Rejected"
+                                ? "#FD0000"
+                                : ele.status === "New"
+                                  ? "#969103"
+                                  : "inherit"
+                        };`}
+                      >
+                        <span
+                          class="fw-600 border border-1 rounded-3 p-2 py-1 ms-2 fs-12"
+                          style={`background-color: ${
+                            ele.status === "Offered"
+                              ? "#EFF7FF"
+                              : ele.status === "Hired"
+                                ? "#E9FFE2"
+                                : ele.status === "Rejected"
+                                  ? "#FFF5F5"
+                                  : ele.status === "New"
+                                    ? "#FFFFF2"
+                                    : "inherit"
+                          }; height: fit-content`}
+                          role="button"
+                        >
+                          {ele.status}
+                        </span>
+                      </td>
+
+                      <td class="fs-14 px-3 text-center column">
+                        <span
+                          class="fw-700 rounded-3 p-2 fs-12"
+                          style="background-color: #fff; color: #2271B6; height: fit-content; border:#2271B6"
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target={`#${ele.modalId}`}
+                          data-title="Job Requests"
+                          role="button"
+                        >
+                          View Details
+                        </span>
+                      </td>
+                    </tr>
+                  ))
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
+          </div>
+
+          {/* Page Content Box */}
+        </div>
+      </div>
+    </section>
+
+    <ApplicantTrackingModal
+      modalId="newModal"
+      title={"Job Requests"}
+      inputPlace="New"
+    />
+    <ApplicantTrackingModal
+      modalId="hiredModal"
+      title={"Job Requests"}
+      inputPlace="Hired"
+    />
+    <ApplicantTrackingModal
+      modalId="offeredModal"
+      title={"Job Requests"}
+      inputPlace="Offered"
+    />
+    <ApplicantTrackingModal
+      modalId="rejectedModal"
+      title={"Job Requests"}
+      inputPlace="Rejected"
+    />
+    <ApplicantTrackingModal
+      modalId="interviewModal"
+      title={"Job Requests"}
+      inputPlace="Interview"
+    />
+  </main>
+</Layout>
+
+<!-- Main content ends here -->
+
+<script>
+  document
+    .querySelectorAll(".dropdown-submenu > a")
+    .forEach(function (element) {
+      element.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const submenu = this.nextElementSibling;
+
+        // Close all other submenus
+        document
+          .querySelectorAll(".dropdown-submenu .dropdown-menu")
+          .forEach(function (el) {
+            if (el !== submenu) el.classList.remove("show");
+          });
+
+        submenu.classList.toggle("show");
+      });
+    });
+
+  // Optional: close submenus when clicking outside
+  document.addEventListener("click", function () {
+    document
+      .querySelectorAll(".dropdown-submenu .dropdown-menu")
+      .forEach(function (el) {
+        el.classList.remove("show");
+      });
+  });
+</script>

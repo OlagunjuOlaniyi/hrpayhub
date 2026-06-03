@@ -1,0 +1,277 @@
+---
+// components/ui/ModalAddNew.astro
+const {
+  modalId = "myReview",
+  title = "Job Requests",
+  inputPlace = "Work Location",
+} = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal modal-lg fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog jobRequests">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">{title}</h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+
+      <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+        <div class="d-flex gap-5">
+          <div class="d-flex flex-column gap-3 py-4 px-4 border rounded-5 w-50">
+            <div class="fs-14">Job Title</div>
+            <div class="d-flex gap-3 align-items-center">
+              <h1 class="fs-16 fw-700">UI/UX Engineer</h1>
+            </div>
+          </div>
+          <div class="d-flex flex-column gap-3 py-4 px-4 border rounded-5 w-50">
+            <div class="fs-14">Department</div>
+            <div class="d-flex gap-3 align-items-center">
+              <h1 class="fs-16 fw-700">Engineering</h1>
+            </div>
+          </div>
+          <div class="d-flex flex-column gap-3 py-4 px-4 border rounded-5 w-50">
+            <div class="fs-14">Status</div>
+            <div class="d-flex gap-3 align-items-center">
+              {
+                inputPlace === "Approved" ? (
+                  <span
+                    class="fw-700 border border-1 rounded-3 p-2 fs-12"
+                    style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                    role="button"
+                  >
+                    Approved
+                  </span>
+                ) : inputPlace === "Pending" ? (
+                  <span
+                    class="fw-700 border border-1 rounded-3 p-2 fs-12"
+                    style="background-color: #FFFFF2; color: #969103; height: fit-content"
+                    role="button"
+                  >
+                    Pending
+                  </span>
+                ) : inputPlace === "Rejected" ? (
+                  <span
+                    class="fw-700 border border-1 rounded-3 p-2 fs-12"
+                    style="background-color: #FFF4F4; color: #FD0000; height: fit-content"
+                    role="button"
+                  >
+                    Rejected
+                  </span>
+                ) : (
+                  ""
+                )
+              }
+            </div>
+          </div>
+        </div>
+        <div
+          class="d-flex justify-content-between gap-3 rounded-3 p-3"
+          style="background-color: #F4FAFF;"
+        >
+          <!---- Search  -->
+          <div class="w-100">
+            <div class="d-flex gap-1 justify-content-between mt-2">
+              <div class="fs-14">
+                <span>Date submitted:</span>
+                <span
+                  class="fw-600 border-2 ms-2 p-2"
+                  style="background-color: #F4FAFF">15th Mar, 2026</span
+                >
+              </div>
+
+              <div
+                class="fs-14 pe-2 border-2 border-start"
+                style="padding-left: 20%;"
+              >
+                <span>Request By:</span>
+                <span
+                  class="fw-600 border-2 ms-1 p-2"
+                  style="background-color: #F4FAFF">Joy Awodele</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+          <div class="d-flex gap-3">
+            <div>
+              <div class="d-flex gap-3 align-items-center">
+                <h1 class="fs-16 fw-700">Description</h1>
+              </div>
+              <div class="fs-14">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+          <div class="d-flex gap-3">
+            <div>
+              <div class="d-flex gap-3 align-items-center">
+                <h1 class="fs-16 fw-700">Notes</h1>
+              </div>
+              <div class="fs-14">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-column gap-4 py-4 px-4 border rounded-5">
+          <div class="d-flex gap-3">
+            <div>
+              <div class="d-flex gap-3 align-items-center">
+                <h1 class="fs-16 fw-700">Manager’s Comment</h1>
+              </div>
+              <div class="fs-14">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal footer -->
+      {
+        inputPlace === "Pending" ? (
+          <div class="modal-footer d-flex fs-12 justify-content-end gap-3 border-0">
+            <button
+              type="button"
+              class="btn bg-primary-blue text-white fs-12 confirm"
+              id="confirm"
+            >
+              Approve
+            </button>
+            <button
+              type="button"
+              class="btn text-white fs-12 reject"
+              style="background-color: red;"
+              id="reject"
+            >
+              Reject
+            </button>
+          </div>
+        ) : (
+          ""
+        )
+      }
+    </div>
+  </div>
+
+  <!-- update status -->
+  <div
+    class="modal-dialog d-none updateStatus"
+    id="updateStatus"
+    style="width: 35%;"
+  >
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">
+          Confirm Approval
+        </h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+
+      <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+        <div class="form-floating">
+          <textarea class="form-input" rows="2" id="comment"></textarea>
+          <label for="comment">Comments</label>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex fs-12 justify-content-start border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white fs-14"
+          data-bs-dismiss="modal"
+        >
+          Confirm Approval
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- reject -->
+  <div
+    class="modal-dialog d-none rejectStatus"
+    id="updateStatus"
+    style="width: 35%;"
+  >
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">
+          Confirm Rejection
+        </h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+
+      <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+        <div class="form-floating">
+          <textarea class="form-input" rows="2" id="comment"></textarea>
+          <label for="comment">Comments</label>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex fs-12 justify-content-start border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue text-white fs-14"
+          data-bs-dismiss="modal"
+        >
+          Confirm Rejection
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    $(".updateStatus").addClass("d-none");
+    $(".rejectStatus").addClass("d-none");
+
+    $(".confirm").click((evt) => {
+      $(".jobRequests").addClass("d-none");
+      $(".updateStatus").removeClass("d-none");
+    });
+
+    $(".reject").click((evt) => {
+      $(".jobRequests").addClass("d-none");
+      $(".rejectStatus").removeClass("d-none");
+    });
+  });
+</script>

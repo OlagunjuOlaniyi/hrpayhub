@@ -25,7 +25,116 @@ import { CloseCircleIcon } from "../Icons";
 
       <!-- Modal body -->
       {
-        inputPlace === "Edit Annual Deadline" ? (
+        inputPlace === "Create Posting" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="job_title"
+                name="job_title"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="job_title">
+                Job Title &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="department"
+                name="department"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Engineering</option>
+                <option value="2">Lorem Ipsum</option>
+                <option value="3">Lorem Ipsum</option>
+              </select>
+              <label for="department">
+                Department &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="comment" />
+              <label for="comment">Description </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="no_of_postion"
+                name="no_of_postion"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="no_of_postion">
+                Number of Position &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="app_type"
+                name="app_type"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="">Select</option>
+                <option value="1" selected>
+                  Internal
+                </option>
+                <option value="2">Lorem Ipsum</option>
+                <option value="3">Lorem Ipsum</option>
+              </select>
+              <label for="app_type">
+                Applicant Type &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="status"
+                name="status"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="">Select</option>
+                <option value="1" selected>
+                  On Hold
+                </option>
+                <option value="2">Closed</option>
+                <option value="3">Open</option>
+              </select>
+              <label for="status">
+                Status &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "Create Job Request" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="job_title"
+                name="job_title"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="job_title">
+                Job Title &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="comment" />
+              <label for="comment">Description </label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="comment" />
+              <label for="comment">Notes </label>
+            </div>
+          </div>
+        ) : inputPlace === "Edit Annual Deadline" ? (
           <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
             <div
               class="d-flex justify-content-between gap-3 rounded-3 p-3"
