@@ -25,7 +25,236 @@ import { CloseCircleIcon } from "../Icons";
 
       <!-- Modal body -->
       {
-        inputPlace === "Create Posting" ? (
+        inputPlace === "Employer Onboarding" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="provider_name"
+                name="provider_name"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="provider_name">
+                Employer Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="email"
+                id="employer_email"
+                name="employer_email"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="employer_email">
+                Employer Email &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="phone_no"
+                name="phone_no"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="phone_no">
+                Employer Phone Number &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="rc_no"
+                name="rc_no"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="rc_no">
+                RC Number &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="address"
+                name="address"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="address">
+                Employer Address &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="text"
+                id="callback"
+                name="callback"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="callback">
+                Callback URL &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="pssp_provider"
+                name="pssp_provider"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Cash</option>
+                <option value="2">Lorem Ipsum</option>
+                <option value="3">Lorem Ipsum</option>
+              </select>
+              <label for="pssp_provider">
+                PSSP Provider &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="employer_code"
+                name="employer_code"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="employer_code">
+                Employer Code from PSSP &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "PSSP Onboarding" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="provider_name"
+                name="provider_name"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="provider_name">
+                Provider Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="provider_code"
+                name="provider_code"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="provider_code">
+                Provider Code &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="api_based"
+                name="api_based"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="api_based">
+                API Based URL &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="api_key"
+                name="api_key"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="api_key">
+                API Key / Client ID &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="secret_key"
+                name="secret_key"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="secret_key">
+                Secret Key / Token &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="webhook"
+                name="webhook"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="webhook">
+                Webhook URL &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="callback"
+                name="callback"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="callback">
+                Callback URL &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="payment_methods"
+                name="payment_methods"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Cash</option>
+                <option value="2">Lorem Ipsum</option>
+                <option value="3">Lorem Ipsum</option>
+              </select>
+              <label for="payment_methods">
+                Payment Methods &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating ">
+              <select
+                id="environment"
+                name="environment"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Engineering</option>
+                <option value="2">Lorem Ipsum</option>
+                <option value="3">Lorem Ipsum</option>
+              </select>
+              <label for="environment">
+                Environment &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "Create Posting" ? (
           <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
             <div class="form-floating">
               <input

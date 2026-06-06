@@ -1,0 +1,386 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import DepartmentReviewModal from "../components/ui/DepartmentReviewModal.astro";
+
+import { Naira, Pounds } from "../components/Symbols";
+import PensionFilter from "../components/ui/PensionFilter.astro";
+---
+
+<Layout title="HRPayHub :: Pension Dashboard">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/pension-remittance"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/pension-remittance"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Pension Remittance</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Pension Dashboard</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-4">
+          {/* Page Content Box */}
+          <div class="p-lg-2">
+            <div class="vstack px-5" style="gap: 2.3rem">
+              <div class="d-flex justify-content-between gap-3">
+                <div>
+                  <div class="fw-700 fs-22">Pension Dashboard</div>
+                  <div class="fs-14">
+                    Monitor pension schedules, validations, payments,
+                    remittances, confirmations, and failed records.
+                  </div>
+                </div>
+
+                <!-- Others -->
+                <div class="responsive gap-4 align-items-center">
+                  <div class="d-flex justify-content-end">
+                    <button
+                      class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                      data-title="Filter"
+                      ><img
+                        src="images/png/icons/filter-white.svg"
+                        class=""
+                        alt="shield"
+                      /><span class="ms-2 text-nowrap">New Request</span>
+                    </button>
+                  </div>
+
+                  <!---- End of Others ---->
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Total Pension Schedules</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #2271B633; color: #2271B6; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Pending Validation</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFFFF2; color: #969103; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Validation Failed</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Validated Schedules</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                      role="button">2</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Pending Payment Approval</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFFFF2; color: #969103; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Remittance Processing</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFFFF2; color: #969103; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Payment Pending</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFFFF2; color: #969103; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Paid Remittances</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                      role="button">2</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Confirmed Remittances</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                      role="button">2</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Failed Remittances</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Unreconciled Remittances</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Employees Missing RSA PIN</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex gap-5">
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Employees Missing PFA</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">
+                        Employees with Invalid RSA/PFA Details
+                      </h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <PensionFilter
+            modalId="myModal"
+            title={"Filter"}
+            inputPlace="Filter"
+          />
+        </div>
+      </div>
+      <!-- Main content ends here -->
+    </section>
+
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Wait a bit to ensure scripts are loaded (important in Astro)
+        setTimeout(() => {
+          if (window.$ && $.fn.select2) {
+            $(".js-example-placeholder-single").select2({
+              placeholder: "All Departments",
+              allowClear: true,
+              width: "fit-content", // important for Bootstrap layout
+            });
+          } else {
+            console.error("Select2 or jQuery not loaded");
+          }
+        }, 100);
+      });
+    </script>
+  </main>
+</Layout>

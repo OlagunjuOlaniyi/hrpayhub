@@ -1,0 +1,299 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PaymentPostModal from "../components/ui/PaymentPostModal.astro";
+import ApplicantTrackingModal from "../components/ui/ApplicantTrackingModal.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import DeleteModal from "../components/ui/DeleteModal.astro";
+---
+
+<Layout title="HRPayHub :: My Pension">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/applicant-tracking-system"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">My Pension </span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-5">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-5 vstack gap-3 px-lg-5">
+          {/* Page Title */}
+          <div class="d-flex justify-content-between gap-3">
+            <div class="">
+              <div class="fw-700 fs-22">My Pension</div>
+              <div class="fs-14">
+                Your RSA, PFA details, and monthly pension contribution history.
+              </div>
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+          <div class="d-flex flex-column gap-4 py-4 px-5 border rounded-4">
+            <div class="d-flex justify-content-between">
+              <div style="width: 20%;">
+                <div class="fs-14" style="color: #989898;">Employee</div>
+                <div class="d-flex gap-3 align-items-center mt-2">
+                  <h1 class="fs-16 fw-700">Adesina Yinka</h1>
+                </div>
+              </div>
+              <div style="width: 20%;">
+                <div class="fs-14" style="color: #989898;">Employee ID</div>
+                <div class="d-flex gap-3 align-items-center mt-2">
+                  <h1 class="fs-16 fw-700">EMP-001</h1>
+                </div>
+              </div>
+              <div style="width: 20%;">
+                <div class="fs-14" style="color: #989898;">RSA PIN</div>
+                <div class="d-flex gap-3 align-items-center mt-2">
+                  <h1 class="fs-16 fw-700">PEN100100100123</h1>
+                </div>
+              </div>
+              <div style="width: 20%;">
+                <div class="fs-14" style="color: #989898;">PFA</div>
+                <div class="d-flex gap-3 align-items-center mt-2">
+                  <h1 class="fs-16 fw-700">Stanbic IBTC Pension</h1>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between gap-5">
+              <div style="width: 20%;">
+                <div class="fs-14" style="color: #989898;">PFA Code</div>
+                <div class="d-flex gap-3 align-items-center mt-2">
+                  <h1 class="fs-16 fw-700">STAN</h1>
+                </div>
+              </div>
+              <div style="width: 20%;">
+                <div class="fs-14" style="color: #989898;">
+                  Pensionable Salary
+                </div>
+                <div class="d-flex gap-3 align-items-center mt-2">
+                  <h1 class="fs-16 fw-700">₦850,000</h1>
+                </div>
+              </div>
+              <div style="width: 20%;">
+                <div class="fs-14" style="color: #989898;">
+                  Monthly Employee (8%)
+                </div>
+                <div class="d-flex gap-3 align-items-center mt-2">
+                  <h1 class="fs-16 fw-700">₦68,000</h1>
+                </div>
+              </div>
+              <div style="width: 20%;">
+                <div class="fs-14" style="color: #989898;">
+                  Monthly Employer (10%)
+                </div>
+                <div class="d-flex gap-3 align-items-center mt-2">
+                  <h1 class="fs-16 fw-700">₦85,000</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nav pills -->
+          <div class="d-flex mt-4">
+            <div class="fw-700 fs-18">Contribution History</div>
+          </div>
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive mt-1"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead class="bg-grey text-dark px-4 fw-700 fs-14 text-nowrap">
+                <tr>
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >S/N</th
+                  >
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Period</th
+                  >
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Pensionable Salary</th
+                  >
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Employee Pension Contribution</th
+                  >
+                  <th
+                    class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
+                    style="min-width: 200px;">Employer Pension Contribution</th
+                  >
+                  <th
+                    class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
+                    style="min-width: 200px;">Total Pension Contribution</th
+                  >
+
+                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left">
+                    Status</th
+                  >
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 150px;
+                  }
+                </style>
+                {
+                  [
+                    {
+                      client_name: "John Olayemi",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Engineering",
+                      status: "Done",
+                      out_bal: "₦47,000",
+                      notes: "Lorem Ipsum...",
+                      modalId: "hiredModal",
+                    },
+                    {
+                      client_name: "John Olayemi",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Cash",
+                      status: "Done",
+                      out_bal: "₦47,000",
+                      notes: "Lorem Ipsum...",
+                      modalId: "hiredModal",
+                    },
+                    {
+                      client_name: "John Olayemi",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "POS",
+                      status: "Done",
+                      out_bal: "₦47,000",
+                      notes: "Lorem Ipsum...",
+                      modalId: "newModal",
+                    },
+
+                    {
+                      client_name: "John Olayemi",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Engineering",
+                      status: "Validation Failed",
+                      out_bal: "₦47,000",
+                      notes: "Lorem Ipsum...",
+                      modalId: "interviewModal",
+                    },
+                    {
+                      client_name: "John Olayemi",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Engineering",
+                      status: "Pending Approval",
+                      out_bal: "₦47,000",
+                      notes: "Lorem Ipsum...",
+                      modalId: "rejectedModal",
+                    },
+                  ].map((ele, index) => (
+                    <tr class="fs-88">
+                      <td class="fs-14 text-center">{index + 1}</td>
+
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.client_name}
+                      </td>
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        {ele.client_email}
+                      </td>
+
+                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
+                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
+
+                      <td class="fs-14 px-3 text-left column">{ele.out_bal}</td>
+                      <td
+                        class="fs-14 px-3 text-left column fw-700"
+                        style={`color: ${
+                          ele.status === "Submitted"
+                            ? "#2271B6"
+                            : ele.status === "Pending Approval"
+                              ? "#969103"
+                              : ele.status === "Validation Failed"
+                                ? "#FD0000"
+                                : ele.status === "New"
+                                  ? "#969103"
+                                  : "186D00"
+                        };`}
+                      >
+                        <span
+                          class="fw-600 border border-1 rounded-3 p-2 py-1 ms-2 fs-12"
+                          style={`background-color: ${
+                            ele.status === "Submitted"
+                              ? "#EFF7FF"
+                              : ele.status === "Pending Approval"
+                                ? "#FFFFF2"
+                                : ele.status === "Validation Failed"
+                                  ? "#FFF5F5"
+                                  : ele.status === "New"
+                                    ? "#FFFFF2"
+                                    : "#E9FFE2"
+                          }; height: fit-content`}
+                          role="button"
+                        >
+                          {ele.status}
+                        </span>
+                      </td>
+                    </tr>
+                  ))
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
+          </div>
+
+          {/* Page Content Box */}
+        </div>
+      </div>
+    </section>
+
+    <ApplicantTrackingModal
+      modalId="newModal"
+      title={"Job Requests"}
+      inputPlace="New"
+    />
+  </main>
+</Layout>
+
+<!-- Main content ends here -->
+
+<script></script>

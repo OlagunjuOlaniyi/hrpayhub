@@ -1,0 +1,99 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "comment", title = "Generate Pension Schedule" } =
+  Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-2">
+      <!-- Modal Header -->
+
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">
+          {title}
+        </h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-left py-2 border-0">
+        <div class="d-flex justify-content-between gap-3 mt-5">
+          <div class="form-floating w-50">
+            <select
+              id="month"
+              name="month"
+              class="form-select_custom fs-14"
+              required
+            >
+              <option value="" selected> Select </option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="3">April</option>
+              <option value="3">May</option>
+              <option value="3">June</option>
+              <option value="3">July</option>
+              <option value="3">August</option>
+              <option value="3">September</option>
+              <option value="3">October</option>
+              <option value="3">November</option>
+              <option value="3">December</option>
+            </select>
+            <label for="month">
+              Payroll Month &nbsp;<span>*</span>
+            </label>
+          </div>
+          <div class="form-floating w-50">
+            <select
+              id="pay_year"
+              name="pay_year"
+              class="form-select_custom fs-14"
+              required
+            >
+              <option value="" selected> Select </option>
+              <option value="1">2024</option>
+              <option value="2">2025</option>
+              <option value="3">2026</option>
+              <option value="3">2027</option>
+              <option value="3">2028</option>
+              <option value="3">2029</option>
+              <option value="3">2030</option>
+            </select>
+            <label for="pay_year">
+              Payroll Year &nbsp;<span>*</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex fs-12 justify-content-end border-0 mt-5">
+        <a
+          href="/PEN-SCH-2026-04-001"
+          class="btn bg-primary-blue text-white fs-12"
+        >
+          Generate
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    $("#comparisonDisplay").addClass("d-none");
+
+    $("#apply").click((evt) => {
+      //   $(".confirmCancel").addClass("d-none");
+      $("#comparisonDisplay").removeClass("d-none");
+    });
+  });
+</script>

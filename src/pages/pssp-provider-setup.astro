@@ -1,0 +1,286 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import DepartmentReviewModal from "../components/ui/DepartmentReviewModal.astro";
+
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: PSSP Provider Setup">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/pension-remittance"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/pension-remittance"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Pension Remittance</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >PSSP Provider Setup</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-4">
+          {/* Page Content Box */}
+          <div class="p-lg-2">
+            <div class="vstack px-5" style="gap: 2.3rem">
+              <div class="d-flex justify-content-between gap-3">
+                <div>
+                  <div class="fw-700 fs-22">PSSP Provider Setup</div>
+                  <div class="fs-14">
+                    Configure approved pension remittance providers and API
+                    credentials.
+                  </div>
+                </div>
+
+                <!-- Others -->
+                <div class="responsive gap-4 align-items-center">
+                  <div class="d-flex justify-content-end">
+                    <button
+                      class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                      data-title="PSSP Onboarding"
+                      ><span class="fw-700 fs-14">+</span><span
+                        class="ms-2 text-nowrap">Add Provider</span
+                      >
+                    </button>
+                  </div>
+
+                  <!---- End of Others ---->
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <div
+                  class="d-flex flex-column gap-4 py-4 px-4 border rounded-5 mt-2"
+                  style="width: 48%;"
+                >
+                  <div>
+                    <div class="fw-700 fs-16">PenPay</div>
+                    <div class="fs-14">Code: PENPAY</div>
+                  </div>
+                  <div class="d-flex flex-column gap-3 p-3 border rounded-5">
+                    <div
+                      class="d-flex justify-content-between fs-14 py-2"
+                      style="border-bottom: 1px dashed #BFBCBC;"
+                    >
+                      <span>Status:</span>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-1 ms-2 fs-12"
+                        style="background-color: #E9FFE2; color: #186D00"
+                        role="button">Active</span
+                      >
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-2"
+                      style="border-bottom: 1px dashed #BFBCBC;"
+                    >
+                      <span>Environment</span>
+                      <span class="fw-700">Production</span>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-2"
+                      style="border-bottom: 1px dashed #BFBCBC;"
+                    >
+                      <span>API Base URL</span>
+                      <span class="fw-700">https://api.penpay.ng/v2</span>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-2"
+                      style="border-bottom: 1px dashed #BFBCBC;"
+                    >
+                      <span>API Key / Client ID</span>
+                      <span class="fw-700">pk_live_••••••••a3f7</span>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-2"
+                      style="border-bottom: 1px dashed #BFBCBC;"
+                    >
+                      <span>Secret Key / Token</span>
+                      <span class="fw-700">••••••••••••</span>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-2"
+                      style="border-bottom: 1px dashed #BFBCBC;"
+                    >
+                      <span>Webhook URL</span>
+                      <span class="fw-700"
+                        >https://hrpayhub.app/webhooks/penpay</span
+                      >
+                    </div>
+                    <div class="d-flex justify-content-between fs-14">
+                      <span>Callback URL</span>
+                      <span class="fw-700"
+                        >https://hrpayhub.app/callbacks/penpay</span
+                      >
+                    </div>
+                    <div class="d-flex justify-content-between fs-14">
+                      <span>Payment Methods</span>
+                      <span class="fw-700"
+                        >Direct Debit, Bank Transfer, USSD</span
+                      >
+                    </div>
+                    <div class="d-flex justify-content-between fs-14">
+                      <span>Date Activated</span>
+                      <span class="fw-700">12th, Apr 2026</span>
+                    </div>
+                    <div class="d-flex justify-content-between fs-14">
+                      <span>Last API Sync Date</span>
+                      <span class="fw-700">24th, Mar 2026 ; 15:22:00</span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-4 py-4 px-4 border rounded-5 mt-2"
+                  style="width: 48%;"
+                >
+                  <div>
+                    <div class="fw-700 fs-16">PenPay</div>
+                    <div class="fs-14">Code: PENPAY</div>
+                  </div>
+                  <div class="d-flex flex-column gap-3 p-3 border rounded-5">
+                    <div
+                      class="d-flex justify-content-between fs-14 py-2"
+                      style="border-bottom: 1px dashed #BFBCBC;"
+                    >
+                      <span>Status:</span>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-1 ms-2 fs-12"
+                        style="background-color: #F1F1F1; color: #888585"
+                        role="button">Inactive</span
+                      >
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-2"
+                      style="border-bottom: 1px dashed #BFBCBC;"
+                    >
+                      <span>Environment</span>
+                      <span class="fw-700">Production</span>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-2"
+                      style="border-bottom: 1px dashed #BFBCBC;"
+                    >
+                      <span>API Base URL</span>
+                      <span class="fw-700">https://api.penpay.ng/v2</span>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-2"
+                      style="border-bottom: 1px dashed #BFBCBC;"
+                    >
+                      <span>API Key / Client ID</span>
+                      <span class="fw-700">pk_live_••••••••a3f7</span>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-2"
+                      style="border-bottom: 1px dashed #BFBCBC;"
+                    >
+                      <span>Secret Key / Token</span>
+                      <span class="fw-700">••••••••••••</span>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-2"
+                      style="border-bottom: 1px dashed #BFBCBC;"
+                    >
+                      <span>Webhook URL</span>
+                      <span class="fw-700"
+                        >https://hrpayhub.app/webhooks/penpay</span
+                      >
+                    </div>
+                    <div class="d-flex justify-content-between fs-14">
+                      <span>Callback URL</span>
+                      <span class="fw-700"
+                        >https://hrpayhub.app/callbacks/penpay</span
+                      >
+                    </div>
+                    <div class="d-flex justify-content-between fs-14">
+                      <span>Payment Methods</span>
+                      <span class="fw-700"
+                        >Direct Debit, Bank Transfer, USSD</span
+                      >
+                    </div>
+                    <div class="d-flex justify-content-between fs-14">
+                      <span>Date Activated</span>
+                      <span class="fw-700">12th, Apr 2026</span>
+                    </div>
+                    <div class="d-flex justify-content-between fs-14">
+                      <span>Last API Sync Date</span>
+                      <span class="fw-700">24th, Mar 2026 ; 15:22:00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ModalAddNew
+            modalId="myModal"
+            title={"PSSP Onboarding"}
+            inputPlace="PSSP Onboarding"
+          />
+          <DepartmentReviewModal
+            modalId="approvedModal"
+            title={"Job Requests"}
+            inputPlace="Approved"
+          />
+        </div>
+      </div>
+      <!-- Main content ends here -->
+    </section>
+
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Wait a bit to ensure scripts are loaded (important in Astro)
+        setTimeout(() => {
+          if (window.$ && $.fn.select2) {
+            $(".js-example-placeholder-single").select2({
+              placeholder: "All Departments",
+              allowClear: true,
+              width: "fit-content", // important for Bootstrap layout
+            });
+          } else {
+            console.error("Select2 or jQuery not loaded");
+          }
+        }, 100);
+      });
+    </script>
+  </main>
+</Layout>

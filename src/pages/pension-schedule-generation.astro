@@ -1,0 +1,323 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PaymentPostModal from "../components/ui/PaymentPostModal.astro";
+import ApplicantTrackingModal from "../components/ui/ApplicantTrackingModal.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import DeleteModal from "../components/ui/DeleteModal.astro";
+import PensionGenerationModal from "../components/ui/PensionGenerationModal.astro";
+---
+
+<Layout title="HRPayHub :: Pension Schedule Generation ">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/applicant-tracking-system"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/pension-remittance"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Pension Remittance</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Pension Schedule Generation
+            </span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-5">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-5 vstack gap-3 px-lg-5">
+          {/* Page Title */}
+          <div class="d-flex justify-content-between gap-3">
+            <div>
+              <div class="fw-700 fs-22">Pension Schedule Generation</div>
+              <div class="fs-14">
+                Generate monthly pension schedules from approved payroll
+                records.
+              </div>
+            </div>
+
+            <!-- Others -->
+            <div class="responsive gap-4 align-items-center">
+              <div class="d-flex justify-content-end gap-3">
+                <button
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#myModal"
+                  data-title="Generate Pension Schedule"
+                  class="white_button"
+                >
+                  <span class="fw-700 fs-14">+</span><span
+                    class="ms-2 text-nowrap">Generate Schedule</span
+                  >
+                </button>
+                <button
+                  class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#myModal"
+                  data-title="Generate Pension Schedule"
+                  ><img
+                    src="images/png/icons/shield-white.svg"
+                    class=""
+                    alt="shield"
+                  /><span class="ms-2 text-nowrap">Validate</span>
+                </button>
+              </div>
+
+              <!---- End of Others ---->
+            </div>
+          </div>
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+
+          <!-- Nav pills -->
+          <div class="d-flex gap-4 mt-4">
+            <div class="d-flex gap-3">
+              <input
+                type="text"
+                class="form-control search-input search-width fs-14"
+                placeholder="Search..."
+              />
+              <img
+                src="images/png/icons/initialize.svg"
+                class="initialize"
+                alt="arrow-down"
+              />
+            </div>
+          </div>
+
+          <!-- Scrollable Table -->
+          <div
+            class="table-responsive mt-3"
+            style="max-height: 600px; overflow: auto;"
+          >
+            <table class="table table-bordered table-hover">
+              <!---- Table head --->
+              <thead class="bg-grey text-dark px-4 fw-700 fs-14 text-nowrap">
+                <tr>
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >S/N</th
+                  >
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Reference</th
+                  >
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Employees</th
+                  >
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Period</th
+                  >
+
+                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left">
+                    Status</th
+                  >
+                  <th
+                    class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
+                    style="min-width: 200px;">Pensionable Salary</th
+                  >
+
+                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                    >Employee Pension Contribution</th
+                  >
+                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                    >Employer Pension Contribution</th
+                  >
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table body and Row -->
+                <style>
+                  .column {
+                    min-width: 180px;
+                  }
+                </style>
+                {
+                  [
+                    {
+                      client_name: "PEN-SCH-2026-04-001",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Engineering",
+                      status: "Confirmed",
+                      out_bal: "Internal",
+                      notes: "Lorem Ipsum...",
+                      modalId: "hiredModal",
+                    },
+                    {
+                      client_name: "PEN-SCH-2026-04-001",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Cash",
+                      status: "Confirmed",
+                      out_bal: "Internal",
+                      notes: "Lorem Ipsum...",
+                      modalId: "hiredModal",
+                    },
+                    {
+                      client_name: "PEN-SCH-2026-04-001",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "POS",
+                      status: "Confirmed",
+                      out_bal: "Internal",
+                      notes: "Lorem Ipsum...",
+                      modalId: "newModal",
+                    },
+                    {
+                      client_name: "PEN-SCH-2026-04-001",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Engineering",
+                      status: "Pending Approval",
+                      out_bal: "Internal",
+                      notes: "Lorem Ipsum...",
+                      modalId: "offeredModal",
+                    },
+                    {
+                      client_name: "PEN-SCH-2026-04-001",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Engineering",
+                      status: "Pending Approval",
+                      out_bal: "Internal",
+                      notes: "Lorem Ipsum...",
+                      modalId: "rejectedModal",
+                    },
+                    {
+                      client_name: "PEN-SCH-2026-04-001",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Engineering",
+                      status: "Validation Failed",
+                      out_bal: "Internal",
+                      notes: "Lorem Ipsum...",
+                      modalId: "interviewModal",
+                    },
+                    {
+                      client_name: "PEN-SCH-2026-04-001",
+                      client_email: "Johnolayemi@gmail.com",
+                      phone_no: "23rd Oct, 2025",
+                      currency: "DevOps Engineer",
+                      pay_terms: "Engineering",
+                      status: "Pending Approval",
+                      out_bal: "Internal",
+                      notes: "Lorem Ipsum...",
+                      modalId: "rejectedModal",
+                    },
+                  ].map((ele, index) => (
+                    <tr class="fs-88">
+                      <td class="fs-14 text-center">{index + 1}</td>
+
+                      <td class="fs-14 px-3 text-left text-nowrap column">
+                        {ele.client_name}
+                      </td>
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        {ele.client_email}
+                      </td>
+
+                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
+
+                      <td
+                        class="fs-14 px-3 text-left column fw-700"
+                        style={`color: ${
+                          ele.status === "Submitted"
+                            ? "#2271B6"
+                            : ele.status === "Confirmed"
+                              ? "#2BC700"
+                              : ele.status === "Validation Failed"
+                                ? "#FD0000"
+                                : ele.status === "Pending Approval"
+                                  ? "#969103"
+                                  : "#888585"
+                        };`}
+                      >
+                        <span
+                          class="fw-600 border border-1 rounded-3 p-2 py-1 ms-2 fs-12"
+                          style={`background-color: ${
+                            ele.status === "Submitted"
+                              ? "#EFF7FF"
+                              : ele.status === "Confirmed"
+                                ? "#E9FFE2"
+                                : ele.status === "Validation Failed"
+                                  ? "#FFF5F5"
+                                  : ele.status === "Pending Approval"
+                                    ? "#FFFFF2"
+                                    : "inherit"
+                          }; height: fit-content`}
+                          role="button"
+                        >
+                          {ele.status}
+                        </span>
+                      </td>
+                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.phone_no}
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        {ele.phone_no}
+                      </td>
+                    </tr>
+                  ))
+                }
+
+                <!-- Repeat for more employees -->
+              </tbody>
+            </table>
+          </div>
+
+          {/* Page Content Box */}
+        </div>
+      </div>
+    </section>
+
+    <PensionGenerationModal
+      modalId="myModal"
+      title={"Generate Pension Schedule"}
+      inputPlace="Generate Pension Schedule"
+    />
+  </main>
+</Layout>
+
+<!-- Main content ends here -->
+
+<script></script>

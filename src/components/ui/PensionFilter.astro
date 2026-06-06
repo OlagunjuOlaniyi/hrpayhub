@@ -1,0 +1,132 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "comment", title = "Filter" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content p-2">
+      <!-- Modal Header -->
+
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">
+          {title}
+        </h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-left py-2 border-0">
+        <div class="d-flex justify-content-between gap-3 mt-5">
+          <div>
+            <select
+              class="js-example-placeholder-single js-states form-control custom-select2"
+            >
+              <option></option>
+              <option selected>Company</option>
+              <option>XYZ Company</option>
+              <option>Marketing</option>
+              <option>HR</option>
+              <option>State</option>
+            </select>
+          </div>
+          <div>
+            <select
+              class="js-example-placeholder-single js-states form-control custom-select2"
+            >
+              <option></option>
+              <option selected>Branch</option>
+              <option>XYZ Branch</option>
+              <option>Marketing</option>
+              <option>HR</option>
+              <option>State</option>
+            </select>
+          </div>
+          <div>
+            <select
+              class="js-example-placeholder-single js-states form-control custom-select2"
+            >
+              <option></option>
+              <option selected>Department</option>
+              <option>XYZ Department</option>
+              <option>Marketing</option>
+              <option>HR</option>
+              <option>State</option>
+            </select>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between gap-3 mt-5">
+          <div>
+            <select
+              class="js-example-placeholder-single js-states form-control custom-select2"
+            >
+              <option></option>
+              <option selected>Payroll Month and Year</option>
+              <option>XYZ Company</option>
+              <option>Marketing</option>
+              <option>HR</option>
+              <option>State</option>
+            </select>
+          </div>
+          <div>
+            <select
+              class="js-example-placeholder-single js-states form-control custom-select2"
+            >
+              <option></option>
+              <option selected>PSSP Provider</option>
+              <option>XYZ Branch</option>
+              <option>Marketing</option>
+              <option>HR</option>
+              <option>State</option>
+            </select>
+          </div>
+          <div>
+            <select
+              class="js-example-placeholder-single js-states form-control custom-select2"
+            >
+              <option></option>
+              <option selected>PFA</option>
+              <option>XYZ Department</option>
+              <option>Marketing</option>
+              <option>HR</option>
+              <option>State</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex fs-12 justify-content-end border-0 mt-5">
+        <button type="button" class="white_button py-1 rounded-2">
+          <span>Reset All</span>
+        </button>
+        <button
+          class="btn bg-primary-blue text-white fs-12"
+          data-bs-dismiss="modal"
+        >
+          Apply
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener("shown.bs.modal", function (e) {
+    const modal = $(e.target);
+
+    modal.find(".js-example-placeholder-single").select2({
+      placeholder: "",
+      allowClear: true,
+      width: "230px",
+      dropdownParent: modal,
+    });
+  });
+</script>
