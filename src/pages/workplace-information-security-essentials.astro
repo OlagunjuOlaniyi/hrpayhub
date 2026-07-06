@@ -1,0 +1,984 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import LessonModal from "../components/ui/LessonModal.astro";
+import QuizModal from "../components/ui/QuizModal.astro";
+import ViewQuestionsModal from "../components/ui/ViewQuestionsModal.astro";
+
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: Course Management">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/course-management"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/learning-management-system"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Learning Management System (LMS)</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/course-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Course Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Workplace Information Security Essentials</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack px-5" style="gap: 2.3rem">
+              <div class="d-flex gap-4 justify-content-between flex-wrap">
+                <div
+                  class="d-flex flex-column gap-4 py-4 px-4 border rounded-4"
+                  style="width: 100%;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex gap-2 align-items-center">
+                      <span
+                        class="fw-600 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF">SEC-101</span
+                      >
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                        style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                        role="button">Active</span
+                      >
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-16 fw-700">
+                        Workplace Information Security Essentials
+                      </h1>
+                      <div class="fs-14">Lorem ipsum lorem ipsum</div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <div class="fs-14">
+                      <span>Year:</span>
+                      <span
+                        class="fw-600 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF">2026</span
+                      >
+                    </div>
+
+                    <div class="fs-14 px-2 mx-2 border-2 border-start">
+                      <span>Date:</span>
+                      <span
+                        class="fw-600 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF"
+                        >1st, Jan 2026 - 31st, Dec 2026</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="mt-4">
+                    <ul class="nav nav-pills subscription_tab course_tab">
+                      <li class="nav-item">
+                        <a
+                          class="nav-link active"
+                          data-bs-toggle="pill"
+                          href="#lessons">Lessons</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          data-bs-toggle="pill"
+                          href="#quizzes">Quizzes</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          data-bs-toggle="pill"
+                          href="#enrolledEmployees">Enrolled Employees</a
+                        >
+                      </li>
+                    </ul>
+
+                    <div class="tab-content">
+                      <div class="tab-pane container active" id="lessons">
+                        <div class="p-4">
+                          <div class="fw-700 fs-16">Lessons</div>
+
+                          <!-- search -->
+                          <div
+                            class="d-flex gap-4 mt-5 justify-content-between"
+                          >
+                            <div class="d-flex gap-3">
+                              <input
+                                type="text"
+                                class="form-control search-input search-width fs-14"
+                                placeholder="Search..."
+                              />
+                            </div>
+                            <button
+                              class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                              type="button"
+                              data-bs-toggle="modal"
+                              data-bs-target="#myModal"
+                              data-title="Create Lesson"
+                              ><span class="fw-700 fs-14">+</span><span
+                                class="ms-2 text-nowrap">New Lesson</span
+                              >
+                            </button>
+                          </div>
+
+                          <!-- Scrollable Table -->
+                          <div
+                            class="table-responsive mt-5"
+                            style="max-height: 600px; overflow: auto;"
+                          >
+                            <table class="table table-bordered table-hover">
+                              <!---- Table head --->
+                              <thead
+                                class="bg-grey text-dark px-4 fw-700 fs-14 text-nowrap"
+                              >
+                                <tr>
+                                  <th
+                                    class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                                    >S/N</th
+                                  >
+                                  <th
+                                    class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                                    >Lesson</th
+                                  >
+                                  <th
+                                    class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
+                                    style="min-width: 200px;">Duration</th
+                                  >
+
+                                  <th
+                                    class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                                    >Attachment</th
+                                  >
+
+                                  <th
+                                    class="bg-grey text-dark px-3 fw-700 fs-14 text-center"
+                                    >Action</th
+                                  >
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <!-- Table body and Row -->
+                                <style>
+                                  .column {
+                                    min-width: 180px;
+                                  }
+                                </style>
+                                {
+                                  [
+                                    {
+                                      client_name: "15 Min",
+                                      client_email:
+                                        "Why Information Security Matters",
+                                      desc: "The cost of data breaches and your role as the first line of defence.",
+                                      phone_no: "23rd Oct, 2025",
+                                      currency: "23rd Oct, 2025",
+                                      pay_terms: "Bank Transfer",
+                                      status: "Open",
+                                      out_bal: "N124,676",
+                                    },
+                                    {
+                                      client_name: "20 Min",
+                                      client_email:
+                                        "Spotting Phishing & Social Engineering",
+                                      desc: "Concrete patterns to recognise malicious email, calls and messages.",
+                                      phone_no: "23rd Oct, 2025",
+                                      currency: "23rd Oct, 2025",
+                                      pay_terms: "Cash",
+                                      status: "Open",
+                                      out_bal: "N124,676",
+                                    },
+                                    {
+                                      client_name: "12 Min",
+                                      client_email: "Password Hygiene & MFA",
+                                      desc: "Building strong credentials and enabling multi-factor authentication.",
+                                      phone_no: "23rd Oct, 2025",
+                                      currency: "23rd Oct, 2025",
+                                      pay_terms: "POS",
+                                      status: "On Hold",
+                                      out_bal: "N124,676",
+                                    },
+                                    {
+                                      client_name: "10 Min",
+                                      client_email:
+                                        "Handling Confidential Information",
+                                      desc: "Classification, sharing rules and clean-desk practices.",
+                                      phone_no: "23rd Oct, 2025",
+                                      currency: "23rd Oct, 2025",
+                                      pay_terms: "Bank Transfer",
+                                      status: "On Hold",
+                                      out_bal: "N124,676",
+                                    },
+                                  ].map((ele, index) => (
+                                    <tr class="fs-88">
+                                      <td class="fs-14 text-center">
+                                        {index + 1}
+                                      </td>
+                                      <td class="fs-14 text-nowrap px-3 text-left column">
+                                        <div class="fw-700">
+                                          {ele.client_email}
+                                        </div>
+                                        <div>{ele.desc}</div>
+                                      </td>
+                                      <td class="fs-14 px-3 text-left column">
+                                        {ele.client_name}
+                                      </td>
+
+                                      <td class="fs-14 px-3 text-left column">
+                                        {index + 1}
+                                      </td>
+
+                                      <td class="fs-14 px-3 text-center d-flex justify-content-center column">
+                                        <div class="d-flex gap-2">
+                                          <button
+                                            class="border-0 edit-button"
+                                            style="background-color: inherit;"
+                                            type="button"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#editModal"
+                                            data-title="Create Lesson"
+                                            data-emp-type="{ele.emp_type}"
+                                          >
+                                            <img
+                                              src="images/png/icons/edit-2.svg"
+                                              alt=""
+                                            />
+                                          </button>
+                                          <button
+                                            class="border-0"
+                                            style="background-color: inherit;"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#deleteModal"
+                                          >
+                                            <img
+                                              src="images/png/icons/colored/delete.svg"
+                                              alt=""
+                                            />
+                                          </button>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  ))
+                                }
+
+                                <!-- Repeat for more employees -->
+                              </tbody>
+                            </table>
+                          </div>
+
+                          <!---- End of table --->
+                          <!-- Pagination Row -->
+                          <div
+                            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+                          >
+                            <!-- Left: Pagination Text -->
+                            <div class="fs-14 text-muted">
+                              Showing <strong>1–20</strong> of <strong
+                                >1000</strong
+                              >
+                            </div>
+
+                            <!-- Right: Go to Page + Pagination -->
+                            <div
+                              class="d-flex align-items-center gap-3 flex-wrap"
+                            >
+                              <!-- Go to Page -->
+                              <form class="d-flex align-items-center gap-2">
+                                <label for="gotoPage" class="fs-14 mb-0"
+                                  >Go to page?</label
+                                >
+                                <input
+                                  type="number"
+                                  min="1"
+                                  max="100"
+                                  id="gotoPage"
+                                  class="form-control form-control-sm"
+                                  style="width: 60px;"
+                                  placeholder="—"
+                                />
+                              </form>
+
+                              <!-- Page Navigation -->
+
+                              <nav>
+                                <ul
+                                  class="pagination pagination-sm mb-0 text-primary-blue"
+                                >
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link text-primary-blue px-2"
+                                      href="#"
+                                      aria-label="Previous"
+                                    >
+                                      &lsaquo;
+                                    </a>
+                                  </li>
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link text-primary-blue"
+                                      href="#">1</a
+                                    >
+                                  </li>
+                                  <li
+                                    class="page-item active"
+                                    aria-current="page"
+                                  >
+                                    <span class="page-link">2</span>
+                                  </li>
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link text-primary-blue"
+                                      href="#">3</a
+                                    >
+                                  </li>
+                                  <li class="page-item disabled">
+                                    <span class="page-link text-primary-blue"
+                                      >...</span
+                                    >
+                                  </li>
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link text-primary-blue"
+                                      href="#">100</a
+                                    >
+                                  </li>
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link hello"
+                                      href="#"
+                                      aria-label="Next"
+                                    >
+                                      &rsaquo;
+                                    </a>
+                                  </li>
+                                </ul>
+                              </nav>
+                            </div>
+                          </div>
+
+                          <!---- Pagination ---->
+                        </div>
+                      </div>
+                      <div class="tab-pane container" id="quizzes">
+                        <div class="p-4">
+                          <div class="fw-700 fs-16">Quizzes</div>
+
+                          <!-- search -->
+                          <div
+                            class="d-flex gap-4 mt-5 justify-content-between"
+                          >
+                            <div class="d-flex gap-3">
+                              <input
+                                type="text"
+                                class="form-control search-input search-width fs-14"
+                                placeholder="Search..."
+                              />
+                            </div>
+                            <button
+                              class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
+                              type="button"
+                              data-bs-toggle="modal"
+                              data-bs-target="#quizModal"
+                              data-title="Quiz/Exam"
+                              ><span class="fw-700 fs-14">+</span><span
+                                class="ms-2 text-nowrap">New Quiz</span
+                              >
+                            </button>
+                          </div>
+
+                          <div
+                            class="d-flex gap-4 mt-5 justify-content-between flex-wrap"
+                          >
+                            <div
+                              class="d-flex flex-column gap-4 py-4 px-4 border rounded-4"
+                              style="width: 48%;"
+                            >
+                              <div class="d-flex justify-content-between">
+                                <div class="d-flex gap-2 align-items-center">
+                                  <span
+                                    class="fw-600 border-2 p-2"
+                                    style="background-color: #F4FAFF"
+                                    >Certification</span
+                                  >
+                                  <span
+                                    class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                                    style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                                    role="button">Pass Mark: 70%</span
+                                  >
+                                </div>
+                                <div class="d-flex gap-2">
+                                  <button
+                                    class="border-0 edit-button"
+                                    style="background-color: inherit;"
+                                    type="button"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#editQuizModal"
+                                    data-title="Quiz/Exam"
+                                    data-emp-type="{ele.emp_type}"
+                                  >
+                                    <img
+                                      src="images/png/icons/edit-2.svg"
+                                      alt=""
+                                    />
+                                  </button>
+                                  <button
+                                    class="border-0"
+                                    style="background-color: inherit;"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal"
+                                  >
+                                    <img
+                                      src="images/png/icons/colored/delete.svg"
+                                      alt=""
+                                    />
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-between">
+                                <div>
+                                  <h1 class="fs-16 fw-700">
+                                    Information Security — Final Assessment
+                                  </h1>
+                                </div>
+                              </div>
+
+                              <div class="d-flex gap-2">
+                                <div class="fs-14">
+                                  <span>Questions:</span>
+                                  <span
+                                    class="fw-600 border-2 ms-2 p-2"
+                                    style="background-color: #F4FAFF">5</span
+                                  >
+                                </div>
+
+                                <div
+                                  class="fs-14 px-2 mx-2 border-2 border-start"
+                                >
+                                  <span>Duration:</span>
+                                  <span
+                                    class="fw-600 border-2 ms-2 p-2"
+                                    style="background-color: #F4FAFF"
+                                    >12 min</span
+                                  >
+                                </div>
+                              </div>
+
+                              <button
+                                class="fw-700 border border-1 rounded-3 p-2 fs-12"
+                                style="background-color: #fff; color: #2271B6; height: fit-content; width: fit-content; border:#2271B6; text-decoration: none;"
+                                data-bs-toggle="modal"
+                                data-bs-target="#viewQuestionsModal"
+                                data-title="Quiz/Exam"
+                                role="button">View Questions</button
+                              >
+                            </div>
+                            <div
+                              class="d-flex flex-column gap-4 py-4 px-4 border rounded-4"
+                              style="width: 48%;"
+                            >
+                              <div class="d-flex justify-content-between">
+                                <div class="d-flex gap-2 align-items-center">
+                                  <span
+                                    class="fw-600 border-2 p-2"
+                                    style="background-color: #F4FAFF"
+                                    >Certification</span
+                                  >
+                                  <span
+                                    class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                                    style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                                    role="button">Pass Mark: 70%</span
+                                  >
+                                </div>
+                                <div class="d-flex gap-2">
+                                  <button
+                                    class="border-0 edit-button"
+                                    style="background-color: inherit;"
+                                    type="button"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#editQuizModal"
+                                    data-title="Quiz/Exam"
+                                    data-emp-type="{ele.emp_type}"
+                                  >
+                                    <img
+                                      src="images/png/icons/edit-2.svg"
+                                      alt=""
+                                    />
+                                  </button>
+                                  <button
+                                    class="border-0"
+                                    style="background-color: inherit;"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal"
+                                  >
+                                    <img
+                                      src="images/png/icons/colored/delete.svg"
+                                      alt=""
+                                    />
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-between">
+                                <div>
+                                  <h1 class="fs-16 fw-700">
+                                    Information Security — Final Assessment
+                                  </h1>
+                                </div>
+                              </div>
+
+                              <div class="d-flex gap-2">
+                                <div class="fs-14">
+                                  <span>Questions:</span>
+                                  <span
+                                    class="fw-600 border-2 ms-2 p-2"
+                                    style="background-color: #F4FAFF">5</span
+                                  >
+                                </div>
+
+                                <div
+                                  class="fs-14 px-2 mx-2 border-2 border-start"
+                                >
+                                  <span>Duration:</span>
+                                  <span
+                                    class="fw-600 border-2 ms-2 p-2"
+                                    style="background-color: #F4FAFF"
+                                    >1st, Jan 2026 - 31st, Dec 2026</span
+                                  >
+                                </div>
+                              </div>
+
+                              <button
+                                class="fw-700 border border-1 rounded-3 p-2 fs-12"
+                                style="background-color: #fff; color: #2271B6; height: fit-content; width: fit-content; border:#2271B6; text-decoration: none;"
+                                data-bs-toggle="modal"
+                                data-bs-target="#viewQuestionsModal"
+                                data-title="Quiz/Exam"
+                                role="button">View Questions</button
+                              >
+                            </div>
+                          </div>
+
+                          <!-- Pagination Row -->
+                          <div
+                            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+                          >
+                            <!-- Left: Pagination Text -->
+                            <div class="fs-14 text-muted">
+                              Showing <strong>1–20</strong> of <strong
+                                >1000</strong
+                              >
+                            </div>
+
+                            <!-- Right: Go to Page + Pagination -->
+                            <div
+                              class="d-flex align-items-center gap-3 flex-wrap"
+                            >
+                              <!-- Go to Page -->
+                              <form class="d-flex align-items-center gap-2">
+                                <label for="gotoPage" class="fs-14 mb-0"
+                                  >Go to page?</label
+                                >
+                                <input
+                                  type="number"
+                                  min="1"
+                                  max="100"
+                                  id="gotoPage"
+                                  class="form-control form-control-sm"
+                                  style="width: 60px;"
+                                  placeholder="—"
+                                />
+                              </form>
+
+                              <!-- Page Navigation -->
+
+                              <nav>
+                                <ul
+                                  class="pagination pagination-sm mb-0 text-primary-blue"
+                                >
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link text-primary-blue px-2"
+                                      href="#"
+                                      aria-label="Previous"
+                                    >
+                                      &lsaquo;
+                                    </a>
+                                  </li>
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link text-primary-blue"
+                                      href="#">1</a
+                                    >
+                                  </li>
+                                  <li
+                                    class="page-item active"
+                                    aria-current="page"
+                                  >
+                                    <span class="page-link">2</span>
+                                  </li>
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link text-primary-blue"
+                                      href="#">3</a
+                                    >
+                                  </li>
+                                  <li class="page-item disabled">
+                                    <span class="page-link text-primary-blue"
+                                      >...</span
+                                    >
+                                  </li>
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link text-primary-blue"
+                                      href="#">100</a
+                                    >
+                                  </li>
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link hello"
+                                      href="#"
+                                      aria-label="Next"
+                                    >
+                                      &rsaquo;
+                                    </a>
+                                  </li>
+                                </ul>
+                              </nav>
+                            </div>
+                          </div>
+
+                          <!---- Pagination ---->
+                        </div>
+                      </div>
+                      <div class="tab-pane container" id="enrolledEmployees">
+                        <div class="p-4">
+                          <div class="fw-700 fs-16">Enrolled Employees</div>
+
+                          <!-- search -->
+                          <div
+                            class="d-flex gap-4 mt-5 justify-content-between"
+                          >
+                            <div class="d-flex gap-3">
+                              <input
+                                type="text"
+                                class="form-control search-input search-width fs-14"
+                                placeholder="Search..."
+                              />
+                            </div>
+                          </div>
+
+                          <!-- Scrollable Table -->
+                          <div
+                            class="table-responsive mt-5"
+                            style="max-height: 600px; overflow: auto;"
+                          >
+                            <table class="table table-bordered table-hover">
+                              <!---- Table head --->
+                              <thead
+                                class="bg-grey text-dark px-4 fw-700 fs-14 text-nowrap"
+                              >
+                                <tr>
+                                  <th
+                                    class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                                    >S/N</th
+                                  >
+                                  <th
+                                    class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                                    >Employee</th
+                                  >
+                                  <th
+                                    class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
+                                    >Course Completion</th
+                                  >
+
+                                  <th
+                                    class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                                    >Quiz Score</th
+                                  >
+
+                                  <th
+                                    class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                                    >Completion Date</th
+                                  >
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <!-- Table body and Row -->
+                                <style>
+                                  .column {
+                                    min-width: 180px;
+                                  }
+                                </style>
+                                {
+                                  [
+                                    {
+                                      client_name: "90%",
+                                      client_email: "Ibrahim Hazzab",
+
+                                      phone_no: "23rd Oct, 2025",
+                                      currency: "23rd Oct, 2025",
+                                      pay_terms: "Bank Transfer",
+                                      status: "Open",
+                                      out_bal: "N124,676",
+                                    },
+                                    {
+                                      client_name: "90%",
+                                      client_email: "Ibrahim Hazzab",
+
+                                      phone_no: "23rd Oct, 2025",
+                                      currency: "23rd Oct, 2025",
+                                      pay_terms: "Cash",
+                                      status: "Open",
+                                      out_bal: "N124,676",
+                                    },
+                                    {
+                                      client_name: "90%",
+                                      client_email: "Ibrahim Hazzab",
+
+                                      phone_no: "23rd Oct, 2025",
+                                      currency: "23rd Oct, 2025",
+                                      pay_terms: "POS",
+                                      status: "On Hold",
+                                      out_bal: "N124,676",
+                                    },
+                                    {
+                                      client_name: "90%",
+                                      client_email: "Ibrahim Hazzab",
+
+                                      phone_no: "23rd Oct, 2025",
+                                      currency: "23rd Oct, 2025",
+                                      pay_terms: "Bank Transfer",
+                                      status: "On Hold",
+                                      out_bal: "N124,676",
+                                    },
+                                  ].map((ele, index) => (
+                                    <tr class="fs-88">
+                                      <td class="fs-14 text-center">
+                                        {index + 1}
+                                      </td>
+                                      <td class="fs-14 text-nowrap px-3 text-left column">
+                                        {ele.client_email}
+                                      </td>
+                                      <td class="fs-14 px-3 text-left column">
+                                        {ele.client_name}
+                                      </td>
+
+                                      <td class="fs-14 px-3 text-left column">
+                                        10
+                                      </td>
+                                      <td class="fs-14 px-3 text-left column">
+                                        {ele.currency}
+                                      </td>
+                                    </tr>
+                                  ))
+                                }
+
+                                <!-- Repeat for more employees -->
+                              </tbody>
+                            </table>
+                          </div>
+
+                          <!---- End of table --->
+
+                          <!-- Pagination Row -->
+                          <div
+                            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+                          >
+                            <!-- Left: Pagination Text -->
+                            <div class="fs-14 text-muted">
+                              Showing <strong>1–20</strong> of <strong
+                                >1000</strong
+                              >
+                            </div>
+
+                            <!-- Right: Go to Page + Pagination -->
+                            <div
+                              class="d-flex align-items-center gap-3 flex-wrap"
+                            >
+                              <!-- Go to Page -->
+                              <form class="d-flex align-items-center gap-2">
+                                <label for="gotoPage" class="fs-14 mb-0"
+                                  >Go to page?</label
+                                >
+                                <input
+                                  type="number"
+                                  min="1"
+                                  max="100"
+                                  id="gotoPage"
+                                  class="form-control form-control-sm"
+                                  style="width: 60px;"
+                                  placeholder="—"
+                                />
+                              </form>
+
+                              <!-- Page Navigation -->
+
+                              <nav>
+                                <ul
+                                  class="pagination pagination-sm mb-0 text-primary-blue"
+                                >
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link text-primary-blue px-2"
+                                      href="#"
+                                      aria-label="Previous"
+                                    >
+                                      &lsaquo;
+                                    </a>
+                                  </li>
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link text-primary-blue"
+                                      href="#">1</a
+                                    >
+                                  </li>
+                                  <li
+                                    class="page-item active"
+                                    aria-current="page"
+                                  >
+                                    <span class="page-link">2</span>
+                                  </li>
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link text-primary-blue"
+                                      href="#">3</a
+                                    >
+                                  </li>
+                                  <li class="page-item disabled">
+                                    <span class="page-link text-primary-blue"
+                                      >...</span
+                                    >
+                                  </li>
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link text-primary-blue"
+                                      href="#">100</a
+                                    >
+                                  </li>
+                                  <li class="page-item">
+                                    <a
+                                      class="page-link hello"
+                                      href="#"
+                                      aria-label="Next"
+                                    >
+                                      &rsaquo;
+                                    </a>
+                                  </li>
+                                </ul>
+                              </nav>
+                            </div>
+                          </div>
+
+                          <!---- Pagination ---->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <LessonModal
+          modalId="myModal"
+          title={"Create Lesson"}
+          inputPlace="Create Lesson"
+        />
+        <LessonModal
+          modalId="editModal"
+          title={"Edit Lesson"}
+          inputPlace="Edit Lesson"
+        />
+        <QuizModal
+          modalId="quizModal"
+          title={"Quiz/Exam"}
+          inputPlace="Quiz/Exam"
+        />
+        <QuizModal
+          modalId="editQuizModal"
+          title={"Quiz/Exam"}
+          inputPlace="Quiz/Exam"
+        />
+        <ViewQuestionsModal
+          modalId="viewQuestionsModal"
+          title={"Quiz/Exam"}
+          inputPlace="Quiz/Exam"
+        />
+      </div>
+    </section>
+    <!-- Main content ends here -->
+  </main>
+
+  <script is:inline type="text/javascript">
+    // Handle opening the modal
+    document
+      .querySelectorAll('[data-bs-target="#addCard"]')
+      .forEach((button) => {
+        button.addEventListener("click", function () {
+          const modalTitle =
+            this.getAttribute("data-title") || "Edit Bank Transfer Info";
+          const empType = this.getAttribute("data-emp-type") || "";
+
+          // Update modal title
+          const modalTitleElement = document.getElementById("modalTitle");
+          if (modalTitleElement) {
+            modalTitleElement.textContent = modalTitle;
+          }
+
+          // Update input field
+          const employeeStatusInput = document.getElementById("employee_title");
+          if (employeeStatusInput) {
+            employeeStatusInput.value = empType;
+          }
+        });
+      });
+  </script>
+</Layout>

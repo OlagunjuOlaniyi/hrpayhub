@@ -1565,8 +1565,10 @@ ul.payment_receipt_bg li.nav-item .active {
 }
 
 /* subscription */
-.subscription_tab {
-  border-bottom: 1px solid lightgray;
+.course_tab {
+  border-bottom: 1px dashed lightgray;
+  border-top: 1px dashed lightgray;
+  padding: 20px 0;
 }
 
 .subscription_tab .nav-link {

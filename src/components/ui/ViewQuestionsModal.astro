@@ -1,0 +1,454 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "updateStatus", title = "Update Status" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-2 px-lg-3">
+      <!-- Modal Header -->
+
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">
+          {title}
+        </h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body d-flex flex-column gap-4 text-left py-4 border-0">
+        <div class="d-flex justify-content-between gap-3 mt-2">
+          <div class="form-floating">
+            <input
+              type="text"
+              id="title"
+              name="title"
+              class="form-input"
+              placeholder=""
+            />
+            <label for="title">Quiz Title &nbsp;<span>*</span></label>
+          </div>
+          <div class="form-floating">
+            <select
+              id="exam_type"
+              name="exam_type"
+              class="form-select_custom fs-14"
+              required
+            >
+              <option value="" selected> Select </option>
+              <option value="1">Robert Fox - N12343534</option>
+              <option value="2">Robert Fox - N12343534</option>
+              <option value="3">Robert Fox - N12343534</option>
+            </select>
+            <label for="exam_type">
+              Exam Type &nbsp;<span>*</span>
+            </label>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between gap-3 mt-2">
+          <div class="form-floating">
+            <input
+              type="text"
+              id="duration"
+              name="duration"
+              class="form-input"
+              placeholder=""
+            />
+            <label for="duration"
+              >Duration (5-180min) &nbsp;<span>*</span></label
+            >
+          </div>
+          <div class="form-floating">
+            <input
+              type="text"
+              id="passing"
+              name="passing"
+              class="form-input"
+              placeholder=""
+            />
+            <label for="passing">Passing Score (%) &nbsp;<span>*</span></label>
+          </div>
+        </div>
+
+        <div class="form-floating">
+          <textarea class="form-input" rows="2" id="address"></textarea>
+          <label for="ex_title">Description</label>
+        </div>
+        <div>
+          <div class="fw-700">Questions</div>
+          <div class="rounded p-3 mt-2 bg-light">
+            <div class="d-flex justify-content-between">
+              <span class="fs-14">Question 1</span>
+              <button
+                class="border-0"
+                style="background-color: inherit;"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal"
+              >
+                <img src="images/png/icons/colored/delete.svg" alt="" />
+              </button>
+            </div>
+            <div class="form-floating mt-4">
+              <textarea class="form-input" rows="2" id="address"></textarea>
+              <label for="ex_title">Question text (20-200 characters)</label>
+            </div>
+            <div class="mt-1">
+              <div class="fs-12" style="color: #989898;">
+                Select the radio button next to the correct answer
+              </div>
+              <div class="mt-3" style="color: #989898;">
+                <div class="d-flex gap-2">
+                  <div
+                    class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="Q1"
+                      name="starter"
+                      value="net_salary"
+                      checked
+                    />
+                    <label
+                      class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                      >Option 1
+                    </label>
+                  </div>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/close-red.svg" alt="" />
+                  </button>
+                </div>
+                <div class="d-flex gap-2 mt-2">
+                  <div
+                    class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="Q2"
+                      name="starter"
+                      value="net_salary"
+                    />
+                    <label
+                      class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                      >Option 2
+                    </label>
+                  </div>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/close-red.svg" alt="" />
+                  </button>
+                </div>
+                <div class="d-flex gap-2 mt-2">
+                  <div
+                    class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="Q3"
+                      name="starter"
+                      value="net_salary"
+                    />
+                    <label
+                      class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                      >Option 3
+                    </label>
+                  </div>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/close-red.svg" alt="" />
+                  </button>
+                </div>
+
+                <div class="mt-2">
+                  <button
+                    class="white_button fs-14 p-0 d-flex gap-2 align-items-center"
+                    style="border: 0px !important; background-color: inherit !important;"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Add New"
+                    data-emp-type="---------"
+                  >
+                    <img src="images/png/icons/add-plus.svg" alt="add new" />
+                    <span class="text-primary-blue">Add Option </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rounded p-3 mt-3 bg-light">
+            <div class="d-flex justify-content-between">
+              <span class="fs-14">Question 2</span>
+              <button
+                class="border-0"
+                style="background-color: inherit;"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal"
+              >
+                <img src="images/png/icons/colored/delete.svg" alt="" />
+              </button>
+            </div>
+            <div class="form-floating mt-4">
+              <textarea class="form-input" rows="2" id="address"></textarea>
+              <label for="ex_title">Question text (20-200 characters)</label>
+            </div>
+            <div class="mt-1">
+              <div class="fs-12" style="color: #989898;">
+                Select the radio button next to the correct answer
+              </div>
+              <div class="mt-3" style="color: #989898;">
+                <div class="d-flex gap-2">
+                  <div
+                    class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="Q1"
+                      name="starter"
+                      value="net_salary"
+                      checked
+                    />
+                    <label
+                      class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                      >Option 1
+                    </label>
+                  </div>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/close-red.svg" alt="" />
+                  </button>
+                </div>
+                <div class="d-flex gap-2 mt-2">
+                  <div
+                    class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="Q2"
+                      name="starter"
+                      value="net_salary"
+                    />
+                    <label
+                      class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                      >Option 2
+                    </label>
+                  </div>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/close-red.svg" alt="" />
+                  </button>
+                </div>
+                <div class="d-flex gap-2 mt-2">
+                  <div
+                    class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="Q3"
+                      name="starter"
+                      value="net_salary"
+                    />
+                    <label
+                      class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                      >Option 3
+                    </label>
+                  </div>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/close-red.svg" alt="" />
+                  </button>
+                </div>
+
+                <div class="mt-2">
+                  <button
+                    class="white_button fs-14 p-0 d-flex gap-2 align-items-center"
+                    style="border: 0px !important; background-color: inherit !important;"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Add New"
+                    data-emp-type="---------"
+                  >
+                    <img src="images/png/icons/add-plus.svg" alt="add new" />
+                    <span class="text-primary-blue">Add Option </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rounded p-3 mt-3 bg-light">
+            <div class="d-flex justify-content-between">
+              <span class="fs-14">Question 3</span>
+              <button
+                class="border-0"
+                style="background-color: inherit;"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal"
+              >
+                <img src="images/png/icons/colored/delete.svg" alt="" />
+              </button>
+            </div>
+            <div class="form-floating mt-4">
+              <textarea class="form-input" rows="2" id="address"></textarea>
+              <label for="ex_title">Question text (20-200 characters)</label>
+            </div>
+            <div class="mt-1">
+              <div class="fs-12" style="color: #989898;">
+                Select the radio button next to the correct answer
+              </div>
+              <div class="mt-3" style="color: #989898;">
+                <div class="d-flex gap-2">
+                  <div
+                    class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="Q1"
+                      name="starter"
+                      value="net_salary"
+                      checked
+                    />
+                    <label
+                      class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                      >Option 1
+                    </label>
+                  </div>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/close-red.svg" alt="" />
+                  </button>
+                </div>
+                <div class="d-flex gap-2 mt-2">
+                  <div
+                    class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="Q2"
+                      name="starter"
+                      value="net_salary"
+                    />
+                    <label
+                      class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                      >Option 2
+                    </label>
+                  </div>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/close-red.svg" alt="" />
+                  </button>
+                </div>
+                <div class="d-flex gap-2 mt-2">
+                  <div
+                    class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      id="Q3"
+                      name="starter"
+                      value="net_salary"
+                    />
+                    <label
+                      class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                      >Option 3
+                    </label>
+                  </div>
+                  <button
+                    class="border-0"
+                    style="background-color: inherit;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal"
+                  >
+                    <img src="images/png/icons/close-red.svg" alt="" />
+                  </button>
+                </div>
+
+                <div class="mt-2">
+                  <button
+                    class="white_button fs-14 p-0 d-flex gap-2 align-items-center"
+                    style="border: 0px !important; background-color: inherit !important;"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal"
+                    data-title="Add New"
+                    data-emp-type="---------"
+                  >
+                    <img src="images/png/icons/add-plus.svg" alt="add new" />
+                    <span class="text-primary-blue">Add Option </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2 mt-3"
+            type="button"
+            ><span class="fw-700 fs-14">+</span><span class="ms-2 text-nowrap"
+              >Add Question</span
+            >
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue fs-14 text-white"
+          data-bs-dismiss="modal"
+        >
+          Create Quiz
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
