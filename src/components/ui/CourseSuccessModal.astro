@@ -1,0 +1,36 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "approveModal", title = "Request" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <!-- Modal Header -->
+      <div class="modal-header border-0 d-flex justify-content-end">
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-center py-2 border-0">
+        <img src="images/png/icons/success-check.svg" alt="approval" />
+        <p class="fs-22 fw-bold mt-3">Congratulations</p>
+        <p>You passed {title}</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <span
+          class="fw-700 border-2 p-2 fs-22"
+          style="background-color: #F4FAFF">100%</span
+        >
+      </div>
+    </div>
+  </div>
+</div>

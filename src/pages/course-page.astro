@@ -1,0 +1,328 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="HRPayHub :: Course Page">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/course-management"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/learning-management-system"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Learning Management System (LMS)</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/course-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Course Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Workplace Information Security Essentials</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack px-5" style="gap: 2.3rem">
+              <div class="d-flex gap-4 justify-content-between flex-wrap">
+                <div
+                  class="d-flex flex-column gap-4 py-4 px-4 border rounded-4"
+                  style="width: 100%;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex gap-2 align-items-center">
+                      <span
+                        class="fw-600 border-2 p-2"
+                        style="background-color: #F4FAFF">SEC-101</span
+                      >
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                        style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                        id="courseStatus"
+                        role="button">Active</span
+                      >
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-16 fw-700">
+                        Workplace Information Security Essentials
+                      </h1>
+                      <div class="fs-14">Lorem ipsum lorem ipsum</div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <div class="fs-14">
+                      <span>Year:</span>
+                      <span
+                        class="fw-600 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF">2026</span
+                      >
+                    </div>
+
+                    <div class="fs-14 px-2 mx-2 border-2 border-start">
+                      <span>Date:</span>
+                      <span
+                        class="fw-600 border-2 ms-2 p-2"
+                        style="background-color: #F4FAFF"
+                        >1st, Jan 2026 - 31st, Dec 2026</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="" style="width: 314px;">
+                    <div id="progressText" class="fs-14 mb-2">
+                      Course Progress: 0%
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                      <div
+                        id="progressBar"
+                        class="progress-bar bg-primary-blue"
+                        style="width: 0%; "
+                        role="progressbar"
+                        aria-valuenow="40"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="p-4">
+                    <div class="fw-700 fs-16">Quizzes</div>
+
+                    <div class="row mt-4 gap-4">
+                      <div class="col-md-4 border rounded-4 p-3">
+                        <h5 class="fs-16">
+                          Lessons (<span id="lessonCount">3</span>)
+                        </h5>
+                        <div id="lessonList" class="fs-16"></div>
+
+                        <h5 class="fs-16 mt-5">Assessment</h5>
+                        <div class="d-flex gap-2 align-items-center">
+                          <img
+                            src="images/png/icons/padlock-1.svg"
+                            class="fs-14 py-1 px-2"
+                            alt="angle-right-back"
+                          />
+                          <div class="mt-3">
+                            <div class="">Information Security — Fin...</div>
+                            <div class="fs-14" style="color: #989898;">
+                              Certification
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-7 border rounded-4 p-4">
+                        <div class="d-flex justify-content-between">
+                          <span id="lessonIndex"></span>
+
+                          <button
+                            id="completeBtn"
+                            class="btn-outline-primary fs-12 p-2 px-3 rounded-2 text-primary-blue"
+                            style="border: 1px solid #2271B6; background-color: inherit;"
+                          >
+                            <img
+                              class="me-2"
+                              style="width: 15px;"
+                              src="images/png/icons/checked.svg"
+                            />
+                            Mark as Complete
+                          </button>
+                        </div>
+
+                        <h3 class="mt-3 fs-16 fw-700" id="lessonTitle"></h3>
+                        <p id="lessonBody" class="fs-14"></p>
+
+                        <div class="d-flex justify-content-between mt-5">
+                          <button
+                            id="prevBtn"
+                            class="btn btn-outline-secondary fs-12"
+                          >
+                            Previous
+                          </button>
+
+                          <button
+                            id="nextBtn"
+                            class="delon-primary-btn bg-primary-blue border-0 text-white fs-12"
+                          >
+                            Next Lesson
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Main content ends here -->
+  </main>
+
+  <script is:inline>
+    const lessons = [
+      {
+        title: "Our Code Of Conduct",
+        body: "Our Code of Conduct is the single source of truth for how we behave at HRPayHub. It applies on company premises, on customer sites, online and at company-sponsored events. We will walk through each pillar — integrity, respect, accountability and excellence — with practical examples.",
+        completed: false,
+      },
+      {
+        title: "Information Security",
+        body: "Our Code of Conduct is the single source of truth for how we behave at HRPayHub. It applies on company premises, on customer sites, online and at company-sponsored events. We will walk through each pillar — integrity, respect, accountability and excellence — with practical examples.",
+        completed: false,
+      },
+      {
+        title: "Password Management",
+        body: "Our Code of Conduct is the single source of truth for how we behave at HRPayHub. It applies on company premises, on customer sites, online and at company-sponsored events. We will walk through each pillar — integrity, respect, accountability and excellence — with practical examples.",
+        completed: false,
+      },
+    ];
+
+    let current = 0;
+
+    function renderSidebar() {
+      const list = document.getElementById("lessonList");
+      list.innerHTML = "";
+
+      lessons.forEach((l, i) => {
+        list.innerHTML += `
+        <div class="rounded-3 p-3 py-2 mb-3 d-flex align-items-center gap-2" style='background-color: #F4FAFF'>
+            
+                
+          <strong class="fs-14 me-2">${l.completed ? "<img src='images/png/icons/checked.svg' />" : i + 1}</strong>
+          <div>
+          ${l.title}
+          <div>
+            <img src='images/png/icons/clock-grey.svg' />
+            <span class='fs-14' style='color: #989898;'>18mins</span>
+            </div>
+            </div>
+        </div>`;
+      });
+    }
+
+    function renderLesson() {
+      const lesson = lessons[current];
+
+      document.getElementById("lessonIndex").textContent =
+        `Lesson ${current + 1} of ${lessons.length}`;
+
+      document.getElementById("lessonTitle").textContent = lesson.title;
+      document.getElementById("lessonBody").textContent = lesson.body;
+
+      // Previous button
+      document.getElementById("prevBtn").disabled = current === 0;
+
+      // Next button
+      const nextBtn = document.getElementById("nextBtn");
+
+      if (current === lessons.length - 1) {
+        nextBtn.textContent = "Take Final Quiz";
+      } else {
+        nextBtn.textContent = "Next Lesson";
+      }
+
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const completed = lessons.filter((x) => x.completed).length;
+      const percent = Math.round((completed / lessons.length) * 100);
+
+      document.getElementById("progressText").textContent =
+        `Course Progress: ${percent}%`;
+      document.getElementById("progressBar").style.width = percent + "%";
+
+      const status = document.getElementById("courseStatus");
+
+      if (percent === 0) {
+        status.textContent = "Active";
+      } else if (percent < 100) {
+        status.textContent = "In Progress";
+      } else {
+        status.textContent = "Completed";
+      }
+
+      renderSidebar();
+    }
+
+    document.getElementById("completeBtn").onclick = () => {
+      lessons[current].completed = true;
+      updateProgress();
+    };
+
+    document.getElementById("nextBtn").onclick = () => {
+      // Last lesson
+      if (current === lessons.length - 1) {
+        const completed = lessons.filter((l) => l.completed).length;
+
+        if (completed === lessons.length) {
+          window.location.href = "/course-quiz-page";
+        } else {
+          alert("Please complete this lesson before taking the final quiz.");
+        }
+
+        return;
+      }
+
+      current++;
+      renderLesson();
+    };
+
+    document.getElementById("prevBtn").onclick = () => {
+      if (current > 0) {
+        current--;
+        renderLesson();
+      }
+    };
+
+    renderSidebar();
+    renderLesson();
+  </script>
+</Layout>

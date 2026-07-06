@@ -1,0 +1,794 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import LessonModal from "../components/ui/LessonModal.astro";
+import QuizModal from "../components/ui/QuizModal.astro";
+import ViewQuestionsModal from "../components/ui/ViewQuestionsModal.astro";
+
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: Course Dashboard">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/learning-management-system"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/learning-management-system"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Learning Management System (LMS)</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Course Management</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-5">
+          {/* Page Content Box */}
+          <div class="p-lg-5">
+            <div class="vstack px-5" style="gap: 2.3rem">
+              <div class="d-flex gap-4 justify-content-between flex-wrap">
+                <div
+                  class="d-flex flex-column gap-4 py-4 px-4"
+                  style="width: 100%;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-22 fw-700">Welcome Back, Aisha Mohameed</h1>
+                      <div class="fs-14">
+                        Monitor pension schedules, validations, payments,
+                        remittances, confirmations, and failed records.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <div
+                      class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                      style="width: 291px;"
+                    >
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <h1 class="fs-14 fw-600">Total Pension Schedules</h1>
+                        </div>
+                      </div>
+
+                      <div class="d-flex gap-2">
+                        <span
+                          class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                          style="background-color: #2271B633; color: #2271B6; height: fit-content"
+                          role="button">3</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                      style="width: 291px;"
+                    >
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <h1 class="fs-14 fw-600">Pending Validation</h1>
+                        </div>
+                      </div>
+
+                      <div class="d-flex gap-2">
+                        <span
+                          class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                          style="background-color: #2271B633; color: #2271B6; height: fit-content"
+                          role="button">3</span
+                        >
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                      style="width: 291px;"
+                    >
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <h1 class="fs-14 fw-600">Validation Failed</h1>
+                        </div>
+                      </div>
+
+                      <div class="d-flex gap-2">
+                        <span
+                          class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                          style="background-color: #2271B633; color: #2271B6; height: fit-content"
+                          role="button">3</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-4">
+                    <ul class="nav nav-pills subscription_tab course_tab">
+                      <li class="nav-item">
+                        <a
+                          class="nav-link active"
+                          data-bs-toggle="pill"
+                          href="#lessons">My Courses</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          class="nav-link"
+                          data-bs-toggle="pill"
+                          href="#quizzes">Upcoming Quiz/Exam</a
+                        >
+                      </li>
+                    </ul>
+
+                    <div class="tab-content">
+                      <div class="tab-pane container active" id="lessons">
+                        <div
+                          class="d-flex gap-4 justify-content-between flex-wrap mt-5"
+                        >
+                          <div
+                            class="d-flex flex-column gap-4 py-4 px-4 border rounded-4"
+                            style="width: 48%;"
+                          >
+                            <div class="d-flex justify-content-between">
+                              <div class="d-flex gap-2 align-items-center">
+                                <span
+                                  class="fw-600 border-2 p-2"
+                                  style="background-color: #F4FAFF"
+                                  >SEC-101</span
+                                >
+                                <span
+                                  class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                                  style="background-color: #FFFFF2; color: #969103; height: fit-content"
+                                  role="button">In Progress</span
+                                >
+                              </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <h1 class="fs-16 fw-700">
+                                  Workplace Information Security Essentials
+                                </h1>
+                                <div class="fs-14">Lorem ipsum lorem ipsum</div>
+                              </div>
+                            </div>
+
+                            <div class="w-75">
+                              <div class="fs-14 mb-2">Course Progress: 40%</div>
+                              <div class="progress" style="height: 10px;">
+                                <div
+                                  class="progress-bar bg-primary-blue"
+                                  style="width: 40%; "
+                                  role="progressbar"
+                                  aria-valuenow="40"
+                                  aria-valuemin="0"
+                                  aria-valuemax="100"
+                                >
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="d-flex gap-2">
+                              <div class="fs-14">
+                                <span>Lessons:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">2/3</span
+                                >
+                              </div>
+
+                              <div
+                                class="fs-14 px-2 mx-2 border-2 border-start"
+                              >
+                                <span>Quiz:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">0/1</span
+                                >
+                              </div>
+                            </div>
+
+                            <a
+                              class="fw-700 border border-1 rounded-3 p-2 px-3 fs-12"
+                              style="background-color: #2271B6; color: #fff; height: fit-content; width: fit-content; border:#2271B6; text-decoration: none;"
+                              href="/course-page"
+                              role="button">Continue</a
+                            >
+                          </div>
+                          <div
+                            class="d-flex flex-column gap-4 py-4 px-4 border rounded-4"
+                            style="width: 48%;"
+                          >
+                            <div class="d-flex justify-content-between">
+                              <div class="d-flex gap-2 align-items-center">
+                                <span
+                                  class="fw-600 border-2 p-2"
+                                  style="background-color: #F4FAFF"
+                                  >SEC-101</span
+                                >
+                                <span
+                                  class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                                  style="background-color: #F3F3F3; color: #616161; height: fit-content"
+                                  role="button">Not Started</span
+                                >
+                              </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <h1 class="fs-16 fw-700">
+                                  Workplace Information Security Essentials
+                                </h1>
+                                <div class="fs-14">Lorem ipsum lorem ipsum</div>
+                              </div>
+                            </div>
+
+                            <div class="w-75">
+                              <div class="fs-14 mb-2">Course Progress: 0%</div>
+                              <div class="progress" style="height: 10px;">
+                                <div
+                                  class="progress-bar bg-primary-blue"
+                                  style="width: 0%; "
+                                  role="progressbar"
+                                  aria-valuenow="0"
+                                  aria-valuemin="0"
+                                  aria-valuemax="100"
+                                >
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="d-flex gap-2">
+                              <div class="fs-14">
+                                <span>Lessons:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">0/4</span
+                                >
+                              </div>
+
+                              <div
+                                class="fs-14 px-2 mx-2 border-2 border-start"
+                              >
+                                <span>Quiz:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">0/1</span
+                                >
+                              </div>
+                            </div>
+
+                            <a
+                              class="fw-700 border border-1 rounded-3 p-2 px-3 fs-12"
+                              style="background-color: #2271B6; color: #fff; height: fit-content; width: fit-content; border:#2271B6; text-decoration: none;"
+                              href="/course-page"
+                              role="button">Start</a
+                            >
+                          </div>
+                          <div
+                            class="d-flex flex-column gap-4 py-4 px-4 border rounded-4"
+                            style="width: 48%;"
+                          >
+                            <div class="d-flex justify-content-between">
+                              <div class="d-flex gap-2 align-items-center">
+                                <span
+                                  class="fw-600 border-2 p-2"
+                                  style="background-color: #F4FAFF"
+                                  >SEC-101</span
+                                >
+                                <span
+                                  class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                                  style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                                  role="button">Completed</span
+                                >
+                              </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <h1 class="fs-16 fw-700">
+                                  Workplace Information Security Essentials
+                                </h1>
+                                <div class="fs-14">Lorem ipsum lorem ipsum</div>
+                              </div>
+                            </div>
+
+                            <div class="w-75">
+                              <div class="fs-14 mb-2">
+                                Course Progress: 100%
+                              </div>
+                              <div class="progress" style="height: 10px;">
+                                <div
+                                  class="progress-bar bg-primary-blue"
+                                  style="width: 100%; "
+                                  role="progressbar"
+                                  aria-valuenow="100"
+                                  aria-valuemin="0"
+                                  aria-valuemax="100"
+                                >
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="d-flex gap-2">
+                              <div class="fs-14">
+                                <span>Lessons:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">3/3</span
+                                >
+                              </div>
+
+                              <div
+                                class="fs-14 px-2 mx-2 border-2 border-start"
+                              >
+                                <span>Quiz:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">1/1</span
+                                >
+                              </div>
+                              <div
+                                class="fs-14 px-2 mx-2 border-2 border-start"
+                              >
+                                <span>Status:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color:#E9FFE2; color: #186D00;"
+                                  >Passed</span
+                                >
+                              </div>
+                            </div>
+
+                            <button
+                              class="fw-700 border border-1 rounded-3 p-2 px-3 fs-12"
+                              style="background-color: #2271B6; color: #fff; height: fit-content; width: fit-content; border:#2271B6; text-decoration: none;"
+                              type="button"
+                              disabled>Continue</button
+                            >
+                          </div>
+                          <div
+                            class="d-flex flex-column gap-4 py-4 px-4 border rounded-4"
+                            style="width: 48%;"
+                          >
+                            <div class="d-flex justify-content-between">
+                              <div class="d-flex gap-2 align-items-center">
+                                <span
+                                  class="fw-600 border-2 p-2"
+                                  style="background-color: #F4FAFF"
+                                  >SEC-101</span
+                                >
+                                <span
+                                  class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                                  style="background-color: #FFFFF2; color: #969103; height: fit-content"
+                                  role="button">In Progress</span
+                                >
+                              </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <h1 class="fs-16 fw-700">
+                                  Workplace Information Security Essentials
+                                </h1>
+                                <div class="fs-14">Lorem ipsum lorem ipsum</div>
+                              </div>
+                            </div>
+
+                            <div class="w-75">
+                              <div class="fs-14 mb-2">Course Progress: 40%</div>
+                              <div class="progress" style="height: 10px;">
+                                <div
+                                  class="progress-bar bg-primary-blue"
+                                  style="width: 40%; "
+                                  role="progressbar"
+                                  aria-valuenow="40"
+                                  aria-valuemin="0"
+                                  aria-valuemax="100"
+                                >
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="d-flex gap-2">
+                              <div class="fs-14">
+                                <span>Lessons:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">2/3</span
+                                >
+                              </div>
+
+                              <div
+                                class="fs-14 px-2 mx-2 border-2 border-start"
+                              >
+                                <span>Quiz:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">0/1</span
+                                >
+                              </div>
+                            </div>
+
+                            <a
+                              class="fw-700 border border-1 rounded-3 p-2 px-3 fs-12"
+                              style="background-color: #2271B6; color: #fff; height: fit-content; width: fit-content; border:#2271B6; text-decoration: none;"
+                              href="/course-page"
+                              role="button">Continue</a
+                            >
+                          </div>
+                          <div
+                            class="d-flex flex-column gap-4 py-4 px-4 border rounded-4"
+                            style="width: 48%;"
+                          >
+                            <div class="d-flex justify-content-between">
+                              <div class="d-flex gap-2 align-items-center">
+                                <span
+                                  class="fw-600 border-2 p-2"
+                                  style="background-color: #F4FAFF"
+                                  >SEC-101</span
+                                >
+                                <span
+                                  class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                                  style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                                  role="button">Completed</span
+                                >
+                              </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <h1 class="fs-16 fw-700">
+                                  Workplace Information Security Essentials
+                                </h1>
+                                <div class="fs-14">Lorem ipsum lorem ipsum</div>
+                              </div>
+                            </div>
+
+                            <div class="w-75">
+                              <div class="fs-14 mb-2">
+                                Course Progress: 100%
+                              </div>
+                              <div class="progress" style="height: 10px;">
+                                <div
+                                  class="progress-bar bg-primary-blue"
+                                  style="width: 100%; "
+                                  role="progressbar"
+                                  aria-valuenow="100"
+                                  aria-valuemin="0"
+                                  aria-valuemax="100"
+                                >
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="d-flex gap-2">
+                              <div class="fs-14">
+                                <span>Lessons:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">3/3</span
+                                >
+                              </div>
+
+                              <div
+                                class="fs-14 px-2 mx-2 border-2 border-start"
+                              >
+                                <span>Quiz:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">1/1</span
+                                >
+                              </div>
+                              <div
+                                class="fs-14 px-2 mx-2 border-2 border-start"
+                              >
+                                <span>Status:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color:#E9FFE2; color: #186D00;"
+                                  >Passed</span
+                                >
+                              </div>
+                            </div>
+
+                            <button
+                              class="fw-700 border border-1 rounded-3 p-2 px-3 fs-12"
+                              style="background-color: #2271B6; color: #fff; height: fit-content; width: fit-content; border:#2271B6; text-decoration: none;"
+                              type="button"
+                              disabled>Continue</button
+                            >
+                          </div>
+                          <div
+                            class="d-flex flex-column gap-4 py-4 px-4 border rounded-4"
+                            style="width: 48%;"
+                          >
+                            <div class="d-flex justify-content-between">
+                              <div class="d-flex gap-2 align-items-center">
+                                <span
+                                  class="fw-600 border-2 p-2"
+                                  style="background-color: #F4FAFF"
+                                  >SEC-101</span
+                                >
+                                <span
+                                  class="fw-700 border border-1 rounded-3 p-2 ms-2 fs-12"
+                                  style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                                  role="button">Completed</span
+                                >
+                              </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <h1 class="fs-16 fw-700">
+                                  Workplace Information Security Essentials
+                                </h1>
+                                <div class="fs-14">Lorem ipsum lorem ipsum</div>
+                              </div>
+                            </div>
+
+                            <div class="w-75">
+                              <div class="fs-14 mb-2">
+                                Course Progress: 100%
+                              </div>
+                              <div class="progress" style="height: 10px;">
+                                <div
+                                  class="progress-bar bg-primary-blue"
+                                  style="width: 100%; "
+                                  role="progressbar"
+                                  aria-valuenow="100"
+                                  aria-valuemin="0"
+                                  aria-valuemax="100"
+                                >
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="d-flex gap-2">
+                              <div class="fs-14">
+                                <span>Lessons:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">3/3</span
+                                >
+                              </div>
+
+                              <div
+                                class="fs-14 px-2 mx-2 border-2 border-start"
+                              >
+                                <span>Quiz:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">1/1</span
+                                >
+                              </div>
+                              <div
+                                class="fs-14 px-2 mx-2 border-2 border-start"
+                              >
+                                <span>Status:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color:#FFF5F5; color: #FD0000;"
+                                  >Failed</span
+                                >
+                              </div>
+                            </div>
+
+                            <button
+                              class="fw-700 border border-1 rounded-3 p-2 px-3 fs-12"
+                              style="background-color: #2271B6; color: #fff; height: fit-content; width: fit-content; border:#2271B6; text-decoration: none;"
+                              type="button"
+                              disabled>Continue</button
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane container" id="quizzes">
+                        <div
+                          class="d-flex gap-4 justify-content-between flex-wrap mt-5"
+                        >
+                          <div
+                            class="d-flex flex-column gap-4 py-4 px-4 border rounded-4"
+                            style="width: 48%;"
+                          >
+                            <div class="d-flex justify-content-between">
+                              <div class="d-flex gap-2 align-items-center">
+                                <span
+                                  class="fw-600 border-2 p-2"
+                                  style="background-color: #F4FAFF"
+                                  >Certification</span
+                                >
+                              </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <h1 class="fs-16 fw-700">
+                                  Information Security — Final Assessment
+                                </h1>
+                              </div>
+                            </div>
+
+                            <div class="d-flex gap-2">
+                              <div class="fs-14">
+                                <span>Questions:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">5</span
+                                >
+                              </div>
+
+                              <div
+                                class="fs-14 px-2 mx-2 border-2 border-start"
+                              >
+                                <span>Duration:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">12 min</span
+                                >
+                              </div>
+                              <div
+                                class="fs-14 px-2 mx-2 border-2 border-start"
+                              >
+                                <span>Pass Mark</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">70%</span
+                                >
+                              </div>
+                            </div>
+
+                            <a
+                              class="fw-700 border border-1 rounded-3 p-2 px-3 fs-14"
+                              style="background-color: #fff; color: #2271B6; height: fit-content; width: fit-content; border:#2271B6; text-decoration: none;"
+                              href="/course-quiz-page"
+                              role="button">Take Quiz</a
+                            >
+                          </div>
+                          <div
+                            class="d-flex flex-column gap-4 py-4 px-4 border rounded-4"
+                            style="width: 48%;"
+                          >
+                            <div class="d-flex justify-content-between">
+                              <div class="d-flex gap-2 align-items-center">
+                                <span
+                                  class="fw-600 border-2 p-2"
+                                  style="background-color: #F4FAFF"
+                                  >Certification</span
+                                >
+                              </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <h1 class="fs-16 fw-700">
+                                  Information Security — Final Assessment
+                                </h1>
+                              </div>
+                            </div>
+
+                            <div class="d-flex gap-2">
+                              <div class="fs-14">
+                                <span>Questions:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">5</span
+                                >
+                              </div>
+
+                              <div
+                                class="fs-14 px-2 mx-2 border-2 border-start"
+                              >
+                                <span>Duration:</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">12 min</span
+                                >
+                              </div>
+                              <div
+                                class="fs-14 px-2 mx-2 border-2 border-start"
+                              >
+                                <span>Pass Mark</span>
+                                <span
+                                  class="fw-600 border-2 ms-2 p-2"
+                                  style="background-color: #F4FAFF">70%</span
+                                >
+                              </div>
+                            </div>
+
+                            <a
+                              class="fw-700 border border-1 rounded-3 p-2 px-3 fs-14"
+                              style="background-color: #fff; color: #2271B6; height: fit-content; width: fit-content; border:#2271B6; text-decoration: none;"
+                              href="/course-quiz-page"
+                              role="button">Take Quiz</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <LessonModal
+          modalId="myModal"
+          title={"Create Lesson"}
+          inputPlace="Create Lesson"
+        />
+        <LessonModal
+          modalId="editModal"
+          title={"Edit Lesson"}
+          inputPlace="Edit Lesson"
+        />
+        <QuizModal
+          modalId="quizModal"
+          title={"Quiz/Exam"}
+          inputPlace="Quiz/Exam"
+        />
+        <QuizModal
+          modalId="editQuizModal"
+          title={"Quiz/Exam"}
+          inputPlace="Quiz/Exam"
+        />
+        <ViewQuestionsModal
+          modalId="viewQuestionsModal"
+          title={"Quiz/Exam"}
+          inputPlace="Quiz/Exam"
+        />
+      </div>
+    </section>
+    <!-- Main content ends here -->
+  </main>
+
+  <script is:inline type="text/javascript">
+    // Handle opening the modal
+    document
+      .querySelectorAll('[data-bs-target="#addCard"]')
+      .forEach((button) => {
+        button.addEventListener("click", function () {
+          const modalTitle =
+            this.getAttribute("data-title") || "Edit Bank Transfer Info";
+          const empType = this.getAttribute("data-emp-type") || "";
+
+          // Update modal title
+          const modalTitleElement = document.getElementById("modalTitle");
+          if (modalTitleElement) {
+            modalTitleElement.textContent = modalTitle;
+          }
+
+          // Update input field
+          const employeeStatusInput = document.getElementById("employee_title");
+          if (employeeStatusInput) {
+            employeeStatusInput.value = empType;
+          }
+        });
+      });
+  </script>
+</Layout>
