@@ -1,0 +1,481 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: Audit Dashboard">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/audit-risk-control-compliance"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/audit-risk-control-compliance"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Audit, Risk, Control & Compliance</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Audit Dashboard</span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-4">
+          {/* Page Content Box */}
+          <div class="p-lg-2">
+            <div class="vstack px-5" style="gap: 2.3rem">
+              <div class="d-flex justify-content-between gap-3">
+                <div>
+                  <div class="fw-700 fs-22">Audit Dashboard</div>
+                  <div class="fs-14">
+                    View audit, risk, control, and action status
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Total Audits</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #2271B633; color: #2271B6; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Pending Audits</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFFFF2; color: #969103; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Completed Audits</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                      role="button">2</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Open Findings</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFFFF2; color: #969103; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">High-Risk Findings</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Pending Corrective Actions</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFFFF2; color: #969103; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Overdue Corrective Actions</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Total Enterprise Risks</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #2271B633; color: #2271B6; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Critical Risks</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Risks Without Controls</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Failed Controls</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Upcoming Audits</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #2271B633; color: #2271B6; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <div
+                  class="d-flex flex-column gap-4 py-4 px-4 mt-2"
+                  style="width: 49%;"
+                >
+                  <div>
+                    <div class="fw-700 fs-22">Upcoming Audits</div>
+                  </div>
+                  <div class="d-flex flex-column gap-3 p-3 border rounded-4">
+                    <div
+                      class="d-flex justify-content-between fs-14 py-3 px-2"
+                      style="border-bottom: 1px dashed #ECECEC;"
+                    >
+                      <div>
+                        <div class="fw-700 fs-16">Bank Recon Process Audit</div>
+                        <div class="fs-14 mt-2">Q2 · Kemi Lawal</div>
+                      </div>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 fs-12"
+                        style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                        role="button">High</span
+                      >
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-3 px-2"
+                      style="border-bottom: 1px dashed #ECECEC;"
+                    >
+                      <div>
+                        <div class="fw-700 fs-16">Pension Remittance Audit</div>
+                        <div class="fs-14 mt-2">Q3 · Femi Adebayo</div>
+                      </div>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 fs-12"
+                        style="background-color: #FFFFF2; color: #969103; height: fit-content"
+                        role="button">Medium</span
+                      >
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-3 px-2"
+                      style="border-bottom: 1px dashed #ECECEC;"
+                    >
+                      <div>
+                        <div class="fw-700 fs-16">Bank Recon Process Audit</div>
+                        <div class="fs-14 mt-2">Q2 · Kemi Lawal</div>
+                      </div>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-1 ms-2 fs-12"
+                        style="background-color: #E9FFE2; color: #186D00; height: fit-content;"
+                        role="button">Low</span
+                      >
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-3 px-2"
+                      style="border-bottom: 1px dashed #ECECEC;"
+                    >
+                      <div>
+                        <div class="fw-700 fs-16">Bank Recon Process Audit</div>
+                        <div class="fs-14 mt-2">Q2 · Kemi Lawal</div>
+                      </div>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 fs-12"
+                        style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                        role="button">High</span
+                      >
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-3 px-2"
+                      style="border-bottom: 1px dashed #ECECEC;"
+                    >
+                      <div>
+                        <div class="fw-700 fs-16">Bank Recon Process Audit</div>
+                        <div class="fs-14 mt-2">Q2 · Kemi Lawal</div>
+                      </div>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 fs-12"
+                        style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                        role="button">High</span
+                      >
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-3 px-2"
+                      style="border-bottom: 1px dashed #ECECEC;"
+                    >
+                      <div>
+                        <div class="fw-700 fs-16">Bank Recon Process Audit</div>
+                        <div class="fs-14 mt-2">Q2 · Kemi Lawal</div>
+                      </div>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 fs-12"
+                        style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                        role="button">High</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-4 py-4 px-4 mt-2"
+                  style="width: 49%;"
+                >
+                  <div>
+                    <div class="fw-700 fs-22">Top Enterprise Risks</div>
+                  </div>
+                  <div class="d-flex flex-column gap-3 p-3 border rounded-4">
+                    <div
+                      class="d-flex justify-content-between fs-14 py-3 px-2"
+                      style="border-bottom: 1px dashed #ECECEC;"
+                    >
+                      <div>
+                        <div class="fw-700 fs-16">
+                          Unauthorised payroll changes
+                        </div>
+                        <div class="fs-14 mt-2">RSK-PAY-01</div>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-3 px-2"
+                      style="border-bottom: 1px dashed #ECECEC;"
+                    >
+                      <div>
+                        <div class="fw-700 fs-16">Privileged access misuse</div>
+                        <div class="fs-14 mt-2">RSK-CYB-01</div>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-3 px-2"
+                      style="border-bottom: 1px dashed #ECECEC;"
+                    >
+                      <div>
+                        <div class="fw-700 fs-16">
+                          Unauthorised payroll changes
+                        </div>
+                        <div class="fs-14 mt-2">RSK-PAY-01</div>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-3 px-2"
+                      style="border-bottom: 1px dashed #ECECEC;"
+                    >
+                      <div>
+                        <div class="fw-700 fs-16">Privileged access misuse</div>
+                        <div class="fs-14 mt-2">RSK-CYB-01</div>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-3 px-2"
+                      style="border-bottom: 1px dashed #ECECEC;"
+                    >
+                      <div>
+                        <div class="fw-700 fs-16">
+                          Unauthorised payroll changes
+                        </div>
+                        <div class="fs-14 mt-2">RSK-PAY-01</div>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex justify-content-between fs-14 py-3 px-2"
+                      style="border-bottom: 1px dashed #ECECEC;"
+                    >
+                      <div>
+                        <div class="fw-700 fs-16">Privileged access misuse</div>
+                        <div class="fs-14 mt-2">RSK-CYB-01</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Main content ends here -->
+    </section>
+
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Wait a bit to ensure scripts are loaded (important in Astro)
+        setTimeout(() => {
+          if (window.$ && $.fn.select2) {
+            $(".js-example-placeholder-single").select2({
+              placeholder: "All Departments",
+              allowClear: true,
+              width: "fit-content", // important for Bootstrap layout
+            });
+          } else {
+            console.error("Select2 or jQuery not loaded");
+          }
+        }, 100);
+      });
+    </script>
+  </main>
+</Layout>

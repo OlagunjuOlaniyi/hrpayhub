@@ -1,0 +1,722 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import UnauthorisedModal from "../components/ui/UnauthorisedModal.astro";
+---
+
+<Layout title="HRPayHub :: Access Configuration">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/enterprise-risk-register"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/audit-risk-control-compliance"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Audit, Risk, Control & Compliance</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/enterprise-risk-register"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Enterprise Risk Register</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Unauthorised payroll changes
+            </span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-5">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-5 vstack gap-3 px-lg-5">
+          {/* Page Title */}
+          <div
+            class="d-flex justify-content-between gap-3 mx-auto"
+            style="width: 70%;"
+          >
+            <div>
+              <div class="fw-700 fs-22">Unauthorised payroll changes</div>
+              <div class="fs-14">RSK-PAY-01 · Payroll · Finance Ops</div>
+            </div>
+          </div>
+
+          {/* Page Title */}
+
+          {/* Page Content Box */}
+          <div class="mx-auto mt-4" style="width: 70%;">
+            <div class="rounded-4 border w-100 p-4">
+              <div class="d-flex justify-content-between">
+                <div class="">
+                  <span class="fs-16 fw-700">Description</span>
+                  <p class="fs-14 mt-2">
+                    Risk of unauthorised modification of salary or bank details
+                    prior to payroll run.
+                  </p>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between gap-4 mt-3">
+                <div class="rounded-4 p-3 border w-100">
+                  <div class="">
+                    <p class="fs-14">Owner</p>
+                    <span class="fs-16 fw-700 mt-1">Tunde Bello</span>
+                  </div>
+                </div>
+                <div class="rounded-4 p-3 border w-100">
+                  <div class="">
+                    <p class="fs-14">Treatment</p>
+                    <span class="fs-16 fw-700 mt-1">Reduce</span>
+                  </div>
+                </div>
+                <div class="rounded-4 p-3 border w-100">
+                  <div class="">
+                    <p class="fs-14">Appetite</p>
+                    <span class="fs-16 fw-700 mt-1">Low</span>
+                  </div>
+                </div>
+                <div class="rounded-4 p-3 border w-100">
+                  <div class="">
+                    <p class="fs-14">Status</p>
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
+                      style="background-color: #2271B633; color: #2271B6; height: fit-content"
+                      role="button">Open</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-4 border w-100 p-4 mt-4">
+              <div class="d-flex justify-content-between">
+                <div class="">
+                  <span class="fs-16 fw-700">Scoring Breakdown</span>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between gap-4 mt-3">
+                <div class="rounded-4 p-3 border w-100">
+                  <div class="">
+                    <p class="fs-14">Likelihood</p>
+                    <span class="fs-16 fw-700 mt-1">4</span>
+                  </div>
+                </div>
+                <div class="rounded-4 p-3 border w-100">
+                  <div class="">
+                    <p class="fs-14">Impact</p>
+                    <span class="fs-16 fw-700 mt-1">5</span>
+                  </div>
+                </div>
+                <div class="rounded-4 p-3 border w-100">
+                  <div class="">
+                    <p class="fs-14">Inherent Score</p>
+                    <div class="d-flex gap-2 align-items-center">
+                      <span class="fw-700">20</span>
+                      <span
+                        class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
+                        style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                        role="button">Critical</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="w-75 mt-5">
+                <div class="fs-14 mb-2">Control Effectiveness</div>
+                <div class="fs-16 mb-2 fw-700">70%</div>
+                <div class="progress" style="height: 10px;">
+                  <div
+                    class="progress-bar bg-primary-blue"
+                    style="width: 70%; "
+                    role="progressbar"
+                    aria-valuenow="70"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="d-flex justify-content-between rounded-4 p-3 border w-100 mt-4"
+                style="background-color: #E9FFE2; border: 1px solid #186D00"
+              >
+                <div class="">
+                  <div class="">
+                    <p class="fs-14">Residual Score</p>
+                    <span class="fs-16 fw-700">6</span>
+                  </div>
+                </div>
+                <span
+                  class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
+                  style="background-color: #FFFFF2; color: #969103; height: fit-content"
+                  role="button">Medium</span
+                >
+              </div>
+            </div>
+
+            <div class="rounded-4 p-3 border w-100 mt-4">
+              <div class="mt-4">
+                <ul class="nav nav-pills subscription_tab">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active"
+                      data-bs-toggle="pill"
+                      href="#lessons">Linked Controls (3)</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#quizzes"
+                      >Linked Audits (3)</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#findings"
+                      >Linked Findings (3)</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#actions"
+                      >Linked Actions (3)</a
+                    >
+                  </li>
+                </ul>
+
+                <div class="tab-content">
+                  <div class="tab-pane container active" id="lessons">
+                    <!-- Scrollable Table -->
+                    <div
+                      class="table-responsive mt-5"
+                      style="max-height: 600px; overflow: auto;"
+                    >
+                      <table class="table table-bordered table-hover">
+                        <!---- Table head --->
+                        <thead
+                          class="bg-grey text-dark px-4 fw-700 fs-14 text-nowrap"
+                        >
+                          <tr>
+                            <th
+                              class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                              >S/N</th
+                            >
+                            <th
+                              class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                              >Code</th
+                            >
+                            <th
+                              class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
+                              >Name</th
+                            >
+
+                            <th
+                              class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                              >Type</th
+                            >
+
+                            <th
+                              class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                              >Effectiveness</th
+                            >
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!-- Table body and Row -->
+                          <style>
+                            .column {
+                              min-width: 180px;
+                            }
+                          </style>
+                          {
+                            [
+                              {
+                                client_name: "	Dual approval for salary changes",
+                                client_email: "CTRL-PAY-01",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Effective",
+                                pay_terms: "Bank Transfer",
+                                status: "Open",
+                                out_bal: "Preventive",
+                              },
+                              {
+                                client_name: "	Dual approval for salary changes",
+                                client_email: "CTRL-PAY-01",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Effective",
+                                pay_terms: "Cash",
+                                status: "Open",
+                                out_bal: "Preventive",
+                              },
+                              {
+                                client_name: "	Dual approval for salary changes",
+                                client_email: "CTRL-PAY-01",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Effective",
+                                pay_terms: "POS",
+                                status: "On Hold",
+                                out_bal: "Preventive",
+                              },
+                              {
+                                client_name: "	Dual approval for salary changes",
+                                client_email: "CTRL-PAY-01",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Effective",
+                                pay_terms: "Bank Transfer",
+                                status: "On Hold",
+                                out_bal: "Preventive",
+                              },
+                            ].map((ele, index) => (
+                              <tr class="fs-88">
+                                <td class="fs-14 text-center">{index + 1}</td>
+                                <td class="fs-14 text-nowrap px-3 text-left column">
+                                  {ele.client_email}
+                                </td>
+                                <td class="fs-14 px-3 text-left column text-nowrap">
+                                  {ele.client_name}
+                                </td>
+
+                                <td class="fs-14 px-3 text-left column">
+                                  {ele.out_bal}
+                                </td>
+                                <td class="fs-14 px-3 text-left column">
+                                  {ele.currency}
+                                </td>
+                              </tr>
+                            ))
+                          }
+
+                          <!-- Repeat for more employees -->
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <!---- End of table --->
+                  </div>
+                  <div class="tab-pane container" id="quizzes">
+                    <!-- Scrollable Table -->
+                    <div
+                      class="table-responsive mt-5"
+                      style="max-height: 600px; overflow: auto;"
+                    >
+                      <table class="table table-bordered table-hover">
+                        <!---- Table head --->
+                        <thead
+                          class="bg-grey text-dark px-4 fw-700 fs-14 text-nowrap"
+                        >
+                          <tr>
+                            <th
+                              class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                              >S/N</th
+                            >
+                            <th
+                              class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                              >ID</th
+                            >
+                            <th
+                              class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
+                              >Name</th
+                            >
+
+                            <th
+                              class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                              >Quarter</th
+                            >
+
+                            <th
+                              class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                              >Status</th
+                            >
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!-- Table body and Row -->
+                          <style>
+                            .column {
+                              min-width: 180px;
+                            }
+                          </style>
+                          {
+                            [
+                              {
+                                client_name: "Payroll Cycle Audit",
+                                client_email: "AP-2025-Q1-01",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Completed",
+                                pay_terms: "Bank Transfer",
+                                status: "Open",
+                                out_bal: "Q1",
+                              },
+                              {
+                                client_name: "Payroll Cycle Audit",
+                                client_email: "AP-2025-Q1-01",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Completed",
+                                pay_terms: "Cash",
+                                status: "Open",
+                                out_bal: "Q1",
+                              },
+                              {
+                                client_name: "Payroll Cycle Audit",
+                                client_email: "AP-2025-Q1-01",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Completed",
+                                pay_terms: "POS",
+                                status: "On Hold",
+                                out_bal: "Q1",
+                              },
+                              {
+                                client_name: "Payroll Cycle Audit",
+                                client_email: "AP-2025-Q1-01",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Completed",
+                                pay_terms: "Bank Transfer",
+                                status: "On Hold",
+                                out_bal: "Q1",
+                              },
+                            ].map((ele, index) => (
+                              <tr class="fs-88">
+                                <td class="fs-14 text-center">{index + 1}</td>
+                                <td class="fs-14 text-nowrap px-3 text-left column">
+                                  {ele.client_email}
+                                </td>
+                                <td class="fs-14 px-3 text-left column text-nowrap">
+                                  {ele.client_name}
+                                </td>
+
+                                <td class="fs-14 px-3 text-left column">
+                                  {ele.out_bal}
+                                </td>
+                                <td class="fs-14 px-3 text-left column">
+                                  {ele.currency}
+                                </td>
+                              </tr>
+                            ))
+                          }
+
+                          <!-- Repeat for more employees -->
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <!---- End of table --->
+                  </div>
+                  <div class="tab-pane container" id="findings">
+                    <!-- Scrollable Table -->
+                    <div
+                      class="table-responsive mt-5"
+                      style="max-height: 600px; overflow: auto;"
+                    >
+                      <table class="table table-bordered table-hover">
+                        <!---- Table head --->
+                        <thead
+                          class="bg-grey text-dark px-4 fw-700 fs-14 text-nowrap"
+                        >
+                          <tr>
+                            <th
+                              class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                              >S/N</th
+                            >
+                            <th
+                              class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                              >ID</th
+                            >
+                            <th
+                              class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
+                              >Title</th
+                            >
+
+                            <th
+                              class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                              >Severity</th
+                            >
+
+                            <th
+                              class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                              >Status</th
+                            >
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!-- Table body and Row -->
+                          <style>
+                            .column {
+                              min-width: 180px;
+                            }
+                          </style>
+                          {
+                            [
+                              {
+                                client_name:
+                                  "Payroll change without dual approval",
+                                client_email: "AP-2025-Q1-01",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Closed",
+                                pay_terms: "Bank Transfer",
+                                status: "Open",
+                                out_bal: "Q1",
+                              },
+                              {
+                                client_name:
+                                  "Payroll change without dual approval",
+                                client_email: "AP-2025-Q1-01",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Closed",
+                                pay_terms: "Cash",
+                                status: "Open",
+                                out_bal: "Q1",
+                              },
+                              {
+                                client_name:
+                                  "Payroll change without dual approval",
+                                client_email: "AP-2025-Q1-01",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Closed",
+                                pay_terms: "POS",
+                                status: "On Hold",
+                                out_bal: "Q1",
+                              },
+                              {
+                                client_name:
+                                  "Payroll change without dual approval",
+                                client_email: "AP-2025-Q1-01",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Closed",
+                                pay_terms: "Bank Transfer",
+                                status: "On Hold",
+                                out_bal: "Q1",
+                              },
+                            ].map((ele, index) => (
+                              <tr class="fs-88">
+                                <td class="fs-14 text-center">{index + 1}</td>
+                                <td class="fs-14 text-nowrap px-3 text-left column">
+                                  {ele.client_email}
+                                </td>
+                                <td class="fs-14 px-3 text-left column text-nowrap">
+                                  {ele.client_name}
+                                </td>
+
+                                <td class="fs-14 px-3 text-left column">
+                                  <span
+                                    class="fw-700 rounded-3 p-2 py-1 fs-12"
+                                    style="background-color: #FFF5F5; color: #FD0000; border: 1px solid red; height: fit-content"
+                                    role="button"
+                                  >
+                                    High
+                                  </span>
+                                </td>
+                                <td class="fs-14 px-3 text-left column">
+                                  {ele.currency}
+                                </td>
+                              </tr>
+                            ))
+                          }
+
+                          <!-- Repeat for more employees -->
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <!---- End of table --->
+                  </div>
+                  <div class="tab-pane container" id="actions">
+                    <!-- Scrollable Table -->
+                    <div
+                      class="table-responsive mt-5"
+                      style="max-height: 600px; overflow: auto;"
+                    >
+                      <table class="table table-bordered table-hover">
+                        <!---- Table head --->
+                        <thead
+                          class="bg-grey text-dark px-4 fw-700 fs-14 text-nowrap"
+                        >
+                          <tr>
+                            <th
+                              class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                              >S/N</th
+                            >
+                            <th
+                              class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                              >ID</th
+                            >
+                            <th
+                              class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
+                              >Title</th
+                            >
+
+                            <th
+                              class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                              >Owner</th
+                            >
+
+                            <th
+                              class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                              >Status</th
+                            >
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!-- Table body and Row -->
+                          <style>
+                            .column {
+                              min-width: 180px;
+                            }
+                          </style>
+                          {
+                            [
+                              {
+                                client_name:
+                                  "Remove payroll emergency override",
+                                client_email: "CA-004",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Closed",
+                                pay_terms: "Bank Transfer",
+                                status: "Open",
+                                out_bal: "Tunde Bello",
+                              },
+                              {
+                                client_name:
+                                  "Remove payroll emergency override",
+                                client_email: "CA-004",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Closed",
+                                pay_terms: "Cash",
+                                status: "Open",
+                                out_bal: "Tunde Bello",
+                              },
+                              {
+                                client_name:
+                                  "Remove payroll emergency override",
+                                client_email: "CA-004",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Closed",
+                                pay_terms: "POS",
+                                status: "On Hold",
+                                out_bal: "Tunde Bello",
+                              },
+                              {
+                                client_name:
+                                  "Remove payroll emergency override",
+                                client_email: "CA-004",
+
+                                phone_no: "23rd Oct, 2025",
+                                currency: "Closed",
+                                pay_terms: "Bank Transfer",
+                                status: "On Hold",
+                                out_bal: "Tunde Bello",
+                              },
+                            ].map((ele, index) => (
+                              <tr class="fs-88">
+                                <td class="fs-14 text-center">{index + 1}</td>
+                                <td class="fs-14 text-nowrap px-3 text-left column">
+                                  {ele.client_email}
+                                </td>
+                                <td class="fs-14 px-3 text-left column text-nowrap">
+                                  {ele.client_name}
+                                </td>
+
+                                <td class="fs-14 px-3 text-left column">
+                                  {ele.out_bal}
+                                </td>
+                                <td class="fs-14 px-3 text-left column">
+                                  {ele.currency}
+                                </td>
+                              </tr>
+                            ))
+                          }
+
+                          <!-- Repeat for more employees -->
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <!---- End of table --->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-4 border w-100 p-4 mt-4">
+              <div class="d-flex justify-content-between">
+                <div class="">
+                  <span class="fs-16 fw-700">Treatment Plan</span>
+                  <p class="fs-14 mt-2">
+                    Strengthen detective controls; implement
+                  </p>
+                  <p class="fs-14 mt-2">
+                    Automated monitoring; quarterly re-test.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ModalAddNew
+      modalId="myModal"
+      title={"Assign Roles"}
+      inputPlace="Assign Roles"
+    />
+    <UnauthorisedModal
+      modalId="unauthorisedModal"
+      title={"New Control"}
+      inputPlace="New Control"
+    />
+  </main>
+
+  <!-- Main content ends here -->
+
+  <script></script>
+</Layout>

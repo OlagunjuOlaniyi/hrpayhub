@@ -25,7 +25,1127 @@ import { CloseCircleIcon } from "../Icons";
 
       <!-- Modal body -->
       {
-        inputPlace === "Submit RTI to HMRC" ? (
+        inputPlace === "Assign Roles" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <select
+                id="user"
+                name="user"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">user 1</option>
+                <option value="2">user 1</option>
+                <option value="3">user 1</option>
+              </select>
+              <label for="user">
+                Select User &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="permission_profile"
+                name="permission_profile"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Permission Profile 1</option>
+                <option value="2">Permission Profile 1</option>
+                <option value="3">Permission Profile 1</option>
+              </select>
+              <label for="permission_profile">
+                Select Permission Profile &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <select
+                id="submodule"
+                name="submodule"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Submodule Access 1</option>
+                <option value="2">Submodule Access 1</option>
+                <option value="3">Submodule Access 1</option>
+              </select>
+              <label for="submodule">
+                Submodule Access &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "New Finding" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="title">
+                Finding Title &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="comment" />
+              <label for="comment">
+                Finding Description &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="linked"
+                name="linked"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">linked 1</option>
+                <option value="2">linked 1</option>
+                <option value="3">linked 1</option>
+              </select>
+              <label for="linked">
+                Linked Audit &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="linked_risk"
+                name="linked_risk"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Linked Risk 1</option>
+                <option value="2">Linked Risk 1</option>
+                <option value="3">Linked Risk 1</option>
+              </select>
+              <label for="linked_risk">
+                Linked Risk &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <select
+                id="linked_control"
+                name="linked_control"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">linked control 1</option>
+                <option value="2">linked control 1</option>
+                <option value="3">linked control 1</option>
+              </select>
+              <label for="linked_control">
+                Linked Control &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="security"
+                name="security"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Security 1</option>
+                <option value="2">Security 1</option>
+                <option value="3">Security 1</option>
+              </select>
+              <label for="security">
+                Severity Level &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="cause" />
+              <label for="cause">
+                Root Cause &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="fin_impact"
+                name="fin_impact"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="fin_impact">
+                Financial Impact &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="op_impact"
+                name="op_impact"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="op_impact">
+                Operational Impact &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="com_impact"
+                name="com_impact"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="com_impact">
+                Compliance Impact &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="recommendation" />
+              <label for="recommendation">
+                Recommendation &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="responsible"
+                name="responsible"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Person 1</option>
+                <option value="2">Person 1</option>
+                <option value="3">Person 1</option>
+              </select>
+              <label for="responsible">
+                Responsible Person &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="date"
+                id="due_date"
+                name="due_date"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="due_date">Due Date </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="repeat"
+                name="repeat"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">finding 1</option>
+                <option value="2">finding 1</option>
+                <option value="3">finding 1</option>
+              </select>
+              <label for="repeat">
+                Repeat Finding Indicator &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "New Control" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="title">
+                Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="comment" />
+              <label for="comment">
+                Description &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="owner"
+                name="owner"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Owner 1</option>
+                <option value="2">Owner 1</option>
+                <option value="3">Owner 1</option>
+              </select>
+              <label for="owner">
+                Owner &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="buz"
+                name="buz"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Business Unit 1</option>
+                <option value="2">Business Unit 1</option>
+                <option value="3">Business Unit 1</option>
+              </select>
+              <label for="buz">
+                Business Unit &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <select
+                id="department"
+                name="department"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">department 1</option>
+                <option value="2">department 1</option>
+                <option value="3">department 1</option>
+              </select>
+              <label for="department">
+                Department &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="linked_risk"
+                name="linked_risk"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Risk 1</option>
+                <option value="2">Risk 1</option>
+                <option value="3">Risk 1</option>
+              </select>
+              <label for="linked_risk">
+                Linked Risk &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="control"
+                name="control"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">control 1</option>
+                <option value="2">control 1</option>
+                <option value="3">control 1</option>
+              </select>
+              <label for="control">
+                Control Type &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="control_nature"
+                name="control_nature"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">control 1</option>
+                <option value="2">control 1</option>
+                <option value="3">control 1</option>
+              </select>
+              <label for="control_nature">
+                Control Nature &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="control_freq"
+                name="control_freq"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">control 1</option>
+                <option value="2">control 1</option>
+                <option value="3">control 1</option>
+              </select>
+              <label for="control_freq">
+                Control Frequency &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "Create Risk" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="title">
+                Risk Title &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-input" rows="2" id="comment" />
+              <label for="comment">
+                Description &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="risk_cat"
+                name="risk_cat"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Risk 1</option>
+                <option value="2">Risk 1</option>
+                <option value="3">Risk 1</option>
+              </select>
+              <label for="risk_cat">
+                Risk Category &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="likelihood"
+                name="likelihood"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="likelihood">
+                Likelihood (1-5) &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="impact"
+                name="impact"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="impact">
+                Impact (1-5) &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="treatment"
+                name="treatment"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">treatment 1</option>
+                <option value="2">treatment 1</option>
+                <option value="3">treatment 1</option>
+              </select>
+              <label for="treatment">
+                Treatment &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="risk_cat"
+                name="risk_cat"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Risk 1</option>
+                <option value="2">Risk 1</option>
+                <option value="3">Risk 1</option>
+              </select>
+              <label for="risk_cat">
+                Risk Category &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="audit"
+                name="audit"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Audit 1</option>
+                <option value="2">Audit 1</option>
+                <option value="3">Audit 1</option>
+              </select>
+              <label for="audit">
+                Audit Frequency &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "Add Audit Universe Item" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="provider_name"
+                name="provider_name"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="provider_name">
+                Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="buz_unit"
+                name="buz_unit"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Unit 1</option>
+                <option value="2">Unit 1</option>
+                <option value="3">Unit 1</option>
+              </select>
+              <label for="buz_unit">
+                Business Unit &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="branch"
+                name="branch"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Branch 1</option>
+                <option value="2">Branch 1</option>
+                <option value="3">Branch 1</option>
+              </select>
+              <label for="branch">
+                Branch &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="department"
+                name="department"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Department 1</option>
+                <option value="2">Department 1</option>
+                <option value="3">Department 1</option>
+              </select>
+              <label for="department">
+                Department &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="process_area"
+                name="process_area"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="process_area">
+                Process Area &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="system"
+                name="system"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="system">
+                System / Application &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="process_owner"
+                name="process_owner"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">process owner</option>
+                <option value="2">process owner</option>
+                <option value="3">process owner</option>
+              </select>
+              <label for="process_owner">
+                Process Owner &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="risk_cat"
+                name="risk_cat"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Risk Category</option>
+                <option value="2">Risk Category</option>
+                <option value="3">Risk Category</option>
+              </select>
+              <label for="risk_cat">
+                Risk Category &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="audit_freq"
+                name="audit_freq"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Audit Frequency</option>
+                <option value="2">Audit Frequency</option>
+                <option value="3">Audit Frequency</option>
+              </select>
+              <label for="audit_freq">
+                Audit Frequency &nbsp;<span>*</span>
+              </label>
+            </div>
+          </div>
+        ) : inputPlace === "Plan Audit" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="audit"
+                name="audit"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="audit">
+                Audit &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="universe"
+                name="universe"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Universe 1</option>
+                <option value="2">Universe 1</option>
+                <option value="3">Universe 1</option>
+              </select>
+              <label for="universe">
+                Linked Audit Universe &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="linked-risk"
+                name="linked-risk"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Linked Risk 1</option>
+                <option value="2">Linked Risk 1</option>
+                <option value="3">Linked Risk 1</option>
+              </select>
+              <label for="linked-risk">
+                Linked Risk &nbsp;<span>*</span>
+              </label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="text"
+                id="audit_priority"
+                name="audit_priority"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="audit_priority">
+                Audit Priority &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="planned"
+                name="planned"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="planned">
+                Planned Quarter &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="estimated"
+                name="estimated"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="estimated">
+                Estimated Audit Hours &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="assigned"
+                name="assigned"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Assigned 1</option>
+                <option value="2">Assigned 1</option>
+                <option value="3">Assigned 1</option>
+              </select>
+              <label for="assigned">
+                Assigned Auditor &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="audit_manager"
+                name="audit_manager"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">John Doe</option>
+                <option value="2">John Doe</option>
+                <option value="3">John Doe</option>
+              </select>
+              <label for="audit_manager">
+                Audit Manager &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="d-flex justify-content-between gap-3 mt-2">
+              <div class="form-floating">
+                <input
+                  type="date"
+                  id="start_date"
+                  name="start_date"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="start_date">Start Date </label>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="date"
+                  id="end_date"
+                  name="end_date"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="end_date">End Date </label>
+              </div>
+            </div>
+          </div>
+        ) : inputPlace === "Checklist Items" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="rounded p-3 bg-light">
+              <div class="d-flex justify-content-between">
+                <span class="fs-14">Checklist 1</span>
+                <button
+                  class="border-0"
+                  style="background-color: inherit;"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteModal"
+                >
+                  <img src="images/png/icons/colored/delete.svg" alt="" />
+                </button>
+              </div>
+
+              <div class="mt-1">
+                <div class="mt-3" style="color: #989898;">
+                  <label class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100 mt-2">
+                    Are all salary changes approved by HR Head?
+                  </label>
+                  <select
+                    id="cars"
+                    name="cars"
+                    class="w-100 mt-2 p-2 rounded-2 fs-12"
+                    style="border: 1px solid #C1C1C1; color: #4f4c4c"
+                  >
+                    <option value="volvo">Yes</option>
+                    <option value="saab">No</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="rounded p-3 bg-light">
+              <div class="d-flex justify-content-between">
+                <span class="fs-14">Checklist 2</span>
+                <button
+                  class="border-0"
+                  style="background-color: inherit;"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteModal"
+                >
+                  <img src="images/png/icons/colored/delete.svg" alt="" />
+                </button>
+              </div>
+
+              <div class="mt-1">
+                <div class="mt-3" style="color: #989898;">
+                  <label class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100 mt-2">
+                    Is payroll register reconciled to GL?
+                  </label>
+                  <select
+                    id="cars"
+                    name="cars"
+                    class="w-100 mt-2 p-2 rounded-2 fs-12"
+                    style="border: 1px solid #C1C1C1; color: #4f4c4c"
+                  >
+                    <option value="volvo">Pass</option>
+                    <option value="saab">Fail</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="rounded p-3 bg-light">
+              <div class="d-flex justify-content-between">
+                <span class="fs-14">Checklist 3</span>
+                <button
+                  class="border-0"
+                  style="background-color: inherit;"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteModal"
+                >
+                  <img src="images/png/icons/colored/delete.svg" alt="" />
+                </button>
+              </div>
+
+              <div class="mt-1">
+                <div class="mt-3" style="color: #989898;">
+                  <label class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100 mt-2">
+                    Is payroll register reconciled to GL?
+                  </label>
+                  <select
+                    id="cars"
+                    name="cars"
+                    class="w-100 mt-2 p-2 rounded-2 fs-12"
+                    style="border: 1px solid #C1C1C1; color: #4f4c4c"
+                  >
+                    <option value="volvo">Pass</option>
+                    <option value="saab">Fail</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : inputPlace === "Plan Audit 2" ? (
+          <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
+            <div class="form-floating">
+              <input
+                type="text"
+                id="audit_name"
+                name="audit_name"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="audit_name">
+                Checklist Name &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="audit type"
+                name="audit type"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">audit type 1</option>
+                <option value="2">audit type 1</option>
+                <option value="3">audit type 1</option>
+              </select>
+              <label for="audit type">
+                Audit Type &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="linked-risk"
+                name="linked-risk"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Linked Risk 1</option>
+                <option value="2">Linked Risk 1</option>
+                <option value="3">Linked Risk 1</option>
+              </select>
+              <label for="linked-risk">
+                Linked Risk Category &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="linked-control"
+                name="linked-control"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Linked Control 1</option>
+                <option value="2">Linked Control 1</option>
+                <option value="3">Linked Control 1</option>
+              </select>
+              <label for="linked-control">
+                Linked Control &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="linked_control"
+                name="linked_control"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="linked_control">
+                Linked Control &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="test_procedure"
+                name="test_procedure"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="test_procedure">
+                Test Procedure &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="response"
+                name="response"
+                class="form-select_custom fs-14"
+                required
+              >
+                <option value="" selected>
+                  Select
+                </option>
+                <option value="1">Response 1</option>
+                <option value="2">Response 1</option>
+                <option value="3">Response 1</option>
+              </select>
+              <label for="response">
+                Response Type &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="mandatory_indicator"
+                name="mandatory_indicator"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="mandatory_indicator">
+                Mandatory Indicator &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="evidence_inddicator"
+                name="evidence_inddicator"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="evidence_inddicator">
+                Evidence Required Indicator &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                id="risk_rating"
+                name="risk_rating"
+                class="form-input"
+                placeholder=""
+              />
+              <label for="risk_rating">
+                Risk Rating Trigger &nbsp;<span>*</span>
+              </label>
+            </div>
+            <div class="fw-700 fs-14">Checklist Items</div>
+            <div class="rounded p-3 bg-light">
+              <div class="d-flex justify-content-between">
+                <span class="fs-14">Checklist 1</span>
+                <button
+                  class="border-0"
+                  style="background-color: inherit;"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteModal"
+                >
+                  <img src="images/png/icons/colored/delete.svg" alt="" />
+                </button>
+              </div>
+
+              <div class="mt-1">
+                <div class="mt-3" style="color: #989898;">
+                  <label class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100 mt-2">
+                    Are all salary changes approved by HR Head?
+                  </label>
+                  <select
+                    id="cars"
+                    name="cars"
+                    class="w-100 mt-2 p-2 rounded-2 fs-12"
+                    style="border: 1px solid #C1C1C1; color: #4f4c4c"
+                  >
+                    <option value="volvo">Yes</option>
+                    <option value="saab">No</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="rounded p-3 bg-light">
+              <div class="d-flex justify-content-between">
+                <span class="fs-14">Checklist 2</span>
+                <button
+                  class="border-0"
+                  style="background-color: inherit;"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteModal"
+                >
+                  <img src="images/png/icons/colored/delete.svg" alt="" />
+                </button>
+              </div>
+
+              <div class="mt-1">
+                <div class="mt-3" style="color: #989898;">
+                  <label class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100 mt-2">
+                    Is payroll register reconciled to GL?
+                  </label>
+                  <select
+                    id="cars"
+                    name="cars"
+                    class="w-100 mt-2 p-2 rounded-2 fs-12"
+                    style="border: 1px solid #C1C1C1; color: #4f4c4c"
+                  >
+                    <option value="volvo">Pass</option>
+                    <option value="saab">Fail</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-2">
+              <button
+                class="white_button fs-14 p-0 d-flex gap-2 align-items-center"
+                style="border: 0px !important; background-color: inherit !important;"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal"
+                data-title="Add New"
+                data-emp-type="---------"
+              >
+                <img src="images/png/icons/add-plus.svg" alt="add new" />
+                <span class="text-primary-blue">Checklist Item </span>
+              </button>
+            </div>
+          </div>
+        ) : inputPlace === "Submit RTI to HMRC" ? (
           <div class="modal-body d-flex flex-column gap-4 py-5 border-0">
             <div class="form-floating">
               <select

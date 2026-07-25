@@ -1,0 +1,342 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PaymentPostModal from "../components/ui/PaymentPostModal.astro";
+import ApplicantTrackingModal from "../components/ui/ApplicantTrackingModal.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import DeleteModal from "../components/ui/DeleteModal.astro";
+import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
+---
+
+<Layout title="HRPayHub :: Audit Execution">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/audit-risk-control-compliance"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/audit-risk-control-compliance"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Audit, Risk, Control & Compliance</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Audit Execution
+            </span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-5">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-5 vstack gap-3 px-lg-5">
+          {/* Page Title */}
+          <div
+            class="d-flex justify-content-between gap-3 mx-auto"
+            style="width: 50%;"
+          >
+            <div>
+              <div class="fw-700 fs-22">Audit Execution</div>
+              <div class="fs-14">Perform audits and record observations</div>
+            </div>
+          </div>
+          {/* Page Title */}
+
+          <div
+            class="py-3 px-4 border rounded-4 mt-3 mx-auto"
+            style="width: 50%;"
+          >
+            <div class="d-flex flex-column gap-5 p-4 align-items-start">
+              <div class="d-flex flex-column gap-4 w-100">
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex gap-2 align-items-center">
+                    <span
+                      class="fw-600 border-2 p-2"
+                      style="background-color: #F4FAFF">SEC-101</span
+                    >
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <h1 class="fs-22 fw-700">Payroll Cycle Checklist</h1>
+                    <div class="fs-14">Operational · Payroll</div>
+                  </div>
+                </div>
+
+                <div class="w-100">
+                  <div class="fs-14 mb-2 fw-700">Progress 0/5</div>
+                  <div class="progress" style="height: 10px;">
+                    <div
+                      class="progress-bar bg-primary-blue"
+                      style="width: 40%; "
+                      role="progressbar"
+                      aria-valuenow="40"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded p-3 mt-2 bg-light w-100">
+                <div class="d-flex justify-content-between">
+                  <span class="fs-14">Question 1</span>
+                </div>
+
+                <div class="mt-2">
+                  <div class="fs-12 my-2" style="color: #989898;">Yes/No</div>
+                  <div class="fw-700 fs-16 my-2">
+                    Are all salary changes approved by HR Head?
+                  </div>
+                  <div class="mt-3 d-flex gap-3" style="color: #989898;">
+                    <div class="d-flex gap-2 w-50">
+                      <div
+                        class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                      >
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          id="Q1"
+                          name="starter"
+                          value="net_salary"
+                          checked
+                        />
+                        <label
+                          class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                          >Yes
+                        </label>
+                      </div>
+                    </div>
+                    <div class="d-flex gap-2 w-50">
+                      <div
+                        class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                      >
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          id="Q2"
+                          name="starter"
+                          value="net_salary"
+                        />
+                        <label
+                          class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                          >No
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded p-3 mt-2 bg-light w-100">
+                <div class="d-flex justify-content-between">
+                  <span class="fs-14">Question 2</span>
+                </div>
+
+                <div class="mt-2">
+                  <div class="fs-12 my-2" style="color: #989898;">
+                    Pass/Fail
+                  </div>
+                  <div class="fw-700 fs-16 my-2">
+                    Is payroll register reconciled to GL?
+                  </div>
+                  <div class="mt-3 d-flex gap-3" style="color: #989898;">
+                    <div class="d-flex gap-2 w-50">
+                      <div
+                        class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                      >
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          id="Q1"
+                          name="question-2"
+                          value="net_salary"
+                          checked
+                        />
+                        <label
+                          class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                          >Pass
+                        </label>
+                      </div>
+                    </div>
+                    <div class="d-flex gap-2 w-50">
+                      <div
+                        class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                      >
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          id="Q2"
+                          name="question-2"
+                          value="net_salary"
+                        />
+                        <label
+                          class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                          >Fail
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded p-3 mt-2 bg-light w-100">
+                <div class="d-flex justify-content-between">
+                  <span class="fs-14">Question 3</span>
+                </div>
+
+                <div class="mt-2">
+                  <div class="fs-12 my-2" style="color: #989898;">Numeric</div>
+                  <div class="fw-700 fs-16 my-2">
+                    Sample of 25 transactions tested without exception?
+                  </div>
+                  <div class="mt-3 d-flex gap-3" style="color: #989898;">
+                    <label
+                      class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                      >----
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="rounded p-3 mt-2 bg-light w-100">
+                <div class="d-flex justify-content-between">
+                  <span class="fs-14">Question 4</span>
+                </div>
+
+                <div class="mt-2">
+                  <div class="fs-12 my-2" style="color: #989898;">
+                    File Upload
+                  </div>
+                  <div class="fw-700 fs-16 my-2">
+                    Upload payroll register PDF
+                  </div>
+                  <form class="vstack gap-2 mt-3" id="generate_payslip_form">
+                    <div
+                      class="upload_bulk_status p-3 d-flex flex-column align-items-center justify-content-center"
+                    >
+                      <img
+                        src="images/png/icons/cloud_upload.svg"
+                        width="35px"
+                        height="35px"
+                        alt="cloud upload icon"
+                      />
+                      <div class="fs-14 fw-700" style="color: #6B7280">
+                        Click to upload <span class="fw-400"
+                          >or drag and drop</span
+                        >
+                      </div>
+                      <div class="fs-12 fw-700" style="color: #6B7280">
+                        PDF or DOCX (Max File Size: 2MB)
+                      </div>
+                      <button
+                        type="button"
+                        id="fileInputBtn"
+                        class="delon-primary-btn d-flex gap-2 mt-2 bg-primary-blue border-0 text-white fs-14"
+                      >
+                        <img
+                          src="images/png/icons/search.svg"
+                          alt="arrow-down"
+                        />
+                        <span>Browse Files</span>
+                      </button>
+                      <div
+                        id="fileInputDetails"
+                        class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 mt-2 rounded-3 fs-14 d-flex gap-1 align-items-center"
+                        role="button"
+                      >
+                        <span class="flex-fill text-truncate"
+                          >gvfyguytctrcjrct.webp</span
+                        >
+                        <span class="flex-fill">
+                          <img
+                            src="images/png/icons/close-circle-6.svg"
+                            width="15"
+                            height="15"
+                            alt="close_icon"
+                          />
+                        </span>
+                      </div>
+                      <input type="file" class="d-none" id="fileInput" />
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- submit -->
+              <div class="d-flex justify-content-start bulk_input">
+                <button
+                  type="button"
+                  id="upload"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                >
+                  <span>Submit</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ModalAddNew
+      modalId="myModal"
+      title={"Employer Onboarding"}
+      inputPlace="Employer Onboarding"
+    />
+  </main>
+</Layout>
+
+<!-- Main content ends here -->
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    $("#fileInputBtn").click((evt) => {
+      $("#fileInput").click();
+    });
+
+    document
+      .getElementById("fileInput")
+      .addEventListener("change", function () {
+        if (fileInput.files.length > 0) {
+          const fileName = fileInput.files[0].name;
+          $("#fileInputDetails span:first-child").text(fileName);
+          $("#fileInputDetails").removeClass("d-none");
+          $("#fileInputBtn").addClass("d-none");
+          console.log("Selected file name:", fileName);
+        }
+      });
+    $("#fileInputDetails span:nth-child(2)").click(() => {
+      $("#fileInput").val("");
+      $("#fileInputDetails span:first-child").text("");
+      $("#fileInputDetails").addClass("d-none");
+      $("#fileInputBtn").removeClass("d-none");
+    });
+  });
+</script>

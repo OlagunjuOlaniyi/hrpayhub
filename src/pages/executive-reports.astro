@@ -1,0 +1,457 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: Executive Reports">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/audit-risk-control-compliance"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/audit-risk-control-compliance"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Audit, Risk, Control & Compliance</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Executive Reports</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-4">
+          {/* Page Content Box */}
+          <div class="p-lg-2">
+            <div class="vstack px-5" style="gap: 2.3rem">
+              <div class="d-flex justify-content-between gap-3">
+                <div>
+                  <div class="fw-700 fs-22">Executive Reports</div>
+                  <div class="fs-14">
+                    View board-level risk and audit summaries
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Plan Completion</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                      role="button">17%</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Open High-Risk Findings</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">2</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Overdue Actions</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">2</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Repeat Findings</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #2271B633; color: #2271B6; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Failed Controls</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Compliance Gaps</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Critical Risks</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Avg Residual</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #2271B633; color: #2271B6; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-column gap-2 mt-5">
+                <div class="d-flex flex-column gap-5 border rounded-4 p-5">
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h3 class="fs-22 fw-700">
+                        Risk Distribution by Category
+                      </h3>
+                    </div>
+                  </div>
+
+                  <!-- chart area -->
+                  <div class="d-flex gap-3 align-items-center">
+                    <!-- Custom Legend -->
+                    <style>
+                      .revenue-legend {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 12px;
+                      }
+
+                      .legend-row {
+                        display: grid;
+                        grid-template-columns: 36px 1fr auto;
+                        align-items: center;
+                        column-gap: 12px;
+                      }
+
+                      .legend-row .dot {
+                        width: 22px;
+                        height: 22px;
+                        border-radius: 50%;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+                      }
+
+                      .legend-row .label {
+                        font-weight: 600;
+                      }
+
+                      .legend-row .value {
+                        font-weight: 700;
+                      }
+                    </style>
+                    <div class="revenue-legend" style="width: 25%;">
+                      <div class="legend-row">
+                        <span class="dot" style="background:#FDBA8C"></span>
+                        <span class="label">Payroll</span>
+                        <span class="value">2</span>
+                      </div>
+
+                      <div class="legend-row">
+                        <span class="dot" style="background:#2271B6"></span>
+                        <span class="label">Cybersecurity</span>
+                        <span class="value">2</span>
+                      </div>
+
+                      <div class="legend-row">
+                        <span class="dot" style="background:#18C1C8"></span>
+                        <span class="label">Compliance</span>
+                        <span class="value">1</span>
+                      </div>
+                      <div class="legend-row">
+                        <span class="dot" style="background:#18C1C8"></span>
+                        <span class="label">Financial</span>
+                        <span class="value">1</span>
+                      </div>
+                      <div class="legend-row">
+                        <span class="dot" style="background:#18C1C8"></span>
+                        <span class="label">Vendor</span>
+                        <span class="value">1</span>
+                      </div>
+                      <div class="legend-row">
+                        <span class="dot" style="background:#18C1C8"></span>
+                        <span class="label">HR</span>
+                        <span class="value">2</span>
+                      </div>
+                      <div class="legend-row">
+                        <span class="dot" style="background:#18C1C8"></span>
+                        <span class="label">Fraud</span>
+                        <span class="value">1</span>
+                      </div>
+                      <div class="legend-row">
+                        <span class="dot" style="background:#18C1C8"></span>
+                        <span class="label">Regulatory</span>
+                        <span class="value">2</span>
+                      </div>
+                      <div class="legend-row">
+                        <span class="dot" style="background:#18C1C8"></span>
+                        <span class="label">Operational</span>
+                        <span class="value">1</span>
+                      </div>
+                      <div class="legend-row">
+                        <span class="dot" style="background:#18C1C8"></span>
+                        <span class="label">Reputational</span>
+                        <span class="value">2</span>
+                      </div>
+                    </div>
+                    <div style="height:300px;" class="mx-auto">
+                      <canvas id="pieChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-column gap-4 mt-5">
+                <div class="d-flex flex-column gap-5 border rounded-4 p-5">
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h3 class="fs-22 fw-700">
+                        Risk Distribution by Business Unit
+                      </h3>
+                    </div>
+                  </div>
+
+                  <!-- chart area -->
+
+                  <div style="height:400px">
+                    <canvas id="financialChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Main content ends here -->
+    </section>
+
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {
+        const ctx = document.getElementById("financialChart");
+        if (!ctx) return;
+
+        new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: [
+              "Engineering",
+              "Marketing",
+              "Sales",
+              "HR",
+              "Customer Experience",
+            ],
+            datasets: [
+              {
+                label: "Department",
+                data: [2, 3, 1.5, 1, 2.5],
+                backgroundColor: "#2271B6",
+                borderRadius: 8,
+                barThickness: 130,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
+            scales: {
+              x: {
+                ticks: {
+                  font: { size: 14 },
+                },
+                grid: {
+                  display: false,
+                },
+              },
+              y: {
+                min: 0,
+                max: 3,
+                ticks: {
+                  stepSize: 0.5,
+                  font: { size: 14 },
+                  callback: (value) => `${value / 1}`,
+                },
+                grid: {
+                  color: "#E5E7EB",
+                },
+              },
+            },
+
+            plugins: {
+              legend: {
+                position: "bottom",
+                align: "start",
+              },
+              tooltip: {
+                callbacks: {
+                  label: (ctx) =>
+                    `${ctx.dataset.label}: ${ctx.raw.toLocaleString()}`,
+                },
+              },
+            },
+          },
+        });
+
+        const ctx2 = document.getElementById("pieChart");
+        if (!ctx2 || typeof Chart === "undefined") return;
+
+        new Chart(ctx2, {
+          type: "pie",
+          data: {
+            labels: [
+              "Payroll",
+              "Cybersecurity",
+              "Compliance",
+              "Financial",
+              "Vendor",
+              "HR",
+              "Fraud",
+              "Regulatory",
+              "Operational",
+              "Reputational",
+            ],
+            datasets: [
+              {
+                data: [2, 2, 1, 1, 1, 2, 1, 2, 1, 2],
+                backgroundColor: ["#FDBA8C", "#2271B6", "#18C1C8"],
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: false,
+            plugins: {
+              legend: {
+                display: false, // we use custom legend
+              },
+              tooltip: {
+                callbacks: {
+                  label: (ctx2) =>
+                    `${ctx2.label}: ${ctx2.raw.toLocaleString()}`,
+                },
+              },
+            },
+          },
+        });
+      });
+    </script>
+  </main>
+</Layout>

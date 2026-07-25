@@ -1,0 +1,178 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PaymentPostModal from "../components/ui/PaymentPostModal.astro";
+import ApplicantTrackingModal from "../components/ui/ApplicantTrackingModal.astro";
+import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import DeleteModal from "../components/ui/DeleteModal.astro";
+import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
+---
+
+<Layout title="HRPayHub :: Audit Reports  ">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/audit-risk-control-compliance"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/audit-risk-control-compliance"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Audit, Risk, Control & Compliance</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue">Audit Reports </span>
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-lg-5">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-5 vstack gap-3 px-lg-5">
+          {/* Page Title */}
+          <div
+            class="d-flex justify-content-between gap-3 mx-auto"
+            style="width: 50%;"
+          >
+            <div>
+              <div class="fw-700 fs-22">Audit Reports</div>
+              <div class="fs-14">Generate audit, risk, and control reports</div>
+            </div>
+          </div>
+          {/* Page Title */}
+
+          <div
+            class="py-3 px-4 border rounded-4 mt-3 mx-auto"
+            style="width: 50%;"
+          >
+            <div class="d-flex flex-column gap-5 p-5 align-items-center">
+              <div class="form-floating bulk_input">
+                <input
+                  type="date"
+                  id="date_range"
+                  name="date_range"
+                  class="form-input"
+                  placeholder=""
+                />
+                <label for="date_range">Date Range &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating bulk_input">
+                <select
+                  id="buz_unit"
+                  name="buz_unit"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="plan_1">Unit 1</option>
+                  <option value="plan_2">Unit 2</option>
+                  <option value="plan_3">Unit 3</option>
+                </select>
+                <label for="buz_unit">Business Unit &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating bulk_input">
+                <select
+                  id="dpt"
+                  name="dpt"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="plan_1">Department 1</option>
+                  <option value="plan_2">Department 2</option>
+                  <option value="plan_3">Department 3</option>
+                </select>
+                <label for="dpt">Department &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating bulk_input">
+                <select
+                  id="report"
+                  name="report"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="plan_1">Report Type 1</option>
+                  <option value="plan_2">Report Type 2</option>
+                  <option value="plan_3">Report Type 3</option>
+                </select>
+                <label for="report">Report Type &nbsp;<span>*</span></label>
+              </div>
+              <div class="form-floating bulk_input">
+                <select
+                  id="download"
+                  name="download"
+                  class="form-select_custom fs-14"
+                  required
+                >
+                  <option value="" selected style="color: rgb(200, 200, 200)"
+                    >Select</option
+                  >
+                  <option value="plan_1">Docx</option>
+                  <option value="plan_2">PDF</option>
+                  <option value="plan_3">Excel</option>
+                </select>
+                <label for="download">Download as &nbsp;<span>*</span></label>
+              </div>
+
+              <!---- submit ---->
+              <div class="d-flex justify-content-start bulk_input">
+                <button
+                  type="button"
+                  id="upload"
+                  class="delon-primary-btn bg-primary-blue border-0 text-white fw-bold fs-14 expense_button"
+                >
+                  <span>Download</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ModalAddNew
+      modalId="myModal"
+      title={"Employer Onboarding"}
+      inputPlace="Employer Onboarding"
+    />
+  </main>
+</Layout>
+
+<!-- Main content ends here -->
+
+<script></script>
