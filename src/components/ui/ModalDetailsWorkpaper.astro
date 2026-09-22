@@ -1,0 +1,120 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "comment", title = "Employee's Comment" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content p-2">
+      <!-- Modal Header -->
+
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">
+          {title}
+        </h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-left py-2 border-0">
+        <div class="d-flex justify-content-between w-100">
+          <div class="rounded-4 p-3 mt-2 border w-25">
+            <div class="">
+              <p class="fs-14 mt-2">Work paper Title</p>
+              <span class="fs-16 fw-700">Lorem</span>
+            </div>
+          </div>
+          <div class="rounded-4 p-3 mt-2 border w-25">
+            <div class="">
+              <p class="fs-14 mt-2">Workpaper Reference</p>
+              <span class="fs-16 fw-700">Lorem</span>
+            </div>
+          </div>
+          <div class="rounded-4 p-3 mt-2 border w-25">
+            <div class="">
+              <p class="fs-14 mt-2">Status</p>
+              <span
+                class="fw-700 border border-1 rounded-3 p-2 fs-12"
+                style="background-color: #E9FFE2; color: #186D00; height: fit-content"
+                role="button">Open</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="rounded-4 p-3 mt-4 w-100"
+          style="background-color: #F4FAFF;"
+        >
+          <div class="d-flex justify-content-between">
+            <div class="">
+              <span class="fs-12">Prepared By</span>
+              <p class="fs-14 mt-2">Oladele Hassan: 15th Mar, 2026</p>
+            </div>
+            <span class="border" style="width: 2px;"></span>
+            <div class="">
+              <span class="fs-12">Reviewed By</span>
+              <p class="fs-14 mt-2">Oladele Hassan: 15th Mar, 2026</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-4 p-3 mt-4 border w-100">
+          <div class="">
+            <span class="fs-16 fw-700">Review Notes</span>
+            <p class="fs-14 mt-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation
+            </p>
+          </div>
+        </div>
+        <div class="rounded-4 p-3 mt-4 border w-100">
+          <div class="">
+            <span class="fs-16 fw-700">Supporting Evidences</span>
+            <div
+              class="d-flex justify-content-between border rounded-3 py-2 px-3 w-50 mt-3"
+            >
+              <div
+                class="d-flex justify-content-center align-items-center gap-3"
+              >
+                <span class="fs-12">Document 1</span>
+              </div>
+              <div>
+                <img
+                  role="button"
+                  src="images/png/icons/document-2.svg"
+                  alt="vision"
+                />
+              </div>
+            </div>
+            <div
+              class="d-flex justify-content-between border rounded-3 py-2 px-3 w-50 mt-3"
+            >
+              <div
+                class="d-flex justify-content-center align-items-center gap-3"
+              >
+                <span class="fs-12">Document 2</span>
+              </div>
+              <div>
+                <img
+                  role="button"
+                  src="images/png/icons/document-2.svg"
+                  alt="vision"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+    </div>
+  </div>
+</div>

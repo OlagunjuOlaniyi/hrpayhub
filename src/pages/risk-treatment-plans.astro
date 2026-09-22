@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import TreatmentPlanModal from "../components/ui/TreatmentPlanModal.astro";
 ---
 
-<Layout title="HRPayHub :: Control Library">
+<Layout title="HRPayHub :: Risk Treatment Plans">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -13,7 +13,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/internal-control-management"
+            href="/enterprise-risk-management"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -41,16 +41,17 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
               alt="angle-right-back"
             />
             <a
-              href="/internal-control-management"
+              href="/enterprise-risk-management"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Internal Control Management</a
+              >Enterprise Risk Management</a
             >
+
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >Control Library
+              >Risk Treatment Plans
             </span>
           </div>
           <!-- Actual Breadcrumb here -->
@@ -67,8 +68,10 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
           {/* Page Title */}
           <div class="d-flex justify-content-between gap-3">
             <div>
-              <div class="fw-700 fs-22">Control Library</div>
-              <div class="fs-14">Manage internal controls and ownership</div>
+              <div class="fw-700 fs-22">Risk Treatment Plans</div>
+              <div class="fs-14">
+                Assign, monitor, review, and close risk treatment actions.
+              </div>
             </div>
 
             <!-- Others -->
@@ -79,9 +82,9 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                   type="button"
                   data-bs-toggle="modal"
                   data-bs-target="#myModal"
-                  data-title="New Control"
+                  data-title="Add Treatment Plan"
                   ><span class="fw-700 fs-14">+</span><span
-                    class="ms-2 text-nowrap">New Control</span
+                    class="ms-2 text-nowrap">Add Treatment Plan</span
                   >
                 </button>
               </div>
@@ -106,46 +109,35 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                     >S/N</th
                   >
                   <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Code</th
+                    >Treatment Reference</th
                   >
                   <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Control Name & Objectives</th
+                    >Linked Risk</th
                   >
                   <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Owner</th
+                    >Treatment Option</th
                   >
-                  <th
-                    class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
-                    style="min-width: 200px;">Business Unit</th
+                  <th class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
+                    >Action Owner</th
                   >
 
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Department</th
+                    >Target Residual Score</th
                   >
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left">
-                    Linked Risk</th
+                    Start Date</th
                   >
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Type</th
+                    >End Date</th
                   >
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Nature</th
+                    >Budget / Cost</th
                   >
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Frequency</th
+                    >Progress Percentage</th
                   >
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Rating</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Last Tested</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Next Test Date</th
-                  >
-
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left">
-                    Status</th
+                    >Verified By</th
                   >
                 </tr>
               </thead>
@@ -159,68 +151,68 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                 {
                   [
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "RSK-PAY-01",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
-                      status: "Open",
+                      status: "Approved",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "hiredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "RSK-PAY-01",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Cash",
-                      status: "Open",
+                      status: "Approved",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "hiredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "RSK-PAY-01",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "POS",
-                      status: "Closed",
+                      status: "Rejected",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "newModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "RSK-PAY-01",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
-                      status: "Closed",
+                      status: "Draft",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "offeredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "RSK-PAY-01",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
-                      status: "Open",
+                      status: "Pending Approval",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "rejectedModal",
                     },
 
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "RSK-PAY-01",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
-                      status: "Open",
+                      status: "Pending Approval",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "rejectedModal",
@@ -228,17 +220,13 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                   ].map((ele, index) => (
                     <tr class="fs-88">
                       <td class="fs-14 text-center">{index + 1}</td>
+
+                      <td class="fs-14 px-3 text-left column text-nowrap">
+                        {ele.client_name}
+                      </td>
                       <td class="fs-14 text-nowrap px-3 text-left column">
                         {ele.client_email}
                       </td>
-                      <td class="fs-14 px-3 text-left column text-nowrap">
-                        <>
-                          <span class="fw-700">{ele.client_name}</span>
-                          <br />
-                        </>
-                        <span class="fs-12">AU-001 · HRPayHub Payroll</span>
-                      </td>
-
                       <td class="fs-14 px-3 text-left column">
                         {ele.currency}
                       </td>
@@ -248,44 +236,10 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                       <td class="fs-14 px-3 text-left column">{ele.notes}</td>
                       <td class="fs-14 px-3 text-left column">{ele.notes}</td>
                       <td class="fs-14 px-3 text-left column">{ele.notes}</td>
+                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
 
                       <td class="fs-14 px-3 text-left column">
                         {ele.phone_no}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">{ele.out_bal}</td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.phone_no}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.phone_no}
-                      </td>
-                      <td
-                        class="fs-14 px-3 text-left column fw-700"
-                        style={`color: ${
-                          ele.status === "Open"
-                            ? "#2271B6"
-                            : ele.status === "Monitoring"
-                              ? "#2271B6"
-                              : ele.status === "Closed"
-                                ? "#585959"
-                                : "#888585"
-                        };`}
-                      >
-                        <span
-                          class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
-                          style={`background-color: ${
-                            ele.status === "Open"
-                              ? "#D3E3F0"
-                              : ele.status === "Monitoring"
-                                ? "#D3E3F0"
-                                : ele.status === "Closed"
-                                  ? "#EEEEEE"
-                                  : "inherit"
-                          }; height: fit-content`}
-                          role="button"
-                        >
-                          {ele.status}
-                        </span>
                       </td>
                     </tr>
                   ))
@@ -365,10 +319,10 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
       </div>
     </section>
 
-    <ModalAddNew
+    <TreatmentPlanModal
       modalId="myModal"
-      title={"New Control"}
-      inputPlace="New Control"
+      title={"Add Treatment Plan"}
+      inputPlace="Add Treatment Plan"
     />
   </main>
 </Layout>

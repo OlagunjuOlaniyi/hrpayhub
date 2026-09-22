@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import ModalAddNew from "../components/ui/ModalAddNew.astro";
 ---
 
-<Layout title="HRPayHub :: Control Library">
+<Layout title="HRPayHub :: Audit Program & Checklist">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -13,7 +13,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/internal-control-management"
+            href="/internal-audit"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -41,16 +41,17 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
               alt="angle-right-back"
             />
             <a
-              href="/internal-control-management"
+              href="/internal-audit"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Internal Control Management</a
+              >Internal Audit</a
             >
+
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >Control Library
+              >Audit Program & Checklist
             </span>
           </div>
           <!-- Actual Breadcrumb here -->
@@ -67,8 +68,10 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
           {/* Page Title */}
           <div class="d-flex justify-content-between gap-3">
             <div>
-              <div class="fw-700 fs-22">Control Library</div>
-              <div class="fs-14">Manage internal controls and ownership</div>
+              <div class="fw-700 fs-22">Audit Program & Checklist</div>
+              <div class="fs-14">
+                Create audit programs, tests, and checklists
+              </div>
             </div>
 
             <!-- Others -->
@@ -79,9 +82,9 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                   type="button"
                   data-bs-toggle="modal"
                   data-bs-target="#myModal"
-                  data-title="New Control"
+                  data-title="Plan Audit"
                   ><span class="fw-700 fs-14">+</span><span
-                    class="ms-2 text-nowrap">New Control</span
+                    class="ms-2 text-nowrap">Create New</span
                   >
                 </button>
               </div>
@@ -92,6 +95,12 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
           {/* Page Title */}
 
           {/* Page Content Box */}
+
+          <div class="mt-3">
+            <p class="fw-600 fs-14 text-primary-blue">
+              Click to view checklist question
+            </p>
+          </div>
 
           <!-- Scrollable Table -->
           <div
@@ -106,46 +115,39 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                     >S/N</th
                   >
                   <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Code</th
+                    >Program Name</th
                   >
                   <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Control Name & Objectives</th
+                    >Program Version</th
                   >
                   <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Owner</th
+                    >Audit Type</th
+                  >
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Linked Risk Category</th
                   >
                   <th
                     class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
-                    style="min-width: 200px;">Business Unit</th
+                    style="min-width: 200px;">Linked Control</th
                   >
 
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Department</th
+                    >Checklist Question</th
                   >
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left">
-                    Linked Risk</th
+                    Test Procedure</th
                   >
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Type</th
+                    >Mandatory Indicator</th
                   >
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Nature</th
+                    >Evidence Required Indicator</th
                   >
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Frequency</th
+                    >Risk Rating Trigger</th
                   >
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Rating</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Last Tested</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Next Test Date</th
-                  >
-
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left">
-                    Status</th
+                    >Status</th
                   >
                 </tr>
               </thead>
@@ -159,68 +161,68 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                 {
                   [
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "Payroll Cycle Checklist",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
-                      status: "Open",
+                      status: "Active",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "hiredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "Payroll Cycle Checklist",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Cash",
-                      status: "Open",
+                      status: "Active",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "hiredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "Payroll Cycle Checklist",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "POS",
-                      status: "Closed",
+                      status: "Retired",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "newModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "Payroll Cycle Checklist",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
-                      status: "Closed",
+                      status: "Draft",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "offeredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "Payroll Cycle Checklist",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
-                      status: "Open",
+                      status: "Active",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "rejectedModal",
                     },
 
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "Payroll Cycle Checklist",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
-                      status: "Open",
+                      status: "Active",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "rejectedModal",
@@ -228,58 +230,60 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                   ].map((ele, index) => (
                     <tr class="fs-88">
                       <td class="fs-14 text-center">{index + 1}</td>
+
+                      <td class="fs-14 px-3 text-left column text-nowrap">
+                        <span class="fw-700">{ele.client_name}</span>
+                      </td>
+                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
+
                       <td class="fs-14 text-nowrap px-3 text-left column">
                         {ele.client_email}
                       </td>
-                      <td class="fs-14 px-3 text-left column text-nowrap">
-                        <>
-                          <span class="fw-700">{ele.client_name}</span>
-                          <br />
-                        </>
-                        <span class="fs-12">AU-001 · HRPayHub Payroll</span>
-                      </td>
-
                       <td class="fs-14 px-3 text-left column">
                         {ele.currency}
                       </td>
 
                       <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
+                      <td class="fs-14 px-3 text-left column">
+                        <button
+                          class="fw-700 p-2 fs-12"
+                          style="background-color: #fff; color: #2271B6; height: fit-content; width: fit-content; border:#2271B6; text-decoration: underline;"
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#checklistModal"
+                          data-title="Checklist Items"
+                        >
+                          View
+                        </button>
+                      </td>
                       <td class="fs-14 px-3 text-left column">{ele.notes}</td>
 
                       <td class="fs-14 px-3 text-left column">
                         {ele.phone_no}
                       </td>
                       <td class="fs-14 px-3 text-left column">{ele.out_bal}</td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.phone_no}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.phone_no}
-                      </td>
+                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
                       <td
                         class="fs-14 px-3 text-left column fw-700"
                         style={`color: ${
-                          ele.status === "Open"
-                            ? "#2271B6"
-                            : ele.status === "Monitoring"
-                              ? "#2271B6"
-                              : ele.status === "Closed"
-                                ? "#585959"
+                          ele.status === "Active"
+                            ? "#186D00"
+                            : ele.status === "Retired"
+                              ? "#FD0000"
+                              : ele.status === "Medium"
+                                ? "#969103"
                                 : "#888585"
                         };`}
                       >
                         <span
                           class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
                           style={`background-color: ${
-                            ele.status === "Open"
-                              ? "#D3E3F0"
-                              : ele.status === "Monitoring"
-                                ? "#D3E3F0"
-                                : ele.status === "Closed"
-                                  ? "#EEEEEE"
+                            ele.status === "Active"
+                              ? "#E9FFE2"
+                              : ele.status === "Retired"
+                                ? "#FFF5F5"
+                                : ele.status === "Medium"
+                                  ? "#FFFFF2"
                                   : "inherit"
                           }; height: fit-content`}
                           role="button"
@@ -367,8 +371,13 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
 
     <ModalAddNew
       modalId="myModal"
-      title={"New Control"}
-      inputPlace="New Control"
+      title={"Create New"}
+      inputPlace="Plan Audit 2"
+    />
+    <ModalAddNew
+      modalId="checklistModal"
+      title={"Details"}
+      inputPlace="Checklist Items"
     />
   </main>
 </Layout>

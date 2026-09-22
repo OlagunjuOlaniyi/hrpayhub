@@ -1,10 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import PaymentPostModal from "../components/ui/PaymentPostModal.astro";
-import ApplicantTrackingModal from "../components/ui/ApplicantTrackingModal.astro";
-import ModalAddNew from "../components/ui/ModalAddNew.astro";
-import DeleteModal from "../components/ui/DeleteModal.astro";
-import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
+
+import WorkpaperModal from "../components/ui/WorkpaperModal.astro";
+import ModalDetailsWorkpaper from "../components/ui/ModalDetailsWorkpaper.astro";
 ---
 
 <Layout title="HRPayHub :: Workpaper & Evidence">
@@ -16,7 +14,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/audit-risk-control-compliance"
+            href="/internal-audit"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -38,6 +36,15 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
               href="/audit-risk-control-compliance"
               class="fs-14 text-decoration-none text-primary-dark"
               >Audit, Risk, Control & Compliance</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/internal-audit"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Internal Audit</a
             >
 
             <img
@@ -73,8 +80,8 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
                   class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
                   type="button"
                   data-bs-toggle="modal"
-                  data-bs-target="#myModal"
-                  data-title="Submit RTI to HMRC"
+                  data-bs-target="#workPaper"
+                  data-title="Create Workpaper"
                   ><span class="fw-700 fs-14">+</span><span
                     class="ms-2 text-nowrap">Create Workpaper</span
                   >
@@ -90,7 +97,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
 
           <div class="mt-3">
             <p class="fw-600 fs-14 text-primary-blue">
-              Click view more details
+              Click to view more details
             </p>
           </div>
 
@@ -224,29 +231,129 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
                     },
                   ].map((ele, index) => (
                     <tr class="fs-88">
-                      <td class="fs-14 text-center">{index + 1}</td>
+                      <td class="fs-14 text-center">
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myDetailsModal"
+                          data-title="Details"
+                        >
+                          {index + 1}
+                        </span>
+                      </td>
 
                       <td class="fs-14 px-3 text-left column text-nowrap">
-                        {ele.client_name}
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myDetailsModal"
+                          data-title="Details"
+                        >
+                          {ele.client_name}
+                        </span>
                       </td>
                       <td class="fs-14 text-nowrap px-3 text-left column">
-                        {ele.client_email}
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myDetailsModal"
+                          data-title="Details"
+                        >
+                          {ele.client_email}
+                        </span>
                       </td>
                       <td class="fs-14 px-3 text-left column">
-                        {ele.currency}
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myDetailsModal"
+                          data-title="Details"
+                        >
+                          {ele.currency}
+                        </span>
                       </td>
-
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
 
                       <td class="fs-14 px-3 text-left column">
-                        {ele.phone_no}
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myDetailsModal"
+                          data-title="Details"
+                        >
+                          {ele.notes}
+                        </span>
                       </td>
-                      <td class="fs-14 px-3 text-left column">{ele.out_bal}</td>
+                      <td class="fs-14 px-3 text-left column">
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myDetailsModal"
+                          data-title="Details"
+                        >
+                          {ele.notes}
+                        </span>
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myDetailsModal"
+                          data-title="Details"
+                        >
+                          {ele.notes}
+                        </span>
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myDetailsModal"
+                          data-title="Details"
+                        >
+                          {ele.notes}
+                        </span>
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myDetailsModal"
+                          data-title="Details"
+                        >
+                          {ele.notes}
+                        </span>
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myDetailsModal"
+                          data-title="Details"
+                        >
+                          {ele.notes}
+                        </span>
+                      </td>
+
+                      <td class="fs-14 px-3 text-left column">
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myDetailsModal"
+                          data-title="Details"
+                        >
+                          {ele.phone_no}
+                        </span>
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myDetailsModal"
+                          data-title="Details"
+                        >
+                          {ele.out_bal}
+                        </span>
+                      </td>
                       <td
                         class="fs-14 px-3 text-left column fw-700"
                         style={`color: ${
@@ -271,6 +378,9 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
                                   : "inherit"
                           }; height: fit-content`}
                           role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myDetailsModal"
+                          data-title="Details"
                         >
                           {ele.status}
                         </span>
@@ -353,10 +463,16 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
       </div>
     </section>
 
-    <ModalAddNew
-      modalId="myModal"
-      title={"Submit RTI to HMRC"}
-      inputPlace="Submit RTI to HMRC"
+    <WorkpaperModal
+      modalId="workPaper"
+      title={"Create Workpaper"}
+      inputPlace="Create Workpaper"
+    />
+
+    <ModalDetailsWorkpaper
+      modalId="myDetailsModal"
+      title={"Details"}
+      inputPlace="Details"
     />
   </main>
 </Layout>

@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import ModalAddNew from "../components/ui/ModalAddNew.astro";
+import ModalDetailsRemediation from "../components/ui/ModalDetailsRemediation.astro";
 ---
 
-<Layout title="HRPayHub :: Control Library">
+<Layout title="HRPayHub :: Control Remediation">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -50,7 +50,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >Control Library
+              >Control Remediation
             </span>
           </div>
           <!-- Actual Breadcrumb here -->
@@ -67,31 +67,21 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
           {/* Page Title */}
           <div class="d-flex justify-content-between gap-3">
             <div>
-              <div class="fw-700 fs-22">Control Library</div>
-              <div class="fs-14">Manage internal controls and ownership</div>
-            </div>
-
-            <!-- Others -->
-            <div class="responsive gap-4 align-items-center">
-              <div class="d-flex justify-content-end">
-                <button
-                  class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
-                  type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#myModal"
-                  data-title="New Control"
-                  ><span class="fw-700 fs-14">+</span><span
-                    class="ms-2 text-nowrap">New Control</span
-                  >
-                </button>
+              <div class="fw-700 fs-22">Control Remediation</div>
+              <div class="fs-14">
+                Assign, verify, and close actions for control weaknesses.
               </div>
-
-              <!---- End of Others ---->
             </div>
           </div>
           {/* Page Title */}
 
           {/* Page Content Box */}
+
+          <div class="mt-3">
+            <p class="fw-600 fs-14 text-primary-blue">
+              Click to view more details
+            </p>
+          </div>
 
           <!-- Scrollable Table -->
           <div
@@ -106,46 +96,32 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                     >S/N</th
                   >
                   <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Code</th
+                    >Remediation Reference</th
                   >
                   <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Control Name & Objectives</th
+                    >Linked Deficiency</th
                   >
                   <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Owner</th
+                    >Action Owner</th
                   >
-                  <th
-                    class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
-                    style="min-width: 200px;">Business Unit</th
+                  <th class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
+                    >Start Date</th
                   >
 
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Department</th
+                    >Due Date</th
                   >
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left">
-                    Linked Risk</th
+                    Progress Percentage</th
                   >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Type</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Nature</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Frequency</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Rating</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Last Tested</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Next Test Date</th
-                  >
-
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left">
-                    Status</th
+                    Verified By</th
+                  >
+                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                    >Verification Result</th
+                  >
+                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                    >Review Outcome</th
                   >
                 </tr>
               </thead>
@@ -159,130 +135,231 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                 {
                   [
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "CTRL-PAY-01",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
-                      status: "Open",
+                      status: "Completed",
+                      result: "Pass",
+                      effective: "Effective",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "hiredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "CTRL-PAY-01",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Cash",
-                      status: "Open",
+                      status: "Completed",
+                      result: "Pass",
+                      effective: "Effective",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "hiredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "CTRL-PAY-01",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "POS",
                       status: "Closed",
+                      result: "Pass",
+                      effective: "Failed",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "newModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "CTRL-PAY-01",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
                       status: "Closed",
+                      result: "Pass",
+                      effective: "Failed",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "offeredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "CTRL-PAY-01",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
                       status: "Open",
+                      result: "Failed",
+                      effective: "Ineffective",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "rejectedModal",
                     },
 
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
+                      client_name: "CTRL-PAY-01",
+                      client_email: "May 2026",
                       phone_no: "23rd Oct, 2025",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
-                      status: "Open",
+                      status: "Draft",
+                      result: "Failed",
+                      effective: "Ineffective",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "rejectedModal",
                     },
                   ].map((ele, index) => (
                     <tr class="fs-88">
-                      <td class="fs-14 text-center">{index + 1}</td>
-                      <td class="fs-14 text-nowrap px-3 text-left column">
-                        {ele.client_email}
+                      <td class="fs-14 text-center">
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myModal"
+                          data-title="Details"
+                        >
+                          {index + 1}
+                        </span>
                       </td>
+
                       <td class="fs-14 px-3 text-left column text-nowrap">
-                        <>
-                          <span class="fw-700">{ele.client_name}</span>
-                          <br />
-                        </>
-                        <span class="fs-12">AU-001 · HRPayHub Payroll</span>
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myModal"
+                          data-title="Details"
+                        >
+                          {ele.client_name}
+                        </span>
+                      </td>
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myModal"
+                          data-title="Details"
+                        >
+                          {ele.client_email}
+                        </span>
+                      </td>
+                      <td class="fs-14 px-3 text-left column">
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myModal"
+                          data-title="Details"
+                        >
+                          {ele.currency}
+                        </span>
                       </td>
 
                       <td class="fs-14 px-3 text-left column">
-                        {ele.currency}
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myModal"
+                          data-title="Details"
+                        >
+                          {ele.notes}
+                        </span>
                       </td>
 
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
+                      <td class="fs-14 px-3 text-left column">
+                        {
+                          <span
+                            role="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#myModal"
+                            data-title="Details"
+                          >
+                            {ele.notes}
+                          </span>
+                        }
+                      </td>
 
                       <td class="fs-14 px-3 text-left column">
-                        {ele.phone_no}
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myModal"
+                          data-title="Details"
+                        >
+                          {ele.notes}
+                        </span>
                       </td>
-                      <td class="fs-14 px-3 text-left column">{ele.out_bal}</td>
                       <td class="fs-14 px-3 text-left column">
-                        {ele.phone_no}
+                        <span
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myModal"
+                          data-title="Details"
+                        >
+                          {ele.notes}
+                        </span>
                       </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.phone_no}
-                      </td>
+
                       <td
                         class="fs-14 px-3 text-left column fw-700"
                         style={`color: ${
-                          ele.status === "Open"
-                            ? "#2271B6"
-                            : ele.status === "Monitoring"
-                              ? "#2271B6"
-                              : ele.status === "Closed"
-                                ? "#585959"
+                          ele.effective === "Effective"
+                            ? "#186D00"
+                            : ele.effective === "Ineffective"
+                              ? "#FD0000"
+                              : ele.effective === "Failed"
+                                ? "#969103"
                                 : "#888585"
                         };`}
                       >
                         <span
                           class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
                           style={`background-color: ${
-                            ele.status === "Open"
-                              ? "#D3E3F0"
-                              : ele.status === "Monitoring"
-                                ? "#D3E3F0"
-                                : ele.status === "Closed"
-                                  ? "#EEEEEE"
+                            ele.effective === "Effective"
+                              ? "#E9FFE2"
+                              : ele.effective === "Ineffective"
+                                ? "#FFF5F5"
+                                : ele.effective === "Failed"
+                                  ? "#FFFFF2"
                                   : "inherit"
                           }; height: fit-content`}
                           role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myModal"
+                          data-title="Details"
+                        >
+                          {ele.effective}
+                        </span>
+                      </td>
+                      <td
+                        class="fs-14 px-3 text-left column fw-700"
+                        style={`color: ${
+                          ele.status === "Completed"
+                            ? "#186D00"
+                            : ele.status === "Closed"
+                              ? "#FD0000"
+                              : ele.status === "Open"
+                                ? "#969103"
+                                : "#888585"
+                        };`}
+                      >
+                        <span
+                          class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
+                          style={`background-color: ${
+                            ele.status === "Completed"
+                              ? "#E9FFE2"
+                              : ele.status === "Closed"
+                                ? "#FFF5F5"
+                                : ele.status === "Open"
+                                  ? "#FFFFF2"
+                                  : "inherit"
+                          }; height: fit-content`}
+                          role="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myModal"
+                          data-title="Details"
                         >
                           {ele.status}
                         </span>
@@ -365,10 +442,10 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
       </div>
     </section>
 
-    <ModalAddNew
+    <ModalDetailsRemediation
       modalId="myModal"
-      title={"New Control"}
-      inputPlace="New Control"
+      title={"Details"}
+      inputPlace="Details"
     />
   </main>
 </Layout>

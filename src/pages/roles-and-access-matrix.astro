@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import ModalAddNew from "../components/ui/ModalAddNew.astro";
 ---
 
-<Layout title="HRPayHub :: Control Library">
+<Layout title="HRPayHub :: Roles & Access Matrix">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -13,7 +13,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/internal-control-management"
+            href="/module-setup"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -41,16 +41,17 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
               alt="angle-right-back"
             />
             <a
-              href="/internal-control-management"
+              href="/module-setup"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Internal Control Management</a
+              >Module Setup</a
             >
+
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >Control Library
+              >Roles & Access Matrix
             </span>
           </div>
           <!-- Actual Breadcrumb here -->
@@ -67,27 +68,13 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
           {/* Page Title */}
           <div class="d-flex justify-content-between gap-3">
             <div>
-              <div class="fw-700 fs-22">Control Library</div>
-              <div class="fs-14">Manage internal controls and ownership</div>
+              <div class="fw-700 fs-22">Roles & Access Matrix</div>
+              <div class="fs-14">
+                View professional roles and system-defined access rules.
+              </div>
             </div>
 
             <!-- Others -->
-            <div class="responsive gap-4 align-items-center">
-              <div class="d-flex justify-content-end">
-                <button
-                  class="btn bg-primary-blue d-flex align-items-center text-white fs-14 py-2"
-                  type="button"
-                  data-bs-toggle="modal"
-                  data-bs-target="#myModal"
-                  data-title="New Control"
-                  ><span class="fw-700 fs-14">+</span><span
-                    class="ms-2 text-nowrap">New Control</span
-                  >
-                </button>
-              </div>
-
-              <!---- End of Others ---->
-            </div>
           </div>
           {/* Page Title */}
 
@@ -102,50 +89,22 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
               <!---- Table head --->
               <thead class="bg-grey text-dark px-4 fw-700 fs-14 text-nowrap">
                 <tr>
-                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                  <th
+                    class="bg-grey text-center text-darktext-white px-3 fw-700 fs-14"
                     >S/N</th
                   >
-                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Code</th
-                  >
-                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Control Name & Objectives</th
-                  >
-                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Owner</th
-                  >
-                  <th
-                    class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
-                    style="min-width: 200px;">Business Unit</th
-                  >
 
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Department</th
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Module Role</th
                   >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left">
-                    Linked Risk</th
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Functional Area</th
                   >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Type</th
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Level</th
                   >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Nature</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Frequency</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Rating</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Last Tested</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Next Test Date</th
-                  >
-
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left">
-                    Status</th
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Primary Responsibility</th
                   >
                 </tr>
               </thead>
@@ -159,68 +118,80 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                 {
                   [
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
-                      phone_no: "23rd Oct, 2025",
-                      currency: "FPS-2026-10",
+                      client_name: "Internal Auditor",
+                      client_email: "Internal Audit",
+                      phone_no: "Officer",
+                      currency:
+                        "Execute assigned audits, tests, workpapers, findings, and draft reports.",
                       pay_terms: "Engineering",
-                      status: "Open",
+                      status: "Low",
                       out_bal: "Quarterly",
+                      status2: "Overdue",
                       notes: "Lorem Ipsum...",
                       modalId: "hiredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
-                      phone_no: "23rd Oct, 2025",
-                      currency: "FPS-2026-10",
+                      client_name: "Internal Audit Manager",
+                      client_email: "Internal Audit",
+                      phone_no: "Officer",
+                      currency:
+                        "Plan and assign audits, review workpapers, approve findings, and manage delivery.",
                       pay_terms: "Cash",
-                      status: "Open",
+                      status: "Low",
                       out_bal: "Quarterly",
+                      status2: "Overdue",
                       notes: "Lorem Ipsum...",
                       modalId: "hiredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
-                      phone_no: "23rd Oct, 2025",
-                      currency: "FPS-2026-10",
+                      client_name: "Chief Audit Executive",
+                      client_email: "Internal Audit",
+                      phone_no: "Officer",
+                      currency:
+                        "Lead internal audit, approve plans and final reports, and prepare board audit packs.",
                       pay_terms: "POS",
-                      status: "Closed",
+                      status: "Medium",
+                      status2: "In Progress",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "newModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
-                      phone_no: "23rd Oct, 2025",
-                      currency: "FPS-2026-10",
+                      client_name: "Risk Officer",
+                      client_email: "Internal Audit",
+                      phone_no: "Officer",
+                      currency:
+                        "Create and maintain assigned risks, assessments, treatments, and reviews.",
                       pay_terms: "Engineering",
-                      status: "Closed",
+                      status: "Medium",
+                      status2: "In Progress",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "offeredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
-                      phone_no: "23rd Oct, 2025",
-                      currency: "FPS-2026-10",
+                      client_name: "Risk Manager",
+                      client_email: "Internal Audit",
+                      phone_no: "Officer",
+                      currency:
+                        "Manage risk registers, scoring, treatments, reviews, heatmaps, and reports.",
                       pay_terms: "Engineering",
-                      status: "Open",
+                      status: "High",
+                      status2: "Closed",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "rejectedModal",
                     },
 
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
-                      phone_no: "23rd Oct, 2025",
-                      currency: "FPS-2026-10",
+                      client_name: "Chief Risk Officer",
+                      client_email: "Internal Audit",
+                      phone_no: "Officer",
+                      currency:
+                        "Lead ERM, approve risk positions, monitor appetite, and report enterprise exposure.",
                       pay_terms: "Engineering",
-                      status: "Open",
+                      status: "High",
+                      status2: "Closed",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "rejectedModal",
@@ -228,64 +199,18 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                   ].map((ele, index) => (
                     <tr class="fs-88">
                       <td class="fs-14 text-center">{index + 1}</td>
+
+                      <td class="fs-14 px-3 text-left column text-nowrap">
+                        {ele.client_name}
+                      </td>
                       <td class="fs-14 text-nowrap px-3 text-left column">
                         {ele.client_email}
                       </td>
-                      <td class="fs-14 px-3 text-left column text-nowrap">
-                        <>
-                          <span class="fw-700">{ele.client_name}</span>
-                          <br />
-                        </>
-                        <span class="fs-12">AU-001 · HRPayHub Payroll</span>
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        {ele.phone_no}
                       </td>
-
-                      <td class="fs-14 px-3 text-left column">
+                      <td class="fs-14 text-nowrap px-3 text-left column">
                         {ele.currency}
-                      </td>
-
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.phone_no}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">{ele.out_bal}</td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.phone_no}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.phone_no}
-                      </td>
-                      <td
-                        class="fs-14 px-3 text-left column fw-700"
-                        style={`color: ${
-                          ele.status === "Open"
-                            ? "#2271B6"
-                            : ele.status === "Monitoring"
-                              ? "#2271B6"
-                              : ele.status === "Closed"
-                                ? "#585959"
-                                : "#888585"
-                        };`}
-                      >
-                        <span
-                          class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
-                          style={`background-color: ${
-                            ele.status === "Open"
-                              ? "#D3E3F0"
-                              : ele.status === "Monitoring"
-                                ? "#D3E3F0"
-                                : ele.status === "Closed"
-                                  ? "#EEEEEE"
-                                  : "inherit"
-                          }; height: fit-content`}
-                          role="button"
-                        >
-                          {ele.status}
-                        </span>
                       </td>
                     </tr>
                   ))
@@ -367,8 +292,8 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
 
     <ModalAddNew
       modalId="myModal"
-      title={"New Control"}
-      inputPlace="New Control"
+      title={"Assign Roles"}
+      inputPlace="Assign Roles"
     />
   </main>
 </Layout>

@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HRPayHub :: Audit, Risk, Control & Compliance">
+<Layout title="HRPayHub :: Compliance Management">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -11,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="index.html"
+            href="/audit-risk-control-compliance"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -29,8 +29,18 @@ import Layout from "../layouts/Layout.astro";
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
+            <a
+              href="/audit-risk-control-compliance"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Audit, Risk, Control & Compliance</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
             <span class="fs-16 fw-bold text-primary-blue"
-              >Audit, Risk, Control & Compliance</span
+              >Compliance Management</span
             >
           </div>
           <!-- Actual Breadcrumb here -->
@@ -55,12 +65,11 @@ import Layout from "../layouts/Layout.astro";
               />
               <span
                 class="text-primary-blue font-ubuntu-bold fs-24 inline-block"
-                >Audit, Risk, Control & Compliance
-              </span>
+                >Compliance Management</span
+              >
             </div>
             <div class="fw-bold">
-              Manage audits, risks, controls, compliance, findings, actions, and
-              AI reports.
+              Track obligations, deadlines, evidence, policies, and gaps.
             </div>
           </div>
           {/* Page Title */}
@@ -70,43 +79,55 @@ import Layout from "../layouts/Layout.astro";
             {
               [
                 {
-                  title: "Module Setup",
-                  desc: "Assign employee roles and configure module-wide settings.",
-                  url: "/module-setup",
+                  title: "Compliance Dashboard",
+                  desc: "Monitor obligations, deadlines, filings, gaps, and actions.",
+                  url: "/compliance-dashboard",
                 },
                 {
-                  title: "Internal Audit",
-                  desc: "Plan, execute, document, review, and report internal audits.",
-                  url: "/internal-audit",
+                  title: "Compliance Register",
+                  desc: "Record obligations, owners, deadlines, evidence, and status.",
+                  url: "/compliance-register",
                 },
                 {
-                  title: "Enterprise Risk Management",
-                  desc: "Identify, assess, treat, monitor, and report enterprise risks.",
-                  url: "/enterprise-risk-management",
+                  title: "Regulatory Obligations",
+                  desc: "Assign owners and collect recurring control evidence.",
+                  url: "/regulatory-obligations",
                 },
                 {
-                  title: "Internal Control Management",
-                  desc: "Design, assign, test, monitor, and improve internal controls.",
-                  url: "/internal-control-management",
+                  title: "Compliance Calendar",
+                  desc: "Track filings, reviews, renewals, deadlines, and reminders.",
+                  url: "/compliance-calendar",
                 },
                 {
-                  title: "Compliance Management",
-                  desc: "Track obligations, deadlines, evidence, policies, and gaps.",
-                  url: "/compliance-management",
+                  title: "Compliance Evidence",
+                  desc: "Collect, validate, approve, and retain compliance evidence.",
+                  url: "/compliance-evidence",
+                },
+                {
+                  title: "Policy Tracking",
+                  desc: "Manage policy versions, approvals, reviews, and acknowledgements.",
+                  url: "/policy-tracking",
+                },
+                {
+                  title: "Compliance Findings",
+                  desc: "Record breaches, gaps, impacts, owners, and actions.",
+                  url: "/compliance-findings",
+                },
+                {
+                  title: "Compliance Reports",
+                  desc: "Create obligation, deadline, gap, policy, and status reports.",
+                  url: "/compliance-reports",
                 },
               ].map((ele) => (
                 <div
                   class="col-4 p-2 payslip-card-panel"
-                  style="width: 350px;"
+                  style="width: 360px"
                   role="button"
                   title={ele.title}
                   data-url={ele.url}
                 >
-                  <div
-                    class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-start gap-3 text-center"
-                    style="height: 168px"
-                  >
-                    <div class=" gap-2 d-flex flex-column align-items-center">
+                  <div class="shadow p-3 px-3 rounded-3 d-flex flex-column align-items-center justify-content-center gap-3 text-center">
+                    <div class="vstack gap-2 d-flex flex-column align-items-center">
                       <img
                         src="images/png/icons/appraisal.svg"
                         alt="receipt-minus-icon"
@@ -120,7 +141,7 @@ import Layout from "../layouts/Layout.astro";
 
                     <div
                       class="fw-600 fs-16"
-                      style="width: 98%; margin: 0 auto;"
+                      style="width: 90%; margin: 0 auto"
                     >
                       {ele.desc}
                     </div>
@@ -129,6 +150,7 @@ import Layout from "../layouts/Layout.astro";
               ))
             }
           </div>
+          {/* Page Content Box */}
         </div>
       </div>
     </section>

@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import ModalAddNew from "../components/ui/ModalAddNew.astro";
 ---
 
-<Layout title="HRPayHub :: Control Library">
+<Layout title="HRPayHub :: Module Role Assignment">
   <!-- Main content starts here -->
   <main>
     <!-- First section of Back button and Breadcrumb -->
@@ -13,7 +13,7 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/internal-control-management"
+            href="/module-setup"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -41,16 +41,17 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
               alt="angle-right-back"
             />
             <a
-              href="/internal-control-management"
+              href="/module-setup"
               class="fs-14 text-decoration-none text-primary-dark"
-              >Internal Control Management</a
+              >Module Setup</a
             >
+
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
             />
             <span class="fs-16 fw-bold text-primary-blue"
-              >Control Library
+              >Module Role Assignment
             </span>
           </div>
           <!-- Actual Breadcrumb here -->
@@ -65,10 +66,15 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
       <div class="screenFrame">
         <div class="rounded-4 shadow p-5 vstack gap-3 px-lg-5">
           {/* Page Title */}
-          <div class="d-flex justify-content-between gap-3">
+          <div
+            class="d-flex justify-content-between gap-3 mx-auto"
+            style="width: 70%;"
+          >
             <div>
-              <div class="fw-700 fs-22">Control Library</div>
-              <div class="fs-14">Manage internal controls and ownership</div>
+              <div class="fw-700 fs-22">Module Role Assignment</div>
+              <div class="fs-14">
+                Configure audit, risk, control, and report permissions
+              </div>
             </div>
 
             <!-- Others -->
@@ -79,9 +85,9 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                   type="button"
                   data-bs-toggle="modal"
                   data-bs-target="#myModal"
-                  data-title="New Control"
+                  data-title="Assign Roles"
                   ><span class="fw-700 fs-14">+</span><span
-                    class="ms-2 text-nowrap">New Control</span
+                    class="ms-2 text-nowrap">Assign Roles</span
                   >
                 </button>
               </div>
@@ -95,57 +101,23 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
 
           <!-- Scrollable Table -->
           <div
-            class="table-responsive mt-3"
-            style="max-height: 600px; overflow: auto;"
+            class="table-responsive mt-3 mx-auto"
+            style="max-height: 600px; overflow: auto; width: 70%"
           >
             <table class="table table-bordered table-hover">
               <!---- Table head --->
               <thead class="bg-grey text-dark px-4 fw-700 fs-14 text-nowrap">
                 <tr>
-                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                  <th
+                    class="bg-grey text-center text-darktext-white px-3 fw-700 fs-14"
                     >S/N</th
                   >
-                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Code</th
-                  >
-                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Control Name & Objectives</th
-                  >
-                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
-                    >Owner</th
-                  >
-                  <th
-                    class="bg-grey text-dark fw-700 fs-14 px-3 text-left"
-                    style="min-width: 200px;">Business Unit</th
-                  >
 
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Department</th
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >User</th
                   >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left">
-                    Linked Risk</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Type</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Nature</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Control Frequency</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Rating</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Last Tested</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Next Test Date</th
-                  >
-
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left">
-                    Status</th
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Global Role</th
                   >
                 </tr>
               </thead>
@@ -159,68 +131,74 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                 {
                   [
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
-                      phone_no: "23rd Oct, 2025",
+                      client_name: "Patricia Moore",
+                      client_email: "May 2026",
+                      phone_no: "2025-02-01 → 2025-02-28",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
-                      status: "Open",
+                      status: "Low",
                       out_bal: "Quarterly",
+                      status2: "Overdue",
                       notes: "Lorem Ipsum...",
                       modalId: "hiredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
-                      phone_no: "23rd Oct, 2025",
+                      client_name: "Patricia Moore",
+                      client_email: "May 2026",
+                      phone_no: "2025-02-01 → 2025-02-28",
                       currency: "FPS-2026-10",
                       pay_terms: "Cash",
-                      status: "Open",
+                      status: "Low",
                       out_bal: "Quarterly",
+                      status2: "Overdue",
                       notes: "Lorem Ipsum...",
                       modalId: "hiredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
-                      phone_no: "23rd Oct, 2025",
+                      client_name: "Patricia Moore",
+                      client_email: "May 2026",
+                      phone_no: "2025-02-01 → 2025-02-28",
                       currency: "FPS-2026-10",
                       pay_terms: "POS",
-                      status: "Closed",
+                      status: "Medium",
+                      status2: "In Progress",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "newModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
-                      phone_no: "23rd Oct, 2025",
+                      client_name: "Patricia Moore",
+                      client_email: "May 2026",
+                      phone_no: "2025-02-01 → 2025-02-28",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
-                      status: "Closed",
+                      status: "Medium",
+                      status2: "In Progress",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "offeredModal",
                     },
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
-                      phone_no: "23rd Oct, 2025",
+                      client_name: "Patricia Moore",
+                      client_email: "May 2026",
+                      phone_no: "2025-02-01 → 2025-02-28",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
-                      status: "Open",
+                      status: "High",
+                      status2: "Closed",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "rejectedModal",
                     },
 
                     {
-                      client_name: "Unauthorised payrollchanges",
-                      client_email: "CTRL-PAY-01",
-                      phone_no: "23rd Oct, 2025",
+                      client_name: "Patricia Moore",
+                      client_email: "May 2026",
+                      phone_no: "2025-02-01 → 2025-02-28",
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
-                      status: "Open",
+                      status: "High",
+                      status2: "Closed",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "rejectedModal",
@@ -228,64 +206,12 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
                   ].map((ele, index) => (
                     <tr class="fs-88">
                       <td class="fs-14 text-center">{index + 1}</td>
+
+                      <td class="fs-14 px-3 text-left column text-nowrap">
+                        {ele.client_name}
+                      </td>
                       <td class="fs-14 text-nowrap px-3 text-left column">
                         {ele.client_email}
-                      </td>
-                      <td class="fs-14 px-3 text-left column text-nowrap">
-                        <>
-                          <span class="fw-700">{ele.client_name}</span>
-                          <br />
-                        </>
-                        <span class="fs-12">AU-001 · HRPayHub Payroll</span>
-                      </td>
-
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.currency}
-                      </td>
-
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.phone_no}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">{ele.out_bal}</td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.phone_no}
-                      </td>
-                      <td class="fs-14 px-3 text-left column">
-                        {ele.phone_no}
-                      </td>
-                      <td
-                        class="fs-14 px-3 text-left column fw-700"
-                        style={`color: ${
-                          ele.status === "Open"
-                            ? "#2271B6"
-                            : ele.status === "Monitoring"
-                              ? "#2271B6"
-                              : ele.status === "Closed"
-                                ? "#585959"
-                                : "#888585"
-                        };`}
-                      >
-                        <span
-                          class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
-                          style={`background-color: ${
-                            ele.status === "Open"
-                              ? "#D3E3F0"
-                              : ele.status === "Monitoring"
-                                ? "#D3E3F0"
-                                : ele.status === "Closed"
-                                  ? "#EEEEEE"
-                                  : "inherit"
-                          }; height: fit-content`}
-                          role="button"
-                        >
-                          {ele.status}
-                        </span>
                       </td>
                     </tr>
                   ))
@@ -298,7 +224,8 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
 
           <!-- Pagination Row -->
           <div
-            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3"
+            class="d-flex justify-content-between align-items-center m-2 flex-wrap gap-3 pt-3 mx-auto"
+            style="width: 70%;"
           >
             <!-- Left: Pagination Text -->
             <div class="fs-14 text-muted">
@@ -367,8 +294,8 @@ import ModalAddNew from "../components/ui/ModalAddNew.astro";
 
     <ModalAddNew
       modalId="myModal"
-      title={"New Control"}
-      inputPlace="New Control"
+      title={"Assign Roles"}
+      inputPlace="Assign Roles"
     />
   </main>
 </Layout>

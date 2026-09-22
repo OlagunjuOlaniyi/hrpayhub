@@ -16,7 +16,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/audit-risk-control-compliance"
+            href="/compliance-management"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -39,7 +39,15 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
               class="fs-14 text-decoration-none text-primary-dark"
               >Audit, Risk, Control & Compliance</a
             >
-
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/compliance-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Compliance Management</a
+            >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
@@ -166,7 +174,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
                       currency: "FPS-2026-10",
                       pay_terms: "POS",
                       status: "Medium",
-                      status2: "Pending",
+                      status2: "Under Review",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "newModal",
@@ -178,7 +186,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
                       currency: "FPS-2026-10",
                       pay_terms: "Engineering",
                       status: "Medium",
-                      status2: "Pending",
+                      status2: "Approved",
                       out_bal: "Quarterly",
                       notes: "Lorem Ipsum...",
                       modalId: "offeredModal",
@@ -233,7 +241,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
                             ? "#186D00"
                             : ele.status2 === "Overdue"
                               ? "#FD0000"
-                              : ele.status2 === "Pending"
+                              : ele.status2 === "Under Review"
                                 ? "#969103"
                                 : "#888585"
                         };`}
@@ -245,7 +253,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
                               ? "#E9FFE2"
                               : ele.status2 === "Overdue"
                                 ? "#FFF5F5"
-                                : ele.status2 === "Pending"
+                                : ele.status2 === "Under Review"
                                   ? "#FFFFF2"
                                   : "inherit"
                           }; height: fit-content`}
@@ -258,7 +266,18 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
                       <td class="fs-14 px-3 text-left column">{ele.notes}</td>
                       <td class="fs-14 px-3 text-left column">{ele.notes}</td>
                       <td class="fs-14 px-3 text-left column">{ele.notes}</td>
-                      <td class="fs-14 px-3 text-left column">{ele.notes}</td>
+                      <td class="fs-14 px-3 text-left column">
+                        <div class="progress" style="height: 10px;">
+                          <div
+                            class="progress-bar bg-primary-blue"
+                            style="width: 70%; "
+                            role="progressbar"
+                            aria-valuenow="70"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          />
+                        </div>
+                      </td>
                       <td
                         class="fs-14 px-3 text-left column fw-700"
                         style={`color: ${
@@ -266,7 +285,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
                             ? "#186D00"
                             : ele.status2 === "Overdue"
                               ? "#FD0000"
-                              : ele.status2 === "Pending"
+                              : ele.status2 === "Under Review"
                                 ? "#969103"
                                 : "#888585"
                         };`}
@@ -278,7 +297,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
                               ? "#E9FFE2"
                               : ele.status2 === "Overdue"
                                 ? "#FFF5F5"
-                                : ele.status2 === "Pending"
+                                : ele.status2 === "Under Review"
                                   ? "#FFFFF2"
                                   : "inherit"
                           }; height: fit-content`}

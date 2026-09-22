@@ -13,7 +13,7 @@ import { Naira, Pounds } from "../components/Symbols";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/audit-risk-control-compliance"
+            href="/internal-audit"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -35,6 +35,15 @@ import { Naira, Pounds } from "../components/Symbols";
               href="/audit-risk-control-compliance"
               class="fs-14 text-decoration-none text-primary-dark"
               >Audit, Risk, Control & Compliance</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/internal-audit"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Internal Audit</a
             >
             <img
               src="images/png/icons/angle-right.svg"
@@ -72,7 +81,7 @@ import { Naira, Pounds } from "../components/Symbols";
                 >
                   <div class="d-flex justify-content-between">
                     <div>
-                      <h1 class="fs-14 fw-600">Total Audits</h1>
+                      <h1 class="fs-14 fw-600">Approved Annual Audit Plan</h1>
                     </div>
                   </div>
 
@@ -80,24 +89,6 @@ import { Naira, Pounds } from "../components/Symbols";
                     <span
                       class="fw-700 border border-1 rounded-3 p-2 fs-14"
                       style="background-color: #2271B633; color: #2271B6; height: fit-content"
-                      role="button">1</span
-                    >
-                  </div>
-                </div>
-                <div
-                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
-                  style="width: 291px;"
-                >
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <h1 class="fs-14 fw-600">Pending Audits</h1>
-                    </div>
-                  </div>
-
-                  <div class="d-flex gap-2">
-                    <span
-                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
-                      style="background-color: #FFFFF2; color: #969103; height: fit-content"
                       role="button">1</span
                     >
                   </div>
@@ -126,7 +117,7 @@ import { Naira, Pounds } from "../components/Symbols";
                 >
                   <div class="d-flex justify-content-between">
                     <div>
-                      <h1 class="fs-14 fw-600">Open Findings</h1>
+                      <h1 class="fs-14 fw-600">Postponed Audits</h1>
                     </div>
                   </div>
 
@@ -135,136 +126,6 @@ import { Naira, Pounds } from "../components/Symbols";
                       class="fw-700 border border-1 rounded-3 p-2 fs-14"
                       style="background-color: #FFFFF2; color: #969103; height: fit-content"
                       role="button">1</span
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="d-flex justify-content-between">
-                <div
-                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
-                  style="width: 291px;"
-                >
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <h1 class="fs-14 fw-600">High-Risk Findings</h1>
-                    </div>
-                  </div>
-
-                  <div class="d-flex gap-2">
-                    <span
-                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
-                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
-                      role="button">0</span
-                    >
-                  </div>
-                </div>
-                <div
-                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
-                  style="width: 291px;"
-                >
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <h1 class="fs-14 fw-600">Pending Corrective Actions</h1>
-                    </div>
-                  </div>
-
-                  <div class="d-flex gap-2">
-                    <span
-                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
-                      style="background-color: #FFFFF2; color: #969103; height: fit-content"
-                      role="button">1</span
-                    >
-                  </div>
-                </div>
-                <div
-                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
-                  style="width: 291px;"
-                >
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <h1 class="fs-14 fw-600">Overdue Corrective Actions</h1>
-                    </div>
-                  </div>
-
-                  <div class="d-flex gap-2">
-                    <span
-                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
-                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
-                      role="button">0</span
-                    >
-                  </div>
-                </div>
-                <div
-                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
-                  style="width: 291px;"
-                >
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <h1 class="fs-14 fw-600">Total Enterprise Risks</h1>
-                    </div>
-                  </div>
-
-                  <div class="d-flex gap-2">
-                    <span
-                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
-                      style="background-color: #2271B633; color: #2271B6; height: fit-content"
-                      role="button">1</span
-                    >
-                  </div>
-                </div>
-              </div>
-              <div class="d-flex justify-content-between">
-                <div
-                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
-                  style="width: 291px;"
-                >
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <h1 class="fs-14 fw-600">Critical Risks</h1>
-                    </div>
-                  </div>
-
-                  <div class="d-flex gap-2">
-                    <span
-                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
-                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
-                      role="button">0</span
-                    >
-                  </div>
-                </div>
-                <div
-                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
-                  style="width: 291px;"
-                >
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <h1 class="fs-14 fw-600">Risks Without Controls</h1>
-                    </div>
-                  </div>
-
-                  <div class="d-flex gap-2">
-                    <span
-                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
-                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
-                      role="button">0</span
-                    >
-                  </div>
-                </div>
-                <div
-                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
-                  style="width: 291px;"
-                >
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <h1 class="fs-14 fw-600">Failed Controls</h1>
-                    </div>
-                  </div>
-
-                  <div class="d-flex gap-2">
-                    <span
-                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
-                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
-                      role="button">0</span
                     >
                   </div>
                 </div>
@@ -281,7 +142,65 @@ import { Naira, Pounds } from "../components/Symbols";
                   <div class="d-flex gap-2">
                     <span
                       class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFFFF2; color: #969103; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-start gap-5">
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Open Audit Exceptions</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
                       style="background-color: #2271B633; color: #2271B6; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Exceptions Due This Week</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 291px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">
+                        Repeat / Recurring Exceptions
+                      </h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFFFF2; color: #969103; height: fit-content"
                       role="button">1</span
                     >
                   </div>

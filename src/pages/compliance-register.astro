@@ -16,7 +16,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/audit-risk-control-compliance"
+            href="/compliance-management"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -39,7 +39,15 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
               class="fs-14 text-decoration-none text-primary-dark"
               >Audit, Risk, Control & Compliance</a
             >
-
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/compliance-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Compliance Management</a
+            >
             <img
               src="images/png/icons/angle-right.svg"
               alt="angle-right-back"
@@ -134,7 +142,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
                       pay_terms: "Engineering",
                       status: "Critical",
                       out_bal: "Quarterly",
-                      status2: "Completed",
+                      status2: "Submitted",
                       notes: "Lorem Ipsum...",
                       modalId: "hiredModal",
                     },
@@ -146,7 +154,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
                       pay_terms: "Cash",
                       status: "Critical",
                       out_bal: "Quarterly",
-                      status2: "Completed",
+                      status2: "Submitted",
                       notes: "Lorem Ipsum...",
                       modalId: "hiredModal",
                     },
@@ -249,7 +257,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
                       <td
                         class="fs-14 px-3 text-left column fw-700"
                         style={`color: ${
-                          ele.status2 === "Completed"
+                          ele.status2 === "Submitted"
                             ? "#186D00"
                             : ele.status2 === "Overdue"
                               ? "#FD0000"
@@ -261,7 +269,7 @@ import ModalAddNew2 from "../components/ui/ModalAddNew2.astro";
                         <span
                           class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
                           style={`background-color: ${
-                            ele.status2 === "Completed"
+                            ele.status2 === "Submitted"
                               ? "#E9FFE2"
                               : ele.status2 === "Overdue"
                                 ? "#FFF5F5"

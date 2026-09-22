@@ -1,0 +1,203 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { Naira, Pounds } from "../components/Symbols";
+---
+
+<Layout title="HRPayHub :: Compliance Dashboard">
+  <!-- Main content starts here -->
+  <main>
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="p-4">
+      <div class="screenFrame">
+        <!-- Back Navigation button and BreadCrumbs -->
+        <div class="d-flex gap-5">
+          <a
+            href="/compliance-management"
+            title="Back to Dashboard"
+            class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
+          >
+            <img src="images/png/icons/angle-left.svg" alt="angle-left-back" />
+            <span class="fs-16 fw-bold font-avenir-bold">Back</span>
+          </a>
+
+          <!-- Actual Breadcrumb here -->
+          <div class="d-flex align-items-center gap-2">
+            <a
+              href="index.html"
+              class="fs-14 text-decoration-none text-primary-dark">Dashboard</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/audit-risk-control-compliance"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Audit, Risk, Control & Compliance</a
+            >
+
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/compliance-management"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Compliance Management</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <span class="fs-16 fw-bold text-primary-blue"
+              >Compliance Dashboard</span
+            >
+          </div>
+          <!-- Actual Breadcrumb here -->
+        </div>
+        <!-- Back Navigation button and BreadCrumbs -->
+      </div>
+    </section>
+    <!-- First section of Back button and Breadcrumb -->
+
+    <!-- First section of Back button and Breadcrumb -->
+    <section class="px-4">
+      <div class="screenFrame">
+        <div class="rounded-4 shadow p-4 vstack gap-5 px-4">
+          {/* Page Content Box */}
+          <div class="p-lg-2">
+            <div class="vstack px-5" style="gap: 2.3rem">
+              <div class="d-flex justify-content-between gap-3">
+                <div>
+                  <div class="fw-700 fs-22">Compliance Dashboard</div>
+                  <div class="fs-14">
+                    Monitor obligations, deadlines, filings, gaps, and actions.
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 398px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Total Compliance Obligations</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #2271B633; color: #2271B6; height: fit-content"
+                      role="button">1</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 398px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Due This Week</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 398px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Overdue Obligations</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 398px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">High-Risk Compliance Issues</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 398px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Outstanding Acknowledgements</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column gap-2 py-4 px-4 border rounded-4"
+                  style="width: 398px;"
+                >
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h1 class="fs-14 fw-600">Upcoming Critical Deadlines</h1>
+                    </div>
+                  </div>
+
+                  <div class="d-flex gap-2">
+                    <span
+                      class="fw-700 border border-1 rounded-3 p-2 fs-14"
+                      style="background-color: #FFF5F5; color: #FD0000; height: fit-content"
+                      role="button">0</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Main content ends here -->
+    </section>
+
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {});
+    </script>
+  </main>
+</Layout>

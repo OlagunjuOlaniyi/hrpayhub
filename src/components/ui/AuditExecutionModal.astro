@@ -1,0 +1,234 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "myModal", title = "Workpaper" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-2 px-lg-2">
+      <!-- Modal Header -->
+
+      <div
+        class="modal-header border-0 d-flex justify-content-between align-items-start"
+      >
+        <div>
+          <span
+            class="fw-600 border-2 p-2 fs-14"
+            style="background-color: #F4FAFF">AU-001 · HRPayHub Payroll</span
+          >
+          <h4 class="modal-title fs-22 fw-700 mt-2" id="modalTitle">
+            {title}
+          </h4>
+          <div class="fs-12" style="color: #202020">Operational · Payroll</div>
+        </div>
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body d-flex flex-column gap-4 text-left py-4 border-0">
+        <div class="rounded p-3 mt-2 bg-light w-100">
+          <div class="d-flex justify-content-between">
+            <span class="fs-14">Question</span>
+          </div>
+
+          <div class="mt-2">
+            <div class="fw-700 fs-16 my-2">
+              Are all salary changes approved by HR Head?
+            </div>
+            <div class="mt-3 d-flex gap-3" style="color: #989898;">
+              <div class="d-flex gap-2 w-50">
+                <div
+                  class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                >
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="Q1"
+                    name="starter"
+                    value="net_salary"
+                    checked
+                  />
+                  <label
+                    class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                    >Yes
+                  </label>
+                </div>
+              </div>
+              <div class="d-flex gap-2 w-50">
+                <div
+                  class="form-check d-flex gap-2 align-items-center flex-grow-1"
+                >
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="Q2"
+                    name="starter"
+                    value="net_salary"
+                  />
+                  <label
+                    class="form-check-label fs-12 border bg-white rounded-2 p-2 w-100"
+                    >No
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded p-3 mt-2 bg-light w-100">
+          <div class="mt-2">
+            <div class="fw-700 fs-16 my-2">Linked Risk</div>
+            <div class="mt-3 d-flex gap-3" style="color: #989898;">
+              <div class="d-flex gap-2 w-100">
+                <select
+                  class="w-100 p-2 border rounded fs-12"
+                  id="linked_risk"
+                  name="linked_risk"
+                >
+                  <option value="not">Select</option>
+                  <option value="linked">linked</option>
+                  <option value="linked">linked</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rounded p-3 mt-2 bg-light w-100">
+          <div class="mt-2">
+            <div class="fw-700 fs-16 my-2">Linked Control</div>
+            <div class="mt-3 d-flex gap-3" style="color: #989898;">
+              <div class="d-flex gap-2 w-100">
+                <select
+                  class="w-100 p-2 border rounded fs-12"
+                  id="linked_risk"
+                  name="linked_risk"
+                >
+                  <option value="not">Select</option>
+                  <option value="linked">Active</option>
+                  <option value="linked">Not Active</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rounded p-3 mt-2 bg-light w-100">
+          <div class="mt-2">
+            <div class="fw-700 fs-16 my-2">Work Status</div>
+            <div class="mt-3 d-flex gap-3" style="color: #989898;">
+              <div class="d-flex gap-2 w-100">
+                <select
+                  class="w-100 p-2 border rounded fs-12"
+                  id="linked_risk"
+                  name="linked_risk"
+                >
+                  <option value="not">Not Started</option>
+                  <option value="linked">Active</option>
+                  <option value="linked">Not Active</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rounded p-3 mt-2 bg-light w-100">
+          <div class="mt-2">
+            <div class="fw-700 fs-16 my-2">Comment</div>
+            <div class="mt-3 d-flex gap-3" style="color: #989898;">
+              <div class="d-flex gap-2 w-100">
+                <textarea class="w-100 border rounded" name="message" rows="3">
+                </textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!---- upload ---->
+        <form class="vstack gap-2 mt-3" id="generate_payslip_form">
+          <div class="fs-14 fw-600">Evidence Upload</div>
+          <div
+            class="upload_bulk_status p-3 d-flex flex-column align-items-center justify-content-center"
+          >
+            <img
+              src="images/png/icons/cloud_upload.svg"
+              width="35px"
+              height="35px"
+              alt="cloud upload icon"
+            />
+            <div class="fs-14 fw-700" style="color: #6B7280">
+              Click to upload <span class="fw-400">or drag and drop</span>
+            </div>
+            <div class="fs-12 fw-700" style="color: #6B7280">
+              PDF or DOCX (Max File Size: 2MB)
+            </div>
+            <button
+              type="button"
+              id="fileInputBtn"
+              class="delon-primary-btn d-flex gap-2 mt-2 bg-primary-blue border-0 text-white fs-14"
+            >
+              <img src="images/png/icons/search.svg" alt="arrow-down" />
+              <span>Browse Files</span>
+            </button>
+            <div
+              id="fileInputDetails"
+              class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 mt-2 rounded-3 fs-14 d-flex gap-1 align-items-center"
+              role="button"
+            >
+              <span class="flex-fill text-truncate">gvfyguytctrcjrct.webp</span>
+              <span class="flex-fill">
+                <img
+                  src="images/png/icons/close-circle-6.svg"
+                  width="15"
+                  height="15"
+                  alt="close_icon"
+                />
+              </span>
+            </div>
+            <input type="file" class="d-none" id="fileInput" />
+          </div>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue fs-14 text-white"
+          data-bs-dismiss="modal"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      $("#fileInputBtn").click((evt) => {
+        $("#fileInput").click();
+      });
+
+      document
+        .getElementById("fileInput")
+        .addEventListener("change", function () {
+          if (fileInput.files.length > 0) {
+            const fileName = fileInput.files[0].name;
+            $("#fileInputDetails span:first-child").text(fileName);
+            $("#fileInputDetails").removeClass("d-none");
+            $("#fileInputBtn").addClass("d-none");
+            console.log("Selected file name:", fileName);
+          }
+        });
+      $("#fileInputDetails span:nth-child(2)").click(() => {
+        $("#fileInput").val("");
+        $("#fileInputDetails span:first-child").text("");
+        $("#fileInputDetails").addClass("d-none");
+        $("#fileInputBtn").removeClass("d-none");
+      });
+    });
+  </script>
+</div>

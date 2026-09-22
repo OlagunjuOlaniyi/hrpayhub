@@ -14,7 +14,7 @@ import ApproveAudit from "../components/ui/ApproveAudit.astro";
         <!-- Back Navigation button and BreadCrumbs -->
         <div class="d-flex gap-5">
           <a
-            href="/audit-risk-control-compliance"
+            href="/internal-audit"
             title="Back to Dashboard"
             class="d-flex gap-2 align-items-center text-decoration-none text-primary-dark"
           >
@@ -36,6 +36,15 @@ import ApproveAudit from "../components/ui/ApproveAudit.astro";
               href="/audit-risk-control-compliance"
               class="fs-14 text-decoration-none text-primary-dark"
               >Audit, Risk, Control & Compliance</a
+            >
+            <img
+              src="images/png/icons/angle-right.svg"
+              alt="angle-right-back"
+            />
+            <a
+              href="/internal-audit"
+              class="fs-14 text-decoration-none text-primary-dark"
+              >Internal Audit</a
             >
 
             <img
@@ -107,8 +116,20 @@ import ApproveAudit from "../components/ui/ApproveAudit.astro";
                   <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
                     >Name</th
                   >
+                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
+                    >Status</th
+                  >
                   <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
                     >Linked Risk</th
+                  >
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Plan year</th
+                  >
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Plan Type</th
+                  >
+                  <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
+                    >Audit Type</th
                   >
                   <th class="bg-grey text-darktext-white px-3 fw-700 fs-14"
                     >Linked Audit Universe</th
@@ -135,9 +156,6 @@ import ApproveAudit from "../components/ui/ApproveAudit.astro";
                   >
                   <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
                     >Dates</th
-                  >
-                  <th class="bg-grey text-dark px-3 fw-700 fs-14 text-left"
-                    >Status</th
                   >
                 </tr>
               </thead>
@@ -262,6 +280,98 @@ import ApproveAudit from "../components/ui/ApproveAudit.astro";
                           </>
                         )}
                       </td>
+                      <td
+                        class="fs-14 px-3 text-left column fw-700"
+                        style={`color: ${
+                          ele.status2 === "Completed"
+                            ? "#186D00"
+                            : ele.status2 === "Pendin"
+                              ? "#FD0000"
+                              : ele.status2 === "In Progress"
+                                ? "#969103"
+                                : "#888585"
+                        };`}
+                      >
+                        {ele.status2 === "Pending" ? (
+                          <span
+                            class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
+                            style={`background-color: ${
+                              ele.status2 === "Completed"
+                                ? "#E9FFE2"
+                                : ele.status2 === "Pendin"
+                                  ? "#FFF5F5"
+                                  : ele.status2 === "In Progress"
+                                    ? "#FFFFF2"
+                                    : "inherit"
+                            }; height: fit-content`}
+                            role="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#approveModal"
+                            data-title="Details"
+                          >
+                            {ele.status2}
+                          </span>
+                        ) : (
+                          <span
+                            class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
+                            style={`background-color: ${
+                              ele.status2 === "Completed"
+                                ? "#E9FFE2"
+                                : ele.status2 === "Pendin"
+                                  ? "#FFF5F5"
+                                  : ele.status2 === "In Progress"
+                                    ? "#FFFFF2"
+                                    : "inherit"
+                            }; height: fit-content`}
+                            role="button"
+                          >
+                            {ele.status2}
+                          </span>
+                        )}
+                      </td>
+
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        {ele.status2 === "Pending" ? (
+                          <span
+                            role="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#approveModal"
+                            data-title="Details"
+                          >
+                            {ele.client_email}
+                          </span>
+                        ) : (
+                          <span>{ele.client_email}</span>
+                        )}
+                      </td>
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        {ele.status2 === "Pending" ? (
+                          <span
+                            role="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#approveModal"
+                            data-title="Details"
+                          >
+                            {ele.client_email}
+                          </span>
+                        ) : (
+                          <span>{ele.client_email}</span>
+                        )}
+                      </td>
+                      <td class="fs-14 text-nowrap px-3 text-left column">
+                        {ele.status2 === "Pending" ? (
+                          <span
+                            role="button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#approveModal"
+                            data-title="Details"
+                          >
+                            {ele.client_email}
+                          </span>
+                        ) : (
+                          <span>{ele.client_email}</span>
+                        )}
+                      </td>
                       <td class="fs-14 text-nowrap px-3 text-left column">
                         {ele.status2 === "Pending" ? (
                           <span
@@ -340,18 +450,53 @@ import ApproveAudit from "../components/ui/ApproveAudit.astro";
                           </span>
                         )}
                       </td>
-                      <td class="fs-14 px-3 text-left column">
+                      <td
+                        class="fs-14 px-3 text-left column fw-700"
+                        style={`color: ${
+                          ele.status === "Low"
+                            ? "#186D00"
+                            : ele.status === "High"
+                              ? "#FD0000"
+                              : ele.status === "Medium"
+                                ? "#969103"
+                                : "#888585"
+                        };`}
+                      >
                         {ele.status2 === "Pending" ? (
                           <span
+                            class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
+                            style={`background-color: ${
+                              ele.status === "Low"
+                                ? "#E9FFE2"
+                                : ele.status === "High"
+                                  ? "#FFF5F5"
+                                  : ele.status === "Medium"
+                                    ? "#FFFFF2"
+                                    : "inherit"
+                            }; height: fit-content`}
                             role="button"
                             data-bs-toggle="modal"
                             data-bs-target="#approveModal"
                             data-title="Details"
                           >
-                            {ele.notes}
+                            {ele.status}
                           </span>
                         ) : (
-                          <span>{ele.notes}</span>
+                          <span
+                            class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
+                            style={`background-color: ${
+                              ele.status === "Low"
+                                ? "#E9FFE2"
+                                : ele.status === "High"
+                                  ? "#FFF5F5"
+                                  : ele.status === "Medium"
+                                    ? "#FFFFF2"
+                                    : "inherit"
+                            }; height: fit-content`}
+                            role="button"
+                          >
+                            {ele.status}
+                          </span>
                         )}
                       </td>
 
@@ -423,55 +568,6 @@ import ApproveAudit from "../components/ui/ApproveAudit.astro";
                           </span>
                         ) : (
                           <span>{ele.phone_no}</span>
-                        )}
-                      </td>
-                      <td
-                        class="fs-14 px-3 text-left column fw-700"
-                        style={`color: ${
-                          ele.status2 === "Completed"
-                            ? "#186D00"
-                            : ele.status2 === "Pendin"
-                              ? "#FD0000"
-                              : ele.status2 === "In Progress"
-                                ? "#969103"
-                                : "#888585"
-                        };`}
-                      >
-                        {ele.status2 === "Pending" ? (
-                          <span
-                            class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
-                            style={`background-color: ${
-                              ele.status2 === "Completed"
-                                ? "#E9FFE2"
-                                : ele.status2 === "Pendin"
-                                  ? "#FFF5F5"
-                                  : ele.status2 === "In Progress"
-                                    ? "#FFFFF2"
-                                    : "inherit"
-                            }; height: fit-content`}
-                            role="button"
-                            data-bs-toggle="modal"
-                            data-bs-target="#approveModal"
-                            data-title="Details"
-                          >
-                            {ele.status2}
-                          </span>
-                        ) : (
-                          <span
-                            class="fw-700 border border-1 rounded-3 p-2 py-1 fs-12"
-                            style={`background-color: ${
-                              ele.status2 === "Completed"
-                                ? "#E9FFE2"
-                                : ele.status2 === "Pendin"
-                                  ? "#FFF5F5"
-                                  : ele.status2 === "In Progress"
-                                    ? "#FFFFF2"
-                                    : "inherit"
-                            }; height: fit-content`}
-                            role="button"
-                          >
-                            {ele.status2}
-                          </span>
                         )}
                       </td>
                     </tr>

@@ -1,0 +1,291 @@
+---
+// components/ui/ModalAddNew.astro
+const { modalId = "myModal", title = "Workpaper" } = Astro.props;
+import { CloseCircleIcon } from "../Icons";
+---
+
+<div class="modal fade" id={modalId} tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-2 px-lg-5">
+      <!-- Modal Header -->
+
+      <div class="modal-header border-0 d-flex justify-content-between">
+        <h4 class="modal-title fs-22 fw-700" id="modalTitle">
+          {title}
+        </h4>
+
+        <img
+          role="button"
+          data-bs-dismiss="modal"
+          src="images/png/icons/close-circle-1.svg"
+          alt="close"
+        />
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body d-flex flex-column gap-4 text-left py-4 border-0">
+        <div class="form-floating">
+          <select
+            id="linked_risk"
+            name="linked_risk"
+            class="form-select_custom fs-14"
+            required
+          >
+            <option value="" selected> Select </option>
+            <option value="1">Item 1</option>
+            <option value="2">Item 1</option>
+            <option value="3">Item 1</option>
+          </select>
+          <label for="linked_risk">
+            Linked Risk &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="date"
+            id="assess_date"
+            name="assess_date"
+            class="form-input"
+            placeholder=""
+          />
+          <label for="assess_date"> Assessment Date </label>
+        </div>
+
+        <div class="form-floating">
+          <select
+            id="assessment"
+            name="assessment"
+            class="form-select_custom fs-14"
+            required
+          >
+            <option value="" selected> Select </option>
+            <option value="1">Item 1</option>
+            <option value="2">Item 1</option>
+            <option value="3">Item 1</option>
+          </select>
+          <label for="assessment">Assessment Type &nbsp;<span>*</span> </label>
+        </div>
+
+        <div class="form-floating">
+          <select
+            id="likelihood"
+            name="likelihood"
+            class="form-select_custom fs-14"
+            required
+          >
+            <option value="" selected> Select </option>
+            <option value="1">Likelihood 1</option>
+            <option value="2">Likelihood 1</option>
+            <option value="3">Likelihood 1</option>
+          </select>
+          <label for="likelihood">
+            Likelihood &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <select
+            id="impact"
+            name="impact"
+            class="form-select_custom fs-14"
+            required
+          >
+            <option value="" selected> Select </option>
+            <option value="1">Impact 1</option>
+            <option value="2">Impact 1</option>
+            <option value="3">Impact 1</option>
+          </select>
+          <label for="impact">
+            Impact &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="inherent"
+            name="inherent"
+            class="form-input"
+            placeholder=""
+          />
+          <label for="inherent">
+            Inherent Risk Score &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <select
+            id="control_effect"
+            name="control_effect"
+            class="form-select_custom fs-14"
+            required
+          >
+            <option value="" selected> Select </option>
+            <option value="1">Control Effectiveness 1</option>
+            <option value="2">Control Effectiveness 1</option>
+            <option value="3">Control Effectiveness 1</option>
+          </select>
+          <label for="control_effect">
+            Control Effectiveness &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <select
+            id="residual"
+            name="residual"
+            class="form-select_custom fs-14"
+            required
+          >
+            <option value="" selected> Select </option>
+            <option value="1">Residual Likelihood 1</option>
+            <option value="2">Residual Likelihood 1</option>
+            <option value="3">Residual Likelihood 1</option>
+          </select>
+          <label for="residual">
+            Residual Likelihood &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <select
+            id="residual_impact"
+            name="residual_impact"
+            class="form-select_custom fs-14"
+            required
+          >
+            <option value="" selected> Select </option>
+            <option value="1">Residual Impact 1</option>
+            <option value="2">Residual Impact 1</option>
+            <option value="3">Residual Impact 1</option>
+          </select>
+          <label for="residual_impact">
+            Residual Impact &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="residual"
+            name="residual"
+            class="form-input"
+            placeholder=""
+          />
+          <label for="residual">
+            Residual Risk Score &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="text"
+            id="risk_appetite"
+            name="risk_appetite"
+            class="form-input"
+            placeholder=""
+          />
+          <label for="risk_appetite">
+            Risk Appetite Band &nbsp;<span>*</span>
+          </label>
+        </div>
+        <div class="form-floating">
+          <textarea class="form-input" rows="2" id="address"></textarea>
+          <label for="ex_title">Assessment Rationale &nbsp;<span>*</span></label
+          >
+        </div>
+
+        <!---- upload ---->
+        <form class="vstack gap-2 mt-3" id="generate_payslip_form">
+          <div class="fs-14 fw-600">Supporting Document Upload</div>
+          <div
+            class="upload_bulk_status p-3 d-flex flex-column align-items-center justify-content-center"
+          >
+            <img
+              src="images/png/icons/cloud_upload.svg"
+              width="35px"
+              height="35px"
+              alt="cloud upload icon"
+            />
+            <div class="fs-14 fw-700" style="color: #6B7280">
+              Click to upload <span class="fw-400">or drag and drop</span>
+            </div>
+            <div class="fs-12 fw-700" style="color: #6B7280">
+              PDF or DOCX (Max File Size: 2MB)
+            </div>
+            <button
+              type="button"
+              id="fileInputBtn"
+              class="delon-primary-btn d-flex gap-2 mt-2 bg-primary-blue border-0 text-white fs-14"
+            >
+              <img src="images/png/icons/search.svg" alt="arrow-down" />
+              <span>Browse Files</span>
+            </button>
+            <div
+              id="fileInputDetails"
+              class="d-none flex-shrink-1 bg-transparent border text-wrap w-100 py-1 px-2 mt-2 rounded-3 fs-14 d-flex gap-1 align-items-center"
+              role="button"
+            >
+              <span class="flex-fill text-truncate">gvfyguytctrcjrct.webp</span>
+              <span class="flex-fill">
+                <img
+                  src="images/png/icons/close-circle-6.svg"
+                  width="15"
+                  height="15"
+                  alt="close_icon"
+                />
+              </span>
+            </div>
+            <input type="file" class="d-none" id="fileInput" />
+          </div>
+        </form>
+        <div class="form-floating">
+          <select
+            id="approval_stat"
+            name="approval_stat"
+            class="form-select_custom fs-14"
+            required
+          >
+            <option value="" selected> Select </option>
+            <option value="1">Active</option>
+            <option value="2">Active</option>
+            <option value="3">Active</option>
+          </select>
+          <label for="approval_stat">
+            Approval Status &nbsp;<span>*</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer border-0">
+        <button
+          type="button"
+          class="btn bg-primary-blue fs-14 text-white"
+          data-bs-dismiss="modal"
+        >
+          Create
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      $("#fileInputBtn").click((evt) => {
+        $("#fileInput").click();
+      });
+
+      document
+        .getElementById("fileInput")
+        .addEventListener("change", function () {
+          if (fileInput.files.length > 0) {
+            const fileName = fileInput.files[0].name;
+            $("#fileInputDetails span:first-child").text(fileName);
+            $("#fileInputDetails").removeClass("d-none");
+            $("#fileInputBtn").addClass("d-none");
+            console.log("Selected file name:", fileName);
+          }
+        });
+      $("#fileInputDetails span:nth-child(2)").click(() => {
+        $("#fileInput").val("");
+        $("#fileInputDetails span:first-child").text("");
+        $("#fileInputDetails").addClass("d-none");
+        $("#fileInputBtn").removeClass("d-none");
+      });
+    });
+  </script>
+</div>
